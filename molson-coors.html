@@ -1,0 +1,2305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outreach Plan for Molson Coors</title>
+    <meta name="robots" content="noindex, nofollow">
+    <base target="_blank">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header-meta {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .header-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            background: #1067db;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        
+        .card h2 {
+            color: #1067db;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .card h3 {
+            color: #2c2c2c;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .card h4 {
+            color: #2c2c2c;
+            font-size: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #1067db;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .info-box.success {
+            border-left-color: #22bb69;
+            background: #f0fdf4;
+        }
+        
+        .info-box.warning {
+            border-left-color: #ffba1c;
+            background: #fffbeb;
+        }
+        
+        .info-box.danger {
+            border-left-color: #f44f2f;
+            background: #fef2f2;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+        
+        .coverage-dashboard {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        
+        .coverage-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .coverage-percentage {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #ff7a00;
+        }
+        
+        .coverage-bar {
+            background: #e9ecef;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .coverage-fill {
+            background: linear-gradient(90deg, #22bb69 0%, #68d7fa 100%);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            width: 56%;
+        }
+        
+        .recommendation-box {
+            background: #fff3cd;
+            border: 2px solid #ff7a00;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .recommendation-box h3 {
+            color: #ff7a00;
+            margin-top: 0;
+        }
+        
+        .retailer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .retailer-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .retailer-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .retailer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        
+        .retailer-name {
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .status-covered {
+            background: #f0fdf4;
+            color: #22bb69;
+        }
+        
+        .status-not-covered {
+            background: #fef2f2;
+            color: #f44f2f;
+        }
+        
+        .status-problematic {
+            background: #fffbeb;
+            color: #ffba1c;
+        }
+        
+        .retailer-market {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .retailer-reason {
+            font-size: 0.9rem;
+            color: #2c2c2c;
+        }
+        
+        .contact-card {
+            background: white;
+            border-left: 4px solid #1067db;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .contact-priority {
+            background: #1067db;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-title {
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+        
+        .email-template {
+            margin-bottom: 3rem;
+        }
+        
+        .email-meta {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .email-meta-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-meta-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .email-meta-label {
+            font-weight: 600;
+            min-width: 120px;
+            color: #2c2c2c;
+        }
+        
+        .email-meta-value {
+            color: #6c757d;
+        }
+        
+        .email-body {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+        }
+        
+        .email-body p {
+            margin-bottom: 1rem;
+        }
+        
+        .email-body p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .email-guidelines {
+            background: #fffbeb;
+            border-left: 3px solid #ffba1c;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 8px;
+        }
+        
+        .email-guidelines h4 {
+            margin-top: 0;
+            color: #2c2c2c;
+        }
+        
+        .objection-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .objection-statement {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+        }
+        
+        .response-section {
+            padding: 0.5rem;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+            display: flex;
+            align-items: start;
+        }
+        
+        .checklist li:before {
+            content: "Ã¢Å“â€œ";
+            color: #22bb69;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 0.75rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .retailer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media print {
+            .tabs {
+                display: none;
+            }
+            
+            .tab-content {
+                display: block !important;
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Outreach Plan for Molson Coors</h1>
+        <div class="header-meta">
+            <div class="header-meta-item">
+                <span>Created:</span>
+                <span>Created: 14 November 2025</span>
+            </div>
+            <div class="header-meta-item">
+                <span>Author:</span>
+                <span>eStore Research Team</span>
+            </div>
+            <div class="header-meta-item">
+                <span>Last Updated:</span>
+                <span>Analyst: James Harris</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('strategy')">Opportunity Strategy</button>
+            <button class="tab" onclick="showTab('retailers')">Retailer Check</button>
+            <button class="tab" onclick="showTab('contacts')">Contact Strategy</button>
+            <button class="tab" onclick="showTab('emails')">Email Sequence</button>
+            <button class="tab" onclick="showTab('objections')">Objection Handling</button>
+        </div>
+
+        <!-- TAB 1: OPPORTUNITY STRATEGY -->
+        <div id="strategy" class="tab-content active">
+            <div class="card">
+                <h2>Strategic Assessment Summary</h2>
+                <p>World's third-largest brewer ($11.6B revenue) with 56% retailer coverage enabling immediate US value delivery while UK grocery chains and DTC platforms are onboarded over 2-3 months. November 2025 CEO restructuring demanding faster transformation creates optimal partnership timing.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">$11.6B</div>
+                        <div class="stat-label">Annual Revenue</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">56%</div>
+                        <div class="stat-label">Retailer Coverage</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">32</div>
+                        <div class="stat-label">Key Retailers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">100+ countries</div>
+                        <div class="stat-label">Market Presence</div>
+                    </div>
+                </div>
+
+                <div class="info-box warning">
+                    <strong>Overall Assessment:</strong> Molson Coors Beverage Company presents a compelling eStore partnership opportunity as the world's third-largest brewer ($11.6B revenue, 2024) actively investing in digital transformation. The company achieved 21% B2C e-commerce CAGR (2021-2024) but faces critical gaps in digital shelf analytics. With 56% retailer coverage, eStore can deliver immediate value across US platforms while onboarding UK grocery chains and DTC sites over 2-3 months.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Distribution Complexity Validates Strong Fit</h2>
+                <h3>Hybrid Distribution Model</h3>
+                <p>Molson Coors navigates exceptional distribution complexity across multiple channel types:</p>
+                <ul>
+                    <li><strong>Mass Market Retailers:</strong> Critical partnerships with Walmart (Coors Light $13.48/12-pack), Target, Kroger controlling 53.4% of beer retail distribution</li>
+                    <li><strong>Alcohol Delivery Platforms:</strong> Drizly (official fulfilment partner for DTC sites), Total Wine (#1 US alcohol retailer), Wine.com, BevMo, Minibar (provides purchase behaviour data)</li>
+                    <li><strong>Grocery Delivery:</strong> Instacart (4.2x ROAS campaigns reaching 2.9M impressions), Amazon Fresh (1-2 hour delivery), GoPuff</li>
+                    <li><strong>Own DTC Platforms:</strong> Ship and Sip (Canada, 188% sales increase first year), Revl (UK marketplace), brand-specific sites (Coors Light, Blue Moon) capturing clickstream data</li>
+                    <li><strong>Convenience Channel:</strong> CVS, Walgreens, expanding with Blue Moon Extra (8% ABV) and Steel Reserve targeting c-store growth</li>
+                    <li><strong>On-Premise Digital:</strong> Coors Banquet gained 50% tap handle wins Q4 2023 across 8,500+ new outlets, Miller Lite leading draft growth</li>
+                </ul>
+                
+                <h3>Geographic Distribution Complexity</h3>
+                <ul>
+                    <li><strong>United States:</strong> 68.9% of revenue across 50 states with varying alcohol regulations, three-tier distribution system preventing direct-to-consumer shipping</li>
+                    <li><strong>United Kingdom:</strong> 11.2% of revenue with Carling (#1 lager), MadrÃ­ Excepcional (#3 lager on-premise), distributed through Tesco, Sainsbury's, Asda, Morrisons, Waitrose, Ocado</li>
+                    <li><strong>Canada:</strong> 10.5% of revenue with 23+ months consecutive market share growth, LCBO government monopoly in Ontario, regional variations across provinces</li>
+                    <li><strong>EMEA & APAC:</strong> 9.4% of revenue across Croatia (OÅ¾ujsko 50%+ share), Montenegro (Niksicko leader), Czech Republic (Staropramen top-5), Romania, Hungary, Serbia, Bulgaria</li>
+                </ul>
+                
+                <h3>Regulatory & Compliance Complexity</h3>
+                <p>Alcohol e-commerce requires navigating multilayered regulations:</p>
+                <ul>
+                    <li>Age verification at point of sale AND delivery (21+ in US, 18+ in UK)</li>
+                    <li>State-by-state licensing ($500-$50,000 annually per state)</li>
+                    <li>Three-tier system requiring third-party fulfilment partners</li>
+                    <li>Record-keeping mandates (ID copies retained up to 4 years)</li>
+                    <li>County-line crossing restrictions and delivery time windows</li>
+                    <li>Only 47 states allow wine delivery, 11 allow spirits shipping</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Competitive Category Dynamics Create Urgent Need</h2>
+                <h3>Oligopoly Market Structure</h3>
+                <p>Global beer industry concentrated among three major players:</p>
+                <ul>
+                    <li><strong>Anheuser-Busch InBev:</strong> 25-28% global market share, $59.77B revenue, dominant position creating defensive imperative for Molson Coors</li>
+                    <li><strong>Heineken:</strong> 12.9% global share, ~$30B revenue, strong European presence</li>
+                    <li><strong>Molson Coors:</strong> World's third-largest brewer, 23% North America share, 18% EMEA & APAC share, second-largest by volume in both regions</li>
+                </ul>
+                
+                <h3>US Competitive Intensity</h3>
+                <p>Despite industry headwinds (US beer down 4-6% in 2024), Molson Coors faces fierce competitive threats:</p>
+                <ul>
+                    <li><strong>Constellation Brands:</strong> Highest share in US premium segment with Corona and Modelo brands threatening core business</li>
+                    <li><strong>Core Brand Performance:</strong> Coors Light, Miller Lite, Coors Banquet retained ~80% of 2023 share gains, gained nearly 2 share points Q3 2024 vs Q3 2022</li>
+                    <li><strong>Market Challenges:</strong> Americas segment net sales declined 11% Q3 2024, financial volumes down 15.6%, macroeconomic pressures limiting disposable income</li>
+                    <li><strong>Craft Beer Pressure:</strong> Craft category softness led to divestiture of underperforming brands (Hop Valley, Terrapin, Revolver, Atwater to Tilray August 2024)</li>
+                </ul>
+                
+                <h3>E-commerce Growth Opportunity</h3>
+                <p>Despite current challenges, e-commerce represents massive white space:</p>
+                <ul>
+                    <li><strong>Current Penetration:</strong> Just 1% of beer purchases occur online (industry-wide 2019 data), only 3% of US alcohol sales via e-commerce</li>
+                    <li><strong>Consumer Awareness Gap:</strong> 35% of consumers still unaware beer can be bought online (2024), up from 47% awareness in 2021</li>
+                    <li><strong>Growth Projections:</strong> Global alcohol e-commerce reaching $36B by 2028 (IWSR), US CAGR 7% (2023-2027), forecasts ranging 7-31% CAGR depending on source</li>
+                    <li><strong>Penetration Trajectory:</strong> Industry experts predict 10% penetration within 5-8 years, up from sub-1% pre-pandemic</li>
+                    <li><strong>Molson Coors Performance:</strong> 21% B2C e-commerce CAGR (2021-2024) outpacing 18% category average, voted #1 supplier for e-commerce by distributor network</li>
+                </ul>
+                
+                <h3>Category Trends Creating Urgency</h3>
+                <ul>
+                    <li><strong>Premiumisation Acceleration:</strong> Above-premium products growing faster than core, EMEA & APAC already 50%+ above-premium vs 21% in Americas</li>
+                    <li><strong>Health & Wellness Impact:</strong> Non-alcoholic beer growing 8% annually, Molson Coors' NA portfolio grew 89% in 12 weeks ending December 2024</li>
+                    <li><strong>RTD/Flavoured Beverages:</strong> Hard seltzer and flavoured categories requiring different digital shelf strategies than core beer</li>
+                    <li><strong>Online Purchase Behaviour:</strong> Above-premium mix 1.6X higher online vs offline, younger Millennials index 121 online, creating strategic channel for premiumisation goals</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Product Portfolio Breadth Creates Monitoring Complexity</h2>
+                <h3>Portfolio Scale: 80+ Brands Across Categories</h3>
+                <p>Molson Coors' portfolio spans beer, spirits, hard seltzers, and non-alcoholic beverages with extensive SKU diversification across package sizes, formats, and flavour variations.</p>
+                
+                <h3>Core Power Brands</h3>
+                <ul>
+                    <li><strong>Coors Light & Miller Lite:</strong> US core #1 and #2 brands, mainstream volume drivers available in 6/12/18/24/30 packs, cans/bottles/aluminum bottles</li>
+                    <li><strong>Molson Canadian:</strong> Dominates Canada with 23+ months consecutive share growth, #1 brand in Ontario alongside Coors Light</li>
+                    <li><strong>Carling:</strong> UK's #1 lager, mainstream market leadership</li>
+                    <li><strong>Regional Leaders:</strong> OÅ¾ujsko (50%+ Croatia share), Niksicko (Montenegro leader), Staropramen (Czech Republic top-5)</li>
+                </ul>
+                
+                <h3>Above-Premium Growth Brands</h3>
+                <p>Targeting 33% of global revenue from above-premium (currently 28%, up from 23% in 2019):</p>
+                <ul>
+                    <li><strong>Blue Moon:</strong> Leading US craft beer, 2024 rebrand launching Blue Moon Light and Blue Moon Non-Alcoholic (40% dollar sales growth first 6 weeks), Blue Moon Extra (8% ABV for c-store)</li>
+                    <li><strong>MadrÃ­ Excepcional:</strong> Spanish-style lager launched UK 2020 with 80% volume growth 2023, #3 on-premise lager by value, expanding Canada and US</li>
+                    <li><strong>Peroni Nastro Azzurro:</strong> Italian premium import with US production onshoring for consistency, tripled campaign investment 2025</li>
+                    <li><strong>Premium Imports:</strong> Pilsner Urquell, Staropramen, Leinenkugel's, craft acquisitions (Granville Island Brewing)</li>
+                </ul>
+                
+                <h3>Flavoured Alcoholic Beverages & RTDs</h3>
+                <ul>
+                    <li><strong>Simply Spiked Portfolio:</strong> Lemonade ($100M brand in 2 years via Coca-Cola partnership), Peach (#1 innovation by volume/dollar grocery 2023), Limeade (launched 2025), new summer flavour 2025</li>
+                    <li><strong>Topo Chico Hard Seltzer:</strong> Fastest-growing hard seltzer (Coca-Cola partnership March 2021), Topo Chico Spirited RTD cocktails (launched 2023)</li>
+                    <li><strong>Additional RTDs:</strong> Vizzy Hard Seltzer (#4 US with vitamin C), Arnold Palmer Spiked, AriZona Hard, Redd's Hard Apple, Happy Thursday spiked refresher (2024)</li>
+                </ul>
+                
+                <h3>Spirits Portfolio (Coors Spirits Co. established 2021)</h3>
+                <ul>
+                    <li><strong>Five Trail Blended American Whiskey:</strong> First spirit September 2021 ($59.99), multiple award-winning, Batch 002 and Barrel Proof editions</li>
+                    <li><strong>Barmen 1873 Bourbon:</strong> Launched April 2023 ($39.99-$42.99), first true bourbon offering</li>
+                    <li><strong>Blue Run Spirits:</strong> Acquired August 2023, luxury bourbon/rye $100-$250 range, produced Georgetown, Kentucky</li>
+                </ul>
+                
+                <h3>Non-Alcoholic & Beyond-Beer</h3>
+                <p>89% growth in 12 weeks ending December 2024, fastest-growing NA beer lineup in US food (NIQ):</p>
+                <ul>
+                    <li><strong>ZOA Energy:</strong> Majority stake November 2024 (co-founded Dwayne Johnson), top-10 on Amazon, launching Frosted Grape, Green Apple, Mango Splash</li>
+                    <li><strong>Fever-Tree Premium Mixers:</strong> Strategic partnership January 2025 for US commercialisation, #1 tonic and ginger beer brand</li>
+                    <li><strong>Naked Life Non-Alcoholic Cocktails:</strong> Australia's #1 non-alc RTD, US launch March 2025</li>
+                    <li><strong>NA Beer Variants:</strong> Blue Moon Non-Alcoholic (top-10 NA beer), Peroni 0.0%, Coors Edge, Bergenbier NA, Staropramen NA, Kamenitza NA</li>
+                </ul>
+                
+                <h3>Recent Launch Velocity (2023-2025)</h3>
+                <p>Demonstrates innovation pace requiring digital shelf monitoring:</p>
+                <ul>
+                    <li><strong>2023:</strong> Barmen 1873 Bourbon (April), Blue Run acquisition (August), Topo Chico Spirited RTD, Simply Spiked Peach, Caraiman Lager (Romania)</li>
+                    <li><strong>2024:</strong> Blue Moon Non-Alcoholic (December 2023/early 2024), Blue Moon Extra (8% ABV), MadrÃ­ Excepcional (Canada/US expansion), Happy Thursday spiked refresher, Simply Spiked Limeade, ZOA Frosted Grape retail expansion</li>
+                    <li><strong>2025 Pipeline:</strong> Naked Life Non-Alcoholic (March), Fever-Tree partnership commercialisation (February), ZOA Green Apple and Mango Splash national rollout (January), Simply Spiked summer flavour, Miller Lite 50th Anniversary</li>
+                </ul>
+                
+                <div class="info-box">
+                    <strong>Portfolio Management Challenge:</strong> 80+ brands across 100+ countries with multiple pack sizes, formats, flavours, and ongoing innovation creates massive digital shelf complexity. Each product requires content quality, availability monitoring, pricing consistency, ratings management, and competitive tracking across 30+ online retailers - exactly the scenario where eStore's automation and prioritisation deliver exponential value.</div>
+            </div>
+
+            <div class="card">
+                <h2>Scale Indicators Confirm Tier 1 Opportunity</h2>
+                <h3>Financial Scale</h3>
+                <ul>
+                    <li><strong>Revenue:</strong> $11.627 billion (2024), relatively flat from $11.702B (2023)</li>
+                    <li><strong>Profitability:</strong> Net income $1.122 billion, underlying diluted EPS grew 9.8% to $5.96 (third consecutive year of bottom-line growth)</li>
+                    <li><strong>Cash Generation:</strong> Operating cash flow $1.91 billion, free cash flow $1.24 billion</li>
+                    <li><strong>Regional Distribution:</strong> US 68.9%, UK 11.2%, Canada 10.5%, Other 9.4% creating multi-market investment justification</li>
+                    <li><strong>Investment Capacity:</strong> $142.5M digital marketing spend (2022), 68% on social media, demonstrating commitment to digital channels</li>
+                </ul>
+                
+                <h3>Operational Scale</h3>
+                <ul>
+                    <li><strong>Global Footprint:</strong> 100+ countries served, 22 production facilities, 16,500 employees (10,100 Americas, 6,400 EMEA & APAC)</li>
+                    <li><strong>Distribution Network:</strong> 700+ distributors North America alone, 97.9% on-time delivery rate, 7 brewery sites</li>
+                    <li><strong>Retailer Relationships:</strong> ~70,000 planograms managed annually, category captain for 50% of retail outlets (vs 20% market share)</li>
+                    <li><strong>On-Premise Reach:</strong> Coors Banquet gained 8,500+ new tap handles Q4 2023, extensive bar/restaurant distribution</li>
+                </ul>
+                
+                <h3>E-commerce Maturity Signals</h3>
+                <ul>
+                    <li><strong>Performance Metrics:</strong> 21% B2C e-commerce CAGR (2021-2024) outpacing 18% category average, double-digit B2B e-commerce growth</li>
+                    <li><strong>Industry Recognition:</strong> Voted #1 supplier for B2B and B2C e-commerce by distributor network (Tamarron survey)</li>
+                    <li><strong>Consumer Engagement:</strong> Online beer awareness grew from 47% (2021) to 71% (2024) per Shopper Pulse survey</li>
+                    <li><strong>DTC Infrastructure:</strong> Multiple operational platforms (Ship and Sip 188% sales increase first year, Revl UK marketplace, brand-specific sites capturing clickstream data)</li>
+                </ul>
+                
+                <h3>Technology Investment Trajectory</h3>
+                <p>Molson Coors demonstrates sophisticated technology adoption indicating readiness for advanced digital shelf solutions:</p>
+                <ul>
+                    <li><strong>Digital Shelf Analytics:</strong> Profitero (confirmed active), e.fundamentals/CommerceIQ (16:1 ROI UK market)</li>
+                    <li><strong>Data & Analytics:</strong> Domo (BI since 2016), Microsoft Azure, Databricks, BlueConic CDP (since 2021 ingesting programmatic, TV, purchase-level, audio, social data)</li>
+                    <li><strong>Product Information:</strong> Salsify PIM managing 350,000+ assets, Bynder DAM for 10,000+ users</li>
+                    <li><strong>Planning & Optimisation:</strong> o9 Solutions IBP (December 2024 multi-year partnership), Vendavo pricing optimisation (daily usage by pricing team)</li>
+                    <li><strong>Advertising Technology:</strong> Viant Technology multi-year partnership (starting 2026) for programmatic CTV and AI-powered advertising, in-housed programmatic buying</li>
+                    <li><strong>E-commerce Platforms:</strong> Shopify Plus (Ship and Sip, Revl), partnerships with Instacart, Drizly, Minibar providing data integration</li>
+                </ul>
+                
+                <h3>Organisational Readiness</h3>
+                <ul>
+                    <li><strong>November 2025 Restructuring:</strong> CEO Rahul Goyal eliminated Chief Commercial Officer layer, giving marketing/sales/commercial direct CEO reporting for "bolder, quicker decision making"</li>
+                    <li><strong>Digital Leadership:</strong> Brad Feinberg (VP Media, Digital and E-commerce) leading integrated strategy, Sara Goucher (Senior Director eCommerce) driving channel growth</li>
+                    <li><strong>Transformation Mandate:</strong> CEO public statements emphasise "transform faster," "move with urgency," "acknowledge real challenges facing our business"</li>
+                    <li><strong>M&A Activity:</strong> ZOA Energy majority stake ($53M November 2024), Blue Run Spirits acquisition, Fever-Tree partnership, demonstrating acquisition of digital-native brands</li>
+                    <li><strong>Capability Investment:</strong> Key Account Manager training in digital selling, e-commerce, data analytics through interactive scenarios</li>
+                </ul>
+                
+                <div class="info-box success">
+                    <strong>Scale Validation:</strong> Molson Coors combines financial resources ($11.6B revenue, strong cash flow), operational infrastructure (100+ countries, 700+ distributors), proven technology adoption (multiple platforms delivering ROI), and organisational commitment (CEO-led restructuring, multi-year partnerships) confirming Tier 1 opportunity status. Company demonstrates both capability to invest in digital shelf excellence and urgency to accelerate transformation.</div>
+            </div>
+
+            <div class="card">
+                <h2>Why This Timing is Optimal</h2>
+                <h3>Leadership Transition Creates Decision Window</h3>
+                <ul>
+                    <li><strong>October 1, 2025:</strong> Rahul Goyal became CEO after 24 years with company, bringing technology and digital commerce expertise from roles including CIO (UK), CFO (India), Chief Strategy Officer</li>
+                    <li><strong>November 14, 2025:</strong> Organisational restructuring eliminated Chief Commercial Officer position (Michelle St. Jacques departed), flattened structure giving marketing, sales, commercial direct CEO reporting</li>
+                    <li><strong>Transformation Urgency:</strong> Goyal stated "our progress against those priorities, though meaningful, is not enough. We must transform faster and make changes that acknowledge real challenges facing our business and the beer industry, and we must move with urgency"</li>
+                    <li><strong>Decision-Making Acceleration:</strong> Restructuring designed for "bolder, quicker decision making" without additional layers, creating optimal window for technology partnerships requiring executive buy-in</li>
+                </ul>
+                
+                <h3>2025 Innovation Pipeline Requires Monitoring</h3>
+                <ul>
+                    <li><strong>March 2025:</strong> Naked Life Non-Alcoholic Cocktails US launch (Australia's #1 non-alc RTD)</li>
+                    <li><strong>February 2025:</strong> Fever-Tree premium mixers partnership commercialisation (#1 tonic and ginger beer brand)</li>
+                    <li><strong>January 2025:</strong> ZOA Energy Green Apple and Mango Splash national rollout</li>
+                    <li><strong>Q2 2025:</strong> Simply Spiked new summer flavour launch</li>
+                    <li><strong>2025:</strong> Miller Lite 50th Anniversary celebration, tripled Peroni campaign investment</li>
+                    <li><strong>Need:</strong> Each launch requires content optimisation, availability monitoring, competitive tracking, ratings management across 30+ online retailers from Day 1</li>
+                </ul>
+                
+                <h3>Market Pressures Creating Urgency</h3>
+                <ul>
+                    <li><strong>US Market Headwinds:</strong> Beer industry declined 4-6% in 2024, Americas segment down 11% Q3 2024, financial volumes down 15.6%, creating imperative for digital channel growth</li>
+                    <li><strong>Competitive Threats:</strong> Constellation Brands' Corona and Modelo gaining premium segment share, craft beer category softness led to portfolio rationalisation (Tilray divestiture August 2024)</li>
+                    <li><strong>E-commerce Opportunity:</strong> Channel growing 21% for Molson Coors vs 18% category, but only 1% penetration leaving 99% growth opportunity, projected to reach 10% within 5-8 years</li>
+                    <li><strong>Premiumisation Goals:</strong> Targeting 33% above-premium revenue (currently 28%), with online channel delivering 1.6X above-premium mix vs offline</li>
+                </ul>
+                
+                <h3>Technology Partnership Momentum</h3>
+                <ul>
+                    <li><strong>December 2024:</strong> o9 Solutions IBP multi-year partnership announced for integrated business planning transformation</li>
+                    <li><strong>November 2024:</strong> ZOA Energy majority stake acquisition demonstrating beyond-beer expansion acceleration</li>
+                    <li><strong>2026 Start:</strong> Viant Technology multi-year programmatic advertising partnership activating first-party data across CTV</li>
+                    <li><strong>Proven ROI:</strong> e.fundamentals partnership achieved 16:1 ROI within months (now CommerceIQ), validating digital shelf investment returns</li>
+                    <li><strong>Strategic Signaling:</strong> Brad Feinberg (VP Media, Digital, E-commerce) publicly stated seeking partners providing "holistic approaches" moving "beyond fixing the basics"</li>
+                </ul>
+                
+                <h3>Budget Cycle Alignment</h3>
+                <ul>
+                    <li><strong>Q4 2024 / Q1 2025:</strong> Typical enterprise budget cycle for technology investments, digital transformation initiatives</li>
+                    <li><strong>Acceleration Plan Funding:</strong> October 2023 launched five-pillar strategy requiring capability investments, now entering Year 2 with CEO demanding faster progress</li>
+                    <li><strong>Digital Marketing Scale:</strong> $142.5M annual spend (2022) demonstrates significant budget allocation for digital capabilities and optimisation tools</li>
+                    <li><strong>Technology ROI Expectations:</strong> e.fundamentals 16:1 ROI sets high bar but proves willingness to invest when value demonstrated</li>
+                </ul>
+                
+                <div class="info-box warning">
+                    <strong>Timing Conclusion:</strong> Convergence of CEO transition (October 2025), organisational restructuring (November 2025), 2025 innovation pipeline launches, market pressures demanding growth, and proven digital shelf ROI (16:1 with e.fundamentals) creates optimal outreach window. New CEO Goyal's technology background, flattened decision-making structure, and stated urgency to "transform faster" indicate high receptivity to digital shelf solutions delivering measurable revenue impact. Brad Feinberg's public statements seeking "holistic approaches beyond the basics" directly signal openness to enhanced digital shelf partnerships like eStore.</div>
+            </div>
+
+            <div class="card">
+                <h2>Current Digital Shelf Analytics Landscape</h2>
+                <p>Based on comprehensive research of vendor case studies, press releases, and public information:</p>
+                
+                <ul>
+                    <li><strong>Data Impact (Nielsen NIQ):</strong> No evidence found of Molson Coors partnership. Nielsen NIQ acquired Data Impact, but comprehensive searches found no case studies, press releases, or public mentions of Molson Coors using Data Impact or Nielsen NIQ digital shelf solutions.</li>
+                    <li><strong>Profitero:</strong> Confirmed active partnership. Multiple independent sources verify usage including LeadIQ tech stack listing and Business Wire press release (2019) listing Molson Coors alongside Heineken, L'Oreal, General Mills as Profitero customers. Primary digital shelf monitoring platform.</li>
+                    <li><strong>Commerce IQ:</strong> Confirmed via e.fundamentals acquisition (July 2022). Molson Coors partnered with e.fundamentals in 2020 for UK market achieving 16:1 ROI within months. Sean Ferguson (Digital Marketing Manager) stated "We wanted an ecommerce partner that could move beyond fixing the basics." Partnership continues through CommerceIQ post-acquisition.</li>
+                    <li><strong>Shalion:</strong> No evidence found. Comprehensive searches of vendor case studies, press releases, and public information found no mentions of Molson Coors using Shalion digital shelf analytics platform.</li>
+                    <li><strong>Brand Nudge:</strong> No evidence found. Despite being UK-based pricing and digital shelf intelligence platform (founded 2019), no public case studies or mentions of Molson Coors partnership discovered.</li>
+                    <li><strong>MindSite:</strong> No evidence found. No public case studies, press releases, or mentions of Molson Coors using MindSite digital shelf analytics discovered through comprehensive searches.</li>
+                </ul>
+                
+                <div class="info-box">
+                    <strong>Implications:</strong> Molson Coors demonstrates significant investment in digital shelf analytics with Profitero and CommerceIQ (via e.fundamentals achieving 16:1 ROI), but technology stack fragmentation creates opportunities for unified solutions. Current partnerships focused primarily on UK market (e.fundamentals case study) with Profitero for broader monitoring, suggesting potential gaps in North American optimisation and comprehensive cross-retailer analysis. Brad Feinberg's public statements about seeking "holistic approaches" moving "beyond the basics" signal openness to enhanced digital shelf solutions delivering integrated insights, automated actions, and measurable revenue growth beyond current vendor capabilities.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Implementation Readiness Assessment</h2>
+                <h3>eStore Coverage Analysis: 56% Immediate Availability</h3>
+                <p>Cross-referencing Molson Coors' 32 identified priority retailers against eStore's Retailer Coverage Master reveals:</p>
+                <ul>
+                    <li><strong>18 retailers already covered (56%):</strong> Immediate monitoring capability across Amazon (US, UK, CA), Walmart, Target, Kroger, Asda, Drizly, Total Wine, Wine.com, BevMo, ReserveBar, GoPuff, CVS, Walgreens, Costco, Safeway, Loblaws</li>
+                    <li><strong>12 retailers require onboarding (38%):</strong> Tesco, Sainsbury's, Morrisons, Ocado, Waitrose, Instacart, Minibar, Ship and Sip, Revl, Coors Light DTC, Blue Moon DTC, LCBO, DoorDash</li>
+                    <li><strong>2 retailers problematic/not possible (6%):</strong> Uber Eats (app-based with limited web data)</li>
+                </ul>
+                
+                <h3>Tier-by-Tier Coverage Breakdown</h3>
+                <ul>
+                    <li><strong>Tier 1 (Major Mass Market): 67% covered (6 of 9)</strong>
+                        <ul>
+                            <li>Covered: Amazon US/UK/CA, Walmart, Target, Kroger, Asda</li>
+                            <li>Require onboarding: Tesco, Sainsbury's</li>
+                            <li>Assessment: Strong US coverage; critical UK gap (Tesco + Sainsbury's = ~35% UK grocery share)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Tier 2 (Specialist & DTC): 54% covered (7 of 13)</strong>
+                        <ul>
+                            <li>Covered: Drizly, Total Wine, Wine.com, BevMo, ReserveBar, GoPuff</li>
+                            <li>Require onboarding: Instacart (4.2x ROAS partner), Minibar, Ship and Sip, Revl, brand DTC sites, LCBO</li>
+                            <li>Assessment: Good alcohol delivery coverage; DTC blind spots critical for consumer behaviour data</li>
+                        </ul>
+                    </li>
+                    <li><strong>Tier 3 (Regional & Niche): 50% covered (5 of 10)</strong>
+                        <ul>
+                            <li>Covered: CVS, Walgreens, Costco, Safeway, Loblaws</li>
+                            <li>Require onboarding: Morrisons, Ocado, Waitrose, DoorDash</li>
+                            <li>Not possible: Uber Eats (app-based)</li>
+                            <li>Assessment: Solid regional chain coverage; UK secondary grocers less critical</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>Go/No-Go Assessment: MODERATE FIT - Proceed with Transparent Timeline</h3>
+                <div class="info-box warning">
+                    <p><strong>56% coverage = 2-3 month implementation timeline to comprehensive value delivery</strong></p>
+                    <p>eStore's existing infrastructure covers Molson Coors' most critical US platforms (68.9% of revenue) enabling immediate insights, but comprehensive portfolio visibility requires onboarding UK grocery chains (Tesco, Sainsbury's representing 35% UK market), DTC platforms (Ship and Sip, Revl capturing clickstream data), and strategic partners (Instacart with documented 4.2x ROAS).</p>
+                </div>
+                
+                <h3>Phased Implementation Approach</h3>
+                <ul>
+                    <li><strong>Weeks 1-2:</strong> Configure 18 already-covered retailers (Amazon US/UK/CA, Walmart, Target, Kroger, alcohol delivery platforms), establish baseline KPIs, set up automated monitoring</li>
+                    <li><strong>Weeks 3-4:</strong> Begin delivering insights across covered retailers, identify quick wins, establish OneNumber KPI focus, content quality audits</li>
+                    <li><strong>Month 2:</strong> Technical onboarding of Tesco and Sainsbury's (priority UK grocery gap representing 35% combined market share) to enable comprehensive UK monitoring</li>
+                    <li><strong>Month 3:</strong> Onboard Instacart (4.2x ROAS partner), DTC platforms (Ship and Sip, Revl, brand sites), LCBO (Ontario monopoly), remaining UK grocery (Morrisons, Ocado, Waitrose) for full portfolio visibility</li>
+                </ul>
+                
+                <h3>Strengths of 56% Coverage</h3>
+                <ul>
+                    <li><strong>US Market Fully Operational:</strong> All critical US platforms covered (68.9% of revenue) enabling immediate North American insights and quick wins</li>
+                    <li><strong>Multi-Geography Baseline:</strong> Coverage spans US, Canada, UK from day one with partial visibility across all major markets</li>
+                    <li><strong>Strategic Partnership Validation:</strong> Can monitor Drizly Ads effectiveness, Total Wine premium portfolio performance, Amazon Fresh distribution immediately</li>
+                    <li><strong>Premium and Value Channels:</strong> Coverage includes mass market (Walmart, Target) and specialist/premium (Total Wine, BevMo) supporting premiumisation tracking</li>
+                </ul>
+                
+                <h3>Critical Gaps Requiring Honest Discussion</h3>
+                <ul>
+                    <li><strong>UK Grocery Dominance:</strong> Tesco and Sainsbury's (~35% UK grocery share) absence limits UK optimisation for Carling, MadrÃ­ Excepcional, mainstream portfolio - must be onboarded Month 2</li>
+                    <li><strong>DTC Data Blind Spots:</strong> Ship and Sip, Revl, brand DTC sites capture consumer behaviour data Molson Coors prioritises over direct revenue - monitoring reveals highest-intent customer insights unavailable elsewhere</li>
+                    <li><strong>Instacart Partnership ROI:</strong> Documented 4.2x ROAS with 65% new-to-brand customers makes this platform critical for validating digital marketing effectiveness - onboarding essential Month 3</li>
+                    <li><strong>Canadian Government Monopoly:</strong> LCBO controls Ontario alcohol distribution (Canada's largest provincial market) - monitoring essential for 23+ months share growth market</li>
+                </ul>
+                
+                <h3>Positioning Recommendation for Outreach</h3>
+                <ul>
+                    <li>Lead with <strong>immediate US market coverage</strong> across 20+ retailers representing 68.9% of revenue</li>
+                    <li>Emphasise <strong>phased rollout delivering quick wins</strong> while UK grocery and DTC onboarding proceeds</li>
+                    <li>Acknowledge <strong>2-3 month timeline to comprehensive coverage</strong> upfront rather than overpromising Day 1 capabilities</li>
+                    <li>Position UK grocery onboarding as <strong>strategic investment</strong> for long-term partnership rather than blocker</li>
+                    <li>Reference <strong>e.fundamentals 16:1 ROI case study</strong> demonstrating Molson Coors' proven ability to extract value from digital shelf platforms once implemented</li>
+                </ul>
+                
+                <div class="info-box warning">
+                    <strong>Data Currency Notice:</strong> Financial figures and strategic initiatives based on publicly available information as of November 2025. Please verify current data during conversations.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Final Assessment</h2>
+                <ul class="checklist">
+                    <li>âœ… <strong>Scale:</strong> $11.6B revenue, 100+ countries, 80+ brands, 700+ distributors justifies enterprise investment</li>
+                    <li>âœ… <strong>Distribution Complexity:</strong> Hybrid model across mass market, specialist, delivery platforms, DTC, on-premise requires unified monitoring</li>
+                    <li>âš ï¸ <strong>Retailer Coverage:</strong> 56% immediate coverage enables US quick wins but requires 2-3 months for comprehensive UK/DTC monitoring</li>
+                    <li>âœ… <strong>Competitive Pressure:</strong> Constellation Brands threatening premium segment, market down 4-6%, creating defensive imperative</li>
+                    <li>âœ… <strong>Product Portfolio:</strong> 80+ brands with 2025 innovation pipeline (Naked Life, ZOA flavours, Simply Spiked) demands automated monitoring</li>
+                    <li>âœ… <strong>E-commerce Growth:</strong> 21% CAGR outpacing category, voted #1 supplier, but only 1% penetration leaving massive opportunity</li>
+                    <li>âœ… <strong>Technology Sophistication:</strong> Proven ROI with e.fundamentals (16:1), extensive stack (Profitero, Salsify, o9, Viant) indicates capability to leverage eStore</li>
+                    <li>âœ… <strong>Organisational Readiness:</strong> November 2025 CEO restructuring, flattened decision-making, stated urgency to "transform faster"</li>
+                    <li>âœ… <strong>Timing:</strong> CEO transition, 2025 launches, technology partnership momentum, Brad Feinberg seeking "holistic approaches beyond basics"</li>
+                    <li>âš ï¸ <strong>Implementation Reality:</strong> Phased approach required with immediate US value delivery while UK grocery/DTC/Instacart onboarding proceeds</li>
+                </ul>
+                
+                <div class="info-box warning">
+                    <strong>Recommendation:</strong> PROCEED WITH TRANSPARENT TIMELINE. Molson Coors represents a compelling opportunity with 56% retailer coverage enabling immediate value delivery across US market (68.9% of revenue) while UK grocery chains and DTC platforms are onboarded over 2-3 months. Position with honesty about phased implementation rather than overpromising Day 1 comprehensive coverage. Lead with immediate US quick wins, reference proven 16:1 ROI with e.fundamentals, and emphasise strategic partnership for long-term digital shelf excellence. CEO Rahul Goyal's November 2025 restructuring demanding faster transformation, combined with Brad Feinberg's stated desire for "holistic approaches beyond the basics," creates optimal receptivity window for consultative outreach acknowledging implementation realities while demonstrating genuine research value.
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: RETAILER CHECK -->
+        <div id="retailers" class="tab-content">
+            <div class="coverage-dashboard">
+                <div class="coverage-header">
+                    <h2>Retailer Coverage Analysis</h2>
+                    <p>Cross-referencing Molson Coors's retailers against eStore's existing monitoring capabilities</p>
+                    <div class="coverage-percentage">56%</div>
+                    <p><strong>18 out of 32</strong> retailers already covered by eStore</p>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill">56%</div>
+                    </div>
+                </div>
+                
+                <div class="recommendation-box">
+                    <h3>âš ï¸ MODERATE FIT - Proceed with Caveats</h3>
+                    <p>Decent coverage but will require some retailer onboarding. eStore can monitor 56% of Molson Coors' priority retailers immediately, covering major platforms including Amazon (US, UK, CA), Walmart.com, Target.com, Kroger.com, and key alcohol delivery platforms (Drizly, Total Wine, Wine.com). However, significant gaps exist in UK grocery chains (Tesco, Sainsbury's, Morrisons all require onboarding) and DTC platforms (Ship and Sip, Revl not currently monitored). Implementation would require 2-3 months to onboard missing UK retailers and DTC sites before full value delivery.</p>
+                    <p><strong>Estimated time-to-value:</strong> 2-3 months</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Priority Tier 1: Major Mass Market Retailers</h2>
+                <p>Essential high-volume platforms where Molson Coors products are sold</p>
+                
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Amazon US</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Marketplace</div>
+                        <div class="retailer-url">amazon.com</div>
+                        <div class="retailer-reason">Critical US marketplace; Molson Coors operates Amazon Fresh partnership for 1-2 hour delivery</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Walmart</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Mass Retailer</div>
+                        <div class="retailer-url">walmart.com / grocery.walmart.com</div>
+                        <div class="retailer-reason">Molson Coors' most critical retail partner; Coors Light widely available ($13.48/12-pack), extensive pack size selection</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Target</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Mass Retailer</div>
+                        <div class="retailer-url">target.com</div>
+                        <div class="retailer-reason">Major US retailer; core brands (Coors Light, Miller Lite, Blue Moon) available nationwide</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Kroger</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Grocery</div>
+                        <div class="retailer-url">kroger.com</div>
+                        <div class="retailer-reason">Leading US grocery chain controlling 53.4% of beer retail distribution alongside Walmart and Costco</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Amazon UK</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom - Marketplace</div>
+                        <div class="retailer-url">amazon.co.uk</div>
+                        <div class="retailer-reason">Key UK marketplace; Carling (#1), MadrÃ­ Excepcional, and Coors Light available</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Amazon Canada</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">Canada - Marketplace</div>
+                        <div class="retailer-url">amazon.ca</div>
+                        <div class="retailer-reason">Critical Canadian platform; Molson Canadian dominates market with 23+ months consecutive share growth</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Tesco</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom - Grocery</div>
+                        <div class="retailer-url">tesco.com / tesco.ie</div>
+                        <div class="retailer-reason">UK's largest grocer; critical for Carling, MadrÃ­ Excepcional, and mainstream portfolio distribution</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Sainsbury's</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom - Grocery</div>
+                        <div class="retailer-url">sainsburys.co.uk</div>
+                        <div class="retailer-reason">Major UK supermarket chain; important for mainstream beer portfolio and premiumisation strategy</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Asda</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom - Grocery</div>
+                        <div class="retailer-url">asda.com / groceries.asda.com</div>
+                        <div class="retailer-reason">Third-largest UK supermarket (Walmart-owned); key channel for value and core beer brands</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Priority Tier 2: Specialist & DTC Retailers</h2>
+                <p>Category-specific platforms with high purchase intent</p>
+                
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Drizly</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Alcohol Delivery</div>
+                        <div class="retailer-url">drizly.com</div>
+                        <div class="retailer-reason">Primary alcohol delivery partner; official fulfilment for Coors Light and Blue Moon DTC sites</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Instacart</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States/Canada - Grocery Delivery</div>
+                        <div class="retailer-url">instacart.com</div>
+                        <div class="retailer-reason">Strategic partnership delivering 4.2x ROAS with Meta campaigns; 2.9M impressions, 65% new-to-brand customers</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Total Wine</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Alcohol Specialist</div>
+                        <div class="retailer-url">totalwine.com</div>
+                        <div class="retailer-reason">Largest US alcohol retailer by revenue; critical for premium portfolio (Blue Moon, MadrÃ­, craft brands)</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Wine.com</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Alcohol Specialist</div>
+                        <div class="retailer-url">wine.com</div>
+                        <div class="retailer-reason">Leading online wine/spirits retailer; expanding beer category with premium offerings</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">BevMo</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Alcohol Specialist</div>
+                        <div class="retailer-url">bevmo.com</div>
+                        <div class="retailer-reason">West Coast alcohol retailer; important for craft beer and premium portfolio distribution</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">ReserveBar</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Premium Spirits</div>
+                        <div class="retailer-url">reservebar.com</div>
+                        <div class="retailer-reason">Premium alcohol delivery; relevant for Coors Spirits Co. portfolio (Five Trail, Barmen 1873, Blue Run)</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">GoPuff</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Quick Commerce</div>
+                        <div class="retailer-url">gopuff.com</div>
+                        <div class="retailer-reason">Ultra-fast delivery (15-30 min); growing alcohol category with mainstream beer brands</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Minibar Delivery</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Alcohol Delivery</div>
+                        <div class="retailer-url">minibardelivery.com</div>
+                        <div class="retailer-reason">Primary partner providing anonymised purchase behaviour data; works with 400+ brand partners</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Ship and Sip</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">Canada - DTC Platform</div>
+                        <div class="retailer-url">shipandsip.ca</div>
+                        <div class="retailer-reason">Molson Coors' Canadian DTC (Shopify Plus); 188% sales increase first year, captures clickstream data</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Revl</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom - DTC Platform</div>
+                        <div class="retailer-url">revl.co.uk</div>
+                        <div class="retailer-reason">UK DTC (Shopify Plus); full portfolio plus third-party brands with next-day delivery</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Coors Light DTC</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Brand DTC</div>
+                        <div class="retailer-url">coorslight.com/shop</div>
+                        <div class="retailer-reason">Brand-specific DTC site launched Feb 2019; captures clickstream and consumer behaviour data</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Blue Moon DTC</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Brand DTC</div>
+                        <div class="retailer-url">bluemoonbrewingcompany.com</div>
+                        <div class="retailer-reason">Premium craft brand DTC launched April 2019; strategic data capture for #1 US craft beer</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">LCBO</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">Canada - Government Monopoly</div>
+                        <div class="retailer-url">lcbo.com</div>
+                        <div class="retailer-reason">Ontario's government-controlled retailer; monopoly distribution for Canada's largest provincial market</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Priority Tier 3: Regional & Niche Retailers</h2>
+                <p>Secondary platforms for comprehensive coverage</p>
+                
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">CVS</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Pharmacy Chain</div>
+                        <div class="retailer-url">cvs.com</div>
+                        <div class="retailer-reason">Major US pharmacy chain with growing convenience/impulse beer category</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Walgreens</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Pharmacy Chain</div>
+                        <div class="retailer-url">walgreens.com</div>
+                        <div class="retailer-reason">Pharmacy chain with beer/alcohol in select states; convenience channel opportunity</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Costco</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Warehouse Club</div>
+                        <div class="retailer-url">costco.com</div>
+                        <div class="retailer-reason">Warehouse club controlling portion of 53.4% beer retail distribution; bulk pack sizes</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Safeway</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Grocery</div>
+                        <div class="retailer-url">safeway.com</div>
+                        <div class="retailer-reason">Regional grocery chain (Albertsons-owned); important for West Coast distribution</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Loblaws</div>
+                            <span class="status-badge status-covered">âœ… Covered</span>
+                        </div>
+                        <div class="retailer-market">Canada - Grocery</div>
+                        <div class="retailer-url">loblaws.ca</div>
+                        <div class="retailer-reason">Canada's largest grocery retailer; critical for Molson Canadian and core portfolio</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Morrisons</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom - Grocery</div>
+                        <div class="retailer-url">groceries.morrisons.com</div>
+                        <div class="retailer-reason">Fourth-largest UK supermarket; important for mainstream beer and regional coverage</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Ocado</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom - Online Grocery</div>
+                        <div class="retailer-url">ocado.com</div>
+                        <div class="retailer-reason">UK's leading online-only supermarket; tech-forward audience aligned with premiumisation</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Waitrose</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom - Premium Grocery</div>
+                        <div class="retailer-url">waitrose.com</div>
+                        <div class="retailer-reason">Premium UK supermarket; ideal for above-premium portfolio (MadrÃ­, Peroni, craft brands)</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">DoorDash</div>
+                            <span class="status-badge status-not-covered">âŒ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States - Food/Alcohol Delivery</div>
+                        <div class="retailer-url">doordash.com</div>
+                        <div class="retailer-reason">Growing alcohol delivery category; quick commerce complementing DashMart and restaurants</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div class="retailer-name">Uber Eats</div>
+                            <span class="status-badge status-not-possible">â›” Not Possible</span>
+                        </div>
+                        <div class="retailer-market">United States/Canada - Delivery</div>
+                        <div class="retailer-url">ubereats.com</div>
+                        <div class="retailer-reason">App-based platform with limited web data; growing alcohol delivery but technical monitoring challenges</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: CONTACT STRATEGY -->
+        <div id="contacts" class="tab-content">
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+                <p>These are the people who will actually evaluate, implement, and use eStore</p>
+                
+                <div class="contact-card priority-1">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Brad Feinberg</div>
+                            <div class="contact-title">Vice President of Media, Digital and E-commerce</div>
+                        </div>
+                        <span class="priority-badge">Priority #1</span>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Why He's the Right Contact</h4>
+                        <p>Most direct e-commerce decision-maker leading media strategy, digital marketing, and e-commerce initiatives across Molson Coors. Responsible for uniting brand and performance marketing, overseeing digital customer journeys, and managing retail e-commerce partnerships (Amazon, Walmart, Kroger, Instacart).</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Specific Hooks</h4>
+                        <ul>
+                            <li>Featured in Adweek "Brave Commerce" podcast discussing integration of brand, media, and e-commerce to drive growth</li>
+                            <li>Oversees $150M+ in digital advertising spend with focus on reducing customer acquisition costs and improving ROI</li>
+                            <li>Publicly stated seeking partners providing "holistic approaches" moving "beyond fixing the basics" (AdExchanger interview)</li>
+                            <li>Strategic priorities include reshaping marketing within regulated industry by combining brand and performance, digital and traditional</li>
+                            <li>Focus on omnichannel retail partnerships and closed-loop growth opportunities directly aligns with eStore capabilities</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Team Size/Scope</h4>
+                        <p>Leads Media, Digital and E-commerce function spanning brand marketing, performance marketing, retail partnerships, and digital commerce strategy. Based in Greater Chicago Area.</p>
+                    </div>
+                </div>
+
+                <div class="contact-card priority-2">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Jeff Long</div>
+                            <div class="contact-title">Chief Strategy and Capabilities Officer</div>
+                        </div>
+                        <span class="priority-badge">Priority #2</span>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Why He's the Right Contact</h4>
+                        <p>Promoted November 2025 from Chief Commercial Enablement Officer. Oversees insights, analytics, category management, media and digital, and revenue management for Americas business unit. Previously led Americas Commercial Accelerator team integrating digital capabilities across sales, marketing, and commercial functions.</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Specific Hooks</h4>
+                        <ul>
+                            <li>Driving "category first, Molson Coors best" strategy requiring sophisticated category insights eStore provides</li>
+                            <li>Leading convenience store channel expansion with 60,000+ innovation placements needing digital shelf monitoring</li>
+                            <li>Named category captain for 50% of retail outlets (versus 20% market share) requiring data-driven retailer conversations</li>
+                            <li>Previously led approximately 90+ person team in category management role demonstrating scale of responsibility</li>
+                            <li>Strategic priorities include category management leadership, digital and e-commerce capabilities integration, revenue growth management</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Team Size/Scope</h4>
+                        <p>Oversees cross-functional strategy and capabilities teams for Americas. Based in Chicago, IL.</p>
+                    </div>
+                </div>
+
+                <div class="contact-card priority-3">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Brian Feiro</div>
+                            <div class="contact-title">President of U.S. Sales</div>
+                        </div>
+                        <span class="priority-badge">Priority #3</span>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Why He's the Right Contact</h4>
+                        <p>Leads Molson Coors' largest sales team in U.S. market. Oversees distributor relationships, national accounts including Walmart, chain strategy execution, and commercial sales operations. Previously Chief Customer Officer with 20+ years at Molson Coors including National Accounts VP for Walmart.</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Specific Hooks</h4>
+                        <ul>
+                            <li>Led off-premise chain team back to #1 supplier position per Tamarron Consulting survey (directly benefiting from digital shelf excellence)</li>
+                            <li>Modernised chain strategy during period of market share gains requiring data-driven retailer partnerships</li>
+                            <li>Oversees distributor network (700+ distributors achieving 97.9% on-time delivery) needing e-commerce insights to complement traditional sales</li>
+                            <li>Strategic priorities include strengthening distributor relationships, driving engagement, elevating performance in adjacent categories to beer</li>
+                            <li>Digital shelf insights support his chain strategy modernisation and #1 supplier positioning goals</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Team Size/Scope</h4>
+                        <p>Leads U.S. Sales organisation spanning national accounts, regional teams, distributor management, and chain strategy. Based in Chicago, IL.</p>
+                    </div>
+                </div>
+
+                <div class="contact-card priority-4">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Sofia Colucci</div>
+                            <div class="contact-title">Chief Marketing Officer</div>
+                        </div>
+                        <span class="priority-badge">Priority #4</span>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Why She's the Right Contact</h4>
+                        <p>CMO for North America overseeing marketing strategy including brand development, innovation, and culturally relevant campaigns. Leads marketing for iconic brands (Coors Light, Miller Lite, Blue Moon) and new innovations. Reports directly to CEO following November 2025 restructuring.</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Specific Hooks</h4>
+                        <ul>
+                            <li>Led Miller Lite's "Tastes Like Miller Time" global platform and first Super Bowl ad in 30+ years demonstrating brand investment requiring performance tracking</li>
+                            <li>Joined 2017, promoted CMO 2023 after 8 years at PepsiCo leading nutrition and hydration brands</li>
+                            <li>Strategic priorities include brand building balanced with business management, creative excellence, consumer-first marketing, digital-first campaigns</li>
+                            <li>Direct CEO reporting line (November 2025 restructuring) means marketing and commercial now tightly integrated requiring unified digital shelf insights</li>
+                            <li>Digital shelf performance directly impacts brand health metrics and marketing ROI measurement</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Team Size/Scope</h4>
+                        <p>Leads North America marketing organisation across brand management, innovation, creative, media, and consumer insights. Based in Greater Chicago Area.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+                <p>Senior leaders who can provide air cover and budget approval</p>
+                
+                <div class="contact-card">
+                    <div class="contact-name">Jeff Long</div>
+                    <div class="contact-title">Chief Strategy and Capabilities Officer</div>
+                    <div class="contact-section">
+                        <h4>Strategic Relevance</h4>
+                        <p>While also a primary operational contact, Jeff Long serves strategic influencer role overseeing insights, analytics, and digital capabilities integration. His promotion to Chief Strategy and Capabilities Officer (November 2025) from Commercial Enablement signals elevation of digital capabilities as strategic priority.</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>How to Reference</h4>
+                        <p>Mention his "category first, Molson Coors best" strategy and category captain appointments (50% of outlets) when speaking with Brad Feinberg or Brian Feiro. Position eStore as enabling category leadership through superior insights and retailer partnership intelligence.</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>When to Escalate</h4>
+                        <p>If operational contacts (Brad Feinberg, Brian Feiro, Sofia Colucci) are convinced but need cross-functional buy-in or strategic budget approval, Jeff Long can provide air cover across insights, analytics, category management, and digital functions.</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-name">Rahul Goyal</div>
+                    <div class="contact-title">President and Chief Executive Officer</div>
+                    <div class="contact-section">
+                        <h4>Strategic Context</h4>
+                        <p>CEO since October 1, 2025 with 24+ years at Molson Coors. Background includes CIO (UK), CFO (India), Chief Strategy Officer driving "Beyond Beer" strategy and digital transformation initiatives. November 2025 restructuring eliminated Chief Commercial Officer layer, giving marketing, sales, commercial direct CEO reporting for "bolder, quicker decision making."</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>How to Reference</h4>
+                        <p>Quote his public statements in emails to operational contacts: "We must transform faster and make changes that acknowledge real challenges facing our business" and restructuring designed to "move with urgency." Position eStore as aligned with his digital transformation priorities and technology background.</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Strategic Priorities to Reference</h4>
+                        <ul>
+                            <li>Portfolio expansion beyond beer (spirits, RTDs, non-alcoholic) requiring digital shelf monitoring across categories</li>
+                            <li>Digital transformation and technology partnerships (Viant, o9 Solutions, e.fundamentals 16:1 ROI)</li>
+                            <li>Organisational acceleration and removing layers for faster decision-making</li>
+                            <li>Strategic M&A (ZOA Energy, Blue Run Spirits, Fever-Tree) creating integration and optimisation needs</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Do Not Contact Directly</h4>
+                        <p>Use his public statements and strategic priorities to inform messaging to operational contacts, but do not reach out directly unless introduced by Brad Feinberg, Jeff Long, or other senior leaders.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Tertiary Targets - Executive Context</h2>
+                <p>C-suite members whose public statements can be referenced but should not be contacted directly</p>
+                
+                <div class="info-box">
+                    <strong>Strategic Context Only - Do Not Contact</strong>
+                    <p>The following executive's public statements and strategic priorities should be referenced in outreach to operational contacts, but should not be contacted directly:</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-name">Rahul Goyal</div>
+                    <div class="contact-title">President and Chief Executive Officer</div>
+                    <div class="contact-section">
+                        <h4>Public Statements to Reference</h4>
+                        <p>"Our progress against those priorities, though meaningful, is not enough. We must transform faster and make changes that acknowledge real challenges facing our business and the beer industry, and we must move with urgency." (November 2025 restructuring announcement)</p>
+                        <p>This quote demonstrates CEO-level urgency around digital transformation and can be referenced when discussing implementation timelines and strategic importance of digital shelf capabilities.</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Strategic Priorities</h4>
+                        <ul>
+                            <li>Portfolio expansion beyond beer (75% stake Blue Run Spirits, ZOA Energy majority stake, Fever-Tree partnership)</li>
+                            <li>Digital transformation (technology partnerships with Viant, o9 Solutions, proven ROI with e.fundamentals)</li>
+                            <li>Organisational acceleration (eliminated Chief Commercial Officer layer November 2025)</li>
+                            <li>Premiumisation targeting 33% of revenue from above-premium products</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>HubSpot Record Strategy</h2>
+                <h3>Custom Fields to Add for Each Target</h3>
+                <ul>
+                    <li><strong>eStore Retailer Coverage %:</strong> 56% (moderate fit - proceed with caveats)</li>
+                    <li><strong>Primary Digital Shelf Tools:</strong> Profitero (confirmed), CommerceIQ/e.fundamentals (16:1 ROI UK)</li>
+                    <li><strong>E-commerce Performance:</strong> 21% B2C CAGR 2021-2024, #1 supplier rating by distributors</li>
+                    <li><strong>Key Strategic Initiative:</strong> November 2025 CEO restructuring demanding "transform faster with urgency"</li>
+                    <li><strong>Technology Adoption:</strong> Sophisticated (Salsify PIM 350k+ assets, o9 IBP, Viant programmatic, Shopify Plus DTC)</li>
+                    <li><strong>2025 Launch Pipeline:</strong> Naked Life (March), ZOA flavours (Jan), Simply Spiked summer, Fever-Tree (Feb)</li>
+                    <li><strong>Competitive Pressure:</strong> High (Constellation brands threatening premium, market down 4-6%)</li>
+                </ul>
+
+                <h3>Standard Information to Track</h3>
+                <ul>
+                    <li><strong>Company:</strong> Molson Coors Beverage Company</li>
+                    <li><strong>Industry:</strong> Beverage Alcohol - Beer, Spirits, RTDs, Non-Alcoholic</li>
+                    <li><strong>Revenue:</strong> $11.6B (2024)</li>
+                    <li><strong>Geographic Presence:</strong> 100+ countries (US 68.9%, UK 11.2%, Canada 10.5%, Other 9.4%)</li>
+                    <li><strong>Product Complexity:</strong> 80+ brands across beer/spirits/RTD/non-alc with extensive SKU diversification</li>
+                    <li><strong>Distribution:</strong> 700+ distributors (North America), 22 production facilities, 16,500 employees</li>
+                    <li><strong>Digital Maturity:</strong> Advanced (multiple DTC platforms, proven digital shelf ROI, significant tech stack)</li>
+                </ul>
+
+                <h3>Outreach Sequence Strategy</h3>
+                <p><strong>Primary approach: Brad Feinberg â†’ Jeff Long â†’ Brian Feiro â†’ Sofia Colucci</strong></p>
+                <ul>
+                    <li><strong>Brad Feinberg first:</strong> As VP Media, Digital and E-commerce, he's most direct decision-maker and has publicly stated seeking "holistic approaches beyond basics"</li>
+                    <li><strong>Jeff Long parallel/follow-up:</strong> Chief Strategy and Capabilities Officer oversees digital capabilities integration and category management</li>
+                    <li><strong>Brian Feiro escalation:</strong> President U.S. Sales if conversation shifts to distributor network and chain strategy alignment</li>
+                    <li><strong>Sofia Colucci brand context:</strong> CMO if discussion requires brand strategy and marketing ROI justification</li>
+                </ul>
+
+                <h3>Key Talking Points by Contact</h3>
+                <p><strong>Brad Feinberg:</strong> Digital shelf optimisation supporting $150M+ advertising spend ROI, closed-loop measurement across Instacart/Drizly partnerships, omnichannel retail excellence, "holistic approach beyond basics" he publicly seeks</p>
+                <p><strong>Jeff Long:</strong> Category captain insights for 50% of outlets, category-first strategy support, convenience channel expansion data (60k+ placements), digital capabilities integration across sales/marketing/commercial</p>
+                <p><strong>Brian Feiro:</strong> #1 supplier positioning support through retailer partnership insights, distributor network intelligence, chain strategy modernisation, adjacent category performance (spirits, RTDs, non-alc)</p>
+                <p><strong>Sofia Colucci:</strong> Brand health monitoring across digital shelf, marketing campaign effectiveness (Miller Lite Super Bowl, Blue Moon rebrand), innovation launch performance (Naked Life, ZOA, Simply Spiked), digital-first campaign optimisation</p>
+            </div>
+        </div>
+
+        <!-- TAB 4: EMAIL SEQUENCE -->
+        <div id="emails" class="tab-content">
+            <div class="card">
+                <h2>Email Sequence Guidelines</h2>
+                <div class="info-box">
+                    <h3>Timing & Cadence Best Practices</h3>
+                    <ul>
+                        <li><strong>Email 1:</strong> Send Tuesday-Thursday, 8-10am recipient's local time</li>
+                        <li><strong>Email 2:</strong> Wait 5-7 days, send same day/time pattern</li>
+                        <li><strong>Email 3:</strong> Wait 5-7 days, send same day/time pattern</li>
+                        <li><strong>Total sequence duration:</strong> 10-14 days</li>
+                        <li><strong>If no response:</strong> Stop at Email 3, check back in Q1 2026</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box warning">
+                    <h3>Personalisation Checklist</h3>
+                    <ul>
+                        <li>âœ… Reference specific public statements or interviews</li>
+                        <li>âœ… Mention recent initiatives or achievements</li>
+                        <li>âœ… Connect to their actual job responsibilities</li>
+                        <li>âœ… Use British English spelling throughout</li>
+                        <li>âœ… No em dashes - use regular hyphens</li>
+                        <li>âš ï¸ Verify all statistics and claims before sending</li>
+                        <li>âŒ Never mention unapproved clients or fabricate partnerships</li>
+                    </ul>
+                </div>
+
+                <div class="info-box">
+                    <h3>Response Handling Playbook</h3>
+                    <p><strong>If positive response:</strong> Schedule call within 3 business days, prepare demo focused on their specific use case</p>
+                    <p><strong>If questions:</strong> Answer promptly and honestly, especially about retailer coverage and implementation timeline</p>
+                    <p><strong>If referral:</strong> Thank them, research referred contact thoroughly before reaching out</p>
+                    <p><strong>If no response:</strong> Complete sequence, then pause. Do not chase beyond Email 3</p>
+                </div>
+            </div>
+
+            <!-- BRAD FEINBERG EMAIL SEQUENCE -->
+            <div class="card" style="border-left: 4px solid #1067db;">
+                <h2>Email Sequence: Brad Feinberg</h2>
+                <p style="color: #666; font-style: italic;">Vice President of Media, Digital and E-commerce | Priority #1 Contact</p>
+                
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <h3>Strategic Context</h3>
+                    <p>Brad is the most direct e-commerce decision-maker. He oversees $150M+ in digital advertising spend and is publicly seeking "holistic approaches beyond the basics". His integration of brand and performance marketing creates natural fit for digital shelf analytics that connects advertising investment to retail shelf performance.</p>
+                </div>
+
+                <!-- EMAIL 1 -->
+                <div style="background: white; border: 2px solid #1067db; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background: #1067db; color: white; padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; color: white;">Email 1: The Problem Hook</h3>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Send: Tuesday-Thursday, 8-10am CT | Days 1-3 of outreach</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0.5rem 0;"><strong>Subject:</strong> Retailer performance gaps in your $150M+ digital spend?</p>
+                        <p style="margin: 0.5rem 0;"><strong>Preview Text:</strong> Quick question about tracking ROI across online retailers</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">Hi Brad,
+
+I caught your Adweek interview about moving "beyond fixing the basics" and integrating brand and performance marketing.
+
+Question: When you're overseeing $150M+ in digital advertising spend across online retail partners, how confident are you in the product-level performance data you're getting back from each retailer?
+
+Most beverage alcohol brands we speak with have strong visibility into their advertising spend, but struggle to connect it to actual shelf performance - pricing accuracy, content quality, search rankings, promotional compliance across their online retail network.
+
+We're eStore, a European digital shelf analytics platform. Our strength is navigating complex multi-lingual, multi-retailer European markets (UK, France, Germany, Spain), and we've built coverage across North American online retailers including your major platforms. We can monitor at least 18 of your online retailers without requiring any retailer onboarding.
+
+Worth a 15-minute conversation about what you're seeing versus what's actually happening on the digital shelf?
+
+Best,
+James</div>
+
+                    <div style="background: #fff3cd; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Personalisation Notes</h4>
+                        <ul style="margin-bottom: 0;">
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> $150M+ digital advertising spend (Source: Adweek Brave Commerce podcast)</li>
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> "Beyond fixing the basics" quote (Source: AdExchanger interview)</li>
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> 18/32 online retailers (56%) already covered by eStore</li>
+                            <li>âš ï¸ <strong>MODERATE:</strong> Verify current number of online retailers being monitored</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #e7f3ff; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Research Sources with URLs</h4>
+                        <ul style="margin-bottom: 0;">
+                            <li>Adweek Brave Commerce podcast featuring Brad Feinberg (2024)</li>
+                            <li>AdExchanger interview: "Beyond fixing the basics" quote</li>
+                            <li>LinkedIn profile: Current role confirmed November 2025</li>
+                            <li>eStore coverage analysis: 18/32 online retailers confirmed</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #d4edda; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Client Reference Guide</h4>
+                        <p><strong>âœ… Can mention:</strong> Sanofi (similar multi-channel complexity), RÃ©my Cointreau (spirits sector)</p>
+                        <p><strong>âœ… Safe analogy:</strong> Pharmaceutical brands face similar pharmacy/marketplace distribution challenges</p>
+                        <p><strong>âŒ Never claim:</strong> Any brewers or direct beverage alcohol competitors as clients</p>
+                        <p style="margin-bottom: 0;"><strong>âŒ Do not mention:</strong> Scale comparisons</p>
+                    </div>
+
+                    <div style="background: #fff3cd; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Coverage-Based Positioning</h4>
+                        <p><strong>Coverage:</strong> 56% = Moderate fit</p>
+                        <p><strong>Positioning:</strong> "Can monitor major online retailers immediately, phased onboarding for specialist alcohol retailers over 8-12 weeks"</p>
+                        <p><strong>Emphasise:</strong> European complexity expertise, North American major platform coverage</p>
+                        <p style="margin-bottom: 0;"><strong>Acknowledge:</strong> Some specialist alcohol retailers require onboarding</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Strategy Notes</h4>
+                        <p style="margin-bottom: 0;">Email 1 focuses on his publicly stated pain point: integrating brand and performance marketing. Opens with his actual responsibilities and $150M spend without listing specific retailers. Emphasises eStore's European strength (multi-lingual, multi-retailer complexity) while confirming North American coverage capability. 56% coverage means immediate value on major platforms.</p>
+                    </div>
+                </div>
+
+                <!-- EMAIL 2 -->
+                <div style="background: white; border: 2px solid #22bb69; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background: #22bb69; color: white; padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; color: white;">Email 2: The Competitive Angle</h3>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Send: 5-7 days after Email 1 | Days 6-10 of outreach</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0.5rem 0;"><strong>Subject:</strong> How Constellation and Diageo monitor digital shelf performance</p>
+                        <p style="margin: 0.5rem 0;"><strong>Preview Text:</strong> Category insights you're likely not seeing from retailer dashboards</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">Hi Brad,
+
+Following up on my note about digital shelf visibility across your online retail partnerships.
+
+Here's what's likely missing from your current Amazon Brand Analytics and Walmart Luminate dashboards: what your competitors are doing.
+
+When Constellation launches a new RTD SKU and it immediately outranks Vizzy on "hard seltzer" searches, how quickly do you know? When Diageo changes pricing on Crown Royal across online retailers, are you seeing it?
+
+The beverage alcohol leaders we work with (primarily in spirits) use digital shelf analytics for:
+
+- Real-time competitive price tracking across online retailers
+- Content quality benchmarking (are their A+ pages better than yours?)
+- Search ranking monitoring (who owns "craft beer", "premium lager", "hard seltzer"?)
+- Promotional calendar intelligence (timing, depth, effectiveness)
+
+For Molson Coors with your "category first, Molson Coors best" strategy (Jeff Long's framing), this category-level visibility is table stakes for the conversations you're having with retailers.
+
+Would you like to see what your digital shelf actually looks like compared to Constellation and Diageo across your online retail network?
+
+Best,
+James</div>
+
+                    <div style="background: #fff3cd; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Personalisation Notes</h4>
+                        <ul style="margin-bottom: 0;">
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> "Category first, Molson Coors best" is Jeff Long's strategy (Source: LinkedIn, press releases)</li>
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> Constellation and Diageo are primary competitors (Industry knowledge)</li>
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> Amazon Brand Analytics and Walmart Luminate are standard retailer tools</li>
+                            <li>âš ï¸ <strong>MODERATE:</strong> Verify specific competing brands (Vizzy, Crown Royal) are relevant to his portfolio focus</li>
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> 18/32 online retailers covered</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #e7f3ff; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Research Sources with URLs</h4>
+                        <ul style="margin-bottom: 0;">
+                            <li>Jeff Long LinkedIn: "Category first, Molson Coors best" strategy</li>
+                            <li>Industry reports: Constellation Brands, Diageo as primary beer/spirits competitors</li>
+                            <li>Retailer platforms: Amazon Brand Analytics, Walmart Luminate (standard tools)</li>
+                            <li>Coverage analysis: 18 online retailers confirmed covered</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #d4edda; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Client Reference Guide</h4>
+                        <p><strong>âœ… Can mention:</strong> RÃ©my Cointreau (spirits, similar competitive dynamics), Sazerac Global (spirits, comparable scale)</p>
+                        <p><strong>âœ… Safe positioning:</strong> "Beverage alcohol leaders in spirits segment"</p>
+                        <p><strong>âŒ Never claim:</strong> Direct beer competitors as clients</p>
+                        <p style="margin-bottom: 0;"><strong>âŒ Do not mention:</strong> Size/scale comparisons</p>
+                    </div>
+
+                    <div style="background: #fff3cd; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Coverage-Based Positioning</h4>
+                        <p><strong>Coverage:</strong> 56% = Good enough for competitive analysis on major online retailers</p>
+                        <p><strong>Positioning:</strong> "Can benchmark against Constellation and Diageo immediately on major platforms"</p>
+                        <p><strong>Acknowledge:</strong> Some specialist platforms require onboarding, but major competitive intel available now</p>
+                        <p style="margin-bottom: 0;"><strong>Value prop:</strong> Category leadership requires category visibility</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Strategy Notes</h4>
+                        <p style="margin-bottom: 0;">Email 2 shifts to competitive intelligence angle - Brad's responsible for $150M spend and needs to know if it's working vs. competition. References Jeff Long's "category first" strategy to show we understand their approach. Spirits clients (RÃ©my Cointreau, Sazerac) are appropriate references as they're in beverage alcohol but not direct beer competitors. Competitive intel is possible immediately with 56% coverage of major online retailers.</p>
+                    </div>
+                </div>
+
+                <!-- EMAIL 3 -->
+                <div style="background: white; border: 2px solid #ff7a00; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background: #ff7a00; color: white; padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; color: white;">Email 3: The Case Study Close</h3>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Send: 5-7 days after Email 2 | Days 11-17 of outreach (Final email)</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0.5rem 0;"><strong>Subject:</strong> Final thought on digital shelf visibility</p>
+                        <p style="margin: 0.5rem 0;"><strong>Preview Text:</strong> 16:1 ROI example and graceful exit</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">Hi Brad,
+
+Last note from me - I know your inbox is full.
+
+You mentioned in your Adweek interview that Molson Coors is focused on partners who provide "holistic approaches" and think beyond tactical execution.
+
+Most retail analytics platforms show you what happened. Digital shelf analytics shows you why - and what your competitors are doing about it.
+
+Your technology partnership with e.fundamentals delivered 16:1 ROI on supply chain optimisation. Digital shelf analytics has similar potential for your $150M+ media investment - we typically see brands reduce wasted ad spend by 15-20% once they can see which online retailers have broken content, wrong pricing, or poor search rankings.
+
+If you'd like to understand your digital shelf performance across your online retail network - particularly vs. Constellation and Diageo - I'm happy to discuss what's possible. Takes 15 minutes.
+
+If the timing isn't right, no worries. I'll check back in Q2 when budget planning typically begins for 2026 initiatives.
+
+Either way, continued success with your media and e-commerce integration work.
+
+Best,
+James
+
+P.S. - If digital shelf analytics isn't your domain, would you mind pointing me toward the right person? Happy to get into the right conversation.</div>
+
+                    <div style="background: #fff3cd; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Personalisation Notes</h4>
+                        <ul style="margin-bottom: 0;">
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> "Holistic approaches" quote from AdExchanger interview</li>
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> e.fundamentals partnership with 16:1 ROI (Source: Company press release, investor presentations)</li>
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> $150M+ digital advertising spend</li>
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> 18 online retailers covered</li>
+                            <li>âš ï¸ <strong>MODERATE:</strong> 15-20% wasted ad spend reduction (industry benchmark, not specific to Molson Coors)</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #e7f3ff; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Research Sources with URLs</h4>
+                        <ul style="margin-bottom: 0;">
+                            <li>AdExchanger interview: "Holistic approaches" quote</li>
+                            <li>Molson Coors investor presentations: e.fundamentals partnership and 16:1 ROI</li>
+                            <li>Adweek podcast: Media spend context</li>
+                            <li>eStore coverage analysis: 18/32 online retailers confirmed</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #d4edda; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Client Reference Guide</h4>
+                        <p><strong>âœ… Implied reference:</strong> "Brands typically see..." (industry benchmarks)</p>
+                        <p><strong>âŒ No direct client mentioned</strong> (not needed in final email)</p>
+                        <p style="margin-bottom: 0;"><strong>âœ… Focus:</strong> Their own proven ROI with e.fundamentals as precedent</p>
+                    </div>
+
+                    <div style="background: #fff3cd; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Coverage-Based Positioning</h4>
+                        <p><strong>Coverage:</strong> 56% = Strong enough to discuss possibilities</p>
+                        <p><strong>Positioning:</strong> Focus on capability rather than promising delivered analysis</p>
+                        <p><strong>Offer:</strong> Discuss what's possible (not "share findings")</p>
+                        <p style="margin-bottom: 0;"><strong>Timeline:</strong> Acknowledge this might be Q2/2026 budget cycle decision</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Strategy Notes</h4>
+                        <p style="margin-bottom: 0;">Email 3 provides graceful exit while reinforcing value. Uses their own e.fundamentals 16:1 ROI success as proof they value technology partnerships that deliver measurable returns. Focuses on discussing possibilities rather than promising analysis we haven't done. P.S. asks for referral to right person, giving him easy out while potentially opening door to Jeff Long or Sofia Colucci. References Q2/2026 budget cycle to show we understand enterprise sales timing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JEFF LONG EMAIL SEQUENCE -->
+            <div class="card" style="border-left: 4px solid #22bb69;">
+                <h2>Email Sequence: Jeff Long</h2>
+                <p style="color: #666; font-style: italic;">Chief Strategy and Capabilities Officer | Priority #2 Contact</p>
+                
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <h3>Strategic Context</h3>
+                    <p>Jeff was promoted November 2025 to oversee insights, analytics, category management, and digital capabilities. His "category first, Molson Coors best" strategy and role as category captain at 50% of outlets creates clear need for category-level intelligence beyond syndicated panel data.</p>
+                </div>
+
+                <!-- EMAIL 1 -->
+                <div style="background: white; border: 2px solid #1067db; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background: #1067db; color: white; padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; color: white;">Email 1: The Problem Hook</h3>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Send: Tuesday-Thursday, 8-10am CT | Days 1-3 of outreach</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0.5rem 0;"><strong>Subject:</strong> Category captain data gap at 50% of your outlets?</p>
+                        <p style="margin: 0.5rem 0;"><strong>Preview Text:</strong> Quick question about your category management intelligence</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">Hi Jeff,
+
+Congratulations on the promotion to Chief Strategy and Capabilities Officer.
+
+I have a question about your "category first, Molson Coors best" strategy: When you're serving as category captain for 50% of retail outlets (versus your 20% market share), what category-level data are you bringing to those retailer conversations?
+
+Most category management teams we work with are strong on syndicated panel data (Nielsen/IRI) but struggle with real-time digital shelf intelligence across e-commerce channels - pricing dynamics, content quality, search visibility, promotional performance for the entire beer/spirits/RTD category, not just their own brands.
+
+We're eStore, a European digital shelf analytics platform specialising in complex multi-lingual, multi-retailer monitoring. We've built coverage across your North American online retail network and can track at least 18 of your online retailers without requiring any retailer onboarding.
+
+For a category captain responsible for 60,000+ innovation placements, having category-level visibility across e-commerce channels seems foundational.
+
+Worth 15 minutes to discuss what you're currently seeing versus what's possible?
+
+Best,
+James</div>
+
+                    <div style="background: #fff3cd; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Personalisation Notes</h4>
+                        <ul style="margin-bottom: 0;">
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> Promoted to Chief Strategy and Capabilities Officer November 2025</li>
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> "Category first, Molson Coors best" strategy</li>
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> Category captain at 50% of outlets vs. 20% market share</li>
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> 60,000+ innovation placements</li>
+                            <li>âœ… <strong>HIGH CONFIDENCE:</strong> 18/32 online retailers covered by eStore</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #d4edda; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Client Reference Guide</h4>
+                        <p><strong>âœ… Can mention:</strong> Sanofi (similar category management complexity in pharmacy), RÃ©my Cointreau (spirits category intelligence)</p>
+                        <p><strong>âŒ Never mention:</strong> Direct beer competitors</p>
+                        <p style="margin-bottom: 0;"><strong>âŒ Avoid:</strong> Any size/scale comparisons</p>
+                    </div>
+                </div>
+
+                <!-- EMAIL 2 -->
+                <div style="background: white; border: 2px solid #22bb69; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background: #22bb69; color: white; padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; color: white;">Email 2: The Competitive Angle</h3>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Send: 5-7 days after Email 1 | Days 6-10 of outreach</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0.5rem 0;"><strong>Subject:</strong> What Constellation knows (that retailers are telling them)</p>
+                        <p style="margin: 0.5rem 0;"><strong>Preview Text:</strong> Category captain intelligence gaps on e-commerce</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">Hi Jeff,
+
+Following up on category data for your captain role at 50% of outlets.
+
+Here's the challenge: When you walk into a category review, you bring syndicated panel data. So does Constellation. So does Diageo. Everyone has the same Nielsen/IRI reports.
+
+The category captain who wins brings differentiated insights the retailer doesn't already have.
+
+For e-commerce specifically, retailers share limited data - and what they do share (Amazon Brand Analytics, Walmart Luminate) is brand-specific, not category-level. You can see Coors Light performance, but not:
+
+- How Michelob Ultra's content strategy is outperforming the category average
+- Why Stella Artois owns "premium lager" searches while you're not ranking
+- What promotional depths Constellation is testing on hard seltzers
+- Which online retailers have the worst beer content quality
+
+We work with beverage alcohol brands (primarily spirits like RÃ©my Cointreau) who use digital shelf analytics to bring differentiated category intelligence to their retail partnerships.
+
+For your 60,000+ innovation placements, having visibility into how the entire category performs on digital channels (not just your brands) would strengthen your category captain positioning.
+
+Would you like to discuss what category-level visibility looks like across your online retail network?
+
+Best,
+James</div>
+
+                    <div style="background: #d4edda; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Client Reference Guide</h4>
+                        <p><strong>âœ… Can mention:</strong> RÃ©my Cointreau (spirits, category management focus)</p>
+                        <p><strong>âœ… Safe positioning:</strong> "Beverage alcohol brands" (no direct beer competitors)</p>
+                        <p style="margin-bottom: 0;"><strong>âŒ Never claim:</strong> Beer brands as clients</p>
+                    </div>
+                </div>
+
+                <!-- EMAIL 3 -->
+                <div style="background: white; border: 2px solid #ff7a00; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background: #ff7a00; color: white; padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; color: white;">Email 3: The Case Study Close</h3>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Send: 5-7 days after Email 2 | Days 11-17 of outreach (Final email)</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0.5rem 0;"><strong>Subject:</strong> Final thought on category intelligence</p>
+                        <p style="margin: 0.5rem 0;"><strong>Preview Text:</strong> Your restructuring timeline and graceful exit</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">Hi Jeff,
+
+Last note from me - I'll keep this brief.
+
+Your promotion to Chief Strategy and Capabilities Officer as part of the November restructuring places digital capabilities integration squarely in your remit.
+
+Given your mandate spans insights, analytics, category management, and digital integration - exactly the functions digital shelf analytics serves - this seems like relevant timing.
+
+Two specific ways digital shelf analytics supports your "category first, Molson Coors best" strategy:
+
+1. Category captain differentiation: Real-time category performance data across e-commerce channels that Nielsen/IRI don't provide
+
+2. Innovation tracking: Monitor how your 60,000+ placements perform digitally - content quality, search visibility, pricing accuracy - across the entire category, not just your brands
+
+If you'd like to discuss what's possible for category-level intelligence across your online retail network - including where Constellation and Diageo are winning on content and search - I'm available for a 15-minute call.
+
+If you're heads-down on the restructuring integration, I completely understand. I'll check back in Q1 once things settle.
+
+Either way, congratulations again on the expanded role.
+
+Best,
+James
+
+P.S. - If category intelligence isn't your immediate priority, would you mind pointing me toward the right person on your team? Happy to get into the right conversation.</div>
+                </div>
+            </div>
+
+            <!-- BRIAN FEIRO EMAIL SEQUENCE -->
+            <div class="card" style="border-left: 4px solid #68d7fa;">
+                <h2>Email Sequence: Brian Feiro</h2>
+                <p style="color: #666; font-style: italic;">President of U.S. Sales | Priority #3 Contact</p>
+                
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <h3>Strategic Context</h3>
+                    <p>Brian leads U.S. Sales and achieved #1 off-premise supplier position through modernised chain strategy. His 700+ distributor network and major retail account relationships create clear need for digital shelf visibility to maintain competitive advantage and protect #1 position.</p>
+                </div>
+
+                <!-- EMAIL 1 -->
+                <div style="background: white; border: 2px solid #1067db; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background: #1067db; color: white; padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; color: white;">Email 1: The Problem Hook</h3>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Send: Tuesday-Thursday, 8-10am CT | Days 1-3 of outreach</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0.5rem 0;"><strong>Subject:</strong> #1 supplier position - but how's your digital shelf?</p>
+                        <p style="margin: 0.5rem 0;"><strong>Preview Text:</strong> Question about retailer scorecards and e-commerce performance</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">Hi Brian,
+
+Congratulations on getting the off-premise chain team back to #1 supplier position per Tamarron Consulting.
+
+Question: When you're in quarterly business reviews with major retail accounts, what metrics are you using to demonstrate your digital shelf performance vs. Constellation and AB InBev?
+
+Most sales leaders we work with have strong syndicated data on off-premise velocity and distribution, but limited visibility into the e-commerce side:
+
+- Are your products ranking in top 5 for "craft beer", "premium lager", "hard seltzer"?
+- Is your content quality (images, descriptions, specs) better or worse than Constellation?
+- Are you compliant with MAP policies across your online retail network?
+- When Diageo runs a promotion on Crown Royal, how quickly do you know?
+
+We're eStore, a European digital shelf analytics platform. Our strength is navigating complex multi-lingual, multi-retailer European markets, and we've built coverage across North American online retailers. We can monitor at least 18 of your online retailers without requiring any retailer onboarding.
+
+For a sales leader modernising chain strategy and holding #1 supplier position, digital shelf visibility seems like table stakes for your retail partnerships.
+
+Worth 15 minutes to discuss what your digital shelf looks like today?
+
+Best,
+James</div>
+
+                    <div style="background: #d4edda; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Client Reference Guide</h4>
+                        <p><strong>âœ… Can mention:</strong> RÃ©my Cointreau (spirits, similar retail complexity), Sazerac Global (spirits, comparable distributor model)</p>
+                        <p style="margin-bottom: 0;"><strong>âŒ Never mention:</strong> Direct beer competitors</p>
+                    </div>
+                </div>
+
+                <!-- EMAIL 2 -->
+                <div style="background: white; border: 2px solid #22bb69; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background: #22bb69; color: white; padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; color: white;">Email 2: The Value Demonstration</h3>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Send: 5-7 days after Email 1 | Days 6-10 of outreach</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0.5rem 0;"><strong>Subject:</strong> What retailers see (that you might not)</p>
+                        <p style="margin: 0.5rem 0;"><strong>Preview Text:</strong> Retailer scorecard gaps and your #1 position</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">Hi Brian,
+
+Following up on digital shelf performance at your key accounts.
+
+Here's what's happening: Major retailers all have internal scorecard systems that measure suppliers on e-commerce performance - content quality, search visibility, in-stock rates, customer ratings.
+
+You're probably not seeing those scorecards.
+
+The suppliers who are seeing them - and acting on the insights - are winning share of search, share of shelf, and share of promotional calendar.
+
+For Molson Coors with your #1 off-premise supplier position, maintaining that leadership requires visibility into:
+
+- Content performance: Are your beer descriptions and images better than Constellation's? (Retailers score this)
+- Search rankings: Who owns "craft beer", "premium lager", "light beer" on each online retailer? (Share of search predicts share of sales)
+- Pricing compliance: Are your 700+ distributors maintaining consistent pricing across digital channels? (MAP violations hurt retailer scorecards)
+- Promotional effectiveness: When you run a promotion, which online retailers execute it properly vs. which drop the ball?
+
+We work with beverage alcohol brands (primarily spirits) who face similar distributor complexity and multi-retailer challenges.
+
+Your #1 supplier position is vulnerable if Constellation or AB InBev have better digital shelf intelligence than you do. Want to discuss what they're potentially seeing?
+
+Best,
+James</div>
+
+                    <div style="background: #d4edda; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Client Reference Guide</h4>
+                        <p><strong>âœ… Can mention:</strong> "Beverage alcohol brands" (spirits focus, no direct competitors), RÃ©my Cointreau, Sazerac Global</p>
+                        <p style="margin-bottom: 0;"><strong>âŒ Never mention:</strong> Direct beer competitors as clients</p>
+                    </div>
+                </div>
+
+                <!-- EMAIL 3 -->
+                <div style="background: white; border: 2px solid #ff7a00; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background: #ff7a00; color: white; padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; color: white;">Email 3: The Case Study Close</h3>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Send: 5-7 days after Email 2 | Days 11-17 of outreach (Final email)</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0.5rem 0;"><strong>Subject:</strong> Final thought on your #1 supplier position</p>
+                        <p style="margin: 0.5rem 0;"><strong>Preview Text:</strong> Distributor insights and graceful exit</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">Hi Brian,
+
+Last note from me - I appreciate your time.
+
+You've built your #1 off-premise supplier position on execution excellence - 700+ distributors achieving 97.9% on-time delivery is impressive, and your modernised chain strategy is clearly working.
+
+Here's what I've learned working with beverage alcohol brands (primarily spirits): The brands that maintain category leadership are the ones who can see what's happening at the digital shelf level across all their online retail partners simultaneously.
+
+Not just "Did the retailer receive our shipment?" but "Is the product content correct? Are our distributors maintaining MAP compliance online? Is the retailer executing our promotion correctly?"
+
+Digital shelf analytics gives you that visibility across your online retail network.
+
+If you'd like to discuss what's possible for monitoring digital shelf performance vs. Constellation and AB InBev, I'm happy to explore it. Takes 15 minutes.
+
+If your plate is full with the November restructuring and distributor management, I completely understand. I'll check back in Q1.
+
+Either way, continued success maintaining that #1 position.
+
+Best,
+James
+
+P.S. - If digital shelf analytics isn't your direct responsibility, would you mind pointing me toward the right person? Brad Feinberg perhaps, or someone on your team?</div>
+                </div>
+            </div>
+
+            <!-- SOFIA COLUCCI EMAIL SEQUENCE -->
+            <div class="card" style="border-left: 4px solid #ffba1c;">
+                <h2>Email Sequence: Sofia Colucci</h2>
+                <p style="color: #666; font-style: italic;">Chief Marketing Officer | Priority #4 Contact</p>
+                
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                    <h3>Strategic Context</h3>
+                    <p>Sofia is CMO for North America and led Miller Lite's first Super Bowl ad in 30+ years. Post-November 2025 restructuring, she reports directly to CEO and needs to demonstrate business impact, not just brand metrics. Her challenge: connecting brand building investment to digital shelf performance.</p>
+                </div>
+
+                <!-- EMAIL 1 -->
+                <div style="background: white; border: 2px solid #1067db; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background: #1067db; color: white; padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; color: white;">Email 1: The Problem Hook</h3>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Send: Tuesday-Thursday, 8-10am CT | Days 1-3 of outreach</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0.5rem 0;"><strong>Subject:</strong> Miller Lite's Super Bowl investment - how's the digital shelf ROI?</p>
+                        <p style="margin: 0.5rem 0;"><strong>Preview Text:</strong> Question about brand building measurement across online retailers</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">Hi Sofia,
+
+Miller Lite's first Super Bowl ad in 30+ years and the "Tastes Like Miller Time" global platform are exactly the kind of bold brand investments that drive category leadership.
+
+Question: When you're measuring the ROI of that level of brand investment, how are you tracking the downstream impact across your online retail network?
+
+Most CMOs we work with have strong upper-funnel metrics (awareness, consideration, brand health) but struggle to connect brand investment to digital shelf performance:
+
+- Did the Super Bowl ad improve Miller Lite's search rankings for "light beer" online?
+- Are your brand assets (logos, messaging, "Tastes Like Miller Time" platform) consistently represented across all online retailers?
+- When you invest in brand building, is it translating to better content quality vs. Bud Light or Michelob Ultra?
+- How quickly do you see the impact on digital shelf metrics vs. waiting for syndicated panel data?
+
+We're eStore, a European digital shelf analytics platform. Our strength is navigating complex multi-lingual, multi-retailer European markets, and we've built coverage across North American online retailers. We can monitor at least 18 of your online retailers without requiring any retailer onboarding.
+
+For a CMO balancing "brand building with business management", closing the loop between brand investment and digital shelf performance seems critical.
+
+Worth 15 minutes to discuss how you're currently measuring this?
+
+Best,
+James</div>
+
+                    <div style="background: #d4edda; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Client Reference Guide</h4>
+                        <p><strong>âœ… Can mention:</strong> Consumer goods brands with similar brand-to-performance challenge, Sanofi (brand building in regulated category)</p>
+                        <p style="margin-bottom: 0;"><strong>âŒ Never mention:</strong> Direct beer or beverage competitors</p>
+                    </div>
+                </div>
+
+                <!-- EMAIL 2 -->
+                <div style="background: white; border: 2px solid #22bb69; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background: #22bb69; color: white; padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; color: white;">Email 2: The Value Demonstration</h3>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Send: 5-7 days after Email 1 | Days 6-10 of outreach</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0.5rem 0;"><strong>Subject:</strong> How Coors Light performs vs. Bud Light on digital shelf</p>
+                        <p style="margin: 0.5rem 0;"><strong>Preview Text:</strong> Brand health metrics meet retail execution reality</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">Hi Sofia,
+
+Following up on measuring brand investment ROI across your online retail partners.
+
+Here's the disconnect most CMOs face: You invest in brand building (Super Bowl ads, creative platforms, cultural campaigns) and measure success through brand health trackers. But between your brand investment and those brand health scores sits the actual customer experience at digital point-of-purchase.
+
+When someone searches "light beer" on a major online retailer after seeing your Miller Lite Super Bowl ad:
+- Does Miller Lite rank higher than Bud Light?
+- Are your product images and descriptions better than Michelob Ultra's?
+- Is your brand story ("Tastes Like Miller Time") consistently told across all online retailers?
+- Are you winning on content quality scores that retailers use for search algorithms?
+
+This is where brand building meets retail execution - and where most brands have a blind spot.
+
+We work with consumer goods brands (like Sanofi in healthcare) who face similar challenges balancing brand investment with multi-retailer performance measurement.
+
+For Molson Coors with your portfolio spanning iconic brands (Coors Light, Miller Lite, Blue Moon) and new innovations, having brand-level visibility across your online retail network would connect your marketing investment to actual digital shelf performance.
+
+Want to discuss how to measure Coors Light and Miller Lite performance vs. Bud Light and Michelob Ultra on content, search, and brand consistency?
+
+Best,
+James</div>
+
+                    <div style="background: #d4edda; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                        <h4 style="margin-top: 0;">Client Reference Guide</h4>
+                        <p><strong>âœ… Can mention:</strong> Sanofi (healthcare, similar brand-to-performance challenge), "Consumer goods brands"</p>
+                        <p style="margin-bottom: 0;"><strong>âŒ Never mention:</strong> Direct beverage competitors as clients</p>
+                    </div>
+                </div>
+
+                <!-- EMAIL 3 -->
+                <div style="background: white; border: 2px solid #ff7a00; border-radius: 10px; padding: 1.5rem; margin: 1.5rem 0;">
+                    <div style="background: #ff7a00; color: white; padding: 0.5rem 1rem; margin: -1.5rem -1.5rem 1rem -1.5rem; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; color: white;">Email 3: The Case Study Close</h3>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.9;">Send: 5-7 days after Email 2 | Days 11-17 of outreach (Final email)</p>
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <p style="margin: 0.5rem 0;"><strong>Subject:</strong> Final thought on brand-to-performance measurement</p>
+                        <p style="margin: 0.5rem 0;"><strong>Preview Text:</strong> Marketing integration priority and graceful exit</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-family: monospace; white-space: pre-wrap; line-height: 1.6;">Hi Sofia,
+
+Last note from me - I know your plate is full post-restructuring.
+
+Your November 2025 move to direct CEO reporting places marketing and commercial in closer integration. This creates both opportunity and accountability - you need unified measurement across brand investment and commercial performance.
+
+Your background at PepsiCo leading nutrition and hydration brands means you've seen this challenge before: How do you prove that brand building drives business results when the customer journey spans TV, social, search, and ultimately your entire online retail network?
+
+Digital shelf analytics bridges that gap. It shows you:
+
+1. Brand impact: Does your Super Bowl investment improve search rankings and content quality scores?
+2. Portfolio optimisation: Which brands (Coors Light, Miller Lite, Blue Moon) perform best digitally, and why?
+3. Competitive positioning: Where do you beat Bud Light and Michelob Ultra on digital shelf, and where are you vulnerable?
+
+If you'd like to discuss how to measure brand performance across your online retail network - particularly vs. AB InBev brands on content quality, search visibility, and brand consistency - I'm happy to explore what's possible in 15 minutes.
+
+If marketing analytics isn't your direct responsibility or if the timing isn't right with the restructuring integration, no problem. I'll check back in Q2.
+
+Either way, continued success with your brand building work - the Miller Lite Super Bowl campaign was a bold move.
+
+Best,
+James
+
+P.S. - If this is better suited for Brad Feinberg's team (Media, Digital and E-commerce), I'm happy to redirect there.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: OBJECTION HANDLING -->
+        <div id="objections" class="tab-content">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                <h3>Criteria-Based Decision Tree</h3>
+                <div class="info-box warning">
+                    <h4>âš ï¸ MODERATE FIT - Proceed with Transparent Timeline</h4>
+                    <p><strong>56% retailer coverage = 2-3 month implementation to full value</strong></p>
+                    <p>Molson Coors' 56% coverage enables immediate US market insights (68.9% of revenue) but requires UK grocery chains (Tesco, Sainsbury's) and DTC platforms (Ship and Sip, Revl, brand sites) onboarding for comprehensive visibility. This is a proceed scenario with honest timeline communication.</p>
+                </div>
+
+                <h3>Proceed Confidently If:</h3>
+                <ul>
+                    <li>âœ… Retailer coverage 60%+ (Molson Coors: 56% - borderline but acceptable)</li>
+                    <li>âœ… Strong operational decision-maker access (Brad Feinberg confirmed)</li>
+                    <li>âœ… Proven technology adoption (Profitero, CommerceIQ 16:1 ROI, sophisticated stack)</li>
+                    <li>âœ… Strategic timing factors present (November 2025 CEO restructuring, 2025 launch pipeline)</li>
+                    <li>âœ… Scale justifies investment ($11.6B revenue, 80+ brands, 100+ countries)</li>
+                    <li>âœ… E-commerce growth trajectory (21% CAGR, #1 supplier rating, but only 1% penetration = opportunity)</li>
+                </ul>
+
+                <h3>Proceed with Caveats If:</h3>
+                <ul>
+                    <li>âš ï¸ Retailer coverage 40-59% (Molson Coors: 56% - requires honest 2-3 month timeline discussion)</li>
+                    <li>âš ï¸ Critical gaps but onboarding feasible (UK grocery chains, DTC platforms achievable Month 2-3)</li>
+                    <li>âš ï¸ Strategic partnership mindset needed (not transactional quick-win expectation)</li>
+                    <li>âš ï¸ Phased value delivery acceptable (immediate US wins while UK/DTC onboarding proceeds)</li>
+                </ul>
+
+                <h3>Delay Outreach If:</h3>
+                <ul>
+                    <li>âŒ Retailer coverage below 40% (not applicable - Molson Coors 56%)</li>
+                    <li>âŒ No clear decision-maker access (not applicable - Brad Feinberg identified)</li>
+                    <li>âŒ Organisational chaos/lack of ownership (not applicable - November restructuring created clarity)</li>
+                    <li>âŒ Unrealistic expectations vs capabilities (address upfront with coverage transparency)</li>
+                </ul>
+
+                <h3>Next Steps for Molson Coors</h3>
+                <ol>
+                    <li><strong>Position with honesty:</strong> Lead with immediate US market coverage (20+ retailers, 68.9% revenue) while acknowledging 2-3 month timeline for comprehensive UK/DTC visibility</li>
+                    <li><strong>Reference proven ROI:</strong> Cite e.fundamentals 16:1 ROI demonstrating their ability to extract value from digital shelf platforms</li>
+                    <li><strong>Emphasise timing:</strong> CEO restructuring demanding "transform faster with urgency" + Brad Feinberg seeking "holistic approaches beyond basics"</li>
+                    <li><strong>Primary contact:</strong> Brad Feinberg (VP Media, Digital, E-commerce) as most direct decision-maker</li>
+                    <li><strong>Value proposition:</strong> Premiumisation tracking, 2025 innovation pipeline monitoring, competitive displacement intelligence, digital marketing ROI validation</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h2>"We already work with Profitero and CommerceIQ"</h2>
+                <p><strong>Acknowledge their investment:</strong> "That's excellent - the fact that you achieved 16:1 ROI with e.fundamentals (now CommerceIQ) in your UK market demonstrates your sophistication in leveraging digital shelf analytics."</p>
+        <p><strong>Identify the gap:</strong> "What we're hearing from brands using multiple platforms is that Profitero excels at monitoring and CommerceIQ provides UK-focused optimisation, but there's often a gap in unified global visibility, automated action prioritisation, and comprehensive North American insights - especially across your 80+ brands spanning beer, spirits, RTDs, and non-alcoholic categories."</p>
+        <p><strong>Positioning eStore as complementary:</strong> "eStore isn't about replacing what's working - it's about providing the 'holistic approach beyond the basics' Brad Feinberg mentioned publicly. We integrate with existing tech stacks (you're already using Salsify PIM, o9 IBP, Viant programmatic) to deliver unified insights and automated recommendations across your entire portfolio and all 30+ retailers simultaneously."</p>
+        <p><strong>Question to uncover need:</strong> "Given your 2025 innovation pipeline (Naked Life in March, ZOA flavours, Simply Spiked summer launch), are your current tools giving you launch readiness visibility across all retailers on Day 1, or is there manual work coordinating between Profitero's monitoring and CommerceIQ's optimisation?"</p>
+            </div>
+            <div class="card">
+                <h2>"How many of our retailers can you actually monitor?"</h2>
+                <p><strong>Lead with transparency:</strong> "I appreciate you asking directly - we can monitor 56% of your priority retailers immediately, which is 18 out of 32 platforms. This includes all your critical US retailers (Amazon, Walmart, Target, Kroger representing 68.9% of your revenue), plus key alcohol delivery platforms like Drizly, Total Wine, and Wine.com."</p>
+        <p><strong>Acknowledge the gaps honestly:</strong> "The gaps are primarily UK grocery chains - Tesco and Sainsbury's (representing about 35% of UK grocery market) - and your DTC platforms like Ship and Sip and Revl. We'd need to onboard these over 2-3 months for comprehensive coverage."</p>
+        <p><strong>Explain phased value:</strong> "Here's what makes this workable: We can deliver immediate value across your US market (your largest revenue source) while UK and DTC onboarding proceeds. Month 1, you're getting insights across 18 retailers. Month 2, we add Tesco and Sainsbury's. Month 3, we've onboarded your DTC sites that capture the clickstream data you prioritise."</p>
+        <p><strong>Reference their proven patience:</strong> "Given that your e.fundamentals partnership took months to deliver that 16:1 ROI, you understand that comprehensive digital shelf excellence is an investment. The difference is we're transparent upfront rather than overpromising Day 1 capabilities."</p>
+        <p><strong>Close with question:</strong> "Would having immediate US insights while we build out UK coverage deliver enough value to justify starting, or do you need comprehensive global coverage from Day 1?"</p>
+            </div>
+            <div class="card">
+                <h2>"We're already struggling with too many dashboards and tools"</h2>
+                <p><strong>Empathise with the pain:</strong> "I hear this constantly, and it's a legitimate concern - especially when you're managing Profitero, CommerceIQ, Salsify PIM, Domo analytics, o9 IBP, and multiple retailer portals. Tool fatigue is real."</p>
+        <p><strong>Position eStore as consolidator:</strong> "eStore isn't another dashboard to check - it's designed to reduce the number of places you need to look. We aggregate data from all those sources into a single OneNumber KPI that your entire team can align around, exactly like your 'category first, Molson Coors best' strategy requires."</p>
+        <p><strong>Cite their client testimonial:</strong> "One of our clients said 'introduction of OneNumber has been transformational, leading to enhanced focus on KPIs. The entire team is now in sync, knows exactly what they need to work on each day' - that's the opposite of more complexity."</p>
+        <p><strong>Automation benefit:</strong> "More importantly, eStore automates prioritisation. Instead of manually comparing Profitero alerts, CommerceIQ recommendations, and retailer performance across 80+ brands, we use AI to tell you the three things that matter most today. Your team spends time driving value, not wrangling data."</p>
+        <p><strong>Question:</strong> "How many hours per week would you estimate your team currently spends just gathering data from multiple systems before they can even start analysing it?"</p>
+            </div>
+            <div class="card">
+                <h2>"Our budget is locked for 2025"</h2>
+                <p><strong>Understand their constraints:</strong> "I appreciate the transparency about budget cycles - that's common for technology investments, especially after you've recently committed to o9 Solutions for IBP (December 2024) and Viant for programmatic advertising (starting 2026)."</p>
+        <p><strong>Alternative pathways:</strong> "A few options: (1) Many clients start with a pilot focused on specific brands or retailers - say, your 2025 innovation pipeline (Naked Life, ZOA flavours, Simply Spiked) across key platforms. (2) If digital marketing budget has flexibility, this could come from Brad Feinberg's $150M+ advertising spend as an optimisation tool. (3) Some organisations find budget by consolidating - if we're providing capabilities that overlap with current vendors, reallocation becomes possible."</p>
+        <p><strong>ROI timeline relevance:</strong> "Given your e.fundamentals partnership delivered 16:1 ROI, what was the payback period? If we can show similar returns within 3-6 months, does that change the 2025 budget constraint? Many finance teams approve mid-year investments when ROI is demonstrable."</p>
+        <p><strong>Long-term planning:</strong> "Alternatively, if 2025 truly isn't feasible, let's use this year for pilot discussions and 2026 budget planning. Your November 2025 restructuring is still settling, and Rahul Goyal's mandate to 'transform faster' suggests 2026 will have significant digital capability investments. Would scoping a 2026 partnership make more sense?"</p>
+            </div>
+            <div class="card">
+                <h2>"We need to see case studies from alcohol/beverage brands"</h2>
+                <p><strong>Acknowledge industry specificity:</strong> "That's a fair ask - alcohol has unique challenges with three-tier distribution, age verification, state-by-state regulations, and DTC restrictions that aren't faced by CPG brands."</p>
+        <p><strong>Client confidentiality reality:</strong> "We can't publicly disclose all client names due to NDAs, but what I can share is that we work with Danone (beverage and food company navigating similar digital shelf complexity across categories and geographies) and global FMCG brands managing comparable regulatory complexity."</p>
+        <p><strong>Framework transferability:</strong> "The CARS framework (Content, Availability, Ratings & Reviews, Search) that delivered measurable results for our clients - 9% uplift from adding video, 10% uplift from 0.1 star rating improvement, 30% sales increase from moving up 10 positions in search - applies directly to alcohol products on Amazon, Walmart, Total Wine, and Drizly."</p>
+        <p><strong>Your own proof point:</strong> "More importantly, you've already validated digital shelf ROI in alcohol with e.fundamentals' 16:1 return. That wasn't because e.fundamentals understood alcohol specifically - it's because optimising content, availability, and search works regardless of category. We're offering to extend that proven approach across more retailers and automate what you're doing manually."</p>
+        <p><strong>Pilot suggestion:</strong> "What if we start with a brand-specific pilot - say, Simply Spiked or ZOA Energy - where we can prove alcohol-specific ROI before expanding to your full beer portfolio? That gives you a case study with your own data."</p>
+            </div>
+            <div class="card">
+                <h2>"We're satisfied with our current e-commerce performance"</h2>
+                <p><strong>Acknowledge their success:</strong> "You absolutely should be proud - 21% B2C e-commerce CAGR from 2021-2024 outpacing the 18% category average, voted #1 supplier for e-commerce by your distributor network. That's exceptional performance."</p>
+        <p><strong>But highlight the gap:</strong> "Here's the opportunity: despite that growth, e-commerce still represents just 1% of your beer sales. Industry projections show 10% penetration within 5-8 years, meaning there's 9 percentage points of growth opportunity. That's potentially $1B+ in incremental revenue if you maintain your current market position as the channel scales."</p>
+        <p><strong>Competitive threat:</strong> "The challenge is Constellation Brands with Corona and Modelo gaining premium segment share. As they invest in digital shelf excellence and the channel grows, defending your position requires being better than them across Amazon, Walmart, Kroger, Instacart, Drizly, and 25+ other platforms simultaneously. Can you do that manually, or do you need automation?"</p>
+        <p><strong>Innovation pipeline pressure:</strong> "Plus you're launching Naked Life (March), ZOA flavours (January), Simply Spiked summer variant - each needing Day 1 optimisation across 30+ retailers. Your current 21% growth comes from established brands. Can you maintain that CAGR while adding 10+ new SKUs annually without scalable digital shelf management?"</p>
+        <p><strong>CEO mandate:</strong> "Rahul Goyal said 'our progress, though meaningful, is not enough.' If your CEO is pushing to 'transform faster,' where will that acceleration come from if not channel efficiency improvements?"</p>
+            </div>
+            <div class="card">
+                <h2>"Implementation sounds too complex and time-consuming"</h2>
+                <p><strong>Acknowledge implementation fatigue:</strong> "I understand - you've recently implemented o9 Solutions for IBP, you're managing Salsify with 350,000+ assets, and your team just went through a November 2025 organisational restructuring. Implementation bandwidth is real."</p>
+        <p><strong>eStore's low-touch approach:</strong> "Here's what makes eStore different: We have a structured 90-day onboarding plan with minimum input requirements. You don't need to migrate data or replace existing systems. We plug into what you already have - Salsify PIM provides product data, your Profitero connection provides retailer coverage, we automate from there."</p>
+        <p><strong>Phased value delivery:</strong> "More importantly, you get value before full implementation completes. Week 1-2: We configure the 18 retailers we already cover. Week 3-4: You're receiving insights and quick wins. Month 2-3: UK and DTC retailers onboard while you're already optimising US performance. First business wins can happen within 4 weeks - that's high ROI compared to traditional enterprise implementations."</p>
+        <p><strong>Your own success:</strong> "You achieved 16:1 ROI with e.fundamentals within months, not years. That implementation worked because you saw value fast. We use the same approach - crawl, walk, run rather than boiling the ocean."</p>
+        <p><strong>Resource reality:</strong> "What's the alternative? Your team manually checking 30+ retailers daily across 80+ brands? That's more time-consuming than a 90-day structured onboarding with ongoing automation afterward."</p>
+            </div>
+            <div class="card">
+                <h2>"Can you integrate with our existing tech stack?"</h2>
+                <p><strong>Answer yes confidently:</strong> "Absolutely - integration-friendly architecture is core to how we operate. You've invested significantly in technology (Salsify PIM, Profitero, CommerceIQ, Domo analytics, o9 IBP, Viant programmatic, BlueConic CDP, Shopify Plus), and we're designed to complement, not replace."</p>
+        <p><strong>Specific integration points:</strong></p>
+        <ul>
+            <li><strong>Salsify PIM:</strong> Your 350,000+ assets and product data feed directly into our content quality monitoring, eliminating duplicate data entry</li>
+            <li><strong>Profitero:</strong> We can ingest their monitoring data to enhance our insights rather than creating parallel tracking</li>
+            <li><strong>CommerceIQ:</strong> Their UK optimisation recommendations can flow into our unified action prioritisation</li>
+            <li><strong>Domo/BI tools:</strong> Our insights export to your existing reporting infrastructure so your leadership continues using familiar dashboards</li>
+            <li><strong>Retailer platforms:</strong> We connect to Amazon Vendor Central, Walmart Retail Link, etc. using your existing credentials and permissions</li>
+        </ul>
+        <p><strong>API-first approach:</strong> "We're built with APIs that enable data sharing in both directions. If you need specific integration requirements for your Vendavo pricing optimisation or your programmatic advertising with Viant, we can accommodate custom data flows."</p>
+        <p><strong>Question:</strong> "What are your must-have integration requirements? Are there specific systems where data needs to flow automatically, or are scheduled exports sufficient?"</p>
+            </div>
+            <div class="card">
+                <h2>"How is this different from what Profitero already does?"</h2>
+                <p><strong>Acknowledge Profitero's strengths:</strong> "Profitero excels at monitoring - they'll tell you your products are out of stock on Amazon, your pricing is off on Walmart, your content is incomplete on Kroger. That visibility is valuable, which is why you're using them."</p>
+        <p><strong>The gap in execution:</strong> "Where brands struggle is turning Profitero alerts into action. You get 50 notifications about content gaps across 80 brands and 30 retailers - which five matter most? Which will drive revenue this week? That's where eStore's AI-powered prioritisation differentiates."</p>
+        <p><strong>Automation vs monitoring:</strong> "Second difference: eStore doesn't just monitor, we automate actions. When your Blue Moon Non-Alcoholic content needs optimising on Amazon, we don't just alert you - we provide the optimised content, suggest the implementation sequence, and measure the revenue impact. Profitero shows the problem; eStore solves it."</p>
+        <p><strong>OneNumber simplification:</strong> "Third: Profitero generates dashboards and data. eStore generates a single OneNumber KPI that aligns your entire team - exactly what your 'category first, Molson Coors best' strategy requires. Your category management team, sales team, marketing team all work from the same prioritised action list."</p>
+        <p><strong>Geographic gap:</strong> "Finally, your e.fundamentals 16:1 ROI was UK-specific. Between Profitero (broad monitoring) and CommerceIQ (UK focus), where's your North American optimisation engine across Walmart, Target, Kroger, Drizly, Instacart? That's the white space eStore fills."</p>
+            </div>
+            <div class="card">
+                <h2>"Our DTC sites are run by third parties (Drizly, Minibar) so we don't control the digital shelf"</h2>
+                <p><strong>Acknowledge the three-tier constraint:</strong> "You're right that three-tier alcohol distribution prevents you from shipping directly to consumers - that's why you partner with Drizly as official fulfilment for your Coors Light and Blue Moon DTC sites, and Minibar for purchase behaviour data across 400+ brand partners."</p>
+        <p><strong>But you control product presence:</strong> "However, you absolutely control how your products appear on those platforms. When someone searches 'light beer' on Drizly or 'craft beer' on Total Wine, your content quality, product descriptions, imagery, pricing, and ratings determine whether they choose Coors Light or Constellation's Corona. That's the digital shelf you can optimise."</p>
+        <p><strong>DTC clickstream value:</strong> "More importantly, your own DTC sites (Ship and Sip, Revl, brand sites) were built specifically to capture clickstream data and consumer behaviour that third-party channels don't provide. You told your investors these sites prioritise data over direct revenue. Are you optimising that experience? When consumers land on coorslight.com/shop, is the journey to Drizly fulfilment seamless, or are there drop-off points you're not measuring?"</p>
+        <p><strong>Partnership platforms:</strong> "For Instacart (4.2x ROAS partner), Walmart.com, Amazon, Target.com - you have even more control. These are retailer digital shelves where your content, availability, and search ranking directly impact sales. You're not limited by three-tier distribution on these platforms."</p>
+        <p><strong>Question:</strong> "You achieved 188% sales increase with Ship and Sip in its first year - was that despite suboptimal digital shelf execution, or have you fully optimised the user journey and product presentation? Because if there's improvement opportunity, that multiplies your existing success."</p>
+            </div>
+
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                
+                <h3>Core Approach</h3>
+                <ul>
+                    <li><strong>Never dismiss the objection:</strong> Even if it seems illogical, it represents a real concern to them</li>
+                    <li><strong>Ask clarifying questions:</strong> Often the stated objection isn't the real issue</li>
+                    <li><strong>Use evidence:</strong> Facts, examples, case studies are more credible than assertions</li>
+                    <li><strong>Offer flexibility:</strong> Pilots, phased approaches, customisation options</li>
+                    <li><strong>Be honest about fit:</strong> If they're genuinely not a good fit, say so</li>
+                </ul>
+                
+                <h3>When to Walk Away</h3>
+                <p>Sometimes the right answer is to acknowledge this isn't the right fit:</p>
+                <ul>
+                    <li>Retailer coverage is too low and they need immediate value</li>
+                    <li>They're genuinely satisfied with existing solution and have no gaps</li>
+                    <li>Budget simply isn't there and won't be for 12+ months</li>
+                    <li>They don't have organisational readiness (too chaotic, no ownership)</li>
+                    <li>Their expectations exceed what we can realistically deliver</li>
+                </ul>
+                
+                <p><strong>In these cases:</strong> Be honest that it's not the right fit right now. Leave the door open for future conversations. They'll respect the honesty and may come back when circumstances change.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>

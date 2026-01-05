@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outreach Plan for Bausch + Lomb</title>
+    <meta name="robots" content="noindex, nofollow">
+    <base target="_blank">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header-meta {
+            font-size: 0.9rem;
+            opacity: 0.95;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .header-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            background: #1067db;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        
+        .card h2 {
+            color: #1067db;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .card h3 {
+            color: #2c2c2c;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .card h4 {
+            color: #2c2c2c;
+            font-size: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #1067db;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+        
+        .info-box.success {
+            border-left-color: #22bb69;
+            background: #f0fdf4;
+        }
+        
+        .info-box.warning {
+            border-left-color: #ffba1c;
+            background: #fffbeb;
+        }
+        
+        .info-box.danger {
+            border-left-color: #f44f2f;
+            background: #fef2f2;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+        
+        .coverage-dashboard {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+        
+        .coverage-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .coverage-percentage {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #ffba1c;
+        }
+        
+        .coverage-bar {
+            background: #e9ecef;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .coverage-fill {
+            background: linear-gradient(90deg, #ffba1c 0%, #ff7a00 100%);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            width: 52.5%;
+        }
+        
+        .tier-coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tier-stat {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .tier-stat.excellent {
+            background: #f0fdf4;
+            border: 2px solid #22bb69;
+        }
+        
+        .tier-stat.poor {
+            background: #fef2f2;
+            border: 2px solid #f44f2f;
+        }
+        
+        .tier-stat.moderate {
+            background: #fffbeb;
+            border: 2px solid #ffba1c;
+        }
+        
+        .tier-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .tier-label {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        
+        .recommendation-box {
+            background: #fffbeb;
+            border: 2px solid #ffba1c;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .recommendation-box h3 {
+            color: #ff7a00;
+            margin-top: 0;
+        }
+        
+        .retailer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .retailer-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .retailer-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .retailer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        
+        .retailer-name {
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .retailer-name a {
+            color: #1067db;
+            text-decoration: none;
+        }
+        
+        .retailer-name a:hover {
+            text-decoration: underline;
+        }
+        
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .status-covered {
+            background: #f0fdf4;
+            color: #22bb69;
+        }
+        
+        .status-not-covered {
+            background: #fef2f2;
+            color: #f44f2f;
+        }
+        
+        .status-problematic {
+            background: #fffbeb;
+            color: #ffba1c;
+        }
+        
+        .retailer-market {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .retailer-reason {
+            font-size: 0.9rem;
+            color: #2c2c2c;
+        }
+        
+        .retailer-notes {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+        
+        .contact-card {
+            background: white;
+            border-left: 4px solid #1067db;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .contact-card.secondary {
+            border-left-color: #68d7fa;
+        }
+        
+        .contact-priority {
+            background: #1067db;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-priority.secondary {
+            background: #68d7fa;
+            color: #2c2c2c;
+        }
+        
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-title {
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: #0077b5;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .contact-link:hover {
+            background: #005885;
+        }
+        
+        .email-container {
+            margin-bottom: 2rem;
+        }
+        
+        .email-template {
+            margin-bottom: 2rem;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .email-header {
+            background: #1067db;
+            color: white;
+            padding: 1rem 1.5rem;
+        }
+        
+        .email-header h4 {
+            margin: 0;
+            color: white;
+        }
+        
+        .email-meta {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .email-meta-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-meta-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .email-meta-label {
+            font-weight: 600;
+            min-width: 120px;
+            color: #2c2c2c;
+        }
+        
+        .email-meta-value {
+            color: #6c757d;
+        }
+        
+        .email-body {
+            background: white;
+            padding: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .email-body p {
+            margin-bottom: 1rem;
+        }
+        
+        .email-body p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .email-strategy {
+            background: #fffbeb;
+            border-left: 3px solid #ffba1c;
+            padding: 1rem 1.5rem;
+            margin: 0;
+        }
+        
+        .email-strategy h5 {
+            margin: 0 0 0.5rem 0;
+            color: #2c2c2c;
+        }
+        
+        .objection-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .objection-statement {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+            border-left: 4px solid #f44f2f;
+        }
+        
+        .response-section {
+            padding: 0.5rem 0;
+        }
+        
+        .response-section h4 {
+            color: #22bb69;
+            margin-bottom: 0.75rem;
+        }
+        
+        .evidence-box {
+            background: #f0fdf4;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .checklist li:before {
+            content: "âœ“";
+            color: #22bb69;
+            font-weight: 700;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+        }
+        
+        .key-insight {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .key-insight h4 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .retailer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .coverage-percentage {
+                font-size: 3rem;
+            }
+        }
+        
+        @media print {
+            .tabs {
+                display: none;
+            }
+            
+            .tab-content {
+                display: block !important;
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Outreach Plan for Bausch + Lomb</h1>
+        <div class="header-meta">
+            <div class="header-meta-item">
+                <span>Created:</span>
+                <span>27 November 2025</span>
+            </div>
+            <div class="header-meta-item">
+                <span>Author:</span>
+                <span>James Cudd</span>
+            </div>
+            <div class="header-meta-item">
+                <span>Coverage:</span>
+                <span>52.5% (Moderate Fit)</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('strategy')">Opportunity Strategy</button>
+            <button class="tab" onclick="showTab('retailers')">Retailer Check</button>
+            <button class="tab" onclick="showTab('contacts')">Contact Strategy</button>
+            <button class="tab" onclick="showTab('emails')">Email Sequence</button>
+            <button class="tab" onclick="showTab('objections')">Objection Handling</button>
+        </div>
+
+        <!-- TAB 1: OPPORTUNITY STRATEGY -->
+        <div id="strategy" class="tab-content active">
+            <div class="card">
+                <h2>Strategic Assessment Summary</h2>
+                <p>Bausch + Lomb presents a moderate fit for eStore with exceptional mass market coverage but gaps in specialist vision retailers. The critical insight: we have 100% coverage of ALL major mass market retailers (Amazon, Walmart, Target, CVS, Walgreens, Boots, Superdrug, Kroger, Costco, Sam's Club) where B+L's OTC Consumer portfolio (LUMIFY, Blink) primarily sells.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">$4.79B</div>
+                        <div class="stat-label">Annual Revenue (FY 2024)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">52.5%</div>
+                        <div class="stat-label">Retailer Coverage</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">40</div>
+                        <div class="stat-label">Key Retailers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">~100</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                </div>
+
+                <div class="key-insight">
+                    <h4>Key Insight: The Coverage Story is Better Than It Looks</h4>
+                    <p>Overall coverage: 21/40 retailers (52.5%). But Tier 1 mass market: 12/12 (100%). The gap is specialist online vision retailers (1-800 Contacts, Vision Direct, Lens.com) important for contact lenses but not the primary channel for OTC consumer products like LUMIFY and Blink.</p>
+                </div>
+
+                <div class="info-box warning">
+                    <strong>Overall Assessment:</strong> Moderate Fit - Proceed with Caveats. Lead with 100% mass market coverage, acknowledge specialist vision retailer gap. Implementation: 2-4 weeks for mass market monitoring, 2-3 months for comprehensive coverage.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Strategic Context: Why Now</h2>
+                <p>Five convergent factors create optimal timing:</p>
+                
+                <h3>1. Active Infrastructure Investment</h3>
+                <p>Opal marketplace launched October 2024, composable commerce with commercetools, new Chief Digital Officer role, Office of Digital Transformation as CEO priority.</p>
+                
+                <h3>2. Growing OTC Consumer Portfolio</h3>
+                <p>LUMIFY achieving double-digit growth annually since 2018 launch with 50,000+ five-star reviews, Blink acquisition from J&J (August 2023) requiring integration across all channels.</p>
+                
+                <h3>3. Leadership Prioritisation</h3>
+                <p>CEO Brent Saunders (rejoined March 2023) has explicitly prioritised digital transformation with dedicated executive resources.</p>
+                
+                <h3>4. European Expansion Requirements</h3>
+                <p>Approximately 100-country operation requires European retail visibility that US-centric platforms cannot provide.</p>
+                
+                <h3>5. Channel Shift Acceleration</h3>
+                <p>Online contact lens purchases reached 39% in Q1 2025 (up from 35% in Q4 2024), e-commerce growing at 9.2% CAGR as fastest distribution channel.</p>
+            </div>
+
+            <div class="card">
+                <h2>Why Bausch + Lomb is a Strong Opportunity Despite Moderate Coverage</h2>
+                <p>The 52.5% overall coverage initially suggests moderate fit, but deeper analysis reveals exceptional strategic alignment. The critical insight: eStore has 100% coverage of every major mass market retailer where B+L's highest-growth OTC Consumer products sell.</p>
+                
+                <h3>LUMIFY Strategic Importance</h3>
+                <p>Launched 2018, achieved double-digit growth every year, 50,000+ five-star reviews, #1 eye doctor recommended redness reliever (90% of doctor recommendations per IQVIA). FDA-approved as only OTC brimonidine tartrate product with lower rebound redness risk than Visine/Clear Eyes.</p>
+                
+                <h3>Blink Integration Complexity</h3>
+                <p>Acquired from J&J August 2023, now requires monitoring across pharmacy, mass market, and online channels.</p>
+                
+                <h3>European Strategic Advantage</h3>
+                <p>eStore's European-native platform provides Boots, Superdrug, Tesco, Sainsbury's, Rossmann, DM, Carrefour coverage that US-centric competitors cannot match.</p>
+            </div>
+
+            <div class="card">
+                <h2>Distribution Complexity Validates Strong Fit</h2>
+                <p>B+L operates across four distinct distribution models:</p>
+                
+                <h3>D2C via Opal</h3>
+                <p>Launched October 2024 as first dedicated e-commerce platform, B2B2C marketplace.</p>
+                
+                <h3>B2B Professional</h3>
+                <p>Eye Care Professionals control 58.2% of contact lens distribution.</p>
+                
+                <h3>Third-Party Retail</h3>
+                <p>40+ online retailers spanning pharmacy, mass market, grocery, clubs, and specialist vision.</p>
+                
+                <h3>International Markets</h3>
+                <p>Approximately 100 countries with varying regulations and retail structures.</p>
+                
+                <div class="info-box">
+                    <strong>Product Categories Create Monitoring Complexity:</strong> Vision Care ($2.74B, 57%), OTC Consumer (LUMIFY, Blink), Pharmaceuticals ($1.21B, 25%), Surgical ($843M, 18%). Different regulatory requirements across FDA, MHRA, EMA, different retailer landscapes, different languages and content requirements.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Competitive Category Dynamics Create Urgent Need</h2>
+                <p>Eye care industry concentrated among 'Big Four' controlling approximately 65% of global contact lens market:</p>
+                
+                <h3>The Big Four</h3>
+                <p><strong>Johnson & Johnson Vision</strong> - market leader in disposable lenses. <strong>Alcon</strong> - dominates surgical and IOL, $9B+ revenue. <strong>CooperVision</strong> - excels in specialty lenses, UK-headquartered. <strong>Bausch + Lomb</strong> - differentiates through lens care dominance and dry eye portfolio.</p>
+                
+                <h3>OTC Consumer Competitive Intensity</h3>
+                <p>LUMIFY competes against Visine and Clear Eyes (tetrahydrozoline-based with rebound redness concerns) and Systane/Refresh artificial tears. LUMIFY differentiation: FDA-approved brimonidine tartrate, clinically proven lower rebound risk, premium positioning $19-27 versus Visine $3-4.</p>
+                
+                <h3>Category Growth Dynamics</h3>
+                <p>E-commerce growing at 9.2% CAGR (fastest channel), online contact lens purchases reached 39% in Q1 2025 versus 35% in Q4 2024.</p>
+            </div>
+
+            <div class="card">
+                <h2>Product Portfolio Breadth Creates Monitoring Complexity</h2>
+                <p>Approximately 400 products across four business segments:</p>
+                
+                <h3>Vision Care Segment ($2.74B, 57%)</h3>
+                <p>INFUSE daily contact lenses (launched 2020, Multifocal 2023, Astigmatism 2024), ULTRA monthly lenses, Biotrue and ReNu lens care solutions.</p>
+                
+                <h3>OTC Consumer Portfolio</h3>
+                <p>LUMIFY redness relief (50,000+ five-star reviews, double-digit annual growth), LUMIFY Eye Illuminations line (2023), Blink portfolio (acquired J&J August 2023), PreserVision AREDS 2 vitamins, Ocuvite supplements.</p>
+                
+                <h3>Recent Launches</h3>
+                <p>LUMIFY Preservative Free (May 2025, $26.99 MSRP), INFUSE for Astigmatism (2024).</p>
+                
+                <div class="info-box">
+                    <strong>SKU Multiplication:</strong> Each product has multiple pack sizes, multiple retailers, multiple markets, multiple promotional periods.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Implementation Readiness Assessment</h2>
+                
+                <div class="tier-coverage-grid">
+                    <div class="tier-stat excellent">
+                        <div class="tier-value" style="color: #22bb69;">100%</div>
+                        <div class="tier-label">Tier 1 Coverage</div>
+                        <div style="font-size: 0.8rem; color: #22bb69; margin-top: 0.25rem;">12/12 retailers</div>
+                    </div>
+                    <div class="tier-stat poor">
+                        <div class="tier-value" style="color: #f44f2f;">7%</div>
+                        <div class="tier-label">Tier 2 Coverage</div>
+                        <div style="font-size: 0.8rem; color: #f44f2f; margin-top: 0.25rem;">1/14 retailers</div>
+                    </div>
+                    <div class="tier-stat moderate">
+                        <div class="tier-value" style="color: #ff7a00;">57%</div>
+                        <div class="tier-label">Tier 3 Coverage</div>
+                        <div style="font-size: 0.8rem; color: #ff7a00; margin-top: 0.25rem;">8/14 retailers</div>
+                    </div>
+                </div>
+                
+                <h3>What We Can Monitor Immediately</h3>
+                <p>All major mass market retailers where LUMIFY and Blink OTC products sell: Amazon (US, UK, Canada), Walmart, Target, CVS, Walgreens, Boots, Superdrug, Kroger, Costco, Sam's Club, plus European retailers (Tesco, Sainsbury's, Rossmann, DM, Carrefour).</p>
+                
+                <h3>What Requires Onboarding</h3>
+                <p>Specialist vision retailers: 1-800 Contacts, Vision Direct, Lens.com, Contacts Direct, Coastal, Clearly, and others. These are more relevant for contact lens monitoring than OTC Consumer products.</p>
+                
+                <h3>Estimated Time-to-Value</h3>
+                <p><strong>2-4 weeks</strong> for mass market monitoring (immediate value on LUMIFY, Blink). <strong>2-3 months</strong> for comprehensive coverage including specialist vision retailers.</p>
+                
+                <div class="info-box warning">
+                    <strong>Data Currency Notice:</strong> Financial figures and strategic initiatives based on publicly available information as of November 2025. Please verify current data during conversations.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Final Assessment</h2>
+                <ul class="checklist">
+                    <li>Revenue and market position verified ($4.79B, Big Four eye care)</li>
+                    <li>Distribution complexity requiring digital shelf analytics</li>
+                    <li>100% Tier 1 mass market coverage (12/12 retailers)</li>
+                    <li>European coverage advantage (Boots, Superdrug, Rossmann, DM, Carrefour)</li>
+                    <li>Active digital transformation initiatives (Opal, Office of Digital Transformation)</li>
+                    <li>High-growth OTC products (LUMIFY double-digit growth, 50,000+ reviews)</li>
+                    <li>Operational decision-makers identified with specific hooks</li>
+                    <li>Timing aligned with infrastructure investment phase</li>
+                </ul>
+                
+                <div class="info-box warning">
+                    <strong>Recommendation:</strong> Proceed with Caveats - Lead with 100% mass market coverage where OTC Consumer products (LUMIFY, Blink) generate majority revenue. Acknowledge specialist vision retailer gap but position as phased Q1 2026 expansion. eStore's European coverage provides genuine differentiation versus US-centric competitors.
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: RETAILER CHECK -->
+        <div id="retailers" class="tab-content">
+            <div class="coverage-dashboard">
+                <div class="coverage-header">
+                    <h2>Retailer Coverage Analysis</h2>
+                    <p>Cross-referencing Bausch + Lomb's retailers against eStore's existing monitoring capabilities</p>
+                    <div class="coverage-percentage">52.5%</div>
+                    <p><strong>21 out of 40</strong> retailers already covered by eStore</p>
+                    <div class="coverage-bar">
+                        <div class="coverage-fill">52.5%</div>
+                    </div>
+                </div>
+                
+                <div class="tier-coverage-grid">
+                    <div class="tier-stat excellent">
+                        <div class="tier-value" style="color: #22bb69;">100%</div>
+                        <div class="tier-label">Tier 1: Mass Market</div>
+                        <div style="font-size: 0.8rem; color: #22bb69; margin-top: 0.25rem;">12/12 covered</div>
+                    </div>
+                    <div class="tier-stat poor">
+                        <div class="tier-value" style="color: #f44f2f;">7%</div>
+                        <div class="tier-label">Tier 2: Specialist</div>
+                        <div style="font-size: 0.8rem; color: #f44f2f; margin-top: 0.25rem;">1/14 covered</div>
+                    </div>
+                    <div class="tier-stat moderate">
+                        <div class="tier-value" style="color: #ff7a00;">57%</div>
+                        <div class="tier-label">Tier 3: Regional</div>
+                        <div style="font-size: 0.8rem; color: #ff7a00; margin-top: 0.25rem;">8/14 covered</div>
+                    </div>
+                </div>
+                
+                <div class="recommendation-box">
+                    <h3>âš ï¸ MODERATE FIT - PROCEED WITH CAVEATS</h3>
+                    <p>The headline 52.5% coverage masks a more nuanced picture. We have <strong>100% coverage of all Tier 1 mass market retailers</strong> where LUMIFY and Blink OTC products generate majority revenue. The gap is specialist vision retailers (1-800 Contacts, Vision Direct) - more relevant for contact lenses than OTC Consumer products.</p>
+                    <p><strong>Positioning:</strong> Lead with immediate mass market value, position specialist retailers as phased expansion.</p>
+                    <p><strong>Estimated time-to-value:</strong> 2-4 weeks for mass market, 2-3 months for comprehensive coverage</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Priority Tier 1: Major Mass Market Retailers</h2>
+                <p>Essential high-volume platforms where Bausch + Lomb OTC Consumer products are sold - <strong style="color: #22bb69;">100% COVERED</strong></p>
+                
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.amazon.com" target="_blank">Amazon US</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Largest US e-commerce platform, critical for LUMIFY and Blink visibility. Subscribe & Save programs, HSA/FSA eligible purchases, Prime delivery drives high conversion.</div>
+                        <div class="retailer-notes">HIGH PRIORITY - Mass market OTC consumer channel</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.walmart.com" target="_blank">Walmart</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Largest US retailer with 4,700+ stores. Mass market reach critical for LUMIFY and Blink OTC portfolio.</div>
+                        <div class="retailer-notes">HIGH PRIORITY - Volume driver for OTC consumer</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.target.com" target="_blank">Target</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">1,900+ stores with higher-income demographics. Premium positioning aligns with LUMIFY strategy.</div>
+                        <div class="retailer-notes">HIGH PRIORITY - Premium mass market</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.cvs.com" target="_blank">CVS</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Largest US pharmacy chain with 9,000+ locations. Critical pharmacy channel for LUMIFY, Blink, lens care.</div>
+                        <div class="retailer-notes">HIGH PRIORITY - Pharmacy authority</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.walgreens.com" target="_blank">Walgreens</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">9,000+ store pharmacy network. Key competitor to CVS requiring equivalent monitoring.</div>
+                        <div class="retailer-notes">HIGH PRIORITY - Pharmacy parity</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.costco.com" target="_blank">Costco</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Premium warehouse club with optical departments. Bulk formats and higher-income demographics.</div>
+                        <div class="retailer-notes">Club channel</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.samsclub.com" target="_blank">Sam's Club</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">600+ locations with optical centers. Walmart-owned club complementing main channel.</div>
+                        <div class="retailer-notes">Club channel - complements Walmart</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.kroger.com" target="_blank">Kroger</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Largest US supermarket (2,700+ stores) with growing health and wellness departments.</div>
+                        <div class="retailer-notes">Grocery channel - growing OTC</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.boots.com" target="_blank">Boots</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">UK's largest pharmacy with 2,200+ stores. Critical for LUMIFY UK expansion.</div>
+                        <div class="retailer-notes">HIGH PRIORITY - UK pharmacy leader</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.superdrug.com" target="_blank">Superdrug</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">900+ UK stores, competitive pricing versus Boots. Important for UK market share.</div>
+                        <div class="retailer-notes">UK pharmacy competitor</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.amazon.co.uk" target="_blank">Amazon UK</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">Largest UK e-commerce platform. Critical for LUMIFY and Blink UK presence.</div>
+                        <div class="retailer-notes">HIGH PRIORITY - UK e-commerce leader</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.amazon.ca" target="_blank">Amazon Canada</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">Canada</div>
+                        <div class="retailer-reason">Dominant Canadian e-commerce. Todd LaRue's VP Sales remit includes Canada.</div>
+                        <div class="retailer-notes">Canada market</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Priority Tier 2: Specialist & DTC Retailers</h2>
+                <p>Category-specific platforms with high purchase intent - <strong style="color: #f44f2f;">7% COVERED (1/14)</strong></p>
+                
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.1800contacts.com" target="_blank">1-800 Contacts</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Largest US online contact lens retailer. Less relevant for LUMIFY/Blink OTC focus.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Specialist vision</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.visiondirect.co.uk" target="_blank">Vision Direct UK</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom / Europe</div>
+                        <div class="retailer-reason">Serves six European markets for contact lenses.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - European specialist</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.lens.com" target="_blank">Lens.com</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Established online contact lens retailer (operating since 1995).</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Specialist vision</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.contactsdirect.com" target="_blank">Contacts Direct</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">EssilorLuxottica-owned contact lens retailer.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Essilor-owned</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.coastal.com" target="_blank">Coastal</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States / Canada</div>
+                        <div class="retailer-reason">EssilorLuxottica-owned online optical retailer.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Essilor-owned</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.clearly.ca" target="_blank">Clearly</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">Canada</div>
+                        <div class="retailer-reason">Leading Canadian online eyewear and contact lens retailer.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Canada specialist</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.chemistwarehouse.com.au" target="_blank">Chemist Warehouse Australia</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">Australia</div>
+                        <div class="retailer-reason">Australia's largest pharmacy retailer with 500+ stores.</div>
+                        <div class="retailer-notes">Australian market - covered</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.pharmacy2u.co.uk" target="_blank">Pharmacy2U</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">UK's leading registered online pharmacy.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - UK online pharmacy</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.iherb.com" target="_blank">iHerb</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">Global (180+ countries)</div>
+                        <div class="retailer-reason">Global wellness platform (PreserVision, Ocuvite relevant).</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Global wellness</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.vitacost.com" target="_blank">Vitacost</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Kroger-owned wellness e-commerce (vitamins and supplements).</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Kroger wellness</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.webeyecare.com" target="_blank">WebEyeCare</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Discount contact lens retailer.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Discount specialist</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.ezcontacts.com" target="_blank">EZContacts</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Price-match guarantee specialist retailer.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Price-match specialist</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.lensdirect.com" target="_blank">LensDirect</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Online contact lens and eyewear retailer.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Specialist</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.eyeconic.com" target="_blank">Eyeconic</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">VSP Vision Care's insurance-linked digital platform.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - VSP-owned</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Priority Tier 3: Regional & Niche Retailers</h2>
+                <p>Secondary platforms for comprehensive coverage - <strong style="color: #ff7a00;">57% COVERED (8/14)</strong></p>
+                
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.tesco.com" target="_blank">Tesco</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">UK's largest supermarket. Grocery channel for OTC products.</div>
+                        <div class="retailer-notes">UK grocery</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.sainsburys.co.uk" target="_blank">Sainsbury's</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">Major UK supermarket. Complements Tesco.</div>
+                        <div class="retailer-notes">UK grocery</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.rossmann.de" target="_blank">Rossmann</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">Germany / Europe</div>
+                        <div class="retailer-reason">4,000+ stores across 10 European countries. Major drugstore.</div>
+                        <div class="retailer-notes">European drugstore - multi-country</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.dm.de" target="_blank">DM Drogerie Markt</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">Germany / Europe</div>
+                        <div class="retailer-reason">Europe's largest drugstore (4,100+ locations).</div>
+                        <div class="retailer-notes">European drugstore leader</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.carrefour.fr" target="_blank">Carrefour</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">France / Europe</div>
+                        <div class="retailer-reason">Major European hypermarket across France, Spain, Italy.</div>
+                        <div class="retailer-notes">European hypermarket</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.lloydspharmacy.com" target="_blank">Lloyds Pharmacy</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom / Ireland</div>
+                        <div class="retailer-reason">UK and Ireland pharmacy chain.</div>
+                        <div class="retailer-notes">UK/Ireland pharmacy</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.heb.com" target="_blank">H-E-B</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States (Texas)</div>
+                        <div class="retailer-reason">Texas regional supermarket with 400+ stores.</div>
+                        <div class="retailer-notes">Regional US - Texas</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.meijer.com" target="_blank">Meijer</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States (Midwest)</div>
+                        <div class="retailer-reason">500+ Midwest locations with pharmacy departments.</div>
+                        <div class="retailer-notes">Regional US - Midwest</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.publix.com" target="_blank">Publix</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States (Southeast)</div>
+                        <div class="retailer-reason">1,300+ Southeast stores.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Southeast</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.riteaid.com" target="_blank">Rite Aid</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States (Northeast/California)</div>
+                        <div class="retailer-reason">Northeast and California pharmacy chain.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Regional pharmacy</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.watsons.com" target="_blank">Watsons (Asian Markets)</a></span>
+                            <span class="status-badge status-covered">âœ“ Covered</span>
+                        </div>
+                        <div class="retailer-market">Asia Pacific</div>
+                        <div class="retailer-reason">8,000+ stores across 10+ Asian markets.</div>
+                        <div class="retailer-notes">Asian market intelligence</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.target.com.au" target="_blank">Target Australia</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">Australia</div>
+                        <div class="retailer-reason">Australian retail chain.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Australia</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.falabella.com" target="_blank">Falabella</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">Latin America</div>
+                        <div class="retailer-reason">Major Latin American department store.</div>
+                        <div class="retailer-notes">ONBOARDING REQUIRED - Latin America</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name"><a href="https://www.wholefoodsmarket.com" target="_blank">Whole Foods / Amazon Fresh</a></span>
+                            <span class="status-badge status-not-covered">âœ— Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Premium grocery, redirects to Amazon for online orders.</div>
+                        <div class="retailer-notes">Redirects to Amazon - covered via Amazon US</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: CONTACT STRATEGY -->
+        <div id="contacts" class="tab-content">
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+                <p>These are the people who will actually evaluate, implement, and use eStore</p>
+                
+                <div class="contact-card">
+                    <span class="contact-priority">Priority #1</span>
+                    <div class="contact-name">Michelle Nilsson</div>
+                    <div class="contact-title">Digital Commerce Executive Director, Consumer Division</div>
+                    
+                    <h4>Why She's the Right Contact</h4>
+                    <p>Leads digital commerce for B+L's Consumer division with 17 years tenure. Direct responsibility for LUMIFY's digital shelf performance (50,000+ reviews, double-digit growth) and Blink integration. Awards: Drug Store News Rising Star 2019, Top Women 2021/2023. Reports to John Ferris. Based in Scottsdale, Arizona.</p>
+                    
+                    <h4>Specific Hooks</h4>
+                    <p>LUMIFY maintaining growth requires systematic monitoring. Blink acquisition (August 2023) creates integration complexity. Consumer expansion into Amazon Fresh and international markets (Boots, Superdrug) requires visibility.</p>
+                    
+                    <a href="https://www.linkedin.com/in/michelle-nilsson-ðŸ‘ï¸-052bbb56" target="_blank" class="contact-link">View LinkedIn Profile</a>
+                </div>
+                
+                <div class="contact-card">
+                    <span class="contact-priority">Priority #2</span>
+                    <div class="contact-name">Devang Modi</div>
+                    <div class="contact-title">Vice President, Digital Strategy</div>
+                    
+                    <h4>Why He's the Right Contact</h4>
+                    <p>Leads digital transformation as VP Digital Strategy (November 2023). 25+ years pharma/MedTech. Key projects: Opal launch October 2024, composable commerce achieving 'zero to beta in four months', AI/ML initiatives. Speaking at CommerceNext 2025. Reports to CEO Brent Saunders.</p>
+                    
+                    <h4>Specific Hooks</h4>
+                    <p>Opal platform requires performance monitoring as it scales. Composable commerce creates monitoring layer opportunity. CEO-mandate digital transformation. Third-party retail visibility needed to inform owned channel strategy. European expansion considerations.</p>
+                    
+                    <a href="https://www.linkedin.com/in/devang-r-modi-nj/" target="_blank" class="contact-link">View LinkedIn Profile</a>
+                </div>
+                
+                <div class="contact-card">
+                    <span class="contact-priority">Priority #3</span>
+                    <div class="contact-name">Todd LaRue</div>
+                    <div class="contact-title">Vice President of Sales U.S. and Canada, Bausch + Lomb Consumer</div>
+                    
+                    <h4>Why He's the Right Contact</h4>
+                    <p>Leads 1,174-person sales organisation responsible for Consumer/OTC revenue at major retailers. 14+ years at B+L. Previous J&J Consumer (Club Business). Reports to John Ferris.</p>
+                    
+                    <h4>Specific Hooks</h4>
+                    <p>1,174 sales reps need performance intelligence. LUMIFY double-digit growth requires account optimisation. Blink integration creates training complexity. US and Canada remit spans diverse formats. Club channel background aligns with coverage.</p>
+                    
+                    <a href="https://www.linkedin.com/in/todd-larue-8b83163/" target="_blank" class="contact-link">View LinkedIn Profile</a>
+                </div>
+                
+                <div class="contact-card">
+                    <span class="contact-priority">Priority #4</span>
+                    <div class="contact-name">John Conos</div>
+                    <div class="contact-title">Senior Director of Consumer Healthcare Sales Operations</div>
+                    
+                    <h4>Why He's the Right Contact</h4>
+                    <p>Manages Category Management, Customer Marketing, Retail Operations supporting Todd LaRue's 1,174-person organisation. Long tenure across Vision Care and Consumer Healthcare. Based in Swansea, Massachusetts. Operational role: sales planning, category management, retail operations.</p>
+                    
+                    <h4>Specific Hooks</h4>
+                    <p>Sales ops needs automated retail data for 1,174 reps. Category management requires current intelligence. Manual processes create inefficiency. Cross-category complexity (Vision Care + Consumer Healthcare).</p>
+                    
+                    <a href="https://www.linkedin.com/in/john-conos-25435632/" target="_blank" class="contact-link">View LinkedIn Profile</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+                <p>Senior leaders who can provide air cover and budget approval</p>
+                
+                <div class="contact-card secondary">
+                    <span class="contact-priority secondary">Strategic #5</span>
+                    <div class="contact-name">Andrew Stewart</div>
+                    <div class="contact-title">President, Global Pharmaceuticals and International Consumer</div>
+                    
+                    <h4>Why He's Relevant</h4>
+                    <p>Oversees European Consumer operations (LUMIFY, Blink, lens care) from New York headquarters. 25+ years pharma including AbbVie/Allergan Eye Care. International Consumer remit includes European OTC requiring European retail intelligence. MBA NYU Stern.</p>
+                    
+                    <h4>How to Reference</h4>
+                    <p>Managing European Consumer from New York requires European retail data. LUMIFY UK expansion and Blink European potential need Boots, Superdrug, Rossmann, DM, Carrefour monitoring. Multi-market complexity. US platforms cannot provide European coverage.</p>
+                    
+                    <a href="https://www.linkedin.com/in/andrew-stewart-bausch/" target="_blank" class="contact-link">View LinkedIn Profile</a>
+                </div>
+                
+                <div class="contact-card secondary">
+                    <span class="contact-priority secondary">Strategic #6</span>
+                    <div class="contact-name">Jennifer White</div>
+                    <div class="contact-title">General Manager UK/Ireland</div>
+                    
+                    <h4>Why She's Relevant</h4>
+                    <p>Manages B+L UK/Ireland operations from Scotland. Companies House director since July 2022. Scope may focus Vision Care but includes Consumer input for UK/Ireland. UK-based - easier to meet locally. Can validate European use case.</p>
+                    
+                    <h4>How to Reference</h4>
+                    <p>UK market critical for eye care across Boots (2,200+), Superdrug (900+), Tesco, Sainsbury's. UK-based partnership provides local expertise. If involved in Consumer operations, LUMIFY UK expansion requires monitoring. European perspective valuable.</p>
+                    
+                    <a href="https://www.linkedin.com/in/jennifer-white-bausch/" target="_blank" class="contact-link">View LinkedIn Profile</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                <p>Based on research, avoid reaching out to:</p>
+                <ul>
+                    <li><strong>Surgical division contacts</strong> - Different business unit, not relevant for OTC Consumer</li>
+                    <li><strong>Manufacturing/Operations</strong> - No digital commerce responsibility</li>
+                    <li><strong>Regional roles below Director level</strong> - Limited decision-making authority</li>
+                    <li><strong>Clinical/Medical Affairs</strong> - Different focus area</li>
+                    <li><strong>CEO Brent Saunders</strong> - Reference his priorities in outreach to his reports, but don't reach out directly</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>HubSpot Record Strategy</h2>
+                
+                <h3>Custom Fields to Add</h3>
+                <ul>
+                    <li><strong>Retailer Coverage %:</strong> 52.5% (Tier 1: 100%, Tier 2: 7%, Tier 3: 57%)</li>
+                    <li><strong>Primary Hook:</strong> LUMIFY growth monitoring + Blink integration</li>
+                    <li><strong>Key Initiative:</strong> Opal platform launch (October 2024)</li>
+                    <li><strong>European Angle:</strong> Strong - Boots, Superdrug, Rossmann, DM, Carrefour coverage</li>
+                    <li><strong>Time-to-Value:</strong> 2-4 weeks mass market, 2-3 months comprehensive</li>
+                    <li><strong>Decision Timeline:</strong> Q1 2026 likely (digital transformation budget cycle)</li>
+                </ul>
+                
+                <h3>Engagement Tracking</h3>
+                <ul>
+                    <li>Track which contacts engage with which messages</li>
+                    <li>Note any internal referrals (e.g., Michelle refers to Devang)</li>
+                    <li>Document objections raised for future reference</li>
+                    <li>Flag any competitor mentions (CommerceIQ, Profitero, etc.)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TAB 4: EMAIL SEQUENCE -->
+        <div id="emails" class="tab-content">
+            <div class="card">
+                <h2>Email Sequence for Michelle Nilsson</h2>
+                <p>Digital Commerce Executive Director, Consumer Division - Priority #1</p>
+                
+                <div class="email-container">
+                    <div class="email-template">
+                        <div class="email-header">
+                            <h4>Email 1: The Problem Hook</h4>
+                        </div>
+                        <div class="email-meta">
+                            <div class="email-meta-item">
+                                <span class="email-meta-label">Subject:</span>
+                                <span class="email-meta-value">Digital shelf monitoring for LUMIFY and Blink across major retailers</span>
+                            </div>
+                            <div class="email-meta-item">
+                                <span class="email-meta-label">Preview:</span>
+                                <span class="email-meta-value">Michelle - eStore monitors Amazon, Walmart, Target, CVS, Walgreens, Boots</span>
+                            </div>
+                            <div class="email-meta-item">
+                                <span class="email-meta-label">Send Day:</span>
+                                <span class="email-meta-value">Day 1 (Tuesday or Wednesday morning)</span>
+                            </div>
+                        </div>
+                        <div class="email-body">
+                            <p>Hi Michelle,</p>
+                            
+                            <p>I'm James with eStore, a European digital shelf analytics platform. We help pharmaceutical and consumer healthcare brands like Sanofi and Pierre Fabre monitor product performance across online retailers.</p>
+                            
+                            <p>Your LUMIFY and Blink portfolios compete across multiple online retailers - Amazon (US, UK, Canada), Walmart, Target, CVS, Walgreens, Boots, Superdrug, Kroger, Costco, and others. Each retailer has different content quality, pricing strategies, and promotional approaches.</p>
+                            
+                            <p><strong>What makes eStore relevant for B+L Consumer:</strong></p>
+                            
+                            <p>We already monitor ALL your major mass market retailers - Amazon, Walmart, Target, CVS, Walgreens, Boots, Superdrug, Kroger, Costco, Sam's Club. No lengthy onboarding process. We can start monitoring within 2-4 weeks.</p>
+                            
+                            <p><strong>European Coverage</strong><br>
+                            Unlike US-centric platforms, we're European-native. We monitor Boots, Superdrug, Tesco, Sainsbury's, Rossmann, DM, Carrefour.</p>
+                            
+                            <p><strong>Pharmaceutical Experience</strong><br>
+                            Sanofi and Pierre Fabre use our platform. Similar multi-channel distribution complexity.</p>
+                            
+                            <p>Worth a brief call?</p>
+                            
+                            <p>Best regards,<br>James</p>
+                        </div>
+                        <div class="email-strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>Lead with 100% Tier 1 coverage. OTC Consumer focus. European differentiation. Introduce eStore first, then value proposition.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="email-template">
+                        <div class="email-header">
+                            <h4>Email 2: The European Angle</h4>
+                        </div>
+                        <div class="email-meta">
+                            <div class="email-meta-item">
+                                <span class="email-meta-label">Subject:</span>
+                                <span class="email-meta-value">European retail intelligence for LUMIFY and Blink</span>
+                            </div>
+                            <div class="email-meta-item">
+                                <span class="email-meta-label">Preview:</span>
+                                <span class="email-meta-value">Boots, Superdrug, Tesco coverage</span>
+                            </div>
+                            <div class="email-meta-item">
+                                <span class="email-meta-label">Send Day:</span>
+                                <span class="email-meta-value">Day 6 (following Tuesday)</span>
+                            </div>
+                        </div>
+                        <div class="email-body">
+                            <p>Hi Michelle,</p>
+                            
+                            <p>Quick follow-up on digital shelf monitoring.</p>
+                            
+                            <p><strong>UK Market Monitoring</strong><br>
+                            We monitor Boots (2,200+ stores), Superdrug (900+ stores), Tesco, Sainsbury's.</p>
+                            
+                            <p><strong>Continental European Retailers</strong><br>
+                            We monitor Rossmann (4,000+ stores), DM (4,100+ locations), Carrefour.</p>
+                            
+                            <p><strong>Multi-Market Experience</strong><br>
+                            Pierre Fabre uses our platform across European pharmaceutical and OTC operations.</p>
+                            
+                            <p>Worth 20 minutes?</p>
+                            
+                            <p>Best regards,<br>James</p>
+                        </div>
+                        <div class="email-strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>European angle as differentiator. Shorter email, single focus. Reference Pierre Fabre for credibility.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="email-template">
+                        <div class="email-header">
+                            <h4>Email 3: The Direct Question</h4>
+                        </div>
+                        <div class="email-meta">
+                            <div class="email-meta-item">
+                                <span class="email-meta-label">Subject:</span>
+                                <span class="email-meta-value">Final question on retail monitoring</span>
+                            </div>
+                            <div class="email-meta-item">
+                                <span class="email-meta-label">Preview:</span>
+                                <span class="email-meta-value">Then I'll step back</span>
+                            </div>
+                            <div class="email-meta-item">
+                                <span class="email-meta-label">Send Day:</span>
+                                <span class="email-meta-value">Day 12 (following Monday)</span>
+                            </div>
+                        </div>
+                        <div class="email-body">
+                            <p>Hi Michelle,</p>
+                            
+                            <p>One final question: <strong>How are you currently monitoring product performance across all these retailers?</strong></p>
+                            
+                            <p>If helpful:</p>
+                            <ul>
+                                <li>100% coverage of major mass market retailers</li>
+                                <li>European retail monitoring</li>
+                                <li>2-4 weeks implementation</li>
+                            </ul>
+                            
+                            <p>Worth a call? If not, no worries.</p>
+                            
+                            <p><em>P.S. If not Q4 priority, I'll follow up Q1.</em></p>
+                            
+                            <p>Best regards,<br>James</p>
+                        </div>
+                        <div class="email-strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>Direct question, graceful exit. Low pressure. Opens door for Q1 follow-up if timing not right.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Email Sequence Guidelines</h2>
+                
+                <h3>Timing & Cadence</h3>
+                <ul>
+                    <li><strong>Best send days:</strong> Tuesday, Wednesday, Thursday</li>
+                    <li><strong>Best send times:</strong> 8-9am or 2-3pm recipient's timezone</li>
+                    <li><strong>Interval between emails:</strong> 5-7 days</li>
+                    <li><strong>Total sequence duration:</strong> 2 weeks</li>
+                </ul>
+                
+                <h3>Personalisation Checklist</h3>
+                <ul>
+                    <li>â˜ Verify contact is still in role (check LinkedIn)</li>
+                    <li>â˜ Check for recent company news to reference</li>
+                    <li>â˜ Confirm retailer coverage is still accurate</li>
+                    <li>â˜ Adapt messaging if recent LUMIFY or Blink announcements</li>
+                </ul>
+                
+                <h3>Response Handling</h3>
+                <ul>
+                    <li><strong>"Not interested":</strong> Thank them, ask if there's a better time to reconnect (Q1?)</li>
+                    <li><strong>"Send more info":</strong> Share one-pager, propose brief call to walk through</li>
+                    <li><strong>"Talk to [colleague]":</strong> Thank them, reference their recommendation in outreach</li>
+                    <li><strong>"We already have a solution":</strong> Ask which solution, use objection handling</li>
+                </ul>
+                
+                <div class="info-box">
+                    <strong>Remember:</strong> All emails use British English spelling, no em dashes. Introduce eStore first in every email. Keep focus on their business, not competitors. Never fabricate case studies or claim partnerships that don't exist.
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: OBJECTION HANDLING -->
+        <div id="objections" class="tab-content">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                
+                <h3>Proceed Confidently When:</h3>
+                <ul>
+                    <li>Contact confirms active evaluation of digital shelf solutions</li>
+                    <li>They mention pain points around content quality, pricing monitoring, or competitive intelligence</li>
+                    <li>They reference Opal platform or digital transformation initiatives</li>
+                    <li>They ask about European coverage (our differentiator)</li>
+                </ul>
+                
+                <h3>Proceed with Caveats When:</h3>
+                <ul>
+                    <li>Primary interest is contact lens monitoring (specialist retailers not covered)</li>
+                    <li>They need immediate comprehensive coverage (2-3 month timeline for specialists)</li>
+                    <li>Budget cycle is Q3/Q4 2026 (long sales cycle)</li>
+                </ul>
+                
+                <h3>Delay or Deprioritise When:</h3>
+                <ul>
+                    <li>They're locked into multi-year contract with competitor</li>
+                    <li>Contact lens specialist retailers are primary requirement</li>
+                    <li>No digital transformation mandate or budget</li>
+                    <li>Organisational chaos (major restructuring, leadership changes)</li>
+                </ul>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-statement">"We already have a PIM system / DAM system"</div>
+                <div class="response-section">
+                    <h4>Response</h4>
+                    <p>PIM manages what you send. eStore monitors what's actually live. Amazon might use your hero image, Walmart a different variant, CVS outdated pricing. Your PIM doesn't see these discrepancies.</p>
+                    
+                    <p><strong>What eStore provides:</strong> Content verification, competitive comparison vs Visine/Clear Eyes/Systane, promotional tracking, review monitoring, exception alerts.</p>
+                    
+                    <p><strong>Example:</strong> Sanofi uses SAP PIM to manage content, eStore to verify it's live. They discovered 30% of retailers had outdated regulatory information despite PIM updates.</p>
+                    
+                    <div class="evidence-box">
+                        <strong>Evidence:</strong> Sanofi case demonstrates PIM vs monitoring gap.
+                    </div>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-statement">"How many of our retailers can you actually monitor?"</div>
+                <div class="response-section">
+                    <h4>Response</h4>
+                    <p><strong>Your Coverage:</strong></p>
+                    <ul>
+                        <li><strong>Tier 1 Mass Market: 100% covered</strong> (Amazon US/UK/CA, Walmart, Target, CVS, Walgreens, Boots, Superdrug, Kroger, Costco, Sam's Club - where LUMIFY/Blink generate majority revenue)</li>
+                        <li><strong>Tier 2 Specialist Vision: 7% covered</strong> (don't monitor 1-800 Contacts, Vision Direct, Lens.com)</li>
+                        <li><strong>Overall: 52.5%</strong> (21 of 40 retailers)</li>
+                    </ul>
+                    
+                    <p><strong>Recommendation:</strong> Start with mass market (2-4 weeks, immediate value), phase in specialists Q1 2026 (2-3 months). Unlike US platforms, we monitor Boots, Superdrug, Rossmann, DM, Carrefour.</p>
+                    
+                    <div class="evidence-box">
+                        <strong>Evidence:</strong> Verified against eStore_Retailer_Coverage_Master.csv. 100% Tier 1 strength.
+                    </div>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-statement">"We're focused on contact lenses, not OTC consumer"</div>
+                <div class="response-section">
+                    <h4>Response</h4>
+                    <p>If primary focus is contact lenses, our coverage has limitations for specialist vision retailers.</p>
+                    
+                    <p><strong>Contact Lens Reality:</strong></p>
+                    <ul>
+                        <li>ECP 58.2% distribution (don't monitor)</li>
+                        <li>Online specialists not covered</li>
+                        <li>Mass market we monitor 100%</li>
+                    </ul>
+                    
+                    <p><strong>However:</strong> Mass market growing (online purchases 39% Q1 2025 vs 35% Q4 2024). Lens Care: Biotrue/ReNu sell primarily through mass market where we have 100% coverage.</p>
+                    
+                    <p><strong>Honest Assessment:</strong> If purely contact lenses needing specialist coverage immediately, not strongest fit. If dual focus (lenses + OTC) or phased approach (2-3 months), we serve both.</p>
+                    
+                    <div class="evidence-box">
+                        <strong>Evidence:</strong> Honest positioning about contact lens gap.
+                    </div>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-statement">"What's your experience in eye care / pharmaceutical?"</div>
+                <div class="response-section">
+                    <h4>Response</h4>
+                    <p><strong>Pharmaceutical Experience:</strong></p>
+                    <ul>
+                        <li>Sanofi (â‚¬41B) monitors pharma and OTC across European retailers</li>
+                        <li>Pierre Fabre (â‚¬2.8B French pharma) European operations</li>
+                        <li>Galderma (Â£4.1B dermatology/healthcare) UK OTC consumer</li>
+                    </ul>
+                    
+                    <p><strong>Why This Translates:</strong> Regulatory understanding, pharmacy channel expertise (CVS, Walgreens, Boots, Superdrug), OTC Consumer complexity, multi-market operations.</p>
+                    
+                    <p><strong>What We Don't Have:</strong> Not eye care specialists. Haven't worked with CooperVision, Alcon, J&J Vision. You'd be first major eye care brand. However, monitoring challenges (content quality, competitive positioning, multi-market) consistent across pharma and healthcare.</p>
+                    
+                    <p><strong>First mover advantage:</strong> You'd shape our eye care expertise.</p>
+                    
+                    <div class="evidence-box">
+                        <strong>Evidence:</strong> Verified Sanofi, Pierre Fabre, Galderma as clients.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                
+                <h3>Core Approach</h3>
+                <ul>
+                    <li><strong>Never dismiss the objection:</strong> Even if it seems illogical, it represents a real concern to them</li>
+                    <li><strong>Ask clarifying questions:</strong> Often the stated objection isn't the real issue</li>
+                    <li><strong>Use evidence:</strong> Facts, examples, case studies are more credible than assertions</li>
+                    <li><strong>Offer flexibility:</strong> Pilots, phased approaches, customisation options</li>
+                    <li><strong>Be honest about fit:</strong> If they're genuinely not a good fit, say so</li>
+                </ul>
+                
+                <h3>When to Walk Away</h3>
+                <p>Sometimes the right answer is to acknowledge this isn't the right fit:</p>
+                <ul>
+                    <li>Retailer coverage is too low and they need immediate value</li>
+                    <li>They're genuinely satisfied with existing solution and have no gaps</li>
+                    <li>Budget simply isn't there and won't be for 12+ months</li>
+                    <li>They don't have organisational readiness (too chaotic, no ownership)</li>
+                    <li>Their expectations exceed what we can realistically deliver</li>
+                </ul>
+                
+                <p><strong>In these cases:</strong> Be honest that it's not the right fit right now. Leave the door open for future conversations. They'll respect the honesty and may come back when circumstances change.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
