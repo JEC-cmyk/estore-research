@@ -1,0 +1,5 @@
+[
+    {"file": "bausch-lomb", "name": "Bausch + Lomb"},
+    {"file": "molson-coors", "name": "Molson Coors (Original)"},
+    {"file": "molson_coors2", "name": "Molson Coors (v2 - New Format)"}
+]
