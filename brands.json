@@ -2,4 +2,5 @@
     {"file": "bausch-lomb", "name": "Bausch + Lomb"},
     {"file": "molson-coors", "name": "Molson Coors (Original)"},
     {"file": "molson-coors2", "name": "Molson Coors (v2 - New Format)"}
+    {"file": "molson-coors3", "name": "Molson Coors (v3 - With Content)"}
 ]
