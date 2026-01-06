@@ -1,5 +1,6 @@
 [
     {"file": "bausch-lomb", "name": "Bausch + Lomb"},
+    {"file": "bausch-lomb2", "name": "Bausch + Lomb (new)"},
     {"file": "molson_coors3", "name": "Molson Coors"},
     {"file": "molson-coors4", "name": "Molson Coors (new)"}
 ]
