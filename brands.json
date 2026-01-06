@@ -1,4 +1,5 @@
 [
     {"file": "bausch-lomb", "name": "Bausch + Lomb"},
-    {"file": "molson_coors3", "name": "Molson Coors"}
+    {"file": "molson_coors3", "name": "Molson Coors"},
+    {"file": "molson_coors4", "name": "Molson Coors (new)"}
 ]
