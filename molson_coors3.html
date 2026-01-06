@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eStore Brand Research: Molson Coors</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f5f6f8;
+            color: #2c2c2c;
+            line-height: 1.65;
+            font-size: 16px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #0a4a9e 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,186,28,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .header-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .header-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .header-meta-item strong {
+            opacity: 0.7;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.25rem;
+            background: #f5f6f8;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        
+        .tab:hover {
+            background: #e8eaed;
+        }
+        
+        .tab.active {
+            background: #1067db;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        
+        .card h2 {
+            color: #1067db;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .card h3 {
+            color: #2c2c2c;
+            font-size: 1.15rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .card h4 {
+            color: #555;
+            font-size: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .card p {
+            margin-bottom: 1rem;
+        }
+        
+        .card ul, .card ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Info boxes */
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #1067db;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .info-box.success {
+            border-left-color: #22bb69;
+            background: #f0fdf4;
+        }
+        
+        .info-box.warning {
+            border-left-color: #ff7a00;
+            background: #fff8f0;
+        }
+        
+        .info-box.danger {
+            border-left-color: #f44f2f;
+            background: #fef2f2;
+        }
+        
+        .info-box.neutral {
+            border-left-color: #6c757d;
+            background: #f8f9fa;
+        }
+        
+        /* Verdict box */
+        .verdict-box {
+            background: linear-gradient(135deg, #fff8e6 0%, #fff3cd 100%);
+            border: 2px solid #ffba1c;
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .verdict-box.proceed {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-color: #22bb69;
+        }
+        
+        .verdict-box.caution {
+            background: linear-gradient(135deg, #fff8f0 0%, #ffedd5 100%);
+            border-color: #ff7a00;
+        }
+        
+        .verdict-box.stop {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-color: #f44f2f;
+        }
+        
+        .verdict-box h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #1067db 0%, #0a4a9e 100%);
+            color: white;
+            padding: 1.25rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-card.yellow {
+            background: linear-gradient(135deg, #ffba1c 0%, #e6a619 100%);
+        }
+        
+        .stat-card.green {
+            background: linear-gradient(135deg, #22bb69 0%, #1a9654 100%);
+        }
+        
+        .stat-card.orange {
+            background: linear-gradient(135deg, #ff7a00 0%, #e66e00 100%);
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        /* Placeholder sections for internal input */
+        .placeholder-section {
+            background: #fafbfc;
+            border: 2px dashed #d1d5db;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .placeholder-section h4 {
+            color: #6b7280;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .placeholder-section h4::before {
+            content: '✏️';
+        }
+        
+        .placeholder-section p {
+            color: #6b7280;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+        
+        .placeholder-section ul {
+            color: #6b7280;
+            margin-bottom: 0;
+        }
+        
+        /* Competitor intelligence */
+        .competitor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .competitor-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+        
+        .competitor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        
+        .competitor-name {
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .confidence-badge {
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .confidence-confirmed {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .confidence-likely {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .confidence-unknown {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+        
+        .competitor-detail {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        
+        /* Coverage dashboard */
+        .coverage-dashboard {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+        }
+        
+        .coverage-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .coverage-percentage {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #ff7a00;
+        }
+        
+        .coverage-bar {
+            background: #e9ecef;
+            height: 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .coverage-fill {
+            background: linear-gradient(90deg, #22bb69 0%, #68d7fa 100%);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        
+        .recommendation-box {
+            background: #fff3cd;
+            border: 2px solid #ff7a00;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .recommendation-box.strong {
+            background: #dcfce7;
+            border-color: #22bb69;
+        }
+        
+        .recommendation-box.weak {
+            background: #fee2e2;
+            border-color: #f44f2f;
+        }
+        
+        .recommendation-box h3 {
+            margin-top: 0;
+        }
+        
+        /* Retailer grid */
+        .retailer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .retailer-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1.25rem;
+            transition: all 0.2s ease;
+        }
+        
+        .retailer-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .retailer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .retailer-name {
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .status-badge {
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .status-covered {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-not-covered {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .status-problematic {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .retailer-market {
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .retailer-reason {
+            font-size: 0.9rem;
+            color: #4b5563;
+        }
+        
+        /* Contact cards */
+        .contact-card {
+            background: white;
+            border-left: 4px solid #1067db;
+            border-radius: 0 10px 10px 0;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .contact-card.historical {
+            border-left-color: #6b7280;
+            background: #fafbfc;
+        }
+        
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .contact-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-priority {
+            background: #1067db;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .contact-priority.secondary {
+            background: #6b7280;
+        }
+        
+        .contact-priority.historical {
+            background: #9ca3af;
+        }
+        
+        .nationality-badge {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-title {
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-section h4 {
+            color: #1067db;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .contact-section p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Email templates */
+        .email-template {
+            margin-bottom: 2.5rem;
+        }
+        
+        .email-header {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-radius: 10px 10px 0 0;
+            border: 1px solid #e5e7eb;
+            border-bottom: none;
+        }
+        
+        .email-meta-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .email-meta-row:last-child {
+            margin-bottom: 0;
+        }
+        
+        .email-meta-label {
+            font-weight: 600;
+            min-width: 100px;
+            color: #374151;
+        }
+        
+        .email-meta-value {
+            color: #6b7280;
+        }
+        
+        .email-body {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0 0 10px 10px;
+            padding: 1.5rem;
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+        }
+        
+        .email-body p {
+            margin-bottom: 1rem;
+        }
+        
+        .email-body p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .email-notes {
+            background: #fffbeb;
+            border-left: 3px solid #ffba1c;
+            padding: 1rem 1.25rem;
+            margin-top: 1rem;
+            border-radius: 0 8px 8px 0;
+            font-family: 'Figtree', sans-serif;
+        }
+        
+        .email-notes h4 {
+            margin-top: 0;
+            color: #92400e;
+            font-size: 0.9rem;
+        }
+        
+        .email-notes ul {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+        
+        .tone-guidance {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .tone-guidance h4 {
+            color: #0369a1;
+            margin-top: 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tone-guidance h4::before {
+            content: '🌍';
+        }
+        
+        /* Objection cards */
+        .objection-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .objection-statement {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .objection-response {
+            padding: 1.5rem;
+        }
+        
+        .objection-response h4 {
+            color: #1067db;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .objection-response h4:first-child {
+            margin-top: 0;
+        }
+        
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .checklist li::before {
+            content: "✓";
+            color: #22bb69;
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .retailer-grid, .competitor-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .coverage-percentage {
+                font-size: 3rem;
+            }
+        }
+        
+        @media print {
+            .tabs {
+                display: none;
+            }
+            
+            .tab-content {
+                display: block !important;
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>Molson Coors Beverage Company</h1>
+            <p class="header-subtitle">eStore Brand Research & Action Plan</p>
+            <div class="header-meta">
+                <div class="header-meta-item">
+                    <strong>Created:</strong> 5 January 2026
+                </div>
+                <div class="header-meta-item">
+                    <strong>Author:</strong> eStore Research Team
+                </div>
+                <div class="header-meta-item">
+                    <strong>Status:</strong> Ready for Review
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('fit')">Are we a good fit?</button>
+            <button class="tab" onclick="showTab('history')">Our history with them</button>
+            <button class="tab" onclick="showTab('retailers')">Retailer Check</button>
+            <button class="tab" onclick="showTab('contacts')">Key people?</button>
+            <button class="tab" onclick="showTab('emails')">Emails to send</button>
+            <button class="tab" onclick="showTab('objections')">Objection Handling</button>
+        </div>
+
+        <!-- TAB 1: ARE WE A GOOD FIT? -->
+        <div id="fit" class="tab-content active">
+            <div class="card">
+                <h2>Strategic Assessment Summary</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">$11.7B</div>
+                        <div class="stat-label">Annual Revenue (2024)</div>
+                    </div>
+                    <div class="stat-card yellow">
+                        <div class="stat-value">80+</div>
+                        <div class="stat-label">Brand Portfolio</div>
+                    </div>
+                    <div class="stat-card green">
+                        <div class="stat-value">30+</div>
+                        <div class="stat-label">Online Retailers</div>
+                    </div>
+                    <div class="stat-card orange">
+                        <div class="stat-value">56%</div>
+                        <div class="stat-label">eStore Coverage</div>
+                    </div>
+                </div>
+                
+                <p>Molson Coors is the fifth-largest brewing company in the world, managing a complex portfolio spanning beer, energy drinks, non-alcoholic beverages, and ready-to-drink cocktails across North America, UK, and Western Europe. Their digital commerce ambitions are significant but face the unique challenges of alcohol distribution regulations.</p>
+                
+                <div class="verdict-box caution">
+                    <h3>⚠️ Verdict: MODERATE FIT - Proceed with Caveats</h3>
+                    <p><strong>Why moderate?</strong> At 56% retailer coverage, we can deliver value on major platforms but will need 2-3 months for full implementation. Their existing investment in e.fundamentals/CommerceIQ (UK-focused) and Profitero creates both opportunity (they understand value) and challenge (incumbent relationships).</p>
+                    <p><strong>The opportunity:</strong> White space exists in US retailer optimisation where their current tools may be weaker. Their CEO transition and stated "transform faster" mandate create openness to new solutions.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Why This Brand Fits eStore's Sweet Spot</h2>
+                
+                <h3>Distribution Complexity</h3>
+                <p>Molson Coors operates a true hybrid model that validates digital shelf monitoring needs. They sell through mass market retailers (Amazon, Walmart, Target), alcohol specialists (Drizly, Total Wine, BevMo), grocery chains (Kroger, Tesco, Sainsbury's), and their own DTC platforms (Ship and Sip, Revl). The three-tier alcohol distribution system adds regulatory complexity that multiplies the challenge of maintaining consistent product presence.</p>
+                
+                <h3>Portfolio Breadth Creates Monitoring Burden</h3>
+                <p>With 80+ brands including Coors Light, Miller Lite, Blue Moon, Carling, Staropramen, ZOA Energy, Simply Spiked, and Naked Life spirits, they face enormous SKU proliferation. Recent launches (2024-2025) include Blue Moon Non-Alcoholic, Madrí 0% lager, ZOA new flavours, and Simply Spiked summer variants - each requiring Day 1 optimisation across 30+ retailers simultaneously.</p>
+                
+                <h3>Competitive Pressure</h3>
+                <p>The beer oligopoly creates intense rivalry. Constellation Brands (Corona, Modelo) is gaining premium segment share. AB InBev remains the dominant player. This competitive intensity means digital shelf excellence is a competitive weapon - being outranked or out-of-stock on Amazon or Walmart directly translates to lost sales to rivals.</p>
+                
+                <h3>Digital Maturity & Strategic Alignment</h3>
+                <p>Molson Coors has invested heavily in digital infrastructure including Salsify PIM (350,000+ assets), Domo analytics, Shopify Plus DTC platforms, and multiple digital shelf tools. Their stated "transform faster" mandate from leadership suggests openness to solutions that accelerate digital commerce performance. However, this also means they have established vendor relationships to navigate.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Implementation Readiness Assessment</h2>
+                
+                <div class="info-box warning">
+                    <h4>Coverage Reality Check</h4>
+                    <p><strong>56% of their key retailers are already covered by eStore.</strong> This means we can begin monitoring their major platforms (Amazon US, Amazon UK, Walmart, Tesco, Sainsbury's) within 2-4 weeks. However, alcohol specialists like Drizly, Total Wine, and BevMo require onboarding.</p>
+                </div>
+                
+                <h3>What We Can Deliver Immediately</h3>
+                <ul class="checklist">
+                    <li>Amazon US, UK, DE monitoring across all beer and beverage SKUs</li>
+                    <li>Walmart.com product tracking and content quality scoring</li>
+                    <li>UK grocery coverage (Tesco, Sainsbury's, Asda, Morrisons)</li>
+                    <li>Content quality benchmarking against Constellation and AB InBev</li>
+                </ul>
+                
+                <h3>What Requires Onboarding (2-3 months)</h3>
+                <ul>
+                    <li>Drizly and alcohol delivery specialists</li>
+                    <li>Total Wine, BevMo, and specialty alcohol retailers</li>
+                    <li>Regional US grocery chains with alcohol sections</li>
+                    <li>Canadian retailers (LCBO, provincial liquor boards)</li>
+                </ul>
+                
+                <h3>Recommended Positioning</h3>
+                <p>Lead with <strong>immediate value on major retailers</strong> while being transparent about specialist alcohol retailer timelines. Position eStore as complementary to their existing UK-focused e.fundamentals investment, filling the North American gap in their digital shelf coverage.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Final Assessment Checklist</h2>
+                
+                <ul class="checklist">
+                    <li><strong>Scale:</strong> $11.7B revenue, 80+ brands - confirms Tier 1 opportunity</li>
+                    <li><strong>Complexity:</strong> Hybrid distribution, 30+ retailer relationships - validates need</li>
+                    <li><strong>Coverage:</strong> 56% - moderate fit, can deliver value but requires honest timeline</li>
+                    <li><strong>Competitive pressure:</strong> Intense oligopoly - digital shelf is competitive weapon</li>
+                    <li><strong>Digital maturity:</strong> High investment in tech stack - they understand the space</li>
+                    <li><strong>Timing:</strong> CEO transition, "transform faster" mandate - window of opportunity</li>
+                    <li><strong>Incumbent challenge:</strong> e.fundamentals, Profitero already in use - must differentiate clearly</li>
+                </ul>
+                
+                <div class="info-box">
+                    <p><strong>Bottom line:</strong> Proceed with outreach, but acknowledge the moderate coverage and existing vendor relationships upfront. Position around North American gap and automation capabilities that complement rather than replace current tools.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: OUR HISTORY WITH THEM -->
+        <div id="history" class="tab-content">
+            <div class="card">
+                <h2>Internal Context & Competitor Intelligence</h2>
+                <p>This section combines what we know internally about Molson Coors (from HubSpot, previous conversations, team knowledge) with externally researched competitor intelligence.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Previous Conversations</h2>
+                
+                <div class="placeholder-section">
+                    <h4>To be added by sales team</h4>
+                    <p>Document any previous interactions with Molson Coors:</p>
+                    <ul>
+                        <li>Who from eStore spoke with whom?</li>
+                        <li>When did conversations take place?</li>
+                        <li>What was discussed?</li>
+                        <li>What was the outcome?</li>
+                        <li>Any follow-up actions that were taken or promised?</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>HubSpot Status</h2>
+                
+                <div class="placeholder-section">
+                    <h4>To be added by sales team</h4>
+                    <p>Current CRM status:</p>
+                    <ul>
+                        <li>Deal stage (if any)</li>
+                        <li>Associated contacts in system</li>
+                        <li>Activity history and notes</li>
+                        <li>Any proposals or quotes sent</li>
+                        <li>Reason for any previous closed-lost</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Competitor Intelligence</h2>
+                <p>Based on external research including case studies, press releases, job postings, and technology stack databases.</p>
+                
+                <div class="competitor-grid">
+                    <div class="competitor-card">
+                        <div class="competitor-header">
+                            <span class="competitor-name">e.fundamentals (CommerceIQ)</span>
+                            <span class="confidence-badge confidence-confirmed">✓ Confirmed</span>
+                        </div>
+                        <p class="competitor-detail"><strong>Source:</strong> Official case study on e.fundamentals website</p>
+                        <p class="competitor-detail"><strong>Scope:</strong> UK market, digital shelf analytics</p>
+                        <p class="competitor-detail"><strong>Results:</strong> 16:1 ROI reported</p>
+                        <p class="competitor-detail"><strong>Contact:</strong> Jack Daniel, Director of Digital, Western Europe</p>
+                        <p class="competitor-detail"><strong>Note:</strong> e.fundamentals was acquired by CommerceIQ in July 2022</p>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-header">
+                            <span class="competitor-name">Profitero</span>
+                            <span class="confidence-badge confidence-confirmed">✓ Confirmed</span>
+                        </div>
+                        <p class="competitor-detail"><strong>Source:</strong> LeadIQ technology stack listing</p>
+                        <p class="competitor-detail"><strong>Scope:</strong> Likely broader market coverage</p>
+                        <p class="competitor-detail"><strong>Note:</strong> May be used alongside e.fundamentals for different markets or use cases</p>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-header">
+                            <span class="competitor-name">Salsify</span>
+                            <span class="confidence-badge confidence-confirmed">✓ Confirmed</span>
+                        </div>
+                        <p class="competitor-detail"><strong>Source:</strong> Multiple press mentions</p>
+                        <p class="competitor-detail"><strong>Scope:</strong> PIM/DAM - 350,000+ assets</p>
+                        <p class="competitor-detail"><strong>Note:</strong> Content management, not direct competitor but integration opportunity</p>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-header">
+                            <span class="competitor-name">Domo</span>
+                            <span class="confidence-badge confidence-confirmed">✓ Confirmed</span>
+                        </div>
+                        <p class="competitor-detail"><strong>Source:</strong> AppsRunTheWorld database</p>
+                        <p class="competitor-detail"><strong>Scope:</strong> Analytics and BI platform</p>
+                        <p class="competitor-detail"><strong>Since:</strong> 2016</p>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-header">
+                            <span class="competitor-name">Shopify Plus</span>
+                            <span class="confidence-badge confidence-confirmed">✓ Confirmed</span>
+                        </div>
+                        <p class="competitor-detail"><strong>Source:</strong> Shopify case study</p>
+                        <p class="competitor-detail"><strong>Scope:</strong> DTC platforms (Ship and Sip, Revl)</p>
+                        <p class="competitor-detail"><strong>Note:</strong> Shows digital commerce investment</p>
+                    </div>
+                    
+                    <div class="competitor-card">
+                        <div class="competitor-header">
+                            <span class="competitor-name">DataWeave</span>
+                            <span class="confidence-badge confidence-unknown">? Unknown</span>
+                        </div>
+                        <p class="competitor-detail"><strong>Source:</strong> No evidence found</p>
+                        <p class="competitor-detail"><strong>Note:</strong> No indication of usage in research</p>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h4>Strategic Implication</h4>
+                    <p>Molson Coors is heavily invested in digital shelf analytics - this is both an opportunity and a challenge. They clearly understand the value proposition, but have established vendor relationships. The key differentiator for eStore should be:</p>
+                    <ul>
+                        <li><strong>North American gap:</strong> e.fundamentals (their primary tool) is UK-focused</li>
+                        <li><strong>Automation capabilities:</strong> Move beyond monitoring to action</li>
+                        <li><strong>OneNumber simplification:</strong> Consolidate insights from multiple tools</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Internal Champion</h2>
+                
+                <div class="placeholder-section">
+                    <h4>To be added by sales team</h4>
+                    <p>Is there anyone inside Molson Coors who has shown interest in eStore?</p>
+                    <ul>
+                        <li>Name and role</li>
+                        <li>How they became aware of eStore</li>
+                        <li>Their level of influence</li>
+                        <li>What would help them advocate internally</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Known Blockers or Concerns</h2>
+                
+                <div class="placeholder-section">
+                    <h4>To be added by sales team</h4>
+                    <p>Any known obstacles to a deal:</p>
+                    <ul>
+                        <li>Budget constraints or timing issues</li>
+                        <li>Contractual obligations to current vendors</li>
+                        <li>Internal politics or reorganisation</li>
+                        <li>Previous negative experiences</li>
+                        <li>Specific technical requirements we may not meet</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box warning">
+                    <h4>Likely Blocker: Existing Vendor Relationships</h4>
+                    <p>Given confirmed usage of e.fundamentals/CommerceIQ and Profitero, any outreach must directly address why they would add another tool. Frame eStore as complementary (filling gaps) rather than replacement (triggering switching costs concerns).</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: RETAILER CHECK -->
+        <div id="retailers" class="tab-content">
+            <div class="coverage-dashboard">
+                <div class="coverage-header">
+                    <h2>eStore Retailer Coverage Analysis</h2>
+                    <div class="coverage-percentage">56%</div>
+                    <p>of Molson Coors' key retailers are already covered by eStore</p>
+                    
+                    <div class="coverage-bar">
+                        <div class="coverage-fill" style="width: 56%;">18 of 32 retailers</div>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card green">
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Already Covered</div>
+                    </div>
+                    <div class="stat-card orange">
+                        <div class="stat-value">14</div>
+                        <div class="stat-label">Not Yet Covered</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">2-3 mo</div>
+                        <div class="stat-label">Est. Full Onboarding</div>
+                    </div>
+                </div>
+                
+                <div class="recommendation-box">
+                    <h3>⚠️ MODERATE FIT - Proceed with Caveats</h3>
+                    <p>At 56% coverage, we can provide immediate value on major retailers but alcohol specialists will require onboarding. Be transparent about the timeline in sales conversations.</p>
+                    <p><strong>Tier 1 & 2 coverage:</strong> 62% (stronger where it matters most)</p>
+                    <p><strong>Immediate value:</strong> Amazon, Walmart, UK grocers - their highest volume platforms</p>
+                    <p><strong>Gap:</strong> Alcohol delivery specialists (Drizly, Total Wine) need 6-8 weeks to onboard</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Tier 1: Major Mass Market Retailers</h2>
+                <p>High-volume platforms essential for brand credibility. <strong>Coverage: 7 of 9 (78%)</strong></p>
+                
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Amazon US</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Primary US e-commerce channel for beer and beverages. Critical for Blue Moon, Coors Light visibility.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Amazon UK</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">Key UK marketplace for Carling, Staropramen, Cobra brands.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Walmart.com</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Major US grocery/retail. Alcohol available in most states.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Target.com</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Premium positioning for craft and premium beers.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Tesco</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">UK's largest grocery retailer. Major beer and cider sales.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Sainsbury's</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">Second-largest UK grocery chain with strong alcohol section.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Asda</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">Value positioning, strong beer sales volume.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Kroger</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Largest US supermarket chain. Significant alcohol sales in most regions.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Instacart</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Molson Coors reports 4.2x ROAS on Instacart. High priority gap.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Tier 2: Specialist & Alcohol Retailers</h2>
+                <p>Category-specific platforms with high purchase intent. <strong>Coverage: 4 of 11 (36%)</strong></p>
+                
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Drizly</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Official fulfilment partner for Molson Coors DTC. Critical gap.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Total Wine</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Largest independent alcohol retailer in US. Premium beer focus.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">BevMo</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States (West Coast)</div>
+                        <div class="retailer-reason">West Coast alcohol specialist. Craft beer emphasis.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Minibar Delivery</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Alcohol delivery partner with purchase behaviour data.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Morrisons</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">UK grocery with strong alcohol sales.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Ocado</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">Online-only UK grocer. Premium customer base.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Waitrose</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">Premium UK grocer. Craft and premium beer focus.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Co-op</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">United Kingdom</div>
+                        <div class="retailer-reason">UK convenience retailer with online presence.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">GoPuff</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Rapid delivery platform gaining share in alcohol.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">LCBO</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">Canada (Ontario)</div>
+                        <div class="retailer-reason">Ontario liquor monopoly. Ship and Sip launch market.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">BC Liquor</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">Canada (British Columbia)</div>
+                        <div class="retailer-reason">BC provincial liquor retailer.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Tier 3: Regional & Niche Retailers</h2>
+                <p>Secondary platforms for comprehensive coverage. <strong>Coverage: 7 of 12 (58%)</strong></p>
+                
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Amazon DE</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">Germany</div>
+                        <div class="retailer-reason">European market presence for international brands.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Amazon FR</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">France</div>
+                        <div class="retailer-reason">French market for select brands.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Carrefour</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">France / International</div>
+                        <div class="retailer-reason">Major European hypermarket chain.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Auchan</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">France / International</div>
+                        <div class="retailer-reason">European hypermarket presence.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Albert Heijn</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">Netherlands</div>
+                        <div class="retailer-reason">Dutch market leader.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">REWE</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">Germany</div>
+                        <div class="retailer-reason">Major German supermarket chain.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Edeka</span>
+                            <span class="status-badge status-covered">✓ Covered</span>
+                        </div>
+                        <div class="retailer-market">Germany</div>
+                        <div class="retailer-reason">Germany's largest supermarket chain.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Costco</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States / International</div>
+                        <div class="retailer-reason">Warehouse club with bulk alcohol sales.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Sam's Club</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States</div>
+                        <div class="retailer-reason">Walmart-owned warehouse club.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Publix</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States (Southeast)</div>
+                        <div class="retailer-reason">Regional US grocery with alcohol.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">H-E-B</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States (Texas)</div>
+                        <div class="retailer-reason">Texas grocery leader with beer cave concept.</div>
+                    </div>
+                    
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Spec's</span>
+                            <span class="status-badge status-not-covered">✗ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">United States (Texas)</div>
+                        <div class="retailer-reason">Texas alcohol specialist.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: KEY PEOPLE? -->
+        <div id="contacts" class="tab-content">
+            <div class="card">
+                <h2>Contact Strategy Overview</h2>
+                <p>This section combines any historical contacts we've engaged with new research on who we should be targeting. The goal is to identify operational decision-makers who will actually evaluate and implement solutions, with strategic influencers for air cover.</p>
+            </div>
+            
+            <div class="card">
+                <h2>People We've Engaged Previously</h2>
+                
+                <div class="placeholder-section">
+                    <h4>To be added by sales team</h4>
+                    <p>Document any previous contacts at Molson Coors:</p>
+                    <ul>
+                        <li>Name, title, and contact details</li>
+                        <li>When we spoke and what was discussed</li>
+                        <li>Their stance on eStore (interested, neutral, sceptical)</li>
+                        <li>Any relationships or connections</li>
+                        <li>Whether they're still at the company</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box neutral">
+                    <h4>Known Contact from Research</h4>
+                    <p><strong>Jack Daniel</strong> - Director of Digital, Western Europe at Molson Coors - is named in the e.fundamentals case study as the key contact. He may have moved on or changed roles since the case study was published (2022-2023). Worth verifying current status before outreach.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+                <p>These are the people who will actually evaluate, implement, and use eStore. Target 3-4 at this level.</p>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div class="contact-badges">
+                            <span class="contact-priority">#1 Priority</span>
+                            <span class="nationality-badge">🇺🇸 US-based</span>
+                        </div>
+                    </div>
+                    <div class="contact-name">Trey Harshfield</div>
+                    <div class="contact-title">Global Director of E-commerce</div>
+                    
+                    <div class="contact-section">
+                        <h4>Why this person</h4>
+                        <p>Named in press as global e-commerce lead. Quoted discussing DTC strategy and clickstream data priorities. Owns cross-market e-commerce decisions.</p>
+                    </div>
+                    
+                    <div class="contact-section">
+                        <h4>Relevant background</h4>
+                        <p>Led DTC platform launches including Blue Moon and Coors Light shopping capabilities. Focused on consumer data capture through direct relationships.</p>
+                    </div>
+                    
+                    <div class="contact-section">
+                        <h4>Hooks for outreach</h4>
+                        <ul>
+                            <li>His stated priority: "deeper insights around clickstream data, consumer behaviour"</li>
+                            <li>Gap in North American digital shelf monitoring (current tools UK-focused)</li>
+                            <li>New product launches requiring Day 1 optimisation across retailers</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tone-guidance">
+                        <h4>Tone & approach guidance</h4>
+                        <p><strong>US-based contact:</strong> Can be more direct and value-focused. Lead with business impact and ROI. Less relationship-building preamble needed. Get to the point quickly.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div class="contact-badges">
+                            <span class="contact-priority">#2 Priority</span>
+                            <span class="nationality-badge">🇬🇧 UK-based</span>
+                        </div>
+                    </div>
+                    <div class="contact-name">Jack Daniel</div>
+                    <div class="contact-title">Director of Digital, Western Europe</div>
+                    
+                    <div class="contact-section">
+                        <h4>Why this person</h4>
+                        <p>Named contact in e.fundamentals case study. Direct experience with digital shelf analytics and proven ROI (16:1). Key decision-maker for European digital initiatives.</p>
+                    </div>
+                    
+                    <div class="contact-section">
+                        <h4>Relevant background</h4>
+                        <p>Led e.fundamentals implementation achieving 16:1 ROI. Launched Revl DTC platform in UK during COVID. Deep understanding of digital shelf value.</p>
+                    </div>
+                    
+                    <div class="contact-section">
+                        <h4>Hooks for outreach</h4>
+                        <ul>
+                            <li>Acknowledge his success with e.fundamentals - don't position as replacement</li>
+                            <li>Position eStore as complementary for markets/retailers e.fundamentals doesn't cover</li>
+                            <li>His quote: "more than just data; they provide strategic support" - match this expectation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-box warning">
+                        <h4>⚠️ Approach with care</h4>
+                        <p>Jack owns the e.fundamentals relationship that delivered 16:1 ROI. He's not going to abandon that. Position eStore as additive, not replacement. Acknowledge his success.</p>
+                    </div>
+                    
+                    <div class="tone-guidance">
+                        <h4>Tone & approach guidance</h4>
+                        <p><strong>UK-based contact:</strong> More indirect approach works better. Build rapport before pitching. Acknowledge his expertise and success. Don't be overly aggressive with claims. British understatement appreciated.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div class="contact-badges">
+                            <span class="contact-priority">#3 Priority</span>
+                            <span class="nationality-badge">🇺🇸 US-based</span>
+                        </div>
+                    </div>
+                    <div class="contact-name">[To be identified via LinkedIn]</div>
+                    <div class="contact-title">Director/Head of Category Management - Beer</div>
+                    
+                    <div class="contact-section">
+                        <h4>Why this role</h4>
+                        <p>Category managers own product performance across retailers. They care about share of shelf, competitive positioning, and promotional effectiveness - core eStore value props.</p>
+                    </div>
+                    
+                    <div class="contact-section">
+                        <h4>Research needed</h4>
+                        <ul>
+                            <li>LinkedIn search for "Category Director" or "Head of Category" at Molson Coors</li>
+                            <li>Look for beer/beverage category specifically</li>
+                            <li>Verify US-based (North American gap is our angle)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div class="contact-badges">
+                            <span class="contact-priority">#4 Priority</span>
+                            <span class="nationality-badge">🇨🇦 Canada-based</span>
+                        </div>
+                    </div>
+                    <div class="contact-name">Joy Ghosh</div>
+                    <div class="contact-title">North America Brand Director</div>
+                    
+                    <div class="contact-section">
+                        <h4>Why this person</h4>
+                        <p>Quoted in Shopify case study on Ship and Sip launch. Owns North American brand decisions including e-commerce channel strategy.</p>
+                    </div>
+                    
+                    <div class="contact-section">
+                        <h4>Relevant background</h4>
+                        <p>Led rapid DTC launch during COVID. Quote: "accelerating our ecommerce capability had never been as pressing." Understands urgency of digital commerce.</p>
+                    </div>
+                    
+                    <div class="contact-section">
+                        <h4>Hooks for outreach</h4>
+                        <ul>
+                            <li>Canadian market expansion and Ship and Sip optimisation</li>
+                            <li>Brand consistency across North American retailers</li>
+                            <li>Her demonstrated bias toward speed and action</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tone-guidance">
+                        <h4>Tone & approach guidance</h4>
+                        <p><strong>Canadian contact:</strong> Similar to UK - polite and relationship-oriented, but can be slightly more direct than British contacts. Avoid hard-sell tactics. Collaborative tone works well.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+                <p>These senior leaders won't be hands-on but can provide air cover and budget approval. Reference their priorities when contacting their direct reports.</p>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div class="contact-badges">
+                            <span class="contact-priority secondary">Air Cover</span>
+                            <span class="nationality-badge">🇺🇸 US-based</span>
+                        </div>
+                    </div>
+                    <div class="contact-name">[To be identified via LinkedIn]</div>
+                    <div class="contact-title">VP Digital / VP E-commerce / Chief Digital Officer</div>
+                    
+                    <div class="contact-section">
+                        <h4>How to use this contact</h4>
+                        <ul>
+                            <li>Reference their strategic priorities when emailing operational contacts</li>
+                            <li>Escalation path if Directors are unresponsive</li>
+                            <li>Final sign-off conversations after operational stakeholders are convinced</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="contact-section">
+                        <h4>Research needed</h4>
+                        <p>LinkedIn search for VP-level digital/e-commerce roles at Molson Coors. Check recent organisational announcements (November 2025 restructuring mentioned in research).</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Executive Context (Do Not Contact Directly)</h2>
+                
+                <div class="contact-card" style="border-left-color: #9ca3af;">
+                    <div class="contact-header">
+                        <div class="contact-badges">
+                            <span class="contact-priority historical">Reference Only</span>
+                        </div>
+                    </div>
+                    <div class="contact-name">Rahul Goyal</div>
+                    <div class="contact-title">CEO (appointed January 2025)</div>
+                    
+                    <div class="contact-section">
+                        <h4>Why he matters</h4>
+                        <p>New CEO creates change mandate. His statement "our progress, though meaningful, is not enough" and push to "transform faster" signals openness to new solutions.</p>
+                    </div>
+                    
+                    <div class="contact-section">
+                        <h4>How to reference</h4>
+                        <p>Use his "transform faster" mandate as context when speaking with operational contacts: "With Rahul Goyal's push to transform faster, we wondered if there's appetite to accelerate digital shelf performance..."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                <ul>
+                    <li><strong>Manufacturing/Operations:</strong> Supply chain, brewing, production roles</li>
+                    <li><strong>Unrelated divisions:</strong> On-premise (bars/restaurants), events, sponsorship</li>
+                    <li><strong>Regional roles below Director:</strong> Focus on decision-makers with budget authority</li>
+                    <li><strong>Clinical/regulatory:</strong> Not relevant to digital shelf</li>
+                    <li><strong>HR/Finance/Legal:</strong> Not primary buyers</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TAB 5: EMAILS TO SEND -->
+        <div id="emails" class="tab-content">
+            <div class="card">
+                <h2>Email Sequence Strategy</h2>
+                
+                <div class="info-box">
+                    <h4>Sequence Overview</h4>
+                    <p>Three emails with 5-7 day intervals. Each email is written for a specific contact based on their role, background, and likely priorities. The moderate retailer coverage (56%) means we need to be transparent about implementation timelines.</p>
+                </div>
+                
+                <div class="tone-guidance">
+                    <h4>Nationality-Based Tone Guidance</h4>
+                    <p><strong>US contacts (Trey, Joy):</strong> Direct, value-focused, ROI-driven. Get to the point quickly. Numbers and results resonate.</p>
+                    <p><strong>UK contacts (Jack):</strong> More indirect, relationship-first. Acknowledge their expertise. Avoid over-claiming. British understatement appreciated.</p>
+                    <p><strong>For non-native English speakers:</strong> Consider opening or closing in their native language to demonstrate effort and cultural awareness.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Email Sequence for Trey Harshfield (US - Direct Style)</h2>
+                
+                <div class="email-template">
+                    <h3>Email 1: The Gap in North American Coverage</h3>
+                    
+                    <div class="email-header">
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Subject:</span>
+                            <span class="email-meta-value">Digital shelf gap for Molson Coors in North America?</span>
+                        </div>
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Preview:</span>
+                            <span class="email-meta-value">Your UK team achieved 16:1 ROI. What about the US?</span>
+                        </div>
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Timing:</span>
+                            <span class="email-meta-value">Tuesday or Wednesday, 9-10am recipient's timezone</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-body">
+                        <p>Trey,</p>
+                        
+                        <p>I've been following Molson Coors' e-commerce progress - the Ship and Sip launch, the Drizly partnership, your focus on clickstream data. Impressive execution.</p>
+                        
+                        <p>One thing caught my attention: your UK team achieved 16:1 ROI with e.fundamentals for digital shelf optimisation. But from what I can see, that capability hasn't been replicated in North America at the same level.</p>
+                        
+                        <p>With ZOA launching new flavours this quarter and Simply Spiked variants coming for summer, you're managing product launches across Amazon, Walmart, Target, Drizly, and 20+ other platforms simultaneously. Is that optimisation happening systematically, or is it still manual?</p>
+                        
+                        <p>eStore monitors 4,800+ retailers globally. We can cover Amazon US, Walmart, and Target immediately - your highest volume platforms. Alcohol specialists like Drizly would need 6-8 weeks to onboard, so I'm being upfront about that.</p>
+                        
+                        <p>Worth a 20-minute call to see if there's a gap we could fill?</p>
+                        
+                        <p>Best,<br>[Name]</p>
+                    </div>
+                    
+                    <div class="email-notes">
+                        <h4>Customisation notes</h4>
+                        <ul>
+                            <li>Verify current product launches before sending</li>
+                            <li>Check if e.fundamentals/CommerceIQ has expanded to US since research</li>
+                            <li>US style - direct, value-focused, specific ask</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="email-template">
+                    <h3>Email 2: The Constellation Competitive Angle</h3>
+                    
+                    <div class="email-header">
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Subject:</span>
+                            <span class="email-meta-value">re: Digital shelf gap for Molson Coors in North America?</span>
+                        </div>
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Preview:</span>
+                            <span class="email-meta-value">Constellation is investing heavily in digital shelf...</span>
+                        </div>
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Timing:</span>
+                            <span class="email-meta-value">5-7 days after Email 1</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-body">
+                        <p>Trey,</p>
+                        
+                        <p>Quick follow-up with a competitive thought.</p>
+                        
+                        <p>Constellation Brands (Corona, Modelo) is gaining premium segment share - their digital shelf presence on Amazon and Walmart is notably strong. When someone searches "Mexican beer" or "craft lager", are Blue Moon and Coors showing up first, or are you ceding that digital real estate?</p>
+                        
+                        <p>The beer oligopoly means small ranking differences translate directly to share shifts. A 10-position improvement in Amazon search typically correlates with 30%+ sales lift on that platform.</p>
+                        
+                        <p>If competitive monitoring across US retailers isn't systematic yet, that might be the gap worth discussing.</p>
+                        
+                        <p>Happy to show you what we see for Molson Coors vs Constellation on a quick call.</p>
+                        
+                        <p>Best,<br>[Name]</p>
+                    </div>
+                    
+                    <div class="email-notes">
+                        <h4>Customisation notes</h4>
+                        <ul>
+                            <li>Research current Constellation initiatives before sending</li>
+                            <li>Can offer to run competitive snapshot as conversation starter</li>
+                            <li>Keep short - US contacts appreciate brevity</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="email-template">
+                    <h3>Email 3: The "Transform Faster" Close</h3>
+                    
+                    <div class="email-header">
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Subject:</span>
+                            <span class="email-meta-value">re: Digital shelf gap for Molson Coors in North America?</span>
+                        </div>
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Preview:</span>
+                            <span class="email-meta-value">Last note - then I'll leave you alone</span>
+                        </div>
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Timing:</span>
+                            <span class="email-meta-value">5-7 days after Email 2</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-body">
+                        <p>Trey,</p>
+                        
+                        <p>Last note, then I'll step back.</p>
+                        
+                        <p>Rahul Goyal said Molson Coors needs to "transform faster." E-commerce is 1% of beer sales today but projected to reach 10% within 5-8 years - potentially $1B+ opportunity if you maintain share as the channel scales.</p>
+                        
+                        <p>If systematic North American digital shelf monitoring isn't a priority right now, I understand. But if there's any interest in exploring how eStore could complement what your UK team built with e.fundamentals - extended to US retailers - I'm here.</p>
+                        
+                        <p>Either way, good luck with the ZOA and Simply Spiked launches this year.</p>
+                        
+                        <p>Best,<br>[Name]</p>
+                    </div>
+                    
+                    <div class="email-notes">
+                        <h4>Customisation notes</h4>
+                        <ul>
+                            <li>Graceful exit - no pressure</li>
+                            <li>Reference specific launches to show you've done homework</li>
+                            <li>Leave door open without being pushy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Email Sequence for Jack Daniel (UK - Indirect Style)</h2>
+                
+                <div class="email-template">
+                    <h3>Email 1: Acknowledging His Success</h3>
+                    
+                    <div class="email-header">
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Subject:</span>
+                            <span class="email-meta-value">Impressed by the e.fundamentals results</span>
+                        </div>
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Preview:</span>
+                            <span class="email-meta-value">16:1 ROI is remarkable - curious about your next priorities</span>
+                        </div>
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Timing:</span>
+                            <span class="email-meta-value">Tuesday or Wednesday, 9-10am UK time</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-body">
+                        <p>Jack,</p>
+                        
+                        <p>I came across the e.fundamentals case study featuring Molson Coors - 16:1 ROI is a genuinely impressive result. Building that kind of commercial impact from digital shelf optimisation isn't straightforward, so credit where it's due.</p>
+                        
+                        <p>I work with eStore, a European digital shelf analytics platform. We're not trying to replace what's working for you - that would be presumptuous. But I was curious whether there are gaps in your current setup that might be worth exploring.</p>
+                        
+                        <p>Perhaps markets or retailers where e.fundamentals (now CommerceIQ) coverage is lighter? Or automation capabilities that would reduce manual effort for your team?</p>
+                        
+                        <p>If there's nothing obvious, I'm happy to leave you to it. But if it's worth a brief conversation, I'd welcome the chance to learn more about what you've built.</p>
+                        
+                        <p>Best regards,<br>[Name]</p>
+                    </div>
+                    
+                    <div class="email-notes">
+                        <h4>Customisation notes</h4>
+                        <ul>
+                            <li>UK style - acknowledge his expertise, don't oversell</li>
+                            <li>Position as curious/learning rather than pitching</li>
+                            <li>Explicit "not trying to replace" to lower defences</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="email-template">
+                    <h3>Email 2: The European Expansion Angle</h3>
+                    
+                    <div class="email-header">
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Subject:</span>
+                            <span class="email-meta-value">re: Impressed by the e.fundamentals results</span>
+                        </div>
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Preview:</span>
+                            <span class="email-meta-value">Thought about Madrí and European expansion...</span>
+                        </div>
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Timing:</span>
+                            <span class="email-meta-value">5-7 days after Email 1</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-body">
+                        <p>Jack,</p>
+                        
+                        <p>One thought since my last note.</p>
+                        
+                        <p>The Madrí 0% launch and your broader European portfolio got me thinking - does your current setup cover the full range of European retailers you're now selling through? Germany, France, Netherlands, Spain?</p>
+                        
+                        <p>eStore has particularly deep coverage across European grocery retailers - Carrefour, Auchan, Albert Heijn, REWE, Edeka - often in local languages, which matters for content quality scoring.</p>
+                        
+                        <p>Might be nothing you need. But if there's a European coverage gap alongside your UK strength, that's something we could potentially help with.</p>
+                        
+                        <p>Happy to leave it there if not relevant.</p>
+                        
+                        <p>Best regards,<br>[Name]</p>
+                    </div>
+                    
+                    <div class="email-notes">
+                        <h4>Customisation notes</h4>
+                        <ul>
+                            <li>Specific to European expansion - not competing with UK success</li>
+                            <li>Multi-lingual coverage as differentiator</li>
+                            <li>Soft close - British style</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="email-template">
+                    <h3>Email 3: Graceful Close</h3>
+                    
+                    <div class="email-header">
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Subject:</span>
+                            <span class="email-meta-value">re: Impressed by the e.fundamentals results</span>
+                        </div>
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Preview:</span>
+                            <span class="email-meta-value">Final thought, then I'll leave you in peace</span>
+                        </div>
+                        <div class="email-meta-row">
+                            <span class="email-meta-label">Timing:</span>
+                            <span class="email-meta-value">5-7 days after Email 2</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-body">
+                        <p>Jack,</p>
+                        
+                        <p>Final note from me - I appreciate you're busy.</p>
+                        
+                        <p>If there's genuinely no gap in your digital shelf setup, I'll happily leave you to focus on what's working. The 16:1 ROI speaks for itself.</p>
+                        
+                        <p>But if you ever find yourself needing additional retailer coverage - whether European expansion, new product launches overwhelming the team, or simply wanting a second perspective - I'm here.</p>
+                        
+                        <p>Best of luck with the Madrí launch and everything else in your pipeline.</p>
+                        
+                        <p>Kind regards,<br>[Name]</p>
+                    </div>
+                    
+                    <div class="email-notes">
+                        <h4>Customisation notes</h4>
+                        <ul>
+                            <li>British style graceful exit</li>
+                            <li>Leaves door open without pressure</li>
+                            <li>Respects his time and success</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Email Sequence Guidelines</h2>
+                
+                <h3>Timing & Cadence</h3>
+                <ul>
+                    <li><strong>Best days:</strong> Tuesday, Wednesday, Thursday</li>
+                    <li><strong>Best times:</strong> 9-10am or 2-3pm in recipient's timezone</li>
+                    <li><strong>Spacing:</strong> 5-7 days between emails</li>
+                    <li><strong>Stop conditions:</strong> Any response (positive or negative), out-of-office for extended period</li>
+                </ul>
+                
+                <h3>Personalisation Checklist</h3>
+                <ul>
+                    <li>Verify current role and company on LinkedIn before sending</li>
+                    <li>Check for recent news, posts, or announcements to reference</li>
+                    <li>Confirm product launches mentioned are still upcoming</li>
+                    <li>Adjust tone for nationality/culture as noted above</li>
+                </ul>
+                
+                <h3>Response Handling</h3>
+                <ul>
+                    <li><strong>Positive response:</strong> Schedule call within 48 hours, send calendar link</li>
+                    <li><strong>Neutral/"tell me more":</strong> Send brief one-pager or offer 15-minute call</li>
+                    <li><strong>"Not right now":</strong> Acknowledge, ask when to follow up, add to nurture</li>
+                    <li><strong>"Not interested":</strong> Thank them, respect the decision, remove from sequence</li>
+                    <li><strong>"We use X already":</strong> Acknowledge, position as complementary if true, offer competitive analysis</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TAB 6: OBJECTION HANDLING -->
+        <div id="objections" class="tab-content">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                
+                <div class="verdict-box caution">
+                    <h3>⚠️ Molson Coors: Proceed with Caveats</h3>
+                    <p><strong>Coverage:</strong> 56% - we can deliver value but not immediately across all their retailers</p>
+                    <p><strong>Incumbent tools:</strong> e.fundamentals (UK, 16:1 ROI), Profitero - strong relationships exist</p>
+                    <p><strong>Positioning:</strong> Complementary, not replacement. Fill the North American and European expansion gaps.</p>
+                </div>
+                
+                <h3>If They Ask About Coverage Upfront</h3>
+                <p>Be honest: "We can monitor your major platforms - Amazon US/UK, Walmart, Target, UK grocers - immediately. That's about 56% of your key retailers. Alcohol specialists like Drizly and Total Wine would need 6-8 weeks to onboard. So you'd see value on high-volume platforms within weeks, with full coverage in 2-3 months."</p>
+            </div>
+            
+            <div class="card">
+                <h2>Common Objections & Responses</h2>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"We already have e.fundamentals/CommerceIQ for digital shelf analytics."</div>
+                    <div class="objection-response">
+                        <h4>Acknowledge their success</h4>
+                        <p>"Absolutely - and the 16:1 ROI Jack Daniel's team achieved is genuinely impressive. We're not suggesting you replace what's working."</p>
+                        
+                        <h4>Identify the gap</h4>
+                        <p>"My understanding is that e.fundamentals has historically been strongest in UK and European grocery. Has that capability been fully replicated for North American retailers - Amazon US, Walmart, Target, the alcohol delivery platforms? That's where we see potential white space."</p>
+                        
+                        <h4>Position as complementary</h4>
+                        <p>"We're not trying to compete with your UK setup. We're asking whether there's a gap in North American coverage that might benefit from additional tooling. If there isn't, fair enough."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"How many of our retailers can you actually monitor today?"</div>
+                    <div class="objection-response">
+                        <h4>Be honest about the numbers</h4>
+                        <p>"Right now, we cover about 56% of the retailers you sell through. That includes your highest-volume platforms: Amazon US, Amazon UK, Walmart, Target, Tesco, Sainsbury's, and most UK and European grocers."</p>
+                        
+                        <h4>Acknowledge the gaps</h4>
+                        <p>"Where we have gaps today: alcohol specialists like Drizly, Total Wine, and BevMo. Those would require 6-8 weeks of onboarding work on our side. Canadian provincial retailers like LCBO are also not covered yet."</p>
+                        
+                        <h4>Frame the timeline</h4>
+                        <p>"So realistically: you'd see value on major platforms within 2-4 weeks. Full coverage across all your retailers would take 2-3 months. I want to be upfront about that rather than overpromise."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"We also use Profitero. Why would we need a third tool?"</div>
+                    <div class="objection-response">
+                        <h4>Understand their stack first</h4>
+                        <p>"Can I ask - how are you using e.fundamentals versus Profitero today? Are they covering different markets, or different use cases?"</p>
+                        
+                        <h4>Position based on their answer</h4>
+                        <p>"If you're already managing multiple tools, we might actually help consolidate. Or we might fill a different gap entirely - perhaps automation capabilities that reduce manual work, or the OneNumber KPI that simplifies reporting across tools."</p>
+                        
+                        <h4>Acknowledge the complexity</h4>
+                        <p>"I'll be honest - adding another tool isn't always the right answer. But if there's a specific capability gap or a market that's underserved, that's worth exploring. If not, no hard feelings."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"We're satisfied with our current e-commerce performance."</div>
+                    <div class="objection-response">
+                        <h4>Acknowledge their success</h4>
+                        <p>"You should be - 21% e-commerce CAGR from 2021-2024 is exceptional, especially in a category as regulated as alcohol. And being voted #1 supplier for e-commerce by your distributor network is a real achievement."</p>
+                        
+                        <h4>Introduce the scale opportunity</h4>
+                        <p>"Here's the context I keep coming back to: e-commerce is still just 1% of beer sales. Industry projections suggest 10% penetration within 5-8 years. That's a 10x channel growth opportunity. The question isn't whether your current performance is good - it's whether you can maintain share as the channel scales."</p>
+                        
+                        <h4>Competitive framing</h4>
+                        <p>"Constellation Brands is investing heavily in digital shelf. If they're outranking Coors Light and Blue Moon on Amazon and Walmart as the channel grows, that share differential compounds. Is systematic monitoring and optimisation happening at the level needed to defend against that?"</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"We don't have budget for new tools right now."</div>
+                    <div class="objection-response">
+                        <h4>Understand the constraint</h4>
+                        <p>"Completely understand - is that a Q1 timing issue, or more fundamental? I ask because approach varies depending on whether this is 'not now' versus 'not this year.'"</p>
+                        
+                        <h4>If timing issue</h4>
+                        <p>"Would it make sense to have an initial conversation now so you're informed when budget does free up? No commitment, just understanding whether there's a fit worth revisiting."</p>
+                        
+                        <h4>If more fundamental</h4>
+                        <p>"Fair enough. Would a pilot approach work - prove ROI on a limited scope (say, one brand or one market) before committing to full deployment? That's how your UK team started with e.fundamentals."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"The three-tier system means we don't control the digital shelf for alcohol."</div>
+                    <div class="objection-response">
+                        <h4>Acknowledge the regulation</h4>
+                        <p>"You're right that three-tier distribution prevents direct shipping - that's why you partner with Drizly and Minibar for fulfilment. But that doesn't mean you have no influence over how products appear."</p>
+                        
+                        <h4>Reframe what you control</h4>
+                        <p>"When someone searches 'light beer' on Drizly or 'craft lager' on Total Wine, your content quality, imagery, descriptions, and ratings determine whether they choose Coors Light or Corona. That's the digital shelf you can optimise - even if you can't control inventory or pricing directly."</p>
+                        
+                        <h4>Point to their own DTC investment</h4>
+                        <p>"You've built Ship and Sip, Revl, and brand shopping sites specifically to capture consumer data. Are those experiences fully optimised? When someone lands on coorslight.com/shop, is the journey to Drizly fulfilment seamless, or are there improvement opportunities?"</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"We're in the middle of a reorg/CEO transition. Not the right time."</div>
+                    <div class="objection-response">
+                        <h4>Acknowledge the reality</h4>
+                        <p>"Completely understand - November restructuring plus CEO transition is a lot of change to absorb. Starting new vendor relationships during uncertainty isn't ideal."</p>
+                        
+                        <h4>Plant a seed</h4>
+                        <p>"At the same time, Rahul Goyal's 'transform faster' mandate suggests new leadership wants to see action. When the dust settles, having options ready to present might actually help someone demonstrate initiative."</p>
+                        
+                        <h4>Offer to stay in touch</h4>
+                        <p>"How about this: let me send over a brief overview, no commitment. When the reorg stabilises and priorities become clearer - maybe Q2 - we can revisit whether there's a fit. Does that work?"</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"What proof do you have this works for alcohol/beverage companies?"</div>
+                    <div class="objection-response">
+                        <h4>Be honest about the category</h4>
+                        <p>"I'll be direct - we can't claim extensive alcohol-specific case studies with published ROI numbers. What I can point to is Danone, a beverage and food company navigating similar complexity across categories and geographies."</p>
+                        
+                        <h4>Reference transferable frameworks</h4>
+                        <p>"The CARS framework - Content, Availability, Ratings & Reviews, Search - drives results regardless of category. We've seen 9% uplift from adding video, 10% uplift from 0.1 star rating improvement, 30% sales increase from moving up 10 positions in search. Those dynamics apply to beer on Amazon, Walmart, Drizly just as they do to other CPG categories."</p>
+                        
+                        <h4>Point to their own validation</h4>
+                        <p>"More importantly, you've already validated digital shelf ROI in alcohol - 16:1 with e.fundamentals. That wasn't because e.fundamentals had alcohol expertise. It's because optimising content and search works regardless of category. We're offering to extend that approach across more retailers."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                
+                <h3>Core Approach</h3>
+                <ul>
+                    <li><strong>Never dismiss the objection:</strong> Even if it seems easily addressed, it represents a real concern to them</li>
+                    <li><strong>Ask clarifying questions:</strong> Often the stated objection isn't the real issue</li>
+                    <li><strong>Use evidence:</strong> Facts, examples, their own data are more credible than assertions</li>
+                    <li><strong>Offer flexibility:</strong> Pilots, phased approaches, proof of concept before full commitment</li>
+                    <li><strong>Be honest about fit:</strong> If we're genuinely not the right solution, say so</li>
+                </ul>
+                
+                <h3>When to Walk Away</h3>
+                <p>Sometimes the right answer is to acknowledge this isn't the right fit:</p>
+                <ul>
+                    <li>They're genuinely satisfied and have no gaps we can fill</li>
+                    <li>Existing vendor contracts prevent consideration for 12+ months</li>
+                    <li>Budget is frozen with no realistic path to reopening</li>
+                    <li>No internal champion and no willingness to explore</li>
+                    <li>Their expectations exceed what we can realistically deliver</li>
+                </ul>
+                
+                <div class="info-box success">
+                    <p><strong>If walking away:</strong> Be honest that timing or fit isn't right. Leave the door open. They'll respect the honesty and may come back when circumstances change. Better than forcing a bad-fit deal.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
