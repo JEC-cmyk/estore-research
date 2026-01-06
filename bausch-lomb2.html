@@ -1,0 +1,3104 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bausch + Lomb | eStore Interactive Action Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --estore-yellow: #ffba1c;
+            --estore-green: #22bb69;
+            --estore-light-blue: #68d7fa;
+            --estore-dark-blue: #1067db;
+            --estore-red: #f44f2f;
+            --estore-orange: #ff7a00;
+            --text-primary: #2c2c2c;
+            --text-secondary: #5a5a5a;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-light: #e5e7eb;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--estore-dark-blue);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .brand-info h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .brand-info .subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .fit-badge.moderate {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            color: #856404;
+            border: 1px solid #ffc107;
+        }
+
+        .fit-badge .icon {
+            font-size: 1.25rem;
+        }
+
+        .key-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+        }
+
+        .stat-card {
+            background: var(--bg-light);
+            padding: 16px;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .stat-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--estore-dark-blue);
+            display: block;
+        }
+
+        .stat-card .label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-white);
+            padding: 8px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 14px 20px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: var(--radius-md);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            background: var(--bg-light);
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background: var(--estore-dark-blue);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--estore-yellow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title .icon {
+            font-size: 1.25rem;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--estore-dark-blue);
+        }
+
+        .info-card.warning {
+            border-left-color: var(--estore-orange);
+            background: #fff8f0;
+        }
+
+        .info-card.success {
+            border-left-color: var(--estore-green);
+            background: #f0fdf4;
+        }
+
+        .info-card.danger {
+            border-left-color: var(--estore-red);
+            background: #fef2f2;
+        }
+
+        .info-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .info-card ul {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+
+        .info-card li {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        /* Coverage Dashboard */
+        .coverage-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .coverage-metric {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .coverage-metric .percentage {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .coverage-metric .percentage.excellent { color: var(--estore-green); }
+        .coverage-metric .percentage.good { color: var(--estore-dark-blue); }
+        .coverage-metric .percentage.moderate { color: var(--estore-orange); }
+        .coverage-metric .percentage.poor { color: var(--estore-red); }
+
+        .coverage-metric .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .coverage-metric .sub-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            height: 12px;
+            background: #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 16px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-fill.excellent { background: linear-gradient(90deg, var(--estore-green) 0%, #34d399 100%); }
+        .progress-fill.good { background: linear-gradient(90deg, var(--estore-dark-blue) 0%, var(--estore-light-blue) 100%); }
+        .progress-fill.moderate { background: linear-gradient(90deg, var(--estore-orange) 0%, var(--estore-yellow) 100%); }
+        .progress-fill.poor { background: linear-gradient(90deg, var(--estore-red) 0%, #f87171 100%); }
+
+        /* Retailer Grid */
+        .retailer-tier {
+            margin-bottom: 32px;
+        }
+
+        .tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding: 12px 16px;
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+        }
+
+        .tier-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .tier-coverage {
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+        }
+
+        .tier-coverage.excellent { background: #d1fae5; color: #065f46; }
+        .tier-coverage.good { background: #dbeafe; color: #1e40af; }
+        .tier-coverage.moderate { background: #fef3c7; color: #92400e; }
+        .tier-coverage.poor { background: #fee2e2; color: #991b1b; }
+
+        .retailer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .retailer-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .retailer-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .retailer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .retailer-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .retailer-url {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .status-badge.covered {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-badge.not-covered {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .status-badge.problematic {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .retailer-reason {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .retailer-market {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            background: var(--bg-light);
+            padding: 4px 8px;
+            border-radius: var(--radius-sm);
+            display: inline-block;
+            width: fit-content;
+        }
+
+        /* Contact Cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            position: relative;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-card.primary {
+            border-top: 4px solid var(--estore-dark-blue);
+        }
+
+        .contact-card.secondary {
+            border-top: 4px solid var(--estore-orange);
+        }
+
+        .contact-card.warm {
+            border-top: 4px solid var(--estore-green);
+        }
+
+        .priority-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--estore-dark-blue);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .priority-badge.warm {
+            background: var(--estore-green);
+        }
+
+        .priority-badge.secondary {
+            background: var(--estore-orange);
+        }
+
+        .contact-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .contact-title {
+            font-size: 0.95rem;
+            color: var(--estore-dark-blue);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .contact-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .contact-meta-item {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-section {
+            margin-bottom: 16px;
+        }
+
+        .contact-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-section h5 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .contact-section p {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .contact-section ul {
+            padding-left: 18px;
+        }
+
+        .contact-section li {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .linkedin-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--estore-dark-blue);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .linkedin-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Email Sequence */
+        .email-sequence {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-email-section {
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .contact-email-header {
+            background: var(--estore-dark-blue);
+            color: white;
+            padding: 16px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-email-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-email-header .relationship {
+            font-size: 0.8rem;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .contact-email-header .toggle-icon {
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-email-section.collapsed .contact-email-header .toggle-icon {
+            transform: rotate(-90deg);
+        }
+
+        .contact-email-body {
+            padding: 24px;
+            display: block;
+        }
+
+        .contact-email-section.collapsed .contact-email-body {
+            display: none;
+        }
+
+        .email-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .email-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .email-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .email-number {
+            display: inline-block;
+            background: var(--estore-dark-blue);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .email-subject {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .email-timing {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .email-body {
+            padding: 20px;
+        }
+
+        .email-content {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            margin-bottom: 16px;
+        }
+
+        .email-notes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .email-note {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+        }
+
+        .email-note h5 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .email-note p {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+
+        /* Objection Cards */
+        .objection-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .objection-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .objection-header {
+            background: var(--bg-light);
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .objection-header:hover {
+            background: #f1f5f9;
+        }
+
+        .objection-statement {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .objection-toggle {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .objection-card.open .objection-toggle {
+            transform: rotate(180deg);
+        }
+
+        .objection-body {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .objection-card.open .objection-body {
+            padding: 20px;
+            max-height: 800px;
+        }
+
+        .response-section {
+            margin-bottom: 16px;
+        }
+
+        .response-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .response-section h5 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--estore-dark-blue);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .response-section p {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* Decision Framework */
+        .decision-framework {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .decision-card {
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+
+        .decision-card.proceed {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border: 2px solid var(--estore-green);
+        }
+
+        .decision-card.caveats {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid var(--estore-orange);
+        }
+
+        .decision-card.delay {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border: 2px solid var(--estore-red);
+        }
+
+        .decision-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .decision-card .threshold {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .decision-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .data-table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+
+        .data-table td {
+            font-size: 0.9rem;
+        }
+
+        .data-table tr:hover td {
+            background: var(--bg-light);
+        }
+
+        /* Checklist */
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 8px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: var(--bg-light);
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+        }
+
+        .checklist-item .check {
+            color: var(--estore-green);
+            font-weight: bold;
+        }
+
+        .checklist-item .cross {
+            color: var(--estore-red);
+            font-weight: bold;
+        }
+
+        /* Content Reference */
+        .content-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .content-link-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .content-link-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .content-link-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .content-link-card a {
+            color: var(--estore-dark-blue);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        .content-link-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* History Timeline */
+        .no-history-notice {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border: 2px solid var(--estore-dark-blue);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .no-history-notice h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--estore-dark-blue);
+            margin-bottom: 8px;
+        }
+
+        .no-history-notice p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Competitor Grid */
+        .competitor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .competitor-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            text-align: center;
+        }
+
+        .competitor-card .name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .competitor-card .status {
+            font-size: 0.85rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .competitor-card .status.none {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .competitor-card .confidence {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Go No Go Banner */
+        .go-no-go-banner {
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .go-no-go-banner.moderate {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid var(--estore-orange);
+        }
+
+        .go-no-go-banner h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .go-no-go-banner p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .go-no-go-banner .time-to-value {
+            margin-top: 16px;
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.5);
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            display: inline-block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .brand-info h1 {
+                font-size: 1.75rem;
+            }
+
+            .tab-nav {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                min-width: auto;
+            }
+
+            .tab-content {
+                padding: 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .retailer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .tab-nav {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+                page-break-before: always;
+            }
+
+            .tab-content:first-of-type {
+                page-break-before: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="brand-info">
+                    <h1>Bausch + Lomb</h1>
+                    <p class="subtitle">Global Eye Health Company | Vision Care, Pharmaceuticals, Surgical</p>
+                </div>
+                <div class="fit-badge moderate">
+                    <span class="icon">⚠️</span>
+                    <span>MODERATE FIT - Proceed with Caveats</span>
+                </div>
+            </div>
+            <div class="key-stats">
+                <div class="stat-card">
+                    <span class="value">$4.79B</span>
+                    <span class="label">FY2024 Revenue</span>
+                </div>
+                <div class="stat-card">
+                    <span class="value">+16%</span>
+                    <span class="label">YoY Growth</span>
+                </div>
+                <div class="stat-card">
+                    <span class="value">57%</span>
+                    <span class="label">Tier 1&2 Coverage</span>
+                </div>
+                <div class="stat-card">
+                    <span class="value">~100</span>
+                    <span class="label">Countries</span>
+                </div>
+                <div class="stat-card">
+                    <span class="value">13,500</span>
+                    <span class="label">Employees</span>
+                </div>
+                <div class="stat-card">
+                    <span class="value">1853</span>
+                    <span class="label">Founded</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="fit">Are we a good fit?</button>
+            <button class="tab-btn" data-tab="history">Our history with them</button>
+            <button class="tab-btn" data-tab="retailers">Retailer Check</button>
+            <button class="tab-btn" data-tab="contacts">Key people?</button>
+            <button class="tab-btn" data-tab="emails">Emails to send</button>
+            <button class="tab-btn" data-tab="objections">Objection Handling</button>
+        </nav>
+
+        <!-- Tab 1: Are we a good fit? -->
+        <div class="tab-content active" id="fit">
+            <div class="section">
+                <h2 class="section-title"><span class="icon">📊</span> Strategic Assessment Summary</h2>
+                <div class="info-card warning">
+                    <h4>Overall Assessment: MODERATE FIT</h4>
+                    <p>Bausch + Lomb represents a mixed opportunity for eStore. With $4.79 billion in FY2024 revenue and 16% year-on-year growth, B+L is a Tier 1 prospect with significant scale. However, our ability to deliver immediate value is constrained by a critical gap in specialist contact lens retailer coverage. We can provide strong value for their Consumer Division OTC products (LUMIFY, Blink, PreserVision) through UK grocery and US pharmacy channels, but cannot currently monitor the specialist optical retailers that are central to their core Vision Care contact lens business.</p>
+                </div>
+
+                <div class="checklist">
+                    <div class="checklist-item"><span class="check">✓</span> No existing DSA vendor (greenfield)</div>
+                    <div class="checklist-item"><span class="check">✓</span> 94% Tier 1 mass market coverage</div>
+                    <div class="checklist-item"><span class="check">✓</span> Digital transformation investment</div>
+                    <div class="checklist-item"><span class="check">✓</span> No DTC - relies on third-party retail</div>
+                    <div class="checklist-item"><span class="cross">✗</span> 0% specialist optical coverage</div>
+                    <div class="checklist-item"><span class="cross">✗</span> 57% Tier 1&2 (below 60% threshold)</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">🏢</span> Distribution Complexity Validates Opportunity</h2>
+                <div class="info-card">
+                    <h4>Hybrid Distribution Model</h4>
+                    <p>B+L operates a complex distribution model with products flowing through multiple channels simultaneously. Critically, they do NOT operate consumer DTC e-commerce - all consumer purchases flow through third-party retailers, making digital shelf visibility potentially very valuable. Their recent Opal platform launch (October 2024) addresses B2B2C for optical practices, but creates a visibility gap for the CVS, Walgreens, and Boots of the world.</p>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Segment</th>
+                            <th>FY2024 Revenue</th>
+                            <th>% of Total</th>
+                            <th>Primary Channels</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Vision Care (contact lenses, lens care)</td>
+                            <td>$2.739 billion</td>
+                            <td>57%</td>
+                            <td>Specialist optical, Amazon</td>
+                        </tr>
+                        <tr>
+                            <td>Pharmaceuticals (Rx eye care)</td>
+                            <td>$1.209 billion</td>
+                            <td>25%</td>
+                            <td>Pharmacy channels</td>
+                        </tr>
+                        <tr>
+                            <td>Surgical (IOLs, equipment)</td>
+                            <td>$843 million</td>
+                            <td>18%</td>
+                            <td>Healthcare providers</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">🎯</span> Digital Maturity & Strategic Readiness</h2>
+                <div class="info-card success">
+                    <h4>Strong Digital Investment Signals</h4>
+                    <p>B+L demonstrates significant digital maturity and active investment in e-commerce infrastructure:</p>
+                    <ul>
+                        <li><strong>Opal Digital Marketplace</strong> (October 2024) - B2B2C platform for US eye care practices</li>
+                        <li><strong>Composable Commerce Architecture</strong> - commercetools implementation led by VP Digital Strategy</li>
+                        <li><strong>Digital Transformation Office</strong> - Created by CEO Brent Saunders with dedicated C-suite role</li>
+                        <li><strong>CEO Statement:</strong> "The next two years are probably going to be the most transformative with respect to using these technologies"</li>
+                    </ul>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Technology Category</th>
+                            <th>Tool/Platform</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>E-commerce Platform</td>
+                            <td>commercetools</td>
+                            <td>Company blog, conference presentations</td>
+                        </tr>
+                        <tr>
+                            <td>CRM</td>
+                            <td>Salesforce</td>
+                            <td>Job postings</td>
+                        </tr>
+                        <tr>
+                            <td>Analytics</td>
+                            <td>Qlik Sense, Oracle Database</td>
+                            <td>Job postings</td>
+                        </tr>
+                        <tr>
+                            <td>Marketing</td>
+                            <td>Oracle (consumer engagement)</td>
+                            <td>Job postings</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">📦</span> Product Portfolio Breadth</h2>
+                <div class="info-card">
+                    <h4>Consumer Products Sold Through Online Retail (eStore Relevant)</h4>
+                    <p>B+L has approximately 400 products across categories. The Consumer Division products most relevant for eStore monitoring include:</p>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Key Products</th>
+                            <th>Online Retail Channels</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Contact Lenses</td>
+                            <td>INFUSE®, ULTRA®, Biotrue® ONEday, SofLens®, PureVision®</td>
+                            <td>Specialist optical retailers, Amazon</td>
+                        </tr>
+                        <tr>
+                            <td>Lens Care</td>
+                            <td>Biotrue®, ReNu®, Boston®</td>
+                            <td>Mass market, pharmacy, grocery</td>
+                        </tr>
+                        <tr>
+                            <td>OTC Eye Drops</td>
+                            <td>LUMIFY®, Blink®, Soothe®</td>
+                            <td>CVS, Walgreens, Boots, grocery</td>
+                        </tr>
+                        <tr>
+                            <td>Eye Supplements</td>
+                            <td>PreserVision® AREDS 2, Ocuvite®</td>
+                            <td>Holland & Barrett, pharmacy, grocery</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-card" style="margin-top: 16px;">
+                    <h4>Recent Product Launches</h4>
+                    <ul>
+                        <li><strong>MIEBO™</strong> (2023) - First FDA-approved eye drop targeting tear evaporation</li>
+                        <li><strong>XIIDRA® acquisition</strong> (2023) - ~$487M annual sales from Novartis</li>
+                        <li><strong>INFUSE® Multifocal and Astigmatism variants</strong> (2023-2024)</li>
+                        <li><strong>Blink NutriTears supplements</strong> (2024)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">🌍</span> Geographic Fit Assessment</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Region</th>
+                            <th>eStore Strength</th>
+                            <th>B+L Presence</th>
+                            <th>Fit Assessment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>UK</td>
+                            <td>✅ Strong</td>
+                            <td>Major market - Boots partnership, grocery presence</td>
+                            <td>✅ Good for OTC</td>
+                        </tr>
+                        <tr>
+                            <td>Germany</td>
+                            <td>✅ Good</td>
+                            <td>Significant - Amazon.de, dm, Rossmann</td>
+                            <td>⚠️ Moderate</td>
+                        </tr>
+                        <tr>
+                            <td>US</td>
+                            <td>⚠️ Moderate</td>
+                            <td>Largest market - HQ in Bridgewater, NJ</td>
+                            <td>✅ Good for mass market, ❌ Weak for optical specialists</td>
+                        </tr>
+                        <tr>
+                            <td>Rest of Europe</td>
+                            <td>⚠️ Variable</td>
+                            <td>Pan-European operations</td>
+                            <td>⚠️ Variable</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">⏱️</span> Implementation Readiness Assessment</h2>
+                <div class="coverage-dashboard">
+                    <div class="coverage-metric">
+                        <span class="percentage moderate">57%</span>
+                        <span class="label">Tier 1 & 2 Coverage</span>
+                        <span class="sub-label">Below 60% threshold</span>
+                    </div>
+                    <div class="coverage-metric">
+                        <span class="percentage excellent">94%</span>
+                        <span class="label">Mass Market Coverage</span>
+                        <span class="sub-label">Excellent</span>
+                    </div>
+                    <div class="coverage-metric">
+                        <span class="percentage poor">0%</span>
+                        <span class="label">Specialist Optical</span>
+                        <span class="sub-label">Critical gap</span>
+                    </div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Segment</th>
+                            <th>Time to Value</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>UK OTC/Supplements</td>
+                            <td><strong>2-4 weeks</strong></td>
+                            <td>Ready now - Boots, Superdrug, grocery all covered</td>
+                        </tr>
+                        <tr>
+                            <td>US Mass Market/Pharmacy</td>
+                            <td><strong>2-4 weeks</strong></td>
+                            <td>Ready now - CVS, Walgreens, Walmart, Target covered</td>
+                        </tr>
+                        <tr>
+                            <td>Specialist Contact Lens Retailers</td>
+                            <td><strong>4-6 months</strong></td>
+                            <td>Requires onboarding 1-800 Contacts, Vision Direct, etc.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">✅</span> Final Assessment</h2>
+                <div class="info-card warning">
+                    <h4>Recommendation: PROCEED WITH SIGNIFICANT CAVEATS</h4>
+                    <p>B+L is worth pursuing, but with honest positioning:</p>
+                    <ul>
+                        <li><strong>Lead with Consumer Health/OTC opportunity</strong> - LUMIFY, Blink, PreserVision across UK grocery and US pharmacy</li>
+                        <li><strong>Position UK as strength</strong> - 100% UK grocery coverage (Tesco, Sainsbury's, ASDA, Morrisons, Boots)</li>
+                        <li><strong>Be upfront about contact lens limitations</strong> - Specialist optical retailers not currently covered</li>
+                        <li><strong>Emphasise greenfield DSA opportunity</strong> - No evidence of existing DSA vendor</li>
+                        <li><strong>Frame Opal complement</strong> - DSA for external retailers, Opal for B2B2C</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Our history with them -->
+        <div class="tab-content" id="history">
+            <div class="no-history-notice">
+                <h3>🆕 New Prospect - No Previous eStore Contact</h3>
+                <p>This is a fresh outreach opportunity. We have no record of previous conversations or engagement with Bausch + Lomb.</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">🔍</span> Competitor DSA Tool Assessment</h2>
+                <div class="info-card success">
+                    <h4>Key Finding: Greenfield Opportunity</h4>
+                    <p>No evidence of existing DSA vendor relationship. This is a significant greenfield opportunity. All major DSA competitors returned negative search results, confirmed by job posting analysis showing no DSA tool requirements, no case studies or press releases, and no conference presentations mentioning DSA partnerships.</p>
+                </div>
+
+                <div class="competitor-grid">
+                    <div class="competitor-card">
+                        <div class="name">Profitero</div>
+                        <div class="status none">❌ No Evidence</div>
+                        <div class="confidence">HIGH Confidence</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="name">CommerceIQ</div>
+                        <div class="status none">❌ No Evidence</div>
+                        <div class="confidence">HIGH Confidence</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="name">Salsify</div>
+                        <div class="status none">❌ No Evidence</div>
+                        <div class="confidence">HIGH Confidence</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="name">Syndigo</div>
+                        <div class="status none">❌ No Evidence</div>
+                        <div class="confidence">HIGH Confidence</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="name">Edge by Ascential</div>
+                        <div class="status none">❌ No Evidence</div>
+                        <div class="confidence">HIGH Confidence</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="name">DataWeave</div>
+                        <div class="status none">❌ No Evidence</div>
+                        <div class="confidence">HIGH Confidence</div>
+                    </div>
+                    <div class="competitor-card">
+                        <div class="name">Stackline</div>
+                        <div class="status none">❌ No Evidence</div>
+                        <div class="confidence">HIGH Confidence</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">💻</span> Confirmed Technology Stack</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Tool</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CRM</td>
+                            <td>Salesforce</td>
+                            <td>Job postings</td>
+                        </tr>
+                        <tr>
+                            <td>Analytics</td>
+                            <td>Qlik Sense, Oracle Database</td>
+                            <td>Job postings</td>
+                        </tr>
+                        <tr>
+                            <td>E-commerce Platform</td>
+                            <td>commercetools</td>
+                            <td>Company blog, conference presentations</td>
+                        </tr>
+                        <tr>
+                            <td>Marketing</td>
+                            <td>Oracle (consumer engagement)</td>
+                            <td>Job postings</td>
+                        </tr>
+                        <tr>
+                            <td>Web Analytics</td>
+                            <td>Google Analytics</td>
+                            <td>Standard</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">📚</span> Content to Reference</h2>
+                <div class="content-links">
+                    <div class="content-link-card">
+                        <h4>Sector Landing Page</h4>
+                        <p>Health & Pharmaceuticals sector page - directly relevant for B+L's pharma and eye care positioning</p>
+                        <a href="https://estorebrands.com/health-beauty" target="_blank">https://estorebrands.com/health-beauty</a>
+                    </div>
+                    <div class="content-link-card">
+                        <h4>Ignite Article</h4>
+                        <p>Why Pharmaceutical and Healthcare Brands Need Specialised Digital Shelf Analytics - thought leadership content for email sequences</p>
+                        <a href="https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics" target="_blank">https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics</a>
+                    </div>
+                </div>
+
+                <div class="info-card" style="margin-top: 16px;">
+                    <h4>Suggested Content Placement</h4>
+                    <ul>
+                        <li><strong>Email 1:</strong> None - focus on problem/hook. Keep first touch clean.</li>
+                        <li><strong>Email 2:</strong> Ignite article on pharma DSA - "Thought leadership that might be useful"</li>
+                        <li><strong>Email 3:</strong> Sector landing page - "Here's how we help similar brands"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">🎯</span> Positioning Guidance</h2>
+                <div class="info-card success">
+                    <h4>What to Emphasise</h4>
+                    <ul>
+                        <li><strong>Lead with Consumer Health/OTC Opportunity:</strong> LUMIFY, Blink, Soothe eye drops across UK grocery and US pharmacy; PreserVision, Ocuvite supplements at Holland & Barrett, CVS, Walgreens</li>
+                        <li><strong>Position UK as Strength:</strong> 100% coverage of UK grocery (Tesco, Sainsbury's, ASDA, Morrisons); Boots.com covered as key UK pharmacy partner</li>
+                        <li><strong>Greenfield Opportunity Angle:</strong> No evidence of existing DSA vendor; Digital transformation investment cycle suggests budget and attention</li>
+                    </ul>
+                </div>
+
+                <div class="info-card warning">
+                    <h4>What to Be Honest About</h4>
+                    <ul>
+                        <li><strong>Contact Lens Retail Limitations:</strong> Specialist optical retailers (1-800 Contacts, Vision Direct, Lenstore) NOT currently covered. Frame as future roadmap item, not immediate capability.</li>
+                        <li><strong>Set Realistic Timeline Expectations:</strong> UK OTC/Supplements: 2-4 weeks; US Mass Market/Pharmacy: 2-4 weeks; Specialist Contact Lens Retailers: 4-6 months (requires onboarding)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Geographic Positioning Approach</h4>
+                    <ol>
+                        <li>Lead with UK strength - 100% Tier 1 grocery coverage</li>
+                        <li>Acknowledge strong US mass market coverage</li>
+                        <li>Be upfront about specialist optical retailer gap</li>
+                        <li>Position European multi-market expertise as differentiator</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Retailer Check -->
+        <div class="tab-content" id="retailers">
+            <div class="go-no-go-banner moderate">
+                <h2>⚠️ MODERATE FIT - PROCEED WITH SIGNIFICANT CAVEATS</h2>
+                <p>57% Tier 1 & 2 coverage is below the 60% threshold. Mass market coverage is excellent (94%) but specialist contact lens retailers (0%) create a critical gap.</p>
+                <div class="time-to-value">
+                    <strong>Time-to-Value:</strong> 2-4 weeks for OTC/Mass Market | 4-6 months for full contact lens coverage
+                </div>
+            </div>
+
+            <div class="coverage-dashboard">
+                <div class="coverage-metric">
+                    <span class="percentage moderate">62%</span>
+                    <span class="label">Overall Coverage</span>
+                    <span class="sub-label">23 of 37 retailers</span>
+                </div>
+                <div class="coverage-metric">
+                    <span class="percentage moderate">57%</span>
+                    <span class="label">Tier 1 & 2 Combined</span>
+                    <span class="sub-label">17 of 30 retailers</span>
+                </div>
+                <div class="coverage-metric">
+                    <span class="percentage excellent">94%</span>
+                    <span class="label">Tier 1 Mass Market</span>
+                    <span class="sub-label">17 of 18 retailers</span>
+                </div>
+                <div class="coverage-metric">
+                    <span class="percentage poor">0%</span>
+                    <span class="label">Tier 2 Specialists</span>
+                    <span class="sub-label">0 of 12 retailers</span>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill moderate" style="width: 62%"></div>
+            </div>
+
+            <!-- Tier 1 -->
+            <div class="retailer-tier">
+                <div class="tier-header">
+                    <h3>🏆 Tier 1: Major Mass Market Retailers</h3>
+                    <span class="tier-coverage excellent">17/18 Covered = 94%</span>
+                </div>
+
+                <h4 style="margin: 16px 0 12px; color: var(--text-secondary); font-size: 0.9rem;">United States</h4>
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Amazon.com</div>
+                                <div class="retailer-url">amazon.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">Full B+L catalogue - contact lenses, solutions, eye drops, supplements</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Walmart.com</div>
+                                <div class="retailer-url">walmart.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">50+ B+L products, dedicated brand page, 4,629 locations</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Target.com</div>
+                                <div class="retailer-url">target.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">Eye drops, supplements, solutions - 1,836 locations</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">CVS.com</div>
+                                <div class="retailer-url">cvs.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">Key pharmacy partner - contact lens programme, full OTC range</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Walgreens.com</div>
+                                <div class="retailer-url">walgreens.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">71+ B+L items, contact lens programme</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Sam's Club</div>
+                                <div class="retailer-url">samsclub.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">ULTRA, Biotrue, SofLens - club format, 602 locations</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Costco</div>
+                                <div class="retailer-url">costco.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">Optical department, supplements - 591 locations</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Kroger</div>
+                                <div class="retailer-url">kroger.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">Regional grocery leader - 1,238 locations</div>
+                    </div>
+                </div>
+
+                <h4 style="margin: 24px 0 12px; color: var(--text-secondary); font-size: 0.9rem;">United Kingdom</h4>
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Amazon.co.uk</div>
+                                <div class="retailer-url">amazon.co.uk</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">Full marketplace - Artelac, contact lenses, solutions</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Boots.com</div>
+                                <div class="retailer-url">boots.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">Key pharmacy partner - dedicated B+L brand page</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Superdrug</div>
+                                <div class="retailer-url">superdrug.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">Health & beauty - eye care, supplements</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Tesco</div>
+                                <div class="retailer-url">tesco.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">UK's largest grocer - 888 locations</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Sainsbury's</div>
+                                <div class="retailer-url">sainsburys.co.uk</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">Major UK grocery - 611 locations</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">ASDA</div>
+                                <div class="retailer-url">asda.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">Value grocery - 634 locations</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Morrisons</div>
+                                <div class="retailer-url">groceries.morrisons.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">UK grocery - 608 locations</div>
+                    </div>
+                </div>
+
+                <h4 style="margin: 24px 0 12px; color: var(--text-secondary); font-size: 0.9rem;">Germany</h4>
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Amazon.de</div>
+                                <div class="retailer-url">amazon.de</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇩🇪 Germany</div>
+                        <div class="retailer-reason">Full marketplace - SofLens, ULTRA, PureVision, ReNu, Biotrue</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Rossmann</div>
+                                <div class="retailer-url">rossmann.de</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇩🇪 Germany</div>
+                        <div class="retailer-reason">Major drugstore chain</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">dm-drogerie markt</div>
+                                <div class="retailer-url">dm.de</div>
+                            </div>
+                            <span class="status-badge problematic">⚠️ Problematic</span>
+                        </div>
+                        <div class="retailer-market">🇩🇪 Germany</div>
+                        <div class="retailer-reason">Largest German drugstore - technical challenges noted</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="retailer-tier">
+                <div class="tier-header">
+                    <h3>🎯 Tier 2: Specialist Optical/Contact Lens Retailers</h3>
+                    <span class="tier-coverage poor">0/12 Covered = 0%</span>
+                </div>
+
+                <div class="info-card danger" style="margin-bottom: 16px;">
+                    <h4>⚠️ CRITICAL GAP - None of these are in eStore's database</h4>
+                    <p>This is the most significant limitation for B+L. Their core Vision Care business (57% of revenue) relies heavily on specialist optical retailers that eStore cannot currently monitor. Honest positioning required.</p>
+                </div>
+
+                <h4 style="margin: 16px 0 12px; color: var(--text-secondary); font-size: 0.9rem;">US Specialists</h4>
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">1-800 Contacts</div>
+                                <div class="retailer-url">1800contacts.com</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">Largest US online contact lens retailer</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">ContactsDirect</div>
+                                <div class="retailer-url">contactsdirect.com</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">US specialist - verified B+L product page</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Lens.com</div>
+                                <div class="retailer-url">lens.com</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">US specialist - verified B+L product page</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">LensDirect</div>
+                                <div class="retailer-url">lensdirect.com</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">US specialist - verified B+L product page</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">LensCrafters</div>
+                                <div class="retailer-url">lenscrafters.com</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">Major US optical retailer</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">AC Lens</div>
+                                <div class="retailer-url">aclens.com</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States</div>
+                        <div class="retailer-reason">US contact lens retailer</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Coastal</div>
+                                <div class="retailer-url">coastal.com</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States / Canada</div>
+                        <div class="retailer-reason">US/Canada contact lens and eyewear</div>
+                    </div>
+                </div>
+
+                <h4 style="margin: 24px 0 12px; color: var(--text-secondary); font-size: 0.9rem;">UK/EU Specialists</h4>
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Vision Direct UK</div>
+                                <div class="retailer-url">visiondirect.co.uk</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">Major UK contact lens specialist</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Lenstore</div>
+                                <div class="retailer-url">lenstore.co.uk</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">UK online contact lens retailer</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Feel Good Contacts</div>
+                                <div class="retailer-url">feelgoodcontacts.com</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">UK specialist - verified B+L products</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Lentiamo</div>
+                                <div class="retailer-url">lentiamo.co.uk</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom / EU</div>
+                        <div class="retailer-reason">UK/EU contact lens specialist</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Specsavers</div>
+                                <div class="retailer-url">specsavers.co.uk</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">Major UK optical retailer</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="retailer-tier">
+                <div class="tier-header">
+                    <h3>📍 Tier 3: Regional & Supplementary Retailers</h3>
+                    <span class="tier-coverage excellent">6/7 Covered = 86%</span>
+                </div>
+
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Ocado</div>
+                                <div class="retailer-url">ocado.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">Premium grocery</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Waitrose</div>
+                                <div class="retailer-url">waitrose.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">Premium grocery</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Holland & Barrett</div>
+                                <div class="retailer-url">hollandandbarrett.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">Health supplements - PreserVision, Ocuvite</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Chemist Direct</div>
+                                <div class="retailer-url">chemistdirect.co.uk</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom</div>
+                        <div class="retailer-reason">Online pharmacy</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">H-E-B</div>
+                                <div class="retailer-url">heb.com</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States (Texas)</div>
+                        <div class="retailer-reason">Regional grocery leader</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Costco Canada</div>
+                                <div class="retailer-url">costco.ca</div>
+                            </div>
+                            <span class="status-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇨🇦 Canada</div>
+                        <div class="retailer-reason">Club retailer with optical</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <div>
+                                <div class="retailer-name">Vision Direct Italy</div>
+                                <div class="retailer-url">visiondirect.it</div>
+                            </div>
+                            <span class="status-badge not-covered">❌ Not in Database</span>
+                        </div>
+                        <div class="retailer-market">🇮🇹 Italy</div>
+                        <div class="retailer-reason">Italian contact lens specialist</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Key people? -->
+        <div class="tab-content" id="contacts">
+            <div class="section">
+                <h2 class="section-title"><span class="icon">🎯</span> Primary Targets - Operational Decision-Makers</h2>
+                <p style="margin-bottom: 20px; color: var(--text-secondary);">These are the people who will actually evaluate, implement, and use eStore. Target 3-4 people at this level as PRIMARY outreach contacts.</p>
+
+                <div class="contact-grid">
+                    <!-- Contact 1: Michelle Nilsson -->
+                    <div class="contact-card primary">
+                        <span class="priority-badge">PRIORITY #1</span>
+                        <h3 class="contact-name">Michelle Nilsson</h3>
+                        <p class="contact-title">Digital Commerce Executive Director, Consumer Division</p>
+
+                        <div class="contact-meta">
+                            <span class="contact-meta-item">📍 Scottsdale, Arizona, USA</span>
+                            <span class="contact-meta-item">🏢 16+ years at B+L</span>
+                            <span class="contact-meta-item">🔵 Cold</span>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>Why Priority #1</h5>
+                            <ul>
+                                <li>Executive Director title outranks Senior Manager contacts</li>
+                                <li>16+ years institutional knowledge gives credibility and authority</li>
+                                <li>Consumer Division focus aligns perfectly with OTC products sold through covered retailers</li>
+                                <li>Career path from Category Manager (Target) through E-commerce shows she understands both retailer relationships AND digital shelf challenges</li>
+                            </ul>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>Background & Career Progression</h5>
+                            <ul>
+                                <li>Digital Commerce Executive Director (current, since ~2022)</li>
+                                <li>National Sales Director (May 2017 - March 2022)</li>
+                                <li>Associate Director, E-Commerce, Food and Broker Managed Channels (Jan 2015 - April 2017)</li>
+                                <li>Category Manager, Target (Sept 2008 - March 2012)</li>
+                                <li>Education: Bachelor's in Economics and Psychology, St. Olaf College</li>
+                            </ul>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>Specific Hooks for Outreach</h5>
+                            <ul>
+                                <li>Reference her Target background - she'll understand category management analytics</li>
+                                <li>Focus on Consumer Division products (LUMIFY, Blink, PreserVision) rather than contact lenses</li>
+                                <li>Position DSA as complementary to Opal platform</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://linkedin.com/in/michelle-nilsson-052bbb56" target="_blank" class="linkedin-link">
+                            🔗 View LinkedIn Profile
+                        </a>
+                    </div>
+
+                    <!-- Contact 2: Carlos Camacho -->
+                    <div class="contact-card primary">
+                        <span class="priority-badge">PRIORITY #2</span>
+                        <h3 class="contact-name">Carlos Camacho</h3>
+                        <p class="contact-title">Senior Manager, Global eCommerce</p>
+
+                        <div class="contact-meta">
+                            <span class="contact-meta-item">📍 USA (Northeast)</span>
+                            <span class="contact-meta-item">🏢 20+ years B2B e-commerce</span>
+                            <span class="contact-meta-item">🔵 Cold</span>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>Why This Contact</h5>
+                            <ul>
+                                <li>Global scope means visibility across multiple markets</li>
+                                <li>Thought leader status suggests receptiveness to new tools</li>
+                                <li>Featured speaker on Sana Commerce podcast discussing digital commerce</li>
+                            </ul>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>Specific Hooks for Outreach</h5>
+                            <ul>
+                                <li>Reference his Sana Commerce podcast appearance</li>
+                                <li>Focus on global scalability and efficiency</li>
+                                <li>Position around commercetools architecture complement</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://linkedin.com/in/carlosalbertocamacho" target="_blank" class="linkedin-link">
+                            🔗 View LinkedIn Profile
+                        </a>
+                    </div>
+
+                    <!-- Contact 3: Robert Harclerode -->
+                    <div class="contact-card primary">
+                        <span class="priority-badge">PRIORITY #3</span>
+                        <h3 class="contact-name">Robert Harclerode</h3>
+                        <p class="contact-title">Senior Manager, Digital Commerce</p>
+
+                        <div class="contact-meta">
+                            <span class="contact-meta-item">📍 Fort Mill, South Carolina, USA</span>
+                            <span class="contact-meta-item">🏢 Amazon expertise</span>
+                            <span class="contact-meta-item">🔵 Cold</span>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>Why This Contact</h5>
+                            <ul>
+                                <li>Hands-on operational role - would be daily user of DSA tools</li>
+                                <li>Amazon expertise aligns with eStore's Amazon monitoring capabilities</li>
+                                <li>Extensive Amazon Vendor Central/Seller Central experience</li>
+                                <li>Active on LinkedIn posting about AI in commerce</li>
+                            </ul>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>Specific Hooks for Outreach</h5>
+                            <ul>
+                                <li>Focus on Amazon operational challenges and competitive monitoring</li>
+                                <li>Position as efficiency tool for existing responsibilities</li>
+                                <li>Reference competitive visibility gaps Vendor Central doesn't solve</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://linkedin.com/in/robert-harclerode-62642a46/" target="_blank" class="linkedin-link">
+                            🔗 View LinkedIn Profile
+                        </a>
+                    </div>
+
+                    <!-- Contact 4: Paul Ulloa -->
+                    <div class="contact-card warm">
+                        <span class="priority-badge warm">PRIORITY #4 - WARM</span>
+                        <h3 class="contact-name">Paul Ulloa, MBA</h3>
+                        <p class="contact-title">Head of Consumer Data Science</p>
+
+                        <div class="contact-meta">
+                            <span class="contact-meta-item">📍 Hawthorne, New Jersey area</span>
+                            <span class="contact-meta-item">🏢 Marketing & analytics leader</span>
+                            <span class="contact-meta-item">🟢 Warm (prior contact)</span>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>Why This Contact</h5>
+                            <ul>
+                                <li>Would evaluate DSA tools from analytics/ROI perspective</li>
+                                <li>PreserVision connection aligns with eye supplements sold through covered retailers</li>
+                                <li>Won CEO Award for contributions to PreserVision brand - has executive visibility</li>
+                                <li>Marketing and sales analytics leader</li>
+                            </ul>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>Relationship Status</h5>
+                            <p><strong>Warm contact</strong> - eStore previously contacted Paul about "Increasing online sales with eStore Brands". This is a re-engagement opportunity.</p>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>Specific Hooks for Outreach</h5>
+                            <ul>
+                                <li>Reference his data science background - position DSA as enriching his analytics</li>
+                                <li>Connect to PreserVision success</li>
+                                <li>Acknowledge fresh start without referencing previous emails</li>
+                            </ul>
+                        </div>
+
+                        <a href="https://linkedin.com/in/paul-ulloa-mba-aa5390a/" target="_blank" class="linkedin-link">
+                            🔗 View LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">🎖️</span> Secondary Targets - Strategic Influencers</h2>
+                <p style="margin-bottom: 20px; color: var(--text-secondary);">These senior leaders won't be hands-on but can provide air cover and budget approval. Use for referencing their stated priorities in outreach to their direct reports.</p>
+
+                <div class="contact-grid">
+                    <!-- Manisha Narasimhan -->
+                    <div class="contact-card secondary">
+                        <span class="priority-badge secondary">STRATEGIC</span>
+                        <h3 class="contact-name">Manisha Narasimhan, PhD</h3>
+                        <p class="contact-title">Chief Corporate Development and Digital Officer</p>
+
+                        <div class="contact-meta">
+                            <span class="contact-meta-item">📍 Reports directly to CEO</span>
+                            <span class="contact-meta-item">🔴 Do NOT contact directly</span>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>Key Quote</h5>
+                            <p>"We don't think of digital transformation as a tech project; it's an enterprise mind shift."</p>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>How to Use</h5>
+                            <p>Reference her digital transformation mandate when contacting her direct reports. Do NOT reach out directly initially. Source: PM360 interview.</p>
+                        </div>
+                    </div>
+
+                    <!-- Devang Modi -->
+                    <div class="contact-card secondary">
+                        <span class="priority-badge secondary">STRATEGIC</span>
+                        <h3 class="contact-name">Devang Modi</h3>
+                        <p class="contact-title">Vice President, Digital Strategy</p>
+
+                        <div class="contact-meta">
+                            <span class="contact-meta-item">📍 New Jersey area</span>
+                            <span class="contact-meta-item">🔴 Do NOT contact initially</span>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>Background</h5>
+                            <ul>
+                                <li>Led composable commerce (commercetools) implementation</li>
+                                <li>Speaking at CommerceNext 2025</li>
+                            </ul>
+                        </div>
+
+                        <div class="contact-section">
+                            <h5>How to Use</h5>
+                            <p>Technical decision-maker for commerce platforms. Could provide technical validation once operational contacts engaged.</p>
+                        </div>
+
+                        <a href="https://linkedin.com/in/devang-r-modi-nj/" target="_blank" class="linkedin-link">
+                            🔗 View LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">👤</span> Executive Context (Reference Only)</h2>
+                <div class="info-card warning">
+                    <h4>Brent Saunders - Chairman & CEO</h4>
+                    <p><strong>Do NOT contact directly unless introduced.</strong></p>
+                    <p style="margin-top: 12px;"><strong>Relevant Public Statements:</strong></p>
+                    <ul>
+                        <li>Created Office of Digital Transformation and Chief Digital Officer role</li>
+                        <li>BCG Interview (March 2025): "The next two years are probably going to be the most transformative with respect to using these technologies to improve productivity and efficiency inside the business."</li>
+                    </ul>
+                    <p style="margin-top: 12px;"><strong>How to Reference:</strong> Use his "digital transformation" mandate to frame urgency in outreach to his reports.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">🚫</span> Contacts to Skip</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Role Type</th>
+                            <th>Reason to Skip</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Surgical Division contacts</td>
+                            <td>Different business unit - not relevant to consumer retail</td>
+                        </tr>
+                        <tr>
+                            <td>Pharmaceutical/Medical Affairs</td>
+                            <td>Clinical focus, not e-commerce</td>
+                        </tr>
+                        <tr>
+                            <td>Manufacturing/Operations</td>
+                            <td>Not digital commerce decision-makers</td>
+                        </tr>
+                        <tr>
+                            <td>Regional roles below Director level</td>
+                            <td>Insufficient authority for vendor decisions</td>
+                        </tr>
+                        <tr>
+                            <td>Vision Care technical roles</td>
+                            <td>Contact lenses specialist channel not covered by eStore</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 5: Emails to send -->
+        <div class="tab-content" id="emails">
+            <div class="info-card" style="margin-bottom: 24px;">
+                <h4>Email Sequence Guidelines</h4>
+                <ul>
+                    <li><strong>Timing:</strong> 5-7 days between each email</li>
+                    <li><strong>Best send days:</strong> Tuesday or Wednesday, early morning EST</li>
+                    <li><strong>British English:</strong> Used throughout (colour, optimisation, etc.)</li>
+                    <li><strong>No em dashes:</strong> Regular hyphens only</li>
+                    <li><strong>Tone:</strong> Professional but conversational, value-focused</li>
+                </ul>
+            </div>
+
+            <div class="email-sequence">
+                <!-- Contact 1: Michelle Nilsson -->
+                <div class="contact-email-section">
+                    <div class="contact-email-header" onclick="toggleEmailSection(this)">
+                        <div>
+                            <h3>Michelle Nilsson</h3>
+                            <span class="subtitle">Digital Commerce Executive Director, Consumer Division</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span class="relationship">Cold</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                    </div>
+                    <div class="contact-email-body">
+                        <!-- Email 1 -->
+                        <div class="email-card">
+                            <div class="email-header">
+                                <span class="email-number">Email 1: The Opal Complement</span>
+                                <div class="email-subject">Subject: Third-party retailer visibility for Consumer Division</div>
+                                <div class="email-timing">Send: Tuesday or Wednesday, early morning EST</div>
+                            </div>
+                            <div class="email-body">
+                                <div class="email-content">Hi Michelle,
+
+I'm James from eStore - we're a European digital shelf analytics company that helps brands monitor product content, pricing, and availability across online retailers.
+
+With B+L's Consumer Division products - LUMIFY, Blink, PreserVision - flowing through third-party retailers rather than DTC, I imagine there's a visibility challenge that Opal doesn't solve. Opal connects eye care practices and patients directly, but what about the CVS, Walgreens, and Boots of the world?
+
+We cover most of the major pharmacy and grocery retailers your Consumer Division products sell through. Whether that visibility gap is something you're actively trying to solve, or something that sits lower on the priority list, I'd be curious to know.
+
+If it's useful, I'm happy to share what we're seeing in how OTC eye care brands approach digital shelf monitoring.
+
+Best,
+James</div>
+                                <div class="email-notes">
+                                    <div class="email-note">
+                                        <h5>Customisation Notes</h5>
+                                        <p>Verify Opal is still the B2B2C platform name and launched as described. Confirm LUMIFY, Blink, PreserVision are still flagship Consumer Division products. Check Michelle is still in the Digital Commerce Executive Director role.</p>
+                                    </div>
+                                    <div class="email-note">
+                                        <h5>Strategy Notes</h5>
+                                        <p>This email identifies who we are early but briefly, then moves to relevance. It demonstrates specific research (Opal, Consumer Division products, retailer names) without being showy. The closing is a genuine offer of value without pressure.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email 2 -->
+                        <div class="email-card">
+                            <div class="email-header">
+                                <span class="email-number">Email 2: The Category View</span>
+                                <div class="email-subject">Subject: How OTC eye care is performing online</div>
+                                <div class="email-timing">Send: 6-7 days after Email 1</div>
+                            </div>
+                            <div class="email-body">
+                                <div class="email-content">Hi Michelle,
+
+Following up briefly. I've been looking at how OTC eye care performs across the retailers we monitor - particularly the pharmacy channel where your products compete.
+
+A few patterns stand out: how quickly stock availability issues translate into lost share, and how inconsistent product content is across retailers compared to what brands publish centrally. Dry eye treatments and supplements seem particularly affected.
+
+I've written up some of what we're seeing for the pharma and healthcare sector here: https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics
+
+It's general rather than B+L-specific, but might be useful context regardless of whether we speak.
+
+Best,
+James</div>
+                                <div class="email-notes">
+                                    <div class="email-note">
+                                        <h5>Customisation Notes</h5>
+                                        <p>Insert the correct Ignite article URL for pharma/healthcare DSA. Ensure the patterns mentioned (stock availability, content inconsistency) are genuinely observable in the market.</p>
+                                    </div>
+                                    <div class="email-note">
+                                        <h5>Strategy Notes</h5>
+                                        <p>This email adds new value through specific category observations. It shares thought leadership naturally rather than forcing a sales pitch. The article is positioned as useful regardless of outcome.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email 3 -->
+                        <div class="email-card">
+                            <div class="email-header">
+                                <span class="email-number">Email 3: The Door Open</span>
+                                <div class="email-subject">Subject: Leaving this here</div>
+                                <div class="email-timing">Send: 7-8 days after Email 2</div>
+                            </div>
+                            <div class="email-body">
+                                <div class="email-content">Hi Michelle,
+
+I appreciate you're busy, and I don't want to add to the noise in your inbox.
+
+If digital shelf visibility for Consumer Division products across third-party retailers becomes a priority - whether that's driven by competitive pressure, content consistency challenges, or something else - I'd be happy to explore whether we could help.
+
+Our strength is UK and European coverage, with solid pharmacy and grocery monitoring in the US. Here's our pharma and healthcare sector page if you'd like to explore: https://estorebrands.com/health-beauty
+
+Best,
+James</div>
+                                <div class="email-notes">
+                                    <div class="email-note">
+                                        <h5>Customisation Notes</h5>
+                                        <p>Insert correct pharma and healthcare sector landing page URL. This email works as-is without significant customisation.</p>
+                                    </div>
+                                    <div class="email-note">
+                                        <h5>Strategy Notes</h5>
+                                        <p>This is the graceful exit. It acknowledges the lack of response without reproach, restates the core offering, and leaves the door genuinely open. The honest acknowledgement of geographic strength (UK/Europe first, US solid) builds trust. No pressure, no urgency.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact 2: Carlos Camacho -->
+                <div class="contact-email-section">
+                    <div class="contact-email-header" onclick="toggleEmailSection(this)">
+                        <div>
+                            <h3>Carlos Camacho</h3>
+                            <span class="subtitle">Senior Manager, Global eCommerce</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span class="relationship">Cold</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                    </div>
+                    <div class="contact-email-body">
+                        <!-- Email 1 -->
+                        <div class="email-card">
+                            <div class="email-header">
+                                <span class="email-number">Email 1: The Global Visibility Question</span>
+                                <div class="email-subject">Subject: Global e-commerce visibility challenge</div>
+                                <div class="email-timing">Send: Tuesday or Wednesday, early morning EST</div>
+                            </div>
+                            <div class="email-body">
+                                <div class="email-content">Hi Carlos,
+
+I'm James from eStore - we're a digital shelf analytics company focused on European and UK markets, with growing US coverage.
+
+With B+L's e-commerce operations spanning multiple business units and regions, I'd imagine maintaining consistent visibility across all those channels is complex. The commercetools architecture gives you flexibility, but the question of what's actually happening on Amazon, on pharmacy sites, on grocery retailers - that's harder to answer systematically.
+
+I'm curious whether that's a challenge you're actively working on, or whether it's something you've found other ways to address.
+
+If it's useful to compare notes on how other global brands approach this, I'd be happy to share what we're seeing.
+
+Best,
+James</div>
+                                <div class="email-notes">
+                                    <div class="email-note">
+                                        <h5>Customisation Notes</h5>
+                                        <p>Verify Carlos is still in the Global eCommerce role. Confirm commercetools is still their e-commerce platform. Check whether he's spoken publicly about digital commerce challenges.</p>
+                                    </div>
+                                    <div class="email-note">
+                                        <h5>Strategy Notes</h5>
+                                        <p>This email references his global scope and the commercetools implementation (demonstrated research) without being showy about it. It acknowledges complexity honestly and asks rather than asserts. The offer to compare notes positions us as peers, not vendors.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email 2 -->
+                        <div class="email-card">
+                            <div class="email-header">
+                                <span class="email-number">Email 2: The B2B2C Layer Question</span>
+                                <div class="email-subject">Subject: B2B commerce and the retailer question</div>
+                                <div class="email-timing">Send: 6-7 days after Email 1</div>
+                            </div>
+                            <div class="email-body">
+                                <div class="email-content">Hi Carlos,
+
+Following up with a thought that's been on my mind.
+
+Even when brands have strong B2B2C infrastructure (like Opal for the optical channel), there's still the question of what's happening at the third-party retailers who carry their products. Amazon, CVS, Boots, Tesco - they're all selling B+L products, but with varying levels of content accuracy and availability.
+
+Is that a visibility gap that surfaces in your work, or is it more of a localised challenge for individual regions to solve?
+
+Best,
+James</div>
+                                <div class="email-notes">
+                                    <div class="email-note">
+                                        <h5>Customisation Notes</h5>
+                                        <p>This email works as-is. Could reference specific regional challenges if known.</p>
+                                    </div>
+                                    <div class="email-note">
+                                        <h5>Strategy Notes</h5>
+                                        <p>This email connects the B2B2C investment (Opal) to the third-party retailer visibility gap. It asks a specific question that invites dialogue rather than a yes/no response.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email 3 -->
+                        <div class="email-card">
+                            <div class="email-header">
+                                <span class="email-number">Email 3: The Resource Share</span>
+                                <div class="email-subject">Subject: Something that might be useful</div>
+                                <div class="email-timing">Send: 7-8 days after Email 2</div>
+                            </div>
+                            <div class="email-body">
+                                <div class="email-content">Hi Carlos,
+
+I wanted to share this before going quiet: we've put together some thinking on why pharmaceutical and healthcare brands specifically benefit from digital shelf analytics.
+
+https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics
+
+It covers the category-specific challenges we see, from content compliance through to promotional monitoring.
+
+If global e-commerce visibility across third-party retailers becomes a priority, I'd be curious whether our approach could be relevant. We're strongest in European coverage, with growing US capability - would that geographic mix be useful for how B+L thinks about this?
+
+Best,
+James</div>
+                                <div class="email-notes">
+                                    <div class="email-note">
+                                        <h5>Customisation Notes</h5>
+                                        <p>Insert correct Ignite article URL.</p>
+                                    </div>
+                                    <div class="email-note">
+                                        <h5>Strategy Notes</h5>
+                                        <p>The graceful exit with a genuine value-add. Shares thought leadership, and closes with a curious question about geographic fit rather than an assertion.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact 3: Robert Harclerode -->
+                <div class="contact-email-section">
+                    <div class="contact-email-header" onclick="toggleEmailSection(this)">
+                        <div>
+                            <h3>Robert Harclerode</h3>
+                            <span class="subtitle">Senior Manager, Digital Commerce</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span class="relationship">Cold</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                    </div>
+                    <div class="contact-email-body">
+                        <!-- Email 1 -->
+                        <div class="email-card">
+                            <div class="email-header">
+                                <span class="email-number">Email 1: The Amazon Operations Hook</span>
+                                <div class="email-subject">Subject: Amazon operations and competitive visibility</div>
+                                <div class="email-timing">Send: Tuesday or Wednesday, early morning EST</div>
+                            </div>
+                            <div class="email-body">
+                                <div class="email-content">Hi Robert,
+
+I'm James from eStore - we help brands monitor digital shelf performance across online retailers.
+
+Given your Amazon experience, I'd imagine you have strong visibility into B+L's own Vendor Central metrics. The question I'm curious about is the competitive side: what competitors are doing with their content, how they're pricing, where they're winning buy box, how their promotional strategy is evolving.
+
+That's the layer we focus on - the external view that complements what Amazon provides directly.
+
+Is that a visibility gap you're working to fill, or has it not been a priority?
+
+Best,
+James</div>
+                                <div class="email-notes">
+                                    <div class="email-note">
+                                        <h5>Customisation Notes</h5>
+                                        <p>Verify Robert is still in the Digital Commerce role. Confirm he still has Amazon Vendor Central/Seller Central responsibility. Check his recent LinkedIn activity to see if he's discussed specific challenges.</p>
+                                    </div>
+                                    <div class="email-note">
+                                        <h5>Strategy Notes</h5>
+                                        <p>This email speaks to his specific expertise (Amazon) and frames our value as complementary to tools he already uses. It asks rather than asserts, and makes it easy to respond with a simple answer.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email 2 -->
+                        <div class="email-card">
+                            <div class="email-header">
+                                <span class="email-number">Email 2: The Data Foundation Angle</span>
+                                <div class="email-subject">Subject: The external data question</div>
+                                <div class="email-timing">Send: 6-7 days after Email 1</div>
+                            </div>
+                            <div class="email-body">
+                                <div class="email-content">Hi Robert,
+
+One pattern we're noticing across brands investing in e-commerce analytics: they often have strong internal data (from Vendor Central, from their PIM, from their own systems), but the external data - what's actually happening on retailer sites competitively - is harder to capture systematically.
+
+For digital commerce teams, that external layer can be the missing piece for pricing decisions, content benchmarking, and competitive response.
+
+I'm curious whether that's a challenge you're encountering at B+L, or whether you've found ways to address it already.
+
+Best,
+James</div>
+                                <div class="email-notes">
+                                    <div class="email-note">
+                                        <h5>Customisation Notes</h5>
+                                        <p>This email works as-is. If Robert has posted publicly about specific challenges, could reference those.</p>
+                                    </div>
+                                    <div class="email-note">
+                                        <h5>Strategy Notes</h5>
+                                        <p>This email shares an insight about data foundations without asserting that Robert specifically has this problem. It asks whether the pattern applies to him rather than assuming it does.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email 3 -->
+                        <div class="email-card">
+                            <div class="email-header">
+                                <span class="email-number">Email 3: The Efficiency Frame</span>
+                                <div class="email-subject">Subject: One last thought</div>
+                                <div class="email-timing">Send: 7-8 days after Email 2</div>
+                            </div>
+                            <div class="email-body">
+                                <div class="email-content">Hi Robert,
+
+Quick final note before I step back.
+
+The way we usually think about digital shelf analytics isn't as a new project to manage, but as an efficiency layer for work you're already doing. Competitive monitoring, content audits, pricing analysis - all things that take time to do manually.
+
+If that efficiency angle ever becomes relevant for B+L's digital commerce operations, I'd welcome the conversation. We're strongest in UK and European retailers, with good US pharmacy and grocery coverage.
+
+Here's our pharma and healthcare page if you'd like a quick overview: https://estorebrands.com/health-beauty
+
+Best,
+James</div>
+                                <div class="email-notes">
+                                    <div class="email-note">
+                                        <h5>Customisation Notes</h5>
+                                        <p>Insert correct pharma and healthcare sector landing page URL.</p>
+                                    </div>
+                                    <div class="email-note">
+                                        <h5>Strategy Notes</h5>
+                                        <p>The graceful exit frames our value as efficiency rather than additional workload. Honest about geographic strength. Leaves the door open without pressure.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact 4: Paul Ulloa -->
+                <div class="contact-email-section">
+                    <div class="contact-email-header" onclick="toggleEmailSection(this)">
+                        <div>
+                            <h3>Paul Ulloa</h3>
+                            <span class="subtitle">Head of Consumer Data Science</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span class="relationship" style="background: rgba(34, 187, 105, 0.3);">Warm (prior contact)</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                    </div>
+                    <div class="contact-email-body">
+                        <!-- Email 1 -->
+                        <div class="email-card">
+                            <div class="email-header">
+                                <span class="email-number">Email 1: The Fresh Start</span>
+                                <div class="email-subject">Subject: Consumer data science and digital shelf visibility</div>
+                                <div class="email-timing">Send: Tuesday or Wednesday, early morning EST</div>
+                            </div>
+                            <div class="email-body">
+                                <div class="email-content">Hi Paul,
+
+I'm James from eStore. I know we've been in touch before - I'm reaching out afresh because some things have changed on both sides.
+
+On your side, B+L has launched Opal, invested in digital transformation, and is clearly prioritising e-commerce across the Consumer Division. On our side, we've continued building out UK and European retailer coverage, and our approach to digital shelf analytics has evolved.
+
+Given your data science background, I'd imagine you're thinking about how external digital shelf data could feed into broader analytics - competitive intelligence, pricing optimisation, content performance measurement.
+
+Is that a gap you're looking to fill, or has it not been a priority?
+
+Best,
+James</div>
+                                <div class="email-notes">
+                                    <div class="email-note">
+                                        <h5>Customisation Notes</h5>
+                                        <p>Do not reference specific previous emails or why they didn't result in engagement. Verify Paul is still Head of Consumer Data Science. Confirm the PreserVision CEO Award mentioned in research if you want to reference it later.</p>
+                                    </div>
+                                    <div class="email-note">
+                                        <h5>Strategy Notes</h5>
+                                        <p>This email acknowledges the prior relationship briefly and moves on. It leads with what has changed (on both sides) and connects to his specific role (data science). No reproach, no dwelling on past silence.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email 2 -->
+                        <div class="email-card">
+                            <div class="email-header">
+                                <span class="email-number">Email 2: The Analytics Integration</span>
+                                <div class="email-subject">Subject: External data for consumer analytics</div>
+                                <div class="email-timing">Send: 6-7 days after Email 1</div>
+                            </div>
+                            <div class="email-body">
+                                <div class="email-content">Hi Paul,
+
+One thing I've been thinking about: brands with strong internal analytics capabilities often have a blind spot when it comes to external data.
+
+You likely have excellent visibility into B+L's own performance metrics - sell-through, marketing attribution, customer insights. But the competitive layer - what's happening across retailers, how competitor content is performing, where pricing gaps exist - is harder to capture without dedicated digital shelf monitoring.
+
+For a data science leader, that external dataset could be valuable input for the models and analyses you're already running.
+
+If that integration is something you've thought about, I'd be curious to understand how you'd approach it.
+
+Best,
+James</div>
+                                <div class="email-notes">
+                                    <div class="email-note">
+                                        <h5>Customisation Notes</h5>
+                                        <p>This email works as-is. Could add a specific reference to PreserVision if appropriate.</p>
+                                    </div>
+                                    <div class="email-note">
+                                        <h5>Strategy Notes</h5>
+                                        <p>This email speaks directly to his data science role and frames digital shelf data as an input to his existing work rather than a standalone tool. It asks a question that invites him to share his thinking.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email 3 -->
+                        <div class="email-card">
+                            <div class="email-header">
+                                <span class="email-number">Email 3: The Thought Leadership Exit</span>
+                                <div class="email-subject">Subject: Something that might be useful for your team</div>
+                                <div class="email-timing">Send: 7-8 days after Email 2</div>
+                            </div>
+                            <div class="email-body">
+                                <div class="email-content">Hi Paul,
+
+I wanted to share this piece we put together on digital shelf analytics for pharmaceutical and healthcare brands before I step back: https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics
+
+It touches on the data integration challenges we discussed - how external retailer data can complement internal analytics for a more complete picture of competitive dynamics.
+
+If there's ever an opportunity to explore how this would work in practice for B+L's Consumer Division, I'd welcome the conversation. Our coverage is strongest in UK and European retailers, with solid US pharmacy and grocery monitoring.
+
+Best,
+James</div>
+                                <div class="email-notes">
+                                    <div class="email-note">
+                                        <h5>Customisation Notes</h5>
+                                        <p>Insert correct Ignite article URL.</p>
+                                    </div>
+                                    <div class="email-note">
+                                        <h5>Strategy Notes</h5>
+                                        <p>The graceful exit with thought leadership. References the earlier conversation theme (data integration), shares genuine value, and leaves the door open. Honest about geographic positioning.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section" style="margin-top: 32px;">
+                <h2 class="section-title"><span class="icon">🔗</span> Content Links Reference</h2>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Placeholder</th>
+                            <th>Content</th>
+                            <th>URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>[Ignite Article Link]</td>
+                            <td>Why Pharmaceutical and Healthcare Brands Need Specialised Digital Shelf Analytics</td>
+                            <td><a href="https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics" target="_blank" style="color: var(--estore-dark-blue);">View Article</a></td>
+                        </tr>
+                        <tr>
+                            <td>[Sector Landing Page Link]</td>
+                            <td>Health & Pharmaceuticals Sector Page</td>
+                            <td><a href="https://estorebrands.com/health-beauty" target="_blank" style="color: var(--estore-dark-blue);">View Page</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 6: Objection Handling -->
+        <div class="tab-content" id="objections">
+            <div class="section">
+                <h2 class="section-title"><span class="icon">🎯</span> Decision Framework</h2>
+                <div class="decision-framework">
+                    <div class="decision-card proceed">
+                        <h4>✅ PROCEED</h4>
+                        <div class="threshold">60%+</div>
+                        <p>Tier 1 & 2 coverage. Strong fit - we can monitor most key retailers immediately. Time-to-value: 2-4 weeks.</p>
+                    </div>
+                    <div class="decision-card caveats">
+                        <h4>⚠️ PROCEED WITH CAVEATS</h4>
+                        <div class="threshold">40-59%</div>
+                        <p>Tier 1 & 2 coverage. Decent coverage but will require some retailer onboarding. Time-to-value: 2-3 months.</p>
+                    </div>
+                    <div class="decision-card delay">
+                        <h4>❌ DELAY OUTREACH</h4>
+                        <div class="threshold">&lt;40%</div>
+                        <p>Tier 1 & 2 coverage. Significant onboarding required before value delivery. Time-to-value: 4-6 months.</p>
+                    </div>
+                </div>
+
+                <div class="info-card warning">
+                    <h4>Bausch + Lomb Status: PROCEED WITH SIGNIFICANT CAVEATS</h4>
+                    <p>At 57% Tier 1 & 2 coverage, B+L falls just below the 60% threshold. However, the 94% mass market coverage means we can deliver immediate value for Consumer Division OTC products. The critical gap is in specialist optical retailers (0% coverage) which affects their core Vision Care contact lens business.</p>
+                    <p style="margin-top: 12px;"><strong>Recommended Approach:</strong> Lead with Consumer Health/OTC opportunity where coverage is strong. Be upfront about contact lens retail limitations and frame specialist retailer onboarding as a future phase.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">💬</span> Common Objections & Responses</h2>
+                <div class="objection-grid">
+                    <!-- Objection 1 -->
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-statement">"How many of our retailers can you actually monitor?"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-body">
+                            <div class="response-section">
+                                <h5>Response</h5>
+                                <p>That's a fair and important question. For your Consumer Division products - eye drops, supplements, lens care solutions - we have strong coverage. We monitor CVS, Walgreens, Boots, and all major UK grocers. That's where LUMIFY, Blink, and PreserVision are sold, and we can start providing visibility there within weeks.</p>
+                                <p style="margin-top: 8px;">I'll be upfront: specialist contact lens retailers like 1-800 Contacts and Vision Direct aren't in our current coverage. If that's a priority, we'd need to discuss onboarding those retailers, which typically takes 4-6 months. But for your OTC and consumer health portfolio through pharmacy and grocery, we're ready now.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Evidence</h5>
+                                <p>We cover 94% of Tier 1 mass market retailers (17 of 18), including Amazon, Walmart, Target, CVS, Walgreens, Boots, Tesco, Sainsbury's. The gap is in specialist optical retailers where we have 0% coverage currently.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe</h5>
+                                <p>Would it make sense to start with Consumer Division visibility where we can deliver immediate value, and explore specialist retailer coverage as a second phase?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objection 2 -->
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-statement">"We already have a PIM system"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-body">
+                            <div class="response-section">
+                                <h5>Response</h5>
+                                <p>That makes sense - most brands at your scale do. A PIM is essential for managing what you send to retailers. What we do is different: we show you what's actually live on retailer sites. Often there's a gap between what's in your PIM and what consumers see on CVS.com or Boots.com.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Evidence</h5>
+                                <p>We commonly see content inconsistencies between what brands publish centrally and what appears on retailer sites. Stock availability issues, incorrect images, outdated descriptions - these happen even with robust PIM systems because retailers don't always pull updates quickly.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe</h5>
+                                <p>Think of us as the verification layer. Your PIM manages what should be there; we show you what actually is. Would it be useful to see where gaps exist between your published content and live retailer pages?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objection 3 -->
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-statement">"We get data directly from Amazon through Vendor Central"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-body">
+                            <div class="response-section">
+                                <h5>Response</h5>
+                                <p>Vendor Central is excellent for your own performance data. What it doesn't show you is what competitors are doing - how they're pricing, what content they're using, where they're winning buy box, how their promotional strategy is evolving. That competitive layer is what we add.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Evidence</h5>
+                                <p>Brands with strong Vendor Central usage often tell us they have a blind spot on competitive intelligence. You know your metrics well, but the external view - what's actually happening with competitor products on the same retailer pages - requires dedicated monitoring.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe</h5>
+                                <p>We complement Vendor Central rather than replacing it. Your internal data plus external competitive data gives you the complete picture. Is competitive visibility something you're actively trying to solve?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objection 4 -->
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-statement">"We've invested in Opal for our digital commerce"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-body">
+                            <div class="response-section">
+                                <h5>Response</h5>
+                                <p>Opal is a smart investment for connecting eye care practices directly with patients. What it doesn't cover is the third-party retail channel - what's happening on CVS, Walgreens, Amazon, Boots. Those retailers carry your Consumer Division products but aren't part of the Opal ecosystem.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Evidence</h5>
+                                <p>Opal addresses B2B2C for the optical channel. But Consumer Division products like LUMIFY, Blink, and PreserVision flow primarily through pharmacy and grocery retailers that operate independently. That's a visibility gap that Opal wasn't designed to solve.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe</h5>
+                                <p>Think of us as complementary to Opal. Opal handles direct relationships with eye care practices; we handle visibility across the third-party retailers who sell your consumer products. Is that third-party retail visibility something you're looking to improve?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objection 5 -->
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-statement">"Your US coverage seems limited"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-body">
+                            <div class="response-section">
+                                <h5>Response</h5>
+                                <p>I appreciate the directness. Our strongest coverage is in the UK and Europe, where we monitor all major grocers and pharmacy chains comprehensively. In the US, we have solid coverage of mass market and pharmacy - Amazon, Walmart, Target, CVS, Walgreens are all monitored.</p>
+                                <p style="margin-top: 8px;">Where we're limited in the US is specialist contact lens retailers like 1-800 Contacts. If those are critical, we'd need to discuss onboarding them, which takes time.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Evidence</h5>
+                                <p>We cover 8 of your major US retailers including all top pharmacy chains. The gap is in specialist optical retail. For OTC products through pharmacy and grocery, our US coverage is solid.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe</h5>
+                                <p>Would starting with UK and major US pharmacy/grocery retailers provide useful insights, even while we work on expanding specialist coverage?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objection 6 -->
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-statement">"We don't have budget for new tools right now"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-body">
+                            <div class="response-section">
+                                <h5>Response</h5>
+                                <p>I understand - budget cycles are real. Would it be helpful to have a conversation now to understand fit, so you're prepared when budget does become available? That way you'd know whether this is worth pursuing when the timing is right.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Evidence</h5>
+                                <p>Many brands find it useful to evaluate tools outside of budget pressure, then move quickly when budget opens up. A discovery conversation doesn't commit you to anything.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe</h5>
+                                <p>When does your budget cycle typically refresh? Would it make sense to reconnect closer to that time, or would you prefer to evaluate now so you're ready when budget is available?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objection 7 -->
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-statement">"This isn't a priority right now"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-body">
+                            <div class="response-section">
+                                <h5>Response</h5>
+                                <p>That's fair. Can I ask what would need to change for it to become a priority? Is it competitive pressure, content consistency issues, or something else? Understanding that helps me know whether to stay in touch or step back entirely.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Evidence</h5>
+                                <p>Priorities shift. Often brands reach out when they see a competitor gaining share online, when content issues cause customer complaints, or when leadership asks for competitive intelligence they don't have.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe</h5>
+                                <p>I'm happy to stay in touch periodically if that's useful, or to step back entirely if this isn't relevant. What would be most helpful for you?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objection 8 -->
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-statement">"We're evaluating other DSA providers"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-body">
+                            <div class="response-section">
+                                <h5>Response</h5>
+                                <p>Good to know you're exploring the space. I'm curious - what criteria are you using to evaluate? Understanding what matters most helps me know whether we'd be a good fit for comparison.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Evidence</h5>
+                                <p>Different providers have different strengths. Some are stronger on Amazon, others on broader retail coverage. Some focus on content, others on pricing. Our strength is European and UK coverage with solid US pharmacy and grocery.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe</h5>
+                                <p>Would it be useful to include us in your evaluation for comparison, or have you already narrowed down your shortlist?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objection 9 -->
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-statement">"Our team doesn't have bandwidth to implement new tools"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-body">
+                            <div class="response-section">
+                                <h5>Response</h5>
+                                <p>That's a real concern. We try to minimise implementation burden - there's no integration required on your side. We monitor retailers independently. The main ask from your team is telling us which products and retailers to track.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Evidence</h5>
+                                <p>Implementation typically takes 2-4 weeks for retailers we already cover. The ongoing time commitment is minimal - most teams spend 1-2 hours per week reviewing insights.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe</h5>
+                                <p>Would it help to understand exactly what the implementation process looks like? We can walk through what we'd need from your team so you can assess whether it's realistic.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objection 10 -->
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-statement">"I need to involve others in this decision"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-body">
+                            <div class="response-section">
+                                <h5>Response</h5>
+                                <p>That makes sense. Who else would need to be involved? I'm happy to provide materials that would help you make the case internally, or to have a broader conversation with relevant stakeholders.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Evidence</h5>
+                                <p>DSA decisions often involve digital commerce, category management, and sometimes IT for larger implementations. Understanding who needs to be convinced helps us provide the right information.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe</h5>
+                                <p>Would it be helpful if I put together a brief overview you could share internally? Or would a group call with the relevant stakeholders be more useful?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon">📋</span> Objection Handling Principles</h2>
+                <div class="info-card">
+                    <h4>General Approach</h4>
+                    <ul>
+                        <li><strong>Never dismiss the objection</strong> - Acknowledge it as valid and reasonable</li>
+                        <li><strong>Use evidence and examples</strong> - Specific data is more convincing than general claims</li>
+                        <li><strong>Offer flexibility</strong> - Pilots, POCs, phased approaches reduce risk</li>
+                        <li><strong>Be honest about fit</strong> - Acknowledge limitations upfront; it builds trust</li>
+                        <li><strong>Ask questions to understand root concern</strong> - The stated objection may not be the real issue</li>
+                        <li><strong>Set realistic implementation timelines</strong> - Overpromising undermines credibility</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>eStore Interactive Action Plan | Bausch + Lomb | Created: 6 January 2025 | Author: James (Devil in the Detail)</p>
+            <p style="margin-top: 8px; font-size: 0.8rem; color: #888;">This document contains confidential sales strategy information. For internal eStore use only.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and content
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(button.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Toggle Objection Cards
+        function toggleObjection(header) {
+            const card = header.parentElement;
+            card.classList.toggle('open');
+        }
+
+        // Toggle Email Sections
+        function toggleEmailSection(header) {
+            const section = header.parentElement;
+            section.classList.toggle('collapsed');
+        }
+
+        // Initialize all objections as closed
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.objection-card').forEach(card => {
+                card.classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>
