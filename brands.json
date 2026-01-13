@@ -1,5 +1,6 @@
 [
     {"file": "bausch-lomb2", "name": "Bausch + Lomb"},
     {"file": "molson-coors4", "name": "Molson Coors"},
+    {"file": "motorola-solutions", "name": "Motorola Solutions"},
     {"file": "lg-electronics", "name": "LG Electronics"}
 ]
