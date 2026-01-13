@@ -1,0 +1,2735 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorola Solutions - eStore Brand Research & Action Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --estore-yellow: #ffba1c;
+            --estore-green: #22bb69;
+            --estore-light-blue: #68d7fa;
+            --estore-dark-blue: #1067db;
+            --estore-red: #f44f2f;
+            --estore-orange: #ff7a00;
+            --text-dark: #2c2c2c;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-light: #e5e7eb;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--estore-dark-blue) 0%, #0a4a9e 100%);
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,186,28,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .header-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .recommendation-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--estore-green);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .nav-container {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tabs {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-light);
+            white-space: nowrap;
+            position: relative;
+            transition: color 0.2s ease;
+        }
+
+        .tab:hover {
+            color: var(--estore-dark-blue);
+        }
+
+        .tab.active {
+            color: var(--estore-dark-blue);
+            font-weight: 600;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--estore-dark-blue);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title .icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+            border: 1px solid var(--border-light);
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--estore-dark-blue);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f4ff 0%, #f0f9ff 100%);
+            border-left: 4px solid var(--estore-dark-blue);
+            padding: 1.25rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1rem 0;
+        }
+
+        .highlight-box.green {
+            background: linear-gradient(135deg, #e8fff0 0%, #f0fff5 100%);
+            border-left-color: var(--estore-green);
+        }
+
+        .highlight-box.yellow {
+            background: linear-gradient(135deg, #fff9e8 0%, #fffbf0 100%);
+            border-left-color: var(--estore-yellow);
+        }
+
+        .highlight-box.red {
+            background: linear-gradient(135deg, #fff0f0 0%, #fff5f5 100%);
+            border-left-color: var(--estore-red);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge.covered {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .badge.not-covered {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .badge.problematic {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge.tier-1 {
+            background: var(--estore-dark-blue);
+            color: white;
+        }
+
+        .badge.tier-2 {
+            background: var(--estore-orange);
+            color: white;
+        }
+
+        .badge.tier-3 {
+            background: var(--text-light);
+            color: white;
+        }
+
+        .coverage-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .coverage-metric {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .coverage-metric.highlight {
+            border-color: var(--estore-green);
+            background: linear-gradient(135deg, #f0fff5 0%, #ffffff 100%);
+        }
+
+        .coverage-percentage {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .coverage-percentage.excellent {
+            color: var(--estore-green);
+        }
+
+        .coverage-percentage.good {
+            color: var(--estore-dark-blue);
+        }
+
+        .coverage-percentage.moderate {
+            color: var(--estore-orange);
+        }
+
+        .coverage-percentage.poor {
+            color: var(--estore-red);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--bg-light);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.75rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .retailer-grid {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .retailer-card {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        .retailer-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .retailer-info p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .retailer-url {
+            font-size: 0.75rem;
+            color: var(--estore-dark-blue);
+        }
+
+        .contact-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-card.historical {
+            border-left: 4px solid var(--estore-yellow);
+        }
+
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .contact-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .contact-title {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.2rem;
+        }
+
+        .contact-priority {
+            background: var(--estore-dark-blue);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .contact-priority.secondary {
+            background: var(--estore-orange);
+        }
+
+        .contact-details {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .contact-detail-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+            min-width: 100px;
+        }
+
+        .contact-detail-value {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+        }
+
+        .email-sequence {
+            margin-bottom: 2rem;
+        }
+
+        .email-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 10px 10px 0 0;
+            border: 1px solid var(--border-light);
+            border-bottom: none;
+        }
+
+        .email-contact-name {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .email-contact-title {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .email-tabs {
+            display: flex;
+            border: 1px solid var(--border-light);
+            border-bottom: none;
+            background: var(--bg-white);
+        }
+
+        .email-tab {
+            flex: 1;
+            padding: 0.75rem;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-light);
+            border-right: 1px solid var(--border-light);
+            transition: all 0.2s ease;
+        }
+
+        .email-tab:last-child {
+            border-right: none;
+        }
+
+        .email-tab:hover {
+            background: var(--bg-light);
+        }
+
+        .email-tab.active {
+            background: var(--estore-dark-blue);
+            color: white;
+        }
+
+        .email-content {
+            display: none;
+            border: 1px solid var(--border-light);
+            border-radius: 0 0 10px 10px;
+            padding: 1.5rem;
+            background: var(--bg-white);
+        }
+
+        .email-content.active {
+            display: block;
+        }
+
+        .email-subject {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .email-meta {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .email-body {
+            white-space: pre-line;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        .email-notes {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border-light);
+        }
+
+        .email-notes h5 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .email-notes p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .objection-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .objection-header {
+            padding: 1rem 1.25rem;
+            background: var(--bg-light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background 0.2s ease;
+        }
+
+        .objection-header:hover {
+            background: #eef1f4;
+        }
+
+        .objection-toggle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            transition: transform 0.2s ease;
+        }
+
+        .objection-card.open .objection-toggle {
+            transform: rotate(180deg);
+        }
+
+        .objection-body {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .objection-card.open .objection-body {
+            padding: 1.25rem;
+            max-height: 1000px;
+        }
+
+        .response-section {
+            margin-bottom: 1rem;
+        }
+
+        .response-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .response-section h5 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--estore-dark-blue);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .response-section p {
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .checklist li::before {
+            content: '✓';
+            color: var(--estore-green);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        tr:hover {
+            background: var(--bg-light);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .info-card {
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 1.25rem;
+            border: 1px solid var(--border-light);
+        }
+
+        .info-card h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .info-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .link {
+            color: var(--estore-dark-blue);
+            text-decoration: none;
+        }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+        .tier-section {
+            margin-bottom: 2rem;
+        }
+
+        .tier-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .tier-header h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .tier-coverage {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .signal-box {
+            background: linear-gradient(135deg, #fff9e8 0%, #fffbf0 100%);
+            border: 1px solid var(--estore-yellow);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .signal-box h4 {
+            color: var(--estore-orange);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .prose {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        .prose p {
+            margin-bottom: 1rem;
+        }
+
+        .prose p:last-child {
+            margin-bottom: 0;
+        }
+
+        .prose ul {
+            margin: 0.75rem 0 1rem 1.5rem;
+        }
+
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+
+        .exec-quote {
+            background: var(--bg-light);
+            border-left: 3px solid var(--estore-dark-blue);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .exec-quote blockquote {
+            font-style: italic;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        .exec-quote cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-style: normal;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+
+            .tab {
+                padding: 0.75rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <span class="brand-tag">CONSUMER ELECTRONICS</span>
+            <h1>Motorola Solutions</h1>
+            <div class="header-meta">
+                <span>📍 Chicago, Illinois, USA</span>
+                <span>💰 $10.8B Revenue (FY2024)</span>
+                <span>🌍 100+ Countries</span>
+                <span>📅 13 January 2026</span>
+            </div>
+            <div class="recommendation-badge">
+                🟢 PROCEED WITH OUTREACH - 74% Tier 1&2 Coverage
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <div class="tabs">
+            <button class="tab active" data-tab="fit">Are we a good fit?</button>
+            <button class="tab" data-tab="history">Our history with them</button>
+            <button class="tab" data-tab="retailers">Retailer Check</button>
+            <button class="tab" data-tab="contacts">Key people?</button>
+            <button class="tab" data-tab="emails">Emails to send</button>
+            <button class="tab" data-tab="objections">Objection Handling</button>
+        </div>
+    </nav>
+
+    <main class="content">
+        <!-- TAB 1: Are we a good fit? -->
+        <div class="tab-content active" id="fit">
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-green);">📊</span> Strategic Assessment Summary</h2>
+                <div class="highlight-box green">
+                    <p class="prose"><strong>Recommendation: PROCEED WITH OUTREACH</strong></p>
+                    <p class="prose">Motorola Solutions presents an unusual but compelling opportunity. While primarily a B2B public safety company ($10.8B revenue), their consumer TALKABOUT walkie-talkie range represents a genuine digital shelf opportunity. With 74% coverage across Tier 1 and 2 retailers, this is a greenfield account with no incumbent digital shelf analytics vendor - a rare combination of strong fit and zero competitive displacement required.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">$10.8B</div>
+                        <div class="stat-label">FY2024 Revenue</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">74%</div>
+                        <div class="stat-label">Tier 1&2 Coverage</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">26+</div>
+                        <div class="stat-label">Identified Retailers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$14.7B</div>
+                        <div class="stat-label">Record Backlog</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-yellow);">🎯</span> Why This Brand is a Good Fit</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Consumer Products Opportunity</h4>
+                        <p>TALKABOUT walkie-talkies are a genuine consumer business sold through Amazon (official Brand Store), Best Buy, Walmart, Target, Costco, and 20+ other retailers. This isn't enterprise B2B - it's consumer retail.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Greenfield Account</h4>
+                        <p>No evidence of any digital shelf analytics tool in use. No Profitero, CommerceIQ, Edge by Ascential, or competitors. This is a true greenfield opportunity with no incumbent to displace.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Strong Retailer Coverage</h4>
+                        <p>100% Tier 1 coverage including Amazon US/UK, Walmart, Target, Best Buy, Costco, Currys, Argos. We can deliver immediate value on their most important retail channels.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>UK/European Strength</h4>
+                        <p>Significant UK presence via Airwave contract, UK acquisitions, and UK subsidiary. Our European coverage (100%) aligns perfectly with their international footprint.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-light-blue);">📦</span> Product Portfolio</h2>
+                <div class="prose">
+                    <p><strong>TALKABOUT Consumer Walkie-Talkies</strong> - the focus of this opportunity:</p>
+                    <ul>
+                        <li>Product lines: T110, T210, T270, T380, T470, T478, T605, T800, T802, T803 series</li>
+                        <li>Price range: approximately £30 to £150 per pair</li>
+                        <li>Target markets: Family/kids, outdoor/camping, emergency preparedness, sports</li>
+                        <li>Recent launches: T800 series with Bluetooth connectivity, updated T62 models in Europe</li>
+                    </ul>
+                    <p>Amazon shows "10K+ orders in past 3 months" on their official Brand Store - this is an active, high-volume consumer business.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-orange);">⏰</span> Why This Timing is Optimal</h2>
+                
+                <div class="signal-box">
+                    <h4>🔔 G2 Signal Detected</h4>
+                    <p class="prose">Motorola Solutions visited eStore's G2 profile 4 times recently. Most likely interpretation: the consumer products team is exploring digital shelf analytics for TALKABOUT. This is a warm lead with demonstrated interest.</p>
+                </div>
+
+                <div class="prose">
+                    <p><strong>Strategic triggers supporting outreach now:</strong></p>
+                    <ul>
+                        <li><strong>Theatro Acquisition (March 2025):</strong> $4.4B investment in retail frontline technology shows they understand retail challenges. Theatro's customers (Nordstrom, Boots) actively monitor digital shelves - there's a natural connection to draw.</li>
+                        <li><strong>New Product Launches:</strong> T800 series with Bluetooth, updated T62 models in Europe - launch moments are when digital shelf visibility matters most.</li>
+                        <li><strong>Retail Vertical Investment:</strong> Their acquisition strategy shows increasing focus on retail environments, making consumer products optimisation more strategically relevant.</li>
+                        <li><strong>Record Growth:</strong> 8.4% YoY growth, $14.7B backlog, $11.65B 2025 guidance - they're investing and growing.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-green);">✅</span> Implementation Readiness</h2>
+                
+                <div class="coverage-dashboard">
+                    <div class="coverage-metric highlight">
+                        <div class="coverage-percentage excellent">74%</div>
+                        <div class="stat-label">Tier 1 & 2 Combined</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 74%; background: var(--estore-green);"></div>
+                        </div>
+                    </div>
+                    <div class="coverage-metric">
+                        <div class="coverage-percentage excellent">100%</div>
+                        <div class="stat-label">Tier 1 Coverage</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%; background: var(--estore-green);"></div>
+                        </div>
+                    </div>
+                    <div class="coverage-metric">
+                        <div class="coverage-percentage moderate">50%</div>
+                        <div class="stat-label">Tier 2 Coverage</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 50%; background: var(--estore-orange);"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box green">
+                    <p class="prose"><strong>Time-to-Value Estimate:</strong></p>
+                    <ul class="prose">
+                        <li><strong>Covered retailers (17):</strong> 2-4 weeks to start monitoring</li>
+                        <li><strong>Uncovered specialists (9):</strong> 2-3 months onboarding if required</li>
+                    </ul>
+                    <p class="prose"><strong>Recommendation:</strong> Lead with immediate value on covered retailers (Amazon, Walmart, Target, Best Buy, Costco, Currys, Argos). Position specialist onboarding (REI, Bass Pro) as Phase 2.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-dark-blue);">🌍</span> Geographic Positioning</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>If Targeting...</th>
+                                <th>Lead With...</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>UK Contact</strong> (Olatunde Williams)</td>
+                                <td>UK strength: "Complete coverage of Currys, Argos, Amazon UK, John Lewis, Very, Halfords"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>US Contact</strong> (Amy Patel, Les Miller)</td>
+                                <td>Mass market strength: "Amazon Brand Store, Walmart, Target, Best Buy, Costco - your key retail channels"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>EMEA Contact</strong> (Mark Schmidl)</td>
+                                <td>European breadth: "Amazon across UK, DE, FR, ES, IT plus UK specialists"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-green);">📋</span> Final Assessment Checklist</h2>
+                
+                <ul class="checklist">
+                    <li>Revenue scale justifies investment ($10.8B company)</li>
+                    <li>Genuine consumer products business (TALKABOUT range)</li>
+                    <li>Strong retailer coverage (74% Tier 1&2)</li>
+                    <li>Excellent UK/European coverage (100%)</li>
+                    <li>Greenfield opportunity (no incumbent DSA vendor)</li>
+                    <li>G2 signal indicates active interest</li>
+                    <li>Theatro acquisition shows retail vertical understanding</li>
+                    <li>Recent product launches create monitoring need</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TAB 2: Our history with them -->
+        <div class="tab-content" id="history">
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-yellow);">📜</span> Previous Contact History</h2>
+                
+                <div class="highlight-box yellow">
+                    <p class="prose"><strong>Status: No previous contact - starting completely cold</strong></p>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Element</th>
+                                <th>Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>HubSpot Records</td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>Previous Conversations</td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>Known Contacts</td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>Previous Outreach</td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>Deal History</td>
+                                <td>None</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-orange);">🔔</span> G2 Signal Analysis</h2>
+                
+                <div class="signal-box">
+                    <h4>🔔 The Signal</h4>
+                    <p class="prose">Motorola Solutions visited eStore's G2 profile 4 times recently</p>
+                </div>
+
+                <div class="prose">
+                    <p><strong>Possible Interpretations:</strong></p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>1. Most Likely</h4>
+                        <p><strong>Consumer products team exploring digital shelf analytics for TALKABOUT</strong></p>
+                        <p style="margin-top: 0.5rem;">Supports: Active retail presence, no current DSA vendor</p>
+                        <p>Approach: Lead with consumer products angle</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>2. Possible</h4>
+                        <p><strong>Channel management team exploring partner monitoring</strong></p>
+                        <p style="margin-top: 0.5rem;">Supports: Large PartnerEmpower network, brand consistency concerns</p>
+                        <p>Approach: Secondary angle on channel monitoring</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>3. Less Likely</h4>
+                        <p><strong>Retail vertical team (Theatro) researching market</strong></p>
+                        <p style="margin-top: 0.5rem;">Supports: Recent acquisition, understanding retail tech landscape</p>
+                        <p>Approach: Mention Theatro connection as credibility point</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-red);">⚠️</span> Competitor Intelligence</h2>
+                
+                <div class="highlight-box green">
+                    <p class="prose"><strong>Key Finding: Greenfield Opportunity</strong></p>
+                    <p class="prose">Motorola Solutions appears to have no current digital shelf analytics solution for their consumer products business. Their digital marketing focus is entirely on B2B lead generation, not consumer retail optimisation.</p>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tool</th>
+                                <th>Status</th>
+                                <th>Evidence</th>
+                                <th>Confidence</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Profitero</td>
+                                <td><span class="badge not-covered">❌ No evidence</span></td>
+                                <td>No case studies, job posts, or partnerships found</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td>CommerceIQ</td>
+                                <td><span class="badge not-covered">❌ No evidence</span></td>
+                                <td>No case studies, job posts, or partnerships found</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td>Edge by Ascential</td>
+                                <td><span class="badge not-covered">❌ No evidence</span></td>
+                                <td>No case studies, job posts, or partnerships found</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td>DataWeave</td>
+                                <td><span class="badge not-covered">❌ No evidence</span></td>
+                                <td>No case studies, job posts, or partnerships found</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td>Salsify</td>
+                                <td><span class="badge not-covered">❌ No evidence</span></td>
+                                <td>No PIM/DAM integrations mentioned</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td>Syndigo</td>
+                                <td><span class="badge not-covered">❌ No evidence</span></td>
+                                <td>No content syndication partnerships found</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td>eStore</td>
+                                <td><span class="badge not-covered">❌ No evidence</span></td>
+                                <td>Not in current or lapsed client lists</td>
+                                <td>Confirmed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="prose" style="margin-top: 1rem;">
+                    <p><strong>Job Posting Analysis:</strong> Digital marketing roles focus on B2B demand generation (Marketo, Salesforce, Google Analytics, Adobe Experience Manager). No positions found mentioning digital shelf analytics, Amazon Vendor Central, e-commerce management, or retail media.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-dark-blue);">📚</span> Content to Reference</h2>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>Consumer Electronics Landing Page</h4>
+                        <p><a href="https://estorebrands.com/consumer-electronics" class="link" target="_blank">estorebrands.com/consumer-electronics</a></p>
+                        <p style="margin-top: 0.5rem;">Direct sector match - use in Email 3 as value-add</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Suggested Email Placement</h4>
+                        <p>Email 2 or 3: Include the Consumer Electronics landing page</p>
+                        <p style="margin-top: 0.5rem;">Position: "Here's how we help electronics brands like Philips, BSH, and Miele optimise their digital shelf presence"</p>
+                    </div>
+                </div>
+
+                <div class="prose" style="margin-top: 1.5rem;">
+                    <p><strong>Current eStore Clients for Credibility:</strong></p>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Client</th>
+                                <th>Sector</th>
+                                <th>Relevance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Philips</strong></td>
+                                <td>Consumer Electronics</td>
+                                <td>✅ Direct comparison - global electronics brand</td>
+                            </tr>
+                            <tr>
+                                <td><strong>BSH</strong></td>
+                                <td>Home Appliances</td>
+                                <td>✅ Similar channel strategy</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Miele</strong></td>
+                                <td>Home Appliances</td>
+                                <td>✅ Premium positioning</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Epson</strong></td>
+                                <td>Consumer Electronics</td>
+                                <td>✅ Electronics on retail shelves</td>
+                            </tr>
+                            <tr>
+                                <td><strong>De'Longhi</strong></td>
+                                <td>Consumer Electronics</td>
+                                <td>✅ Consumer durables</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Duracell</strong></td>
+                                <td>Consumer Products</td>
+                                <td>✅ Similar retail distribution</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 1rem;">
+                    <p class="prose"><strong>Note:</strong> These are real eStore clients. Use for credibility, never for fabricated case studies.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-green);">💡</span> Recommended Approach</h2>
+                
+                <div class="prose">
+                    <ol style="margin-left: 1.5rem;">
+                        <li><strong>Lead with curiosity about G2 visits:</strong> "I noticed some interest from your team in digital shelf analytics"</li>
+                        <li><strong>Position around TALKABOUT:</strong> "Your consumer walkie-talkie line across Amazon, Best Buy, Walmart"</li>
+                        <li><strong>Acknowledge enterprise focus:</strong> "We know public safety is your core business - but TALKABOUT sells through different channels"</li>
+                        <li><strong>Offer value regardless:</strong> "Even if timing isn't right, happy to share how other electronics brands approach this"</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-light-blue);">👔</span> Executive Context (Reference Only)</h2>
+                
+                <div class="exec-quote">
+                    <blockquote>"2023 was an exceptional year, with record sales, earnings and operating cash flow. The strong growth we achieved reflects the continued robust demand for our safety and security solutions."</blockquote>
+                    <cite>— Greg Brown, Chairman and CEO</cite>
+                </div>
+                <p class="prose">Use: Reference his growth priorities when discussing ROI with operational contacts.</p>
+
+                <div class="exec-quote" style="margin-top: 1rem;">
+                    <blockquote>"Theatro is designed to prioritize both safety and operational efficiency, which are essential for all frontline workers."</blockquote>
+                    <cite>— Mahesh Saptharishi, EVP and Chief Technology Officer</cite>
+                </div>
+                <p class="prose">Use: Reference technology focus and retail investment when positioning eStore.</p>
+            </div>
+        </div>
+
+        <!-- TAB 3: Retailer Check -->
+        <div class="tab-content" id="retailers">
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-green);">📊</span> Coverage Dashboard</h2>
+                
+                <div class="coverage-dashboard">
+                    <div class="coverage-metric highlight">
+                        <div class="coverage-percentage excellent">74%</div>
+                        <div class="stat-label">Tier 1 & 2 Combined</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 74%; background: var(--estore-green);"></div>
+                        </div>
+                    </div>
+                    <div class="coverage-metric">
+                        <div class="coverage-percentage excellent">100%</div>
+                        <div class="stat-label">Tier 1 (9/9)</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%; background: var(--estore-green);"></div>
+                        </div>
+                    </div>
+                    <div class="coverage-metric">
+                        <div class="coverage-percentage moderate">50%</div>
+                        <div class="stat-label">Tier 2 (5/10)</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 50%; background: var(--estore-orange);"></div>
+                        </div>
+                    </div>
+                    <div class="coverage-metric">
+                        <div class="coverage-percentage moderate">43%</div>
+                        <div class="stat-label">Tier 3 (3/7)</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 43%; background: var(--estore-orange);"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box green">
+                    <p class="prose" style="font-size: 1rem;"><strong>🟢 GO - STRONG FIT</strong></p>
+                    <p class="prose">Tier 1 & 2 combined coverage of 74% exceeds the 60% threshold for "Strong Fit". All major mass market retailers are covered. UK/European coverage is exceptional (100%).</p>
+                    <p class="prose" style="margin-top: 0.75rem;"><strong>Time-to-Value:</strong> Covered retailers: 2-4 weeks | Uncovered specialists: 2-3 months if required</p>
+                </div>
+            </div>
+
+            <!-- Tier 1 -->
+            <div class="tier-section">
+                <div class="tier-header">
+                    <span class="badge tier-1">TIER 1</span>
+                    <h3>Major Mass Market Retailers</h3>
+                    <span class="tier-coverage">9/9 Covered (100%)</span>
+                </div>
+
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Amazon US</h4>
+                            <p class="retailer-url">amazon.com</p>
+                            <p>🇺🇸 US - Official Brand Store, "10K+ orders in past 3 months", flagship consumer channel</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Amazon UK</h4>
+                            <p class="retailer-url">amazon.co.uk</p>
+                            <p>🇬🇧 UK - Key UK presence for T42, T62, T72, T82 series</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Walmart</h4>
+                            <p class="retailer-url">walmart.com</p>
+                            <p>🇺🇸 US - Major mass market presence</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Target</h4>
+                            <p class="retailer-url">target.com</p>
+                            <p>🇺🇸 US - Core retail partner</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Best Buy</h4>
+                            <p class="retailer-url">bestbuy.com</p>
+                            <p>🇺🇸 US - Electronics specialist, high-value channel</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Costco</h4>
+                            <p class="retailer-url">costco.com</p>
+                            <p>🇺🇸 US - Bulk/value pack sales</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Home Depot</h4>
+                            <p class="retailer-url">homedepot.com</p>
+                            <p>🇺🇸 US - DIY/outdoor customer base</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Currys</h4>
+                            <p class="retailer-url">currys.co.uk</p>
+                            <p>🇬🇧 UK - UK electronics leader</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Argos</h4>
+                            <p class="retailer-url">argos.co.uk</p>
+                            <p>🇬🇧 UK - Major UK general retailer</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="tier-section">
+                <div class="tier-header">
+                    <span class="badge tier-2">TIER 2</span>
+                    <h3>Specialist & Outdoor Retailers</h3>
+                    <span class="tier-coverage">5/10 Covered (50%)</span>
+                </div>
+
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Staples</h4>
+                            <p class="retailer-url">staples.com</p>
+                            <p>🇺🇸 US - Office/business supplies</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Amazon DE</h4>
+                            <p class="retailer-url">amazon.de</p>
+                            <p>🇩🇪 Germany - German market presence</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Amazon FR</h4>
+                            <p class="retailer-url">amazon.fr</p>
+                            <p>🇫🇷 France - French market presence</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>John Lewis</h4>
+                            <p class="retailer-url">johnlewis.com</p>
+                            <p>🇬🇧 UK - Premium UK retailer</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Very</h4>
+                            <p class="retailer-url">very.co.uk</p>
+                            <p>🇬🇧 UK - UK general retailer</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>B&H Photo</h4>
+                            <p class="retailer-url">bhphotovideo.com</p>
+                            <p>🇺🇸 US - Premium electronics retailer, professional buyers</p>
+                        </div>
+                        <span class="badge not-covered">❌ NOT COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>REI</h4>
+                            <p class="retailer-url">rei.com</p>
+                            <p>🇺🇸 US - Outdoor/camping specialist - core TALKABOUT demographic</p>
+                        </div>
+                        <span class="badge not-covered">❌ NOT IN MASTER</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Bass Pro Shops</h4>
+                            <p class="retailer-url">basspro.com</p>
+                            <p>🇺🇸 US - Outdoor/hunting specialist</p>
+                        </div>
+                        <span class="badge not-covered">❌ NOT IN MASTER</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Cabela's</h4>
+                            <p class="retailer-url">cabelas.com</p>
+                            <p>🇺🇸 US - Outdoor/hunting specialist (owned by Bass Pro)</p>
+                        </div>
+                        <span class="badge not-covered">❌ NOT IN MASTER</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>CDW</h4>
+                            <p class="retailer-url">cdw.com</p>
+                            <p>🇺🇸 US - B2B/prosumer tech retailer</p>
+                        </div>
+                        <span class="badge not-covered">❌ NOT IN MASTER</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="tier-section">
+                <div class="tier-header">
+                    <span class="badge tier-3">TIER 3</span>
+                    <h3>Regional & Niche Retailers</h3>
+                    <span class="tier-coverage">3/7 Covered (43%)</span>
+                </div>
+
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Amazon ES</h4>
+                            <p class="retailer-url">amazon.es</p>
+                            <p>🇪🇸 Spain - Spanish market</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Amazon IT</h4>
+                            <p class="retailer-url">amazon.it</p>
+                            <p>🇮🇹 Italy - Italian market</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Halfords</h4>
+                            <p class="retailer-url">halfords.com</p>
+                            <p>🇬🇧 UK - UK automotive/outdoor</p>
+                        </div>
+                        <span class="badge covered">✅ COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Grainger</h4>
+                            <p class="retailer-url">grainger.com</p>
+                            <p>🇺🇸 US - Industrial/MRO supplier</p>
+                        </div>
+                        <span class="badge not-covered">❌ NOT COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Office Depot</h4>
+                            <p class="retailer-url">officedepot.com</p>
+                            <p>🇺🇸 US - Office supplies</p>
+                        </div>
+                        <span class="badge not-covered">❌ NOT COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Adorama</h4>
+                            <p class="retailer-url">adorama.com</p>
+                            <p>🇺🇸 US - Photo/electronics specialist</p>
+                        </div>
+                        <span class="badge not-covered">❌ NOT COVERED</span>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-info">
+                            <h4>Newegg</h4>
+                            <p class="retailer-url">newegg.com</p>
+                            <p>🇺🇸 US - Electronics e-tailer (technical issues noted)</p>
+                        </div>
+                        <span class="badge problematic">⚠️ NOT POSSIBLE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-dark-blue);">🌍</span> Geographic Summary</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Market</th>
+                                <th>Coverage</th>
+                                <th>Positioning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>UK</strong></td>
+                                <td><span class="badge covered">100%</span></td>
+                                <td>Lead with UK strength - "immediate comprehensive coverage" (Currys, Argos, Amazon UK, John Lewis, Very, Halfords)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Europe</strong></td>
+                                <td><span class="badge covered">Strong</span></td>
+                                <td>Strong European footprint (Amazon DE, FR, ES, IT)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>US</strong></td>
+                                <td><span class="badge problematic">47%</span></td>
+                                <td>Good mass market, gaps in outdoor specialists - be honest about REI/Bass Pro gaps, position as "onboarding opportunity"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: Key people? -->
+        <div class="tab-content" id="contacts">
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-yellow);">📜</span> Historical Contacts</h2>
+                
+                <div class="highlight-box yellow">
+                    <p class="prose"><strong>No previous contacts on record.</strong> This is a completely cold outreach - no HubSpot records, previous conversations, or known contacts exist.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-dark-blue);">🎯</span> Primary Targets - Operational Decision-Makers</h2>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Amy Patel</div>
+                            <div class="contact-title">Director, Marketing Efficiency with Technology & Data</div>
+                        </div>
+                        <span class="contact-priority">#1 PRIMARY</span>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Location</span>
+                            <span class="contact-detail-value">🇺🇸 Chicago, USA</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">LinkedIn</span>
+                            <span class="contact-detail-value"><a href="https://www.linkedin.com/in/amy-patel5/" class="link" target="_blank">linkedin.com/in/amy-patel5</a></span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Why Contact</span>
+                            <span class="contact-detail-value">Marketing technology focus could include digital shelf analytics for consumer products</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Hook</span>
+                            <span class="contact-detail-value">"Your marketing technology stack - are you monitoring how TALKABOUT products appear across Amazon, Best Buy, Walmart?"</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Status</span>
+                            <span class="contact-detail-value">Cold</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Kathryn P.T. Shae</div>
+                            <div class="contact-title">Head of Product Management, Software Platform (Theatro)</div>
+                        </div>
+                        <span class="contact-priority">#2 PRIMARY</span>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Location</span>
+                            <span class="contact-detail-value">🇺🇸 Texas, USA</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">LinkedIn</span>
+                            <span class="contact-detail-value"><a href="https://www.linkedin.com/in/kathrynshae/" class="link" target="_blank">linkedin.com/in/kathrynshae</a></span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Background</span>
+                            <span class="contact-detail-value">Previously Nordstrom (Manager, Service Experience); now heads product for Theatro within Motorola Solutions; Assistant VP level</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Why Contact</span>
+                            <span class="contact-detail-value">Theatro serves retail customers - she understands digital shelf challenges from the retailer perspective</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Hook</span>
+                            <span class="contact-detail-value">"Your retail expertise from Nordstrom and now Theatro - how is Motorola ensuring its own consumer products are optimised on the same retailers your customers sell through?"</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Status</span>
+                            <span class="contact-detail-value">Cold</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Les Miller</div>
+                            <div class="contact-title">North America Commercial Market and Business Launch Programs</div>
+                        </div>
+                        <span class="contact-priority">#3 PRIMARY</span>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Location</span>
+                            <span class="contact-detail-value">🇺🇸 Plainfield, Illinois, USA</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">LinkedIn</span>
+                            <span class="contact-detail-value"><a href="https://www.linkedin.com/in/les-miller-09b98a1/" class="link" target="_blank">linkedin.com/in/les-miller-09b98a1</a></span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Background</span>
+                            <span class="contact-detail-value">Marketing and product professional; manages commercial market strategy and product launches; DePaul MBA; described as "consummate marketing and product professional"</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Why Contact</span>
+                            <span class="contact-detail-value">Product launches and commercial strategy - likely touches TALKABOUT go-to-market</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Hook</span>
+                            <span class="contact-detail-value">"New TALKABOUT product launches like the T800 series - how are you tracking product page quality and availability across Amazon and Best Buy at launch?"</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Status</span>
+                            <span class="contact-detail-value">Cold</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Olatunde Williams</div>
+                            <div class="contact-title">International Marketing Director</div>
+                        </div>
+                        <span class="contact-priority">#4 PRIMARY</span>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Location</span>
+                            <span class="contact-detail-value">🇬🇧 United Kingdom</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">LinkedIn</span>
+                            <span class="contact-detail-value"><a href="https://uk.linkedin.com/in/olatunde-williams-67a2825" class="link" target="_blank">uk.linkedin.com/in/olatunde-williams-67a2825</a></span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Background</span>
+                            <span class="contact-detail-value">UK-based; Institute of Direct and Digital Marketing diploma; international marketing focus; previously at Orange and Motorola</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Why Contact</span>
+                            <span class="contact-detail-value">UK-based with digital marketing expertise - could own European consumer marketing</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Hook</span>
+                            <span class="contact-detail-value">"TALKABOUT products on Amazon UK, Currys, Argos - do you have visibility into content quality and competitive positioning across UK retailers?"</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Status</span>
+                            <span class="contact-detail-value">Cold</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-orange);">🎯</span> Secondary Targets - Strategic Influencers</h2>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Cynthia Yazdi</div>
+                            <div class="contact-title">Senior Vice President, Chief of Staff, Marketing & Communications</div>
+                        </div>
+                        <span class="contact-priority secondary">#5 SECONDARY</span>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Location</span>
+                            <span class="contact-detail-value">🇺🇸 Chicago, USA</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Source</span>
+                            <span class="contact-detail-value"><a href="https://theorg.com/org/motorola-solutions/org-chart/cynthia-yazdi" class="link" target="_blank">theorg.com - Motorola Solutions org chart</a></span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Background</span>
+                            <span class="contact-detail-value">Corporate VP, Chief of Staff to CEO, Global Marketing; senior leadership with strategic oversight</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Why Contact</span>
+                            <span class="contact-detail-value">Sets marketing direction; could sponsor digital shelf initiative</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Use Case</span>
+                            <span class="contact-detail-value">Reference her strategic priorities when contacting her reports; escalation if operational contacts unresponsive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Mark Schmidl</div>
+                            <div class="contact-title">Senior Sales Executive, EMEA Channel</div>
+                        </div>
+                        <span class="contact-priority secondary">#6 SECONDARY</span>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Location</span>
+                            <span class="contact-detail-value">🇺🇸 San Diego, USA (manages EMEA channel)</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">LinkedIn</span>
+                            <span class="contact-detail-value"><a href="https://www.linkedin.com/in/mark-schmidl-57938988/" class="link" target="_blank">linkedin.com/in/mark-schmidl-57938988</a></span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Background</span>
+                            <span class="contact-detail-value">Led sales teams worldwide; posts about retail solutions (V200 body camera for retail), Theatro, EMEA channel conferences</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Why Contact</span>
+                            <span class="contact-detail-value">EMEA channel focus, engaged with retail vertical, understands partner ecosystem</span>
+                        </div>
+                        <div class="contact-detail">
+                            <span class="contact-detail-label">Hook</span>
+                            <span class="contact-detail-value">"I saw your posts about the retail ecosystem and Theatro - are you monitoring how channel partners represent TALKABOUT products online?"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-red);">🚫</span> Contacts to Skip</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Role Type</th>
+                                <th>Why Skip</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Public Safety roles</td>
+                                <td>B2B focus, no consumer retail touchpoint</td>
+                            </tr>
+                            <tr>
+                                <td>Body camera / Video security</td>
+                                <td>Enterprise sales, not consumer</td>
+                            </tr>
+                            <tr>
+                                <td>Government/Federal sales</td>
+                                <td>Entirely B2B channel</td>
+                            </tr>
+                            <tr>
+                                <td>Engineering/R&D</td>
+                                <td>Product development, not go-to-market</td>
+                            </tr>
+                            <tr>
+                                <td>HR/Finance/Legal</td>
+                                <td>Support functions</td>
+                            </tr>
+                            <tr>
+                                <td>Regional sales (non-EMEA/US)</td>
+                                <td>Not relevant markets</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: Emails to send -->
+        <div class="tab-content" id="emails">
+            <!-- Contact 1: Amy Patel -->
+            <div class="email-sequence">
+                <div class="email-header">
+                    <div>
+                        <div class="email-contact-name">Amy Patel</div>
+                        <div class="email-contact-title">Director, Marketing Efficiency with Technology & Data | 🇺🇸 Chicago</div>
+                    </div>
+                    <span class="contact-priority">#1 PRIMARY</span>
+                </div>
+                <div class="email-tabs" data-contact="amy">
+                    <div class="email-tab active" data-email="1">Email 1</div>
+                    <div class="email-tab" data-email="2">Email 2</div>
+                    <div class="email-tab" data-email="3">Email 3</div>
+                </div>
+                <div class="email-content active" data-contact="amy" data-email="1">
+                    <div class="email-subject">Subject: TALKABOUT on Amazon, Best Buy, Walmart</div>
+                    <div class="email-meta">Send timing: Tuesday or Wednesday, 9-10am CT</div>
+                    <div class="email-body">Hi Amy,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer brands selling through online retailers.
+
+This email is specifically about Motorola's consumer products business - the TALKABOUT walkie-talkie range that sells through Amazon, Best Buy, Walmart, Target, and a dozen other retailers. Not the public safety or enterprise side.
+
+I'm curious whether anyone at Motorola is actively monitoring how those products appear across retail sites - content quality, availability, competitive positioning, that sort of thing. It's a question that often falls between the cracks in organisations where consumer products are a smaller piece of a larger B2B-focused business.
+
+If this lands with someone else on your team, happy to be pointed in the right direction.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Amy's current role on LinkedIn before sending. Check if there's been any recent marketing technology investment announcements.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email acknowledges the unusual nature of the opportunity - consumer products within a B2B company. It's direct about what we do and asks a genuine question rather than asserting we know their challenges. Low pressure, leaves room for her to redirect if needed.</p>
+                    </div>
+                </div>
+                <div class="email-content" data-contact="amy" data-email="2">
+                    <div class="email-subject">Subject: Following up - the retail angle</div>
+                    <div class="email-meta">Send timing: 5-7 days after Email 1, same time slot</div>
+                    <div class="email-body">Hi Amy,
+
+A quick follow-up on my earlier note about TALKABOUT monitoring.
+
+Something that struck me in researching Motorola Solutions: the Theatro acquisition in March brought expertise in retail frontline technology. Theatro's customers - Nordstrom, Boots, other major retailers - have digital shelf monitoring as a standard practice for their own products.
+
+There's an interesting parallel: the same retailers where Theatro helps store associates communicate better are retailers where TALKABOUT products sit on shelves (digital and physical). I wonder if anyone has connected those dots internally.
+
+Either way, I'd be interested to understand whether digital shelf visibility is something your marketing technology stack addresses, or if it's genuinely not a priority for the consumer products side of the business.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Theatro acquisition details are still accurate. Check if there have been any public statements about Theatro integration.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email adds new value by drawing a connection she may not have considered. It's not asserting this is a problem - it's genuinely curious whether the dots have been connected. The Theatro angle makes it more relevant to a marketing technology role.</p>
+                    </div>
+                </div>
+                <div class="email-content" data-contact="amy" data-email="3">
+                    <div class="email-subject">Subject: Something useful either way</div>
+                    <div class="email-meta">Send timing: 7-10 days after Email 2</div>
+                    <div class="email-body">Hi Amy,
+
+A thought that might be useful regardless of whether digital shelf monitoring is on your radar.
+
+Consumer products monitoring often sits in a grey area for organisations focused primarily on B2B channels - it's rarely urgent, but it does tend to surface when something goes wrong at a retailer.
+
+If it ever becomes relevant - new product launches, competitive pressures, or just wanting visibility into how products appear across Amazon and the major retailers - I'm happy to pick up the conversation.
+
+We work with a number of consumer electronics brands (Philips, BSH, Epson) on similar challenges. Here's a quick overview of how we approach the sector: https://estorebrands.com/consumer-electronics
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Only include the content link if it genuinely adds value for Amy's context. Consider whether she'd find it useful.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This is a genuine graceful exit that respects her time. It leaves the door open without pressure, and the content link provides value if she's curious.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact 2: Kathryn P.T. Shae -->
+            <div class="email-sequence">
+                <div class="email-header">
+                    <div>
+                        <div class="email-contact-name">Kathryn P.T. Shae</div>
+                        <div class="email-contact-title">Head of Product Management, Software Platform (Theatro) | 🇺🇸 Texas</div>
+                    </div>
+                    <span class="contact-priority">#2 PRIMARY</span>
+                </div>
+                <div class="email-tabs" data-contact="kathryn">
+                    <div class="email-tab active" data-email="1">Email 1</div>
+                    <div class="email-tab" data-email="2">Email 2</div>
+                    <div class="email-tab" data-email="3">Email 3</div>
+                </div>
+                <div class="email-content active" data-contact="kathryn" data-email="1">
+                    <div class="email-subject">Subject: The retailer side of the equation</div>
+                    <div class="email-meta">Send timing: Tuesday or Wednesday, 10-11am CT</div>
+                    <div class="email-body">Hi Kathryn,
+
+I'm [SENDER NAME] from eStore - we work with consumer brands on digital shelf analytics.
+
+Your background caught my attention in an unusual way: you've seen retail from the operations side (Nordstrom service experience) and now lead product for technology that serves retail environments (Theatro). Both perspectives involve understanding how products appear and perform in retail settings.
+
+Here's my question: does anyone at Motorola think about how the company's own consumer products - the TALKABOUT range - appear on the same retailer websites where Theatro's customers sell? It's a mirror image of the frontline communication challenge Theatro solves, but for the digital shelf.
+
+This may not sit anywhere near your remit, but I thought the retail operations experience might mean you'd know who does own this.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify her Nordstrom role details on LinkedIn. Confirm she's still in the Theatro product role.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email builds a bridge between her experience at Nordstrom and her current role. It's genuinely curious about whether anyone owns this space, acknowledging it may not be her direct responsibility. The "mirror image" framing is specific to her background.</p>
+                    </div>
+                </div>
+                <div class="email-content" data-contact="kathryn" data-email="2">
+                    <div class="email-subject">Subject: Quick thought on product launches</div>
+                    <div class="email-meta">Send timing: 6-7 days after Email 1</div>
+                    <div class="email-body">Hi Kathryn,
+
+One more thought following my earlier note.
+
+TALKABOUT has launched several new products recently - the T800 series with Bluetooth connectivity, updated T62 models in Europe. Product launches are typically when digital shelf visibility matters most: ensuring the product page is accurate, images are correct, availability is tracked, and competitive positioning is understood.
+
+I don't know whether Motorola treats these launches as a marketing priority or whether they're more operationally focused, but it's a moment when many brands realise they lack visibility into how retailers are actually presenting their products.
+
+If launches aren't your area, no problem at all. But if you happen to know who coordinates product introductions for the consumer side, I'd appreciate the direction.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify recent TALKABOUT product launches are accurate before sending. Check for any upcoming announcements.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email adds new value by connecting to product launches - a concrete moment where digital shelf visibility matters. It's still asking rather than asserting, and offers an easy out if it's not her area.</p>
+                    </div>
+                </div>
+                <div class="email-content" data-contact="kathryn" data-email="3">
+                    <div class="email-subject">Subject: A thought on retail visibility</div>
+                    <div class="email-meta">Send timing: 8-10 days after Email 2</div>
+                    <div class="email-body">Hi Kathryn,
+
+One more angle on the consumer products question, then I'll let this thread rest.
+
+If the digital shelf question ever surfaces internally - whether through retail partner feedback, launch coordination challenges, or just curiosity about how TALKABOUT products appear across Amazon, Best Buy, and Walmart - I'd be happy to chat.
+
+We work with Philips, BSH, and Epson on similar challenges. The patterns are surprisingly consistent across consumer electronics brands, even when the products are quite different.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>None required - this is a clean closing email.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Graceful exit that respects her time and role. Mentions relevant clients without overstating - "similar challenges" is honest.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact 3: Les Miller -->
+            <div class="email-sequence">
+                <div class="email-header">
+                    <div>
+                        <div class="email-contact-name">Les Miller</div>
+                        <div class="email-contact-title">North America Commercial Market and Business Launch Programs | 🇺🇸 Illinois</div>
+                    </div>
+                    <span class="contact-priority">#3 PRIMARY</span>
+                </div>
+                <div class="email-tabs" data-contact="les">
+                    <div class="email-tab active" data-email="1">Email 1</div>
+                    <div class="email-tab" data-email="2">Email 2</div>
+                    <div class="email-tab" data-email="3">Email 3</div>
+                </div>
+                <div class="email-content active" data-contact="les" data-email="1">
+                    <div class="email-subject">Subject: TALKABOUT product launches</div>
+                    <div class="email-meta">Send timing: Tuesday-Thursday, 9-10am CT</div>
+                    <div class="email-body">Hi Les,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer brands.
+
+I came across your work on commercial market and business launch programmes at Motorola Solutions. My question is specific: does anyone track how new TALKABOUT products appear across retail channels at launch?
+
+The T800 series with Bluetooth connectivity, for instance - when it went live across Amazon, Best Buy, Walmart, Target, how did Motorola know whether the product pages were complete and accurate? Whether the right images and feature descriptions were in place?
+
+This might be something your team handles, or it might sit elsewhere entirely. Either way, I'm curious whether it's an active area of focus or something that happens more informally.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Les's current role and confirm the T800 series launch timing. Check if there are newer product launches to reference.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email leads with his stated responsibility (launch programmes) and asks a concrete, specific question about a real product. It's not asserting a problem exists - it's asking how they currently handle this.</p>
+                    </div>
+                </div>
+                <div class="email-content" data-contact="les" data-email="2">
+                    <div class="email-subject">Subject: Follow-up on retail visibility</div>
+                    <div class="email-meta">Send timing: 5-7 days after Email 1</div>
+                    <div class="email-body">Hi Les,
+
+A follow-up to my earlier note about launch tracking.
+
+One pattern we see across consumer electronics brands: the product information that goes to retailers at launch doesn't always appear correctly on their sites. Images get cropped, feature lists get truncated, pricing shows incorrectly. Brands often don't know until a customer complains or a sales rep spots it.
+
+I don't know if this is something Motorola experiences with TALKABOUT products, but it's common enough that I thought it worth asking. Particularly across a dozen-plus retailers where each has its own content requirements.
+
+If product page quality across retailers isn't something your team monitors, no problem - but if it is, I'd be interested to understand how you currently approach it.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>None specifically required, but could reference specific retailers if there's evidence of issues.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email adds value by naming a specific, common problem without asserting Motorola definitely has it. "We see this pattern" is honest - we're not claiming to know their situation, just sharing what's common.</p>
+                    </div>
+                </div>
+                <div class="email-content" data-contact="les" data-email="3">
+                    <div class="email-subject">Subject: Something potentially useful</div>
+                    <div class="email-meta">Send timing: 7-10 days after Email 2</div>
+                    <div class="email-body">Hi Les,
+
+A resource that might be useful regardless of whether we connect.
+
+We've put together an overview of how consumer electronics brands approach digital shelf monitoring - what the common challenges are, how teams typically structure the work, what success looks like. It's not a sales pitch - it's a practical summary based on working with brands like Philips and Epson.
+
+Here's the link if it's useful: https://estorebrands.com/consumer-electronics
+
+If the timing is ever right for a conversation about TALKABOUT and retail visibility, I'm happy to pick this back up. No pressure either way.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Ensure the sector page is current and relevant before sending.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Graceful exit that offers genuine value (the sector overview) without requiring anything from Les. Leaves the door open without pressure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact 4: Olatunde Williams -->
+            <div class="email-sequence">
+                <div class="email-header">
+                    <div>
+                        <div class="email-contact-name">Olatunde Williams</div>
+                        <div class="email-contact-title">International Marketing Director | 🇬🇧 United Kingdom</div>
+                    </div>
+                    <span class="contact-priority">#4 PRIMARY</span>
+                </div>
+                <div class="email-tabs" data-contact="olatunde">
+                    <div class="email-tab active" data-email="1">Email 1</div>
+                    <div class="email-tab" data-email="2">Email 2</div>
+                    <div class="email-tab" data-email="3">Email 3</div>
+                </div>
+                <div class="email-content active" data-contact="olatunde" data-email="1">
+                    <div class="email-subject">Subject: TALKABOUT across UK retailers</div>
+                    <div class="email-meta">Send timing: Tuesday-Wednesday, 9-10am GMT</div>
+                    <div class="email-body">Hello Olatunde,
+
+I'm [SENDER NAME] from eStore. We help consumer brands monitor their digital shelf presence across online retailers.
+
+I'm writing specifically about TALKABOUT products in the UK market - across Amazon UK, Currys, Argos, John Lewis, and the like. From an international marketing perspective, I wondered whether you have visibility into how these products appear and perform across UK retail platforms.
+
+Digital shelf monitoring can be a grey area in organisations primarily focused on B2B channels. For TALKABOUT, which sells through consumer retail in ways that Motorola's public safety products don't, it seems like a distinct challenge.
+
+I'd be interested to understand whether this sits within your remit, or whether it's handled differently for consumer products.
+
+Best regards,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Olatunde's current role and confirm UK-focused responsibilities. Check LinkedIn for recent activity or posts.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email acknowledges the UK context directly and frames the question around his stated international marketing role. The tone is more formal, appropriate for a UK professional context. It asks rather than asserts.</p>
+                    </div>
+                </div>
+                <div class="email-content" data-contact="olatunde" data-email="2">
+                    <div class="email-subject">Subject: Following up - UK retail coverage</div>
+                    <div class="email-meta">Send timing: 5-7 days after Email 1</div>
+                    <div class="email-body">Hello Olatunde,
+
+A brief follow-up on my earlier note.
+
+One reason I reached out about UK retailers specifically: our platform has strong coverage across British retail - Currys, Argos, John Lewis, Halfords, Very, plus Amazon UK. For brands with UK market focus, we can typically provide visibility quite quickly.
+
+I don't know whether TALKABOUT's UK presence is actively monitored or whether it's more of a "set and forget" situation across retailers. Many brands in the consumer electronics space find they lack visibility until something goes wrong - an out-of-stock situation, a content error, a pricing issue.
+
+If this isn't something you're directly involved with, I appreciate it may need directing elsewhere. But I thought the international angle might make it relevant to your work.
+
+Best regards,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Could reference specific UK retailers where TALKABOUT products are visible if research confirms this.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email adds the value of explaining eStore's UK strength - it's honest positioning that's directly relevant to someone focused on international markets. Still asking rather than asserting problems exist.</p>
+                    </div>
+                </div>
+                <div class="email-content" data-contact="olatunde" data-email="3">
+                    <div class="email-subject">Subject: UK retail visibility</div>
+                    <div class="email-meta">Send timing: 7-10 days after Email 2</div>
+                    <div class="email-body">Hello Olatunde,
+
+A final thought on the UK market angle.
+
+If digital shelf visibility for TALKABOUT products in the UK ever becomes a priority - whether through retailer feedback, competitive pressure, or simply wanting better data - I'd be glad to pick up the conversation.
+
+We work with a number of consumer electronics brands on similar challenges: Philips, BSH, Epson. The sector overview here might be useful if you'd like to see how others approach it: https://estorebrands.com/consumer-electronics
+
+Best regards,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Ensure content link is relevant before including.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Formal, respectful close appropriate for UK professional context. Provides value without pressure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact 5: Cynthia Yazdi -->
+            <div class="email-sequence">
+                <div class="email-header">
+                    <div>
+                        <div class="email-contact-name">Cynthia Yazdi</div>
+                        <div class="email-contact-title">Senior Vice President, Chief of Staff, Marketing & Communications | 🇺🇸 Chicago</div>
+                    </div>
+                    <span class="contact-priority secondary">#5 SECONDARY</span>
+                </div>
+                <div class="email-tabs" data-contact="cynthia">
+                    <div class="email-tab active" data-email="1">Email 1</div>
+                    <div class="email-tab" data-email="2">Email 2</div>
+                    <div class="email-tab" data-email="3">Email 3</div>
+                </div>
+                <div class="email-content active" data-contact="cynthia" data-email="1">
+                    <div class="email-subject">Subject: A question about TALKABOUT visibility</div>
+                    <div class="email-meta">Send timing: Tuesday-Wednesday, 8-9am CT (early, senior leaders often check email before day starts)</div>
+                    <div class="email-body">Hi Cynthia,
+
+I'm [SENDER NAME] from eStore. We work with consumer brands on digital shelf analytics - monitoring how products appear and perform across online retailers.
+
+This is an unusual inquiry for Motorola Solutions, which is primarily a public safety and enterprise technology company. But TALKABOUT walkie-talkies are a genuine consumer products business, sold through Amazon, Best Buy, Walmart, Target, Costco, and a dozen other retailers.
+
+I'm curious whether anyone within marketing has visibility into how these products appear across retail channels. It's the sort of thing that can fall between the cracks in organisations where consumer products are a smaller piece of a larger B2B-focused business.
+
+If there's someone on your team better positioned to discuss this, I'd appreciate being pointed in the right direction.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Cynthia's current role and reporting structure. Check for recent public statements about marketing priorities.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email acknowledges she's senior and likely not hands-on with this, but positions the question as potentially strategic. It's direct about the unusual nature of the inquiry and asks for direction rather than demanding her time.</p>
+                    </div>
+                </div>
+                <div class="email-content" data-contact="cynthia" data-email="2">
+                    <div class="email-subject">Subject: Brief follow-up</div>
+                    <div class="email-meta">Send timing: 7-10 days after Email 1 (longer gap for senior leaders)</div>
+                    <div class="email-body">Hi Cynthia,
+
+A quick follow-up on my earlier note about TALKABOUT retail visibility.
+
+The strategic context that prompted me to reach out: Motorola's Theatro acquisition in March brought expertise in retail frontline technology. Theatro's customers are major retailers who actively monitor their own digital shelves. There's a potential connection to how Motorola thinks about its own consumer products appearing on those same retail platforms.
+
+I appreciate this may sit below your line of sight operationally. But if there's interest in whether consumer products digital shelf monitoring is worth exploring, I'd be happy to have that conversation with whoever owns the space.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Could reference any statements from Greg Brown or other executives about retail strategy if available.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email adds strategic context (Theatro connection) that might resonate with a senior marketing leader. It's respectful of her seniority while offering to engage at whatever level makes sense.</p>
+                    </div>
+                </div>
+                <div class="email-content" data-contact="cynthia" data-email="3">
+                    <div class="email-subject">Subject: Consumer electronics context</div>
+                    <div class="email-meta">Send timing: 10-14 days after Email 2</div>
+                    <div class="email-body">Hi Cynthia,
+
+A thought that might provide useful context.
+
+If digital shelf visibility for TALKABOUT products ever becomes relevant - new product launches, competitive dynamics, retailer relationship discussions - I'd be glad to pick up the conversation.
+
+We work with Philips, BSH, and Epson on similar challenges in consumer electronics. The sector overview here provides context on how brands typically approach this: https://estorebrands.com/consumer-electronics
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>None required.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Clean, respectful close appropriate for a senior leader. Leaves door open without pressure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact 6: Mark Schmidl -->
+            <div class="email-sequence">
+                <div class="email-header">
+                    <div>
+                        <div class="email-contact-name">Mark Schmidl</div>
+                        <div class="email-contact-title">Senior Sales Executive, EMEA Channel | 🇺🇸 San Diego (manages EMEA)</div>
+                    </div>
+                    <span class="contact-priority secondary">#6 SECONDARY</span>
+                </div>
+                <div class="email-tabs" data-contact="mark">
+                    <div class="email-tab active" data-email="1">Email 1</div>
+                    <div class="email-tab" data-email="2">Email 2</div>
+                    <div class="email-tab" data-email="3">Email 3</div>
+                </div>
+                <div class="email-content active" data-contact="mark" data-email="1">
+                    <div class="email-subject">Subject: TALKABOUT visibility across EMEA</div>
+                    <div class="email-meta">Send timing: Tuesday-Wednesday, adjust for Pacific time (6-7am PT to catch early EMEA overlap)</div>
+                    <div class="email-body">Hi Mark,
+
+I'm [SENDER NAME] from eStore. We help consumer brands monitor their digital shelf presence across online retailers.
+
+I noticed your focus on EMEA channel partnerships, which raised a question: beyond the enterprise and public safety business, does anyone track how TALKABOUT consumer products appear across European retailers? Amazon UK, DE, FR, IT, ES - plus UK specialists like Currys and Argos?
+
+Channel visibility for consumer products often works differently than for enterprise sales. The retailers aren't partners in the same way - they're independent platforms where product presentation varies significantly.
+
+This may be entirely outside your remit, but I thought the EMEA channel perspective might make it relevant.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Mark's current EMEA focus and check his LinkedIn for recent posts about retail or channel partners.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email acknowledges his channel focus but differentiates consumer retail from enterprise partnerships. It's asking whether this is relevant to his world rather than asserting it should be.</p>
+                    </div>
+                </div>
+                <div class="email-content" data-contact="mark" data-email="2">
+                    <div class="email-subject">Subject: Follow-up on European visibility</div>
+                    <div class="email-meta">Send timing: 5-7 days after Email 1</div>
+                    <div class="email-body">Hi Mark,
+
+A brief follow-up on my earlier note about TALKABOUT in Europe.
+
+The reason I reached out specifically: our platform has strong coverage across European retailers. Amazon across UK, Germany, France, Italy, Spain - plus UK specialists like Currys, Argos, John Lewis. For brands with European market focus, we can typically provide visibility quite quickly.
+
+I saw your posts about the retail ecosystem and Theatro - it seems like Motorola is investing seriously in understanding retail environments. The consumer products side of that equation - how TALKABOUT products appear on retailer digital shelves - is a related but distinct challenge.
+
+If this sits with someone else on the consumer products or marketing side, happy to be pointed in the right direction.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify his LinkedIn posts about retail/Theatro are recent and accurate to reference.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email adds value by positioning eStore's European strength - directly relevant to someone focused on EMEA. References his public content naturally, not as a sales opener.</p>
+                    </div>
+                </div>
+                <div class="email-content" data-contact="mark" data-email="3">
+                    <div class="email-subject">Subject: European market context</div>
+                    <div class="email-meta">Send timing: 7-10 days after Email 2</div>
+                    <div class="email-body">Hi Mark,
+
+One more thought on the European angle.
+
+If European digital shelf visibility for TALKABOUT products ever becomes relevant - whether through channel partner discussions, market expansion, or competitive dynamics - I'd be glad to reconnect.
+
+We work with Philips, BSH, and Epson across European markets. The patterns are similar regardless of the specific product category.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>None required.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Clean close that leaves door open. Mentions European clients specifically given his EMEA focus.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-dark-blue);">📝</span> Email Sequence Summary</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Contact</th>
+                                <th>Title</th>
+                                <th>Location</th>
+                                <th>Primary Hook</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Amy Patel</strong></td>
+                                <td>Director, Marketing Efficiency with Technology & Data</td>
+                                <td>🇺🇸 US</td>
+                                <td>Marketing technology for consumer products</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Kathryn P.T. Shae</strong></td>
+                                <td>Head of Product Management, Software Platform (Theatro)</td>
+                                <td>🇺🇸 US</td>
+                                <td>Nordstrom/Theatro retail experience bridge</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Les Miller</strong></td>
+                                <td>North America Commercial Market and Business Launch Programs</td>
+                                <td>🇺🇸 US</td>
+                                <td>Product launch tracking</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Olatunde Williams</strong></td>
+                                <td>International Marketing Director</td>
+                                <td>🇬🇧 UK</td>
+                                <td>UK market and retailers</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Cynthia Yazdi</strong></td>
+                                <td>SVP, Chief of Staff, Marketing & Communications</td>
+                                <td>🇺🇸 US</td>
+                                <td>Strategic blind spot for consumer products</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mark Schmidl</strong></td>
+                                <td>Senior Sales Executive, EMEA Channel</td>
+                                <td>🇺🇸 US</td>
+                                <td>EMEA channel and European coverage</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 1rem;">
+                    <p class="prose"><strong>Notes:</strong></p>
+                    <ul class="prose">
+                        <li>All emails use [SENDER NAME] placeholder</li>
+                        <li>Coverage is strong (74% Tier 1 & 2) - no implementation timeline caveats needed</li>
+                        <li>UK emails (Olatunde) use more formal register</li>
+                        <li>Consumer electronics landing page included in Email 3s as genuine resource</li>
+                        <li>G2 signal not mentioned in emails</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 6: Objection Handling -->
+        <div class="tab-content" id="objections">
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-green);">✅</span> Decision Framework</h2>
+                
+                <div class="highlight-box green">
+                    <p class="prose"><strong>Recommendation: PROCEED WITH OUTREACH</strong></p>
+                    <p class="prose" style="margin-top: 0.5rem;">74% Tier 1 & 2 coverage exceeds the 60% threshold. All major mass market retailers covered. Greenfield opportunity with no incumbent vendor. G2 signal indicates interest.</p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>If Coverage is 60%+</h4>
+                        <p>✅ STRONG FIT - Proceed confidently. Lead with immediate value on covered retailers. Time-to-value: 2-4 weeks.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>If Coverage is 40-59%</h4>
+                        <p>⚠️ MODERATE FIT - Proceed with caveats. Acknowledge gaps and longer onboarding timeline. Time-to-value: 2-3 months.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>If Coverage is Below 40%</h4>
+                        <p>❌ WEAK FIT - Delay outreach or set proper expectations. Significant retailer onboarding required. Time-to-value: 4-6 months.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-orange);">💬</span> Common Objections & Responses</h2>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're primarily a B2B company - consumer products are a small part of our business"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <div class="response-section">
+                            <h5>Acknowledge</h5>
+                            <p>Absolutely - public safety and enterprise security are clearly your core business. TALKABOUT is a smaller piece of the Motorola Solutions portfolio.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Reframe</h5>
+                            <p>But that's exactly why digital shelf visibility can fall through the cracks. The consumer products team doesn't have the same infrastructure or attention that your enterprise business gets. When product pages are incorrect on Amazon or Best Buy, who notices?</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Evidence</h5>
+                            <p>We work with several B2B-focused companies that have consumer product lines - the pattern is consistent. The consumer business operates with less visibility because it's not the primary focus, but it still represents real revenue and brand presence.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"How many of our retailers can you actually monitor?"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <div class="response-section">
+                            <h5>Direct Answer</h5>
+                            <p>We can monitor 17 of the 26 retailers we've identified where TALKABOUT products are sold - that's 74% coverage across your Tier 1 and Tier 2 retailers.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>What We Cover Now</h5>
+                            <p>All your major mass market retailers: Amazon US and UK, Walmart, Target, Best Buy, Costco, Home Depot, Currys, Argos. Plus European Amazon marketplaces (DE, FR, ES, IT) and UK specialists like John Lewis and Halfords.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>What We Don't Cover Yet</h5>
+                            <p>Some US outdoor specialists - REI, Bass Pro Shops, Cabela's - aren't currently in our coverage. These could be onboarded as part of implementation if they're priorities for you, typically within 2-3 months.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Honest Positioning</h5>
+                            <p>You'd see immediate value on your highest-volume channels. The outdoor specialists are a Phase 2 conversation if the partnership makes sense.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We don't have budget for another tool right now"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <div class="response-section">
+                            <h5>Acknowledge</h5>
+                            <p>Completely understand - budget cycles are real, and adding another platform isn't always feasible.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Offer Alternative</h5>
+                            <p>Would it be useful to understand what you're currently missing? We could run a quick audit of your TALKABOUT product pages across key retailers - no commitment, just visibility into whether there are issues worth addressing when budget does become available.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Plant the Seed</h5>
+                            <p>Many brands discover content issues or competitive gaps they weren't aware of. Even if the timing isn't right now, having that baseline can help make the case internally when budget cycles come around.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We already work with our retailers directly"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <div class="response-section">
+                            <h5>Acknowledge</h5>
+                            <p>That's great - direct retailer relationships are essential, especially for a brand like Motorola with strong retail partnerships.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Reframe</h5>
+                            <p>The challenge is that retailers give you their data on their timeline, in their format. When a product page has incorrect information, you typically find out from a customer complaint or a sales rep who happens to notice - not from the retailer proactively telling you.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Value Add</h5>
+                            <p>Digital shelf analytics gives you an independent view - your own data about how your products appear across all retailers simultaneously. It actually strengthens retailer conversations because you're going to them with specific issues rather than waiting for them to surface problems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"I'm not the right person for this"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <div class="response-section">
+                            <h5>Acknowledge</h5>
+                            <p>Completely understand - this is a fairly specific area and it's not always obvious who owns it, especially in organisations where consumer products are a smaller part of the overall business.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Ask for Direction</h5>
+                            <p>Could you point me toward whoever manages the TALKABOUT product line from a go-to-market perspective? Or whoever handles retail channel relationships for consumer products specifically?</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Leave the Door Open</h5>
+                            <p>Even a name or a general direction would be helpful. I appreciate you taking the time to respond either way.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We've looked at digital shelf tools before and didn't see the ROI"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <div class="response-section">
+                            <h5>Acknowledge</h5>
+                            <p>That's fair - ROI on analytics tools can be hard to quantify, especially when the problems they solve aren't always visible until something goes wrong.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Explore</h5>
+                            <p>Can I ask what you were hoping to solve when you looked before? And what made you conclude it wasn't worth it?</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Reframe</h5>
+                            <p>The ROI typically comes from three places: catching content issues before they affect sales, understanding competitive positioning to inform pricing and promotions, and reducing the manual effort of checking retailer sites. Which of those would be most valuable for TALKABOUT?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Our product pages are managed by the retailers"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <div class="response-section">
+                            <h5>Acknowledge</h5>
+                            <p>That's true - retailers do control what appears on their sites, and you can send them content but you can't force them to use it correctly.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Reframe</h5>
+                            <p>That's exactly the problem digital shelf analytics solves. You send the content, but how do you know it's actually appearing correctly? We've seen product pages with wrong images, outdated feature lists, incorrect pricing - and brands don't know until there's a customer complaint.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Evidence</h5>
+                            <p>The average error rate on product pages is surprisingly high - typically 15-20% of SKUs have some form of content issue at any given time. The question is whether you're catching those issues proactively or reactively.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"TALKABOUT is too small a product line to justify a dedicated tool"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <div class="response-section">
+                            <h5>Acknowledge</h5>
+                            <p>Understood - relative to Motorola Solutions' overall revenue, TALKABOUT is a small piece. The investment needs to make sense for the scale of the business.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Reframe</h5>
+                            <p>Two thoughts: First, eStore pricing is tiered based on SKU count and retailer coverage - we're not talking about enterprise-scale investment for a focused product line. Second, even a "small" consumer products business that sells through Amazon, Best Buy, Walmart, and Target represents significant volume and brand presence.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Offer</h5>
+                            <p>Would it help to see what a scoped implementation would look like? We could focus just on your top 5-6 retailers and the core TALKABOUT SKUs to keep it proportionate to the business size.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're in the middle of other technology initiatives right now"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <div class="response-section">
+                            <h5>Acknowledge</h5>
+                            <p>Completely understand - technology initiatives take bandwidth and it's hard to add another project to the mix.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Explore</h5>
+                            <p>Can I ask what you're working on? Sometimes digital shelf analytics can actually complement other initiatives - particularly if you're looking at PIM systems, content syndication, or retail media.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Offer Timing Flexibility</h5>
+                            <p>If the timing isn't right now, when would make sense to revisit? I'm happy to check back when your current initiatives are further along.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"What makes eStore different from other digital shelf tools?"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <div class="response-section">
+                            <h5>European Strength</h5>
+                            <p>Our coverage is particularly strong across European retailers - UK, Germany, France, Italy, Spain. For a brand like Motorola with significant European presence, that's a differentiator versus US-centric competitors.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Consumer Electronics Focus</h5>
+                            <p>We work with Philips, BSH, Miele, Epson, De'Longhi - brands with similar retail distribution complexity. We understand the consumer electronics category specifically.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Implementation Approach</h5>
+                            <p>We focus on time-to-value. For your covered retailers (which is most of them), we can have you monitoring within 2-4 weeks. We're not asking for a 6-month implementation project.</p>
+                        </div>
+                        <div class="response-section">
+                            <h5>Honest Positioning</h5>
+                            <p>I'd rather understand what you're actually trying to solve and whether we're a good fit, than give you a generic pitch. What would you need to see to evaluate whether this is worth your time?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title"><span class="icon" style="background: var(--estore-dark-blue);">📋</span> Objection Handling Principles</h2>
+                
+                <ul class="checklist">
+                    <li>Never dismiss the objection - acknowledge it first, then reframe</li>
+                    <li>Use evidence and specific examples (Philips, BSH, Epson) rather than generic claims</li>
+                    <li>Offer flexibility - pilots, phased rollouts, scoped implementations</li>
+                    <li>Be honest about fit and implementation timelines - don't oversell</li>
+                    <li>Ask questions to understand the root concern before responding</li>
+                    <li>Leave the door open even if the timing isn't right now</li>
+                    <li>Focus on their business challenges, not our features</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>eStore Brand Research & Action Plan | Created 13 January 2026 | Author: James (eStore Sales Development)</p>
+        <p style="margin-top: 0.5rem;">Motorola Solutions - Consumer Electronics Opportunity</p>
+    </footer>
+
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active from all tabs
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active to clicked tab
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Email Tab Navigation
+        document.querySelectorAll('.email-tabs').forEach(container => {
+            const contact = container.dataset.contact;
+            container.querySelectorAll('.email-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active from sibling tabs
+                    container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                    // Add active to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Show corresponding content
+                    const emailNum = tab.dataset.email;
+                    const parent = container.closest('.email-sequence');
+                    parent.querySelectorAll('.email-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    parent.querySelector(`.email-content[data-email="${emailNum}"]`).classList.add('active');
+                });
+            });
+        });
+
+        // Objection Card Toggle
+        function toggleObjection(header) {
+            const card = header.closest('.objection-card');
+            card.classList.toggle('open');
+        }
+
+        // Animate progress bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.width = entry.target.dataset.width || entry.target.style.width;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.progress-fill').forEach(bar => {
+            observer.observe(bar);
+        });
+    </script>
+</body>
+</html>
