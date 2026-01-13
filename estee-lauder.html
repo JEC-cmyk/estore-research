@@ -520,124 +520,145 @@
             background: #006097;
         }
 
-        /* Email Sequences */
+        /* Email Sequences - Horizontal Tabs */
         .email-sequence {
-            margin-bottom: 32px;
+            margin-bottom: 2rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
         }
 
-        .email-sequence-header {
+        .email-seq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.25rem;
             background: linear-gradient(135deg, var(--bg-tertiary) 0%, #e8ecf0 100%);
-            padding: 20px 24px;
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
             border: 1px solid var(--border-light);
             border-bottom: none;
         }
 
-        .email-sequence-title {
+        .email-contact-name {
             font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 4px;
+            color: var(--text-primary);
         }
 
-        .email-sequence-meta {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .email-card {
-            background: var(--bg-primary);
-            border: 1px solid var(--border-light);
-            border-top: none;
-            padding: 24px;
-        }
-
-        .email-card:last-child {
-            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-        }
-
-        .email-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px;
-            height: 32px;
-            background: var(--estore-dark-blue);
-            color: white;
-            border-radius: 50%;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-right: 12px;
-        }
-
-        .email-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .email-title {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .email-timing {
-            margin-left: auto;
+        .email-contact-title {
             font-size: 0.85rem;
             color: var(--text-secondary);
-            background: var(--bg-secondary);
-            padding: 6px 12px;
+            margin-top: 0.2rem;
+        }
+
+        .contact-badge {
+            background: var(--estore-dark-blue);
+            color: white;
+            padding: 0.3rem 0.75rem;
             border-radius: 20px;
-        }
-
-        .email-field {
-            margin-bottom: 16px;
-        }
-
-        .email-field-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
+        }
+
+        .contact-badge.warm {
+            background: var(--estore-green);
+        }
+
+        .email-tabs {
+            display: flex;
+            border: 1px solid var(--border-light);
+            border-bottom: none;
+            background: var(--bg-primary);
+        }
+
+        .email-tab {
+            flex: 1;
+            padding: 0.85rem;
+            text-align: center;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
             color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
+            border-right: 1px solid var(--border-light);
+            transition: all 0.2s ease;
+            background: var(--bg-primary);
         }
 
-        .email-subject {
-            font-size: 1rem;
+        .email-tab:last-child {
+            border-right: none;
+        }
+
+        .email-tab:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .email-tab.active {
+            background: var(--estore-dark-blue);
+            color: white;
+        }
+
+        .email-content {
+            display: none;
+            border: 1px solid var(--border-light);
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            padding: 1.5rem;
+            background: var(--bg-primary);
+        }
+
+        .email-content.active {
+            display: block;
+        }
+
+        .email-subject-line {
             font-weight: 600;
+            font-size: 1rem;
             color: var(--estore-dark-blue);
             background: #f0f7ff;
-            padding: 12px 16px;
+            padding: 0.75rem 1rem;
             border-radius: var(--radius-sm);
             border-left: 3px solid var(--estore-dark-blue);
+            margin-bottom: 0.75rem;
         }
 
-        .email-body {
-            background: var(--bg-secondary);
-            padding: 20px;
-            border-radius: var(--radius-md);
+        .email-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .email-body-text {
+            white-space: pre-line;
             font-size: 0.95rem;
-            line-height: 1.8;
+            line-height: 1.75;
             color: var(--text-primary);
-            white-space: pre-wrap;
+            background: var(--bg-secondary);
+            padding: 1.25rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
         }
 
-        .email-notes {
+        .email-notes-box {
             background: #fff8e6;
             border: 1px solid #ffe4a0;
             border-radius: var(--radius-md);
-            padding: 16px;
-            margin-top: 16px;
+            padding: 1rem 1.25rem;
         }
 
-        .email-notes-title {
+        .email-notes-box h5 {
             font-size: 0.85rem;
             font-weight: 600;
             color: #8b6914;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
+            margin-top: 0.75rem;
         }
 
-        .email-notes p {
+        .email-notes-box h5:first-child {
+            margin-top: 0;
+        }
+
+        .email-notes-box p {
             font-size: 0.9rem;
             color: #6b5210;
             line-height: 1.6;
@@ -2094,26 +2115,24 @@
                     </div>
                 </div>
 
-                <!-- Aurélie Lemelle Sequence -->
+                <!-- Contact 1: Aurélie Lemelle -->
                 <div class="email-sequence">
-                    <div class="email-sequence-header">
-                        <div class="email-sequence-title">Aurélie Lemelle - EMEAI Eretail Director</div>
-                        <div class="email-sequence-meta">🇫🇷 Re-engagement | Primary Hook: Pan-European coverage expansion</div>
+                    <div class="email-seq-header">
+                        <div>
+                            <div class="email-contact-name">Aurélie Lemelle</div>
+                            <div class="email-contact-title">EMEAI Eretail Director | 🇫🇷 Re-engagement</div>
+                        </div>
+                        <span class="contact-badge warm">#1 PRIMARY</span>
                     </div>
-
-                    <div class="email-card">
-                        <div class="email-header">
-                            <span class="email-number">1</span>
-                            <span class="email-title">Re-opening the Conversation</span>
-                            <span class="email-timing">Tuesday/Wednesday, 9:00-10:00 CET</span>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Subject Line</div>
-                            <div class="email-subject">European e-retailer coverage update</div>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Email Body</div>
-                            <div class="email-body">Dear Aurélie,
+                    <div class="email-tabs" data-contact="aurelie">
+                        <div class="email-tab active" data-email="1">Email 1</div>
+                        <div class="email-tab" data-email="2">Email 2</div>
+                        <div class="email-tab" data-email="3">Email 3</div>
+                    </div>
+                    <div class="email-content active" data-contact="aurelie" data-email="1">
+                        <div class="email-subject-line">Subject: European e-retailer coverage update</div>
+                        <div class="email-meta">Send timing: Tuesday/Wednesday, 9:00-10:00 CET</div>
+                        <div class="email-body-text">Dear Aurélie,
 
 I am [SENDER NAME] from eStore. I believe you spoke with some of our team a couple of years ago about digital shelf analytics for Estée Lauder's European e-retail presence.
 
@@ -2123,26 +2142,17 @@ I am curious whether the Shopify migration and Amazon expansion have shifted how
 
 Best regards,
 [SENDER NAME]</div>
-                        </div>
-                        <div class="email-notes">
-                            <div class="email-notes-title">📝 Customisation Notes</div>
+                        <div class="email-notes-box">
+                            <h5>Customisation Notes</h5>
                             <p>Verify Aurélie is still in this role via LinkedIn before sending. Check if there are any recent posts or company announcements to reference. Confirm Shopify migration timeline is still Q1 2026.</p>
+                            <h5>Strategy Notes</h5>
+                            <p>This is a warm re-engagement. The approach acknowledges the prior relationship without dwelling on it, leads with what has changed (expanded coverage), and asks a genuine question about whether circumstances have shifted. No pressure, no ask for a meeting.</p>
                         </div>
                     </div>
-
-                    <div class="email-card">
-                        <div class="email-header">
-                            <span class="email-number">2</span>
-                            <span class="email-title">Adding Value</span>
-                            <span class="email-timing">5-7 days after Email 1</span>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Subject Line</div>
-                            <div class="email-subject">How Douglas and Notino perform across markets</div>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Email Body</div>
-                            <div class="email-body">Aurélie,
+                    <div class="email-content" data-contact="aurelie" data-email="2">
+                        <div class="email-subject-line">Subject: How Douglas and Notino perform across markets</div>
+                        <div class="email-meta">Send timing: 5-7 days after Email 1</div>
+                        <div class="email-body-text">Aurélie,
 
 Following up briefly. We have recently completed some analysis of how beauty brands perform differently across Douglas Germany versus Douglas Poland, or Notino UK versus Notino Czech Republic. Same retailer networks, quite different performance patterns by market.
 
@@ -2152,26 +2162,17 @@ Either way, I would be interested to hear how you are approaching retailer perfo
 
 Best,
 [SENDER NAME]</div>
-                        </div>
-                        <div class="email-notes">
-                            <div class="email-notes-title">📝 Customisation Notes</div>
-                            <p>This references BrandQuad (confirmed current tool). Gauge her response to understand satisfaction level. The sector page link positions eStore's capability without being salesy. The question invites dialogue about their current approach.</p>
+                        <div class="email-notes-box">
+                            <h5>Customisation Notes</h5>
+                            <p>This references BrandQuad (confirmed current tool). Gauge her response to understand satisfaction level. The sector page link positions eStore's capability without being salesy.</p>
+                            <h5>Strategy Notes</h5>
+                            <p>Email 2 adds genuine value by referencing specific insight (cross-market retailer performance variance) that would be relevant to her role. The content link is positioned as optional, not mandatory reading.</p>
                         </div>
                     </div>
-
-                    <div class="email-card">
-                        <div class="email-header">
-                            <span class="email-number">3</span>
-                            <span class="email-title">Sharing Relevant Research</span>
-                            <span class="email-timing">7-10 days after Email 2</span>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Subject Line</div>
-                            <div class="email-subject">UK beauty digital shelf analysis</div>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Email Body</div>
-                            <div class="email-body">Aurélie,
+                    <div class="email-content" data-contact="aurelie" data-email="3">
+                        <div class="email-subject-line">Subject: UK beauty digital shelf analysis</div>
+                        <div class="email-meta">Send timing: 7-10 days after Email 2</div>
+                        <div class="email-body-text">Aurélie,
 
 I wanted to share something we published recently that analyses how beauty brands perform on the digital shelf. It references Estée Lauder directly, along with competitors like L'Oréal and Coty.
 
@@ -2181,34 +2182,33 @@ If any of this resonates with your European e-retail priorities, I would welcome
 
 Best regards,
 [SENDER NAME]</div>
-                        </div>
-                        <div class="email-notes">
-                            <div class="email-notes-title">📝 Customisation Notes</div>
+                        <div class="email-notes-box">
+                            <h5>Customisation Notes</h5>
                             <p>Insert correct link to relevant Ignite article before sending. Verify the content references ELC or is relevant to beauty sector. Position around her European remit, not just UK.</p>
+                            <h5>Strategy Notes</h5>
+                            <p>Email 3 shares genuinely useful content that mentions their company. It connects the UK analysis to her broader European responsibilities. The door remains open for continued engagement.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Claire Thirot Sequence -->
+                <!-- Contact 2: Claire Thirot -->
                 <div class="email-sequence">
-                    <div class="email-sequence-header">
-                        <div class="email-sequence-title">Claire Thirot - EMEA Omnichannel Director</div>
-                        <div class="email-sequence-meta">🇫🇷 Cold Contact | Primary Hook: Shopify migration timing</div>
+                    <div class="email-seq-header">
+                        <div>
+                            <div class="email-contact-name">Claire Thirot</div>
+                            <div class="email-contact-title">EMEA Omnichannel Director | 🇫🇷 Cold Contact</div>
+                        </div>
+                        <span class="contact-badge">#2 PRIMARY</span>
                     </div>
-
-                    <div class="email-card">
-                        <div class="email-header">
-                            <span class="email-number">1</span>
-                            <span class="email-title">Opening with Relevance</span>
-                            <span class="email-timing">Tuesday/Wednesday, 9:00-10:00 CET</span>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Subject Line</div>
-                            <div class="email-subject">Shopify migration and e-retailer visibility</div>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Email Body</div>
-                            <div class="email-body">Dear Claire,
+                    <div class="email-tabs" data-contact="claire">
+                        <div class="email-tab active" data-email="1">Email 1</div>
+                        <div class="email-tab" data-email="2">Email 2</div>
+                        <div class="email-tab" data-email="3">Email 3</div>
+                    </div>
+                    <div class="email-content active" data-contact="claire" data-email="1">
+                        <div class="email-subject-line">Subject: Shopify migration and e-retailer visibility</div>
+                        <div class="email-meta">Send timing: Tuesday/Wednesday, 9:00-10:00 CET</div>
+                        <div class="email-body-text">Dear Claire,
 
 I am [SENDER NAME] from eStore, a UK-based digital shelf analytics platform. We help beauty brands monitor product performance across online retailers.
 
@@ -2218,26 +2218,17 @@ I am curious how you are thinking about monitoring performance across partners l
 
 Best regards,
 [SENDER NAME]</div>
-                        </div>
-                        <div class="email-notes">
-                            <div class="email-notes-title">📝 Customisation Notes</div>
+                        <div class="email-notes-box">
+                            <h5>Customisation Notes</h5>
                             <p>Reference to her October 2025 LinkedIn post is specific and verifiable. Check her LinkedIn for any more recent posts before sending. Verify she is still in this role.</p>
+                            <h5>Strategy Notes</h5>
+                            <p>This cold outreach identifies eStore clearly in the first line, demonstrates genuine research (the Shopify post), and asks a real question about her situation. It does not claim to know her challenges. It asks.</p>
                         </div>
                     </div>
-
-                    <div class="email-card">
-                        <div class="email-header">
-                            <span class="email-number">2</span>
-                            <span class="email-title">Offering a Perspective</span>
-                            <span class="email-timing">5-7 days after Email 1</span>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Subject Line</div>
-                            <div class="email-subject">MAC France and digital shelf performance</div>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Email Body</div>
-                            <div class="email-body">Claire,
+                    <div class="email-content" data-contact="claire" data-email="2">
+                        <div class="email-subject-line">Subject: MAC France and digital shelf performance</div>
+                        <div class="email-meta">Send timing: 5-7 days after Email 1</div>
+                        <div class="email-body-text">Claire,
 
 A brief follow-up. I saw that MAC was recently designated 2nd Best Brand 2026 in France. Congratulations to the team.
 
@@ -2247,26 +2238,17 @@ If any of this resonates, I would welcome the chance to learn more about how ELC
 
 Best,
 [SENDER NAME]</div>
-                        </div>
-                        <div class="email-notes">
-                            <div class="email-notes-title">📝 Customisation Notes</div>
-                            <p>MAC France designation is from the research. Verify this is still accurate and recent. The sector page provides value without pushing for a demo. Tone remains curious rather than assertive.</p>
+                        <div class="email-notes-box">
+                            <h5>Customisation Notes</h5>
+                            <p>MAC France designation is from the research. Verify this is still accurate and recent. The sector page provides value without pushing for a demo.</p>
+                            <h5>Strategy Notes</h5>
+                            <p>Email 2 references a genuine achievement (MAC France recognition), connects it to digital shelf requirements, and offers the sector page as optional value.</p>
                         </div>
                     </div>
-
-                    <div class="email-card">
-                        <div class="email-header">
-                            <span class="email-number">3</span>
-                            <span class="email-title">Sharing Relevant Research</span>
-                            <span class="email-timing">7-10 days after Email 2</span>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Subject Line</div>
-                            <div class="email-subject">Beauty digital shelf research</div>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Email Body</div>
-                            <div class="email-body">Claire,
+                    <div class="email-content" data-contact="claire" data-email="3">
+                        <div class="email-subject-line">Subject: Beauty digital shelf research</div>
+                        <div class="email-meta">Send timing: 7-10 days after Email 2</div>
+                        <div class="email-body-text">Claire,
 
 I wanted to share a piece of research that might be useful context for your EMEA omnichannel work.
 
@@ -2276,34 +2258,33 @@ The UK is ELC's second largest market globally, so it provides a useful lens on 
 
 Best regards,
 [SENDER NAME]</div>
-                        </div>
-                        <div class="email-notes">
-                            <div class="email-notes-title">📝 Customisation Notes</div>
+                        <div class="email-notes-box">
+                            <h5>Customisation Notes</h5>
                             <p>Insert correct link to relevant Ignite article before sending. UK as second largest market is verified from research. The closing question invites her perspective.</p>
+                            <h5>Strategy Notes</h5>
+                            <p>Shares genuinely useful content that references their company. Connects the analysis to her broader EMEA responsibilities. The question at the end invites dialogue.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Martine Levy Sequence -->
+                <!-- Contact 3: Martine Levy -->
                 <div class="email-sequence">
-                    <div class="email-sequence-header">
-                        <div class="email-sequence-title">Martine Levy - Director of E-Commerce (UK)</div>
-                        <div class="email-sequence-meta">🇬🇧 Cold Contact | Primary Hook: UK market focus</div>
+                    <div class="email-seq-header">
+                        <div>
+                            <div class="email-contact-name">Martine Levy</div>
+                            <div class="email-contact-title">Director of E-Commerce (UK) | 🇬🇧 Cold Contact</div>
+                        </div>
+                        <span class="contact-badge">#3 PRIMARY</span>
                     </div>
-
-                    <div class="email-card">
-                        <div class="email-header">
-                            <span class="email-number">1</span>
-                            <span class="email-title">UK-Focused Opening</span>
-                            <span class="email-timing">Tuesday/Wednesday, 9:00-10:00 GMT</span>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Subject Line</div>
-                            <div class="email-subject">UK beauty e-commerce visibility</div>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Email Body</div>
-                            <div class="email-body">Dear Martine,
+                    <div class="email-tabs" data-contact="martine">
+                        <div class="email-tab active" data-email="1">Email 1</div>
+                        <div class="email-tab" data-email="2">Email 2</div>
+                        <div class="email-tab" data-email="3">Email 3</div>
+                    </div>
+                    <div class="email-content active" data-contact="martine" data-email="1">
+                        <div class="email-subject-line">Subject: UK beauty e-commerce visibility</div>
+                        <div class="email-meta">Send timing: Tuesday/Wednesday, 9:00-10:00 GMT</div>
+                        <div class="email-body-text">Dear Martine,
 
 I am [SENDER NAME] from eStore. We are a UK-based digital shelf analytics platform. We help brands monitor how their products appear and perform across online retailers.
 
@@ -2313,26 +2294,17 @@ I am curious how you currently approach monitoring performance across UK e-retai
 
 Best regards,
 [SENDER NAME]</div>
-                        </div>
-                        <div class="email-notes">
-                            <div class="email-notes-title">📝 Customisation Notes</div>
+                        <div class="email-notes-box">
+                            <h5>Customisation Notes</h5>
                             <p>Verify Martine's current role before sending. Check for any recent LinkedIn activity or company announcements. "Second largest market globally" is verified from research.</p>
+                            <h5>Strategy Notes</h5>
+                            <p>This opens with UK-specific relevance, mentions retailers eStore actually covers (honest positioning), and asks a genuine question about current approach. No global claims, no overselling.</p>
                         </div>
                     </div>
-
-                    <div class="email-card">
-                        <div class="email-header">
-                            <span class="email-number">2</span>
-                            <span class="email-title">Adding UK-Specific Value</span>
-                            <span class="email-timing">5-7 days after Email 1</span>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Subject Line</div>
-                            <div class="email-subject">UK retailers and digital shelf performance</div>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Email Body</div>
-                            <div class="email-body">Martine,
+                    <div class="email-content" data-contact="martine" data-email="2">
+                        <div class="email-subject-line">Subject: UK retailers and digital shelf performance</div>
+                        <div class="email-meta">Send timing: 5-7 days after Email 1</div>
+                        <div class="email-body-text">Martine,
 
 Following up briefly. Jo Malone's British heritage makes UK digital shelf performance particularly important. And each UK retailer has different content requirements, different competitive dynamics, different consumer expectations. Boots is not John Lewis is not LookFantastic is not Amazon.
 
@@ -2342,26 +2314,17 @@ I would be interested to hear whether e-retail visibility is something you are a
 
 Best,
 [SENDER NAME]</div>
-                        </div>
-                        <div class="email-notes">
-                            <div class="email-notes-title">📝 Customisation Notes</div>
+                        <div class="email-notes-box">
+                            <h5>Customisation Notes</h5>
                             <p>Jo Malone's British heritage is verified from research. References UK-specific retailers eStore covers. The closing question allows her to honestly deprioritise if needed.</p>
+                            <h5>Strategy Notes</h5>
+                            <p>Email 2 leads with a specific, relevant point (Jo Malone's British heritage) rather than generic complexity claims. The closing gives permission to say "not now" while keeping dialogue open.</p>
                         </div>
                     </div>
-
-                    <div class="email-card">
-                        <div class="email-header">
-                            <span class="email-number">3</span>
-                            <span class="email-title">Sharing UK-Specific Research</span>
-                            <span class="email-timing">7-10 days after Email 2</span>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Subject Line</div>
-                            <div class="email-subject">UK beauty digital shelf analysis</div>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Email Body</div>
-                            <div class="email-body">Martine,
+                    <div class="email-content" data-contact="martine" data-email="3">
+                        <div class="email-subject-line">Subject: UK beauty digital shelf analysis</div>
+                        <div class="email-meta">Send timing: 7-10 days after Email 2</div>
+                        <div class="email-body-text">Martine,
 
 I wanted to share something we published that analyses UK beauty brand performance: [insert relevant Ignite article link here]
 
@@ -2371,34 +2334,33 @@ If any of the findings resonate with what you are seeing, I would welcome the ch
 
 Best regards,
 [SENDER NAME]</div>
-                        </div>
-                        <div class="email-notes">
-                            <div class="email-notes-title">📝 Customisation Notes</div>
+                        <div class="email-notes-box">
+                            <h5>Customisation Notes</h5>
                             <p>Insert correct link to relevant Ignite article before sending. UK-specific content is the right fit for this contact. Benchmarking angle should appeal to an e-commerce director.</p>
+                            <h5>Strategy Notes</h5>
+                            <p>UK-focused content that is genuinely relevant to her market. Positions the research as benchmarking context. The closing invites continued dialogue.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Yusuf Khan Sequence -->
+                <!-- Contact 4: Yusuf Khan -->
                 <div class="email-sequence">
-                    <div class="email-sequence-header">
-                        <div class="email-sequence-title">Yusuf Khan - Business Intelligence Executive Director, EMEA & UK</div>
-                        <div class="email-sequence-meta">🇬🇧 Re-engagement | Primary Hook: BI data integration</div>
+                    <div class="email-seq-header">
+                        <div>
+                            <div class="email-contact-name">Yusuf Khan</div>
+                            <div class="email-contact-title">BI Executive Director, EMEA & UK | 🇬🇧 Re-engagement</div>
+                        </div>
+                        <span class="contact-badge warm">#4 PRIMARY</span>
                     </div>
-
-                    <div class="email-card">
-                        <div class="email-header">
-                            <span class="email-number">1</span>
-                            <span class="email-title">Re-opening with BI Relevance</span>
-                            <span class="email-timing">Tuesday/Wednesday, 9:00-10:00 GMT</span>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Subject Line</div>
-                            <div class="email-subject">Digital shelf data for EMEA analytics</div>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Email Body</div>
-                            <div class="email-body">Dear Yusuf,
+                    <div class="email-tabs" data-contact="yusuf">
+                        <div class="email-tab active" data-email="1">Email 1</div>
+                        <div class="email-tab" data-email="2">Email 2</div>
+                        <div class="email-tab" data-email="3">Email 3</div>
+                    </div>
+                    <div class="email-content active" data-contact="yusuf" data-email="1">
+                        <div class="email-subject-line">Subject: Digital shelf data for EMEA analytics</div>
+                        <div class="email-meta">Send timing: Tuesday/Wednesday, 9:00-10:00 GMT</div>
+                        <div class="email-body-text">Dear Yusuf,
 
 I am [SENDER NAME] from eStore. I understand you may have spoken with colleagues of mine previously about digital shelf analytics.
 
@@ -2408,26 +2370,17 @@ This is what eStore does. We collect digital shelf data (content, availability, 
 
 Best regards,
 [SENDER NAME]</div>
-                        </div>
-                        <div class="email-notes">
-                            <div class="email-notes-title">📝 Customisation Notes</div>
+                        <div class="email-notes-box">
+                            <h5>Customisation Notes</h5>
                             <p>Reference to his AI and trend forecasting post is verifiable. Check for more recent LinkedIn activity before sending. Verify he is still in this role.</p>
+                            <h5>Strategy Notes</h5>
+                            <p>This re-engagement leads with something he is publicly interested in (AI and analytics), connects it to data inputs (a BI concern), and asks a genuine question about data gaps. It positions eStore as potential data source, not replacement for existing tools.</p>
                         </div>
                     </div>
-
-                    <div class="email-card">
-                        <div class="email-header">
-                            <span class="email-number">2</span>
-                            <span class="email-title">Data Integration Angle</span>
-                            <span class="email-timing">5-7 days after Email 1</span>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Subject Line</div>
-                            <div class="email-subject">E-retail data and BI integration</div>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Email Body</div>
-                            <div class="email-body">Yusuf,
+                    <div class="email-content" data-contact="yusuf" data-email="2">
+                        <div class="email-subject-line">Subject: E-retail data and BI integration</div>
+                        <div class="email-meta">Send timing: 5-7 days after Email 1</div>
+                        <div class="email-body-text">Yusuf,
 
 A brief follow-up on the data question.
 
@@ -2439,26 +2392,17 @@ Happy to share more on the technical side if data architecture is relevant to yo
 
 Best,
 [SENDER NAME]</div>
-                        </div>
-                        <div class="email-notes">
-                            <div class="email-notes-title">📝 Customisation Notes</div>
+                        <div class="email-notes-box">
+                            <h5>Customisation Notes</h5>
                             <p>BI integration positioning aligns with his role. Technical credibility matters for this contact. Keep it focused on data, not sales.</p>
+                            <h5>Strategy Notes</h5>
+                            <p>Email 2 adds genuine value by addressing a common BI pain point (fragmented e-retail data) and positioning eStore's integration capability. This speaks directly to his professional concerns.</p>
                         </div>
                     </div>
-
-                    <div class="email-card">
-                        <div class="email-header">
-                            <span class="email-number">3</span>
-                            <span class="email-title">Sharing Relevant Research</span>
-                            <span class="email-timing">7-10 days after Email 2</span>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Subject Line</div>
-                            <div class="email-subject">UK beauty brands and digital shelf research</div>
-                        </div>
-                        <div class="email-field">
-                            <div class="email-field-label">Email Body</div>
-                            <div class="email-body">Yusuf,
+                    <div class="email-content" data-contact="yusuf" data-email="3">
+                        <div class="email-subject-line">Subject: UK beauty brands and digital shelf research</div>
+                        <div class="email-meta">Send timing: 7-10 days after Email 2</div>
+                        <div class="email-body-text">Yusuf,
 
 I wanted to share a piece of analysis that might be useful for EMEA performance benchmarking.
 
@@ -2468,10 +2412,11 @@ It is the kind of structured analysis that could feed into broader BI reporting.
 
 Best regards,
 [SENDER NAME]</div>
-                        </div>
-                        <div class="email-notes">
-                            <div class="email-notes-title">📝 Customisation Notes</div>
+                        <div class="email-notes-box">
+                            <h5>Customisation Notes</h5>
                             <p>Insert correct link to relevant Ignite article before sending. "EMEA performance benchmarking" frames it in BI terms. The closing question invites his perspective on data relevance.</p>
+                            <h5>Strategy Notes</h5>
+                            <p>Framed in BI language (benchmarking, structured analysis). The content provides genuine value. The closing question invites continued dialogue about how this data might be useful.</p>
                         </div>
                     </div>
                 </div>
@@ -2680,6 +2625,26 @@ Best regards,
             // Add active class to clicked button
             event.target.classList.add('active');
         }
+
+        // Email Tab Navigation
+        document.querySelectorAll('.email-tabs').forEach(container => {
+            container.querySelectorAll('.email-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active from sibling tabs
+                    container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                    // Add active to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Show corresponding content
+                    const emailNum = tab.dataset.email;
+                    const parent = container.closest('.email-sequence');
+                    parent.querySelectorAll('.email-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    parent.querySelector('.email-content[data-email="' + emailNum + '"]').classList.add('active');
+                });
+            });
+        });
 
         // Objection Toggle
         function toggleObjection(card) {
