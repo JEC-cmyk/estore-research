@@ -1,0 +1,2690 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eStore | Estée Lauder Companies - Brand Research & Action Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --estore-yellow: #ffba1c;
+            --estore-green: #22bb69;
+            --estore-light-blue: #68d7fa;
+            --estore-dark-blue: #1067db;
+            --estore-red: #f44f2f;
+            --estore-orange: #ff7a00;
+            --text-primary: #2c2c2c;
+            --text-secondary: #5a5a5a;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #eef1f4;
+            --border-light: #e0e4e8;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            height: 36px;
+        }
+
+        .header-divider {
+            width: 1px;
+            height: 32px;
+            background: var(--border-light);
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .header-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Verdict Banner */
+        .verdict-banner {
+            background: linear-gradient(135deg, #fff7e6 0%, #fff2d9 100%);
+            border: 2px solid var(--estore-yellow);
+            border-radius: var(--radius-lg);
+            padding: 24px 32px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .verdict-icon {
+            font-size: 3rem;
+        }
+
+        .verdict-content h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .verdict-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .verdict-stats {
+            margin-left: auto;
+            display: flex;
+            gap: 32px;
+        }
+
+        .verdict-stat {
+            text-align: center;
+        }
+
+        .verdict-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--estore-dark-blue);
+        }
+
+        .verdict-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-tertiary);
+            padding: 6px;
+            border-radius: var(--radius-md);
+            margin-bottom: 24px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            font-family: inherit;
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            color: var(--text-secondary);
+        }
+
+        .tab-btn:hover {
+            background: rgba(255,255,255,0.5);
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background: var(--bg-primary);
+            color: var(--estore-dark-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            font-size: 1.3rem;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--estore-dark-blue);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 28px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-header:first-child {
+            margin-top: 0;
+        }
+
+        /* Content Paragraphs */
+        .content-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        /* Lists */
+        .content-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 16px;
+        }
+
+        .content-list li {
+            padding: 10px 0 10px 28px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-bottom: 1px solid var(--bg-tertiary);
+        }
+
+        .content-list li:last-child {
+            border-bottom: none;
+        }
+
+        .content-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--estore-dark-blue);
+            font-weight: 600;
+        }
+
+        /* Coverage Badges */
+        .coverage-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .coverage-badge.covered {
+            background: #e6f7ed;
+            color: #0d7a3e;
+        }
+
+        .coverage-badge.not-covered {
+            background: #ffeee9;
+            color: #c53a20;
+        }
+
+        .coverage-badge.problematic {
+            background: #fff8e6;
+            color: #b8860b;
+        }
+
+        /* Retailer Cards */
+        .retailer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .retailer-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            transition: all 0.2s ease;
+        }
+
+        .retailer-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--estore-light-blue);
+        }
+
+        .retailer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .retailer-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .retailer-market {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .retailer-why {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-card.priority-1 {
+            border-left: 4px solid var(--estore-dark-blue);
+        }
+
+        .contact-card.priority-2 {
+            border-left: 4px solid var(--estore-green);
+        }
+
+        .contact-card.priority-3 {
+            border-left: 4px solid var(--estore-orange);
+        }
+
+        .contact-card.priority-4 {
+            border-left: 4px solid var(--estore-light-blue);
+        }
+
+        .contact-card.historical {
+            border-left: 4px solid var(--estore-yellow);
+            background: linear-gradient(135deg, #fffdf5 0%, #fff9e6 100%);
+        }
+
+        .contact-card.secondary {
+            border-left: 4px solid var(--text-secondary);
+            opacity: 0.85;
+        }
+
+        .contact-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .contact-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .contact-title {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-priority {
+            background: var(--bg-tertiary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .contact-priority.warm {
+            background: #e6f7ed;
+            color: #0d7a3e;
+        }
+
+        .contact-priority.cold {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+        }
+
+        .contact-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .contact-meta-item {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-section {
+            margin-bottom: 16px;
+        }
+
+        .contact-section-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-section p, .contact-section ul {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .contact-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .contact-section li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+        }
+
+        .contact-section li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--estore-dark-blue);
+        }
+
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: #0077b5;
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            margin-top: 12px;
+        }
+
+        .linkedin-btn:hover {
+            background: #006097;
+        }
+
+        /* Email Sequences */
+        .email-sequence {
+            margin-bottom: 32px;
+        }
+
+        .email-sequence-header {
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, #e8ecf0 100%);
+            padding: 20px 24px;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            border: 1px solid var(--border-light);
+            border-bottom: none;
+        }
+
+        .email-sequence-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .email-sequence-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .email-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-top: none;
+            padding: 24px;
+        }
+
+        .email-card:last-child {
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        }
+
+        .email-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: var(--estore-dark-blue);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 12px;
+        }
+
+        .email-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .email-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .email-timing {
+            margin-left: auto;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .email-field {
+            margin-bottom: 16px;
+        }
+
+        .email-field-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .email-subject {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--estore-dark-blue);
+            background: #f0f7ff;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--estore-dark-blue);
+        }
+
+        .email-body {
+            background: var(--bg-secondary);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            white-space: pre-wrap;
+        }
+
+        .email-notes {
+            background: #fff8e6;
+            border: 1px solid #ffe4a0;
+            border-radius: var(--radius-md);
+            padding: 16px;
+            margin-top: 16px;
+        }
+
+        .email-notes-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #8b6914;
+            margin-bottom: 8px;
+        }
+
+        .email-notes p {
+            font-size: 0.9rem;
+            color: #6b5210;
+            line-height: 1.6;
+        }
+
+        /* Objection Cards */
+        .objection-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .objection-header {
+            background: linear-gradient(135deg, #ffeee9 0%, #fff5f2 100%);
+            padding: 18px 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.2s ease;
+        }
+
+        .objection-header:hover {
+            background: linear-gradient(135deg, #ffe4dc 0%, #ffefea 100%);
+        }
+
+        .objection-question {
+            font-weight: 600;
+            color: var(--estore-red);
+            font-size: 1rem;
+        }
+
+        .objection-toggle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            transition: transform 0.2s ease;
+        }
+
+        .objection-card.open .objection-toggle {
+            transform: rotate(180deg);
+        }
+
+        .objection-content {
+            padding: 0 24px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .objection-card.open .objection-content {
+            padding: 24px;
+            max-height: 1000px;
+        }
+
+        .objection-response {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .objection-response strong {
+            color: var(--text-primary);
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+        }
+
+        .info-box.blue {
+            background: #f0f7ff;
+            border-left: 4px solid var(--estore-dark-blue);
+        }
+
+        .info-box.green {
+            background: #e6f7ed;
+            border-left: 4px solid var(--estore-green);
+        }
+
+        .info-box.yellow {
+            background: #fff8e6;
+            border-left: 4px solid var(--estore-yellow);
+        }
+
+        .info-box.red {
+            background: #ffeee9;
+            border-left: 4px solid var(--estore-red);
+        }
+
+        .info-box-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .info-box-content {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 12px 0 12px 36px;
+            position: relative;
+            border-bottom: 1px solid var(--bg-tertiary);
+            font-size: 0.95rem;
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--estore-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* Coverage Dashboard */
+        .coverage-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .coverage-metric {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .coverage-metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .coverage-metric-value.good {
+            color: var(--estore-green);
+        }
+
+        .coverage-metric-value.moderate {
+            color: var(--estore-orange);
+        }
+
+        .coverage-metric-value.poor {
+            color: var(--estore-red);
+        }
+
+        .coverage-metric-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            height: 12px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-fill.good {
+            background: linear-gradient(90deg, var(--estore-green), #2ed87a);
+        }
+
+        .progress-fill.moderate {
+            background: linear-gradient(90deg, var(--estore-orange), #ff9533);
+        }
+
+        /* Tier Headers */
+        .tier-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-md);
+            margin: 24px 0 16px 0;
+        }
+
+        .tier-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .tier-coverage {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .tier-coverage.excellent {
+            color: var(--estore-green);
+        }
+
+        .tier-coverage.good {
+            color: var(--estore-dark-blue);
+        }
+
+        .tier-coverage.moderate {
+            color: var(--estore-orange);
+        }
+
+        .tier-coverage.poor {
+            color: var(--estore-red);
+        }
+
+        /* History Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-light);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 24px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -26px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: var(--estore-dark-blue);
+            border-radius: 50%;
+            border: 2px solid var(--bg-primary);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--estore-dark-blue);
+            margin-bottom: 4px;
+        }
+
+        .timeline-content {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Table Styles */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .data-table th {
+            text-align: left;
+            padding: 12px 16px;
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        .data-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-secondary);
+        }
+
+        .data-table tr:hover td {
+            background: var(--bg-secondary);
+        }
+
+        /* Skip Contacts */
+        .skip-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .skip-item {
+            background: var(--bg-secondary);
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skip-item::before {
+            content: "✕";
+            color: var(--estore-red);
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .verdict-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .verdict-stats {
+                margin-left: 0;
+                margin-top: 16px;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .header-right {
+                text-align: left;
+            }
+
+            .tab-nav {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .contact-header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .email-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .email-timing {
+                margin-left: 0;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .tab-nav {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+                page-break-after: always;
+            }
+
+            .card {
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container" id="mainContainer" style="display: block;">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                                <span style="font-weight:700;font-size:1.5rem;color:#1067db;">eStore</span>
+                <div class="header-divider"></div>
+                <span class="brand-name">Estée Lauder Companies</span>
+            </div>
+            <div class="header-right">
+                <div class="header-meta">Brand Research & Action Plan</div>
+                <div class="header-meta">Created: 13 January 2026 | Re-engagement Campaign</div>
+            </div>
+        </header>
+
+        <!-- Verdict Banner -->
+        <div class="verdict-banner">
+            <div class="verdict-icon">⚠️</div>
+            <div class="verdict-content">
+                <h2>MODERATE FIT - PROCEED WITH CAVEATS</h2>
+                <p>UK/Europe coverage strong (65%). Lead with EMEA value, acknowledge luxury retail gaps.</p>
+            </div>
+            <div class="verdict-stats">
+                <div class="verdict-stat">
+                    <div class="verdict-stat-value">59%</div>
+                    <div class="verdict-stat-label">Overall Coverage</div>
+                </div>
+                <div class="verdict-stat">
+                    <div class="verdict-stat-value">65%</div>
+                    <div class="verdict-stat-label">UK/EU Coverage</div>
+                </div>
+                <div class="verdict-stat">
+                    <div class="verdict-stat-value">$15.6bn</div>
+                    <div class="verdict-stat-label">FY2024 Revenue</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" onclick="showTab('fit')">Are we a good fit?</button>
+            <button class="tab-btn" onclick="showTab('history')">Our history with them</button>
+            <button class="tab-btn" onclick="showTab('retailers')">Retailer Check</button>
+            <button class="tab-btn" onclick="showTab('contacts')">Key people?</button>
+            <button class="tab-btn" onclick="showTab('emails')">Emails to send</button>
+            <button class="tab-btn" onclick="showTab('objections')">Objection Handling</button>
+        </nav>
+
+        <!-- Tab 1: Are We A Good Fit? -->
+        <div class="tab-content active" id="tab-fit">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><span class="card-icon">📊</span> Strategic Assessment Summary</h3>
+                </div>
+                
+                <div class="info-box yellow">
+                    <div class="info-box-title">Executive Summary</div>
+                    <div class="info-box-content">
+                        Estée Lauder Companies represents a long-term prospect (8+ years of engagement history) with renewed opportunity due to leadership changes and digital transformation. The company's Shopify migration (Q1 2026), new Chief Digital & Marketing Officer (August 2025), and Amazon marketplace expansion create a natural window for re-engagement. eStore's European coverage aligns well with ELC's most profitable region (EMEA at 37-38% of revenue), though luxury department store gaps require honest positioning.
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">$15.6bn</div>
+                        <div class="stat-label">FY2024 Revenue</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">25</div>
+                        <div class="stat-label">Active Brands</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">~150</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1,700+</div>
+                        <div class="stat-label">E-commerce Sites</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">~57,000</div>
+                        <div class="stat-label">Employees</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">37-38%</div>
+                        <div class="stat-label">EMEA Revenue Share</div>
+                    </div>
+                </div>
+
+                <h4 class="section-header">🌍 Geographic Fit Assessment</h4>
+                
+                <div class="info-box green">
+                    <div class="info-box-title">VERDICT: MODERATE-GOOD FIT for UK/European Approach</div>
+                    <div class="info-box-content">
+                        EMEA is ELC's largest and most profitable region. UK is their second-largest single market globally with dedicated headquarters at One Fitzroy (144,000 sq ft, ~500 employees) and manufacturing at Whitman Laboratories for Jo Malone and skincare. Previous eStore contact history exists with EMEA-based personnel.
+                    </div>
+                </div>
+
+                <div class="info-box blue">
+                    <div class="info-box-title">Strengths for eStore</div>
+                    <div class="info-box-content">
+                        <ul class="content-list">
+                            <li>EMEA generates largest share of net sales AND highest operating margin</li>
+                            <li>UK heritage brands: Jo Malone London (founded in London, HQ at 52 Gloucester Place)</li>
+                            <li>April 2025 restructure consolidated EMEA, UK&I, and Emerging Markets under single regional leader (Nadine Graf)</li>
+                            <li>Previous engagement with Aurélie Lemelle (EMEAI Eretail Director) and Yusuf Khan (BI Executive Director)</li>
+                            <li>eStore covers core UK retailers: Boots, John Lewis, LookFantastic, Superdrug, Sephora UK</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box red">
+                    <div class="info-box-title">Challenges to Acknowledge</div>
+                    <div class="info-box-content">
+                        <ul class="content-list">
+                            <li>New Chief Digital & Marketing Officer (Aude Gandon) owns global digital strategy from New York</li>
+                            <li>Major technology decisions (Microsoft, Google Cloud, Adobe, Shopify) negotiated at global level</li>
+                            <li>Previous contact history notes: "Decision-making appears centralised from US"</li>
+                            <li>UK luxury department stores (Selfridges, Harrods, Harvey Nichols) not covered - require onboarding</li>
+                            <li>US prestige retailers (Ulta, Sephora US, Nordstrom) noted as "extremely difficult"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4 class="section-header">🚀 Why This Timing is Optimal</h4>
+                
+                <ul class="content-list">
+                    <li><strong>Shopify Partnership (Q1 2026):</strong> "First-of-its-kind omnichannel partnership in prestige beauty" - modernising digital technology infrastructure creates natural vendor evaluation window</li>
+                    <li><strong>New CEO (January 2025):</strong> Stéphane de La Faverie executing "Beauty Reimagined" transformation with digital-first approach</li>
+                    <li><strong>New CDMO (August 2025):</strong> Aude Gandon (former Nestlé Global CMO, Google Global MD) brings fresh perspective on vendor relationships</li>
+                    <li><strong>Amazon Expansion:</strong> 11 brands now on Amazon US, including flagship Estée Lauder brand (October 2024) and The Ordinary (January 2025)</li>
+                    <li><strong>Cost Restructuring:</strong> 7,000-8,000 workforce reduction with focus on profitable growth - need for efficient tools</li>
+                </ul>
+
+                <h4 class="section-header">📦 Product Portfolio Overview</h4>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Revenue Share</th>
+                            <th>Key Brands</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Skincare</strong></td>
+                            <td>~52%</td>
+                            <td>Estée Lauder, La Mer, Clinique, The Ordinary, Origins, Darphin</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Makeup</strong></td>
+                            <td>~28%</td>
+                            <td>MAC, Bobbi Brown, Too Faced, Smashbox</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fragrance</strong></td>
+                            <td>~16%</td>
+                            <td>Jo Malone London, Le Labo, Tom Ford Beauty, KILIAN PARIS, Frédéric Malle</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Haircare</strong></td>
+                            <td>~4%</td>
+                            <td>Aveda, Bumble and bumble</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 class="section-header">✅ Implementation Readiness Assessment</h4>
+                
+                <div class="coverage-dashboard">
+                    <div class="coverage-metric">
+                        <div class="coverage-metric-value moderate">59%</div>
+                        <div class="coverage-metric-label">Overall Coverage</div>
+                    </div>
+                    <div class="coverage-metric">
+                        <div class="coverage-metric-value good">65%</div>
+                        <div class="coverage-metric-label">UK/Europe Coverage</div>
+                    </div>
+                    <div class="coverage-metric">
+                        <div class="coverage-metric-value moderate">50%</div>
+                        <div class="coverage-metric-label">US Coverage</div>
+                    </div>
+                    <div class="coverage-metric">
+                        <div class="coverage-metric-value good">86%</div>
+                        <div class="coverage-metric-label">Tier 1 & 2 Combined</div>
+                    </div>
+                </div>
+
+                <div class="info-box blue">
+                    <div class="info-box-title">Time-to-Value Estimate</div>
+                    <div class="info-box-content">
+                        <strong>Covered retailers:</strong> 2-4 weeks to go live<br>
+                        <strong>Gap retailers (Selfridges, Harrods, Cult Beauty):</strong> 2-3 months onboarding<br>
+                        <strong>US retailers (Ulta, Sephora US, Nordstrom):</strong> Not recommended as primary focus
+                    </div>
+                </div>
+
+                <h4 class="section-header">📋 Final Assessment Checklist</h4>
+                
+                <ul class="checklist">
+                    <li>Distribution complexity requiring digital shelf analytics (25 brands, 150 countries)</li>
+                    <li>UK/Europe coverage above 60% threshold - can deliver immediate value</li>
+                    <li>Competitive dynamics creating urgency (MAC vs Charlotte Tilbury, prestige brand wars)</li>
+                    <li>Product portfolio breadth demanding unified monitoring (25 brands)</li>
+                    <li>Scale justifying investment ($15.6bn revenue)</li>
+                    <li>Strategic priorities aligning with eStore (Shopify migration, Amazon expansion)</li>
+                    <li>Previous relationship warmth with EMEA contacts</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab 2: Our History With Them -->
+        <div class="tab-content" id="tab-history">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><span class="card-icon">📜</span> Previous eStore Engagement History</h3>
+                </div>
+
+                <div class="info-box yellow">
+                    <div class="info-box-title">8+ Years of Engagement</div>
+                    <div class="info-box-content">
+                        Estée Lauder has been a long-running pursuit since at least 2017. Multiple engagement waves have occurred, with varying levels of progress. The relationship has included discovery meetings, RFI processes, and structured outreach campaigns.
+                    </div>
+                </div>
+
+                <h4 class="section-header">📅 Engagement Timeline</h4>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2017-2020</div>
+                        <div class="timeline-content">Initial cold outreach, LinkedIn InMails, relationship mapping. Foundation building across multiple contacts.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2022-2023</div>
+                        <div class="timeline-content"><strong>France/BENELUX Initiative:</strong> Structured engagement with Aurélie Lemelle and Pauline Schifano. Multiple scheduled meetings and demos. Discovery meeting completed. RFI/next-step tasks logged. Reviewed BrandQuad capabilities - identified gaps in "true syndication and richer digital shelf analytics". <em>Outcome: Did not convert; unclear final blocker.</em></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content"><strong>Jo Malone/Tom Ford Campaign:</strong> Led by Amy Hawksley-Blackburn. Structured outreach to UK e-commerce stakeholders. Used eScore benchmarks as hooks (Jo Malone underperforming on Sephora.fr, Notino, Boots). Aimed for 30-minute diagnostic calls. <em>Outcome: Multiple follow-ups; conversion status unclear.</em></div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025</div>
+                        <div class="timeline-content"><strong>UK Campaign:</strong> Focus on ratings/reviews and share of page 1 across major UK retailers. Tailored emails to different functional owners. Led by Amy Hawksley-Blackburn.</div>
+                    </div>
+                </div>
+
+                <h4 class="section-header">👥 Historical Contact Relationships</h4>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Role</th>
+                            <th>Stance</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Aurélie Lemelle</strong></td>
+                            <td>EMEAI Eretail Director</td>
+                            <td><span class="coverage-badge covered">ENGAGED</span></td>
+                            <td>Primary France/BENELUX sponsor; now directs some queries to Neha Allugundu</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Neha Allugundu</strong></td>
+                            <td>EU e-pharma/e-retail/GDSN</td>
+                            <td><span class="coverage-badge covered">NEW</span></td>
+                            <td>Inherited from Aurélie; new main EU contact</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Yusuf Khan</strong></td>
+                            <td>BI Exec Director UK & EMEA</td>
+                            <td><span class="coverage-badge problematic">CONSTRAINED</span></td>
+                            <td>Interested but noted "constrained by US-driven tech choices"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pauline Schifano</strong></td>
+                            <td>France e-commerce lead</td>
+                            <td><span class="coverage-badge covered">ENGAGED</span></td>
+                            <td>Multiple calls and meetings 2022-2023; central to France RFI work</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 class="section-header">🚧 Known Blockers</h4>
+                
+                <ul class="content-list">
+                    <li><strong>Centralised US decision-making:</strong> "Key tech decisions prescribed centrally from US/global teams, limiting local autonomy"</li>
+                    <li><strong>Existing provider relationships:</strong> "Some markets already work with other providers or agencies"</li>
+                    <li><strong>BrandQuad incumbent:</strong> Currently using BrandQuad for content/PIM, unclear if they see need for additional tool</li>
+                </ul>
+
+                <h4 class="section-header">🔄 Recommended Re-engagement Approach</h4>
+                
+                <div class="info-box green">
+                    <div class="info-box-content">
+                        <ul class="content-list">
+                            <li>Re-engage Aurélie Lemelle as known contact - acknowledge prior conversations naturally</li>
+                            <li>Add Claire Thirot as fresh perspective (involved in Shopify migration)</li>
+                            <li>Position around Shopify migration timing - natural technology stack evaluation window</li>
+                            <li>Focus on what's changed: expanded European coverage, new leadership, Amazon expansion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><span class="card-icon">🔍</span> Competitor Intelligence</h3>
+                </div>
+
+                <h4 class="section-header">Confirmed Digital Shelf Analytics Tool</h4>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Status</th>
+                            <th>Confidence</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>BrandQuad</strong></td>
+                            <td><span class="coverage-badge covered">CONFIRMED</span></td>
+                            <td>HIGH</td>
+                            <td>Data Surfer explicitly lists Estée Lauder among clients</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="content-text"><strong>What BrandQuad provides:</strong> Product Information Management (PIM), Digital Asset Management (DAM), E-commerce Intelligence, Digital Shelf Management, Omni-channel data distribution.</p>
+                
+                <p class="content-text"><strong>Previous eStore contact history confirms:</strong> "BrandQuad referenced, mostly for content metrics, limited syndication" - suggesting gaps in retailer analytics coverage.</p>
+
+                <h4 class="section-header">Unknown Status / No Evidence Found</h4>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Profitero</td>
+                            <td><span class="coverage-badge not-covered">NO EVIDENCE</span></td>
+                            <td>No case studies, press releases, or job postings found</td>
+                        </tr>
+                        <tr>
+                            <td>CommerceIQ</td>
+                            <td><span class="coverage-badge not-covered">NO EVIDENCE</span></td>
+                            <td>No case studies, press releases, or job postings found</td>
+                        </tr>
+                        <tr>
+                            <td>Edge by Ascential</td>
+                            <td><span class="coverage-badge not-covered">NO EVIDENCE</span></td>
+                            <td>No case studies, press releases, or job postings found</td>
+                        </tr>
+                        <tr>
+                            <td>DataWeave</td>
+                            <td><span class="coverage-badge not-covered">NO EVIDENCE</span></td>
+                            <td>No case studies, press releases, or job postings found</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 class="section-header">Competitive Displacement Opportunity</h4>
+                
+                <div class="info-box blue">
+                    <div class="info-box-title">Assessment: MODERATE-HIGH opportunity to displace BrandQuad</div>
+                    <div class="info-box-content">
+                        <ul class="content-list">
+                            <li>BrandQuad appears focused on PIM/content syndication; eStore offers superior retailer-level digital shelf analytics</li>
+                            <li>Shopify migration (Q1 2026) creates natural technology stack review window</li>
+                            <li>Previous eStore contact noted BrandQuad has "limited syndication" capabilities</li>
+                            <li>Company emphasis on "consolidating disparate systems" suggests openness to platform rationalisation</li>
+                            <li>25 brands across 22+ European countries creates genuine monitoring complexity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><span class="card-icon">📚</span> Content to Reference</h3>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Content Type</th>
+                            <th>URL</th>
+                            <th>Relevance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Sector Landing Page</strong></td>
+                            <td><a href="https://estorebrands.com/health-beauty" target="_blank">estorebrands.com/health-beauty</a></td>
+                            <td>Directly relevant - Health & Beauty sector</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Beauty Digital Shelf Report</strong></td>
+                            <td><a href="https://estorebrands.com/blog/state-of-digital-shelf-2022-beauty" target="_blank">State of Digital Shelf 2022 - Beauty</a></td>
+                            <td>Global study using C.A.R.S. framework</td>
+                        </tr>
+                        <tr>
+                            <td><strong>UK Beauty Analysis</strong></td>
+                            <td>UK Beauty article on Ignite</td>
+                            <td>Mentions Estée Lauder by name</td>
+                        </tr>
+                        <tr>
+                            <td><strong>L'Oréal Poland Case Study</strong></td>
+                            <td>Advanced e-commerce search article</td>
+                            <td>Competitive proof point (French competitor)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 class="section-header">How to Position Content</h4>
+                
+                <div class="info-box blue">
+                    <div class="info-box-title">For French Contacts (Aurélie, Claire)</div>
+                    <div class="info-box-content">
+                        Emphasise pan-European coverage. Reference L'Oréal case study (French competitor). Position as European expertise, not just UK.
+                    </div>
+                </div>
+
+                <div class="info-box green">
+                    <div class="info-box-title">For UK Contacts (Martine, Yusuf)</div>
+                    <div class="info-box-content">
+                        Lead with UK market analysis. Reference specific UK retailers (Boots, John Lewis). Emphasise UK as second-largest market.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Retailer Check -->
+        <div class="tab-content" id="tab-retailers">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><span class="card-icon">🏪</span> Retailer Coverage Analysis</h3>
+                </div>
+
+                <div class="coverage-dashboard">
+                    <div class="coverage-metric">
+                        <div class="coverage-metric-value moderate">59%</div>
+                        <div class="coverage-metric-label">Overall Coverage (19/32)</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill moderate" style="width: 59%"></div>
+                        </div>
+                    </div>
+                    <div class="coverage-metric">
+                        <div class="coverage-metric-value good">86%</div>
+                        <div class="coverage-metric-label">Tier 1 & 2 Combined (19/22)</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill good" style="width: 86%"></div>
+                        </div>
+                    </div>
+                    <div class="coverage-metric">
+                        <div class="coverage-metric-value good">65%</div>
+                        <div class="coverage-metric-label">UK/Europe Coverage (13/20)</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill good" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="coverage-metric">
+                        <div class="coverage-metric-value moderate">50%</div>
+                        <div class="coverage-metric-label">US Coverage (6/12)</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill moderate" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box yellow">
+                    <div class="info-box-title">⚠️ Go/No-Go Recommendation: PROCEED WITH CAVEATS</div>
+                    <div class="info-box-content">
+                        Tier 1 & 2 coverage at 86% significantly exceeds the 60% threshold for "Strong Fit". UK/Europe coverage (65%) is stronger than US coverage (50%). Core UK retailers (Boots, John Lewis, LookFantastic, Sephora UK, Superdrug) are covered. Key gaps exist in luxury department stores (Selfridges, Harrods, Harvey Nichols) and some US retailers (Ulta, Sephora US, Nordstrom).
+                    </div>
+                </div>
+
+                <!-- Tier 1 -->
+                <div class="tier-header">
+                    <span class="tier-title">🥇 TIER 1: Major Mass Market Retailers</span>
+                    <span class="tier-coverage excellent">10/10 (100%) ✅</span>
+                </div>
+
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Amazon UK</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | amazon.co.uk</div>
+                        <div class="retailer-why">Key marketplace; Estée Lauder brand, Clinique, The Ordinary now selling</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Amazon DE</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇩🇪 Germany | amazon.de</div>
+                        <div class="retailer-why">Major European market; growing prestige beauty presence</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Amazon FR</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇫🇷 France | amazon.fr</div>
+                        <div class="retailer-why">Strategic market for French-heritage brands</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Amazon ES</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇪🇸 Spain | amazon.es</div>
+                        <div class="retailer-why">Growing European market</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Amazon IT</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇮🇹 Italy | amazon.it</div>
+                        <div class="retailer-why">Growing European market</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Boots</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | boots.com</div>
+                        <div class="retailer-why">UK's largest health & beauty retailer; critical for all ELC brands</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">John Lewis</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | johnlewis.com</div>
+                        <div class="retailer-why">Premium department store; beauty hall presence</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Amazon US</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States | amazon.com</div>
+                        <div class="retailer-why">11 ELC brands now selling; massive channel expansion</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Target</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States | target.com</div>
+                        <div class="retailer-why">Mass prestige; growing beauty authority</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Walgreens</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States | walgreens.com</div>
+                        <div class="retailer-why">US pharmacy/beauty retailer</div>
+                    </div>
+                </div>
+
+                <!-- Tier 2 -->
+                <div class="tier-header">
+                    <span class="tier-title">🥈 TIER 2: Specialist & Premium Retailers</span>
+                    <span class="tier-coverage good">9/12 (75%) ✅</span>
+                </div>
+
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Sephora UK</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | sephora.co.uk</div>
+                        <div class="retailer-why">Key prestige beauty retailer; all ELC brands</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Sephora FR</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇫🇷 France | sephora.fr</div>
+                        <div class="retailer-why">Major European market; Jo Malone, MAC, etc.</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">LookFantastic</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | lookfantastic.com</div>
+                        <div class="retailer-why">UK's largest online beauty retailer</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Superdrug</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | superdrug.com</div>
+                        <div class="retailer-why">Mass beauty; The Ordinary distribution</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Douglas DE</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇩🇪 Germany | douglas.de</div>
+                        <div class="retailer-why">Europe's largest perfumery chain</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Douglas PL</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇵🇱 Poland | douglas.pl</div>
+                        <div class="retailer-why">Major CEE market</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Notino UK</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | notino.co.uk</div>
+                        <div class="retailer-why">Pan-European fragrance specialist</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Flaconi</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇩🇪 Germany | flaconi.de</div>
+                        <div class="retailer-why">German online beauty specialist</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Nocibé</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇫🇷 France | nocibe.fr</div>
+                        <div class="retailer-why">French beauty retailer</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Selfridges</span>
+                            <span class="coverage-badge not-covered">❌ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | selfridges.com</div>
+                        <div class="retailer-why">Premium UK department store; beauty destination. Requires 2-3 month onboarding.</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Harrods</span>
+                            <span class="coverage-badge not-covered">❌ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | harrods.com</div>
+                        <div class="retailer-why">Ultra-luxury UK department store. Requires 2-3 month onboarding.</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Cult Beauty</span>
+                            <span class="coverage-badge not-covered">❌ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | cultbeauty.co.uk</div>
+                        <div class="retailer-why">Curated online beauty; The Ordinary, etc. Can be added to monitoring scope.</div>
+                    </div>
+                </div>
+
+                <!-- Tier 3 -->
+                <div class="tier-header">
+                    <span class="tier-title">🥉 TIER 3: Regional & Niche Retailers</span>
+                    <span class="tier-coverage poor">1/10 (10%)</span>
+                </div>
+
+                <div class="retailer-grid">
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Harvey Nichols</span>
+                            <span class="coverage-badge not-covered">❌ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | harveynichols.com</div>
+                        <div class="retailer-why">Luxury UK department store</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Space NK</span>
+                            <span class="coverage-badge not-covered">❌ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | spacenk.com</div>
+                        <div class="retailer-why">Premium UK beauty retailer</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">The Perfume Shop</span>
+                            <span class="coverage-badge not-covered">❌ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">🇬🇧 United Kingdom | theperfumeshop.com</div>
+                        <div class="retailer-why">UK fragrance specialist</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Sephora US</span>
+                            <span class="coverage-badge not-covered">❌ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States | sephora.com</div>
+                        <div class="retailer-why">Critical US prestige beauty; noted as "extremely difficult" in CSV</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Ulta Beauty</span>
+                            <span class="coverage-badge not-covered">❌ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States | ulta.com</div>
+                        <div class="retailer-why">Largest US beauty retailer; noted as "extremely difficult" in CSV</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Nordstrom</span>
+                            <span class="coverage-badge not-covered">❌ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States | nordstrom.com</div>
+                        <div class="retailer-why">US department store; noted as "extremely difficult" in CSV</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">Macy's</span>
+                            <span class="coverage-badge not-covered">❌ Not Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States | macys.com</div>
+                        <div class="retailer-why">US department store; noted as "extremely difficult" in CSV</div>
+                    </div>
+                    <div class="retailer-card">
+                        <div class="retailer-header">
+                            <span class="retailer-name">CVS</span>
+                            <span class="coverage-badge covered">✅ Covered</span>
+                        </div>
+                        <div class="retailer-market">🇺🇸 United States | cvs.com</div>
+                        <div class="retailer-why">US pharmacy/beauty</div>
+                    </div>
+                </div>
+
+                <!-- Additional European Coverage -->
+                <div class="tier-header">
+                    <span class="tier-title">🌍 Additional Pan-European Coverage</span>
+                    <span class="tier-coverage excellent">20+ retailers across CEE & Western Europe ✅</span>
+                </div>
+
+                <div class="info-box green">
+                    <div class="info-box-content">
+                        <strong>Douglas Network:</strong> Bulgaria, Croatia, Czech Republic, Romania<br>
+                        <strong>Notino Network:</strong> Bulgaria, Croatia, Czech Republic, Hungary, Poland, Romania, Slovakia, Slovenia, Ukraine<br>
+                        <strong>Sephora Network:</strong> Czech Republic, Romania<br>
+                        <strong>Marionnaud Network:</strong> Czech Republic, Hungary, Romania, Slovakia<br>
+                        <strong>Others:</strong> Zalando DE
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Key People -->
+        <div class="tab-content" id="tab-contacts">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><span class="card-icon">👥</span> Contact Strategy</h3>
+                </div>
+
+                <div class="info-box yellow">
+                    <div class="info-box-title">Historical Contacts First</div>
+                    <div class="info-box-content">
+                        Two contacts (Aurélie Lemelle and Yusuf Khan) have previous eStore engagement history. These represent warmer re-engagement opportunities and should be prioritised in outreach sequencing.
+                    </div>
+                </div>
+
+                <h4 class="section-header">🔥 Primary Targets - Operational Decision-Makers</h4>
+
+                <!-- Aurélie Lemelle -->
+                <div class="contact-card priority-1 historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Aurélie Lemelle ⭐</div>
+                            <div class="contact-title">EMEAI Eretail Director</div>
+                        </div>
+                        <div>
+                            <span class="contact-priority warm">RE-ENGAGEMENT</span>
+                            <span class="contact-priority">#1 PRIORITY</span>
+                        </div>
+                    </div>
+                    <div class="contact-meta">
+                        <span class="contact-meta-item">📍 Geneva/Paris</span>
+                        <span class="contact-meta-item">🇫🇷 French</span>
+                        <span class="contact-meta-item">🎓 NEOMA Business School</span>
+                        <span class="contact-meta-item">📊 12+ years digital/e-commerce</span>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Why She's the Right Contact</div>
+                        <ul>
+                            <li>Owns e-retailer relationships across exactly the markets eStore excels in (22 European countries)</li>
+                            <li>Previous engagement with eStore - knows the proposition</li>
+                            <li>Role directly maps to eStore's core value proposition</li>
+                            <li>Operational decision-maker with budget authority for regional tools</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Specific Hooks</div>
+                        <ul>
+                            <li>"22 countries, 25 brands - how are you maintaining visibility across retailer performance?"</li>
+                            <li>Reference Shopify migration: "As platforms change, e-retailer monitoring becomes even more critical"</li>
+                            <li>Pan-European coverage: "We now cover Douglas, Notino, Sephora across 15+ European markets"</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Previous eStore History</div>
+                        <p>Primary France/BENELUX sponsor during 2022-2023 engagement. Multiple meetings and RFI discussions. Now directs some queries to Neha Allugundu for EU matters.</p>
+                    </div>
+                    <a href="https://www.linkedin.com/in/aurelie-lemelle-04392ba/" target="_blank" class="linkedin-btn">
+                        <span>View LinkedIn Profile</span>
+                    </a>
+                </div>
+
+                <!-- Claire Thirot -->
+                <div class="contact-card priority-2">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Claire Thirot</div>
+                            <div class="contact-title">EMEA Omnichannel Director</div>
+                        </div>
+                        <div>
+                            <span class="contact-priority cold">COLD</span>
+                            <span class="contact-priority">#2 PRIORITY</span>
+                        </div>
+                    </div>
+                    <div class="contact-meta">
+                        <span class="contact-meta-item">📍 France</span>
+                        <span class="contact-meta-item">🇫🇷 French</span>
+                        <span class="contact-meta-item">🎓 HEC Paris</span>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Why She's the Right Contact</div>
+                        <ul>
+                            <li>Directly involved in Shopify migration (Q1 2026 launch)</li>
+                            <li>Omnichannel role means she cares about retailer performance across channels</li>
+                            <li>Fresh perspective - not previous eStore contact</li>
+                            <li>HEC Paris background suggests analytical, data-driven approach</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Recent Activity</div>
+                        <p><strong>October 2025 LinkedIn Post:</strong> "Bringing this next chapter of digital commerce at ELC to life through our partnership with Shopify"</p>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Specific Hooks</div>
+                        <ul>
+                            <li>Reference her Shopify post: "Saw your post about the Shopify partnership - as platforms evolve, retailer-level visibility becomes crucial"</li>
+                            <li>MAC France success: "MAC designated 2nd Best Brand 2026 in France - congratulations"</li>
+                            <li>Omnichannel complexity: "With 25 brands across EMEA, how do you maintain consistent visibility across e-retailer partners?"</li>
+                        </ul>
+                    </div>
+                    <a href="https://www.linkedin.com/in/clairethirot/" target="_blank" class="linkedin-btn">
+                        <span>View LinkedIn Profile</span>
+                    </a>
+                </div>
+
+                <!-- Martine Levy -->
+                <div class="contact-card priority-3">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Martine Levy</div>
+                            <div class="contact-title">Director of E-Commerce (UK)</div>
+                        </div>
+                        <div>
+                            <span class="contact-priority cold">COLD</span>
+                            <span class="contact-priority">#3 PRIORITY</span>
+                        </div>
+                    </div>
+                    <div class="contact-meta">
+                        <span class="contact-meta-item">📍 United Kingdom</span>
+                        <span class="contact-meta-item">🇬🇧 British</span>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Why She's the Right Contact</div>
+                        <ul>
+                            <li>UK market is second-largest globally - significant authority</li>
+                            <li>Local decision-maker for UK-specific tools</li>
+                            <li>eStore's UK coverage is strongest asset</li>
+                            <li>Boots, John Lewis, LookFantastic all covered</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Specific Hooks</div>
+                        <ul>
+                            <li>UK market position: "UK is your second-largest market globally - how do you maintain visibility across Boots, John Lewis, Amazon UK?"</li>
+                            <li>Local coverage: "We cover your core UK retailers already"</li>
+                            <li>Jo Malone angle: "With Jo Malone's British heritage, UK digital shelf performance is particularly critical"</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Outreach Notes</div>
+                        <p>UK contact - more indirect approach, British understatement. Focus on UK-specific value. Don't oversell global capabilities.</p>
+                    </div>
+                    <a href="https://uk.linkedin.com/in/martine-levy-b5720536" target="_blank" class="linkedin-btn">
+                        <span>View LinkedIn Profile</span>
+                    </a>
+                </div>
+
+                <!-- Yusuf Khan -->
+                <div class="contact-card priority-4 historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Yusuf Khan</div>
+                            <div class="contact-title">Business Intelligence Executive Director, EMEA & UK</div>
+                        </div>
+                        <div>
+                            <span class="contact-priority warm">RE-ENGAGEMENT</span>
+                            <span class="contact-priority">#4 PRIORITY</span>
+                        </div>
+                    </div>
+                    <div class="contact-meta">
+                        <span class="contact-meta-item">📍 London</span>
+                        <span class="contact-meta-item">🇬🇧 British</span>
+                        <span class="contact-meta-item">🎓 PROSCI Certified</span>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Why He's the Right Contact</div>
+                        <ul>
+                            <li>BI role means he cares about data quality and insights</li>
+                            <li>Previous eStore contact - warm relationship possible</li>
+                            <li>London-based - easy to meet</li>
+                            <li>Analytics focus aligns with eStore's dashboard capabilities</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Recent Activity</div>
+                        <p><strong>2025 LinkedIn:</strong> Posted about "Estée Lauder uses AI to reimagine trend forecasting" - engaged with company's AI transformation narrative</p>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Previous eStore History</div>
+                        <p>Previous contact noted he was "constrained by US-driven tech choices". Frame as regional supplement to global tools, not replacement.</p>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Specific Hooks</div>
+                        <ul>
+                            <li>Reference his AI post: "Saw your post about AI in trend forecasting - digital shelf data could feed those models"</li>
+                            <li>Data quality angle: "25 brands, 22 countries - how do you ensure consistent, accurate retailer performance data?"</li>
+                            <li>Analytics integration: "eStore data integrates directly into BI platforms"</li>
+                        </ul>
+                    </div>
+                    <a href="https://uk.linkedin.com/in/yusuf-khan-prosci%C2%AE-637182119" target="_blank" class="linkedin-btn">
+                        <span>View LinkedIn Profile</span>
+                    </a>
+                </div>
+
+                <h4 class="section-header">🎯 Secondary Targets - Strategic Influencers</h4>
+
+                <!-- Aude Gandon -->
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Aude Gandon</div>
+                            <div class="contact-title">Chief Digital & Marketing Officer (first-ever CDMO)</div>
+                        </div>
+                        <div>
+                            <span class="contact-priority">DO NOT CONTACT</span>
+                        </div>
+                    </div>
+                    <div class="contact-meta">
+                        <span class="contact-meta-item">📍 New York</span>
+                        <span class="contact-meta-item">🗓️ Appointed August 2025</span>
+                        <span class="contact-meta-item">📊 Former Nestlé Global CMO</span>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">How to Reference</div>
+                        <ul>
+                            <li>Mention her appointment when speaking to direct reports</li>
+                            <li>Reference the fact that digital commerce is now CEO-priority</li>
+                            <li>Use her Nestlé background as proof of enterprise complexity handling</li>
+                        </ul>
+                    </div>
+                    <div class="info-box red">
+                        <div class="info-box-content">
+                            <strong>Do NOT contact directly</strong> - too senior for initial outreach. Use to validate that digital shelf analytics aligns with company priorities.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stéphane de La Faverie -->
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Stéphane de La Faverie</div>
+                            <div class="contact-title">President and CEO</div>
+                        </div>
+                        <div>
+                            <span class="contact-priority">EXECUTIVE CONTEXT ONLY</span>
+                        </div>
+                    </div>
+                    <div class="contact-meta">
+                        <span class="contact-meta-item">🗓️ Appointed January 2025</span>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Key Statements to Reference</div>
+                        <ul>
+                            <li>On Shopify partnership: "Leveraging data, technology, and creativity to anticipate our consumers' needs"</li>
+                            <li>"Beauty Reimagined" transformation strategy</li>
+                            <li>Digital-first approach as recovery engine</li>
+                        </ul>
+                    </div>
+                    <div class="info-box red">
+                        <div class="info-box-content">
+                            <strong>Do NOT contact directly</strong> - executive context only. Use quotes to frame conversations with operational contacts.
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="section-header">⛔ Contacts to Skip</h4>
+
+                <div class="skip-list">
+                    <div class="skip-item">Manufacturing/Operations (Whitman Laboratories) - No digital commerce decision authority</div>
+                    <div class="skip-item">Clinical/R&D teams - Not relevant to e-retail</div>
+                    <div class="skip-item">Travel Retail-focused roles - Undergoing strategic reset (-28% decline)</div>
+                    <div class="skip-item">Corporate Finance/Legal - Not operational decision-makers</div>
+                    <div class="skip-item">Mainland China operations - Ongoing challenges; not eStore focus</div>
+                    <div class="skip-item">US-based global technology leadership (Brian Franz) - Approach via EMEA</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 5: Emails to Send -->
+        <div class="tab-content" id="tab-emails">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><span class="card-icon">✉️</span> Approved Email Sequences</h3>
+                </div>
+
+                <div class="info-box green">
+                    <div class="info-box-title">Email Sequence Guidelines</div>
+                    <div class="info-box-content">
+                        <strong>Timing:</strong> 5-7 days between emails 1 and 2, 7-10 days between emails 2 and 3<br>
+                        <strong>Best days:</strong> Tuesday or Wednesday<br>
+                        <strong>Best times:</strong> 9:00-10:00 local time (CET for French contacts, GMT for UK contacts)<br>
+                        <strong>Style:</strong> British English throughout, no em dashes, professional but conversational
+                    </div>
+                </div>
+
+                <!-- Aurélie Lemelle Sequence -->
+                <div class="email-sequence">
+                    <div class="email-sequence-header">
+                        <div class="email-sequence-title">Aurélie Lemelle - EMEAI Eretail Director</div>
+                        <div class="email-sequence-meta">🇫🇷 Re-engagement | Primary Hook: Pan-European coverage expansion</div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">1</span>
+                            <span class="email-title">Re-opening the Conversation</span>
+                            <span class="email-timing">Tuesday/Wednesday, 9:00-10:00 CET</span>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Subject Line</div>
+                            <div class="email-subject">European e-retailer coverage update</div>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Email Body</div>
+                            <div class="email-body">Dear Aurélie,
+
+I am [SENDER NAME] from eStore. I believe you spoke with some of our team a couple of years ago about digital shelf analytics for Estée Lauder's European e-retail presence.
+
+A fair amount has changed since then, both for eStore and for ELC. We have expanded our pan-European retailer coverage significantly, particularly across Douglas, Notino, and Sephora networks in more than 15 markets. Given your role optimising e-retailer performance across 22 EMEAI countries, I thought it worth checking in.
+
+I am curious whether the Shopify migration and Amazon expansion have shifted how you think about retailer-level visibility. No agenda beyond understanding whether there might be value in reconnecting.
+
+Best regards,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <div class="email-notes-title">📝 Customisation Notes</div>
+                            <p>Verify Aurélie is still in this role via LinkedIn before sending. Check if there are any recent posts or company announcements to reference. Confirm Shopify migration timeline is still Q1 2026.</p>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">2</span>
+                            <span class="email-title">Adding Value</span>
+                            <span class="email-timing">5-7 days after Email 1</span>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Subject Line</div>
+                            <div class="email-subject">How Douglas and Notino perform across markets</div>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Email Body</div>
+                            <div class="email-body">Aurélie,
+
+Following up briefly. We have recently completed some analysis of how beauty brands perform differently across Douglas Germany versus Douglas Poland, or Notino UK versus Notino Czech Republic. Same retailer networks, quite different performance patterns by market.
+
+If this kind of cross-market visibility is useful, we have a health and beauty sector overview that might be relevant: https://estorebrands.com/health-beauty
+
+Either way, I would be interested to hear how you are approaching retailer performance measurement currently, whether that is BrandQuad, something else, or a combination.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <div class="email-notes-title">📝 Customisation Notes</div>
+                            <p>This references BrandQuad (confirmed current tool). Gauge her response to understand satisfaction level. The sector page link positions eStore's capability without being salesy. The question invites dialogue about their current approach.</p>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">3</span>
+                            <span class="email-title">Sharing Relevant Research</span>
+                            <span class="email-timing">7-10 days after Email 2</span>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Subject Line</div>
+                            <div class="email-subject">UK beauty digital shelf analysis</div>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Email Body</div>
+                            <div class="email-body">Aurélie,
+
+I wanted to share something we published recently that analyses how beauty brands perform on the digital shelf. It references Estée Lauder directly, along with competitors like L'Oréal and Coty.
+
+Given the UK is ELC's second largest market globally, thought it might provide useful context for how performance varies across retailers: [insert relevant Ignite article link here]
+
+If any of this resonates with your European e-retail priorities, I would welcome the chance to discuss further.
+
+Best regards,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <div class="email-notes-title">📝 Customisation Notes</div>
+                            <p>Insert correct link to relevant Ignite article before sending. Verify the content references ELC or is relevant to beauty sector. Position around her European remit, not just UK.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Claire Thirot Sequence -->
+                <div class="email-sequence">
+                    <div class="email-sequence-header">
+                        <div class="email-sequence-title">Claire Thirot - EMEA Omnichannel Director</div>
+                        <div class="email-sequence-meta">🇫🇷 Cold Contact | Primary Hook: Shopify migration timing</div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">1</span>
+                            <span class="email-title">Opening with Relevance</span>
+                            <span class="email-timing">Tuesday/Wednesday, 9:00-10:00 CET</span>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Subject Line</div>
+                            <div class="email-subject">Shopify migration and e-retailer visibility</div>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Email Body</div>
+                            <div class="email-body">Dear Claire,
+
+I am [SENDER NAME] from eStore, a UK-based digital shelf analytics platform. We help beauty brands monitor product performance across online retailers.
+
+I noticed your October post about bringing ELC's Shopify partnership to life. Platform migrations like this often raise interesting questions about retailer-level visibility, particularly across EMEA where you are managing multiple e-retailer relationships alongside owned channels.
+
+I am curious how you are thinking about monitoring performance across partners like Douglas, Sephora, and Notino as the omnichannel infrastructure evolves. This is our area of focus, so I am interested in how brands at ELC's scale approach this.
+
+Best regards,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <div class="email-notes-title">📝 Customisation Notes</div>
+                            <p>Reference to her October 2025 LinkedIn post is specific and verifiable. Check her LinkedIn for any more recent posts before sending. Verify she is still in this role.</p>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">2</span>
+                            <span class="email-title">Offering a Perspective</span>
+                            <span class="email-timing">5-7 days after Email 1</span>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Subject Line</div>
+                            <div class="email-subject">MAC France and digital shelf performance</div>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Email Body</div>
+                            <div class="email-body">Claire,
+
+A brief follow-up. I saw that MAC was recently designated 2nd Best Brand 2026 in France. Congratulations to the team.
+
+Maintaining that kind of performance across e-retailers like Sephora France, Nocibé, and Douglas requires consistent product information, competitive positioning, and availability tracking. We have put together a health and beauty sector overview that addresses some of these challenges: https://estorebrands.com/health-beauty
+
+If any of this resonates, I would welcome the chance to learn more about how ELC approaches it.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <div class="email-notes-title">📝 Customisation Notes</div>
+                            <p>MAC France designation is from the research. Verify this is still accurate and recent. The sector page provides value without pushing for a demo. Tone remains curious rather than assertive.</p>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">3</span>
+                            <span class="email-title">Sharing Relevant Research</span>
+                            <span class="email-timing">7-10 days after Email 2</span>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Subject Line</div>
+                            <div class="email-subject">Beauty digital shelf research</div>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Email Body</div>
+                            <div class="email-body">Claire,
+
+I wanted to share a piece of research that might be useful context for your EMEA omnichannel work.
+
+This analysis looks at how beauty brands, including Estée Lauder, perform on the digital shelf: [insert relevant Ignite article link here]
+
+The UK is ELC's second largest market globally, so it provides a useful lens on retailer-level performance. I would be interested to hear whether the patterns we identified match what you are seeing across EMEA more broadly.
+
+Best regards,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <div class="email-notes-title">📝 Customisation Notes</div>
+                            <p>Insert correct link to relevant Ignite article before sending. UK as second largest market is verified from research. The closing question invites her perspective.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Martine Levy Sequence -->
+                <div class="email-sequence">
+                    <div class="email-sequence-header">
+                        <div class="email-sequence-title">Martine Levy - Director of E-Commerce (UK)</div>
+                        <div class="email-sequence-meta">🇬🇧 Cold Contact | Primary Hook: UK market focus</div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">1</span>
+                            <span class="email-title">UK-Focused Opening</span>
+                            <span class="email-timing">Tuesday/Wednesday, 9:00-10:00 GMT</span>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Subject Line</div>
+                            <div class="email-subject">UK beauty e-commerce visibility</div>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Email Body</div>
+                            <div class="email-body">Dear Martine,
+
+I am [SENDER NAME] from eStore. We are a UK-based digital shelf analytics platform. We help brands monitor how their products appear and perform across online retailers.
+
+Given the UK is Estée Lauder's second largest market globally, I imagine e-commerce visibility across retailers like Boots, John Lewis, and Amazon UK is particularly important. These happen to be retailers we cover comprehensively.
+
+I am curious how you currently approach monitoring performance across UK e-retail partners, whether that is manual tracking, agency support, or dedicated tools. This is our specialist area, so I am interested in how brands at your scale handle it.
+
+Best regards,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <div class="email-notes-title">📝 Customisation Notes</div>
+                            <p>Verify Martine's current role before sending. Check for any recent LinkedIn activity or company announcements. "Second largest market globally" is verified from research.</p>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">2</span>
+                            <span class="email-title">Adding UK-Specific Value</span>
+                            <span class="email-timing">5-7 days after Email 1</span>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Subject Line</div>
+                            <div class="email-subject">UK retailers and digital shelf performance</div>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Email Body</div>
+                            <div class="email-body">Martine,
+
+Following up briefly. Jo Malone's British heritage makes UK digital shelf performance particularly important. And each UK retailer has different content requirements, different competitive dynamics, different consumer expectations. Boots is not John Lewis is not LookFantastic is not Amazon.
+
+We have put together a health and beauty sector overview that might be useful: https://estorebrands.com/health-beauty
+
+I would be interested to hear whether e-retail visibility is something you are actively thinking about, or whether other priorities are more pressing at the moment.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <div class="email-notes-title">📝 Customisation Notes</div>
+                            <p>Jo Malone's British heritage is verified from research. References UK-specific retailers eStore covers. The closing question allows her to honestly deprioritise if needed.</p>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">3</span>
+                            <span class="email-title">Sharing UK-Specific Research</span>
+                            <span class="email-timing">7-10 days after Email 2</span>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Subject Line</div>
+                            <div class="email-subject">UK beauty digital shelf analysis</div>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Email Body</div>
+                            <div class="email-body">Martine,
+
+I wanted to share something we published that analyses UK beauty brand performance: [insert relevant Ignite article link here]
+
+It references Estée Lauder alongside competitors, looking at how brands perform across major UK retailers. Given your focus on the UK market, thought it might provide useful benchmarking context.
+
+If any of the findings resonate with what you are seeing, I would welcome the chance to discuss further.
+
+Best regards,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <div class="email-notes-title">📝 Customisation Notes</div>
+                            <p>Insert correct link to relevant Ignite article before sending. UK-specific content is the right fit for this contact. Benchmarking angle should appeal to an e-commerce director.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yusuf Khan Sequence -->
+                <div class="email-sequence">
+                    <div class="email-sequence-header">
+                        <div class="email-sequence-title">Yusuf Khan - Business Intelligence Executive Director, EMEA & UK</div>
+                        <div class="email-sequence-meta">🇬🇧 Re-engagement | Primary Hook: BI data integration</div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">1</span>
+                            <span class="email-title">Re-opening with BI Relevance</span>
+                            <span class="email-timing">Tuesday/Wednesday, 9:00-10:00 GMT</span>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Subject Line</div>
+                            <div class="email-subject">Digital shelf data for EMEA analytics</div>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Email Body</div>
+                            <div class="email-body">Dear Yusuf,
+
+I am [SENDER NAME] from eStore. I understand you may have spoken with colleagues of mine previously about digital shelf analytics.
+
+I noticed your post about Estée Lauder's AI work on trend forecasting. It raised a question for me: does retailer-level performance data from e-commerce partners currently feed into your EMEA analytics infrastructure?
+
+This is what eStore does. We collect digital shelf data (content, availability, reviews, search visibility) from retailers across Europe. I am curious whether that kind of structured e-retail data is something your BI function currently has access to, or whether it represents a gap.
+
+Best regards,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <div class="email-notes-title">📝 Customisation Notes</div>
+                            <p>Reference to his AI and trend forecasting post is verifiable. Check for more recent LinkedIn activity before sending. Verify he is still in this role.</p>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">2</span>
+                            <span class="email-title">Data Integration Angle</span>
+                            <span class="email-timing">5-7 days after Email 1</span>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Subject Line</div>
+                            <div class="email-subject">E-retail data and BI integration</div>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Email Body</div>
+                            <div class="email-body">Yusuf,
+
+A brief follow-up on the data question.
+
+One thing we have found working with beauty brands is that e-retailer performance data often sits outside the main BI infrastructure. It tends to be tracked via spreadsheets, agency reports, or manual retailer portal logins rather than structured feeds.
+
+We have built integrations that pipe digital shelf data directly into existing BI platforms. Here is an overview of how we approach health and beauty brands: https://estorebrands.com/health-beauty
+
+Happy to share more on the technical side if data architecture is relevant to your thinking.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <div class="email-notes-title">📝 Customisation Notes</div>
+                            <p>BI integration positioning aligns with his role. Technical credibility matters for this contact. Keep it focused on data, not sales.</p>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">3</span>
+                            <span class="email-title">Sharing Relevant Research</span>
+                            <span class="email-timing">7-10 days after Email 2</span>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Subject Line</div>
+                            <div class="email-subject">UK beauty brands and digital shelf research</div>
+                        </div>
+                        <div class="email-field">
+                            <div class="email-field-label">Email Body</div>
+                            <div class="email-body">Yusuf,
+
+I wanted to share a piece of analysis that might be useful for EMEA performance benchmarking.
+
+This research looks at how beauty brands, including Estée Lauder, perform on the digital shelf: [insert relevant Ignite article link here]
+
+It is the kind of structured analysis that could feed into broader BI reporting. I would be interested to hear whether this type of retailer-level data aligns with what your team is working on.
+
+Best regards,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <div class="email-notes-title">📝 Customisation Notes</div>
+                            <p>Insert correct link to relevant Ignite article before sending. "EMEA performance benchmarking" frames it in BI terms. The closing question invites his perspective on data relevance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 6: Objection Handling -->
+        <div class="tab-content" id="tab-objections">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><span class="card-icon">🛡️</span> Objection Handling Framework</h3>
+                </div>
+
+                <div class="info-box blue">
+                    <div class="info-box-title">Decision Framework</div>
+                    <div class="info-box-content">
+                        <strong>PROCEED:</strong> Tier 1 & 2 coverage at 86% exceeds threshold. UK/Europe coverage (65%) supports EMEA-first approach.<br>
+                        <strong>CAVEATS:</strong> Luxury department stores (Selfridges, Harrods) require onboarding. US prestige retailers limited. Position as European strength.<br>
+                        <strong>TIME-TO-VALUE:</strong> 2-4 weeks for covered retailers, 2-3 months for gap retailers.
+                    </div>
+                </div>
+
+                <h4 class="section-header">Common Objections & Responses</h4>
+
+                <div class="objection-card" onclick="toggleObjection(this)">
+                    <div class="objection-header">
+                        <span class="objection-question">"We already use BrandQuad for our digital shelf needs"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <p><strong>Acknowledge:</strong> "BrandQuad is excellent for content management and PIM - we've seen it work well for those use cases."</p>
+                            <p><strong>Differentiate:</strong> "What we hear from brands using BrandQuad is that it excels at content syndication, but there's often a gap in retailer-level performance analytics. How products actually appear on retailer sites, search visibility, pricing consistency, availability tracking - that's eStore's focus."</p>
+                            <p><strong>Position:</strong> "Many clients use both - BrandQuad for content distribution, eStore for retailer performance monitoring. They're complementary rather than competitive. Would it be useful to understand where the gap might be?"</p>
+                            <p><strong>Evidence:</strong> Previous eStore contact noted BrandQuad has "limited syndication and richer digital shelf analytics" - suggesting this gap is already recognised internally.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card" onclick="toggleObjection(this)">
+                    <div class="objection-header">
+                        <span class="objection-question">"How many of our retailers can you actually monitor?"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <p><strong>Be honest:</strong> "We cover 59% of your retailers overall, but the picture is more nuanced than that single number."</p>
+                            <p><strong>Lead with strengths:</strong> "For your core UK and European retailers - Amazon UK/DE/FR, Boots, John Lewis, LookFantastic, Douglas, Sephora EU, Notino - we have comprehensive coverage. That's 86% of your Tier 1 and 2 retailers."</p>
+                            <p><strong>Acknowledge gaps:</strong> "We don't currently cover Selfridges, Harrods, or Cult Beauty - those would require onboarding, typically 2-3 months. And US prestige retailers like Ulta and Sephora US are technically challenging for any platform."</p>
+                            <p><strong>Reframe:</strong> "The question is: where do you need visibility first? If it's EMEA, we can deliver immediate value. If US prestige is the priority, we'd need to have a different conversation about timelines."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card" onclick="toggleObjection(this)">
+                    <div class="objection-header">
+                        <span class="objection-question">"Technology decisions are made centrally from the US"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <p><strong>Acknowledge:</strong> "We understand. Major platform decisions like Microsoft, Google Cloud, and Shopify are negotiated globally. That makes sense for enterprise-wide infrastructure."</p>
+                            <p><strong>Reframe:</strong> "Regional tools for regional needs often sit differently. Your EMEA e-retail operations have specific retailer relationships - Douglas, Notino, Sephora EU - that require local monitoring. That's where we can add value without requiring global approval."</p>
+                            <p><strong>Position:</strong> "Many global brands run regional pilots before global rollout. We could demonstrate value in UK/EMEA first, then expand if it makes sense. Would that approach work within your governance framework?"</p>
+                            <p><strong>Reference:</strong> "Aude Gandon's appointment as CDMO suggests digital commerce is a priority. A regional proof-of-concept aligned with her priorities might actually support a business case for broader adoption."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card" onclick="toggleObjection(this)">
+                    <div class="objection-header">
+                        <span class="objection-question">"We're focused on our Shopify migration right now"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <p><strong>Acknowledge:</strong> "Completely understand. Platform migrations demand attention - getting that right is critical."</p>
+                            <p><strong>Connect:</strong> "Actually, that's part of why we reached out now. As you modernise your owned channels, visibility into how products perform on third-party retailers becomes more important, not less. Your DTC and retailer channels need to work together."</p>
+                            <p><strong>Timing:</strong> "We often see brands evaluate digital shelf tools during platform transitions - it's a natural moment to ensure the full ecosystem is working. Would it make sense to reconnect once Q1 2026 launch is complete, or would you prefer to start the conversation earlier?"</p>
+                            <p><strong>Low pressure:</strong> "Either way, happy to share how other beauty brands have approached this. No commitment needed now."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card" onclick="toggleObjection(this)">
+                    <div class="objection-header">
+                        <span class="objection-question">"We don't have budget for new tools right now"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <p><strong>Acknowledge:</strong> "Budget constraints are real, especially with the restructuring you've been through. We're not assuming there's immediate budget."</p>
+                            <p><strong>Reframe:</strong> "What we're trying to understand is whether retailer performance visibility is a priority problem. If it is, we can help build a business case. If it isn't, we shouldn't waste your time."</p>
+                            <p><strong>Offer value:</strong> "Would it be useful to see how your brands currently perform across European retailers? We can provide a snapshot at no cost - it might inform whether this is worth pursuing for next budget cycle."</p>
+                            <p><strong>Long-term view:</strong> "Some of our best relationships started with 'not now' - the question is whether we should stay in touch for when timing improves."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card" onclick="toggleObjection(this)">
+                    <div class="objection-header">
+                        <span class="objection-question">"We've talked to eStore before and decided not to proceed"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <p><strong>Acknowledge:</strong> "You're right - we have had conversations before, including around France/BENELUX in 2022-2023. I appreciate you remembering."</p>
+                            <p><strong>Explain what's changed:</strong> "A fair amount has shifted since then. On our side, we've significantly expanded European coverage - Douglas, Notino, and Sephora across 15+ markets. On your side, the Shopify migration, Amazon expansion, and new digital leadership create different context."</p>
+                            <p><strong>Respect the decision:</strong> "I'm not assuming anything has changed in terms of fit. But given the time that's passed and the shifts on both sides, I thought it worth checking whether there's value in a fresh conversation."</p>
+                            <p><strong>Give an easy out:</strong> "If the answer is still no, I completely understand and won't follow up again. Would you prefer that?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card" onclick="toggleObjection(this)">
+                    <div class="objection-header">
+                        <span class="objection-question">"We have internal teams that handle retailer monitoring"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <p><strong>Acknowledge:</strong> "That makes sense for a company at your scale. With 25 brands, you'd need significant capability."</p>
+                            <p><strong>Explore:</strong> "How does your team currently approach it? Manual retailer portal logins? Agency support? Custom-built tools?"</p>
+                            <p><strong>Position:</strong> "What we typically see is that internal teams handle strategic analysis and decision-making, while platforms like eStore handle the data collection. It's quite hard to manually track content, pricing, availability, reviews, and search visibility across 30+ retailers in 22 countries."</p>
+                            <p><strong>Offer perspective:</strong> "We often work alongside internal teams - we provide the raw data, they do the strategic work. Would that kind of model be worth exploring?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card" onclick="toggleObjection(this)">
+                    <div class="objection-header">
+                        <span class="objection-question">"What about Sephora US and Ulta? Those are critical for us"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <p><strong>Be honest:</strong> "US prestige beauty retailers are technically challenging - not just for us, but for any digital shelf platform. Ulta and Sephora US have complex architectures that make comprehensive monitoring difficult."</p>
+                            <p><strong>Acknowledge limitation:</strong> "This is a genuine gap. If US prestige retail is your primary priority, we might not be the right fit right now."</p>
+                            <p><strong>Offer alternative:</strong> "What we can do is cover Amazon US, Target, Walgreens, CVS - the mass market channels where your brands are expanding. And for prestige, we can monitor Sephora across Europe comprehensively."</p>
+                            <p><strong>Reframe:</strong> "Many brands start with markets where coverage is strong, then expand. Your EMEA operation is both larger and more profitable - would it make sense to demonstrate value there first?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card" onclick="toggleObjection(this)">
+                    <div class="objection-header">
+                        <span class="objection-question">"We're consolidating vendors, not adding new ones"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <p><strong>Acknowledge:</strong> "That aligns with what we've read about the 'Beauty Reimagined' strategy - consolidating systems, improving efficiency. Makes complete sense."</p>
+                            <p><strong>Position differently:</strong> "The question is whether retailer performance monitoring is currently fragmented - spreadsheets, manual checks, multiple agency reports. If so, consolidating into a single platform might actually support your objective."</p>
+                            <p><strong>Reference their stated goals:</strong> "Your CEO mentioned 'leveraging data and technology' in the Shopify announcement. A unified view of 25 brands across 22 countries could be consolidation rather than addition."</p>
+                            <p><strong>Offer assessment:</strong> "Would it be useful to map out your current digital shelf monitoring landscape? We might be able to show where consolidation is possible."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card" onclick="toggleObjection(this)">
+                    <div class="objection-header">
+                        <span class="objection-question">"Can you cover luxury department stores like Selfridges and Harrods?"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <p><strong>Be honest:</strong> "Not currently. Selfridges, Harrods, and Harvey Nichols aren't in our existing coverage."</p>
+                            <p><strong>Explain what's possible:</strong> "These retailers can be onboarded - it typically takes 2-3 months to add new retailers to our monitoring scope. We'd need to understand whether that timeline works for your needs."</p>
+                            <p><strong>Provide context:</strong> "What we can monitor immediately includes your high-volume retailers - Boots, John Lewis, Amazon, LookFantastic - plus European prestige like Douglas and Sephora EU. Luxury department stores would be a second phase."</p>
+                            <p><strong>Ask the strategic question:</strong> "How critical is luxury department store monitoring versus broader retail coverage? That would help us understand whether eStore is the right fit."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="section-header">Objection Handling Principles</h4>
+
+                <ul class="content-list">
+                    <li><strong>Never dismiss the objection:</strong> Every concern is valid from the prospect's perspective. Acknowledge first, then respond.</li>
+                    <li><strong>Be honest about limitations:</strong> Coverage gaps, US challenges, and implementation timelines should be acknowledged upfront. Trust is built through transparency.</li>
+                    <li><strong>Ask questions before answering:</strong> Understand the root concern. "What's driving that question?" often reveals more than the surface objection.</li>
+                    <li><strong>Offer flexibility:</strong> Pilots, phased rollouts, and regional starts reduce risk for the prospect.</li>
+                    <li><strong>Give easy outs:</strong> If the fit isn't right, say so. "We might not be the right fit for that specific need" builds credibility.</li>
+                    <li><strong>Reference their context:</strong> Use their stated priorities, public statements, and strategic initiatives to frame responses.</li>
+                    <li><strong>Focus on value, not features:</strong> What problem does eStore solve for them? Lead with that, not product capabilities.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab Navigation
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById('tab-' + tabId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Objection Toggle
+        function toggleObjection(card) {
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
