@@ -1,0 +1,2445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bausch+Lomb - eStore Action Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+        
+        .header-meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .header-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.25rem;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            background: #1067db;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1067db;
+            font-weight: 700;
+        }
+        
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+        
+        .card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+            color: #495057;
+            font-weight: 600;
+        }
+        
+        .card p {
+            margin-bottom: 1rem;
+        }
+        
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .fit-badge.strong {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border: 2px solid #22bb69;
+        }
+        
+        .fit-badge.moderate {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            color: #856404;
+            border: 2px solid #ffba1c;
+        }
+        
+        .fit-badge.weak {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            border: 2px solid #f44f2f;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .summary-item {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid #1067db;
+        }
+        
+        .summary-item h4 {
+            margin-top: 0;
+            color: #1067db;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .summary-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-box {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-box .value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1067db;
+        }
+        
+        .stat-box .label {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .info-box {
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .info-box.blue {
+            background: #e7f3ff;
+            border-left: 4px solid #1067db;
+        }
+        
+        .info-box.green {
+            background: #e8f5e9;
+            border-left: 4px solid #22bb69;
+        }
+        
+        .info-box.yellow {
+            background: #fff8e1;
+            border-left: 4px solid #ffba1c;
+        }
+        
+        .info-box.red {
+            background: #ffebee;
+            border-left: 4px solid #f44f2f;
+        }
+        
+        .info-box.orange {
+            background: #fff3e0;
+            border-left: 4px solid #ff7a00;
+        }
+        
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge.green {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .badge.yellow {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .badge.red {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .badge.blue {
+            background: #e7f3ff;
+            color: #1067db;
+        }
+        
+        .badge.grey {
+            background: #e9ecef;
+            color: #495057;
+        }
+        
+        .badge.orange {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        
+        .contact-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #1067db;
+        }
+        
+        .contact-card.secondary {
+            border-left-color: #68d7fa;
+        }
+        
+        .contact-card.historical {
+            border-left-color: #ffba1c;
+        }
+        
+        .contact-card.skip {
+            border-left-color: #f44f2f;
+            background: #fff5f5;
+        }
+        
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c2c2c;
+        }
+        
+        .contact-title {
+            font-size: 0.95rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .contact-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .tone-box {
+            background: #e7f3ff;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .tone-box strong {
+            color: #1067db;
+        }
+        
+        .email-sequence {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .email-sequence-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .email-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .email-tab {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .email-tab:hover {
+            border-color: #1067db;
+        }
+        
+        .email-tab.active {
+            background: #1067db;
+            border-color: #1067db;
+            color: white;
+        }
+        
+        .email-content {
+            display: none;
+        }
+        
+        .email-content.active {
+            display: block;
+        }
+        
+        .email-box {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .email-subject {
+            font-weight: 600;
+            color: #1067db;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .email-timing {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+        
+        .email-body {
+            white-space: pre-line;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .email-notes {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #dee2e6;
+        }
+        
+        .email-notes h5 {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-notes p {
+            font-size: 0.9rem;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .objection-card {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+        
+        .objection-header {
+            padding: 1rem 1.25rem;
+            background: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .objection-header:hover {
+            background: #e9ecef;
+        }
+        
+        .objection-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .objection-card.open .objection-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .objection-body {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .objection-card.open .objection-body {
+            display: block;
+        }
+        
+        .disclaimer {
+            background: #fff8e1;
+            border: 2px solid #ffba1c;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .disclaimer strong {
+            color: #856404;
+        }
+        
+        .content-link {
+            display: block;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            text-decoration: none;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .content-link:hover {
+            background: #e7f3ff;
+            border-color: #1067db;
+        }
+        
+        .content-link .link-title {
+            font-weight: 600;
+            color: #1067db;
+            margin-bottom: 0.25rem;
+        }
+        
+        .content-link .link-url {
+            font-size: 0.8rem;
+            color: #6c757d;
+            word-break: break-all;
+        }
+        
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #22bb69;
+            font-weight: bold;
+        }
+        
+        .checklist li.warning::before {
+            content: "⚠";
+            color: #ffba1c;
+        }
+        
+        .checklist li.cross::before {
+            content: "✗";
+            color: #f44f2f;
+        }
+        
+        .retailer-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .retailer-region {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+        
+        .retailer-region h4 {
+            margin-top: 0;
+            color: #1067db;
+            border-bottom: 2px solid #1067db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .retailer-list {
+            font-size: 0.9rem;
+        }
+        
+        .retailer-list li {
+            margin-bottom: 0.25rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                text-align: center;
+            }
+            
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Bausch+Lomb</h1>
+        <div class="header-subtitle">eStore Action Plan - Healthcare & Eye Care</div>
+        <div class="header-meta">
+            <div class="header-meta-item">
+                <strong>Ticker:</strong> NYSE: BLCO
+            </div>
+            <div class="header-meta-item">
+                <strong>Revenue:</strong> $4.79B (FY2024)
+            </div>
+            <div class="header-meta-item">
+                <strong>Created:</strong> January 2026
+            </div>
+            <div class="header-meta-item">
+                <strong>Author:</strong> James / eStore Sales Development
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('fit')">Strategic Fit Assessment</button>
+            <button class="tab" onclick="showTab('history')">Our history with them</button>
+            <button class="tab" onclick="showTab('retailers')">Retailer Overview</button>
+            <button class="tab" onclick="showTab('contacts')">Key people?</button>
+            <button class="tab" onclick="showTab('emails')">Draft Email Sequences</button>
+            <button class="tab" onclick="showTab('objections')">Objection Handling</button>
+        </div>
+        
+        <!-- TAB 1: STRATEGIC FIT ASSESSMENT -->
+        <div id="fit" class="tab-content active">
+            <div class="card">
+                <div class="fit-badge strong">🟢 STRONG FIT</div>
+                <h2>Strategic Assessment Summary</h2>
+                <p>Bausch+Lomb represents a <strong>high-priority opportunity</strong> for eStore. The combination of no confirmed DSA provider, active digital transformation with C-level mandate, strong Healthcare/Pharma sector alignment, and meaningful UK/European operations creates favourable conditions for partnership.</p>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">$4.79B</div>
+                        <div class="label">FY2024 Revenue</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">+16%</div>
+                        <div class="label">YoY Growth</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">25-30</div>
+                        <div class="label">Est. Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">100+</div>
+                        <div class="label">Countries</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">400+</div>
+                        <div class="label">Products</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">~13,500</div>
+                        <div class="label">Employees</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Distribution Complexity & Geographic Alignment</h2>
+                
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Geographic Breakdown</h4>
+                        <p>50% US, 35% Europe (UK, Germany, France, Italy), 15% Other (LATAM, APAC)</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Channel Profile</h4>
+                        <p>Multi-channel - NOT Amazon-dominant. Balanced across pharmacy chains, mass retail, specialist optical, and Amazon</p>
+                    </div>
+                </div>
+                
+                <h3>European Presence</h3>
+                <ul>
+                    <li><strong>UK:</strong> Bausch & Lomb U.K. Limited (Kingston upon Thames) - established 1916, over 100 years of UK operations</li>
+                    <li><strong>Ireland:</strong> Major manufacturing facility in Waterford (contact lens production)</li>
+                    <li><strong>Germany:</strong> Vision Care, Surgical, and Pharma headquarters in Berlin</li>
+                    <li><strong>France:</strong> EMEA Surgical HQ in Montpellier</li>
+                    <li><strong>Poland:</strong> Central/Eastern Europe hub in Warsaw</li>
+                </ul>
+                
+                <div class="info-box green">
+                    <strong>Notable Patterns:</strong> Strong UK presence through Boots, Superdrug, LloydsPharmacy, Vision Direct UK, Lenstore, Feel Good Contacts. Multi-channel across pharmacy (CVS, Walgreens, Boots), mass retail (Walmart, Target, ASDA), and specialist optical. D2C capability via newly launched Opal marketplace (October 2024).
+                </div>
+                
+                <div class="info-box yellow">
+                    <strong>Critical Gap:</strong> Digital leadership is US-based (Devang Modi, Carlos Camacho both in US). Will need to engage US decision-makers while leveraging UK commercial relationships.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Competitive Intelligence Summary</h2>
+                
+                <div class="info-box green">
+                    <strong>🟢 Greenfield Opportunity:</strong> No incumbent DSA provider identified despite $100M+ advertising budget. This is notable for a $4.8B company with active e-commerce investment.
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DSA Provider</th>
+                            <th>Status</th>
+                            <th>Confidence</th>
+                            <th>Evidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Profitero</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No job postings, case studies, or press mentions</td>
+                        </tr>
+                        <tr>
+                            <td>CommerceIQ</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No evidence of relationship</td>
+                        </tr>
+                        <tr>
+                            <td>mindsite</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No evidence of relationship</td>
+                        </tr>
+                        <tr>
+                            <td>Edge by Ascential</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No evidence of relationship</td>
+                        </tr>
+                        <tr>
+                            <td>Salsify</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No evidence of relationship</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Confirmed Technology Stack</h3>
+                <ul>
+                    <li><strong>E-commerce platform:</strong> commercetools (composable/MACH architecture, implemented 2024)</li>
+                    <li><strong>Marketing automation:</strong> Oracle CX/Responsys</li>
+                    <li><strong>Site search:</strong> HawkSearch (AI-driven)</li>
+                    <li><strong>Analytics:</strong> Google Analytics</li>
+                </ul>
+                
+                <div class="info-box blue">
+                    <strong>Switching Signals:</strong> Recent composable commerce implementation suggests API-first, integration-friendly architecture. Active digital transformation mandate from CEO creates procurement appetite.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Sector Alignment Summary</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sector</th>
+                            <th>Alignment</th>
+                            <th>Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Healthcare/Pharmaceuticals</td>
+                            <td><span class="badge green">Strong</span></td>
+                            <td>Core business - prescription eye drops (XIIDRA, MIEBO), OTC eye care, surgical products</td>
+                        </tr>
+                        <tr>
+                            <td>Beauty & Personal Care</td>
+                            <td><span class="badge yellow">Moderate-Strong</span></td>
+                            <td>LUMIFY cosmetic eye care line, lens care solutions compete in personal care aisles</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box blue">
+                    <strong>eStore Sector Fit:</strong> Strong alignment with Pharma & Healthcare - one of eStore's five proven sectors. Current clients in this space include Sanofi, Viatris, Pierre Fabre, Alliance Pharmaceuticals, Cooper, Biocodex.
+                </div>
+                
+                <div class="info-box yellow">
+                    <strong>Note:</strong> Alcon (Bausch+Lomb's direct competitor in eye care) is a lapsed eStore client. Handle carefully if mentioned - demonstrates category familiarity but may indicate past challenges.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Relationship History Summary</h2>
+                
+                <div class="info-box orange">
+                    <strong>Status:</strong> Re-engagement opportunity - no prior eStore client relationship, but extensive previous contact history from 2022-2024.
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Period</th>
+                            <th>Activity</th>
+                            <th>Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022</td>
+                            <td>Henry Edwards outreach to Howard Soyfer, Joseph Ponzo</td>
+                            <td>Auto-replies only</td>
+                        </tr>
+                        <tr>
+                            <td>Mid-2023</td>
+                            <td>James Feeney sequences to Todd Larue, Mary Teryek, Paul Ulloa, Robert Harclerode</td>
+                            <td><strong>1 discovery/demo meeting (14 July 2023)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Late 2023</td>
+                            <td>Amy Hawksley-Blackburn store-level analytics campaign</td>
+                            <td>Multiple touches, no conversion</td>
+                        </tr>
+                        <tr>
+                            <td>2024</td>
+                            <td>LATAM/Bedoyecta campaign</td>
+                            <td>Wrong division contacted (Ophthalmology vs Consumer)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box green">
+                    <strong>Tactical Advantage:</strong> This is re-engagement, not pure cold outreach. Previous meeting context exists. However, significant time has passed (18+ months) and digital transformation has accelerated since then.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Market Dynamics Summary</h2>
+                
+                <h3>Recent Events Creating Urgency</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date</th>
+                            <th>Significance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Brent Saunders appointed CEO</td>
+                            <td>March 2023</td>
+                            <td>Former Allergan CEO with digital transformation mandate</td>
+                        </tr>
+                        <tr>
+                            <td>Opal Marketplace launch</td>
+                            <td>October 2024</td>
+                            <td>New D2C e-commerce platform - major digital investment</td>
+                        </tr>
+                        <tr>
+                            <td>John Ferris promoted to President, Consumer</td>
+                            <td>January 2025</td>
+                            <td>Previously led EMEA - knows UK market</td>
+                        </tr>
+                        <tr>
+                            <td>LUMIFY Preservative Free launch</td>
+                            <td>May 2025</td>
+                            <td>Recent product launch requiring digital shelf monitoring</td>
+                        </tr>
+                        <tr>
+                            <td>Blink Nourish/Boost launch</td>
+                            <td>June 2025</td>
+                            <td>New product launches in OTC eye care</td>
+                        </tr>
+                        <tr>
+                            <td>Office of Digital Transformation established</td>
+                            <td>2024</td>
+                            <td>CEO-mandated digital acceleration</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Competitive Pressure</h3>
+                <ul>
+                    <li>Johnson & Johnson Vision (32% market share) and CooperVision (27%) gaining share</li>
+                    <li>Contact lens e-commerce growing from 35% to 39% of sales (Q4 2024 to Q1 2025)</li>
+                    <li>Digital shelf performance increasingly critical for OTC products competing in pharmacy/mass retail</li>
+                </ul>
+                
+                <div class="info-box blue">
+                    <strong>CEO Quote (BCG, March 2025):</strong> "The next two years are probably going to be the most transformative with respect to using these technologies to improve productivity and efficiency"
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Synthesis & Recommendation</h2>
+                
+                <h3>Key Factors Driving Assessment</h3>
+                <ul class="checklist">
+                    <li>Greenfield DSA opportunity - No incumbent provider identified despite $100M+ advertising budget</li>
+                    <li>Active digital transformation - CEO-mandated, Office of Digital Transformation established</li>
+                    <li>Strong sector alignment - Healthcare/Pharma is proven eStore sector</li>
+                    <li>Meaningful European presence - UK operations since 1916, manufacturing in Ireland, EMEA HQ in Berlin</li>
+                    <li>Optimal timing - New CEO, Opal launch, recent product launches all create urgency</li>
+                    <li>Re-engagement opportunity - Previous contact history provides context</li>
+                </ul>
+                
+                <h3>Recommended Approach</h3>
+                <div class="info-box blue">
+                    <strong>Confident outreach with consultative undertone.</strong> This is a sophisticated company with active digital investment. Don't over-explain DSA basics - they'll understand the value proposition. Focus on what's different about eStore (European strength, retailer partnerships). Acknowledge previous contact and what's changed since then.
+                </div>
+                
+                <h3>Primary Value Proposition Positioning</h3>
+                <ul>
+                    <li>Lead with <strong>digital shelf visibility for new product launches</strong> (LUMIFY Preservative Free, Blink range)</li>
+                    <li>Emphasise <strong>multi-retailer monitoring</strong> across pharmacy, mass retail, and optical channels</li>
+                    <li>Position around <strong>European coverage strength</strong> - their UK/European retailers are well within eStore's coverage</li>
+                    <li>Reference <strong>competitive pressure</strong> from J&J Vision and CooperVision</li>
+                </ul>
+                
+                <h3>Implementation Readiness</h3>
+                <div class="info-box green">
+                    <strong>Time-to-value estimate: 4-6 weeks for European markets.</strong> Given strong UK/European retailer coverage through pharmacy and optical channels, eStore can likely deliver meaningful value quickly. US coverage would need separate assessment.
+                </div>
+                
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Estimated Difficulty</h4>
+                        <p><strong>Medium</strong></p>
+                        <p>Pro: No incumbent, strong timing, sector alignment</p>
+                        <p>Con: US-centric digital leadership, large company procurement complexity</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Expected Sales Cycle</h4>
+                        <p><strong>6-12 months</strong></p>
+                        <p>Enterprise scale requires formal procurement processes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 2: OUR HISTORY WITH THEM -->
+        <div id="history" class="tab-content">
+            <div class="card">
+                <h2>Previous Conversations & HubSpot History</h2>
+                
+                <div class="info-box orange">
+                    <strong>Overall Pattern:</strong> High outbound effort over 2+ years (2022-2024) with limited conversion. One recorded meeting but no deal progression.
+                </div>
+                
+                <h3>Key Activities Timeline</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Period</th>
+                            <th>Owner</th>
+                            <th>Focus</th>
+                            <th>Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2022</td>
+                            <td>Henry Edwards</td>
+                            <td>Amazon/e-retailer tools</td>
+                            <td>Auto-replies only</td>
+                        </tr>
+                        <tr>
+                            <td>Mid-2023</td>
+                            <td>James Feeney</td>
+                            <td>Digital shelf, Prime Day, sustainability</td>
+                            <td><strong>1 discovery meeting (14 July 2023)</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Late 2023</td>
+                            <td>Amy Hawksley-Blackburn</td>
+                            <td>Store-level analytics, OOS</td>
+                            <td>No conversion</td>
+                        </tr>
+                        <tr>
+                            <td>2024</td>
+                            <td>Amy Hawksley-Blackburn</td>
+                            <td>LATAM/Bedoyecta</td>
+                            <td>Wrong division (redirected to Grossman Labs)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>14 July 2023 Meeting Details</h3>
+                <div class="info-box blue">
+                    <ul style="margin-bottom: 0;">
+                        <li><strong>Type:</strong> Discovery & demo meeting</li>
+                        <li><strong>Attendee:</strong> "Regional Mkt Manager" (name unclear)</li>
+                        <li><strong>Follow-up task:</strong> "Follow up on Bausch Health LATAM"</li>
+                        <li><strong>Outcome:</strong> No progression recorded</li>
+                    </ul>
+                </div>
+                
+                <h3>Topics Previously Discussed</h3>
+                <ul>
+                    <li>Prime Day insights and retail events</li>
+                    <li>Store-level data and out-of-stocks</li>
+                    <li>Sustainability / Climate Pledge Friendly badge</li>
+                    <li>Location-based analytics</li>
+                    <li>Reducing manual work in e-commerce teams</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Known Contacts and Their Stance</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Previous Engagement</th>
+                            <th>Current Status</th>
+                            <th>Stance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Todd Larue</td>
+                            <td>Multiple touches 2023</td>
+                            <td><span class="badge green">Still at B+L</span></td>
+                            <td>Unknown - no response recorded</td>
+                        </tr>
+                        <tr>
+                            <td>Mary Teryek</td>
+                            <td>Multiple touches 2023</td>
+                            <td><span class="badge green">Still at B+L</span></td>
+                            <td>Unknown - no response recorded</td>
+                        </tr>
+                        <tr>
+                            <td>Paul Ulloa</td>
+                            <td>Multiple touches 2023</td>
+                            <td><span class="badge green">Still at B+L</span></td>
+                            <td>Unknown - no response recorded</td>
+                        </tr>
+                        <tr>
+                            <td>Robert Harclerode</td>
+                            <td>Multiple touches 2022-2024</td>
+                            <td><span class="badge green">Still at B+L</span></td>
+                            <td>Auto-replies only</td>
+                        </tr>
+                        <tr>
+                            <td>Michelle Nilsson</td>
+                            <td>Touched in 2023 campaigns</td>
+                            <td><span class="badge green">Still at B+L</span></td>
+                            <td>Unknown</td>
+                        </tr>
+                        <tr>
+                            <td>Carlos Camacho</td>
+                            <td>Touched in 2023 campaigns</td>
+                            <td><span class="badge green">Still at B+L</span></td>
+                            <td>Unknown</td>
+                        </tr>
+                        <tr>
+                            <td>Howard Soyfer</td>
+                            <td>Outreach 2022</td>
+                            <td><span class="badge red">Left B+L</span></td>
+                            <td>Now at Protective Industrial Products</td>
+                        </tr>
+                        <tr>
+                            <td>Joseph Ponzo</td>
+                            <td>Outreach 2022</td>
+                            <td><span class="badge red">Left B+L</span></td>
+                            <td>Now at Tenpoint Therapeutics</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Blockers & Timing Considerations</h2>
+                
+                <ul>
+                    <li><strong>Previous non-conversion:</strong> They've heard from eStore before without progressing. Need fresh angle.</li>
+                    <li><strong>US decision-making:</strong> Digital leadership is US-based. May need to coordinate UK commercial with US digital teams.</li>
+                    <li><strong>Enterprise procurement:</strong> $4.8B company will have formal procurement processes. Long sales cycle expected.</li>
+                    <li><strong>LATAM confusion:</strong> 2024 outreach went to wrong division. Ensure Consumer Division focus this time.</li>
+                </ul>
+                
+                <h3>Internal Champion</h3>
+                <div class="info-box yellow">
+                    <strong>No identified champion</strong> from previous outreach. The July 2023 meeting didn't result in internal advocacy.
+                </div>
+                
+                <h4>Best Champion Candidates</h4>
+                <ol>
+                    <li><strong>Michelle Nilsson</strong> - Most senior digital commerce role, long tenure, built the function</li>
+                    <li><strong>Robert Harclerode</strong> - Operational role, would use the platform daily, showed some engagement (auto-replies)</li>
+                </ol>
+            </div>
+            
+            <div class="card">
+                <h2>What's Changed Since Last Outreach</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Then (2023)</th>
+                            <th>Now (2026)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>No CEO digital mandate</td>
+                            <td>Brent Saunders mandated digital transformation</td>
+                        </tr>
+                        <tr>
+                            <td>No D2C platform</td>
+                            <td>Opal marketplace launched (October 2024)</td>
+                        </tr>
+                        <tr>
+                            <td>No Office of Digital Transformation</td>
+                            <td>Established with dedicated leadership</td>
+                        </tr>
+                        <tr>
+                            <td>John Ferris in EMEA</td>
+                            <td>John Ferris now President, Consumer</td>
+                        </tr>
+                        <tr>
+                            <td>Pre-composable commerce</td>
+                            <td>commercetools platform implemented</td>
+                        </tr>
+                        <tr>
+                            <td>LUMIFY original</td>
+                            <td>LUMIFY Preservative Free launched</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box blue">
+                    <strong>This context should inform outreach:</strong> Acknowledge that things have changed at B+L since previous conversations. The digital transformation mandate creates new urgency and budget allocation.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Competitor Intelligence</h2>
+                
+                <div class="info-box green">
+                    <strong>DSA Status: Greenfield Opportunity</strong><br>
+                    Despite $4.8B revenue and $100M+ advertising budget (70% digital), no DSA provider relationship has been identified.
+                </div>
+                
+                <p>This suggests either:</p>
+                <ul>
+                    <li>They've managed without dedicated DSA tooling</li>
+                    <li>Using manual processes or internal tools</li>
+                    <li>Gap that hasn't been prioritised until now</li>
+                </ul>
+                
+                <p>The timing is optimal given digital transformation mandate and recent platform investments.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Content to Reference</h2>
+                
+                <h3>Sector Landing Page</h3>
+                <a href="https://estorebrands.com/pharma-healthcare" target="_blank" class="content-link">
+                    <div class="link-title">Pharma & Healthcare</div>
+                    <div class="link-url">https://estorebrands.com/pharma-healthcare</div>
+                </a>
+                <p><em>When to use:</em> Email 2 or 3 as supporting resource. Position as: "We've written about the specific challenges healthcare brands face on the digital shelf - happy to share if useful"</p>
+                
+                <h3>Relevant Ignite Articles</h3>
+                <a href="https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics" target="_blank" class="content-link">
+                    <div class="link-title">Why Pharmaceutical and Healthcare Brands Need Specialised Digital Shelf Analytics</div>
+                    <div class="link-url">https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics</div>
+                </a>
+                <p><em>Primary article for Email 2.</em> Position as educational content, not sales collateral.</p>
+                
+                <a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026" target="_blank" class="content-link">
+                    <div class="link-title">Digital Shelf Analytics for Beauty & Personal Care Brands</div>
+                    <div class="link-url">https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026</div>
+                </a>
+                <p><em>Secondary article.</em> Only use if LUMIFY cosmetic line is the hook.</p>
+                
+                <h3>Feature Articles (Use Sparingly)</h3>
+                <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank" class="content-link">
+                    <div class="link-title">Introducing Content Benchmark</div>
+                    <div class="link-url">https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content</div>
+                </a>
+                <p><em>Use if conversation focuses on content quality/competitive benchmarking.</em></p>
+                
+                <a href="https://estorebrands.com/ignite/introducing-ai-business-answers" target="_blank" class="content-link">
+                    <div class="link-title">Introducing AI Business Answers</div>
+                    <div class="link-url">https://estorebrands.com/ignite/introducing-ai-business-answers</div>
+                </a>
+                <p><em>Use if contact shows interest in AI/automation. Aligns with B+L's digital transformation focus.</em></p>
+                
+                <div class="info-box yellow">
+                    <strong>Important:</strong> Don't force content into every email. Only include where it genuinely adds value and feels natural. Keep Email 1 conversational with no links.
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 3: RETAILER OVERVIEW -->
+        <div id="retailers" class="tab-content">
+            <div class="card">
+                <h2>Retailer Pattern Summary</h2>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">25-30</div>
+                        <div class="label">Est. Online Retailers Globally</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">50%</div>
+                        <div class="label">US Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">35%</div>
+                        <div class="label">European Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">High</div>
+                        <div class="label">Channel Diversity</div>
+                    </div>
+                </div>
+                
+                <div class="info-box blue">
+                    <strong>Channel Profile:</strong> Multi-channel across pharmacy, mass retail, specialist optical, Amazon, and D2C. NOT Amazon-dominant - balanced distribution across channels.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Identified Retailers by Region</h2>
+                
+                <div class="retailer-summary">
+                    <div class="retailer-region">
+                        <h4>🇺🇸 US Retailers (Primary)</h4>
+                        <ul class="retailer-list">
+                            <li>Amazon US</li>
+                            <li>Walmart</li>
+                            <li>Target</li>
+                            <li>CVS</li>
+                            <li>Walgreens</li>
+                            <li>Costco</li>
+                            <li>Rite Aid</li>
+                            <li>1-800 Contacts</li>
+                            <li>Kroger</li>
+                            <li>Sam's Club</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="retailer-region">
+                        <h4>🇬🇧 UK Retailers</h4>
+                        <ul class="retailer-list">
+                            <li>Boots</li>
+                            <li>Superdrug</li>
+                            <li>LloydsPharmacy</li>
+                            <li>Vision Direct UK</li>
+                            <li>Lenstore</li>
+                            <li>Feel Good Contacts</li>
+                            <li>Contactlenses.co.uk</li>
+                            <li>Alensa UK</li>
+                            <li>ASDA (Opticians/pharmacy)</li>
+                            <li>Amazon.co.uk</li>
+                            <li>Specsavers (private label supply)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="retailer-region">
+                        <h4>🇪🇺 Other European</h4>
+                        <ul class="retailer-list">
+                            <li>Amazon DE, FR, IT, ES</li>
+                            <li>DocMorris (Germany)</li>
+                            <li>Shop-Apotheke (Germany)</li>
+                            <li>Farmacias online (Spain)</li>
+                            <li>Various national pharmacy chains</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Notable Patterns</h2>
+                
+                <ul class="checklist">
+                    <li><strong>Strong pharmacy channel presence</strong> - Boots, CVS, Walgreens, LloydsPharmacy all carry B+L products</li>
+                    <li><strong>Specialist optical retailers well-represented</strong> - Vision Direct, Lenstore, 1-800 Contacts</li>
+                    <li><strong>Multi-channel, NOT Amazon-dominant</strong> - Products available across Amazon, pharmacy, mass retail, and specialist</li>
+                    <li><strong>UK market well-established</strong> - 100+ years of presence, multiple retailer relationships</li>
+                </ul>
+                
+                <h3>Critical Gaps</h3>
+                <ul class="checklist">
+                    <li class="warning"><strong>Premium beauty retailers</strong> - Limited presence in Sephora, Ulta (LUMIFY cosmetic line opportunity?)</li>
+                    <li class="warning"><strong>Some specialist lens retailers</strong> - May not cover all niche optical retailers</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Implementation Note</h2>
+                
+                <div class="info-box green">
+                    <strong>Time-to-value estimate: 4-6 weeks for UK/European markets</strong>
+                </div>
+                
+                <p>eStore's pharmacy and health/beauty retailer coverage in UK/Europe is strong. Boots, Superdrug, LloydsPharmacy, Amazon UK are all likely covered. Specialist optical retailers (Vision Direct, Lenstore) would need verification but many are standard e-commerce platforms.</p>
+                
+                <div class="info-box blue">
+                    <strong>Geographic Positioning:</strong> Lead with UK/European strength. For US coverage, be honest - "Our strength is UK and European coverage. For US, we'd want to have an honest conversation about what's possible."
+                </div>
+                
+                <p><em>Note: This is pattern recognition based on research. Detailed coverage checking against eStore_Retailer_Coverage_Master.csv should be completed before outreach if required.</em></p>
+            </div>
+        </div>
+        
+        <!-- TAB 4: KEY PEOPLE -->
+        <div id="contacts" class="tab-content">
+            <div class="card">
+                <h2>Historical Contacts</h2>
+                <p>These contacts have been engaged previously. Consider referencing previous conversations where appropriate.</p>
+                
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Todd Larue</div>
+                            <div class="contact-title">VP Sales U.S. & Canada, Consumer</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">Still at B+L</span>
+                            <span class="badge yellow">Multiple touches 2023</span>
+                        </div>
+                    </div>
+                    <p><strong>Previous engagement:</strong> Part of James Feeney's 2023 sequences. No response recorded.</p>
+                </div>
+                
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Mary Teryek</div>
+                            <div class="contact-title">VP Marketing Consumer Products</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">Still at B+L</span>
+                            <span class="badge yellow">Multiple touches 2023</span>
+                        </div>
+                    </div>
+                    <p><strong>Previous engagement:</strong> Part of James Feeney's 2023 sequences. No response recorded.</p>
+                </div>
+                
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Paul Ulloa</div>
+                            <div class="contact-title">Marketing & Sales Analytics/Insights Leader</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">Still at B+L</span>
+                            <span class="badge yellow">Multiple touches 2023</span>
+                        </div>
+                    </div>
+                    <p><strong>Previous engagement:</strong> Part of James Feeney's 2023 sequences. No response recorded.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+                <p>These are the people who will actually evaluate, implement, and use eStore. Target 3-4 as primary outreach contacts.</p>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#1 Michelle Nilsson</div>
+                            <div class="contact-title">Digital Commerce Executive Director, Consumer Division</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge yellow">Re-engagement</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Scottsdale, Arizona, USA</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/michelle-nilsson-👁️-052bbb56" target="_blank">View Profile</a></p>
+                    
+                    <h4>Background</h4>
+                    <ul>
+                        <li>16+ years at Bausch+Lomb with steady progression</li>
+                        <li>Previous: Target (Senior Business Analyst, HR roles)</li>
+                        <li>BA Economics & Psychology, St. Olaf College</li>
+                    </ul>
+                    
+                    <h4>Why She's the Right Contact</h4>
+                    <ul>
+                        <li>Most senior digital commerce role in Consumer Division</li>
+                        <li>"Digital Commerce" directly in title - owns the function eStore serves</li>
+                        <li>Consumer Division covers all OTC products (LUMIFY, Biotrue, renu, PreserVision)</li>
+                        <li>Target background means deep understanding of retail execution</li>
+                        <li>Built this function over her tenure - will understand the value</li>
+                    </ul>
+                    
+                    <h4>Specific Hooks</h4>
+                    <ul>
+                        <li>Her progression from Category Manager → E-Commerce → Executive Director shows she built this function</li>
+                        <li>New product launches (LUMIFY Preservative Free, Blink range) create monitoring urgency</li>
+                        <li>Consumer Division focus aligns perfectly with OTC digital shelf challenges</li>
+                    </ul>
+                    
+                    <div class="tone-box">
+                        <strong>Tone Guidance (American):</strong> Direct but not pushy. Get to the point quickly. Value efficiency and clarity. Don't over-explain - she's sophisticated.
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#2 Carlos A. Camacho</div>
+                            <div class="contact-title">Senior Manager IT, Global eCommerce Lead</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇧🇷 Brazilian</span>
+                            <span class="badge yellow">Re-engagement</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Windsor, Connecticut, USA</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/carlosalbertocamacho" target="_blank">View Profile</a></p>
+                    
+                    <h4>Background</h4>
+                    <ul>
+                        <li>BA Marketing & Computer Science, Eastern Connecticut State University</li>
+                        <li>Previous: Boston Scientific (Associate Director, Digital Commerce), Waters Corporation, McKesson Europe</li>
+                        <li>Member of B2B Online Conference Advisory Board</li>
+                        <li>Lived 14 years in Japan - truly international perspective</li>
+                    </ul>
+                    
+                    <h4>Why He's the Right Contact</h4>
+                    <ul>
+                        <li>Leads eCommerce Center of Excellence spanning North America, EMEA, LATAM, and APAC</li>
+                        <li>Technical/platform focus complements Michelle's commercial focus</li>
+                        <li>Thought leader who speaks at conferences about digital commerce</li>
+                        <li>McKesson Europe background shows European market familiarity</li>
+                    </ul>
+                    
+                    <h4>Specific Hooks</h4>
+                    <ul>
+                        <li>His EMEA scope makes European coverage positioning relevant</li>
+                        <li>Speaks publicly about helping sales teams see e-commerce as opportunity</li>
+                        <li>Passionate about CX and building e-commerce roadmaps</li>
+                    </ul>
+                    
+                    <div class="tone-box">
+                        <strong>Tone Guidance (Brazilian):</strong> Warm but professional. Brazilians tend to value relationship-building. His international experience (Japan, Europe) suggests adaptability. Focus on collaboration and partnership.
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#3 Robert Harclerode</div>
+                            <div class="contact-title">Senior Manager, Digital Commerce</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge orange">Re-engagement (auto-replies)</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Fort Mill, South Carolina, USA</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/robert-harclerode-62642a46/" target="_blank">View Profile</a></p>
+                    
+                    <h4>Background</h4>
+                    <ul>
+                        <li>Montclair State University education</li>
+                        <li>Long tenure at Bausch+Lomb in digital commerce roles</li>
+                        <li>Recent interest in AI-powered shopping (Stratably event attendance)</li>
+                    </ul>
+                    
+                    <h4>Key Responsibilities</h4>
+                    <ul>
+                        <li>eCommerce Content Manager</li>
+                        <li>D2C Manager (Opal marketplace)</li>
+                        <li>3PL Selling Manager</li>
+                        <li>Day-to-day digital shelf content operations</li>
+                    </ul>
+                    
+                    <h4>Why He's the Right Contact</h4>
+                    <ul>
+                        <li>Manages digital shelf content directly - core to eStore's offering</li>
+                        <li>D2C responsibility means Opal marketplace is his remit</li>
+                        <li>Operational role - would be a day-to-day user of eStore platform</li>
+                    </ul>
+                    
+                    <div class="tone-box">
+                        <strong>Tone Guidance (American):</strong> Practical and operational. Focus on solving real problems. He's previously received auto-replies - acknowledge the previous contact openly and position this as a fresh start.
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#4 Julie Crabb</div>
+                            <div class="contact-title">Senior Manager, eCommerce Media</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge grey">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Portland, Oregon, USA</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/julie-crabb/" target="_blank">View Profile</a></p>
+                    
+                    <h4>Background</h4>
+                    <ul>
+                        <li>Northeastern University education</li>
+                        <li>Previous: Amazon platform specialist at i-Health/DSM, Hawaiian Airlines, Epsilon, Johnson & Johnson</li>
+                        <li>12+ years digital marketing and eCommerce experience</li>
+                        <li>Attended GroceryShop 2025</li>
+                    </ul>
+                    
+                    <h4>Why She's the Right Contact</h4>
+                    <ul>
+                        <li>Amazon expertise highly relevant for marketplace digital shelf analytics</li>
+                        <li>Previous J&J experience in consumer health space - understands the category</li>
+                        <li>Retail media focus connects to digital shelf visibility</li>
+                    </ul>
+                    
+                    <h4>Specific Hooks</h4>
+                    <ul>
+                        <li>Retail media responsibility - digital shelf impacts media effectiveness</li>
+                        <li>J&J background means familiarity with OTC/healthcare digital commerce</li>
+                        <li>Posts about audience-first marketing and simplifying brand stories</li>
+                    </ul>
+                    
+                    <div class="tone-box">
+                        <strong>Tone Guidance (American):</strong> This is cold outreach - introduce eStore clearly upfront. Frame digital shelf analytics as supporting media ROI, not competing for budget.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+                <p>These senior leaders won't be hands-on but can provide air cover and budget approval. Use for escalation or reference.</p>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Devang Modi</div>
+                            <div class="contact-title">Vice President, Digital Strategy</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge grey">Strategic Influencer</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> New Jersey, USA</p>
+                    
+                    <h4>Background & Relevance</h4>
+                    <ul>
+                        <li>25+ years in global commercial excellence</li>
+                        <li>Architect of B+L's composable commerce transformation</li>
+                        <li>Built the commercetools platform in 4 months</li>
+                    </ul>
+                    
+                    <div class="info-box blue">
+                        <strong>Key Quote (CommerceNext 2024):</strong> "The CEO was looking for a solution to create the best eyecare company and the best customer experience... We can't wait six months, six years. We needed a scalable, flexible solution."
+                    </div>
+                    
+                    <p><strong>Use For:</strong> Escalation if operational contacts unresponsive, strategic buy-in conversations</p>
+                </div>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Manisha Narasimhan, Ph.D.</div>
+                            <div class="contact-title">Chief Corporate Development and Digital Officer</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge grey">C-Suite</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> New York, USA</p>
+                    
+                    <h4>Background & Relevance</h4>
+                    <ul>
+                        <li>PhD in molecular biology from NYU</li>
+                        <li>Former SVP at Allergan</li>
+                        <li>Co-founder of CEO Saunders' SPAC</li>
+                        <li>Reports directly to CEO</li>
+                    </ul>
+                    
+                    <div class="info-box blue">
+                        <strong>Key Quote (PM360):</strong> "At Bausch + Lomb, we're using AI across the business to drive real results... we built an omnichannel platform that delivers real-time insights and recommends next-best actions to our field teams."
+                    </div>
+                    
+                    <p><strong>Use For:</strong> C-suite escalation only, reference her statements in outreach to her reports</p>
+                </div>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">John Ferris</div>
+                            <div class="contact-title">President, Consumer</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge grey">Executive</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> New York City area</p>
+                    
+                    <h4>Why He's Relevant</h4>
+                    <ul>
+                        <li>Promoted January 2025</li>
+                        <li>Previously Global SVP Consumer & Pharma for EMEA</li>
+                        <li>Knows UK/European market dynamics from EMEA leadership</li>
+                        <li>Oversees entire Consumer business including Michelle Nilsson, Todd LaRue, Mary Teryek</li>
+                    </ul>
+                    
+                    <p><strong>Use For:</strong> Executive reference, escalation path, mention his EMEA background when positioning European coverage strength</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Executive Context (Reference Only)</h2>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">CEO Brent Saunders</div>
+                            <div class="contact-title">Chief Executive Officer</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge red">Do Not Contact Directly</span>
+                        </div>
+                    </div>
+                    
+                    <h4>Key Quotes for Reference in Outreach</h4>
+                    <p>From BCG Interview (March 2025):</p>
+                    <ul>
+                        <li>"We established an office of digital transformation and have had some really good early success"</li>
+                        <li>"We're using AI commercially as well in our CRM system for our sales reps"</li>
+                        <li>"We're looking at digital expansion for direct to consumer. We now have a digital platform in China, and just launched a digital platform called Opal in the US"</li>
+                        <li>"The next two years are probably going to be the most transformative with respect to using these technologies to improve productivity and efficiency inside the business"</li>
+                    </ul>
+                    
+                    <p><strong>Use For:</strong> Referencing CEO mandate for digital transformation in outreach to operational contacts</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                
+                <div class="contact-card skip">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Contact/Role Type</th>
+                                <th>Reason to Skip</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Surgical Division contacts</td>
+                                <td>Different business unit, not relevant to consumer digital shelf</td>
+                            </tr>
+                            <tr>
+                                <td>Professional/Practitioner marketing</td>
+                                <td>B2B focus, not retail digital shelf</td>
+                            </tr>
+                            <tr>
+                                <td>Regional LATAM contacts</td>
+                                <td>Previous outreach to wrong division (Bedoyecta is Grossman Labs, not B+L)</td>
+                            </tr>
+                            <tr>
+                                <td>Howard Soyfer</td>
+                                <td>Left company (now at Protective Industrial Products)</td>
+                            </tr>
+                            <tr>
+                                <td>Joseph Ponzo</td>
+                                <td>Left company (now at Tenpoint Therapeutics)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 5: DRAFT EMAIL SEQUENCES -->
+        <div id="emails" class="tab-content">
+            <div class="disclaimer">
+                <strong>⚠️ Important:</strong> These emails are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Always verify contact details and current circumstances before outreach.
+            </div>
+            
+            <div class="card">
+                <h2>Nationality-Based Tone Guidance</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>🇺🇸 American Contacts</h4>
+                        <p>Direct, efficient communication. Get to the point quickly. Value clarity and actionability. Confident but not arrogant.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>🇧🇷 Brazilian Contacts</h4>
+                        <p>Warm but professional. Relationship-building valued. Carlos's international experience (Japan, Europe) suggests adaptability to different styles.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact 1: Michelle Nilsson -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Michelle Nilsson</h3>
+                        <p>Digital Commerce Executive Director, Consumer Division</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇺🇸 American</span>
+                        <span class="badge yellow">Re-engagement</span>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-contact="michelle">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Digital shelf visibility for the Consumer Division</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00 AM MT (her time zone)</div>
+                        <div class="email-body">Michelle,
+
+I'm [SENDER NAME] from eStore - we help healthcare and consumer brands monitor product performance across online retailers. Things like availability, content accuracy, pricing, and search rankings.
+
+We reached out to Bausch+Lomb a couple of years ago, and I believe there was some contact with our team. A lot has changed since then - both for your business and for ours.
+
+On your side, the Opal marketplace and the broader digital transformation work suggest digital commerce is a real priority. On our side, we've evolved considerably - particularly around making data actionable rather than just reporting it.
+
+I'm curious whether the Consumer Division is thinking about how products like LUMIFY and PreserVision appear and perform across pharmacy and mass retail sites - things like whether content is accurate, whether products are in stock, how they rank in search. Or whether that's handled elsewhere.
+
+Would be interested to hear how you're currently approaching this.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Check if there's any LinkedIn activity from Michelle that suggests current priorities</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This acknowledges the previous contact without dwelling on it, then pivots to what's changed. The hook is the digital transformation context. American tone - direct but not pushy. The question at the end is specific and invites dialogue without assuming she has a problem.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Healthcare brands and the digital shelf - some thinking</div>
+                        <div class="email-timing">📅 Send timing: 5-7 days after Email 1, same time slot</div>
+                        <div class="email-body">Michelle,
+
+Following up on my earlier note. I wanted to share something that might be useful.
+
+We've written about the specific challenges healthcare brands face on the digital shelf - things like regulatory compliance affecting content, managing OTC products across pharmacy and mass retail, and the growing importance of retailer search rankings as consumers increasingly buy healthcare products online.
+
+Here's the article if it's of interest: https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics
+
+I mention it because Bausch+Lomb's portfolio spans quite a range - from contact lenses to LUMIFY to PreserVision. That breadth across different retailer types (pharmacy chains, mass retail, specialist optical) is exactly the kind of complexity we focus on.
+
+We work with several healthcare brands in Europe - Sanofi, Viatris, Pierre Fabre among others - and our strength is particularly in multi-market, multi-retailer environments.
+
+Let me know if any of this is relevant to what you're working on.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Only mention the client names if comfortable - they're all current clients</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This adds genuine value through thought leadership rather than repeating the pitch. Positions eStore's European strength naturally. The client references establish credibility without overselling. The close is non-assumptive.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: One more thought - European retailer performance</div>
+                        <div class="email-timing">📅 Send timing: 7-10 days after Email 2, same time slot</div>
+                        <div class="email-body">Michelle,
+
+One thing I didn't mention in my previous notes - given John Ferris's EMEA background, I wonder whether there's interest in how the Consumer portfolio performs across European retailers specifically.
+
+It's where we're strongest, and with Bausch+Lomb's presence across UK pharmacy (Boots, Superdrug) and European markets, there might be an angle worth exploring.
+
+Either way, I'd be curious to hear how the Consumer Division thinks about European versus US digital shelf performance - whether they're managed separately or as one global view.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify John Ferris is still President of Consumer before sending</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This adds a new angle (European focus) rather than just following up for the sake of it. The question at the end invites dialogue about their organisational structure. Positions eStore's strength without overselling.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact 2: Carlos A. Camacho -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Carlos A. Camacho</h3>
+                        <p>Senior Manager IT, Global eCommerce Lead</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇧🇷 Brazilian</span>
+                        <span class="badge yellow">Re-engagement</span>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-contact="carlos">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: eCommerce monitoring across EMEA and North America</div>
+                        <div class="email-timing">📅 Send timing: Tuesday, 9:00-10:00 AM ET</div>
+                        <div class="email-body">Carlos,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for healthcare and consumer brands. We help companies monitor how their products appear across online retailers: availability, content, pricing, search rankings.
+
+I understand you lead the eCommerce Center of Excellence spanning North America, EMEA, LATAM, and APAC. That kind of global scope is interesting to us because we specialise in multi-market environments - particularly across European retailers where we have deep coverage.
+
+I'm curious about something practical: when a product launches across multiple markets, how does your team currently track whether retailers are representing the content correctly? That's often where launches stumble - the gap between what should be live and what actually is across 20+ retailer sites.
+
+Would be interested to hear how you're approaching it.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Check Carlos's LinkedIn for recent posts about digital commerce - he's active and a thought leader</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This targets Carlos's global remit and technical/platform focus. The question about product launches is specific and demonstrates understanding of his world. The EMEA emphasis plays to eStore's strength. His Brazilian background and international experience suggest appreciation for multi-market complexity.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: How e-commerce leadership is changing in healthcare</div>
+                        <div class="email-timing">📅 Send timing: 6 days after Email 1, same time slot</div>
+                        <div class="email-body">Carlos,
+
+I mentioned in my previous note that we work with several healthcare brands. One pattern we're seeing is that e-commerce teams are being asked to do more with digital shelf data - not just monitor it, but act on it quickly.
+
+The shift from "here's your dashboard" to "here's what needs attention right now" is something we've invested heavily in. We've built AI-powered prioritisation into the platform so teams know what to fix and where.
+
+Given Bausch+Lomb's move to composable commerce (the commercetools implementation), I imagine there's appetite for tools that integrate well and deliver actionable insights rather than just data.
+
+We've put together some thinking on this for healthcare specifically: https://estorebrands.com/pharma-healthcare
+
+Not sure if this is relevant to your work on the IT/platform side, but thought it worth sharing.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify the commercetools implementation before sending</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This adds value by sharing an industry trend observation. References the AI capability without being salesy. The commercetools reference shows we've done our homework on their tech stack. Acknowledges we don't know if this is relevant to his specific role - honest and non-assumptive.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: API-first integration with composable commerce</div>
+                        <div class="email-timing">📅 Send timing: 7 days after Email 2, same time slot</div>
+                        <div class="email-body">Carlos,
+
+One more thought on the platform side. Given Bausch+Lomb's composable commerce architecture, you're probably thinking about how different tools integrate and share data.
+
+We've built eStore to be API-first for exactly this reason - so digital shelf data can flow into whatever systems teams are already using rather than requiring another dashboard to check.
+
+Curious whether that kind of integration is something the Center of Excellence is thinking about, or whether the focus is elsewhere right now.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>None specific - this is intentionally brief and technical</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This adds a new angle (API integration) that's relevant to his IT/platform role. The question invites dialogue about their current priorities without assuming we know what they are.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact 3: Robert Harclerode -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Robert Harclerode</h3>
+                        <p>Senior Manager, Digital Commerce</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇺🇸 American</span>
+                        <span class="badge orange">Re-engagement (auto-replies)</span>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-contact="robert">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Digital shelf content across your retail partners</div>
+                        <div class="email-timing">📅 Send timing: Wednesday, 8:30 AM ET</div>
+                        <div class="email-body">Robert,
+
+I'm [SENDER NAME] from eStore. We provide digital shelf analytics - helping brands monitor availability, content, pricing, and search rankings across online retailers.
+
+I can see we've reached out before over the past couple of years. A lot has changed at Bausch+Lomb since then - the Opal marketplace, the composable commerce platform, the digital transformation work. So I thought it might be worth a fresh start.
+
+Given your role managing digital shelf content and D2C, I'm curious how you're currently tracking product content accuracy across your retail partners. When you have flagship products like LUMIFY and PreserVision, is there a process for ensuring the right images, descriptions, and claims are live across Boots, CVS, Amazon, and others?
+
+It's the kind of operational challenge we help brands solve. We have particular expertise in European retailers if that's relevant to your remit.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Check his LinkedIn for recent activity - particularly any industry events. Verify current retailer distribution for LUMIFY.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This acknowledges the previous contact openly rather than pretending it didn't happen. The question about content accuracy is directly relevant to his "eCommerce Content Manager" responsibility. Mentioning specific retailers shows research. His operational role means he'd be a day-to-day user of the platform.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Content consistency across pharmacy and mass retail</div>
+                        <div class="email-timing">📅 Send timing: 6 days after Email 1, same time slot</div>
+                        <div class="email-body">Robert,
+
+Following up on my earlier note. I wanted to share something that might be relevant to your content management responsibilities.
+
+One challenge we see with healthcare and OTC brands is maintaining content consistency across different retailer types. What works for Amazon often doesn't match what's needed for pharmacy chains like CVS or Walgreens, or UK retailers like Boots and Superdrug.
+
+For a portfolio like Bausch+Lomb's - spanning contact lenses, lens care, eye drops, and vitamins - that complexity multiplies quickly. Different product categories, different retailer requirements, different markets.
+
+We've written about this specifically for healthcare brands: https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics
+
+Not sure if content consistency across retailer types is something you're working on, but thought it worth mentioning.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>None beyond what's included</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This speaks directly to his operational reality - he manages content across multiple retailer types. The portfolio breadth reference shows we understand the complexity. The article adds value without requiring action.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Quick question on D2C versus retail content</div>
+                        <div class="email-timing">📅 Send timing: 7 days after Email 2, same time slot</div>
+                        <div class="email-body">Robert,
+
+One thing I've been curious about - with your D2C responsibilities on Opal alongside the retail partner work, do you find the content requirements are quite different between the two?
+
+We see some brands treating them as separate workstreams and others trying to manage them together. Neither approach is obviously right, but the complexity is real.
+
+Would be interested to hear how Bausch+Lomb thinks about it.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>None - keep this brief</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This adds a new angle (D2C versus retail content) that's directly relevant to his dual responsibilities. The question is genuine and invites dialogue about how they're structured. No pressure, just curiosity.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact 4: Julie Crabb -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Julie Crabb</h3>
+                        <p>Senior Manager, eCommerce Media</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇺🇸 American</span>
+                        <span class="badge grey">Cold</span>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-contact="julie">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Digital shelf fundamentals and retail media ROI</div>
+                        <div class="email-timing">📅 Send timing: Tuesday, 9:00 AM PT</div>
+                        <div class="email-body">Julie,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for healthcare and consumer brands. We help companies monitor how their products appear across online retailers: availability, content, pricing, and search rankings.
+
+I'm reaching out because there's an interesting connection between retail media investment and digital shelf fundamentals that doesn't get enough attention. You can run the best Amazon campaign, but if the product page has poor content, wrong images, or low search rankings, the media spend underperforms.
+
+With Bausch+Lomb's portfolio - LUMIFY, PreserVision, the lens care range - I imagine there's significant retail media investment behind these brands. Curious whether you have insight into whether the underlying product content is supporting or undermining that spend.
+
+It's something we help healthcare brands understand. We work with Sanofi, Viatris, and others in the healthcare space, with particular strength in European markets.
+
+Would be interested to hear how you're currently thinking about this connection.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Check her LinkedIn for recent posts about retail media strategy. Her Johnson & Johnson background means she'll understand healthcare category nuances.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This is genuine cold outreach, so eStore is introduced clearly upfront. The hook connects to her specific responsibility (eCommerce media) and frames digital shelf analytics as supporting media ROI - not competing for budget. Her J&J background in consumer health makes the healthcare framing relevant.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Healthcare brands and the digital shelf</div>
+                        <div class="email-timing">📅 Send timing: 6 days after Email 1, same time slot</div>
+                        <div class="email-body">Julie,
+
+Following up on my earlier note about the connection between digital shelf fundamentals and retail media performance.
+
+We've written specifically about the challenges healthcare brands face online - things like regulatory content requirements, managing OTC products across pharmacy and mass retail, and the growing importance of retailer search rankings.
+
+Here's the article if useful: https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics
+
+I mention it because brands like LUMIFY sit in an interesting space - consumer marketing with healthcare regulatory requirements. The way the product appears on Amazon versus CVS versus Boots in the UK can be quite different, and tracking that at scale is complex.
+
+We have deep expertise in European retailers particularly, which may or may not be relevant depending on how much of your remit is US-focused.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Her GroceryShop 2025 attendance shows she's engaged with industry trends</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This adds value through thought leadership while connecting to her specific world (LUMIFY's dual consumer/healthcare nature). The European reference is honest positioning without overselling US capability.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Retail media measurement across retailers</div>
+                        <div class="email-timing">📅 Send timing: 7-10 days after Email 2, same time slot</div>
+                        <div class="email-body">Julie,
+
+One more thought on the retail media side. I'm curious whether you're able to measure media effectiveness consistently across different retailers, or whether each platform reports differently.
+
+It's something we hear about a lot - the challenge of understanding whether a campaign worked on Amazon versus Walmart versus the pharmacy retailers, when the data comes in different formats and at different times.
+
+Would be interested to hear how Bausch+Lomb approaches that.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>None - keep this brief and focused</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This adds a new angle (cross-retailer measurement) that's directly relevant to her media role. The question is genuine and invites dialogue about a real challenge. Positions eStore as understanding her world without pushing a solution.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Summary Table</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Title</th>
+                            <th>Relationship</th>
+                            <th>Nationality</th>
+                            <th>Primary Hook</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Michelle Nilsson</td>
+                            <td>Digital Commerce Executive Director</td>
+                            <td>Re-engagement</td>
+                            <td>🇺🇸 American</td>
+                            <td>Digital transformation context</td>
+                        </tr>
+                        <tr>
+                            <td>Carlos A. Camacho</td>
+                            <td>Senior Manager IT, Global eCommerce Lead</td>
+                            <td>Re-engagement</td>
+                            <td>🇧🇷 Brazilian</td>
+                            <td>Multi-market complexity</td>
+                        </tr>
+                        <tr>
+                            <td>Robert Harclerode</td>
+                            <td>Senior Manager, Digital Commerce</td>
+                            <td>Re-engagement</td>
+                            <td>🇺🇸 American</td>
+                            <td>Content management</td>
+                        </tr>
+                        <tr>
+                            <td>Julie Crabb</td>
+                            <td>Senior Manager, eCommerce Media</td>
+                            <td>Cold</td>
+                            <td>🇺🇸 American</td>
+                            <td>Retail media + digital shelf</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- TAB 6: OBJECTION HANDLING -->
+        <div id="objections" class="tab-content">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                
+                <div class="info-box green">
+                    <strong>Fit Level: 🟢 STRONG FIT</strong><br>
+                    Proceed with confident outreach using a consultative approach.
+                </div>
+                
+                <h3>Why We're Proceeding</h3>
+                <ul class="checklist">
+                    <li>Greenfield DSA opportunity - no incumbent identified</li>
+                    <li>Active digital transformation with CEO mandate</li>
+                    <li>Strong Healthcare/Pharma sector alignment</li>
+                    <li>Meaningful UK/European presence (100+ years in UK)</li>
+                    <li>Recent product launches create monitoring urgency</li>
+                    <li>Re-engagement opportunity with fresh angle</li>
+                </ul>
+                
+                <h3>Recommended Tone</h3>
+                <p><strong>Confident but Curious.</strong> This is a sophisticated company with active digital investment. Don't over-explain DSA basics. Ask smart questions rather than making assumptions. Position eStore as a peer, not a vendor pitching.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Common Objections & Responses</h2>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're already handling this internally"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "That makes sense - many brands start with internal processes, especially when the channel was smaller."</p>
+                        
+                        <p><strong>Reframe:</strong> "The question I'd ask is whether your current approach scales. With 25-30 retailers globally, products like LUMIFY and PreserVision across pharmacy, mass retail, and specialist optical, and new launches like LUMIFY Preservative Free - is the team able to track content accuracy and availability fast enough to act on it?"</p>
+                        
+                        <p><strong>Evidence:</strong> "We see healthcare brands hit a tipping point where internal processes can't keep pace with the complexity. The brands we work with - Sanofi, Viatris, Pierre Fabre - reached similar points."</p>
+                        
+                        <p><strong>Close:</strong> "Would it be useful to see how we'd approach your specific retailer landscape? No commitment - just to see if there's a gap worth addressing."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We've looked at DSA tools before and decided not to proceed"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "I saw in our records that we'd been in touch before, back in 2023. Fair to say that didn't go anywhere."</p>
+                        
+                        <p><strong>Reframe:</strong> "A lot has changed since then - both for Bausch+Lomb and for us. The Opal marketplace launch, the Office of Digital Transformation, the composable commerce platform - your digital commerce maturity has accelerated significantly."</p>
+                        
+                        <p><strong>Evidence:</strong> "On our side, we've invested heavily in making data actionable rather than just reporting it. The shift from 'here's your dashboard' to 'here's what needs attention right now' is something our healthcare clients have found valuable."</p>
+                        
+                        <p><strong>Close:</strong> "Would it be worth a fresh conversation given what's changed? Even if the answer is still no, at least it would be based on current circumstances."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"How many of our retailers can you actually monitor?"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Be Honest:</strong> "Good question, and I want to be transparent here. Our strength is UK and European retailers - that's where we have the deepest coverage and strongest expertise."</p>
+                        
+                        <p><strong>Specifics:</strong> "For your European retailers - Boots, Superdrug, LloydsPharmacy, Amazon UK, the major German pharmacy platforms - we have strong coverage. These are well within our existing infrastructure."</p>
+                        
+                        <p><strong>US Position:</strong> "For US retailers, we'd want to have an honest conversation about what's possible. We cover the major platforms but wouldn't claim the same depth as our European coverage."</p>
+                        
+                        <p><strong>Reframe:</strong> "Given John Ferris's EMEA background and Bausch+Lomb's 100+ years in the UK, there might be an angle starting with European markets where we can deliver value quickly - 4-6 weeks - and then assess US needs separately."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"This isn't a priority right now"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "Understood - there's always more to do than time allows."</p>
+                        
+                        <p><strong>Gentle Challenge:</strong> "Can I ask what is the priority? If it's the Opal marketplace, digital transformation, or new product launches - those all create digital shelf monitoring needs. LUMIFY Preservative Free launched in May, the Blink range in June - is there visibility into how those are performing across your retail partners?"</p>
+                        
+                        <p><strong>Evidence:</strong> "The CEO's comment about the next two years being 'the most transformative' suggests digital is a priority. If digital shelf visibility isn't on the radar yet, it might be worth a quick conversation to understand where it fits."</p>
+                        
+                        <p><strong>Close:</strong> "Happy to share a brief perspective on what we're seeing with other healthcare brands - no pitch, just context. Then you can decide if it's worth more time."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're focused on the US market"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "That makes sense - the US is your largest market."</p>
+                        
+                        <p><strong>Reframe:</strong> "I'm curious though - with John Ferris as President of Consumer, coming from his EMEA leadership role, is there increased focus on European performance? The UK operation has been running for over 100 years, and European markets represent a significant portion of international revenue."</p>
+                        
+                        <p><strong>Evidence:</strong> "We've found that brands often start with European markets where we're strongest, prove the value, and then expand. It's lower risk than trying to solve everything globally from day one."</p>
+                        
+                        <p><strong>Close:</strong> "Would it be worth exploring what European-focused visibility might look like? Even if US is the priority, understanding your options for EMEA could be useful."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Our PIM/Salsify handles this"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "PIM systems are essential - they're about getting content out to retailers."</p>
+                        
+                        <p><strong>Clarify the Difference:</strong> "Digital shelf analytics is about what's actually live on the retailer site after that content has been published. The gap between what you send and what appears - that's where issues happen. Wrong images, outdated descriptions, missing products, search ranking drops - PIM doesn't track those."</p>
+                        
+                        <p><strong>Evidence:</strong> "We work alongside PIM systems, not instead of them. The composable commerce architecture you've built with commercetools actually makes integration straightforward - we're API-first specifically because brands like you need tools that work together."</p>
+                        
+                        <p><strong>Close:</strong> "Would it be useful to see how eStore complements what you're already using? It's a different layer of visibility."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"What's the ROI?"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "Legitimate question. ROI in digital shelf analytics typically comes from three places."</p>
+                        
+                        <p><strong>Evidence:</strong></p>
+                        <ul>
+                            <li><strong>Recovered revenue:</strong> Fixing out-of-stocks and content issues that were losing sales. For a portfolio like yours, even small improvements across 25-30 retailers add up.</li>
+                            <li><strong>Time savings:</strong> Automating what your team currently does manually. How many hours does someone spend checking retailer sites each week?</li>
+                            <li><strong>Retail media efficiency:</strong> Making sure the $100M+ advertising budget performs better because the underlying product pages are optimised.</li>
+                        </ul>
+                        
+                        <p><strong>Close:</strong> "We'd typically want to understand your current process and pain points before quoting specific numbers. Would a discovery conversation make sense to size the opportunity?"</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We need to see a pilot first"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "That's a sensible approach for a company your size."</p>
+                        
+                        <p><strong>Offer Options:</strong> "We can do pilots in a few ways:</p>
+                        <ul>
+                            <li><strong>Geography-focused:</strong> Start with UK retailers only - Boots, Superdrug, Amazon UK - where we have strongest coverage</li>
+                            <li><strong>Brand-focused:</strong> Start with LUMIFY range or PreserVision only to limit scope</li>
+                            <li><strong>Time-limited:</strong> 60-90 day trial with defined success criteria</li>
+                        </ul>
+                        
+                        <p><strong>Close:</strong> "What would a successful pilot look like from your perspective? That would help us design something meaningful rather than just a demo."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Your competitor Alcon was a client - what happened?"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Be Honest:</strong> "You're right - Alcon is a lapsed client. I won't pretend otherwise."</p>
+                        
+                        <p><strong>Context (if known):</strong> "Without going into specifics, client relationships end for various reasons - budget cycles, organisational changes, strategic shifts. What I can say is that it demonstrates we understand the eye care category and the specific challenges healthcare brands face."</p>
+                        
+                        <p><strong>Reframe:</strong> "The more relevant question is whether we can deliver value for Bausch+Lomb specifically. Your digital commerce maturity, your retailer landscape, your geographic presence - those are what matter, not what happened with a different company."</p>
+                        
+                        <p><strong>Close:</strong> "Would it be useful to focus on your specific situation rather than what happened elsewhere?"</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Send me some information and I'll review it"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "Happy to - though I'd rather send something relevant to your situation than generic materials."</p>
+                        
+                        <p><strong>Qualify:</strong> "Can I ask a couple of quick questions first? What's the biggest pain point right now - is it content accuracy, availability tracking, competitive visibility, or something else? And which retailers matter most - the pharmacy chains, Amazon, the specialist optical sites?"</p>
+                        
+                        <p><strong>Offer Value:</strong> "I can send you our healthcare-specific overview, which covers what we're seeing with brands like Sanofi and Viatris. But even better, I could put together a brief perspective on your specific retailer landscape - what we'd monitor, what we'd look for. Would that be more useful?"</p>
+                        
+                        <p><strong>Close:</strong> "Either way, I'll follow up in a week or so to see if it sparked any questions."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                <ul>
+                    <li><strong>Never dismiss the objection</strong> - Acknowledge it genuinely before responding</li>
+                    <li><strong>Use evidence and specifics</strong> - Reference their business, not generic claims</li>
+                    <li><strong>Be honest about limitations</strong> - Especially geographic coverage</li>
+                    <li><strong>Offer flexibility</strong> - Pilots, phased approaches, geography-focused starts</li>
+                    <li><strong>Ask questions</strong> - Understand the root concern before responding</li>
+                    <li><strong>Don't over-explain</strong> - They're sophisticated; respect that</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>eStore Action Plan - Bausch+Lomb | January 2026</p>
+        <p>Created by James / eStore Sales Development</p>
+    </footer>
+    
+    <script>
+        // Tab Navigation
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active to clicked tab
+            event.target.classList.add('active');
+        }
+        
+        // Email Tab Navigation
+        document.querySelectorAll('.email-tabs').forEach(container => {
+            container.querySelectorAll('.email-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const emailNum = this.dataset.email;
+                    const sequence = this.closest('.email-sequence');
+                    
+                    // Remove active from sibling tabs
+                    container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                    
+                    // Add active to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all email contents in this sequence
+                    sequence.querySelectorAll('.email-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show corresponding email content
+                    sequence.querySelector(`.email-content[data-email="${emailNum}"]`).classList.add('active');
+                });
+            });
+        });
+        
+        // Objection Card Toggle
+        function toggleObjection(header) {
+            const card = header.closest('.objection-card');
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
