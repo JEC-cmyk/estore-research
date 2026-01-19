@@ -1,5 +1,6 @@
 [
     {"file": "bausch-lomb2", "name": "Bausch + Lomb"},
+    {"file": "bausch-lomb3", "name": "Bausch + Lomb (NEW)"},
     {"file": "estee-lauder", "name": "Estee Lauder"},
     {"file": "molson-coors4", "name": "Molson Coors"},
     {"file": "motorola-solutions", "name": "Motorola Solutions"},
