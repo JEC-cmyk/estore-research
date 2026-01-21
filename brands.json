@@ -3,6 +3,7 @@
     {"file": "bausch-lomb3", "name": "Bausch + Lomb (NEW)"},
     {"file": "estee-lauder", "name": "Estee Lauder"},
     {"file": "molson-coors4", "name": "Molson Coors"},
+    {"file": "molson-coors", "name": "Molson Coors (NEW)"},
     {"file": "motorola-solutions", "name": "Motorola Solutions"},
     {"file": "lg-electronics", "name": "LG Electronics"}
 ]
