@@ -1,0 +1,2497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Molson Coors - eStore Strategic Fit Assessment</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --estore-yellow: #ffba1c;
+            --estore-green: #22bb69;
+            --estore-light-blue: #68d7fa;
+            --estore-dark-blue: #1067db;
+            --estore-red: #f44f2f;
+            --estore-orange: #ff7a00;
+            --text-primary: #2c2c2c;
+            --text-secondary: #666;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-light: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-medium: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Figtree', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-light);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--estore-dark-blue) 0%, #0a4a9e 100%);
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: var(--estore-yellow);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .brand-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--estore-green);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .fit-badge.strong { background: var(--estore-green); }
+        .fit-badge.moderate { background: var(--estore-orange); }
+        .fit-badge.weak { background: var(--estore-red); }
+
+        /* Navigation Tabs */
+        .tabs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .tabs {
+            display: flex;
+            background: var(--bg-white);
+            border-radius: 12px 12px 0 0;
+            box-shadow: var(--shadow-light);
+            overflow-x: auto;
+            margin-top: -1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .tab {
+            flex: 1;
+            min-width: 150px;
+            padding: 1rem 1.5rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+        }
+
+        .tab:hover {
+            color: var(--estore-dark-blue);
+            background: rgba(16, 103, 219, 0.05);
+        }
+
+        .tab.active {
+            color: var(--estore-dark-blue);
+            background: var(--bg-white);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--estore-yellow);
+        }
+
+        /* Content Area */
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem 2rem;
+        }
+
+        .tab-content {
+            display: none;
+            background: var(--bg-white);
+            border-radius: 0 0 12px 12px;
+            box-shadow: var(--shadow-light);
+            padding: 2rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--estore-yellow);
+            display: inline-block;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-light);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Info Cards with Borders */
+        .info-card {
+            border-left: 4px solid var(--estore-dark-blue);
+            background: var(--bg-light);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1rem;
+        }
+
+        .info-card.success {
+            border-left-color: var(--estore-green);
+            background: rgba(34, 187, 105, 0.08);
+        }
+
+        .info-card.warning {
+            border-left-color: var(--estore-orange);
+            background: rgba(255, 122, 0, 0.08);
+        }
+
+        .info-card.danger {
+            border-left-color: var(--estore-red);
+            background: rgba(244, 79, 47, 0.08);
+        }
+
+        .info-card.highlight {
+            border-left-color: var(--estore-yellow);
+            background: rgba(255, 186, 28, 0.1);
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .data-table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .data-table tr:hover {
+            background: rgba(16, 103, 219, 0.03);
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .badge-confirmed {
+            background: rgba(34, 187, 105, 0.15);
+            color: #1a7a4c;
+        }
+
+        .badge-likely {
+            background: rgba(255, 186, 28, 0.2);
+            color: #8a6500;
+        }
+
+        .badge-unknown {
+            background: rgba(102, 102, 102, 0.15);
+            color: #555;
+        }
+
+        .badge-warm {
+            background: rgba(255, 122, 0, 0.15);
+            color: #cc5500;
+        }
+
+        .badge-cold {
+            background: rgba(104, 215, 250, 0.2);
+            color: #0066aa;
+        }
+
+        .badge-british {
+            background: rgba(16, 103, 219, 0.1);
+            color: var(--estore-dark-blue);
+        }
+
+        .badge-priority {
+            background: var(--estore-dark-blue);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Stat Boxes */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .stat-box {
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--estore-dark-blue);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        /* Lists */
+        ul.styled-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.styled-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul.styled-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--estore-dark-blue);
+            font-weight: bold;
+        }
+
+        ul.check-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.check-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ul.check-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--estore-green);
+            font-weight: bold;
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .contact-title {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-section {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .contact-section-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Email Sections */
+        .email-sequence {
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .email-sequence-header {
+            background: var(--estore-dark-blue);
+            color: white;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .email-sequence-header h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .email-sequence-header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .email-card {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .email-card:last-child {
+            border-bottom: none;
+        }
+
+        .email-header {
+            margin-bottom: 1rem;
+        }
+
+        .email-number {
+            display: inline-block;
+            background: var(--estore-yellow);
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .email-subject {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .email-timing {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .email-body {
+            background: var(--bg-light);
+            padding: 1.25rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            white-space: pre-wrap;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .email-notes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .email-note {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--estore-light-blue);
+        }
+
+        .email-note-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .email-note p, .email-note ul {
+            font-size: 0.9rem;
+        }
+
+        /* Disclaimer Box */
+        .disclaimer {
+            background: rgba(255, 186, 28, 0.15);
+            border: 1px solid var(--estore-yellow);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .disclaimer-title {
+            font-weight: 600;
+            color: #8a6500;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .disclaimer-content {
+            font-size: 0.95rem;
+            color: #5a4500;
+        }
+
+        /* Objection Cards */
+        .objection-card {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .objection-header {
+            background: var(--bg-light);
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .objection-question {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .objection-toggle {
+            color: var(--estore-dark-blue);
+            font-size: 1.5rem;
+            transition: transform 0.2s;
+        }
+
+        .objection-body {
+            padding: 1.25rem;
+            display: none;
+        }
+
+        .objection-card.open .objection-body {
+            display: block;
+        }
+
+        .objection-card.open .objection-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* Quotes */
+        blockquote {
+            border-left: 4px solid var(--estore-yellow);
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        /* Links */
+        a {
+            color: var(--estore-dark-blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Tone Guide Box */
+        .tone-guide {
+            background: linear-gradient(135deg, rgba(16, 103, 219, 0.05) 0%, rgba(104, 215, 250, 0.05) 100%);
+            border: 1px solid rgba(16, 103, 219, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tone-guide h4 {
+            color: var(--estore-dark-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        /* Content Links Section */
+        .content-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--bg-light);
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            transition: background 0.2s;
+        }
+
+        .content-link:hover {
+            background: rgba(16, 103, 219, 0.08);
+            text-decoration: none;
+        }
+
+        .content-link-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--estore-dark-blue);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .content-link-text {
+            flex: 1;
+        }
+
+        .content-link-title {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .content-link-url {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Decision Framework */
+        .decision-box {
+            background: linear-gradient(135deg, rgba(34, 187, 105, 0.1) 0%, rgba(34, 187, 105, 0.05) 100%);
+            border: 2px solid var(--estore-green);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .decision-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a7a4c;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem 1rem;
+            }
+
+            .brand-name {
+                font-size: 1.8rem;
+            }
+
+            .header-meta {
+                gap: 1rem;
+            }
+
+            .tab {
+                min-width: 120px;
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .tab-content {
+                padding: 1.5rem 1rem;
+            }
+
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .tabs {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+                box-shadow: none;
+                border: none;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="brand-name">Molson Coors Beverage Company</h1>
+            <p class="brand-subtitle">Strategic Fit Assessment &amp; Action Plan</p>
+            <div class="header-meta">
+                <div class="meta-item">
+                    <span class="fit-badge strong">🟢 STRONG FIT</span>
+                </div>
+                <div class="meta-item">
+                    <strong>Revenue:</strong>&nbsp;$11.6B (2024)
+                </div>
+                <div class="meta-item">
+                    <strong>Sector:</strong>&nbsp;Beverages &amp; Alcohol
+                </div>
+                <div class="meta-item">
+                    <strong>Research Date:</strong>&nbsp;January 2026
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="tabs-container">
+        <nav class="tabs">
+            <button class="tab active" data-tab="strategic-fit">Strategic Fit Assessment</button>
+            <button class="tab" data-tab="history">Our history with them</button>
+            <button class="tab" data-tab="retailers">Retailer Overview</button>
+            <button class="tab" data-tab="contacts">Key people?</button>
+            <button class="tab" data-tab="emails">Draft Email Sequences</button>
+            <button class="tab" data-tab="objections">Objection Handling</button>
+        </nav>
+    </div>
+
+    <div class="content-container">
+        <!-- TAB 1: Strategic Fit Assessment -->
+        <div class="tab-content active" id="strategic-fit">
+            <div class="section">
+                <h2 class="section-title">Strategic Fit Assessment</h2>
+                
+                <div class="decision-box">
+                    <div class="decision-title">🟢 STRONG FIT - Proceed with Confident Re-Engagement</div>
+                    <p>Molson Coors presents a strong strategic fit for eStore's digital shelf analytics services. The $11.6B beverage company is navigating CEO transition, executing major technology modernisation, and defending hard-won shelf space gains against AB InBev's counter-offensive. Current DSA relationships with Profitero (US) and e.fundamentals/CommerceIQ (UK) appear fragmented by region - creating potential for a consolidated platform approach.</p>
+                </div>
+
+                <h3 class="section-subtitle">Distribution Complexity &amp; Geographic Alignment</h3>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="stat-value">18+</div>
+                        <div class="stat-label">Confirmed Online Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">55%</div>
+                        <div class="stat-label">US Market</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">35%</div>
+                        <div class="stat-label">UK/Europe Market</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">Multi-channel</div>
+                        <div class="stat-label">NOT Amazon-dominant</div>
+                    </div>
+                </div>
+                
+                <div class="info-card success">
+                    <strong>European Presence:</strong> Strong - UK HQ in Burton upon Trent, Western Europe operations, CEE from Prague. This aligns well with eStore's UK and European retailer coverage strength.
+                </div>
+
+                <h3 class="section-subtitle">Competitive Intelligence: DSA Provider Usage</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Region</th>
+                            <th>Status</th>
+                            <th>Evidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Profitero</strong></td>
+                            <td>US/North America</td>
+                            <td><span class="badge badge-confirmed">CONFIRMED</span></td>
+                            <td>Brad Feinberg (VP Digital) praised on LinkedIn (2025); 2019 Business Wire customer list</td>
+                        </tr>
+                        <tr>
+                            <td><strong>e.fundamentals/CommerceIQ</strong></td>
+                            <td>UK/Western Europe</td>
+                            <td><span class="badge badge-confirmed">CONFIRMED</span></td>
+                            <td>2020 partnership; active case study citing 16:1 ROI; Jack Daniel quoted directly</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Edge by Ascential</strong></td>
+                            <td>N/A</td>
+                            <td><span class="badge badge-unknown">NOT CONFIRMED</span></td>
+                            <td>No evidence found - may be outdated CRM data</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-card highlight">
+                    <strong>Key Quote from e.fundamentals Partnership:</strong><br>
+                    <em>"They had tried some options before; none, however, were able to live up to the level of local market expertise"</em> - demonstrates willingness to switch vendors when solutions underperform.
+                </div>
+
+                <h3 class="section-subtitle">Switching Signals Identified</h3>
+                <ul class="check-list">
+                    <li><strong>Regional fragmentation</strong> - Profitero (US) and e.fundamentals (UK) operating separately creates consolidation opportunity</li>
+                    <li><strong>CEO transition</strong> - Rahul Goyal (CEO since October 2025) may trigger vendor evaluation</li>
+                    <li><strong>Contract age</strong> - e.fundamentals partnership is 5+ years old, likely approaching renewal</li>
+                    <li><strong>E-commerce growth</strong> - 45% YoY e-commerce growth (Q1 2025) increases need for sophisticated analytics</li>
+                    <li><strong>Previous eStore interest</strong> - Jenny Broddell indicated possible DSA RFP for 2026</li>
+                </ul>
+
+                <h3 class="section-subtitle">Sector Alignment</h3>
+                <div class="info-card success">
+                    <strong>STRONG ALIGNMENT:</strong> Beverages is one of eStore's five proven sectors with case study availability. Portfolio complexity (beer, cider, RTD, non-alc, energy, mixers) creates significant digital shelf monitoring requirements.
+                </div>
+
+                <p><strong>Portfolio Complexity Supporting DSA Need:</strong></p>
+                <ul class="styled-list">
+                    <li><strong>Beer:</strong> Coors Light, Miller Lite, Carling, Staropramen, Blue Moon, Doom Bar</li>
+                    <li><strong>Cider:</strong> Aspall, Rekorderlig, Carling Cider</li>
+                    <li><strong>RTD/Seltzers:</strong> Happy Thursday, Vizzy, Topo Chico Hard Seltzer, Simply Spiked</li>
+                    <li><strong>Non-alcoholic:</strong> Blue Moon NA, Peroni 0.0%, Coors Edge</li>
+                    <li><strong>Energy drinks:</strong> ZOA Energy (51% stake acquired October 2024)</li>
+                    <li><strong>Mixers:</strong> Fever-Tree (exclusive US rights from June 2025)</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Strategic Goal:</strong> Reach 25% of revenue from Beyond Beer by 2027 (up from ~18%) - this dramatically increases SKU complexity and digital shelf monitoring requirements across new categories.</p>
+
+                <h3 class="section-subtitle">Relationship History</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Relationship Type</td>
+                            <td><span class="badge badge-warm">WARM RE-ENGAGEMENT</span> (not cold outreach)</td>
+                        </tr>
+                        <tr>
+                            <td>Current/Lapsed Client</td>
+                            <td>Never converted - opportunity account</td>
+                        </tr>
+                        <tr>
+                            <td>Previous Engagement</td>
+                            <td>Multi-year engagement across UK, CEE, and North America</td>
+                        </tr>
+                        <tr>
+                            <td>RFP History</td>
+                            <td>ASDA Xpert proposal delivered 2025; decision deferred to 2026</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-subtitle">Market Dynamics: Strategic Timing</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Date</th>
+                            <th>Significance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>New CEO appointed</td>
+                            <td>October 2025</td>
+                            <td>Rahul Goyal - former UK CIO, technology-receptive</td>
+                        </tr>
+                        <tr>
+                            <td>Americas restructuring</td>
+                            <td>October 2025</td>
+                            <td>400 positions cut; savings to "technology that will boost productivity"</td>
+                        </tr>
+                        <tr>
+                            <td>New EMEA President</td>
+                            <td>January 2025</td>
+                            <td>Phil Whitehead - 18-year veteran, decision authority</td>
+                        </tr>
+                        <tr>
+                            <td>New Western Europe MD</td>
+                            <td>February 2025</td>
+                            <td>Simon Kerry - former CFO, ROI-focused</td>
+                        </tr>
+                        <tr>
+                            <td>ZOA Energy acquisition</td>
+                            <td>October 2024</td>
+                            <td>51% stake; portfolio expansion into energy drinks</td>
+                        </tr>
+                        <tr>
+                            <td>Fever-Tree partnership</td>
+                            <td>June 2025</td>
+                            <td>Exclusive US distribution rights; mixer category entry</td>
+                        </tr>
+                        <tr>
+                            <td>Madrí hits £1B sales</td>
+                            <td>December 2025</td>
+                            <td>UK innovation success requiring visibility defence</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-card warning">
+                    <strong>Competitive Pressure:</strong> AB InBev counter-offensive to recapture shelf space lost during Bud Light boycott. CEO stated spring 2024 shelf resets delivered "tens of thousands of cubic feet" of additional space. Defending these gains requires competitive intelligence and real-time monitoring.
+                </div>
+
+                <h3 class="section-subtitle">Synthesis &amp; Recommendation</h3>
+                <div class="card">
+                    <p><strong>Clear Statement:</strong> 🟢 <strong>STRONG FIT</strong> - Molson Coors is a high-priority opportunity with existing relationship foundation, strong sector alignment, and favourable timing indicators.</p>
+                    
+                    <p style="margin-top: 1rem;"><strong>Key Factors Driving Assessment:</strong></p>
+                    <ul class="styled-list">
+                        <li><strong>Confirmed sector alignment</strong> - Beverages is core eStore vertical; portfolio expansion creates growing complexity</li>
+                        <li><strong>Regional DSA fragmentation</strong> - Separate US/UK vendors creates consolidation opportunity</li>
+                        <li><strong>Active technology investment</strong> - o9, SAP, Palantir investments demonstrate appetite for digital tools</li>
+                        <li><strong>Shelf space defence urgency</strong> - AB InBev counter-offensive creates competitive intelligence need</li>
+                        <li><strong>New leadership window</strong> - CEO transition and regional changes create fresh evaluation opportunity</li>
+                        <li><strong>Previous eStore relationship</strong> - Existing engagement through Jenny Broddell provides warm entry point</li>
+                        <li><strong>Indicated RFP timing</strong> - Jenny suggested 2026 budget discussions and possible DSA RFP</li>
+                    </ul>
+
+                    <p style="margin-top: 1rem;"><strong>Recommended Approach:</strong> CONFIDENT RE-ENGAGEMENT</p>
+                    <ul class="styled-list">
+                        <li>Not cold outreach - leverage existing Jenny Broddell relationship</li>
+                        <li>Not overly consultative - they understand DSA value and have existing vendor relationships</li>
+                        <li>Position for formal evaluation/RFP rather than education-first approach</li>
+                    </ul>
+
+                    <p style="margin-top: 1rem;"><strong>Estimated Difficulty:</strong> MODERATE-HIGH</p>
+                    <ul class="styled-list">
+                        <li><strong>Challenge:</strong> Must displace or complement established e.fundamentals (UK) and Profitero (US)</li>
+                        <li><strong>Advantage:</strong> Regional fragmentation creates consolidation pitch; existing relationship provides warm entry</li>
+                        <li><strong>Lever:</strong> Reference their stated 16:1 ROI expectation from e.fundamentals - must match or exceed</li>
+                    </ul>
+                </div>
+
+                <h3 class="section-subtitle">Implementation Readiness</h3>
+                <div class="info-card success">
+                    <strong>Time-to-Value Estimate:</strong> 2-4 weeks for UK core retailers (high expected coverage)
+                    <ul class="styled-list" style="margin-top: 0.5rem;">
+                        <li>Strong fit with eStore's UK/European retailer coverage</li>
+                        <li>Major grocery/drinks retail is eStore's core coverage area</li>
+                        <li>Coverage confidence: HIGH for UK; MODERATE for broader Europe</li>
+                    </ul>
+                </div>
+
+                <div class="info-card warning">
+                    <strong>Critical Considerations:</strong>
+                    <ul class="styled-list" style="margin-top: 0.5rem;">
+                        <li><strong>ROI bar is high</strong> - They achieved 16:1 ROI with e.fundamentals; any proposal must demonstrate comparable or superior return</li>
+                        <li><strong>Timeline honesty required</strong> - Be realistic about implementation timeline if coverage gaps exist</li>
+                        <li><strong>Decision distributed</strong> - UK decision may not control US; focus on regional win first</li>
+                        <li><strong>Budget timing critical</strong> - Align with Q3 2026 budget planning cycle</li>
+                        <li><strong>Technology bandwidth</strong> - o9 implementation may limit appetite for additional technology decisions until H2 2025</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 1rem;"><strong>Optimal window:</strong> Q2-Q3 2026 - post o9 stabilisation, during 2027 budget planning</p>
+            </div>
+        </div>
+
+        <!-- TAB 2: Our History with Them -->
+        <div class="tab-content" id="history">
+            <div class="section">
+                <h2 class="section-title">Our History with Them</h2>
+
+                <h3 class="section-subtitle">Summary of Relationship History</h3>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="stat-value" style="font-size: 1.2rem;">Multi-year</div>
+                        <div class="stat-label">Engagement Duration</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" style="font-size: 1.2rem;">Opportunity</div>
+                        <div class="stat-label">Lifecycle Stage</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" style="font-size: 1.2rem;">3 Regions</div>
+                        <div class="stat-label">UK, CEE, North America</div>
+                    </div>
+                </div>
+
+                <div class="info-card highlight">
+                    <strong>Relationship Type:</strong> Long-standing, multi-year engagement across UK, CEE, and North America. Never converted - opportunity account.
+                    <br><br>
+                    <strong>Focus Areas:</strong> Digital shelf analytics (eStoreCheck), Content syndication (eStoreContent), ASDA Xpert (most recent UK focus)
+                </div>
+
+                <h3 class="section-subtitle">Previous Conversations &amp; Outcomes</h3>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">ASDA Xpert Proposal (UK, 2025)</div>
+                            <div class="card-subtitle">Most recent engagement</div>
+                        </div>
+                    </div>
+                    <ul class="styled-list">
+                        <li>Series of meetings and emails around ASDA Xpert proposal for beer category</li>
+                        <li>Focused on Carling SKU visibility, fulfilment, nil picks, beer category decline on Asda.com</li>
+                        <li>Detailed proposal and case studies delivered showing rapid ROI from early adopters</li>
+                        <li>Focus on search visibility, conversion, and availability</li>
+                    </ul>
+                    <div class="info-card success" style="margin-top: 1rem;">
+                        <strong>Outcome:</strong> Strong interest and positive feedback on demo and proposal; value recognised but decision deferred to 2026 budget/commercial discussions. Suggestion to revisit mid-February and possibly within broader DSA RFP.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">CEE eStoreContent &amp; eStoreCheck (2024)</div>
+                            <div class="card-subtitle">Central &amp; Eastern Europe engagement</div>
+                        </div>
+                    </div>
+                    <ul class="styled-list">
+                        <li>Multiple meetings with Pavlina Bursova and CEE team</li>
+                        <li>Scoped eStoreContent (content syndication) and eStoreCheck (retail monitoring)</li>
+                        <li>Detailed scope shared: markets, SKUs, retailer list, priority levels for ~30k budget</li>
+                        <li>Tailored proposal sent to Molson Coors Europe</li>
+                    </ul>
+                    <div class="info-card" style="margin-top: 1rem;">
+                        <strong>Outcome:</strong> Active opportunity at time of last update; proposal delivered with follow-up calls to refine scope and pricing.
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">UK eStore Proposal (Pre-ASDA Xpert, 2024)</div>
+                            <div class="card-subtitle">Digital shelf analytics discussion</div>
+                        </div>
+                    </div>
+                    <ul class="styled-list">
+                        <li>Extensive email dialogue with Jenny Broddell around UK &amp; CEE digital shelf analytics</li>
+                        <li>Jenny working internally with IT and global teams to understand existing platforms (Profitero, Edge) and where eStore fits</li>
+                    </ul>
+                    <div class="info-card" style="margin-top: 1rem;">
+                        <strong>Outcome:</strong> Progressing but dependent on global tooling decisions; remains open.
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Known Contacts &amp; Their Stance</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Role</th>
+                            <th>Stance</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Jenny Broddell</strong></td>
+                            <td>Off Trade Ecommerce Strategy Lead UK</td>
+                            <td><span class="badge badge-warm">WARM - Engaged</span></td>
+                            <td>Primary UK contact; positive on value but constrained by budget/timing; suggested 2026 revisit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pavlina Bursova</strong></td>
+                            <td>CEE Lead</td>
+                            <td><span class="badge badge-warm">WARM - Engaged</span></td>
+                            <td>Drove CEE scope; status uncertain after January 2025 leadership changes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adam</strong></td>
+                            <td>Team member (UK)</td>
+                            <td><span class="badge badge-warm">WARM</span></td>
+                            <td>Involved in demo access; works with Jenny</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Danni</strong></td>
+                            <td>Category team (UK)</td>
+                            <td><span class="badge badge-unknown">NEUTRAL</span></td>
+                            <td>Referenced in emails; category perspective</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-subtitle">Blockers Identified</h3>
+                <div class="info-card warning">
+                    <ul class="styled-list">
+                        <li><strong>Global contracts with existing vendors</strong> - Profitero, Edge, e.fundamentals already in place</li>
+                        <li><strong>Budget cycles</strong> - Year-end timing and JBP constraints delayed 2025 decision</li>
+                        <li><strong>Procurement/IT alignment</strong> - Need to coordinate across global teams</li>
+                        <li><strong>Existing data sources</strong> - Quantium and Profitero provide comparison/overlap</li>
+                        <li><strong>Technology implementation bandwidth</strong> - o9 Solutions go-live June 2025 may limit appetite</li>
+                    </ul>
+                </div>
+
+                <h3 class="section-subtitle">Timing Considerations</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Timing Factor</th>
+                            <th>Implication</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jenny's suggested revisit: Mid-February 2026</td>
+                            <td>Initial re-engagement window</td>
+                        </tr>
+                        <tr>
+                            <td>Possible DSA RFP: 2026</td>
+                            <td>Formal evaluation opportunity</td>
+                        </tr>
+                        <tr>
+                            <td>2026/2027 budget planning: Q3 2026</td>
+                            <td>Optimal window for formal proposal</td>
+                        </tr>
+                        <tr>
+                            <td>o9 Solutions stabilisation: H2 2025</td>
+                            <td>Technology decision bandwidth improves</td>
+                        </tr>
+                        <tr>
+                            <td>New leadership settling in: Q1-Q2 2025</td>
+                            <td>Simon Kerry (MD) and Phil Whitehead (President) establishing priorities</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-subtitle">Internal Champion Assessment</h3>
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Primary Champion: Jenny Broddell</div>
+                        </div>
+                    </div>
+                    <ul class="styled-list">
+                        <li>Has seen and appreciated eStore value proposition</li>
+                        <li>Constrained by budget/procurement but personally engaged</li>
+                        <li>Best positioned to advocate internally once timing aligns</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">Secondary Potential Champion: Jack Daniel</div>
+                        </div>
+                    </div>
+                    <ul class="styled-list">
+                        <li>Transformation Director role suggests technology evaluation authority</li>
+                        <li>Quoted positively about e.fundamentals partnership - values strategic support</li>
+                        <li>Could be complementary champion if engaged correctly</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <strong>Champion Development Approach:</strong>
+                    <ol style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                        <li>Re-engage Jenny Broddell with updated research and timing confirmation</li>
+                        <li>Explore Jack Daniel as parallel contact given transformation mandate</li>
+                        <li>Don't go above their heads without their endorsement</li>
+                        <li>Build case for internal advocacy with specific ROI projections</li>
+                    </ol>
+                </div>
+
+                <h3 class="section-subtitle">Competitor Intelligence (Confidence Levels)</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Confidence</th>
+                            <th>Region</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Profitero</strong></td>
+                            <td><span class="badge badge-confirmed">HIGH</span></td>
+                            <td>US/North America</td>
+                            <td><a href="https://www.businesswire.com/news/home/20190129005426/en/Profitero-Announces-Record-Year-of-Customer-Growth" target="_blank">Business Wire 2019</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>e.fundamentals/CommerceIQ</strong></td>
+                            <td><span class="badge badge-confirmed">HIGH</span></td>
+                            <td>UK/Western Europe</td>
+                            <td><a href="https://commerceiq.ai/case-studies/molson-coors-partners-with-e-fundamentals-to-help-drive-online-sales/" target="_blank">CommerceIQ Case Study</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quantium</strong></td>
+                            <td><span class="badge badge-likely">LIKELY</span></td>
+                            <td>Unknown</td>
+                            <td>HubSpot notes (Jenny Broddell mention)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Edge by Ascential</strong></td>
+                            <td><span class="badge badge-unknown">UNKNOWN</span></td>
+                            <td>N/A</td>
+                            <td>CRM data - may be outdated</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-subtitle">Content to Reference</h3>
+                <p>Use these links strategically in emails - typically Email 2 or 3, never Email 1:</p>
+
+                <a href="https://estorebrands.com/beverages-alcohol" target="_blank" class="content-link">
+                    <div class="content-link-icon">🍺</div>
+                    <div class="content-link-text">
+                        <div class="content-link-title">Beverages &amp; Alcohol Landing Page</div>
+                        <div class="content-link-url">estorebrands.com/beverages-alcohol</div>
+                    </div>
+                </a>
+
+                <a href="https://estorebrands.com/ignite/best-digital-shelf-analytics-tools-for-beverages-alcohol-brands" target="_blank" class="content-link">
+                    <div class="content-link-icon">📊</div>
+                    <div class="content-link-text">
+                        <div class="content-link-title">Best DSA Tools for Beverages &amp; Alcohol Brands</div>
+                        <div class="content-link-url">estorebrands.com/ignite/best-digital-shelf-analytics-tools...</div>
+                    </div>
+                </a>
+
+                <a href="https://estorebrands.com/ignite/asda-xpert-a-new-era-of-retail-collaboration" target="_blank" class="content-link">
+                    <div class="content-link-icon">🛒</div>
+                    <div class="content-link-text">
+                        <div class="content-link-title">ASDA Xpert: A New Era of Retail Collaboration</div>
+                        <div class="content-link-url">estorebrands.com/ignite/asda-xpert...</div>
+                    </div>
+                </a>
+
+                <div class="info-card" style="margin-top: 1rem;">
+                    <strong>How to Position Content Naturally:</strong>
+                    <ul class="styled-list" style="margin-top: 0.5rem;">
+                        <li>✅ "We've written about the specific challenges beverages brands face on the digital shelf - happy to share if useful."</li>
+                        <li>✅ "Our team has been researching digital shelf trends in beverages - I've linked an article below if you're interested in the broader context."</li>
+                        <li>❌ "Please read this article before we speak."</li>
+                        <li>❌ "Check out our website for more information."</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: Retailer Overview -->
+        <div class="tab-content" id="retailers">
+            <div class="section">
+                <h2 class="section-title">Retailer Overview</h2>
+
+                <div class="info-card">
+                    <strong>Note:</strong> This is a strategic overview of Molson Coors' retail distribution patterns, not a detailed retailer-by-retailer coverage analysis. The goal is to understand their distribution complexity and identify where eStore's strengths align.
+                </div>
+
+                <h3 class="section-subtitle">High-Level Retailer Summary</h3>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="stat-value">18+</div>
+                        <div class="stat-label">Confirmed Retailers (US &amp; UK)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">HIGH</div>
+                        <div class="stat-label">Channel Diversity</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">LOW</div>
+                        <div class="stat-label">Amazon Dependence</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">2-4 weeks</div>
+                        <div class="stat-label">Est. Time-to-Value (UK)</div>
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Geographic Breakdown</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Region</th>
+                            <th>Estimated Share</th>
+                            <th>Key Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>US Market</strong></td>
+                            <td>55% (~10+ retailers)</td>
+                            <td>Mass grocery, alcohol delivery, Instacart partnerships</td>
+                        </tr>
+                        <tr>
+                            <td><strong>UK/Europe</strong></td>
+                            <td>35% (~8+ retailers)</td>
+                            <td>Own DTC platform, all major grocers, online specialists</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Other</strong></td>
+                            <td>10%</td>
+                            <td>Canada, APAC</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-subtitle">US Retailers (10+ confirmed)</h3>
+                <div class="card">
+                    <ul class="styled-list">
+                        <li><strong>Mass Grocery:</strong> Walmart.com, Target.com, Costco online</li>
+                        <li><strong>Alcohol Delivery:</strong> Drizly (official DTC partner), Instacart, Total Wine, Minibar Delivery</li>
+                        <li><strong>Grocery via Instacart:</strong> Kroger, BevMo, Albertsons, Publix, Costco</li>
+                        <li><strong>Amazon US:</strong> Limited to non-alcoholic products and select markets</li>
+                    </ul>
+                </div>
+
+                <h3 class="section-subtitle">UK Retailers (8+ confirmed)</h3>
+                <div class="card">
+                    <ul class="styled-list">
+                        <li><strong>Own Platform:</strong> Revl (Molson Coors DTC - launched 2019)</li>
+                        <li><strong>Major Grocers:</strong> Tesco, Sainsbury's (managed as combined account), ASDA, Morrisons</li>
+                        <li><strong>Online Specialists:</strong> Ocado, Amazon UK, Co-op</li>
+                        <li><strong>Convenience/Wholesale:</strong> Booker, Bestway</li>
+                    </ul>
+                </div>
+
+                <h3 class="section-subtitle">Notable Patterns</h3>
+                <div class="info-card success">
+                    <ul class="styled-list">
+                        <li><strong>Multi-channel by design</strong> - Deliberate strategy to avoid platform dependence</li>
+                        <li><strong>Own DTC platform</strong> - Revl demonstrates e-commerce sophistication and investment</li>
+                        <li><strong>Strong UK grocery presence</strong> - Coverage across all major UK grocers</li>
+                        <li><strong>Instacart partnerships</strong> - Broad US grocery footprint through delivery aggregators</li>
+                        <li><strong>Alcohol delivery specialists</strong> - Drizly relationship (Coors Light #2 light lager on platform)</li>
+                    </ul>
+                </div>
+
+                <h3 class="section-subtitle">Critical Gaps</h3>
+                <div class="info-card warning">
+                    <ul class="styled-list">
+                        <li><strong>European coverage beyond UK:</strong> Less visibility into Germany, France, CEE retailer presence</li>
+                        <li><strong>Specialist alcohol retailers:</strong> Coverage of independent wine/beer merchants unclear</li>
+                        <li><strong>B2B/On-Trade digital:</strong> Pub/restaurant ordering platforms not assessed</li>
+                    </ul>
+                </div>
+
+                <h3 class="section-subtitle">Implementation Note</h3>
+                <div class="decision-box">
+                    <div class="decision-title">Strong Alignment with eStore Coverage</div>
+                    <ul class="styled-list">
+                        <li><strong>Time-to-value estimate:</strong> 2-4 weeks for UK core retailers (high expected coverage)</li>
+                        <li><strong>Strong alignment:</strong> Major grocery and drinks retail is eStore's core coverage area</li>
+                        <li><strong>Coverage confidence:</strong> HIGH for UK; MODERATE for broader Europe</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><em>Note: Full retailer-by-retailer coverage verification should be completed during proposal development.</em></p>
+                </div>
+
+                <h3 class="section-subtitle">Geographic Positioning</h3>
+                <div class="info-card highlight">
+                    <p><strong>For Molson Coors (Strong UK/Europe Presence):</strong></p>
+                    <p style="margin-top: 0.75rem;">✅ Lead with confidence:</p>
+                    <blockquote style="margin: 0.5rem 0;">"Our deepest coverage is across UK and European retailers - which aligns well with your Western Europe operations."</blockquote>
+                    <p style="margin-top: 0.75rem;">✅ Acknowledge US honestly:</p>
+                    <blockquote style="margin: 0.5rem 0;">"For your US market, we understand Profitero is well-established. Our focus would be strengthening your UK and European visibility."</blockquote>
+                    <p style="margin-top: 0.75rem;">❌ Don't:</p>
+                    <ul class="styled-list">
+                        <li>Position as US solution</li>
+                        <li>Oversell global coverage</li>
+                        <li>Ignore their existing vendor relationships</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: Key People -->
+        <div class="tab-content" id="contacts">
+            <div class="section">
+                <h2 class="section-title">Key People</h2>
+
+                <h3 class="section-subtitle">Historical Contacts (Previous eStore Engagement)</h3>
+                <p style="margin-bottom: 1rem;">These contacts have existing relationships with eStore - prioritise re-engagement:</p>
+
+                <div class="contact-card" style="border-left: 4px solid var(--estore-green);">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Jenny Broddell</div>
+                            <div class="contact-title">Off Trade Ecommerce Strategy Lead UK</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge badge-priority">#1 Priority</span>
+                            <span class="badge badge-warm">WARM</span>
+                            <span class="badge badge-british">🇬🇧 British</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Relationship Status</div>
+                        <p>Primary UK contact for eStore over multiple years. Directly involved in ASDA Xpert proposal evaluation. Suggested mid-February 2026 revisit and possible DSA RFP timing.</p>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Background</div>
+                        <p>Highly experienced FMCG Sales and Marketing professional. Primary UK contact for eStore over multiple years.</p>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Key Responsibilities</div>
+                        <ul class="styled-list">
+                            <li>Off-trade (retail) e-commerce strategy for UK market</li>
+                            <li>Digital shelf analytics vendor relationships</li>
+                            <li>ASDA and UK grocery e-commerce performance</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Specific Hooks</div>
+                        <ul class="styled-list">
+                            <li>Reference previous ASDA Xpert conversation and Carling nil picks data</li>
+                            <li>Ask about 2026 budget planning progress and DSA RFP timing</li>
+                            <li>Discuss how Madrí's £1bn success creates visibility defence needs</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Tone Guidance</div>
+                        <p>British - professional but warm. This is re-engagement, not cold outreach. Be direct about timing and value; she already understands eStore's proposition.</p>
+                    </div>
+                    <div class="contact-section">
+                        <p><a href="https://www.linkedin.com/in/jennybroddell/" target="_blank">LinkedIn Profile →</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Pavlina Bursova</div>
+                            <div class="contact-title">CEE Lead</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge badge-warm">WARM</span>
+                            <span class="badge badge-unknown">Status Uncertain</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Relationship Status</div>
+                        <p>Drove CEE scope discussions in 2024. Status uncertain after January 2025 leadership changes. Verify current role before re-engaging.</p>
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Primary Targets - Operational Decision-Makers</h3>
+                <p style="margin-bottom: 1rem;">These are the people who will evaluate, implement, and use eStore. Target 3-4 people at this level.</p>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Jack Daniel</div>
+                            <div class="contact-title">Transformation Director (formerly Director of Digital)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge badge-priority">#2 Priority</span>
+                            <span class="badge badge-cold">COLD</span>
+                            <span class="badge badge-british">🇬🇧 British</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Background</div>
+                        <ul class="styled-list">
+                            <li>Led Revl DTC platform launch for Molson Coors UK</li>
+                            <li>Previously Director of Digital - now elevated to Transformation Director</li>
+                            <li>Directly quoted in e.fundamentals partnership announcement</li>
+                            <li>Key architect of UK digital commerce strategy</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Why He's the Right Contact</div>
+                        <ul class="styled-list">
+                            <li>Direct ownership of digital commerce transformation</li>
+                            <li>Quoted in e.fundamentals case study - understands DSA value</li>
+                            <li>His quote reveals what he values: "strategic support from ex-retail and FMCG experts" beyond just data</li>
+                            <li>Transformation role suggests evaluation of current technology stack</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Specific Hooks</div>
+                        <ul class="styled-list">
+                            <li>Reference his e.fundamentals quote about "strategic support" - position eStore's consultative approach</li>
+                            <li>Discuss portfolio complexity (Beyond Beer expansion) creating new monitoring needs</li>
+                            <li>Explore transformation priorities under new leadership structure</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Key Quote</div>
+                        <blockquote>"Working with e.fundamentals means we get more than just data; they provide strategic support from ex-retail and FMCG experts."</blockquote>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Tone Guidance</div>
+                        <p>British - professional, avoid being too pushy. Don't quote him directly in emails - that feels presumptuous. Mirror his values in how you position eStore.</p>
+                    </div>
+                    <div class="contact-section">
+                        <p><a href="https://uk.linkedin.com/in/jackdaniel1" target="_blank">LinkedIn Profile →</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Hannah Norbury</div>
+                            <div class="contact-title">Marketing Director, Western Europe</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge badge-priority">#3 Priority</span>
+                            <span class="badge badge-cold">COLD</span>
+                            <span class="badge badge-british">🇬🇧 British</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Background</div>
+                        <ul class="styled-list">
+                            <li>20+ years marketing and commercial experience</li>
+                            <li>Oxford-educated</li>
+                            <li>Senior marketing leadership across Western Europe portfolio</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Why She's the Right Contact</div>
+                        <ul class="styled-list">
+                            <li>Marketing perspective on digital shelf performance</li>
+                            <li>Owns brand visibility and competitive positioning concerns</li>
+                            <li>Portfolio success (Madrí) creates visibility defence imperative</li>
+                            <li>Alternative angle if e-commerce/digital contacts unavailable</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Specific Hooks</div>
+                        <ul class="styled-list">
+                            <li>Reference Madrí's £1B success and need to defend visibility against competitor response</li>
+                            <li>Discuss how digital shelf visibility drives marketing effectiveness</li>
+                            <li>Explore content quality and consistency across retailers</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Tone Guidance</div>
+                        <p>British - professional and strategic. Frame conversations around brand protection and competitive intelligence rather than operational analytics.</p>
+                    </div>
+                    <div class="contact-section">
+                        <p><a href="https://www.linkedin.com/in/hannah-norbury-11b8319/" target="_blank">LinkedIn Profile →</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Kev Fawell</div>
+                            <div class="contact-title">UK and Ireland Sales Director</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge badge-priority">#4 Priority</span>
+                            <span class="badge badge-cold">COLD</span>
+                            <span class="badge badge-british">🇬🇧 British</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Background</div>
+                        <ul class="styled-list">
+                            <li>Previous experience at Weetabix and Kimberly-Clark</li>
+                            <li>Oversees both On-Trade and Off-Trade sales channels</li>
+                            <li>Quoted in January 2026 on stout category growth opportunity</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Why He's the Right Contact</div>
+                        <ul class="styled-list">
+                            <li>Sales perspective on availability and distribution gaps</li>
+                            <li>Off-trade channel directly relevant to digital shelf monitoring</li>
+                            <li>Nil picks and availability issues directly impact his sales targets</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Specific Hooks</div>
+                        <ul class="styled-list">
+                            <li>Reference Carling nil picks and availability issues from ASDA Xpert proposal</li>
+                            <li>Discuss shelf space defence against competitive pressure</li>
+                            <li>Explore how real-time availability data supports sales team effectiveness</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Tone Guidance</div>
+                        <p>British - direct and practical. Sales directors appreciate concrete data and revenue impact language. Lead with availability and lost sales angles.</p>
+                    </div>
+                    <div class="contact-section">
+                        <p><em>LinkedIn: Not found (RocketReach profile confirms role)</em></p>
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Secondary Targets - Strategic Influencers</h3>
+                <p style="margin-bottom: 1rem;">These senior leaders won't be hands-on but can provide air cover and budget approval. Reference their priorities to their direct reports; escalate to them after operational contacts are engaged.</p>
+
+                <div class="contact-card" style="background: var(--bg-light);">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Phil Whitehead</div>
+                            <div class="contact-title">President &amp; CEO, EMEA &amp; APAC</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge badge-unknown">REFERENCE ONLY</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Background</div>
+                        <ul class="styled-list">
+                            <li>18-year Molson Coors veteran</li>
+                            <li>Former European Supply Chain Director</li>
+                            <li>Chair of British Beer and Pub Association</li>
+                            <li>Led Madrí Excepcional launch - "most successful innovation in many years"</li>
+                            <li>New in role (January 2025)</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">How to Reference</div>
+                        <p>In emails to his direct reports: "With Phil Whitehead's focus on continued portfolio evolution, we believe digital shelf visibility becomes increasingly important..."</p>
+                        <p style="margin-top: 0.5rem;"><strong>Don't contact directly</strong> - too senior for initial outreach.</p>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">When to Escalate</div>
+                        <ul class="styled-list">
+                            <li>If Jenny Broddell or Jack Daniel conversations indicate executive sponsorship needed</li>
+                            <li>If RFP process requires senior stakeholder engagement</li>
+                            <li>After operational contacts have validated value proposition</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="contact-card" style="background: var(--bg-light);">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Simon Kerry</div>
+                            <div class="contact-title">Managing Director, Western Europe</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge badge-unknown">REFERENCE ONLY</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">Background</div>
+                        <ul class="styled-list">
+                            <li>13-year Molson Coors tenure</li>
+                            <li>Former EMEA CFO - finance background</li>
+                            <li>New in MD role (February 2025)</li>
+                            <li>CFO background means ROI-focused decision-making</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <div class="contact-section-title">How to Reference</div>
+                        <p>In emails: "We understand Simon Kerry's finance background brings rigorous ROI expectations to technology investments..."</p>
+                        <p style="margin-top: 0.5rem;">Emphasise 16:1 ROI benchmark from current e.fundamentals partnership. Position eStore as meeting or exceeding existing return expectations.</p>
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Executive Context (Reference Only - Do Not Contact)</h3>
+                <div class="info-card">
+                    <p><strong>Rahul Goyal - President &amp; CEO:</strong> CEO since October 2025. Former UK CIO - technology background. Strategy and transformation experience.</p>
+                    <p style="margin-top: 0.75rem;"><strong>How to Reference:</strong> "With Rahul Goyal's technology background and transformation focus, we believe Molson Coors is well-positioned to evaluate next-generation digital shelf analytics..."</p>
+                    <p style="margin-top: 0.5rem;"><em>Don't overuse - he's very new in role.</em></p>
+                </div>
+
+                <h3 class="section-subtitle">Contacts to Skip</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Role Type</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>On-Trade only roles</td>
+                            <td>Focus is off-trade/retail; on-trade (pubs) not directly relevant</td>
+                        </tr>
+                        <tr>
+                            <td>Supply chain/manufacturing</td>
+                            <td>Operational focus, not digital commerce decision-makers</td>
+                        </tr>
+                        <tr>
+                            <td>US-based contacts</td>
+                            <td>eStore strength is UK/Europe; US is Profitero territory</td>
+                        </tr>
+                        <tr>
+                            <td>Junior marketing roles</td>
+                            <td>Below decision-making authority</td>
+                        </tr>
+                        <tr>
+                            <td>Procurement (initially)</td>
+                            <td>Engage after operational validation; they execute, don't evaluate</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 5: Draft Email Sequences -->
+        <div class="tab-content" id="emails">
+            <div class="section">
+                <h2 class="section-title">Draft Email Sequences</h2>
+
+                <div class="disclaimer">
+                    <div class="disclaimer-title">⚠️ Important: Review Before Sending</div>
+                    <div class="disclaimer-content">
+                        <p>These emails are high-quality starting points, not final send-ready copy. Before sending:</p>
+                        <ol style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                            <li>Verify all details - Check LinkedIn for current titles and any recent changes</li>
+                            <li>Personalise further - Add any recent interactions or specific context</li>
+                            <li>Check timing - Confirm the suggested send timing works for your schedule</li>
+                            <li>Replace [SENDER NAME] placeholder with your actual name</li>
+                            <li>Review tone - Ensure it matches your natural communication style</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="tone-guide">
+                    <h4>🇬🇧 Nationality-Based Tone Guidance</h4>
+                    <p><strong>All contacts are British - apply these principles:</strong></p>
+                    <ul class="styled-list" style="margin-top: 0.5rem;">
+                        <li>Professional but warmer than American style</li>
+                        <li>Some dry humour is acceptable if natural</li>
+                        <li>Avoid overly casual language</li>
+                        <li>Don't be too direct or pushy - British preference for softer approach</li>
+                        <li>Questions are better than assertions</li>
+                    </ul>
+                    <p style="margin-top: 1rem;"><strong>Strong Fit positioning applied throughout:</strong></p>
+                    <ul class="styled-list" style="margin-top: 0.5rem;">
+                        <li>Confident but not arrogant</li>
+                        <li>Reference specific research findings</li>
+                        <li>Don't over-explain what DSA is</li>
+                        <li>Acknowledge existing vendor relationships honestly</li>
+                        <li>Lead with UK/European strength</li>
+                    </ul>
+                </div>
+
+                <!-- Contact 1: Jenny Broddell -->
+                <div class="email-sequence">
+                    <div class="email-sequence-header">
+                        <h3>Jenny Broddell</h3>
+                        <p>Off Trade Ecommerce Strategy Lead UK | <span class="badge badge-warm" style="background: rgba(255,255,255,0.2); color: white;">WARM - Re-engagement</span></p>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 1</span>
+                            <div class="email-subject">Subject: Following up - February timing</div>
+                            <div class="email-timing">📅 Send: Tuesday or Wednesday, 9:00-10:00 AM GMT</div>
+                        </div>
+                        <div class="email-body">Hi Jenny,
+
+I hope you're well. You mentioned back in December that February might be a better time to revisit the ASDA Xpert conversation - wanted to check whether that's still the case.
+
+eStore provides digital shelf analytics for consumer brands - we've been talking with Molson Coors about how our ASDA partnership could help with availability and search performance for the beer portfolio. The Carling nil picks data we shared caught some attention at the time.
+
+I'm curious whether anything has shifted in your thinking since we last spoke. The portfolio expansion you're managing - with ZOA Energy and Fever-Tree now in the mix - seems like it would add complexity to how you monitor performance across retailers.
+
+No rush, but would be good to understand where things stand.
+
+Best,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note">
+                                <div class="email-note-title">Customisation Notes</div>
+                                <ul class="styled-list">
+                                    <li>Verify Jenny's current title on LinkedIn before sending</li>
+                                    <li>Check HubSpot for any recent activity or contact from Molson Coors</li>
+                                    <li>If you have specific nil picks data from the original proposal, consider referencing exact figures</li>
+                                </ul>
+                            </div>
+                            <div class="email-note">
+                                <div class="email-note-title">Strategy Notes</div>
+                                <p>This email references the existing relationship directly, mentions the specific timing Jenny suggested, and uses the portfolio expansion (ZOA, Fever-Tree) as a reason the conversation is worth revisiting. It's low-pressure and positions us as checking in rather than pushing. The eStore introduction is brief because she already knows who we are.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 2</span>
+                            <div class="email-subject">Subject: Beyond Beer and digital shelf complexity</div>
+                            <div class="email-timing">📅 Send: 5-7 days after Email 1 (Tuesday-Thursday, 9:00-10:00 AM GMT)</div>
+                        </div>
+                        <div class="email-body">Hi Jenny,
+
+One thing I've been thinking about since we last spoke - the Beyond Beer strategy seems to be accelerating. The 25% revenue target by 2027 is ambitious, and it means you're now monitoring performance across categories with quite different dynamics - beer, cider, energy drinks, mixers.
+
+I'd imagine the analytics approach that works for Carling doesn't translate directly to how you'd monitor Fever-Tree positioning in the mixer aisle, or ZOA against established energy brands.
+
+We've put together some thinking on how beverages brands are approaching this complexity - I've linked it below if useful:
+
+https://estorebrands.com/ignite/best-digital-shelf-analytics-tools-for-beverages-alcohol-brands
+
+Curious whether you're finding the current setup handles multi-category monitoring well, or whether that's creating challenges.
+
+Best,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note">
+                                <div class="email-note-title">Customisation Notes</div>
+                                <ul class="styled-list">
+                                    <li>Check for any recent news about Beyond Beer progress or portfolio updates</li>
+                                    <li>If Jenny has mentioned specific categories in previous conversations, reference those</li>
+                                </ul>
+                            </div>
+                            <div class="email-note">
+                                <div class="email-note-title">Strategy Notes</div>
+                                <p>This email adds genuine new value by exploring a different angle - portfolio complexity rather than ASDA-specific performance. The content link is positioned as "if useful" rather than required reading. The question at the end is specific and shows genuine curiosity about their current situation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 3</span>
+                            <div class="email-subject">Subject: AB InBev shelf space moves</div>
+                            <div class="email-timing">📅 Send: 5-7 days after Email 2 (Tuesday-Thursday, 9:00-10:00 AM GMT)</div>
+                        </div>
+                        <div class="email-body">Hi Jenny,
+
+Different angle - I'm curious how you're thinking about the competitive intelligence side of things.
+
+The shelf space gains from the 2024 resets were significant. But AB InBev isn't sitting still, and Madrí's success at £1 billion in UK sales will have made it a target. Defending that position requires knowing when and where competitors are making moves - promotional activity, search positioning, content changes.
+
+I know you've been working with e.fundamentals for a while now. Is that giving you the competitive visibility you need, or is there a gap in how you're tracking AB InBev's response?
+
+Either way, I'd be interested to hear how Molson Coors thinks about competitive monitoring versus internal performance tracking. They often require different approaches.
+
+Best,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note">
+                                <div class="email-note-title">Customisation Notes</div>
+                                <ul class="styled-list">
+                                    <li>Check recent news for any specific AB InBev competitive moves in UK market</li>
+                                    <li>If there's recent trade press about Madrí performance, consider referencing</li>
+                                </ul>
+                            </div>
+                            <div class="email-note">
+                                <div class="email-note-title">Strategy Notes</div>
+                                <p>This email introduces a genuinely new angle - competitive intelligence - rather than retreading previous ground. It acknowledges the e.fundamentals relationship honestly and asks a direct question about whether it's meeting their needs. The closing shows curiosity about their approach rather than offering to step back. References specific research findings (shelf space gains, Madrí £1B).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact 2: Jack Daniel -->
+                <div class="email-sequence">
+                    <div class="email-sequence-header">
+                        <h3>Jack Daniel</h3>
+                        <p>Transformation Director (formerly Director of Digital) | <span class="badge badge-cold" style="background: rgba(255,255,255,0.2); color: white;">COLD</span></p>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 1</span>
+                            <div class="email-subject">Subject: Digital shelf analytics and transformation priorities</div>
+                            <div class="email-timing">📅 Send: Tuesday or Wednesday, 9:00-10:00 AM GMT</div>
+                        </div>
+                        <div class="email-body">Hi Jack,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer brands, helping them monitor and optimise how their products appear across online retailers. Things like availability, content accuracy, pricing, and search rankings.
+
+I wanted to reach out because your Transformation Director role suggests you're evaluating the technology stack, and digital shelf analytics is one of those categories where the landscape has shifted quite a bit over the past couple of years.
+
+I'm curious whether the current setup is delivering what you need, particularly as the portfolio expands. Managing digital shelf performance for beer is one thing; adding energy drinks and mixers seems like it would require a different kind of capability.
+
+Would be interested to understand how you're thinking about this space.
+
+Best,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note">
+                                <div class="email-note-title">Customisation Notes</div>
+                                <ul class="styled-list">
+                                    <li>Verify Jack's current title on LinkedIn - he may have changed roles</li>
+                                    <li>Check if there's any recent news about Molson Coors technology initiatives</li>
+                                </ul>
+                            </div>
+                            <div class="email-note">
+                                <div class="email-note-title">Strategy Notes</div>
+                                <p>This email introduces eStore clearly (required for cold outreach), uses specific DSA language (availability, content accuracy, pricing, search rankings) rather than vague "visibility" terms, and connects to his transformation role. The portfolio expansion hook is concrete. We avoid referencing his e.fundamentals quote directly - that would feel presumptuous.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 2</span>
+                            <div class="email-subject">Subject: Beyond data - the consultative side</div>
+                            <div class="email-timing">📅 Send: 5-7 days after Email 1 (Tuesday-Thursday, 9:00-10:00 AM GMT)</div>
+                        </div>
+                        <div class="email-body">Hi Jack,
+
+One thing I wanted to mention - we've seen a shift in what brands expect from digital shelf analytics providers. The platforms that just surface data without helping you act on it are becoming less useful as the category matures.
+
+We've invested heavily in making eStore more actionable - AI-powered recommendations, competitive benchmarking, and a team of ex-retail and FMCG specialists who work with clients on strategic priorities rather than just providing dashboards.
+
+I've linked some thinking we've published on how beverages brands are approaching this:
+
+https://estorebrands.com/ignite/best-digital-shelf-analytics-tools-for-beverages-alcohol-brands
+
+Curious whether actionability is something you're finding challenging with your current setup, or whether that's working well.
+
+Best,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note">
+                                <div class="email-note-title">Customisation Notes</div>
+                                <ul class="styled-list">
+                                    <li>If Jack's LinkedIn shows specific transformation projects, consider referencing</li>
+                                    <li>Check for any Molson Coors digital transformation announcements</li>
+                                </ul>
+                            </div>
+                            <div class="email-note">
+                                <div class="email-note-title">Strategy Notes</div>
+                                <p>This email mirrors the language Jack used in his e.fundamentals quote ("strategic support from ex-retail and FMCG experts") without directly quoting him. It positions eStore's consultative approach as differentiated and adds genuine content value. The question is direct and invites honest feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 3</span>
+                            <div class="email-subject">Subject: ASDA Xpert and verified retailer data</div>
+                            <div class="email-timing">📅 Send: 5-7 days after Email 2 (Tuesday-Thursday, 9:00-10:00 AM GMT)</div>
+                        </div>
+                        <div class="email-body">Hi Jack,
+
+Different angle - I wanted to mention something we've been developing that's relevant to how Molson Coors works with UK grocers.
+
+We have an exclusive partnership with ASDA called ASDA Xpert - it gives us access to verified first-party data rather than scraped approximations. For beer category performance, that means accurate availability data, search rankings, and promotional insights direct from the retailer.
+
+We shared some of this data with Jenny Broddell's team - specifically around Carling availability gaps and nil picks. It highlighted issues that weren't visible through standard monitoring.
+
+I'm curious whether verified retailer data is something that would be valuable in your transformation priorities, or whether the current approach is meeting your needs.
+
+https://estorebrands.com/ignite/asda-xpert-a-new-era-of-retail-collaboration
+
+Best,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note">
+                                <div class="email-note-title">Customisation Notes</div>
+                                <ul class="styled-list">
+                                    <li>Check HubSpot for specific details from the Jenny Broddell/Carling conversation</li>
+                                    <li>If there's a specific nil picks figure, consider including it</li>
+                                </ul>
+                            </div>
+                            <div class="email-note">
+                                <div class="email-note-title">Strategy Notes</div>
+                                <p>This email introduces a genuinely new angle (ASDA Xpert) that hasn't been mentioned before. It references the existing Jenny Broddell relationship to demonstrate we've been working with Molson Coors already. The closing asks a specific question and ends with curiosity rather than offering to step back.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact 3: Hannah Norbury -->
+                <div class="email-sequence">
+                    <div class="email-sequence-header">
+                        <h3>Hannah Norbury</h3>
+                        <p>Marketing Director, Western Europe | <span class="badge badge-cold" style="background: rgba(255,255,255,0.2); color: white;">COLD</span></p>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 1</span>
+                            <div class="email-subject">Subject: Madrí and digital shelf visibility</div>
+                            <div class="email-timing">📅 Send: Tuesday or Wednesday, 9:00-10:00 AM GMT</div>
+                        </div>
+                        <div class="email-body">Hi Hannah,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer brands, helping them monitor how products appear and perform across online retailers. Things like whether content is accurate, whether products are in stock, how they rank in search, and what competitors are doing.
+
+I wanted to reach out because Madrí's success - £1 billion in UK sales - is remarkable, and success at that scale tends to attract competitive attention. Defending that position online requires knowing how Madrí is being represented across retailers and how competitors are responding.
+
+I'm curious how the marketing team thinks about digital shelf performance. Is that something you're actively monitoring, or is it more in the e-commerce team's remit?
+
+Would be interested to understand how it connects to your broader brand strategy.
+
+Best,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note">
+                                <div class="email-note-title">Customisation Notes</div>
+                                <ul class="styled-list">
+                                    <li>Check for recent Madrí marketing campaigns or announcements</li>
+                                    <li>Verify Hannah's current title and any recent role changes</li>
+                                </ul>
+                            </div>
+                            <div class="email-note">
+                                <div class="email-note-title">Strategy Notes</div>
+                                <p>This email introduces eStore clearly with specific DSA language, uses the Madrí success as a concrete hook, and asks a genuine question about how marketing and e-commerce responsibilities intersect. The framing around "defending success" is relevant to a marketing leader's concerns.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 2</span>
+                            <div class="email-subject">Subject: Brand consistency across online retailers</div>
+                            <div class="email-timing">📅 Send: 5-7 days after Email 1 (Tuesday-Thursday, 9:00-10:00 AM GMT)</div>
+                        </div>
+                        <div class="email-body">Hi Hannah,
+
+Following up with a slightly different angle - content consistency.
+
+When you're managing a premium brand like Madrí across multiple retailers, the way it's presented online matters. Different retailers often display different images, descriptions, or product information. Over time, these inconsistencies can dilute brand positioning.
+
+We've written about the specific challenges beverages brands face on the digital shelf - the link below covers some of the content management challenges in particular:
+
+https://estorebrands.com/beverages-alcohol
+
+I'd be curious to know whether content consistency across retailers is something you're actively managing, or whether it's more of a "fix it when we spot it" situation. Most brands we speak to fall somewhere in between.
+
+Best,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note">
+                                <div class="email-note-title">Customisation Notes</div>
+                                <ul class="styled-list">
+                                    <li>If there's a specific retailer where Madrí content appears inconsistent, could reference</li>
+                                    <li>Check if Hannah has posted about brand consistency topics on LinkedIn</li>
+                                </ul>
+                            </div>
+                            <div class="email-note">
+                                <div class="email-note-title">Strategy Notes</div>
+                                <p>This email explores a different angle (content consistency) that's directly relevant to a marketing director's concerns. It links to the sector landing page rather than the longer article - more appropriate for marketing context. The question at the end is open and non-assumptive.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 3</span>
+                            <div class="email-subject">Subject: How competitors are positioning against Madrí</div>
+                            <div class="email-timing">📅 Send: 5-7 days after Email 2 (Tuesday-Thursday, 9:00-10:00 AM GMT)</div>
+                        </div>
+                        <div class="email-body">Hi Hannah,
+
+One more angle I wanted to explore - competitive positioning.
+
+Madrí's growth will have competitors paying attention. Understanding how they're responding - their promotional intensity, how they're positioning against Madrí in search, whether they're copying successful content approaches - requires a different kind of monitoring than tracking your own performance.
+
+We've developed a competitive benchmarking capability that lets brands see how competitors are performing on the digital shelf in real time. For a brand defending significant market share, that intelligence can be valuable.
+
+I'd be interested to understand how Molson Coors currently thinks about competitive intelligence in the digital space. Is it something you're actively tracking, or more of a blind spot?
+
+Best,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note">
+                                <div class="email-note-title">Customisation Notes</div>
+                                <ul class="styled-list">
+                                    <li>Check for any recent competitor activity against Madrí (new launches, campaigns)</li>
+                                    <li>If there's specific competitive intelligence from the research, could reference</li>
+                                </ul>
+                            </div>
+                            <div class="email-note">
+                                <div class="email-note-title">Strategy Notes</div>
+                                <p>This email introduces competitive benchmarking as a genuinely new angle. It frames the question around Madrí's success attracting competitive attention, which is relevant to Hannah's marketing remit. The closing asks a direct question and ends with curiosity.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact 4: Kev Fawell -->
+                <div class="email-sequence">
+                    <div class="email-sequence-header">
+                        <h3>Kev Fawell</h3>
+                        <p>UK and Ireland Sales Director | <span class="badge badge-cold" style="background: rgba(255,255,255,0.2); color: white;">COLD</span></p>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 1</span>
+                            <div class="email-subject">Subject: Shelf space defence and availability data</div>
+                            <div class="email-timing">📅 Send: Tuesday or Wednesday, 9:00-10:00 AM GMT</div>
+                        </div>
+                        <div class="email-body">Hi Kev,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer brands, helping them monitor availability, pricing, content accuracy, and search performance across online retailers.
+
+I wanted to reach out because the shelf space gains from the 2024 resets were significant - I've seen the "tens of thousands of cubic feet" figure mentioned. Defending that distribution against AB InBev's response requires knowing where gaps appear before they become problems.
+
+We work with several beverages brands on exactly this - identifying availability issues across retailers in real time so sales teams can act before lost sales accumulate.
+
+I'm curious whether online availability data feeds into how your team manages retail relationships, or whether that's handled separately.
+
+Best,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note">
+                                <div class="email-note-title">Customisation Notes</div>
+                                <ul class="styled-list">
+                                    <li>Check for recent news about Molson Coors distribution or retail partnerships</li>
+                                    <li>Verify Kev's current title and scope of responsibilities</li>
+                                </ul>
+                            </div>
+                            <div class="email-note">
+                                <div class="email-note-title">Strategy Notes</div>
+                                <p>This email introduces eStore clearly, uses specific DSA language, and leads with the shelf space gains as a concrete hook. The question at the end explores how online data connects to retail relationships - directly relevant to a sales director's concerns.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 2</span>
+                            <div class="email-subject">Subject: Nil picks and the online availability gap</div>
+                            <div class="email-timing">📅 Send: 5-7 days after Email 1 (Tuesday-Thursday, 9:00-10:00 AM GMT)</div>
+                        </div>
+                        <div class="email-body">Hi Kev,
+
+Following up with a specific example - nil picks.
+
+We've been working with Jenny Broddell's team on ASDA specifically, looking at availability gaps for the beer portfolio. The nil picks data highlighted situations where products were listed but unavailable - sales that were essentially lost because the digital shelf didn't match reality.
+
+For a sales director, that's revenue walking out the door. The challenge is getting visibility into it across multiple retailers in time to do something about it.
+
+We've put together some thinking on how beverages brands are tackling this:
+
+https://estorebrands.com/ignite/best-digital-shelf-analytics-tools-for-beverages-alcohol-brands
+
+I'd be curious whether availability tracking is something your team actively monitors, or whether it's more of an e-commerce function.
+
+Best,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note">
+                                <div class="email-note-title">Customisation Notes</div>
+                                <ul class="styled-list">
+                                    <li>Check HubSpot for specific nil picks data from the ASDA Xpert proposal</li>
+                                    <li>If there are specific figures, consider including them</li>
+                                </ul>
+                            </div>
+                            <div class="email-note">
+                                <div class="email-note-title">Strategy Notes</div>
+                                <p>This email references the existing Jenny Broddell relationship and ASDA work to demonstrate credibility. The nil picks angle is directly relevant to a sales director's concerns. The content link is positioned as thought leadership rather than a sales pitch.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 3</span>
+                            <div class="email-subject">Subject: Tracking AB InBev's counter-moves</div>
+                            <div class="email-timing">📅 Send: 5-7 days after Email 2 (Tuesday-Thursday, 9:00-10:00 AM GMT)</div>
+                        </div>
+                        <div class="email-body">Hi Kev,
+
+Different angle - competitive visibility.
+
+The shelf space gains you've secured are valuable, but defending them means knowing how AB InBev is responding. Their promotional intensity online, where they're investing in search positioning, whether they're targeting the same retailers where you've gained ground.
+
+That's a different kind of monitoring from tracking your own availability - it requires watching what competitors are doing in real time and spotting patterns before they become problems.
+
+I'd be interested to understand how your team currently gets competitive intelligence on the digital shelf. Is it something you're tracking systematically, or more ad hoc?
+
+Best,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note">
+                                <div class="email-note-title">Customisation Notes</div>
+                                <ul class="styled-list">
+                                    <li>Check for any specific AB InBev moves in UK market recently</li>
+                                    <li>If there's competitive intelligence from the research, could reference specific examples</li>
+                                </ul>
+                            </div>
+                            <div class="email-note">
+                                <div class="email-note-title">Strategy Notes</div>
+                                <p>This email introduces competitive intelligence as a genuinely new angle. It frames the question around defending shelf space gains, which is directly relevant to Kev's remit. The closing asks a specific question and ends with curiosity rather than an exit offer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Content Links Used in Emails</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Content</th>
+                            <th>URL</th>
+                            <th>Used In</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Beverages Long Article</td>
+                            <td><a href="https://estorebrands.com/ignite/best-digital-shelf-analytics-tools-for-beverages-alcohol-brands" target="_blank">estorebrands.com/ignite/best-digital-shelf-analytics...</a></td>
+                            <td>Jenny Email 2, Jack Email 2, Kev Email 2</td>
+                        </tr>
+                        <tr>
+                            <td>Beverages Sector Landing Page</td>
+                            <td><a href="https://estorebrands.com/beverages-alcohol" target="_blank">estorebrands.com/beverages-alcohol</a></td>
+                            <td>Hannah Email 2</td>
+                        </tr>
+                        <tr>
+                            <td>ASDA Xpert Article</td>
+                            <td><a href="https://estorebrands.com/ignite/asda-xpert-a-new-era-of-retail-collaboration" target="_blank">estorebrands.com/ignite/asda-xpert...</a></td>
+                            <td>Jack Email 3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- TAB 6: Objection Handling -->
+        <div class="tab-content" id="objections">
+            <div class="section">
+                <h2 class="section-title">Objection Handling</h2>
+
+                <h3 class="section-subtitle">Decision Framework</h3>
+                <div class="decision-box">
+                    <div class="decision-title">🟢 STRONG FIT - Proceed with Confident Re-Engagement</div>
+                    <ul class="styled-list">
+                        <li><strong>Approach:</strong> Leverage existing Jenny Broddell relationship; position for formal evaluation/RFP</li>
+                        <li><strong>Key advantage:</strong> Not cold outreach - they understand our value proposition</li>
+                        <li><strong>Positioning:</strong> Regional consolidation (UK/Europe) rather than global replacement</li>
+                        <li><strong>Timeline:</strong> Align with Q2-Q3 2026 budget planning window</li>
+                    </ul>
+                </div>
+
+                <h3 class="section-subtitle">Common Objections &amp; Responses</h3>
+
+                <div class="objection-card open">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-question">"We already work with e.fundamentals/CommerceIQ"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong></p>
+                        <p>That makes complete sense - they've done good work in the UK market. We're not suggesting you need to rip and replace. Our conversation is more about whether there are gaps we could help fill:</p>
+                        <ul class="styled-list" style="margin-top: 0.75rem;">
+                            <li><strong>ASDA Xpert specifically:</strong> We have an exclusive partnership with ASDA that provides verified first-party data rather than scraped approximations. The Carling nil picks data we shared with Jenny highlighted availability issues that weren't visible through standard monitoring.</li>
+                            <li><strong>Portfolio complexity:</strong> As you expand into energy drinks, mixers, and non-alcoholic categories, the analytics requirements change. What works for beer monitoring doesn't necessarily translate to how you'd track ZOA against Red Bull or Fever-Tree against Schweppes.</li>
+                            <li><strong>Contract timing:</strong> If your e.fundamentals partnership is approaching renewal (it's been 5+ years), that might be an opportunity to evaluate what's working and what could be improved.</li>
+                        </ul>
+                        <p style="margin-top: 0.75rem;"><strong>Reframe:</strong> This isn't about replacing what works - it's about understanding whether there are specific gaps or capabilities that could complement your existing setup.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-question">"We use Profitero for our analytics"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong></p>
+                        <p>Profitero is strong in the US market - that makes sense for your Americas business. Our focus would be different:</p>
+                        <ul class="styled-list" style="margin-top: 0.75rem;">
+                            <li><strong>UK and European strength:</strong> Our deepest coverage is across UK and European retailers, which aligns with your Western Europe operations under Simon Kerry.</li>
+                            <li><strong>Regional fragmentation opportunity:</strong> Right now you're running Profitero for US and e.fundamentals for UK - that's two platforms, two contracts, two sets of data to reconcile. We could potentially provide a more unified view across your UK and European markets.</li>
+                            <li><strong>We're not competing for US:</strong> We'd focus on strengthening your UK and European visibility, not trying to replace Profitero where it's working well.</li>
+                        </ul>
+                        <p style="margin-top: 0.75rem;"><strong>Reframe:</strong> This is about whether there's value in consolidating your European analytics, not about replacing your US solution.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-question">"How many of our retailers can you actually monitor?"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong></p>
+                        <p>For your UK market specifically, we cover all the major grocers where your beer and beverages portfolio sells - Tesco, Sainsbury's, ASDA, Morrisons, Ocado, Amazon UK. That's your core footprint.</p>
+                        <ul class="styled-list" style="margin-top: 0.75rem;">
+                            <li><strong>ASDA specifically:</strong> We have the Xpert partnership which gives us verified first-party data - that's deeper than standard coverage.</li>
+                            <li><strong>Time-to-value:</strong> For your UK core retailers, we could have you up and running in 2-4 weeks.</li>
+                            <li><strong>Honest gaps:</strong> For broader European coverage beyond UK - Germany, France, CEE - we'd need to scope that specifically. Some retailers we cover, some might require onboarding.</li>
+                            <li><strong>US market:</strong> That's not where we'd focus. eStore's strength is UK and Europe; Profitero serves you well in the US.</li>
+                        </ul>
+                        <p style="margin-top: 0.75rem;"><strong>Reframe:</strong> Let's start with UK where we're strongest and where we already have the ASDA Xpert relationship. We can scope broader coverage as the conversation develops.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-question">"We achieved 16:1 ROI with e.fundamentals - can you match that?"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong></p>
+                        <p>That's a strong benchmark and we take it seriously. A few thoughts:</p>
+                        <ul class="styled-list" style="margin-top: 0.75rem;">
+                            <li><strong>ROI methodology:</strong> We'd want to understand how that 16:1 was measured so we can compare apples to apples. Our clients typically see strong returns from availability improvements, content fixes, and search optimisation - but the specific metrics vary.</li>
+                            <li><strong>Incremental value:</strong> If you're already getting 16:1 from e.fundamentals, the question isn't whether we can replace that ROI - it's whether we can add incremental value in areas they're not covering. ASDA Xpert verified data, portfolio complexity management, or competitive intelligence might be where additional return lives.</li>
+                            <li><strong>Proof before commitment:</strong> We're happy to run a focused pilot - perhaps on ASDA specifically or on a new category like ZOA - where you can measure results before making broader commitments.</li>
+                        </ul>
+                        <p style="margin-top: 0.75rem;"><strong>Reframe:</strong> We respect that you've set a high bar. Let's explore whether there's incremental value we can demonstrate rather than promising to match existing returns sight unseen.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-question">"We're focused on the o9 implementation right now"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong></p>
+                        <p>Completely understand - that's a major implementation and needs to be the priority. We're not suggesting you need to make a decision now:</p>
+                        <ul class="styled-list" style="margin-top: 0.75rem;">
+                            <li><strong>Timing awareness:</strong> The o9 go-live is June 2025 - we'd expect H2 2025 to be stabilisation. That puts Q2-Q3 2026 as the realistic window for additional technology decisions.</li>
+                            <li><strong>Budget planning alignment:</strong> Jenny mentioned 2026 budget discussions and a possible DSA RFP. That timing works for us - we'd rather be part of a proper evaluation process than rush into a decision while you're managing a major implementation.</li>
+                            <li><strong>Keep the conversation open:</strong> Would it make sense to reconnect after o9 stabilises? We could have a more substantive conversation when you have bandwidth to evaluate properly.</li>
+                        </ul>
+                        <p style="margin-top: 0.75rem;"><strong>Reframe:</strong> We're patient. Good technology decisions deserve proper evaluation, not rushed conversations. Let's find the right timing for a serious discussion.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-question">"We need to coordinate with global teams on vendor decisions"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong></p>
+                        <p>That's a reality for any organisation of your scale. A few ways we can work with that:</p>
+                        <ul class="styled-list" style="margin-top: 0.75rem;">
+                            <li><strong>Regional focus:</strong> We're not proposing to replace your global analytics stack. Our focus would be UK and European markets specifically - under Simon Kerry and Phil Whitehead's remit. That's a regional decision that could proceed independently of North American choices.</li>
+                            <li><strong>Complement rather than replace:</strong> You're already running different tools in different regions (Profitero US, e.fundamentals UK). Adding or consolidating European coverage wouldn't change that structure - it would just potentially strengthen the European piece.</li>
+                            <li><strong>Build the business case:</strong> If you need to make an internal case for evaluation, we can help with that - specific UK examples, potential ROI projections, how it would integrate with existing tools.</li>
+                        </ul>
+                        <p style="margin-top: 0.75rem;"><strong>Reframe:</strong> This doesn't need to be a global decision. Let's focus on whether there's value for UK/Europe specifically, and work within the structures you have.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-question">"What makes eStore different from e.fundamentals?"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong></p>
+                        <p>A few specific differences worth considering:</p>
+                        <ul class="styled-list" style="margin-top: 0.75rem;">
+                            <li><strong>ASDA Xpert:</strong> We have an exclusive partnership with ASDA that provides verified first-party data - not scraped approximations. For a retailer where Molson Coors has significant volume, that's a meaningful difference in data quality.</li>
+                            <li><strong>European retailer depth:</strong> We've built deep relationships across UK and European retailers over many years. Multi-market, multi-language expertise is core to what we do.</li>
+                            <li><strong>Consultative approach:</strong> Jack Daniel mentioned valuing "strategic support from ex-retail and FMCG experts" - that's something we've invested heavily in. Our team works with clients on strategic priorities, not just providing dashboards.</li>
+                            <li><strong>Portfolio complexity:</strong> As you expand Beyond Beer, the analytics requirements change. We're purpose-built for multi-brand, multi-category monitoring across complex portfolios.</li>
+                        </ul>
+                        <p style="margin-top: 0.75rem;"><strong>Reframe:</strong> Rather than competing on feature lists, let's explore whether there are specific capabilities or gaps where we could add value to your current setup.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-question">"The budget is already allocated for this year"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong></p>
+                        <p>That's fair - budget cycles are what they are. A few options:</p>
+                        <ul class="styled-list" style="margin-top: 0.75rem;">
+                            <li><strong>2027 planning window:</strong> Q3 2026 is typically when 2027 budgets get shaped. If we continue the conversation now, we'd be well-positioned to be part of that planning process.</li>
+                            <li><strong>Pilot approach:</strong> If there's appetite to test the ASDA Xpert capability specifically, we could structure something that fits within existing discretionary spend rather than requiring new budget allocation.</li>
+                            <li><strong>RFP preparation:</strong> Jenny mentioned a possible DSA RFP for 2026. Even if budget isn't available now, being part of that evaluation process positions us for the next cycle.</li>
+                        </ul>
+                        <p style="margin-top: 0.75rem;"><strong>Reframe:</strong> We're not pushing for an immediate decision. Let's understand your evaluation timeline and budget process so we can engage at the right moment.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-question">"We're happy with our current solution - why would we change?"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong></p>
+                        <p>If it's working well, that's great - we wouldn't want to fix something that isn't broken. But a few questions worth considering:</p>
+                        <ul class="styled-list" style="margin-top: 0.75rem;">
+                            <li><strong>Portfolio expansion:</strong> Your current setup was built for beer. With ZOA Energy, Fever-Tree mixers, and the non-alcoholic portfolio growing, are the analytics keeping pace with that complexity?</li>
+                            <li><strong>Competitive intelligence:</strong> AB InBev is responding to your shelf space gains. Is your current solution giving you real-time visibility into their promotional activity and search positioning?</li>
+                            <li><strong>Contract renewal timing:</strong> If e.fundamentals is approaching renewal (5+ years), that's a natural moment to evaluate whether the market has moved on and better options exist.</li>
+                            <li><strong>Regional consolidation:</strong> Running Profitero (US) and e.fundamentals (UK) separately creates complexity. Is there value in a more unified approach for your European markets?</li>
+                        </ul>
+                        <p style="margin-top: 0.75rem;"><strong>Reframe:</strong> We're not suggesting you should change - we're suggesting it might be worth evaluating whether your current setup is still the best fit as your business evolves.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-question">"How long would implementation take?"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong></p>
+                        <p>For UK specifically, we could have you up and running quickly:</p>
+                        <ul class="styled-list" style="margin-top: 0.75rem;">
+                            <li><strong>UK core retailers:</strong> 2-4 weeks for Tesco, Sainsbury's, ASDA, Morrisons, Ocado, Amazon UK - the major grocers where your portfolio sells.</li>
+                            <li><strong>ASDA Xpert:</strong> Already integrated - that capability is available immediately once the contract is in place.</li>
+                            <li><strong>Broader European coverage:</strong> Would depend on specific retailers and markets. Some we cover today, some might need onboarding (typically 4-8 weeks per retailer).</li>
+                            <li><strong>Phased approach:</strong> We'd recommend starting with UK core and expanding from there rather than trying to do everything at once.</li>
+                        </ul>
+                        <p style="margin-top: 0.75rem;"><strong>Reframe:</strong> Fast time-to-value is possible for UK. We'd scope broader coverage based on your priorities rather than making promises we can't keep.</p>
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Objection Handling Principles</h3>
+                <div class="info-card">
+                    <ul class="styled-list">
+                        <li><strong>Never dismiss the objection</strong> - acknowledge it's valid and explore the underlying concern</li>
+                        <li><strong>Use evidence and examples</strong> - reference specific research findings, the ASDA Xpert relationship, existing engagement history</li>
+                        <li><strong>Offer flexibility</strong> - pilots, phased approaches, regional focus rather than global replacement</li>
+                        <li><strong>Be honest about fit</strong> - acknowledge where eStore is strong (UK/Europe) and where we're not the right solution (US)</li>
+                        <li><strong>Ask questions</strong> - understand the root concern before jumping to responses</li>
+                        <li><strong>Respect their intelligence</strong> - they understand DSA; don't over-explain or be patronising</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab navigation
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                const targetId = tab.getAttribute('data-tab');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+
+        // Objection card toggle
+        function toggleObjection(header) {
+            const card = header.parentElement;
+            card.classList.toggle('open');
+        }
+
+        // Initialize first objection as open
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstObjection = document.querySelector('.objection-card');
+            if (firstObjection) {
+                firstObjection.classList.add('open');
+            }
+        });
+    </script>
+</body>
+</html>
