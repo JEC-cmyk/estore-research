@@ -478,13 +478,15 @@
         /* Email Sequences */
         .email-sequence {
             margin-bottom: 32px;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
         }
 
         .email-contact-header {
             background: linear-gradient(135deg, var(--text-primary) 0%, #3a3a3a 100%);
             color: white;
             padding: 20px 24px;
-            border-radius: 12px 12px 0 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -502,46 +504,57 @@
             opacity: 0.85;
         }
 
-        .email-wrapper {
-            border: 1px solid var(--border-light);
-            border-top: none;
-            border-radius: 0 0 12px 12px;
-            overflow: hidden;
-        }
-
-        .email-item {
-            padding: 24px;
+        /* Email Tab Navigation */
+        .email-tab-nav {
+            display: flex;
+            background: var(--bg-light);
             border-bottom: 1px solid var(--border-light);
         }
 
-        .email-item:last-child {
-            border-bottom: none;
+        .email-tab-btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 3px solid transparent;
         }
 
-        .email-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .email-number {
-            background: var(--estore-yellow);
+        .email-tab-btn:hover {
+            background: var(--bg-white);
             color: var(--text-primary);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
+        }
+
+        .email-tab-btn.active {
+            background: var(--bg-white);
+            color: var(--estore-dark-blue);
+            font-weight: 600;
+            border-bottom-color: var(--estore-dark-blue);
+        }
+
+        .email-tab-content {
+            display: none;
+            padding: 24px;
+            background: var(--bg-white);
+        }
+
+        .email-tab-content.active {
+            display: block;
         }
 
         .email-timing {
             font-size: 13px;
             color: var(--text-secondary);
             background: var(--bg-light);
-            padding: 6px 12px;
+            padding: 8px 14px;
             border-radius: 6px;
+            margin-bottom: 16px;
+            display: inline-block;
         }
 
         .email-subject {
@@ -567,7 +580,7 @@
         }
 
         .email-notes {
-            margin-top: 16px;
+            margin-top: 20px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
@@ -927,6 +940,11 @@
             
             .contact-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .email-tab-btn {
+                padding: 10px 12px;
+                font-size: 13px;
             }
         }
 
@@ -1895,7 +1913,7 @@
             </div>
 
             <!-- Contact 1: Kévin Cuffaut -->
-            <div class="email-sequence">
+            <div class="email-sequence" data-contact="kevin">
                 <div class="email-contact-header">
                     <div>
                         <div class="email-contact-name">🇫🇷 Kévin Cuffaut</div>
@@ -1903,17 +1921,18 @@
                     </div>
                     <span class="badge badge-cold">Priority #1</span>
                 </div>
-                <div class="email-wrapper">
-                    <!-- Email 1 -->
-                    <div class="email-item">
-                        <div class="email-header">
-                            <span class="email-number">Email 1: Problem Hook</span>
-                            <span class="email-timing">📅 Tuesday or Wednesday, 9:30am CET</span>
-                        </div>
-                        <div class="email-subject">
-                            <strong>Subject:</strong> LG France and the retailer content challenge
-                        </div>
-                        <div class="email-body">Bonjour Kévin,
+                <div class="email-tab-nav">
+                    <button class="email-tab-btn active" data-email="1">Email 1: Problem Hook</button>
+                    <button class="email-tab-btn" data-email="2">Email 2: Value Demonstration</button>
+                    <button class="email-tab-btn" data-email="3">Email 3: New Angle</button>
+                </div>
+                <!-- Email 1 -->
+                <div class="email-tab-content active" data-email-content="1">
+                    <div class="email-timing">📅 Tuesday or Wednesday, 9:30am CET</div>
+                    <div class="email-subject">
+                        <strong>Subject:</strong> LG France and the retailer content challenge
+                    </div>
+                    <div class="email-body">Bonjour Kévin,
 
 I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics brands, helping companies like Bosch, Whirlpool, and Miele monitor how their products appear and perform across online retailers.
 
@@ -1925,30 +1944,26 @@ We work extensively with European electronics brands navigating this balance bet
 
 Best regards,
 [SENDER NAME]</div>
-                        <div class="email-notes">
-                            <div class="notes-box customisation">
-                                <div class="notes-title">📝 Customisation Notes</div>
-                                <p>• Verify Kévin's current role via LinkedIn before sending<br>
-                                • Check if any LG France news has emerged since research was conducted<br>
-                                • Consider whether French-language version would be more appropriate (discuss with team)</p>
-                            </div>
-                            <div class="notes-box strategy">
-                                <div class="notes-title">🎯 Strategy Notes</div>
-                                <p>French business culture values relationship-building and sophistication. This email opens with a clear introduction (required for cold outreach), demonstrates specific knowledge of LG's French retail landscape, and positions the RetailVerse launch as the strategic hook. The question is genuine and non-assumptive - we're curious, not asserting a problem. No pressure, no meeting request.</p>
-                            </div>
+                    <div class="email-notes">
+                        <div class="notes-box customisation">
+                            <div class="notes-title">📝 Customisation Notes</div>
+                            <p>• Verify Kévin's current role via LinkedIn before sending<br>
+                            • Check if any LG France news has emerged since research was conducted<br>
+                            • Consider whether French-language version would be more appropriate (discuss with team)</p>
+                        </div>
+                        <div class="notes-box strategy">
+                            <div class="notes-title">🎯 Strategy Notes</div>
+                            <p>French business culture values relationship-building and sophistication. This email opens with a clear introduction (required for cold outreach), demonstrates specific knowledge of LG's French retail landscape, and positions the RetailVerse launch as the strategic hook. The question is genuine and non-assumptive - we're curious, not asserting a problem. No pressure, no meeting request.</p>
                         </div>
                     </div>
-
-                    <!-- Email 2 -->
-                    <div class="email-item">
-                        <div class="email-header">
-                            <span class="email-number">Email 2: Value Demonstration</span>
-                            <span class="email-timing">📅 5-7 days after Email 1, Tuesday or Thursday, 10:00am CET</span>
-                        </div>
-                        <div class="email-subject">
-                            <strong>Subject:</strong> Premium positioning and the digital shelf
-                        </div>
-                        <div class="email-body">Kévin,
+                </div>
+                <!-- Email 2 -->
+                <div class="email-tab-content" data-email-content="2">
+                    <div class="email-timing">📅 5-7 days after Email 1, Tuesday or Thursday, 10:00am CET</div>
+                    <div class="email-subject">
+                        <strong>Subject:</strong> Premium positioning and the digital shelf
+                    </div>
+                    <div class="email-body">Kévin,
 
 Following up on my note about retailer complexity - I wanted to share a perspective that might be relevant given LG's competitive position.
 
@@ -1962,29 +1977,25 @@ Would be interested to hear how you're currently approaching this - whether ther
 
 Best regards,
 [SENDER NAME]</div>
-                        <div class="email-notes">
-                            <div class="notes-box customisation">
-                                <div class="notes-title">📝 Customisation Notes</div>
-                                <p>• Research any Fnac or Darty promotional activity for LG products<br>
-                                • Check if there's been any French press coverage of LG vs Chinese competitors</p>
-                            </div>
-                            <div class="notes-box strategy">
-                                <div class="notes-title">🎯 Strategy Notes</div>
-                                <p>Email 2 adds genuine new value by connecting LG's competitive pressure to digital shelf performance. The insight about premium positioning defence is substantive, not generic. The OLED reference shows specific product knowledge. Content link is positioned as optional ("if useful"), not required reading. The closing question invites dialogue without pressure.</p>
-                            </div>
+                    <div class="email-notes">
+                        <div class="notes-box customisation">
+                            <div class="notes-title">📝 Customisation Notes</div>
+                            <p>• Research any Fnac or Darty promotional activity for LG products<br>
+                            • Check if there's been any French press coverage of LG vs Chinese competitors</p>
+                        </div>
+                        <div class="notes-box strategy">
+                            <div class="notes-title">🎯 Strategy Notes</div>
+                            <p>Email 2 adds genuine new value by connecting LG's competitive pressure to digital shelf performance. The insight about premium positioning defence is substantive, not generic. The OLED reference shows specific product knowledge. Content link is positioned as optional ("if useful"), not required reading. The closing question invites dialogue without pressure.</p>
                         </div>
                     </div>
-
-                    <!-- Email 3 -->
-                    <div class="email-item">
-                        <div class="email-header">
-                            <span class="email-number">Email 3: New Angle with Curiosity</span>
-                            <span class="email-timing">📅 5-7 days after Email 2, Wednesday, 9:00am CET</span>
-                        </div>
-                        <div class="email-subject">
-                            <strong>Subject:</strong> A different question about LG France
-                        </div>
-                        <div class="email-body">Kévin,
+                </div>
+                <!-- Email 3 -->
+                <div class="email-tab-content" data-email-content="3">
+                    <div class="email-timing">📅 5-7 days after Email 2, Wednesday, 9:00am CET</div>
+                    <div class="email-subject">
+                        <strong>Subject:</strong> A different question about LG France
+                    </div>
+                    <div class="email-body">Kévin,
 
 I've been thinking about this from a different angle.
 
@@ -1998,23 +2009,22 @@ Would welcome your perspective if you have a moment.
 
 Best regards,
 [SENDER NAME]</div>
-                        <div class="email-notes">
-                            <div class="notes-box customisation">
-                                <div class="notes-title">📝 Customisation Notes</div>
-                                <p>• Check ThinQ adoption figures for France if available<br>
-                                • Review LG France website for connected home messaging</p>
-                            </div>
-                            <div class="notes-box strategy">
-                                <div class="notes-title">🎯 Strategy Notes</div>
-                                <p>Email 3 introduces a genuinely new angle (ecosystem presentation) rather than rehashing previous points. This demonstrates continued thinking about their business, not just persistence. The question is specific and shows sector expertise. Ends with curiosity and an open door, not a meeting push or exit offer.</p>
-                            </div>
+                    <div class="email-notes">
+                        <div class="notes-box customisation">
+                            <div class="notes-title">📝 Customisation Notes</div>
+                            <p>• Check ThinQ adoption figures for France if available<br>
+                            • Review LG France website for connected home messaging</p>
+                        </div>
+                        <div class="notes-box strategy">
+                            <div class="notes-title">🎯 Strategy Notes</div>
+                            <p>Email 3 introduces a genuinely new angle (ecosystem presentation) rather than rehashing previous points. This demonstrates continued thinking about their business, not just persistence. The question is specific and shows sector expertise. Ends with curiosity and an open door, not a meeting push or exit offer.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Contact 2: Daniel Basak -->
-            <div class="email-sequence">
+            <div class="email-sequence" data-contact="daniel">
                 <div class="email-contact-header">
                     <div>
                         <div class="email-contact-name">🇩🇪 Daniel Basak</div>
@@ -2022,17 +2032,18 @@ Best regards,
                     </div>
                     <span class="badge badge-cold">Priority #2</span>
                 </div>
-                <div class="email-wrapper">
-                    <!-- Email 1 -->
-                    <div class="email-item">
-                        <div class="email-header">
-                            <span class="email-number">Email 1: Problem Hook</span>
-                            <span class="email-timing">📅 Tuesday, 8:30am CET</span>
-                        </div>
-                        <div class="email-subject">
-                            <strong>Subject:</strong> Digital shelf complexity across MediaMarkt and Amazon.de
-                        </div>
-                        <div class="email-body">Dear Daniel,
+                <div class="email-tab-nav">
+                    <button class="email-tab-btn active" data-email="1">Email 1: Problem Hook</button>
+                    <button class="email-tab-btn" data-email="2">Email 2: Value Demonstration</button>
+                    <button class="email-tab-btn" data-email="3">Email 3: New Angle</button>
+                </div>
+                <!-- Email 1 -->
+                <div class="email-tab-content active" data-email-content="1">
+                    <div class="email-timing">📅 Tuesday, 8:30am CET</div>
+                    <div class="email-subject">
+                        <strong>Subject:</strong> Digital shelf complexity across MediaMarkt and Amazon.de
+                    </div>
+                    <div class="email-body">Dear Daniel,
 
 I am [SENDER NAME] from eStore. We provide digital shelf analytics for consumer electronics brands - helping companies like Bosch, Whirlpool, and Miele monitor product availability, content accuracy, pricing, and search rankings across online retailers.
 
@@ -2044,29 +2055,25 @@ We have worked with several European electronics brands navigating similar struc
 
 Best regards,
 [SENDER NAME]</div>
-                        <div class="email-notes">
-                            <div class="notes-box customisation">
-                                <div class="notes-title">📝 Customisation Notes</div>
-                                <p>• Verify Daniel's current role and tenure via LinkedIn<br>
-                                • Check MediaMarkt Germany for current LG promotions or positioning</p>
-                            </div>
-                            <div class="notes-box strategy">
-                                <div class="notes-title">🎯 Strategy Notes</div>
-                                <p>German business culture values precision, structure, and directness without being pushy. This email uses more formal language ("Dear Daniel", "I am reaching out"), demonstrates specific knowledge of the German retail landscape and the organisational complexity Daniel operates within. The question is direct and professional. No fluff, no excessive warmth.</p>
-                            </div>
+                    <div class="email-notes">
+                        <div class="notes-box customisation">
+                            <div class="notes-title">📝 Customisation Notes</div>
+                            <p>• Verify Daniel's current role and tenure via LinkedIn<br>
+                            • Check MediaMarkt Germany for current LG promotions or positioning</p>
+                        </div>
+                        <div class="notes-box strategy">
+                            <div class="notes-title">🎯 Strategy Notes</div>
+                            <p>German business culture values precision, structure, and directness without being pushy. This email uses more formal language ("Dear Daniel", "I am reaching out"), demonstrates specific knowledge of the German retail landscape and the organisational complexity Daniel operates within. The question is direct and professional. No fluff, no excessive warmth.</p>
                         </div>
                     </div>
-
-                    <!-- Email 2 -->
-                    <div class="email-item">
-                        <div class="email-header">
-                            <span class="email-number">Email 2: Value Demonstration</span>
-                            <span class="email-timing">📅 6-7 days after Email 1, Thursday, 9:00am CET</span>
-                        </div>
-                        <div class="email-subject">
-                            <strong>Subject:</strong> Competitive intelligence in the German appliance market
-                        </div>
-                        <div class="email-body">Daniel,
+                </div>
+                <!-- Email 2 -->
+                <div class="email-tab-content" data-email-content="2">
+                    <div class="email-timing">📅 6-7 days after Email 1, Thursday, 9:00am CET</div>
+                    <div class="email-subject">
+                        <strong>Subject:</strong> Competitive intelligence in the German appliance market
+                    </div>
+                    <div class="email-body">Daniel,
 
 Following my previous message - I wanted to share an observation that may be relevant.
 
@@ -2080,29 +2087,25 @@ I would be interested to understand how LG Germany currently handles competitive
 
 Best regards,
 [SENDER NAME]</div>
-                        <div class="email-notes">
-                            <div class="notes-box customisation">
-                                <div class="notes-title">📝 Customisation Notes</div>
-                                <p>• Research any Bosch or Siemens promotional activity on MediaMarkt<br>
-                                • Check LG Germany appliance positioning on Amazon.de</p>
-                            </div>
-                            <div class="notes-box strategy">
-                                <div class="notes-title">🎯 Strategy Notes</div>
-                                <p>Email 2 builds on the appliance division's importance with specific financial context, then connects to competitive intelligence needs. The value proposition is explained clearly and directly - German audiences appreciate knowing exactly what something does. No content link in this email as the explanation is substantive enough.</p>
-                            </div>
+                    <div class="email-notes">
+                        <div class="notes-box customisation">
+                            <div class="notes-title">📝 Customisation Notes</div>
+                            <p>• Research any Bosch or Siemens promotional activity on MediaMarkt<br>
+                            • Check LG Germany appliance positioning on Amazon.de</p>
+                        </div>
+                        <div class="notes-box strategy">
+                            <div class="notes-title">🎯 Strategy Notes</div>
+                            <p>Email 2 builds on the appliance division's importance with specific financial context, then connects to competitive intelligence needs. The value proposition is explained clearly and directly - German audiences appreciate knowing exactly what something does. No content link in this email as the explanation is substantive enough.</p>
                         </div>
                     </div>
-
-                    <!-- Email 3 -->
-                    <div class="email-item">
-                        <div class="email-header">
-                            <span class="email-number">Email 3: New Angle with Curiosity</span>
-                            <span class="email-timing">📅 6-7 days after Email 2, Tuesday, 8:30am CET</span>
-                        </div>
-                        <div class="email-subject">
-                            <strong>Subject:</strong> Product launch coordination across German retailers
-                        </div>
-                        <div class="email-body">Daniel,
+                </div>
+                <!-- Email 3 -->
+                <div class="email-tab-content" data-email-content="3">
+                    <div class="email-timing">📅 6-7 days after Email 2, Tuesday, 8:30am CET</div>
+                    <div class="email-subject">
+                        <strong>Subject:</strong> Product launch coordination across German retailers
+                    </div>
+                    <div class="email-body">Daniel,
 
 One aspect I have been considering is product launch execution.
 
@@ -2116,23 +2119,22 @@ We have developed approaches to support launch readiness specifically for consum
 
 Best regards,
 [SENDER NAME]</div>
-                        <div class="email-notes">
-                            <div class="notes-box customisation">
-                                <div class="notes-title">📝 Customisation Notes</div>
-                                <p>• Check timing relative to CES or IFA announcements<br>
-                                • Research any recent LG product launches in Germany</p>
-                            </div>
-                            <div class="notes-box strategy">
-                                <div class="notes-title">🎯 Strategy Notes</div>
-                                <p>Email 3 introduces the launch coordination angle - different from competitive intelligence but equally relevant. The timing hook (CES/IFA) is generic rather than date-specific. Ends with an offer to discuss rather than a meeting request, maintaining the consultative tone.</p>
-                            </div>
+                    <div class="email-notes">
+                        <div class="notes-box customisation">
+                            <div class="notes-title">📝 Customisation Notes</div>
+                            <p>• Check timing relative to CES or IFA announcements<br>
+                            • Research any recent LG product launches in Germany</p>
+                        </div>
+                        <div class="notes-box strategy">
+                            <div class="notes-title">🎯 Strategy Notes</div>
+                            <p>Email 3 introduces the launch coordination angle - different from competitive intelligence but equally relevant. The timing hook (CES/IFA) is generic rather than date-specific. Ends with an offer to discuss rather than a meeting request, maintaining the consultative tone.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Contact 3: Kamil Rentflejsz -->
-            <div class="email-sequence">
+            <div class="email-sequence" data-contact="kamil">
                 <div class="email-contact-header">
                     <div>
                         <div class="email-contact-name">🇵🇱 Kamil Rentflejsz</div>
@@ -2140,17 +2142,18 @@ Best regards,
                     </div>
                     <span class="badge badge-cold">Priority #3</span>
                 </div>
-                <div class="email-wrapper">
-                    <!-- Email 1 -->
-                    <div class="email-item">
-                        <div class="email-header">
-                            <span class="email-number">Email 1: Problem Hook</span>
-                            <span class="email-timing">📅 Wednesday, 9:00am CET</span>
-                        </div>
-                        <div class="email-subject">
-                            <strong>Subject:</strong> Connecting marketing automation with retailer performance
-                        </div>
-                        <div class="email-body">Dear Kamil,
+                <div class="email-tab-nav">
+                    <button class="email-tab-btn active" data-email="1">Email 1: Problem Hook</button>
+                    <button class="email-tab-btn" data-email="2">Email 2: Value Demonstration</button>
+                    <button class="email-tab-btn" data-email="3">Email 3: New Angle</button>
+                </div>
+                <!-- Email 1 -->
+                <div class="email-tab-content active" data-email-content="1">
+                    <div class="email-timing">📅 Wednesday, 9:00am CET</div>
+                    <div class="email-subject">
+                        <strong>Subject:</strong> Connecting marketing automation with retailer performance
+                    </div>
+                    <div class="email-body">Dear Kamil,
 
 I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics brands, helping companies like Bosch, Whirlpool, and Miele understand how their products appear and perform across online retailers.
 
@@ -2162,29 +2165,25 @@ We work with brands who want to connect their marketing investment with what's a
 
 Best regards,
 [SENDER NAME]</div>
-                        <div class="email-notes">
-                            <div class="notes-box customisation">
-                                <div class="notes-title">📝 Customisation Notes</div>
-                                <p>• Verify User.com case study details are accurate<br>
-                                • Check Kamil's LinkedIn for any additional martech projects</p>
-                            </div>
-                            <div class="notes-box strategy">
-                                <div class="notes-title">🎯 Strategy Notes</div>
-                                <p>Kamil's background is analytics and martech - the hook acknowledges his work specifically (User.com CDP implementation from research) and positions eStore as a complementary data layer. This shows we've done homework without being showy about it. The question connects his expertise to our domain naturally.</p>
-                            </div>
+                    <div class="email-notes">
+                        <div class="notes-box customisation">
+                            <div class="notes-title">📝 Customisation Notes</div>
+                            <p>• Verify User.com case study details are accurate<br>
+                            • Check Kamil's LinkedIn for any additional martech projects</p>
+                        </div>
+                        <div class="notes-box strategy">
+                            <div class="notes-title">🎯 Strategy Notes</div>
+                            <p>Kamil's background is analytics and martech - the hook acknowledges his work specifically (User.com CDP implementation from research) and positions eStore as a complementary data layer. This shows we've done homework without being showy about it. The question connects his expertise to our domain naturally.</p>
                         </div>
                     </div>
-
-                    <!-- Email 2 -->
-                    <div class="email-item">
-                        <div class="email-header">
-                            <span class="email-number">Email 2: Value Demonstration</span>
-                            <span class="email-timing">📅 5-6 days after Email 1, Monday or Tuesday, 10:00am CET</span>
-                        </div>
-                        <div class="email-subject">
-                            <strong>Subject:</strong> The gap between marketing spend and retailer execution
-                        </div>
-                        <div class="email-body">Kamil,
+                </div>
+                <!-- Email 2 -->
+                <div class="email-tab-content" data-email-content="2">
+                    <div class="email-timing">📅 5-6 days after Email 1, Monday or Tuesday, 10:00am CET</div>
+                    <div class="email-subject">
+                        <strong>Subject:</strong> The gap between marketing spend and retailer execution
+                    </div>
+                    <div class="email-body">Kamil,
 
 Following my previous note - I wanted to expand on the connection between marketing investment and retailer execution.
 
@@ -2200,29 +2199,25 @@ I'd be curious whether connecting marketing performance to retailer execution is
 
 Best regards,
 [SENDER NAME]</div>
-                        <div class="email-notes">
-                            <div class="notes-box customisation">
-                                <div class="notes-title">📝 Customisation Notes</div>
-                                <p>• Research any LG European marketing campaigns visible online<br>
-                                • Check if Kamil has posted about attribution or performance measurement</p>
-                            </div>
-                            <div class="notes-box strategy">
-                                <div class="notes-title">🎯 Strategy Notes</div>
-                                <p>Email 2 connects to Kamil's marketing automation expertise by framing digital shelf analytics as the missing piece in attribution. The Content Benchmark link is relevant to his data-driven orientation. Language is precise and analytical to match his likely communication style.</p>
-                            </div>
+                    <div class="email-notes">
+                        <div class="notes-box customisation">
+                            <div class="notes-title">📝 Customisation Notes</div>
+                            <p>• Research any LG European marketing campaigns visible online<br>
+                            • Check if Kamil has posted about attribution or performance measurement</p>
+                        </div>
+                        <div class="notes-box strategy">
+                            <div class="notes-title">🎯 Strategy Notes</div>
+                            <p>Email 2 connects to Kamil's marketing automation expertise by framing digital shelf analytics as the missing piece in attribution. The Content Benchmark link is relevant to his data-driven orientation. Language is precise and analytical to match his likely communication style.</p>
                         </div>
                     </div>
-
-                    <!-- Email 3 -->
-                    <div class="email-item">
-                        <div class="email-header">
-                            <span class="email-number">Email 3: New Angle with Curiosity</span>
-                            <span class="email-timing">📅 5-6 days after Email 2, Thursday, 9:00am CET</span>
-                        </div>
-                        <div class="email-subject">
-                            <strong>Subject:</strong> The Vizyble question
-                        </div>
-                        <div class="email-body">Kamil,
+                </div>
+                <!-- Email 3 -->
+                <div class="email-tab-content" data-email-content="3">
+                    <div class="email-timing">📅 5-6 days after Email 2, Thursday, 9:00am CET</div>
+                    <div class="email-subject">
+                        <strong>Subject:</strong> The Vizyble question
+                    </div>
+                    <div class="email-body">Kamil,
 
 A different angle occurred to me.
 
@@ -2236,23 +2231,22 @@ Either way, would be interested in your perspective on how LG approaches this ac
 
 Best regards,
 [SENDER NAME]</div>
-                        <div class="email-notes">
-                            <div class="notes-box customisation">
-                                <div class="notes-title">📝 Customisation Notes</div>
-                                <p>• Verify Vizyble/PHD relationship from research<br>
-                                • Consider whether this is too direct - may need softer framing</p>
-                            </div>
-                            <div class="notes-box strategy">
-                                <div class="notes-title">🎯 Strategy Notes</div>
-                                <p>Email 3 references his specific tech stack (Vizyble) to show continued attention and introduces a new angle: the limitation of generic BI for digital shelf data. This is a consultative observation, not a criticism. The acknowledgment that we're "not assuming there's a gap" maintains the curious, non-presumptuous tone.</p>
-                            </div>
+                    <div class="email-notes">
+                        <div class="notes-box customisation">
+                            <div class="notes-title">📝 Customisation Notes</div>
+                            <p>• Verify Vizyble/PHD relationship from research<br>
+                            • Consider whether this is too direct - may need softer framing</p>
+                        </div>
+                        <div class="notes-box strategy">
+                            <div class="notes-title">🎯 Strategy Notes</div>
+                            <p>Email 3 references his specific tech stack (Vizyble) to show continued attention and introduces a new angle: the limitation of generic BI for digital shelf data. This is a consultative observation, not a criticism. The acknowledgment that we're "not assuming there's a gap" maintains the curious, non-presumptuous tone.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Contact 4: Gabriele Pierro -->
-            <div class="email-sequence">
+            <div class="email-sequence" data-contact="gabriele">
                 <div class="email-contact-header">
                     <div>
                         <div class="email-contact-name">🇮🇹 Gabriele Pierro</div>
@@ -2260,17 +2254,18 @@ Best regards,
                     </div>
                     <span class="badge badge-cold">Priority #4</span>
                 </div>
-                <div class="email-wrapper">
-                    <!-- Email 1 -->
-                    <div class="email-item">
-                        <div class="email-header">
-                            <span class="email-number">Email 1: Problem Hook</span>
-                            <span class="email-timing">📅 Tuesday or Wednesday, 10:00am CET</span>
-                        </div>
-                        <div class="email-subject">
-                            <strong>Subject:</strong> Content consistency across Italian retailers
-                        </div>
-                        <div class="email-body">Dear Gabriele,
+                <div class="email-tab-nav">
+                    <button class="email-tab-btn active" data-email="1">Email 1: Problem Hook</button>
+                    <button class="email-tab-btn" data-email="2">Email 2: Value Demonstration</button>
+                    <button class="email-tab-btn" data-email="3">Email 3: New Angle</button>
+                </div>
+                <!-- Email 1 -->
+                <div class="email-tab-content active" data-email-content="1">
+                    <div class="email-timing">📅 Tuesday or Wednesday, 10:00am CET</div>
+                    <div class="email-subject">
+                        <strong>Subject:</strong> Content consistency across Italian retailers
+                    </div>
+                    <div class="email-body">Dear Gabriele,
 
 I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics brands, helping companies like Bosch, Whirlpool, and Miele monitor how their products appear across online retailers.
 
@@ -2284,29 +2279,25 @@ I'd be curious to understand how LG Italia currently approaches content consiste
 
 Best regards,
 [SENDER NAME]</div>
-                        <div class="email-notes">
-                            <div class="notes-box customisation">
-                                <div class="notes-title">📝 Customisation Notes</div>
-                                <p>• Verify Gabriele's current role via LinkedIn<br>
-                                • Check MediaWorld and Unieuro for LG product presentation quality</p>
-                            </div>
-                            <div class="notes-box strategy">
-                                <div class="notes-title">🎯 Strategy Notes</div>
-                                <p>Gabriele's title explicitly includes "Content Strategy" - the hook directly addresses his domain. Italian business culture appreciates relationship-building and sophistication, so the email balances professionalism with warmth. The competitive reference (Samsung, TCL, Hisense) provides strategic context without being alarmist.</p>
-                            </div>
+                    <div class="email-notes">
+                        <div class="notes-box customisation">
+                            <div class="notes-title">📝 Customisation Notes</div>
+                            <p>• Verify Gabriele's current role via LinkedIn<br>
+                            • Check MediaWorld and Unieuro for LG product presentation quality</p>
+                        </div>
+                        <div class="notes-box strategy">
+                            <div class="notes-title">🎯 Strategy Notes</div>
+                            <p>Gabriele's title explicitly includes "Content Strategy" - the hook directly addresses his domain. Italian business culture appreciates relationship-building and sophistication, so the email balances professionalism with warmth. The competitive reference (Samsung, TCL, Hisense) provides strategic context without being alarmist.</p>
                         </div>
                     </div>
-
-                    <!-- Email 2 -->
-                    <div class="email-item">
-                        <div class="email-header">
-                            <span class="email-number">Email 2: Value Demonstration</span>
-                            <span class="email-timing">📅 5-7 days after Email 1, Thursday, 10:00am CET</span>
-                        </div>
-                        <div class="email-subject">
-                            <strong>Subject:</strong> Premium brand presentation in a competitive market
-                        </div>
-                        <div class="email-body">Gabriele,
+                </div>
+                <!-- Email 2 -->
+                <div class="email-tab-content" data-email-content="2">
+                    <div class="email-timing">📅 5-7 days after Email 1, Thursday, 10:00am CET</div>
+                    <div class="email-subject">
+                        <strong>Subject:</strong> Premium brand presentation in a competitive market
+                    </div>
+                    <div class="email-body">Gabriele,
 
 Following my previous note about content consistency - I wanted to share a perspective on premium brand positioning online.
 
@@ -2320,29 +2311,25 @@ I'd be interested to understand whether content quality across Italian retailers
 
 Best regards,
 [SENDER NAME]</div>
-                        <div class="email-notes">
-                            <div class="notes-box customisation">
-                                <div class="notes-title">📝 Customisation Notes</div>
-                                <p>• Research LG Italia's OLED positioning on key retailers<br>
-                                • Check for any Italian market-specific competitive dynamics</p>
-                            </div>
-                            <div class="notes-box strategy">
-                                <div class="notes-title">🎯 Strategy Notes</div>
-                                <p>Email 2 deepens the content angle by connecting product investment to retail presentation. The OLED example is specific and relevant. The content link is positioned as optional value-add. The closing question invites dialogue about their current approach.</p>
-                            </div>
+                    <div class="email-notes">
+                        <div class="notes-box customisation">
+                            <div class="notes-title">📝 Customisation Notes</div>
+                            <p>• Research LG Italia's OLED positioning on key retailers<br>
+                            • Check for any Italian market-specific competitive dynamics</p>
+                        </div>
+                        <div class="notes-box strategy">
+                            <div class="notes-title">🎯 Strategy Notes</div>
+                            <p>Email 2 deepens the content angle by connecting product investment to retail presentation. The OLED example is specific and relevant. The content link is positioned as optional value-add. The closing question invites dialogue about their current approach.</p>
                         </div>
                     </div>
-
-                    <!-- Email 3 -->
-                    <div class="email-item">
-                        <div class="email-header">
-                            <span class="email-number">Email 3: New Angle with Curiosity</span>
-                            <span class="email-timing">📅 5-7 days after Email 2, Tuesday, 10:00am CET</span>
-                        </div>
-                        <div class="email-subject">
-                            <strong>Subject:</strong> The ThinQ ecosystem challenge
-                        </div>
-                        <div class="email-body">Gabriele,
+                </div>
+                <!-- Email 3 -->
+                <div class="email-tab-content" data-email-content="3">
+                    <div class="email-timing">📅 5-7 days after Email 2, Tuesday, 10:00am CET</div>
+                    <div class="email-subject">
+                        <strong>Subject:</strong> The ThinQ ecosystem challenge
+                    </div>
+                    <div class="email-body">Gabriele,
 
 A different thought occurred to me about LG's content strategy.
 
@@ -2358,16 +2345,15 @@ Either way, would value your perspective.
 
 Best regards,
 [SENDER NAME]</div>
-                        <div class="email-notes">
-                            <div class="notes-box customisation">
-                                <div class="notes-title">📝 Customisation Notes</div>
-                                <p>• Research ThinQ adoption and positioning in Italian market<br>
-                                • Check if MediaWorld or Unieuro have any LG ecosystem content</p>
-                            </div>
-                            <div class="notes-box strategy">
-                                <div class="notes-title">🎯 Strategy Notes</div>
-                                <p>Email 3 introduces the ecosystem content angle - genuinely new from previous emails. This connects to Gabriele's content strategy role while demonstrating understanding of LG's broader positioning. Ends with curiosity rather than pressure.</p>
-                            </div>
+                    <div class="email-notes">
+                        <div class="notes-box customisation">
+                            <div class="notes-title">📝 Customisation Notes</div>
+                            <p>• Research ThinQ adoption and positioning in Italian market<br>
+                            • Check if MediaWorld or Unieuro have any LG ecosystem content</p>
+                        </div>
+                        <div class="notes-box strategy">
+                            <div class="notes-title">🎯 Strategy Notes</div>
+                            <p>Email 3 introduces the ecosystem content angle - genuinely new from previous emails. This connects to Gabriele's content strategy role while demonstrating understanding of LG's broader positioning. Ends with curiosity rather than pressure.</p>
                         </div>
                     </div>
                 </div>
@@ -2579,7 +2565,7 @@ Best regards,
     </div>
 
     <script>
-        // Tab Navigation
+        // Main Tab Navigation
         document.querySelectorAll('.tab-btn').forEach(button => {
             button.addEventListener('click', () => {
                 // Remove active class from all buttons and content
@@ -2593,7 +2579,26 @@ Best regards,
             });
         });
 
-        // Smooth scroll to top when changing tabs
+        // Email Tab Navigation (within each contact's email sequence)
+        document.querySelectorAll('.email-sequence').forEach(sequence => {
+            const tabButtons = sequence.querySelectorAll('.email-tab-btn');
+            const tabContents = sequence.querySelectorAll('.email-tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and content within this sequence
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    const emailNum = button.getAttribute('data-email');
+                    sequence.querySelector(`[data-email-content="${emailNum}"]`).classList.add('active');
+                });
+            });
+        });
+
+        // Smooth scroll to top when changing main tabs
         document.querySelectorAll('.tab-btn').forEach(button => {
             button.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
