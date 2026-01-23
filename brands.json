@@ -6,5 +6,6 @@
     {"file": "molson-coors4", "name": "Molson Coors"},
     {"file": "molson-coors", "name": "Molson Coors (NEW)"},
     {"file": "motorola-solutions", "name": "Motorola Solutions"},
-    {"file": "lg-electronics", "name": "LG Electronics"}
+    {"file": "lg-electronics", "name": "LG Electronics"},
+    {"file": "lg-electronics2", "name": "LG Electronics (NEW)"}
 ]
