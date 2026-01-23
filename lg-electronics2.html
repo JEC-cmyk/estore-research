@@ -1,0 +1,2604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LG Electronics | eStore Brand Research & Action Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --estore-yellow: #ffba1c;
+            --estore-green: #22bb69;
+            --estore-light-blue: #68d7fa;
+            --estore-dark-blue: #1067db;
+            --estore-red: #f44f2f;
+            --estore-orange: #ff7a00;
+            --text-primary: #2c2c2c;
+            --text-secondary: #5a5a5a;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-light: #e5e7eb;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--text-primary) 0%, #1a1a1a 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--estore-yellow) 0%, var(--estore-orange) 100%);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-tag {
+            display: inline-block;
+            background: var(--estore-yellow);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 24px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .meta-icon {
+            width: 18px;
+            height: 18px;
+            opacity: 0.7;
+        }
+
+        /* Fit Badge in Header */
+        .fit-badge-large {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: var(--estore-green);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .fit-badge-large .fit-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-bottom: 4px;
+        }
+
+        .fit-badge-large .fit-level {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-white);
+            padding: 6px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 14px 20px;
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            background: var(--bg-light);
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background: var(--estore-dark-blue);
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 24px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-header:first-child {
+            margin-top: 0;
+        }
+
+        /* Status Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-strong {
+            background: rgba(34, 187, 105, 0.12);
+            color: var(--estore-green);
+        }
+
+        .badge-moderate {
+            background: rgba(255, 186, 28, 0.15);
+            color: #b58900;
+        }
+
+        .badge-weak {
+            background: rgba(244, 79, 47, 0.12);
+            color: var(--estore-red);
+        }
+
+        .badge-cold {
+            background: rgba(104, 215, 250, 0.15);
+            color: #0891b2;
+        }
+
+        .badge-warm {
+            background: rgba(255, 122, 0, 0.12);
+            color: var(--estore-orange);
+        }
+
+        .badge-unresponsive {
+            background: rgba(90, 90, 90, 0.1);
+            color: var(--text-secondary);
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .data-table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+
+        .data-table td {
+            font-size: 14px;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin: 16px 0;
+            border-left: 4px solid;
+        }
+
+        .info-box-blue {
+            background: rgba(16, 103, 219, 0.06);
+            border-color: var(--estore-dark-blue);
+        }
+
+        .info-box-green {
+            background: rgba(34, 187, 105, 0.06);
+            border-color: var(--estore-green);
+        }
+
+        .info-box-yellow {
+            background: rgba(255, 186, 28, 0.1);
+            border-color: var(--estore-yellow);
+        }
+
+        .info-box-orange {
+            background: rgba(255, 122, 0, 0.08);
+            border-color: var(--estore-orange);
+        }
+
+        .info-box-red {
+            background: rgba(244, 79, 47, 0.06);
+            border-color: var(--estore-red);
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Contact Cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 16px;
+        }
+
+        .contact-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.2s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--estore-dark-blue);
+        }
+
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .contact-priority {
+            background: var(--estore-dark-blue);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .contact-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .contact-title {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .contact-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .nationality-badge {
+            background: var(--bg-light);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .contact-detail {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .contact-hooks {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .contact-hooks-title {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .hook-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .hook-bullet {
+            color: var(--estore-green);
+            font-weight: bold;
+        }
+
+        /* Email Sequences */
+        .email-sequence {
+            margin-bottom: 32px;
+        }
+
+        .email-contact-header {
+            background: linear-gradient(135deg, var(--text-primary) 0%, #3a3a3a 100%);
+            color: white;
+            padding: 20px 24px;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .email-contact-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .email-contact-info {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        .email-wrapper {
+            border: 1px solid var(--border-light);
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+        }
+
+        .email-item {
+            padding: 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .email-item:last-child {
+            border-bottom: none;
+        }
+
+        .email-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .email-number {
+            background: var(--estore-yellow);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .email-timing {
+            font-size: 13px;
+            color: var(--text-secondary);
+            background: var(--bg-light);
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .email-subject {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            padding: 12px 16px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border-left: 3px solid var(--estore-dark-blue);
+        }
+
+        .email-body {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-primary);
+            white-space: pre-wrap;
+            padding: 20px;
+            background: #fafbfc;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        .email-notes {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .email-notes {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .notes-box {
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+
+        .notes-box.customisation {
+            background: rgba(104, 215, 250, 0.1);
+            border: 1px solid rgba(104, 215, 250, 0.3);
+        }
+
+        .notes-box.strategy {
+            background: rgba(34, 187, 105, 0.08);
+            border: 1px solid rgba(34, 187, 105, 0.25);
+        }
+
+        .notes-title {
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        /* Objection Cards */
+        .objection-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .objection-header {
+            background: linear-gradient(135deg, var(--estore-red) 0%, #d93920 100%);
+            color: white;
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .objection-response {
+            padding: 20px;
+        }
+
+        .objection-response p {
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .objection-response p:last-child {
+            margin-bottom: 0;
+        }
+
+        .response-highlight {
+            background: rgba(34, 187, 105, 0.08);
+            border-left: 3px solid var(--estore-green);
+            padding: 12px 16px;
+            margin: 12px 0;
+            font-size: 14px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Key Statistics */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--estore-dark-blue);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            margin: 16px 0;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            font-size: 14px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: var(--estore-green);
+            font-weight: bold;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        /* Content Links */
+        .content-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: var(--bg-light);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+            margin-bottom: 12px;
+            border: 1px solid transparent;
+        }
+
+        .content-link:hover {
+            background: rgba(16, 103, 219, 0.06);
+            border-color: var(--estore-dark-blue);
+        }
+
+        .content-link-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--estore-dark-blue);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .content-link-text {
+            flex: 1;
+        }
+
+        .content-link-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .content-link-url {
+            font-size: 12px;
+            color: var(--estore-dark-blue);
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: linear-gradient(135deg, rgba(255, 186, 28, 0.15) 0%, rgba(255, 122, 0, 0.1) 100%);
+            border: 1px solid rgba(255, 186, 28, 0.4);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .disclaimer-icon {
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .disclaimer-content h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .disclaimer-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Tone Guidance */
+        .tone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .tone-card {
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid var(--estore-dark-blue);
+        }
+
+        .tone-nationality {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+
+        .tone-nationality .flag {
+            font-size: 20px;
+        }
+
+        .tone-description {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Retailer Section */
+        .retailer-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .retailer-stat {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .retailer-stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--estore-dark-blue);
+        }
+
+        .retailer-stat-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Timeline */
+        .timeline-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .timeline-marker {
+            width: 12px;
+            height: 12px;
+            background: var(--estore-dark-blue);
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .timeline-item:not(:last-child) .timeline-marker::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 12px;
+            transform: translateX(-50%);
+            width: 2px;
+            height: calc(100% + 20px);
+            background: var(--border-light);
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-bottom: 8px;
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .timeline-description {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 32px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            border-top: 1px solid var(--border-light);
+            margin-top: 40px;
+        }
+
+        .footer strong {
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 24px;
+            }
+            
+            .header h1 {
+                font-size: 1.75rem;
+            }
+            
+            .fit-badge-large {
+                position: static;
+                margin-top: 20px;
+                display: inline-block;
+            }
+            
+            .tab-btn {
+                min-width: 100px;
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .tab-nav {
+                display: none;
+            }
+            
+            .tab-content {
+                display: block !important;
+                page-break-after: always;
+            }
+            
+            .card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <span class="brand-tag">Brand Research & Action Plan</span>
+                <h1>LG Electronics</h1>
+                <p class="header-subtitle">Consumer Electronics | Home Appliances | Smart Home</p>
+                <div class="header-meta">
+                    <div class="meta-item">
+                        <span>📍</span>
+                        <span>Seoul, South Korea (European HQ: Eschborn, Germany)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>💰</span>
+                        <span>$63.8B Revenue (FY 2024)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>👥</span>
+                        <span>~75,000 employees globally</span>
+                    </div>
+                </div>
+            </div>
+            <div class="fit-badge-large">
+                <div class="fit-label">Overall Fit</div>
+                <div class="fit-level">🟢 STRONG</div>
+            </div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="fit">Strategic Fit Assessment</button>
+            <button class="tab-btn" data-tab="history">Our history with them</button>
+            <button class="tab-btn" data-tab="retailers">Retailer Overview</button>
+            <button class="tab-btn" data-tab="contacts">Key people</button>
+            <button class="tab-btn" data-tab="emails">Draft Email Sequences</button>
+            <button class="tab-btn" data-tab="objections">Objection Handling</button>
+        </nav>
+
+        <!-- Tab 1: Strategic Fit Assessment -->
+        <div id="fit" class="tab-content active">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <span class="card-icon" style="background: rgba(34, 187, 105, 0.12);">🎯</span>
+                        Strategic Fit Assessment
+                    </h2>
+                    <span class="badge badge-strong">🟢 STRONG FIT</span>
+                </div>
+
+                <div class="info-box info-box-green">
+                    <div class="info-box-title">Executive Summary</div>
+                    <p>LG Electronics represents a high-potential opportunity with near-perfect sector alignment, significant distribution complexity, and crucially, no confirmed digital shelf analytics provider. The timing is exceptional given the new CEO's D2C background and recent RetailVerse platform launch.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">$63.8B</div>
+                        <div class="stat-label">Annual Revenue</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">20+</div>
+                        <div class="stat-label">Major Retailers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">35%</div>
+                        <div class="stat-label">UK/Europe Footprint</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">2-4 wks</div>
+                        <div class="stat-label">Est. Time-to-Value</div>
+                    </div>
+                </div>
+
+                <h3 class="section-header">📊 Distribution Complexity & Geographic Alignment</h3>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Assessment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Total Estimated Retailers</strong></td>
+                            <td>~20+ major online retail partners</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Geographic Breakdown</strong></td>
+                            <td>50% US, 35% UK/Europe, 15% Other</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Channel Profile</strong></td>
+                            <td>Multi-channel (NOT Amazon-dominant)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>European Presence</strong></td>
+                            <td>Strong - HQ in Eschborn, Germany; UK office in Weybridge</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box info-box-blue">
+                    <div class="info-box-title">Channel Notes</div>
+                    <p>LG maintains active relationships across multiple specialty electronics retailers (Best Buy, Currys), department stores (John Lewis, Target), and appliance specialists (AO.com, Home Depot). This multi-channel complexity creates exactly the visibility challenges digital shelf analytics solves. Not Amazon-dependent - genuine multi-retailer monitoring need.</p>
+                </div>
+
+                <h3 class="section-header">🔍 Competitive Intelligence Summary</h3>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Assessment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Current DSA Provider</strong></td>
+                            <td>None confirmed</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Confidence Level</strong></td>
+                            <td>MEDIUM-HIGH</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Switching Signals</strong></td>
+                            <td>N/A - whitespace opportunity</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box info-box-green">
+                    <div class="info-box-title">Key Finding: Genuine Whitespace Opportunity</div>
+                    <p>LG does not appear to use a dedicated digital shelf analytics provider. Their confirmed vendors handle adjacent functions (reviews via Bazaarvoice, marketplace integration via ChannelEngine, content syndication likely via Syndigo) but no DSA platform detected. Job postings mention GA4, Tableau, and Power BI for analytics - generic tools, not specialised DSA platforms.</p>
+                </div>
+
+                <h3 class="section-header">⭐ Sector Alignment Summary</h3>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Assessment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Primary Sector</strong></td>
+                            <td>Consumer Electronics</td>
+                        </tr>
+                        <tr>
+                            <td><strong>eStore Alignment</strong></td>
+                            <td>★★★★★ STRONG - Core proven sector</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Case Study Availability</strong></td>
+                            <td>Yes - Consumer Electronics is eStore's strongest vertical</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p style="margin-top: 16px; font-size: 14px; color: var(--text-secondary);">
+                    <strong>Portfolio Complexity:</strong> LG likely manages hundreds of active SKUs across retailers, with seasonal launches (CES in January, IFA in September) requiring coordinated digital shelf optimisation. Portfolio spans Home Entertainment (OLED TVs, soundbars), Home Appliances (refrigerators, washers), IT Products (monitors, laptops), and Smart Home (ThinQ-connected devices).
+                </p>
+
+                <h3 class="section-header">🤝 Relationship History Summary</h3>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Relationship Type</strong></td>
+                            <td>Re-engagement opportunity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Previous Contact</strong></td>
+                            <td>Multiple outreach campaigns since Sep 2024</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Meetings Booked</strong></td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deals Created</strong></td>
+                            <td>None</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box info-box-orange">
+                    <div class="info-box-title">Tactical Note</div>
+                    <p>eStore has conducted significant outreach to LG since September 2024 via Amy Hawksley-Blackburn and Michal Chadala. Themes included out-of-stock performance, search visibility, and competitive benchmarking. No meetings resulted. Previous contacts should be considered "warm but unresponsive" - new contacts identified in this research offer fresh entry points without the baggage of prior non-response.</p>
+                </div>
+
+                <h3 class="section-header">⏰ Market Dynamics Summary</h3>
+                
+                <div class="info-box info-box-blue">
+                    <div class="info-box-title">Strategic Timing Assessment: EXCELLENT (8.5/10)</div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Event</th>
+                            <th>Timing</th>
+                            <th>Relevance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>New CEO</strong></td>
+                            <td>December 2025</td>
+                            <td>Lyu Jae-cheol - D2C background, explicit digital mandate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RetailVerse Launch</strong></td>
+                            <td>September 2025</td>
+                            <td>New AI-enabled 3D e-commerce platform</td>
+                        </tr>
+                        <tr>
+                            <td><strong>D2C Strategic Priority</strong></td>
+                            <td>Ongoing</td>
+                            <td>Now ~20% of revenue, growing 30%+ annually</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Competitive Pressure</strong></td>
+                            <td>Current</td>
+                            <td>Dropped from #2 to #4 in global TV market</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-header">✅ Synthesis & Recommendation</h3>
+
+                <div class="info-box info-box-green">
+                    <div class="info-box-title">Overall Fit Level: 🟢 STRONG FIT</div>
+                </div>
+
+                <h4 style="font-size: 15px; font-weight: 600; margin: 20px 0 12px 0;">Key Factors Driving Assessment:</h4>
+                <ul class="checklist">
+                    <li><span class="check-icon">✓</span> Perfect sector alignment (Consumer Electronics - eStore core vertical)</li>
+                    <li><span class="check-icon">✓</span> No confirmed DSA provider - genuine whitespace opportunity</li>
+                    <li><span class="check-icon">✓</span> Exceptional timing (new D2C-focused CEO, RetailVerse launch)</li>
+                    <li><span class="check-icon">✓</span> Complex multi-channel distribution requiring DSA capabilities</li>
+                    <li><span class="check-icon">✓</span> Strong European presence aligned with eStore geographic strength</li>
+                </ul>
+
+                <h4 style="font-size: 15px; font-weight: 600; margin: 20px 0 12px 0;">Primary Value Proposition Positioning:</h4>
+                <p style="font-size: 14px; line-height: 1.6;">
+                    Position eStore as the missing link in LG's digital commerce stack - complementing existing Bazaarvoice (reviews), ChannelEngine (marketplace), and Syndigo (content) with competitive intelligence, availability monitoring, and search visibility analytics. Frame around supporting the new CEO's D2C expansion mandate.
+                </p>
+
+                <h4 style="font-size: 15px; font-weight: 600; margin: 20px 0 12px 0;">Recommended Approach: CONSULTATIVE RE-ENGAGEMENT</h4>
+                <ul class="checklist">
+                    <li><span class="check-icon">→</span> Acknowledge implicit awareness (don't pretend this is first contact with LG)</li>
+                    <li><span class="check-icon">→</span> Lead with new strategic context (new CEO, RetailVerse, D2C mandate)</li>
+                    <li><span class="check-icon">→</span> Target new contacts not previously reached</li>
+                    <li><span class="check-icon">→</span> Refresh messaging angle from tactical (OOS data) to strategic (D2C enablement)</li>
+                </ul>
+
+                <h4 style="font-size: 15px; font-weight: 600; margin: 20px 0 12px 0;">Estimated Difficulty: MEDIUM</h4>
+                <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6;">
+                    Strong fit fundamentals. Challenge is cutting through previous non-response. Large organisation with distributed decision-making. Need to reach right contact with right message at right time.
+                </p>
+
+                <h4 style="font-size: 15px; font-weight: 600; margin: 20px 0 12px 0;">Critical Considerations:</h4>
+                <ul class="checklist">
+                    <li><span class="check-icon">⚠</span> Previous outreach has not generated meetings - need fresh approach</li>
+                    <li><span class="check-icon">⚠</span> Target new contacts (France, Germany, Poland, Italy) rather than re-contacting UK and Spain</li>
+                    <li><span class="check-icon">⚠</span> Align messaging to new CEO's stated priorities rather than generic DSA value props</li>
+                    <li><span class="check-icon">⚠</span> Korean HQ influence means European teams may have limited autonomy on vendor decisions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab 2: Our History -->
+        <div id="history" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <span class="card-icon" style="background: rgba(255, 122, 0, 0.12);">📜</span>
+                        Our History with LG Electronics
+                    </h2>
+                    <span class="badge badge-warm">Re-engagement</span>
+                </div>
+
+                <h3 class="section-header">📊 HubSpot History Summary</h3>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Activity Period</strong></td>
+                            <td>September 2024 - July 2025</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Outreach Campaigns</strong></td>
+                            <td>Multiple sequences across UK, Spain, Germany, Mexico</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Meetings Booked</strong></td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deals Created</strong></td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Primary Themes</strong></td>
+                            <td>Out-of-stock performance, search visibility, competitive benchmarking</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-header">💬 Previous Conversations and Outcomes</h3>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">UK Outreach (Andrew Brennan)</div>
+                        <div class="timeline-title">Multiple touches around "LG out-of-stock performance vs competitors"</div>
+                        <div class="timeline-description">Specific data shared: LG OOS 19% vs Bosch 10%. Follow-up emails referencing digital shelf data samples. Earlier emails about reviews/discounts/OOS impacts on Argos. <strong>Outcome:</strong> No response, no meeting.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Spain Outreach (David Asensio Garcia, Miguel Raboso Garcia)</div>
+                        <div class="timeline-title">Emails on "LG out-of-stock performance vs competitors in Spain"</div>
+                        <div class="timeline-description">Data shared: LG OOS 25% vs Samsung 11%. <strong>Outcome:</strong> David Asensio email bounced (likely job change).</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Germany Outreach (Multiple contacts via Amy Hawksley-Blackburn)</div>
+                        <div class="timeline-title">Themes: "LG's key opportunities on Otto & MediaMarkt", ratings/reviews benchmarks, search share</div>
+                        <div class="timeline-description">Contacts included: Michael Schuller, Sangwook Lee, Stefan Skowronski, Alice Xuan, Tim Hilhorst, Merlin Wulf, Luisa Faller, Patrick Staudt, Patrick Gürser, Lena Peters, Tyler Song, Rafael Tausch, Miroslava Stankovicova. <strong>Outcome:</strong> Several OOO replies, unsubscribe requests (Merlin Wulf, Patrick Staudt, Lena Peters, Luisa Faller).</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Italy (Davide Grossi)</div>
+                        <div class="timeline-title">"LG's Digital Acceleration in 2025" reactivation attempt</div>
+                        <div class="timeline-description">Earlier relationship with reactivation attempts. Email in January 2025. Follow-up in June 2025 picking up 2023 conversation. <strong>Outcome:</strong> No response to reactivation.</div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Mexico/LATAM</div>
+                        <div class="timeline-title">Spanish-language outreach on Walmart visibility</div>
+                        <div class="timeline-description">Contacts: Aaron Romero, Eduardo Alves, Carlos Chora, Irais Portillo, Ivan Salvador Loya. <strong>Outcome:</strong> No meetings.</div>
+                    </div>
+                </div>
+
+                <h3 class="section-header">👤 Known Contacts and Their Stance</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Andrew Brennan (UK)</td>
+                            <td><span class="badge badge-unresponsive">Unresponsive</span></td>
+                            <td>Multiple touches, no engagement</td>
+                        </tr>
+                        <tr>
+                            <td>Davide Grossi (Italy)</td>
+                            <td><span class="badge badge-unresponsive">Unresponsive</span></td>
+                            <td>Reactivation attempts failed</td>
+                        </tr>
+                        <tr>
+                            <td>David Asensio Garcia (Spain)</td>
+                            <td><span class="badge badge-weak">Left company</span></td>
+                            <td>Email bounced</td>
+                        </tr>
+                        <tr>
+                            <td>German marketing contacts</td>
+                            <td><span class="badge badge-weak">Unsubscribed/OOO</span></td>
+                            <td>List hygiene needed</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-header">🔍 Competitor Intelligence</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Status</th>
+                            <th>Evidence</th>
+                            <th>Confidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Bazaarvoice</strong></td>
+                            <td>✅ Confirmed</td>
+                            <td>Active case study, legal ToS</td>
+                            <td>HIGH</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ChannelEngine</strong></td>
+                            <td>✅ Confirmed</td>
+                            <td>Press release January 2025</td>
+                            <td>HIGH</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Syndigo</strong></td>
+                            <td>⚠️ Likely</td>
+                            <td>LG product PDFs hosted on Syndigo CDN</td>
+                            <td>MEDIUM</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DSA Provider (Profitero, CommerceIQ, Salsify, etc.)</strong></td>
+                            <td>❓ Unknown</td>
+                            <td>No evidence found</td>
+                            <td>MEDIUM-HIGH</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box info-box-green">
+                    <div class="info-box-title">Key Insight: DSA Whitespace is Genuine</div>
+                    <p>LG's confirmed vendors handle adjacent functions but NOT digital shelf analytics. Job postings mention GA4, Tableau, and Power BI for analytics - generic tools, not specialised DSA platforms. This represents genuine whitespace opportunity.</p>
+                </div>
+
+                <h3 class="section-header">🚧 Blockers and Timing Considerations</h3>
+
+                <div class="info-box info-box-red">
+                    <div class="info-box-title">Known Blockers</div>
+                    <p>• Previous outreach saturation in UK and Germany<br>
+                    • No internal champion identified<br>
+                    • Large organisation with distributed decision-making<br>
+                    • Korean HQ influence on vendor decisions unknown</p>
+                </div>
+
+                <div class="info-box info-box-blue">
+                    <div class="info-box-title">Timing Considerations</div>
+                    <p>• New CEO took office December 2025 - early 2026 is ideal window<br>
+                    • Post-CES 2025 (January) - after major product announcements<br>
+                    • Q1 budget cycles typically in play<br>
+                    • RetailVerse expansion likely ongoing through 2026</p>
+                </div>
+
+                <h3 class="section-header">🏆 Internal Champion</h3>
+
+                <div class="info-box info-box-yellow">
+                    <div class="info-box-title">Status: None Identified</div>
+                    <p>No evidence of internal advocate or warm relationship. All contacts to date have been cold outreach without response. The opportunity here is to identify and develop a champion through the new contacts (Kévin Cuffaut, Daniel Basak, Kamil Rentflejsz, Gabriele Pierro).</p>
+                </div>
+
+                <h3 class="section-header">📚 Content to Reference</h3>
+
+                <a href="https://estorebrands.com/consumer-electronics" target="_blank" class="content-link">
+                    <div class="content-link-icon">📄</div>
+                    <div class="content-link-text">
+                        <div class="content-link-title">Consumer Electronics Landing Page</div>
+                        <div class="content-link-url">estorebrands.com/consumer-electronics</div>
+                    </div>
+                </a>
+
+                <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank" class="content-link">
+                    <div class="content-link-icon">📊</div>
+                    <div class="content-link-text">
+                        <div class="content-link-title">Content Benchmark: Competitive Intelligence for Digital Shelf</div>
+                        <div class="content-link-url">estorebrands.com/ignite/introducing-content-benchmark...</div>
+                    </div>
+                </a>
+
+                <div class="info-box info-box-blue">
+                    <div class="info-box-title">Content Positioning Guidance</div>
+                    <p><strong>Email 1 (Introduction):</strong> Reference sector expertise naturally, don't force content links. If including, make it optional/value-add.<br><br>
+                    <strong>Email 2 (Value Demonstration):</strong> This is where content links work best. Connect to specific LG challenge.<br><br>
+                    <strong>Email 3 (Final Engagement):</strong> Content should support, not carry, the message. Focus on conversation/meeting.</p>
+                </div>
+
+                <h3 class="section-header">💡 Strategic Implications</h3>
+
+                <p style="font-size: 14px; line-height: 1.7;">
+                    The extensive previous outreach without success suggests either timing issues, wrong contacts, or messaging that didn't resonate. The new approach should:
+                </p>
+                <ul class="checklist">
+                    <li><span class="check-icon">→</span> Target completely new contacts in France, Germany, Poland, and Italy</li>
+                    <li><span class="check-icon">→</span> Shift from tactical OOS data hooks to strategic D2C enablement messaging</li>
+                    <li><span class="check-icon">→</span> Leverage new CEO's mandate and RetailVerse launch as timely hooks</li>
+                    <li><span class="check-icon">→</span> Position eStore as complementary to existing tech stack, not replacement</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab 3: Retailer Overview -->
+        <div id="retailers" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <span class="card-icon" style="background: rgba(16, 103, 219, 0.12);">🏪</span>
+                        Retailer Overview
+                    </h2>
+                    <span class="badge badge-strong">Multi-Channel</span>
+                </div>
+
+                <div class="info-box info-box-blue">
+                    <div class="info-box-title">Strategic Overview</div>
+                    <p>This is a high-level retailer pattern analysis for strategic assessment. LG's retailer footprint aligns well with eStore's typical coverage capabilities - mainstream platforms that eStore typically monitors.</p>
+                </div>
+
+                <div class="retailer-summary">
+                    <div class="retailer-stat">
+                        <div class="retailer-stat-value">20+</div>
+                        <div class="retailer-stat-label">Major Retailers</div>
+                    </div>
+                    <div class="retailer-stat">
+                        <div class="retailer-stat-value">50%</div>
+                        <div class="retailer-stat-label">US Footprint</div>
+                    </div>
+                    <div class="retailer-stat">
+                        <div class="retailer-stat-value">35%</div>
+                        <div class="retailer-stat-label">UK/Europe</div>
+                    </div>
+                    <div class="retailer-stat">
+                        <div class="retailer-stat-value">HIGH</div>
+                        <div class="retailer-stat-label">Channel Diversity</div>
+                    </div>
+                </div>
+
+                <h3 class="section-header">🇺🇸 US Market (~10 retailers)</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Channel Type</th>
+                            <th>Retailers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Mass Merchants</strong></td>
+                            <td>Amazon US, Walmart, Target, Costco, Sam's Club</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Electronics Specialists</strong></td>
+                            <td>Best Buy, B&H Photo, Newegg</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Home Improvement</strong></td>
+                            <td>Home Depot, Lowe's</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-header">🇬🇧 UK Market (~7 retailers)</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Channel Type</th>
+                            <th>Retailers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Electronics Specialists</strong></td>
+                            <td>Currys, AO.com, Richer Sounds</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Department Stores</strong></td>
+                            <td>John Lewis, Argos</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marketplace</strong></td>
+                            <td>Amazon UK</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Regional</strong></td>
+                            <td>Euronics UK</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-header">🇪🇺 Continental Europe</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Channel Type</th>
+                            <th>Retailers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Major Chains</strong></td>
+                            <td>MediaMarkt (850+ stores), Euronics network</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marketplaces</strong></td>
+                            <td>Amazon DE, Amazon FR, Amazon IT, Amazon ES</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Country-Specific</strong></td>
+                            <td>Fnac (France), Unieuro/MediaWorld (Italy), Darty, Boulanger</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-header">✅ Notable Patterns</h3>
+                <ul class="checklist">
+                    <li><span class="check-icon">✓</span> <strong>Strong UK presence</strong> with mainstream electronics retailers eStore typically covers</li>
+                    <li><span class="check-icon">✓</span> <strong>Multi-channel complexity</strong> - genuine need for cross-retailer visibility</li>
+                    <li><span class="check-icon">✓</span> <strong>European footprint</strong> aligns with eStore's geographic strength</li>
+                    <li><span class="check-icon">✓</span> <strong>Appliance + Electronics split</strong> means presence in both specialist categories</li>
+                    <li><span class="check-icon">✓</span> <strong>NOT Amazon-dominant</strong> - genuine multi-retailer monitoring need</li>
+                </ul>
+
+                <h3 class="section-header">⚠️ Critical Gaps</h3>
+                <div class="info-box info-box-green">
+                    <div class="info-box-title">None Identified at Pattern Level</div>
+                    <p>LG's retailer footprint appears to align well with eStore's typical coverage capabilities. No niche or specialist-only distribution that would create coverage challenges. Primary retailers (Amazon, Currys, MediaMarkt) are standard eStore monitoring targets.</p>
+                </div>
+
+                <h3 class="section-header">⏱️ Implementation Note</h3>
+                <div class="info-box info-box-blue">
+                    <div class="info-box-title">Estimated Time-to-Value: 2-4 weeks for core retailers</div>
+                    <p><strong>Rationale:</strong> LG's major partners (Amazon, Currys, MediaMarkt, Best Buy) are mainstream platforms that eStore typically covers.<br><br>
+                    <strong>Caveat:</strong> Full coverage percentage calculation should be completed during detailed scoping if deal progresses.</p>
+                </div>
+
+                <h3 class="section-header">🌍 Geographic Positioning Approach</h3>
+                <div class="info-box info-box-green">
+                    <div class="info-box-title">Lead with UK/Europe</div>
+                    <p>eStore's strength is UK and European retailer coverage. LG's European contacts are accessible and have regional authority. Eschborn (Germany) and Weybridge (UK) are decision-making centres.</p>
+                </div>
+                <div class="info-box info-box-yellow">
+                    <div class="info-box-title">US as Secondary</div>
+                    <p>Acknowledge US capability but don't oversell. Position as "expanding" rather than "established" if US coverage is limited. Focus conversation on European markets where eStore is strongest.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Key People -->
+        <div id="contacts" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <span class="card-icon" style="background: rgba(34, 187, 105, 0.12);">👥</span>
+                        Key People
+                    </h2>
+                </div>
+
+                <h3 class="section-header">📜 Historical Contacts (Previously Reached)</h3>
+
+                <div class="info-box info-box-orange">
+                    <div class="info-box-title">Important: Do Not Re-Contact</div>
+                    <p>The following contacts have been previously reached without success. Focus outreach on new contacts identified below.</p>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Region</th>
+                            <th>Status</th>
+                            <th>Recommendation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Andrew Brennan</td>
+                            <td>UK</td>
+                            <td><span class="badge badge-unresponsive">Unresponsive</span></td>
+                            <td>Skip - multiple touches without engagement</td>
+                        </tr>
+                        <tr>
+                            <td>David Asensio Garcia</td>
+                            <td>Spain</td>
+                            <td><span class="badge badge-weak">Left company</span></td>
+                            <td>Skip - email bounced</td>
+                        </tr>
+                        <tr>
+                            <td>Davide Grossi</td>
+                            <td>Italy</td>
+                            <td><span class="badge badge-unresponsive">Unresponsive</span></td>
+                            <td>Skip - reactivation attempts failed</td>
+                        </tr>
+                        <tr>
+                            <td>German marketing contacts</td>
+                            <td>Germany</td>
+                            <td><span class="badge badge-weak">Unsubscribed</span></td>
+                            <td>Skip - Merlin Wulf, Patrick Staudt, Lena Peters, Luisa Faller</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-header">🎯 Primary Targets: Operational Decision-Makers</h3>
+                <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;">These are fresh contacts not previously reached by eStore. Focus outreach here.</p>
+
+                <div class="contact-grid">
+                    <!-- Contact 1 -->
+                    <div class="contact-card">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">Kévin Cuffaut</div>
+                                <div class="contact-title">Head of Digital and E-commerce, LG Electronics France</div>
+                            </div>
+                            <div class="contact-priority">1</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="nationality-badge">🇫🇷 French</span>
+                            <span class="badge badge-cold">Cold - Not previously contacted</span>
+                        </div>
+                        <div class="contact-detail"><strong>Location:</strong> Île-de-France, France</div>
+                        <div class="contact-detail"><strong>Background:</strong> MBA in Digital Marketing from EMLV. Previous experience at Fiat Chrysler Automobiles. Owns digital and e-commerce for LG France including LG.com France and digital marketing.</div>
+                        <div class="contact-detail"><strong>Confidence Level:</strong> HIGH</div>
+                        <div class="contact-hooks">
+                            <div class="contact-hooks-title">Specific Hooks</div>
+                            <div class="hook-item"><span class="hook-bullet">•</span> Position digital shelf analytics as complementary to existing martech investments</div>
+                            <div class="hook-item"><span class="hook-bullet">•</span> Unified view of product performance across lg.com France and retailer platforms</div>
+                            <div class="hook-item"><span class="hook-bullet">•</span> Reference RetailVerse launch and omnichannel strategy alignment</div>
+                        </div>
+                        <div class="info-box info-box-blue" style="margin-top: 16px; margin-bottom: 0;">
+                            <div class="info-box-title">🇫🇷 Tone Guidance for French Contacts</div>
+                            <p>French business culture values relationship-building and sophistication. Open with clear introduction, demonstrate specific knowledge, position questions as genuine curiosity. No pressure, no meeting request in Email 1.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact 2 -->
+                    <div class="contact-card">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">Daniel Basak</div>
+                                <div class="contact-title">Senior Manager Digital and E-Commerce, LG Electronics Germany</div>
+                            </div>
+                            <div class="contact-priority">2</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="nationality-badge">🇩🇪 German</span>
+                            <span class="badge badge-cold">Cold - Not previously contacted</span>
+                        </div>
+                        <div class="contact-detail"><strong>Location:</strong> Frankfurt/Eschborn, Hessen, Germany (European HQ)</div>
+                        <div class="contact-detail"><strong>Background:</strong> Previous roles at Sagaflor AG and Worldwide Express. Senior e-commerce role for LG's largest European market. Based at European HQ location.</div>
+                        <div class="contact-detail"><strong>Confidence Level:</strong> HIGH</div>
+                        <div class="contact-hooks">
+                            <div class="contact-hooks-title">Specific Hooks</div>
+                            <div class="hook-item"><span class="hook-bullet">•</span> Germany-specific digital shelf optimisation across Amazon.de and MediaMarkt/Saturn</div>
+                            <div class="hook-item"><span class="hook-bullet">•</span> Reference LG's D2C expansion strategy</div>
+                            <div class="hook-item"><span class="hook-bullet">•</span> MediaMarkt network (850+ stores) complexity angle</div>
+                        </div>
+                        <div class="info-box info-box-blue" style="margin-top: 16px; margin-bottom: 0;">
+                            <div class="info-box-title">🇩🇪 Tone Guidance for German Contacts</div>
+                            <p>German business culture values precision, structure, and directness without being pushy. Use more formal language ("Dear Daniel", "I am reaching out"). No fluff, no excessive warmth. Direct and professional.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact 3 -->
+                    <div class="contact-card">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">Kamil Rentflejsz</div>
+                                <div class="contact-title">Digital & E-commerce Marketing Manager, LG Electronics (European scope)</div>
+                            </div>
+                            <div class="contact-priority">3</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="nationality-badge">🇵🇱 Polish</span>
+                            <span class="badge badge-cold">Cold - Not previously contacted</span>
+                        </div>
+                        <div class="contact-detail"><strong>Location:</strong> Poland</div>
+                        <div class="contact-detail"><strong>Background:</strong> Led LG's User.com CDP implementation. Works with PHD on BI reporting via Vizyble platform. GDPR compliance specialist. Quoted in User.com case study demonstrating hands-on implementation role.</div>
+                        <div class="contact-detail"><strong>Confidence Level:</strong> MEDIUM-HIGH</div>
+                        <div class="contact-hooks">
+                            <div class="contact-hooks-title">Specific Hooks</div>
+                            <div class="hook-item"><span class="hook-bullet">•</span> Position DSA as the missing link given his CDP and abandoned cart optimisation focus</div>
+                            <div class="hook-item"><span class="hook-bullet">•</span> Connect marketing automation insights with product availability/visibility data</div>
+                            <div class="hook-item"><span class="hook-bullet">•</span> Complement existing Vizyble BI with retail-specific intelligence</div>
+                        </div>
+                        <div class="info-box info-box-blue" style="margin-top: 16px; margin-bottom: 0;">
+                            <div class="info-box-title">🇵🇱 Tone Guidance for Polish Contacts</div>
+                            <p>Given Kamil's analytics background, language should be precise and analytical. Acknowledge his specific work (User.com CDP) to show homework without being showy. Data-driven framing will resonate.</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact 4 -->
+                    <div class="contact-card">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">Gabriele Pierro</div>
+                                <div class="contact-title">Head of Digital and Content Strategy, LG Electronics Italia</div>
+                            </div>
+                            <div class="contact-priority">4</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="nationality-badge">🇮🇹 Italian</span>
+                            <span class="badge badge-cold">Cold - Not previously contacted</span>
+                        </div>
+                        <div class="contact-detail"><strong>Location:</strong> Milan, Italy</div>
+                        <div class="contact-detail"><strong>Background:</strong> Part of LG Italia leadership team. Works alongside Francesco Salza (CE Director) and Maurizio Amanzi (Sales Director). Digital strategy ownership including content.</div>
+                        <div class="contact-detail"><strong>Confidence Level:</strong> MEDIUM</div>
+                        <div class="contact-hooks">
+                            <div class="contact-hooks-title">Specific Hooks</div>
+                            <div class="hook-item"><span class="hook-bullet">•</span> Content consistency across retail platforms (directly addresses his domain)</div>
+                            <div class="hook-item"><span class="hook-bullet">•</span> Optimisation across MediaWorld, Unieuro, Amazon.it</div>
+                            <div class="hook-item"><span class="hook-bullet">•</span> Premium positioning through quality product content</div>
+                        </div>
+                        <div class="info-box info-box-blue" style="margin-top: 16px; margin-bottom: 0;">
+                            <div class="info-box-title">🇮🇹 Tone Guidance for Italian Contacts</div>
+                            <p>Italian business culture appreciates relationship-building and sophistication. Balance professionalism with warmth. The competitive reference (Samsung, TCL, Hisense) provides strategic context without being alarmist.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="section-header">🔷 Secondary Target: Strategic Influencer</h3>
+
+                <div class="contact-card" style="max-width: 500px;">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Andy Mackay</div>
+                            <div class="contact-title">President, LG Electronics Nordic Subsidiary</div>
+                        </div>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="nationality-badge">🇬🇧 British</span>
+                        <span class="badge badge-cold">Cold - Not previously contacted</span>
+                    </div>
+                    <div class="contact-detail"><strong>Location:</strong> Newcastle upon Tyne, UK</div>
+                    <div class="contact-detail"><strong>Career at LG:</strong> 2015-2016: COO, UK and Nordics. 2011-2015: UK Commercial Director. 2008-2011: UK and Ireland Sales Director. Previously Marketing Director at Electrolux Group.</div>
+                    <div class="contact-detail"><strong>Why Relevant:</strong> Former UK COO with deep understanding of UK commercial operations. May provide warm introduction to current UK contacts or strategic context.</div>
+                    <div class="contact-hooks">
+                        <div class="contact-hooks-title">Potential Use</div>
+                        <div class="hook-item"><span class="hook-bullet">•</span> Reference his extensive UK commercial background</div>
+                        <div class="hook-item"><span class="hook-bullet">•</span> May unlock UK introductions that previous direct outreach didn't achieve</div>
+                        <div class="hook-item"><span class="hook-bullet">•</span> Senior enough to provide air cover but operational enough to understand DSA value</div>
+                    </div>
+                </div>
+
+                <h3 class="section-header">👔 Executive Context (Reference Only - Do Not Contact Directly)</h3>
+
+                <div class="info-box info-box-blue">
+                    <div class="info-box-title">New CEO: Lyu Jae-cheol (effective December 1, 2025)</div>
+                    <p>Built reputation leading Home Appliance Solution Company. Drove D2C and subscription model success. Stated mandate: extend D2C DNA "across the entire organisation".<br><br>
+                    <strong>Quotable Priority:</strong> "Qualitative growth" and "structural competitiveness" - use these terms to align messaging with CEO's stated strategic direction.</p>
+                </div>
+
+                <p style="font-size: 14px; color: var(--text-secondary); margin-top: 12px;">
+                    <strong>Chief Digital Officer:</strong> Sam-soo Lee (oversees AI Big Data division)<br>
+                    <strong>Global CMO:</strong> Dermot Boden (EVP) - leads marketing strategy
+                </p>
+
+                <h3 class="section-header">🚫 Contacts to Skip</h3>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Contact/Type</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Andrew Brennan (UK)</td>
+                            <td>Previously contacted multiple times, no response</td>
+                        </tr>
+                        <tr>
+                            <td>David Asensio Garcia (Spain)</td>
+                            <td>Email bounced - likely left company</td>
+                        </tr>
+                        <tr>
+                            <td>Davide Grossi (Italy)</td>
+                            <td>Previously contacted, reactivation attempts unsuccessful</td>
+                        </tr>
+                        <tr>
+                            <td>German marketing contacts</td>
+                            <td>Unsubscribes and OOO replies from previous campaigns</td>
+                        </tr>
+                        <tr>
+                            <td>Mexico contacts</td>
+                            <td>Walmart-focused, not relevant to UK/Europe strategy</td>
+                        </tr>
+                        <tr>
+                            <td>Korean HQ contacts</td>
+                            <td>Decisions executed regionally; HQ unlikely to engage with UK vendor</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 5: Draft Email Sequences -->
+        <div id="emails" class="tab-content">
+            <div class="disclaimer">
+                <div class="disclaimer-icon">⚠️</div>
+                <div class="disclaimer-content">
+                    <h4>Important: These Are Draft Emails</h4>
+                    <p>These emails are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Verify all contact details via LinkedIn, check for any recent news, and ensure messaging is still timely.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <span class="card-icon" style="background: rgba(255, 186, 28, 0.15);">✉️</span>
+                        Draft Email Sequences
+                    </h2>
+                </div>
+
+                <h3 class="section-header">🌍 Nationality-Based Tone Guidance</h3>
+
+                <div class="tone-grid">
+                    <div class="tone-card">
+                        <div class="tone-nationality"><span class="flag">🇫🇷</span> French</div>
+                        <div class="tone-description">Values relationship-building and sophistication. Open with clear introduction, demonstrate specific knowledge of their market. Position questions as genuine curiosity. No pressure, no meeting request in Email 1.</div>
+                    </div>
+                    <div class="tone-card">
+                        <div class="tone-nationality"><span class="flag">🇩🇪</span> German</div>
+                        <div class="tone-description">Values precision, structure, and directness without being pushy. Use formal language ("Dear [Name]", "I am reaching out"). Be specific about what you offer. No fluff, no excessive warmth.</div>
+                    </div>
+                    <div class="tone-card">
+                        <div class="tone-nationality"><span class="flag">🇵🇱</span> Polish (Analytics-minded)</div>
+                        <div class="tone-description">Given Kamil's CDP/analytics background, use precise and analytical language. Acknowledge specific work to show homework. Data-driven framing resonates. Connect marketing automation to retail performance.</div>
+                    </div>
+                    <div class="tone-card">
+                        <div class="tone-nationality"><span class="flag">🇮🇹</span> Italian</div>
+                        <div class="tone-description">Appreciates relationship-building and sophistication. Balance professionalism with warmth. Content strategy focus means quality presentation angle resonates strongly.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact 1: Kévin Cuffaut -->
+            <div class="email-sequence">
+                <div class="email-contact-header">
+                    <div>
+                        <div class="email-contact-name">🇫🇷 Kévin Cuffaut</div>
+                        <div class="email-contact-info">Head of Digital and E-commerce, LG Electronics France | COLD</div>
+                    </div>
+                    <span class="badge badge-cold">Priority #1</span>
+                </div>
+                <div class="email-wrapper">
+                    <!-- Email 1 -->
+                    <div class="email-item">
+                        <div class="email-header">
+                            <span class="email-number">Email 1: Problem Hook</span>
+                            <span class="email-timing">📅 Tuesday or Wednesday, 9:30am CET</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong> LG France and the retailer content challenge
+                        </div>
+                        <div class="email-body">Bonjour Kévin,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics brands, helping companies like Bosch, Whirlpool, and Miele monitor how their products appear and perform across online retailers.
+
+I wanted to reach out because LG's position in France is interesting. You're selling through Amazon.fr, Fnac, Darty, Boulanger - each with different content requirements, search algorithms, and promotional calendars. Managing product presentation consistently across all of them, particularly with a portfolio as broad as LG's, creates a level of complexity that's difficult to track manually.
+
+The RetailVerse platform launch suggests LG is investing seriously in owned e-commerce experiences. I'd be curious whether that's changing how you think about third-party retailer performance - whether there's more focus now on ensuring the retailer experience matches what LG controls directly.
+
+We work extensively with European electronics brands navigating this balance between owned and third-party channels. Happy to share what we're seeing if it would be useful.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="notes-box customisation">
+                                <div class="notes-title">📝 Customisation Notes</div>
+                                <p>• Verify Kévin's current role via LinkedIn before sending<br>
+                                • Check if any LG France news has emerged since research was conducted<br>
+                                • Consider whether French-language version would be more appropriate (discuss with team)</p>
+                            </div>
+                            <div class="notes-box strategy">
+                                <div class="notes-title">🎯 Strategy Notes</div>
+                                <p>French business culture values relationship-building and sophistication. This email opens with a clear introduction (required for cold outreach), demonstrates specific knowledge of LG's French retail landscape, and positions the RetailVerse launch as the strategic hook. The question is genuine and non-assumptive - we're curious, not asserting a problem. No pressure, no meeting request.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email 2 -->
+                    <div class="email-item">
+                        <div class="email-header">
+                            <span class="email-number">Email 2: Value Demonstration</span>
+                            <span class="email-timing">📅 5-7 days after Email 1, Tuesday or Thursday, 10:00am CET</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong> Premium positioning and the digital shelf
+                        </div>
+                        <div class="email-body">Kévin,
+
+Following up on my note about retailer complexity - I wanted to share a perspective that might be relevant given LG's competitive position.
+
+The pressure from TCL and Hisense in the TV category is well documented - Chinese competitors now hold more combined market share than Samsung and LG together. One pattern we've observed with premium brands facing value-competitor pressure is that the digital shelf becomes a critical battleground. It's not enough to have superior products if the content, availability, and search positioning don't reflect that premium positioning.
+
+For OLED specifically - where LG still dominates with over half the market - ensuring retailers present the differentiation clearly (panel technology, contrast ratios, refresh rates) matters enormously for purchase decisions that happen increasingly online.
+
+We've written about the challenges consumer electronics brands face on the digital shelf. I've linked our sector overview below if useful: https://estorebrands.com/consumer-electronics
+
+Would be interested to hear how you're currently approaching this - whether there's a system in place or whether it's more manual.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="notes-box customisation">
+                                <div class="notes-title">📝 Customisation Notes</div>
+                                <p>• Research any Fnac or Darty promotional activity for LG products<br>
+                                • Check if there's been any French press coverage of LG vs Chinese competitors</p>
+                            </div>
+                            <div class="notes-box strategy">
+                                <div class="notes-title">🎯 Strategy Notes</div>
+                                <p>Email 2 adds genuine new value by connecting LG's competitive pressure to digital shelf performance. The insight about premium positioning defence is substantive, not generic. The OLED reference shows specific product knowledge. Content link is positioned as optional ("if useful"), not required reading. The closing question invites dialogue without pressure.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email 3 -->
+                    <div class="email-item">
+                        <div class="email-header">
+                            <span class="email-number">Email 3: New Angle with Curiosity</span>
+                            <span class="email-timing">📅 5-7 days after Email 2, Wednesday, 9:00am CET</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong> A different question about LG France
+                        </div>
+                        <div class="email-body">Kévin,
+
+I've been thinking about this from a different angle.
+
+LG's investment in ThinQ and connected home ecosystems means products increasingly work together - refrigerators that communicate with air purifiers, washing machines that connect to smartphones. But on retailer websites, each product is still presented in isolation. The system benefits that might convince a customer to stay within the LG ecosystem often get lost in how retailers structure their categories.
+
+I'm curious whether this is something you've encountered - whether there's a gap between how LG wants to position its connected portfolio and how it actually appears across French retail partners.
+
+It's a challenge we're seeing with other multi-category electronics brands. Not always easy to solve, but worth understanding better.
+
+Would welcome your perspective if you have a moment.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="notes-box customisation">
+                                <div class="notes-title">📝 Customisation Notes</div>
+                                <p>• Check ThinQ adoption figures for France if available<br>
+                                • Review LG France website for connected home messaging</p>
+                            </div>
+                            <div class="notes-box strategy">
+                                <div class="notes-title">🎯 Strategy Notes</div>
+                                <p>Email 3 introduces a genuinely new angle (ecosystem presentation) rather than rehashing previous points. This demonstrates continued thinking about their business, not just persistence. The question is specific and shows sector expertise. Ends with curiosity and an open door, not a meeting push or exit offer.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact 2: Daniel Basak -->
+            <div class="email-sequence">
+                <div class="email-contact-header">
+                    <div>
+                        <div class="email-contact-name">🇩🇪 Daniel Basak</div>
+                        <div class="email-contact-info">Senior Manager Digital and E-Commerce, LG Electronics Germany | COLD</div>
+                    </div>
+                    <span class="badge badge-cold">Priority #2</span>
+                </div>
+                <div class="email-wrapper">
+                    <!-- Email 1 -->
+                    <div class="email-item">
+                        <div class="email-header">
+                            <span class="email-number">Email 1: Problem Hook</span>
+                            <span class="email-timing">📅 Tuesday, 8:30am CET</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong> Digital shelf complexity across MediaMarkt and Amazon.de
+                        </div>
+                        <div class="email-body">Dear Daniel,
+
+I am [SENDER NAME] from eStore. We provide digital shelf analytics for consumer electronics brands - helping companies like Bosch, Whirlpool, and Miele monitor product availability, content accuracy, pricing, and search rankings across online retailers.
+
+I am reaching out because LG's position in the German market presents a particular complexity. You are managing performance across Amazon.de, the MediaMarkt/Saturn network (with over 850 stores and their online platforms), and regional specialists - each with different content specifications, promotional rhythms, and competitive dynamics.
+
+The centralisation of e-commerce strategy through the Overseas Sales and Marketing Company, combined with local execution responsibility, creates an additional layer of coordination. Understanding what is actually happening across retailers in real time becomes more challenging when regional teams need to execute against global priorities.
+
+We have worked with several European electronics brands navigating similar structures. I would be interested to understand how LG Germany currently approaches this - whether there is a systematic view of digital shelf performance or whether it remains largely manual.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="notes-box customisation">
+                                <div class="notes-title">📝 Customisation Notes</div>
+                                <p>• Verify Daniel's current role and tenure via LinkedIn<br>
+                                • Check MediaMarkt Germany for current LG promotions or positioning</p>
+                            </div>
+                            <div class="notes-box strategy">
+                                <div class="notes-title">🎯 Strategy Notes</div>
+                                <p>German business culture values precision, structure, and directness without being pushy. This email uses more formal language ("Dear Daniel", "I am reaching out"), demonstrates specific knowledge of the German retail landscape and the organisational complexity Daniel operates within. The question is direct and professional. No fluff, no excessive warmth.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email 2 -->
+                    <div class="email-item">
+                        <div class="email-header">
+                            <span class="email-number">Email 2: Value Demonstration</span>
+                            <span class="email-timing">📅 6-7 days after Email 1, Thursday, 9:00am CET</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong> Competitive intelligence in the German appliance market
+                        </div>
+                        <div class="email-body">Daniel,
+
+Following my previous message - I wanted to share an observation that may be relevant.
+
+LG's Home Appliance division generated over KRW 2 trillion in operating profit for the first time, making it the primary profit driver. Protecting that position in markets like Germany requires understanding not just your own performance but how competitors like Bosch, Siemens, and Miele are positioning and pricing across the same retailers.
+
+The challenge is that this competitive landscape shifts constantly. A competitor adjusts pricing on Amazon.de, changes their product content on MediaMarkt, or runs a promotional campaign on Saturn - and without systematic monitoring, the response is always reactive.
+
+We work with brands who want to move from reactive to proactive in how they manage competitive dynamics on the digital shelf. Our approach covers availability tracking, content benchmarking, pricing monitoring, and search visibility analysis across European retailers.
+
+I would be interested to understand how LG Germany currently handles competitive intelligence across digital channels - whether there is an established system or whether it is an area of ongoing development.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="notes-box customisation">
+                                <div class="notes-title">📝 Customisation Notes</div>
+                                <p>• Research any Bosch or Siemens promotional activity on MediaMarkt<br>
+                                • Check LG Germany appliance positioning on Amazon.de</p>
+                            </div>
+                            <div class="notes-box strategy">
+                                <div class="notes-title">🎯 Strategy Notes</div>
+                                <p>Email 2 builds on the appliance division's importance with specific financial context, then connects to competitive intelligence needs. The value proposition is explained clearly and directly - German audiences appreciate knowing exactly what something does. No content link in this email as the explanation is substantive enough.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email 3 -->
+                    <div class="email-item">
+                        <div class="email-header">
+                            <span class="email-number">Email 3: New Angle with Curiosity</span>
+                            <span class="email-timing">📅 6-7 days after Email 2, Tuesday, 8:30am CET</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong> Product launch coordination across German retailers
+                        </div>
+                        <div class="email-body">Daniel,
+
+One aspect I have been considering is product launch execution.
+
+LG typically announces major products at CES in January and IFA in September. The challenge is ensuring that when a new OLED television or washing machine launches, all German retailers have accurate content, correct specifications, and appropriate positioning simultaneously. Gaps in content or delays in availability create friction precisely when consumer interest is highest.
+
+For brands with LG's portfolio breadth - spanning home entertainment, appliances, and IT products - coordinating launches across MediaMarkt, Amazon.de, and specialist retailers requires significant operational overhead.
+
+I would be curious whether launch coordination across retailers is an area where you have established processes, or whether it remains a manual effort that absorbs more time than ideal.
+
+We have developed approaches to support launch readiness specifically for consumer electronics brands with complex portfolios. Happy to discuss if relevant.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="notes-box customisation">
+                                <div class="notes-title">📝 Customisation Notes</div>
+                                <p>• Check timing relative to CES or IFA announcements<br>
+                                • Research any recent LG product launches in Germany</p>
+                            </div>
+                            <div class="notes-box strategy">
+                                <div class="notes-title">🎯 Strategy Notes</div>
+                                <p>Email 3 introduces the launch coordination angle - different from competitive intelligence but equally relevant. The timing hook (CES/IFA) is generic rather than date-specific. Ends with an offer to discuss rather than a meeting request, maintaining the consultative tone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact 3: Kamil Rentflejsz -->
+            <div class="email-sequence">
+                <div class="email-contact-header">
+                    <div>
+                        <div class="email-contact-name">🇵🇱 Kamil Rentflejsz</div>
+                        <div class="email-contact-info">Digital & E-commerce Marketing Manager, LG Electronics (European scope) | COLD</div>
+                    </div>
+                    <span class="badge badge-cold">Priority #3</span>
+                </div>
+                <div class="email-wrapper">
+                    <!-- Email 1 -->
+                    <div class="email-item">
+                        <div class="email-header">
+                            <span class="email-number">Email 1: Problem Hook</span>
+                            <span class="email-timing">📅 Wednesday, 9:00am CET</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong> Connecting marketing automation with retailer performance
+                        </div>
+                        <div class="email-body">Dear Kamil,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics brands, helping companies like Bosch, Whirlpool, and Miele understand how their products appear and perform across online retailers.
+
+I came across the work you've done implementing User.com's CDP for LG's European marketing operations. The abandoned cart optimisation and marketing automation capabilities are impressive - clearly there's a sophisticated approach to the owned digital experience.
+
+What I'm curious about is whether there's a similar level of visibility into what happens after consumers leave LG's owned channels and arrive at retailers. Understanding whether products are in stock, whether content is accurate, whether pricing is competitive - that's a different data layer that often sits outside the martech stack.
+
+We work with brands who want to connect their marketing investment with what's actually happening on the digital shelf across Amazon, MediaMarkt, and specialist retailers. I'd be interested to understand whether this is something LG has solved or whether it's still evolving.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="notes-box customisation">
+                                <div class="notes-title">📝 Customisation Notes</div>
+                                <p>• Verify User.com case study details are accurate<br>
+                                • Check Kamil's LinkedIn for any additional martech projects</p>
+                            </div>
+                            <div class="notes-box strategy">
+                                <div class="notes-title">🎯 Strategy Notes</div>
+                                <p>Kamil's background is analytics and martech - the hook acknowledges his work specifically (User.com CDP implementation from research) and positions eStore as a complementary data layer. This shows we've done homework without being showy about it. The question connects his expertise to our domain naturally.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email 2 -->
+                    <div class="email-item">
+                        <div class="email-header">
+                            <span class="email-number">Email 2: Value Demonstration</span>
+                            <span class="email-timing">📅 5-6 days after Email 1, Monday or Tuesday, 10:00am CET</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong> The gap between marketing spend and retailer execution
+                        </div>
+                        <div class="email-body">Kamil,
+
+Following my previous note - I wanted to expand on the connection between marketing investment and retailer execution.
+
+When brands invest in campaigns that drive traffic to retailers, there's often limited visibility into what consumers actually find when they arrive. The product might be out of stock, the content might be outdated, or a competitor might be running a promotion that captures the demand you generated.
+
+For LG specifically - with campaigns running across multiple European markets and driving traffic to different retailers - the ROI on marketing spend becomes difficult to optimise without understanding the retailer-side performance.
+
+We've developed capabilities around availability tracking, content accuracy monitoring, and competitive pricing analysis that help brands understand this gap. Our Content Benchmark feature specifically helps brands compare their product presentation against competitors across the same retailers.
+
+More detail here if useful: https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content
+
+I'd be curious whether connecting marketing performance to retailer execution is something you've found ways to address, or whether it's an acknowledged gap.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="notes-box customisation">
+                                <div class="notes-title">📝 Customisation Notes</div>
+                                <p>• Research any LG European marketing campaigns visible online<br>
+                                • Check if Kamil has posted about attribution or performance measurement</p>
+                            </div>
+                            <div class="notes-box strategy">
+                                <div class="notes-title">🎯 Strategy Notes</div>
+                                <p>Email 2 connects to Kamil's marketing automation expertise by framing digital shelf analytics as the missing piece in attribution. The Content Benchmark link is relevant to his data-driven orientation. Language is precise and analytical to match his likely communication style.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email 3 -->
+                    <div class="email-item">
+                        <div class="email-header">
+                            <span class="email-number">Email 3: New Angle with Curiosity</span>
+                            <span class="email-timing">📅 5-6 days after Email 2, Thursday, 9:00am CET</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong> The Vizyble question
+                        </div>
+                        <div class="email-body">Kamil,
+
+A different angle occurred to me.
+
+I noticed LG uses Vizyble for BI reporting through PHD. Vizyble is strong for owned channel analytics and media performance - but I'd be curious whether it extends to retailer-level product performance data.
+
+The challenge with generic BI tools applied to digital shelf monitoring is that retailer data is complex - inconsistent formats, different update frequencies, varying data quality across platforms. Specialist digital shelf analytics platforms are designed specifically for this complexity.
+
+Not assuming there's a gap here - just curious whether your BI setup covers retailer performance or whether that's tracked separately (or not systematically at all).
+
+Either way, would be interested in your perspective on how LG approaches this across European markets.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="notes-box customisation">
+                                <div class="notes-title">📝 Customisation Notes</div>
+                                <p>• Verify Vizyble/PHD relationship from research<br>
+                                • Consider whether this is too direct - may need softer framing</p>
+                            </div>
+                            <div class="notes-box strategy">
+                                <div class="notes-title">🎯 Strategy Notes</div>
+                                <p>Email 3 references his specific tech stack (Vizyble) to show continued attention and introduces a new angle: the limitation of generic BI for digital shelf data. This is a consultative observation, not a criticism. The acknowledgment that we're "not assuming there's a gap" maintains the curious, non-presumptuous tone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact 4: Gabriele Pierro -->
+            <div class="email-sequence">
+                <div class="email-contact-header">
+                    <div>
+                        <div class="email-contact-name">🇮🇹 Gabriele Pierro</div>
+                        <div class="email-contact-info">Head of Digital and Content Strategy, LG Electronics Italia | COLD</div>
+                    </div>
+                    <span class="badge badge-cold">Priority #4</span>
+                </div>
+                <div class="email-wrapper">
+                    <!-- Email 1 -->
+                    <div class="email-item">
+                        <div class="email-header">
+                            <span class="email-number">Email 1: Problem Hook</span>
+                            <span class="email-timing">📅 Tuesday or Wednesday, 10:00am CET</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong> Content consistency across Italian retailers
+                        </div>
+                        <div class="email-body">Dear Gabriele,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics brands, helping companies like Bosch, Whirlpool, and Miele monitor how their products appear across online retailers.
+
+Your role leading digital and content strategy for LG Italia caught my attention because content consistency across retailers is one of the most challenging aspects of managing a premium brand online.
+
+LG sells through MediaWorld, Unieuro, Amazon.it, and specialist retailers - each with different content requirements, image specifications, and product description formats. Ensuring that a premium television or refrigerator is presented correctly across all of them, with accurate specifications and compelling content, requires either significant manual effort or systematic monitoring.
+
+Given the competitive pressure from brands like Samsung, TCL, and Hisense, the quality of product presentation can influence purchase decisions as much as the product itself.
+
+I'd be curious to understand how LG Italia currently approaches content consistency across retail partners - whether there's a systematic process or whether it's an ongoing challenge.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="notes-box customisation">
+                                <div class="notes-title">📝 Customisation Notes</div>
+                                <p>• Verify Gabriele's current role via LinkedIn<br>
+                                • Check MediaWorld and Unieuro for LG product presentation quality</p>
+                            </div>
+                            <div class="notes-box strategy">
+                                <div class="notes-title">🎯 Strategy Notes</div>
+                                <p>Gabriele's title explicitly includes "Content Strategy" - the hook directly addresses his domain. Italian business culture appreciates relationship-building and sophistication, so the email balances professionalism with warmth. The competitive reference (Samsung, TCL, Hisense) provides strategic context without being alarmist.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email 2 -->
+                    <div class="email-item">
+                        <div class="email-header">
+                            <span class="email-number">Email 2: Value Demonstration</span>
+                            <span class="email-timing">📅 5-7 days after Email 1, Thursday, 10:00am CET</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong> Premium brand presentation in a competitive market
+                        </div>
+                        <div class="email-body">Gabriele,
+
+Following my previous note about content consistency - I wanted to share a perspective on premium brand positioning online.
+
+LG's strength in OLED technology represents genuine product differentiation. But that differentiation only matters if it's clearly communicated where consumers make decisions. On retailer websites, the technical superiority of an LG OLED panel needs to be visible in images, specifications, and product descriptions that convey premium positioning.
+
+The challenge is that retailers often use generic content, outdated images, or incomplete specifications. For a brand investing in premium product development, having that investment undermined by poor retail presentation creates a disconnect.
+
+We've written about the specific challenges consumer electronics brands face on the digital shelf - I've linked our sector overview below if it would be useful: https://estorebrands.com/consumer-electronics
+
+I'd be interested to understand whether content quality across Italian retailers is something LG Italia monitors systematically, or whether it's more reactive when issues are discovered.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="notes-box customisation">
+                                <div class="notes-title">📝 Customisation Notes</div>
+                                <p>• Research LG Italia's OLED positioning on key retailers<br>
+                                • Check for any Italian market-specific competitive dynamics</p>
+                            </div>
+                            <div class="notes-box strategy">
+                                <div class="notes-title">🎯 Strategy Notes</div>
+                                <p>Email 2 deepens the content angle by connecting product investment to retail presentation. The OLED example is specific and relevant. The content link is positioned as optional value-add. The closing question invites dialogue about their current approach.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email 3 -->
+                    <div class="email-item">
+                        <div class="email-header">
+                            <span class="email-number">Email 3: New Angle with Curiosity</span>
+                            <span class="email-timing">📅 5-7 days after Email 2, Tuesday, 10:00am CET</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong> The ThinQ ecosystem challenge
+                        </div>
+                        <div class="email-body">Gabriele,
+
+A different thought occurred to me about LG's content strategy.
+
+The ThinQ platform connects LG products across categories - televisions that communicate with soundbars, refrigerators that work with air purifiers. The ecosystem story is compelling, but I wonder how effectively it translates to retailer product pages.
+
+On most retail sites, each product is presented in isolation. The cross-category benefits that might convince a customer to commit to the LG ecosystem often get lost in how retailers structure their catalogues.
+
+It's a content challenge that goes beyond individual product descriptions - it's about whether the broader brand story comes through on third-party platforms.
+
+I'd be curious whether this is something LG Italia has found ways to address with retail partners, or whether it remains a structural limitation of how retailers present products.
+
+Either way, would value your perspective.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="notes-box customisation">
+                                <div class="notes-title">📝 Customisation Notes</div>
+                                <p>• Research ThinQ adoption and positioning in Italian market<br>
+                                • Check if MediaWorld or Unieuro have any LG ecosystem content</p>
+                            </div>
+                            <div class="notes-box strategy">
+                                <div class="notes-title">🎯 Strategy Notes</div>
+                                <p>Email 3 introduces the ecosystem content angle - genuinely new from previous emails. This connects to Gabriele's content strategy role while demonstrating understanding of LG's broader positioning. Ends with curiosity rather than pressure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 24px;">
+                <h3 class="section-header">📊 Content Links Summary</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Email</th>
+                            <th>Content Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Kévin Cuffaut</td>
+                            <td>Email 2</td>
+                            <td><a href="https://estorebrands.com/consumer-electronics" target="_blank">estorebrands.com/consumer-electronics</a></td>
+                        </tr>
+                        <tr>
+                            <td>Daniel Basak</td>
+                            <td>None</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Kamil Rentflejsz</td>
+                            <td>Email 2</td>
+                            <td><a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank">Content Benchmark article</a></td>
+                        </tr>
+                        <tr>
+                            <td>Gabriele Pierro</td>
+                            <td>Email 2</td>
+                            <td><a href="https://estorebrands.com/consumer-electronics" target="_blank">estorebrands.com/consumer-electronics</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 6: Objection Handling -->
+        <div id="objections" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">
+                        <span class="card-icon" style="background: rgba(244, 79, 47, 0.12);">🛡️</span>
+                        Objection Handling
+                    </h2>
+                </div>
+
+                <h3 class="section-header">📋 Decision Framework</h3>
+
+                <div class="info-box info-box-green">
+                    <div class="info-box-title">🟢 STRONG FIT - Recommended Approach</div>
+                    <p>Based on the Strategic Fit Assessment, LG Electronics is a <strong>STRONG FIT</strong>. The approach should be:</p>
+                </div>
+
+                <ul class="checklist">
+                    <li><span class="check-icon">✓</span> <strong>Confident but Consultative:</strong> Lead with insight/value rather than features. Assume strategic alignment and focus on practical next steps.</li>
+                    <li><span class="check-icon">✓</span> <strong>Acknowledge History:</strong> Don't pretend this is first contact with LG as an organisation - previous outreach occurred but to different contacts.</li>
+                    <li><span class="check-icon">✓</span> <strong>Fresh Angle Required:</strong> Shift from tactical OOS data hooks to strategic D2C enablement messaging aligned with new CEO's mandate.</li>
+                    <li><span class="check-icon">✓</span> <strong>Whitespace Positioning:</strong> No incumbent DSA means focus on value creation, not competitive displacement.</li>
+                </ul>
+
+                <h3 class="section-header">💬 Common Objections & Responses</h3>
+
+                <!-- Objection 1 -->
+                <div class="objection-card">
+                    <div class="objection-header">"We already have Bazaarvoice/ChannelEngine for our digital commerce"</div>
+                    <div class="objection-response">
+                        <p>That makes sense - Bazaarvoice is excellent for reviews syndication and ChannelEngine for marketplace integration. What we do is different and complementary.</p>
+                        <p>Bazaarvoice helps you collect and display reviews. ChannelEngine helps you list products on marketplaces. Neither tells you what's actually happening on the digital shelf - whether your products are in stock, whether your content is displaying correctly, how you're ranking in search versus Samsung or Bosch, or how competitors are pricing.</p>
+                        <div class="response-highlight">
+                            <strong>Key Message:</strong> eStore fills the gap between your content management tools and understanding actual retailer execution. We're the visibility layer that complements your existing stack.
+                        </div>
+                        <p>Many of our clients use Bazaarvoice or similar tools alongside eStore - they solve different problems.</p>
+                    </div>
+                </div>
+
+                <!-- Objection 2 -->
+                <div class="objection-card">
+                    <div class="objection-header">"We use internal analytics (GA4, Tableau, Power BI) for this"</div>
+                    <div class="objection-response">
+                        <p>Those are powerful tools for analysing your owned channels - LG.com traffic, conversion rates, campaign performance. But they can only see what happens on your own properties.</p>
+                        <p>The challenge is that most of LG's online sales happen on retailer websites - Amazon, MediaMarkt, Currys, Fnac. Your internal analytics can't see what's happening there: whether products are in stock, how content displays, what competitors are doing, or how you're ranking in retailer search.</p>
+                        <div class="response-highlight">
+                            <strong>Key Message:</strong> We're not replacing your BI tools - we're providing the retailer-side data that makes your overall picture complete. Think of it as extending your analytics visibility to the retailers you don't control.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objection 3 -->
+                <div class="objection-card">
+                    <div class="objection-header">"We've heard of eStore - your team has contacted us before"</div>
+                    <div class="objection-response">
+                        <p>You're right - we've had conversations with LG previously, though perhaps with different teams or at different times. I'm reaching out now because the context has changed significantly.</p>
+                        <p>The RetailVerse platform launch, the new CEO's explicit D2C mandate, and the competitive pressure from TCL and Hisense create a different strategic environment than even six months ago.</p>
+                        <div class="response-highlight">
+                            <strong>Key Message:</strong> I'm not here to rehash old conversations. I'm genuinely curious whether these strategic shifts have changed how you think about digital shelf visibility. If the timing still isn't right, I understand - but the fit between what we do and where LG seems to be heading strategically is worth exploring.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objection 4 -->
+                <div class="objection-card">
+                    <div class="objection-header">"Which of our retailers can you actually monitor?"</div>
+                    <div class="objection-response">
+                        <p>Great question - and honestly the right one to ask. Our strength is UK and European retailers, which aligns well with your major partners here.</p>
+                        <p>For UK specifically, we cover Currys, AO.com, John Lewis, Argos, Amazon UK, and similar. On the continent, we cover MediaMarkt, Amazon across markets, Fnac, and many regional specialists.</p>
+                        <div class="response-highlight">
+                            <strong>Key Message:</strong> For LG's European operations, we can likely monitor your core retailers immediately - that's typically a 2-4 week time-to-value. We can map your specific retailer list against our coverage in a scoping conversation if that would be useful.
+                        </div>
+                        <p>If US coverage is asked about specifically: We have US capability and it's expanding, but I'd be honest that our European coverage is more comprehensive. For a European-focused conversation, we're well positioned.</p>
+                    </div>
+                </div>
+
+                <!-- Objection 5 -->
+                <div class="objection-card">
+                    <div class="objection-header">"Decisions like this go through Korea"</div>
+                    <div class="objection-response">
+                        <p>I understand - LG's global scale means strategic decisions often involve HQ coordination. What I've seen work well with other large global brands is starting with a regional proof of value.</p>
+                        <p>If we can demonstrate tangible results in a European market - whether that's France, Germany, or Italy - it creates the evidence needed for broader conversations. Regional teams get immediate value, and Korean HQ gets a proven case study rather than a vendor pitch.</p>
+                        <div class="response-highlight">
+                            <strong>Key Message:</strong> We're not asking for a global decision today. Would it be worth exploring whether a focused pilot in your market could work - something that delivers value to your team while building the case for broader adoption?
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objection 6 -->
+                <div class="objection-card">
+                    <div class="objection-header">"We're focused on our own D2C channels right now (RetailVerse)"</div>
+                    <div class="objection-response">
+                        <p>The RetailVerse investment makes complete sense - it's impressive what LG is building there. And actually, that focus on owned experience makes the retailer question even more important.</p>
+                        <p>As D2C grows, you'll increasingly want to ensure your retailer presence complements rather than undermines it. If a consumer sees a premium experience on RetailVerse but finds outdated content or out-of-stock products on MediaMarkt, that inconsistency creates friction.</p>
+                        <div class="response-highlight">
+                            <strong>Key Message:</strong> Digital shelf analytics helps you understand whether your retailer presence is supporting or competing with your D2C investment. It's not either/or - it's about ensuring all channels work together.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objection 7 -->
+                <div class="objection-card">
+                    <div class="objection-header">"We don't have budget for new tools right now"</div>
+                    <div class="objection-response">
+                        <p>Budget constraints are real - I appreciate the honesty. A few thoughts that might be relevant:</p>
+                        <p>First, the cost of poor digital shelf execution is often invisible but substantial. Out-of-stock products, poor content, weak search ranking - these directly impact sales but aren't always tracked. Understanding what's happening can actually identify where budget is being wasted.</p>
+                        <div class="response-highlight">
+                            <strong>Key Message:</strong> Second, we're not necessarily talking about a major enterprise deployment. We work with brands on focused pilots - specific markets, specific retailer sets - that prove value before any larger commitment. Would a conversation about what a pilot might look like be worth 20 minutes?
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objection 8 -->
+                <div class="objection-card">
+                    <div class="objection-header">"We already have good relationships with our retailers"</div>
+                    <div class="objection-response">
+                        <p>Strong retailer relationships are valuable - and actually make digital shelf analytics more useful, not less. The question isn't whether your retailers want to support LG - they do. It's whether you have visibility into what's actually happening at execution level.</p>
+                        <p>Even with the best intentions, retailers have thousands of SKUs to manage. Content gets stale, products go out of stock, search rankings fluctuate. Your category managers can't check every product on every retailer every day.</p>
+                        <div class="response-highlight">
+                            <strong>Key Message:</strong> Digital shelf analytics doesn't replace retailer relationships - it arms you with the data to have more productive conversations. Instead of "we think there might be a problem", you can show them exactly what needs attention.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objection 9 -->
+                <div class="objection-card">
+                    <div class="objection-header">"How long does implementation take?"</div>
+                    <div class="objection-response">
+                        <p>For LG specifically, given that your major retailers (Amazon, Currys, MediaMarkt, Fnac) are platforms we already cover, we're typically looking at 2-4 weeks to initial value.</p>
+                        <p>That includes configuring your product catalogue, setting up the retailers you want to monitor, and getting the first actionable insights. It's not a six-month implementation project.</p>
+                        <div class="response-highlight">
+                            <strong>Key Message:</strong> We can often have your team seeing live digital shelf data within a few weeks. The question is usually more about internal alignment and priorities than technical complexity.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objection 10 -->
+                <div class="objection-card">
+                    <div class="objection-header">"Send me some information and I'll review it"</div>
+                    <div class="objection-response">
+                        <p>Happy to share materials - though honestly, generic product information rarely tells you whether something is relevant to your specific situation.</p>
+                        <p>What would be more useful is a brief conversation where I can understand what you're actually trying to solve. If digital shelf analytics makes sense for LG's situation, I can share relevant examples and case studies. If it doesn't, I'd rather tell you that than waste your time with brochures.</p>
+                        <div class="response-highlight">
+                            <strong>Key Message:</strong> Would 15-20 minutes work to see if there's a fit? If not, I can certainly send general materials, but I think a conversation would be more valuable for both of us.
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="section-header">📌 Key Objection Handling Principles</h3>
+
+                <ul class="checklist">
+                    <li><span class="check-icon">→</span> <strong>Never dismiss the objection:</strong> Acknowledge it as valid, then reframe</li>
+                    <li><span class="check-icon">→</span> <strong>Use evidence and specifics:</strong> Reference LG's actual situation (RetailVerse, CEO mandate, competitive pressure)</li>
+                    <li><span class="check-icon">→</span> <strong>Offer flexibility:</strong> Pilots, focused scope, regional starts</li>
+                    <li><span class="check-icon">→</span> <strong>Be honest about fit:</strong> If US coverage is weak, say so. If Korean HQ decisions take time, acknowledge it.</li>
+                    <li><span class="check-icon">→</span> <strong>Ask questions to understand:</strong> The root concern is often different from the stated objection</li>
+                    <li><span class="check-icon">→</span> <strong>Position as complementary:</strong> eStore fills gaps in existing tools, doesn't replace them</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p><strong>LG Electronics Brand Research & Action Plan</strong></p>
+            <p>Prepared by eStore via Devil in the Detail | 23 January 2026</p>
+            <p style="margin-top: 8px; font-size: 12px; opacity: 0.7;">This document contains research and recommendations for internal sales use. All facts should be verified before client-facing communication.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and content
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Smooth scroll to top when changing tabs
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
