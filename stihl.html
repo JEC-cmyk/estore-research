@@ -1,0 +1,2833 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STIHL | eStore Brand Research & Action Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --estore-yellow: #ffba1c;
+            --estore-green: #22bb69;
+            --estore-light-blue: #68d7fa;
+            --estore-dark-blue: #1067db;
+            --estore-red: #f44f2f;
+            --estore-orange: #ff7a00;
+            --text-primary: #2c2c2c;
+            --text-secondary: #5a5a5a;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-light: #e5e7eb;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-light);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--estore-dark-blue) 0%, #0a4da8 100%);
+            color: white;
+            padding: 32px 24px;
+            margin-bottom: 24px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .header-main h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header-main p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .header-meta {
+            text-align: right;
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,186,28,0.2);
+            border: 2px solid var(--estore-yellow);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 16px;
+        }
+
+        .fit-badge-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Navigation Tabs */
+        .tab-nav {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-white);
+            padding: 6px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 14px 16px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            background: var(--bg-light);
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background: var(--estore-dark-blue);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .card-icon.blue { background: rgba(16,103,219,0.1); color: var(--estore-dark-blue); }
+        .card-icon.green { background: rgba(34,187,105,0.1); color: var(--estore-green); }
+        .card-icon.yellow { background: rgba(255,186,28,0.15); color: #c98f00; }
+        .card-icon.orange { background: rgba(255,122,0,0.1); color: var(--estore-orange); }
+        .card-icon.red { background: rgba(244,79,47,0.1); color: var(--estore-red); }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Assessment Table */
+        .assessment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+
+        .assessment-table th,
+        .assessment-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .assessment-table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .assessment-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .rating-badge.high { background: rgba(34,187,105,0.15); color: #1a8f50; }
+        .rating-badge.moderate { background: rgba(255,186,28,0.2); color: #b38600; }
+        .rating-badge.strong { background: rgba(34,187,105,0.15); color: #1a8f50; }
+        .rating-badge.favourable { background: rgba(34,187,105,0.15); color: #1a8f50; }
+        .rating-badge.greenfield { background: rgba(16,103,219,0.15); color: var(--estore-dark-blue); }
+        .rating-badge.re-engagement { background: rgba(255,122,0,0.15); color: #c96200; }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 16px 0;
+            border-left: 4px solid;
+        }
+
+        .info-box.blue {
+            background: rgba(16,103,219,0.08);
+            border-color: var(--estore-dark-blue);
+        }
+
+        .info-box.yellow {
+            background: rgba(255,186,28,0.12);
+            border-color: var(--estore-yellow);
+        }
+
+        .info-box.green {
+            background: rgba(34,187,105,0.1);
+            border-color: var(--estore-green);
+        }
+
+        .info-box.orange {
+            background: rgba(255,122,0,0.1);
+            border-color: var(--estore-orange);
+        }
+
+        .info-box.red {
+            background: rgba(244,79,47,0.1);
+            border-color: var(--estore-red);
+        }
+
+        .info-box-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--estore-dark-blue);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .contact-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .contact-title {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .contact-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .badge.priority { background: var(--estore-dark-blue); color: white; }
+        .badge.warm { background: rgba(255,122,0,0.15); color: #c96200; }
+        .badge.cold { background: rgba(104,215,250,0.3); color: #0080a8; }
+        .badge.re-engage { background: rgba(255,186,28,0.2); color: #9a7000; }
+        .badge.german { background: #000; color: #ffcc00; }
+        .badge.british { background: #012169; color: white; }
+        .badge.american { background: #3c3b6e; color: white; }
+        .badge.skip { background: rgba(244,79,47,0.15); color: var(--estore-red); }
+
+        .contact-details {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-section h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .contact-section p, .contact-section ul {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .contact-section ul {
+            padding-left: 20px;
+        }
+
+        .contact-section li {
+            margin-bottom: 4px;
+        }
+
+        /* Email Sequences */
+        .email-disclaimer {
+            background: rgba(255,186,28,0.15);
+            border: 2px solid var(--estore-yellow);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .email-disclaimer h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #9a7000;
+        }
+
+        .email-sequence {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .email-sequence-header {
+            background: var(--bg-light);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .email-sequence-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Email Tabs */
+        .email-tabs {
+            display: flex;
+            gap: 0;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .email-tab-btn {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+            border-bottom: 3px solid transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .email-tab-btn:hover {
+            background: rgba(16,103,219,0.05);
+            color: var(--text-primary);
+        }
+
+        .email-tab-btn.active {
+            color: var(--estore-dark-blue);
+            background: white;
+            border-bottom-color: var(--estore-dark-blue);
+            font-weight: 600;
+        }
+
+        .email-tab-btn .email-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--border-light);
+            color: var(--text-secondary);
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .email-tab-btn.active .email-num {
+            background: var(--estore-dark-blue);
+            color: white;
+        }
+
+        .email-tab-content {
+            display: none;
+            padding: 24px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .email-tab-content.active {
+            display: block;
+        }
+
+        .email-item {
+            padding: 0;
+        }
+
+        .email-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .email-meta {
+            display: flex;
+            gap: 24px;
+            margin: 16px 0;
+            flex-wrap: wrap;
+            padding: 12px 16px;
+            background: rgba(16,103,219,0.05);
+            border-radius: 8px;
+        }
+
+        .email-meta-item {
+            font-size: 0.9rem;
+        }
+
+        .email-meta-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .email-body {
+            background: var(--bg-light);
+            padding: 24px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            border: 1px solid var(--border-light);
+        }
+
+        .email-notes {
+            display: grid;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .email-note {
+            padding: 14px 18px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .email-note.customisation {
+            background: rgba(104,215,250,0.15);
+            border-left: 3px solid var(--estore-light-blue);
+        }
+
+        .email-note.strategy {
+            background: rgba(34,187,105,0.1);
+            border-left: 3px solid var(--estore-green);
+        }
+
+        .email-note h5 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        /* Objection Cards */
+        .objection-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .objection-header {
+            background: var(--bg-light);
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .objection-header:hover {
+            background: #eef0f2;
+        }
+
+        .objection-question {
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .objection-toggle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            transition: transform 0.2s ease;
+        }
+
+        .objection-card.open .objection-toggle {
+            transform: rotate(180deg);
+        }
+
+        .objection-content {
+            display: none;
+            padding: 20px;
+        }
+
+        .objection-card.open .objection-content {
+            display: block;
+        }
+
+        .objection-response h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--estore-dark-blue);
+            margin-bottom: 8px;
+        }
+
+        .objection-response p {
+            margin-bottom: 12px;
+        }
+
+        /* Tone Guidance */
+        .tone-guidance {
+            background: linear-gradient(135deg, rgba(16,103,219,0.08) 0%, rgba(104,215,250,0.08) 100%);
+            border: 1px solid rgba(16,103,219,0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .tone-guidance h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            color: var(--estore-dark-blue);
+        }
+
+        .tone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .tone-item {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+
+        .tone-item.german { border-color: #ffcc00; }
+        .tone-item.british { border-color: #012169; }
+        .tone-item.american { border-color: #3c3b6e; }
+
+        .tone-item h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tone-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* History Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-light);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--estore-dark-blue);
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--estore-dark-blue);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--estore-dark-blue);
+            margin-bottom: 4px;
+        }
+
+        .timeline-content {
+            font-size: 0.95rem;
+        }
+
+        /* Content Links */
+        .content-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .content-link:hover {
+            background: white;
+            border-color: var(--estore-dark-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .content-link-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--estore-dark-blue);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .content-link-text h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .content-link-text p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+        }
+
+        .check-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            margin-top: 2px;
+        }
+
+        .check-icon.positive { background: rgba(34,187,105,0.15); color: var(--estore-green); }
+        .check-icon.negative { background: rgba(244,79,47,0.15); color: var(--estore-red); }
+        .check-icon.warning { background: rgba(255,186,28,0.2); color: #9a7000; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-light);
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+
+            .header {
+                padding: 24px 16px;
+            }
+
+            .header-main h1 {
+                font-size: 1.8rem;
+            }
+
+            .tab-btn {
+                min-width: 100px;
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Collapsible sections for contacts */
+        .collapsible-section {
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            background: var(--bg-light);
+            padding: 14px 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+        .collapsible-header:hover {
+            background: #e9ebee;
+        }
+
+        .collapsible-content {
+            display: none;
+            padding: 18px;
+        }
+
+        .collapsible-section.open .collapsible-content {
+            display: block;
+        }
+
+        .collapsible-section.open .collapsible-toggle {
+            transform: rotate(180deg);
+        }
+
+        .collapsible-toggle {
+            transition: transform 0.2s ease;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-main">
+                    <h1>STIHL</h1>
+                    <p>eStore Brand Research & Action Plan</p>
+                    <div class="fit-badge">
+                        <span class="fit-badge-icon">🟡</span>
+                        <span>MODERATE FIT</span>
+                    </div>
+                </div>
+                <div class="header-meta">
+                    <p><strong>Created:</strong> January 2026</p>
+                    <p><strong>Author:</strong> eStore Research Team</p>
+                    <p><strong>Revenue:</strong> €5.33 billion (2024)</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="strategic-fit">Strategic Fit Assessment</button>
+            <button class="tab-btn" data-tab="history">Our history with them</button>
+            <button class="tab-btn" data-tab="retailers">Retailer Overview</button>
+            <button class="tab-btn" data-tab="contacts">Key people</button>
+            <button class="tab-btn" data-tab="emails">Draft Email Sequences</button>
+            <button class="tab-btn" data-tab="objections">Objection Handling</button>
+        </nav>
+
+        <!-- Tab 1: Strategic Fit Assessment -->
+        <div id="strategic-fit" class="tab-content active">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon yellow">📊</div>
+                    <h2 class="card-title">Strategic Assessment Summary</h2>
+                </div>
+                
+                <div class="info-box yellow">
+                    <div class="info-box-title">🟡 MODERATE FIT</div>
+                    <p>A greenfield DSA opportunity with unique constraints requiring non-traditional positioning. STIHL's dealer-exclusive distribution model means traditional marketplace monitoring has limited application - but their UK retail expansion and digital transformation create genuine opportunities.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">€5.33B</div>
+                        <div class="stat-label">2024 Revenue</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">55,000+</div>
+                        <div class="stat-label">Global Dealers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">40+</div>
+                        <div class="stat-label">Countries (E-commerce rollout)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">700+</div>
+                        <div class="stat-label">UK Dealers</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">📋</div>
+                    <h2 class="card-title">Assessment Dimensions</h2>
+                </div>
+                
+                <table class="assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Rating</th>
+                            <th>Summary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Distribution Complexity</strong></td>
+                            <td><span class="rating-badge high">High</span></td>
+                            <td>55,000+ dealers globally, dealer-exclusive model in US, emerging retail partnerships in UK</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Geographic Alignment</strong></td>
+                            <td><span class="rating-badge moderate">Moderate-Strong</span></td>
+                            <td>UK market growing strongly with D2C store; HQ Germany; US largest revenue but dealer-only</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DSA Provider Status</strong></td>
+                            <td><span class="rating-badge greenfield">Greenfield</span></td>
+                            <td>No confirmed incumbent - significant opportunity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sector Alignment</strong></td>
+                            <td><span class="rating-badge strong">Strong</span></td>
+                            <td>Home & Garden / DIY - proven eStore sector with Bosch PT as reference</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Relationship History</strong></td>
+                            <td><span class="rating-badge re-engagement">Re-engagement</span></td>
+                            <td>Extensive prior outreach 2021-2025; Maria Akouta "analytics review" thread active</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Strategic Timing</strong></td>
+                            <td><span class="rating-badge favourable">Favourable</span></td>
+                            <td>Sarah Gewert departure (Sept 2024), Screwfix partnership (July 2024), battery transformation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon green">🌍</div>
+                    <h2 class="card-title">Distribution & Geographic Alignment</h2>
+                </div>
+                
+                <p style="margin-bottom: 16px;"><strong>Total Estimated Online Retailers:</strong> ~18-25 (atypical - dealer-dominated model)</p>
+                
+                <div class="info-box blue">
+                    <div class="info-box-title">⚠️ Unique Distribution Model</div>
+                    <p>STIHL operates a dealer-first model that is fundamentally different from traditional FMCG/CPG brands. No Amazon presence (explicitly prohibited), no Home Depot/Lowe's, no mass-market retailers. This limits traditional DSA use cases but creates opportunities for dealer content and retail partnership optimisation.</p>
+                </div>
+
+                <h4 style="margin: 20px 0 12px;">Geographic Breakdown</h4>
+                <ul class="checklist">
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span><strong>Europe (~55% of opportunity):</strong> UK and Germany primary markets; full D2C capabilities via STIHL direct GmbH</span>
+                    </li>
+                    <li>
+                        <span class="check-icon warning">⚠</span>
+                        <span><strong>US (~35% of revenue):</strong> Largest market but dealer-exclusive with minimal online retail presence; Ace Hardware only major chain</span>
+                    </li>
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span><strong>UK Market:</strong> Most flexible model with D2C store (shop.stihl.co.uk), Screwfix partnership (July 2024), and 700+ dealers</span>
+                    </li>
+                </ul>
+
+                <h4 style="margin: 20px 0 12px;">Notable Patterns</h4>
+                <ul class="checklist">
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span>Strong UK presence with D2C store and Screwfix retail breakthrough</span>
+                    </li>
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span>Active digital transformation with dedicated e-commerce subsidiary (STIHL direct GmbH)</span>
+                    </li>
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span>diconium partnership building global e-commerce platform across 40+ countries</span>
+                    </li>
+                    <li>
+                        <span class="check-icon warning">⚠</span>
+                        <span>Dealer content consistency challenge across 55,000+ dealer websites globally</span>
+                    </li>
+                </ul>
+
+                <h4 style="margin: 20px 0 12px;">Critical Gaps</h4>
+                <ul class="checklist">
+                    <li>
+                        <span class="check-icon negative">✗</span>
+                        <span>No marketplace presence (Amazon, eBay explicitly prohibited)</span>
+                    </li>
+                    <li>
+                        <span class="check-icon negative">✗</span>
+                        <span>No traditional mass-market retail (no Walmart, Target, Home Depot, Lowe's)</span>
+                    </li>
+                    <li>
+                        <span class="check-icon negative">✗</span>
+                        <span>Traditional DSA marketplace monitoring has limited application</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon orange">🎯</div>
+                    <h2 class="card-title">Synthesis & Recommendation</h2>
+                </div>
+                
+                <h4 style="margin-bottom: 12px;">Key Factors Driving Assessment</h4>
+                <table class="assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Impact</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Greenfield DSA opportunity</td>
+                            <td><span class="check-icon positive" style="display: inline-flex;">✓</span> Positive</td>
+                            <td>No incumbent to displace</td>
+                        </tr>
+                        <tr>
+                            <td>UK market momentum</td>
+                            <td><span class="check-icon positive" style="display: inline-flex;">✓</span> Positive</td>
+                            <td>Double-digit growth, Screwfix partnership, D2C store</td>
+                        </tr>
+                        <tr>
+                            <td>Active digital transformation</td>
+                            <td><span class="check-icon positive" style="display: inline-flex;">✓</span> Positive</td>
+                            <td>Dedicated e-commerce subsidiary, significant investment</td>
+                        </tr>
+                        <tr>
+                            <td>Relationship history</td>
+                            <td><span class="check-icon positive" style="display: inline-flex;">✓</span> Positive</td>
+                            <td>Not starting from zero; active thread with Maria Akouta</td>
+                        </tr>
+                        <tr>
+                            <td>Dealer-exclusive model</td>
+                            <td><span class="check-icon warning" style="display: inline-flex;">⚠</span> Constraint</td>
+                            <td>Traditional DSA use cases limited</td>
+                        </tr>
+                        <tr>
+                            <td>No marketplace presence</td>
+                            <td><span class="check-icon warning" style="display: inline-flex;">⚠</span> Constraint</td>
+                            <td>Cannot offer Amazon/Walmart monitoring value</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box green" style="margin-top: 20px;">
+                    <div class="info-box-title">Recommended Approach: CONSULTATIVE</div>
+                    <ul style="margin-top: 8px; padding-left: 20px;">
+                        <li>Do NOT position as traditional DSA "monitor your Amazon listings"</li>
+                        <li>Lead with UK market where model is most flexible</li>
+                        <li>Acknowledge their unique distribution model upfront</li>
+                        <li>Explore specific pain points around Screwfix, dealer content, own-site performance</li>
+                        <li>Be honest about where eStore can vs. cannot add value</li>
+                        <li>Position as strategic conversation, not product pitch</li>
+                    </ul>
+                </div>
+
+                <div class="info-box yellow" style="margin-top: 16px;">
+                    <div class="info-box-title">Estimated Difficulty of Winning: MEDIUM-HIGH</div>
+                    <p style="margin-top: 8px;">Deal complexity is high due to non-standard use case requiring custom scoping. Decision-making is distributed (UK, Germany, US teams operate semi-independently). Some previous explicit rejections in history. However, budget is likely available given active digital transformation investment.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">⏱️</div>
+                    <h2 class="card-title">Implementation Readiness</h2>
+                </div>
+                
+                <div class="info-box orange">
+                    <div class="info-box-title">Non-Standard Implementation Required</div>
+                    <p>Traditional retailer coverage % metrics don't apply. Value proposition must focus on: Screwfix digital shelf optimisation (UK), own-site D2C performance monitoring, dealer content consistency and brand protection, Ace Hardware digital shelf (US - if pursuing).</p>
+                </div>
+
+                <h4 style="margin: 20px 0 12px;">Time-to-Value Estimates</h4>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" style="font-size: 1.5rem;">4-8 weeks</div>
+                        <div class="stat-label">UK-focused scope</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="font-size: 1.5rem;">3-4 months</div>
+                        <div class="stat-label">Multi-market deployment</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" style="font-size: 1.5rem;">6+ months</div>
+                        <div class="stat-label">Global dealer analysis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Our history with them -->
+        <div id="history" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon orange">📜</div>
+                    <h2 class="card-title">HubSpot History Overview</h2>
+                </div>
+                
+                <div class="info-box orange">
+                    <div class="info-box-title">Re-engagement Opportunity (NOT cold outreach)</div>
+                    <p><strong>Engagement Period:</strong> 2021-2025 (4+ years of intermittent contact)</p>
+                    <p style="margin-top: 8px;"><strong>Overall Pattern:</strong> Broad but fragmented outreach with limited conversion. Engagement has been entirely outbound/BD-focused without converting to structured evaluation or project.</p>
+                </div>
+
+                <h4 style="margin: 20px 0 12px;">Timeline of Key Activities</h4>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Late 2021</div>
+                        <div class="timeline-content">Initial broad outreach to multiple senior stakeholders; meeting held Nov 2021 with Sabine Macdonald (STIHL Brasil). Meeting held but no project launched.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">Mid 2022</div>
+                        <div class="timeline-content">Expanded outbound to Amazon/e-retail teams (Hermann, Ulrich, Katharina, Jonas, Bodo). Several tasks completed; some explicit rejections.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">RFP-oriented outreach with case studies to Ulrich Spies and Bernd Saam. No conversion to evaluation.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">January 2025</div>
+                        <div class="timeline-content"><strong>Email to Maria Akouta about "Possible Analytics Review @ Stihl in 2025?" - Current warm thread.</strong></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon red">⚠️</div>
+                    <h2 class="card-title">Key Relationship Notes</h2>
+                </div>
+                
+                <ul class="checklist">
+                    <li>
+                        <span class="check-icon warning">⚠</span>
+                        <span>Some contacts explicitly declined (InMail rejection noted in HubSpot)</span>
+                    </li>
+                    <li>
+                        <span class="check-icon negative">✗</span>
+                        <span>Sarah Gewert (previous Executive Board contact) has LEFT the company (Sept 2024)</span>
+                    </li>
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span>Most recent warm thread: Maria Akouta (Jan 2025) about analytics review</span>
+                    </li>
+                    <li>
+                        <span class="check-icon warning">⚠</span>
+                        <span>Previous outreach was generic/broad - opportunity for more targeted, value-first approach</span>
+                    </li>
+                </ul>
+
+                <div class="info-box red" style="margin-top: 20px;">
+                    <div class="info-box-title">Key Gap Identified</div>
+                    <p>Previous outreach heavily focused on Amazon/marketplace analytics - <strong>not relevant to STIHL's dealer-only model</strong>. This may explain limited conversion. The opportunity now is to reposition around their actual distribution model (dealer content, Screwfix, D2C).</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">🔍</div>
+                    <h2 class="card-title">Competitive Intelligence</h2>
+                </div>
+                
+                <div class="info-box green">
+                    <div class="info-box-title">Current DSA Provider: None Confirmed</div>
+                    <p><strong>Confidence Level:</strong> UNKNOWN (but likely greenfield)</p>
+                </div>
+
+                <h4 style="margin: 20px 0 12px;">DSA Provider Search Results</h4>
+                <table class="assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Status</th>
+                            <th>Evidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Profitero</td>
+                            <td><span class="rating-badge" style="background: #f0f0f0;">Not Found</span></td>
+                            <td>No job postings, case studies, or press mentions</td>
+                        </tr>
+                        <tr>
+                            <td>CommerceIQ</td>
+                            <td><span class="rating-badge" style="background: #f0f0f0;">Not Found</span></td>
+                            <td>No evidence of relationship</td>
+                        </tr>
+                        <tr>
+                            <td>Edge by Ascential</td>
+                            <td><span class="rating-badge" style="background: #f0f0f0;">Not Found</span></td>
+                            <td>No evidence of relationship</td>
+                        </tr>
+                        <tr>
+                            <td>Salsify / Syndigo</td>
+                            <td><span class="rating-badge" style="background: #f0f0f0;">Not Found</span></td>
+                            <td>No evidence of relationship</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 style="margin: 20px 0 12px;">Confirmed Technology Stack (Non-DSA)</h4>
+                <table class="assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Tool</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ERP</td>
+                            <td>SAP S/4HANA</td>
+                            <td>2025 Innovation Awards nominee</td>
+                        </tr>
+                        <tr>
+                            <td>Content/Commerce</td>
+                            <td>Adobe Experience Manager</td>
+                            <td>Via diconium partnership</td>
+                        </tr>
+                        <tr>
+                            <td>ITSM</td>
+                            <td>ServiceNow</td>
+                            <td>Implemented 2024</td>
+                        </tr>
+                        <tr>
+                            <td>PIM</td>
+                            <td>Not confirmed</td>
+                            <td>No public evidence</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box blue" style="margin-top: 20px;">
+                    <div class="info-box-title">Why No DSA Provider?</div>
+                    <p>STIHL's dealer-exclusive distribution model means traditional DSA tools focused on Amazon/Walmart monitoring offer limited value. This creates opportunity for solutions addressing dealer content consistency, own-site optimisation, and emerging retail partnerships (Screwfix, Ace Hardware) rather than marketplace monitoring.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon green">📚</div>
+                    <h2 class="card-title">Content to Reference</h2>
+                </div>
+                
+                <p style="margin-bottom: 16px;">Use these resources in email sequences and conversations to add value and demonstrate sector expertise.</p>
+
+                <a href="https://estorebrands.com/home-and-diy" class="content-link" target="_blank">
+                    <div class="content-link-icon">🏠</div>
+                    <div class="content-link-text">
+                        <h4>Home & DIY Sector Landing Page</h4>
+                        <p>estorebrands.com/home-and-diy - Use in Email 2 or 3</p>
+                    </div>
+                </a>
+
+                <a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025" class="content-link" target="_blank">
+                    <div class="content-link-icon">📖</div>
+                    <div class="content-link-text">
+                        <h4>Digital Shelf Analytics for Home & DIY Brands 2025</h4>
+                        <p>Primary Ignite article - Educational, not a sales pitch</p>
+                    </div>
+                </a>
+
+                <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" class="content-link" target="_blank">
+                    <div class="content-link-icon">📊</div>
+                    <div class="content-link-text">
+                        <h4>Content Benchmark Feature Article</h4>
+                        <p>Use if conversation focuses on dealer content consistency or competitive benchmarking</p>
+                    </div>
+                </a>
+
+                <div class="info-box blue" style="margin-top: 16px;">
+                    <div class="info-box-title">Suggested Email Placement</div>
+                    <ul style="margin-top: 8px; padding-left: 20px;">
+                        <li><strong>Email 1:</strong> No links - Keep conversational; establish credibility first</li>
+                        <li><strong>Email 2:</strong> Home & DIY article - Add value; demonstrate category understanding</li>
+                        <li><strong>Email 3:</strong> Content Benchmark (if relevant) - Specific feature if conversation warrants</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon yellow">👥</div>
+                    <h2 class="card-title">Internal Champion Status</h2>
+                </div>
+                
+                <div class="info-box yellow">
+                    <div class="info-box-title">No confirmed internal champion identified</div>
+                </div>
+
+                <h4 style="margin: 16px 0 12px;">Best Prospects</h4>
+                <ol style="padding-left: 20px;">
+                    <li style="margin-bottom: 8px;"><strong>Maria Akouta</strong> - Mentioned analytics review; warmest current contact</li>
+                    <li><strong>Sabine Macdonald</strong> - Had positive meeting in 2021; requested intro to European colleagues (but LatAm-based)</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Tab 3: Retailer Overview -->
+        <div id="retailers" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon orange">🏪</div>
+                    <h2 class="card-title">Retailer Pattern Analysis</h2>
+                </div>
+                
+                <div class="info-box orange">
+                    <div class="info-box-title">⚠️ Non-Standard Distribution Model</div>
+                    <p>STIHL's distribution model is fundamentally different from typical FMCG/CPG brands. Standard retailer coverage metrics don't apply. Products are sold primarily through 55,000+ authorised dealers globally, with online sales through own D2C platforms and dealer websites.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">18-25</div>
+                        <div class="stat-label">Estimated Online Retailers (atypical low count)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">55,000+</div>
+                        <div class="stat-label">Authorised Dealers Globally</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">0</div>
+                        <div class="stat-label">Marketplace Presence (prohibited)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">🌍</div>
+                    <h2 class="card-title">Geographic Breakdown</h2>
+                </div>
+                
+                <table class="assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Region</th>
+                            <th>Online Retail Presence</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>UK/Europe</strong></td>
+                            <td>~60% of identified</td>
+                            <td>D2C stores, Screwfix (UK only), specialist dealers</td>
+                        </tr>
+                        <tr>
+                            <td><strong>US</strong></td>
+                            <td>~30%</td>
+                            <td>Ace Hardware only major chain; dealer websites</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Other</strong></td>
+                            <td>~10%</td>
+                            <td>Regional variations</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon green">📊</div>
+                    <h2 class="card-title">Channel Diversity</h2>
+                </div>
+                
+                <table class="assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Channel Type</th>
+                            <th>Presence</th>
+                            <th>Examples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Marketplaces</td>
+                            <td><span class="check-icon negative" style="display: inline-flex;">✗</span> None</td>
+                            <td>Amazon, eBay explicitly prohibited</td>
+                        </tr>
+                        <tr>
+                            <td>Mass Retail</td>
+                            <td><span class="check-icon negative" style="display: inline-flex;">✗</span> None</td>
+                            <td>No Home Depot, Lowe's, Walmart, Target</td>
+                        </tr>
+                        <tr>
+                            <td>DIY/Trade Retail</td>
+                            <td><span class="check-icon positive" style="display: inline-flex;">✓</span> Limited</td>
+                            <td>Screwfix (UK only, July 2024)</td>
+                        </tr>
+                        <tr>
+                            <td>Specialist Chains</td>
+                            <td><span class="check-icon positive" style="display: inline-flex;">✓</span> Limited</td>
+                            <td>Ace Hardware (US only)</td>
+                        </tr>
+                        <tr>
+                            <td>Own D2C</td>
+                            <td><span class="check-icon positive" style="display: inline-flex;">✓</span> Strong</td>
+                            <td>shop.stihl.co.uk, regional STIHL stores</td>
+                        </tr>
+                        <tr>
+                            <td>Authorised Dealers</td>
+                            <td><span class="check-icon positive" style="display: inline-flex;">✓</span> Dominant</td>
+                            <td>55,000+ globally</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon yellow">💡</div>
+                    <h2 class="card-title">Notable Patterns & Gaps</h2>
+                </div>
+                
+                <h4 style="margin-bottom: 12px;">Strengths</h4>
+                <ul class="checklist">
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span>Strong own-platform presence (D2C stores operational)</span>
+                    </li>
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span>Screwfix breakthrough demonstrates appetite for selective retail expansion</span>
+                    </li>
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span>Dealer network provides broad geographic coverage</span>
+                    </li>
+                </ul>
+
+                <h4 style="margin: 20px 0 12px;">Gaps</h4>
+                <ul class="checklist">
+                    <li>
+                        <span class="check-icon negative">✗</span>
+                        <span>No marketplace visibility to monitor</span>
+                    </li>
+                    <li>
+                        <span class="check-icon negative">✗</span>
+                        <span>No mass-market retail presence</span>
+                    </li>
+                    <li>
+                        <span class="check-icon negative">✗</span>
+                        <span>Dealer websites highly fragmented and inconsistent</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">🎯</div>
+                    <h2 class="card-title">Implementation Note</h2>
+                </div>
+                
+                <div class="info-box red">
+                    <div class="info-box-title">Traditional eStore Value Proposition: Limited Application</div>
+                    <ul style="margin-top: 8px; padding-left: 20px;">
+                        <li>Cannot offer "monitor your Amazon listings" - they don't have any</li>
+                        <li>Cannot benchmark against Walmart/Target - not present</li>
+                    </ul>
+                </div>
+
+                <div class="info-box green" style="margin-top: 16px;">
+                    <div class="info-box-title">Alternative Value Proposition</div>
+                    <ol style="margin-top: 8px; padding-left: 20px;">
+                        <li><strong>Screwfix optimisation</strong> - monitor and optimise their only major retail partnership</li>
+                        <li><strong>Own-site analytics</strong> - D2C store performance, content quality</li>
+                        <li><strong>Dealer content consistency</strong> - brand compliance across dealer network</li>
+                        <li><strong>Competitive intelligence</strong> - how competitors (Husqvarna, DeWalt, EGO) perform on channels STIHL isn't on</li>
+                        <li><strong>Brand protection</strong> - counterfeit monitoring (known issue per company communications)</li>
+                    </ol>
+                </div>
+
+                <h4 style="margin: 20px 0 12px;">Time-to-Value Estimates</h4>
+                <table class="assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Scope</th>
+                            <th>Timeline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>UK-focused scope</td>
+                            <td>4-8 weeks</td>
+                        </tr>
+                        <tr>
+                            <td>Multi-market</td>
+                            <td>3-4 months</td>
+                        </tr>
+                        <tr>
+                            <td>Global dealer analysis</td>
+                            <td>6+ months (complex scoping required)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 4: Key people -->
+        <div id="contacts" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon orange">📋</div>
+                    <h2 class="card-title">Historical Contacts</h2>
+                </div>
+                
+                <p style="margin-bottom: 16px;">These contacts have been engaged previously. Approach with awareness of past interactions.</p>
+
+                <table class="assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Role</th>
+                            <th>Stance</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Maria Akouta</strong></td>
+                            <td>Digital/analytics (assumed)</td>
+                            <td><span class="badge warm">Warm</span></td>
+                            <td>Most recent contact (Jan 2025); mentioned analytics review</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sabine Macdonald</strong></td>
+                            <td>STIHL Brasil/LatAm</td>
+                            <td><span class="badge warm">Positive</span></td>
+                            <td>Meeting held Nov 2021; requested intro to European colleagues</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ulrich Spies</strong></td>
+                            <td>Director Global E-Commerce</td>
+                            <td><span class="badge re-engage">Previously engaged</span></td>
+                            <td>Contacted about Amazon analytics - needs repositioned approach</td>
+                        </tr>
+                        <tr>
+                            <td>Bodo Henkel</td>
+                            <td>Digital Strategic Partnerships</td>
+                            <td><span class="badge skip">Unresponsive</span></td>
+                            <td>Multiple contacts, no progress</td>
+                        </tr>
+                        <tr>
+                            <td>Jonas Riek</td>
+                            <td>Rollout Manager/eCommerce IT</td>
+                            <td><span class="badge skip">OOO/No response</span></td>
+                            <td>Repeated outreach</td>
+                        </tr>
+                        <tr>
+                            <td>Sarah Gewert</td>
+                            <td>Executive Board (Marketing/Sales)</td>
+                            <td><span class="badge skip">LEFT Sept 2024</span></td>
+                            <td>No longer at company</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">🎯</div>
+                    <h2 class="card-title">Primary Targets (Operational Decision-Makers)</h2>
+                </div>
+
+                <!-- Contact 1: Ulrich Spies -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">1. Ulrich Spies</div>
+                            <div class="contact-title">Director Global E-Commerce & Digital Sales; Managing Director, STIHL direct GmbH</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge priority">#1 Priority</span>
+                            <span class="badge german">🇩🇪 German</span>
+                            <span class="badge re-engage">Re-engagement</span>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-section">
+                            <h4>Background</h4>
+                            <p>15+ years e-commerce experience. Dual role since September 2023 (global e-commerce + STIHL direct GmbH MD). Previously Director E-Commerce Operations. SAFe 6 Agilist certified (May 2024).</p>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Why He's the Right Contact</h4>
+                            <ul>
+                                <li>Ultimate decision-maker for global digital commerce tools</li>
+                                <li>Owns the e-commerce technology stack decisions</li>
+                                <li>Has budget authority for platform investments</li>
+                            </ul>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Specific Hooks</h4>
+                            <ul>
+                                <li>40-country platform rollout creates content management complexity</li>
+                                <li>Dealer content consistency across 55,000+ dealer websites</li>
+                                <li>Screwfix partnership optimisation (can reference UK success)</li>
+                                <li>SAFe certification suggests appreciation for structured, data-driven approaches</li>
+                            </ul>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Relationship Status</h4>
+                            <p><strong>RE-ENGAGEMENT</strong> - previously contacted 2022-2023 about Amazon analytics. Pivot messaging away from Amazon focus.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact 2: Kay Green -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">2. Kay Green</div>
+                            <div class="contact-title">Managing Director, STIHL Great Britain</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge priority">#2 Priority</span>
+                            <span class="badge british">🇬🇧 British</span>
+                            <span class="badge cold">Cold</span>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-section">
+                            <h4>Background</h4>
+                            <p>First female MD at STIHL GB (joined 2021). Previously Hasbro UK/Ireland Country Manager. Grew up on a farm (personal connection to product). Consumer goods background.</p>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Why She's the Right Contact</h4>
+                            <ul>
+                                <li>UK market is most accessible for eStore</li>
+                                <li>Screwfix partnership creates immediate DSA use case</li>
+                                <li>Consumer goods background means she understands digital shelf analytics</li>
+                                <li>Has delivered growth; will be looking for tools to sustain it</li>
+                            </ul>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Specific Hooks</h4>
+                            <ul>
+                                <li>Screwfix digital shelf optimisation - how are STIHL products performing vs. competitors?</li>
+                                <li>UK market growth sustainability - what tools needed to maintain momentum?</li>
+                                <li>Consumer goods background - familiar with digital shelf concepts</li>
+                                <li>First major retail partnership - how to maximise the opportunity?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact 3: Simon Hewitt -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">3. Simon Hewitt</div>
+                            <div class="contact-title">Head of Marketing, STIHL Great Britain</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge priority">#3 Priority</span>
+                            <span class="badge british">🇬🇧 British</span>
+                            <span class="badge cold">Cold</span>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-section">
+                            <h4>Background</h4>
+                            <p>10+ years at STIHL GB (since September 2013). Oversees digital and traditional channels. Manages agency relationships including £10m BWP Group contract. Long tenure indicates institutional knowledge and influence.</p>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Why He's the Right Contact</h4>
+                            <ul>
+                                <li>Long tenure means he knows where the pain points are</li>
+                                <li>Marketing owns content quality and consistency</li>
+                                <li>Digital channel responsibility includes online retail presence</li>
+                                <li>Reports to Kay Green - can influence MD decision</li>
+                            </ul>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Specific Hooks</h4>
+                            <ul>
+                                <li>Content consistency across professional vs. consumer positioning</li>
+                                <li>Screwfix product content quality and optimisation</li>
+                                <li>Dealer marketing materials consistency</li>
+                                <li>Competitive content benchmarking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact 4: Maria Akouta -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">4. Maria Akouta</div>
+                            <div class="contact-title">Unknown (likely digital/analytics role)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge warm">Warmest Lead</span>
+                            <span class="badge german">🇩🇪 German (assumed)</span>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-section">
+                            <h4>Background</h4>
+                            <p>Most recent contact in HubSpot history. Jan 2025 email from eStore: "Possible Analytics Review @ Stihl in 2025?" Indicated potential interest in reviewing digital analytics systems.</p>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Why She's Relevant</h4>
+                            <ul>
+                                <li>Only warm thread currently active</li>
+                                <li>Specifically mentioned "analytics review" for 2025</li>
+                                <li>May be able to provide internal introduction</li>
+                            </ul>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Recommended Action</h4>
+                            <p><strong>Follow up on Jan 2025 email thread before broader outreach.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon green">🎖️</div>
+                    <h2 class="card-title">Secondary Targets (Strategic Influencers)</h2>
+                </div>
+
+                <!-- Contact: Rob Jenson -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Rob Jenson</div>
+                            <div class="contact-title">Director and US Head of Ecommerce, STIHL USA</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge american">🇺🇸 American</span>
+                            <span class="badge cold">Cold</span>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-section">
+                            <h4>Background</h4>
+                            <p>Joined STIHL March 2022. Previously Whirlpool Corporation 8 years (Director of Direct to Consumer). MBA from Chicago Booth. Strong DTC expertise.</p>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Note</h4>
+                            <p><strong>US market is lower priority</strong> due to dealer-only model limiting eStore value proposition. Include if pursuing global conversation but don't lead with US.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact: Andreas Epple -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Andreas Epple</div>
+                            <div class="contact-title">Managing Director, STIHL Vertriebszentrale AG & Co. KG (German Sales HQ)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge german">🇩🇪 German</span>
+                            <span class="badge cold">Cold</span>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-section">
+                            <h4>Background</h4>
+                            <p>MD since January 2023. Previously Head of Marketing and Sales at STIHL Dieburg since 2012. Ex-Vaillant Deutschland. 10+ year STIHL tenure. Explicitly tasked with "actively shaping the digital transformation".</p>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Why He's Relevant</h4>
+                            <ul>
+                                <li>Germany is largest European market (€471m revenue)</li>
+                                <li>Digital transformation mandate</li>
+                                <li>Senior enough to influence group decisions</li>
+                                <li>Can provide air cover for UK initiatives</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon yellow">👤</div>
+                    <h2 class="card-title">Executive Context (Reference Only - Do NOT Contact Directly)</h2>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Michael Traub</div>
+                            <div class="contact-title">Chairman of Executive Board (CEO)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge german">🇩🇪 German</span>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        <div class="contact-section">
+                            <h4>Statements to Reference</h4>
+                            <div class="info-box blue">
+                                <p><em>"The world will be changing a lot until 2035 and we have to be ready. We have to actively be the driver of that change."</em> — April 2024</p>
+                            </div>
+                            <div class="info-box blue" style="margin-top: 10px;">
+                                <p><em>"In the consumer segment, however, we still need to develop our technology leadership and recognition."</em> — Acknowledging battery competition challenge</p>
+                            </div>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Background for Context</h4>
+                            <p>Former Bosch executive. IT and digital/smart solutions expertise specifically noted at appointment. Described as having "in-depth knowledge of IT, smart solutions and the start-up world".</p>
+                        </div>
+                        <div class="contact-section">
+                            <h4>Use In Emails</h4>
+                            <p>Reference digital transformation mandate and "position of strength" language. Do NOT quote directly; paraphrase initiatives.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon red">🚫</div>
+                    <h2 class="card-title">Contacts to Skip</h2>
+                </div>
+                
+                <table class="assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sarah Gewert</td>
+                            <td>LEFT company Sept 2024 (previously Executive Board)</td>
+                        </tr>
+                        <tr>
+                            <td>Bodo Henkel</td>
+                            <td>Digital Strategic Partnerships - previously contacted multiple times with no conversion</td>
+                        </tr>
+                        <tr>
+                            <td>Jonas Riek</td>
+                            <td>Rollout Manager/eCommerce IT - previous outreach returned OOO/no response</td>
+                        </tr>
+                        <tr>
+                            <td>Stephan Schuster</td>
+                            <td>Marketing/digital - multiple emails with no progress</td>
+                        </tr>
+                        <tr>
+                            <td>Hermann Thomas</td>
+                            <td>E-commerce - heavily targeted with no conversion</td>
+                        </tr>
+                        <tr>
+                            <td>Anyone who explicitly rejected</td>
+                            <td>HubSpot notes InMail rejection from one contact</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 5: Draft Email Sequences -->
+        <div id="emails" class="tab-content">
+            <div class="email-disclaimer">
+                <h3>⚠️ Draft Emails - Human Review Required</h3>
+                <p>These emails are starting points based on research and eStore guidelines. <strong>Review, personalise, and adapt before sending.</strong> Check HubSpot for any additional context on previous interactions. Verify all links are live before sending.</p>
+            </div>
+
+            <div class="tone-guidance">
+                <h3>🎯 Nationality-Based Tone Guidance</h3>
+                <div class="tone-grid">
+                    <div class="tone-item german">
+                        <h4>🇩🇪 German Contacts (Ulrich, Maria)</h4>
+                        <p>More formal, structured approach. Focus on data and process. Acknowledge their expertise. Be direct but respectful. Longer sales cycles expected.</p>
+                    </div>
+                    <div class="tone-item british">
+                        <h4>🇬🇧 British Contacts (Kay, Simon)</h4>
+                        <p>Professional but warmer tone. Understated approach works better than hard sell. Reference UK market specifically. Self-deprecating humour can work if natural.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Sequence: Ulrich Spies -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <h3>Ulrich Spies</h3>
+                    <div class="contact-badges">
+                        <span class="badge german">🇩🇪 German</span>
+                        <span class="badge re-engage">Re-engagement</span>
+                    </div>
+                </div>
+
+                <div class="email-tabs">
+                    <button class="email-tab-btn active" data-email="ulrich-1" data-sequence="ulrich">
+                        <span class="email-num">1</span> Re-engagement
+                    </button>
+                    <button class="email-tab-btn" data-email="ulrich-2" data-sequence="ulrich">
+                        <span class="email-num">2</span> Sector Insight
+                    </button>
+                    <button class="email-tab-btn" data-email="ulrich-3" data-sequence="ulrich">
+                        <span class="email-num">3</span> Competitive Intel
+                    </button>
+                </div>
+
+                <div id="ulrich-1" class="email-tab-content active" data-sequence="ulrich">
+                    <div class="email-item">
+                        <div class="email-title">Email 1: Re-engagement with Fresh Approach</div>
+                        <div class="email-meta">
+                            <div class="email-meta-item"><span class="email-meta-label">Subject:</span> STIHL and European digital shelf</div>
+                            <div class="email-meta-item"><span class="email-meta-label">Timing:</span> Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        </div>
+                        <div class="email-body">Ulrich,
+
+I am [SENDER NAME] from eStore. We provide digital shelf analytics for Home and DIY brands, helping companies monitor how their products appear and perform across online retailers.
+
+I can see we have had some conversations in the past that did not move forward. I do not know the full story there, but thought it worth reaching out as eStore has evolved quite a bit since then - particularly around helping brands manage content and performance across multiple European markets.
+
+With STIHL direct rolling out e-commerce across 40 countries, I imagine managing product content consistently across that many markets is a significant undertaking. If it would be useful to discuss how we help brands with this, I would welcome the conversation.
+
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note customisation">
+                                <h5>Customisation Notes</h5>
+                                <ul>
+                                    <li>Check HubSpot for specific timeframe of previous contact</li>
+                                    <li>If you have names of who Ulrich spoke with previously, reference them</li>
+                                </ul>
+                            </div>
+                            <div class="email-note strategy">
+                                <h5>Strategy Notes</h5>
+                                <p>Acknowledges previous contact honestly without inventing reasons it did not progress. References their 40-country rollout (verified research finding) and offers conversation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ulrich-2" class="email-tab-content" data-sequence="ulrich">
+                    <div class="email-item">
+                        <div class="email-title">Email 2: Sector Insight and Battery Platform Complexity</div>
+                        <div class="email-meta">
+                            <div class="email-meta-item"><span class="email-meta-label">Subject:</span> Home and DIY digital shelf challenges</div>
+                            <div class="email-meta-item"><span class="email-meta-label">Timing:</span> 6-7 days after Email 1, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        </div>
+                        <div class="email-body">Ulrich,
+
+I wanted to share some thinking from our work with Home and DIY brands.
+
+One pattern we see is that product content complexity increases significantly when you have multiple product lines with compatibility considerations. For STIHL, the three battery platforms - AS, AK, and AP - each have different use cases and are not cross-compatible. Ensuring that retailers and customers across 40 markets clearly understand what works with what seems like a content challenge as much as a product one.
+
+We have written about how Home and DIY brands approach digital shelf differently from FMCG. I have linked it below if useful: https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025
+
+If this is an area you are actively working on, I would be happy to share how we have approached it with other brands.
+
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note customisation">
+                                <h5>Customisation Notes</h5>
+                                <ul>
+                                    <li>Confirm the Ignite article link is live before sending</li>
+                                    <li>Battery platforms (AS, AK, AP) are verified from research</li>
+                                </ul>
+                            </div>
+                            <div class="email-note strategy">
+                                <h5>Strategy Notes</h5>
+                                <p>References specific research finding (three battery platforms) and connects it to a genuine challenge. The article adds value. Soft CTA offers to share relevant experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ulrich-3" class="email-tab-content" data-sequence="ulrich">
+                    <div class="email-item">
+                        <div class="email-title">Email 3: Competitive Intelligence Angle</div>
+                        <div class="email-meta">
+                            <div class="email-meta-item"><span class="email-meta-label">Subject:</span> Competitive visibility</div>
+                            <div class="email-meta-item"><span class="email-meta-label">Timing:</span> 6-7 days after Email 2, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        </div>
+                        <div class="email-body">Ulrich,
+
+One other angle that might be relevant.
+
+STIHL's distribution model means you are not present on some of the channels where competitors like Husqvarna and DeWalt compete directly. We can provide visibility into how those competitors price, promote, and position their products across European retailers - even on channels where STIHL is not selling.
+
+That kind of competitive intelligence could inform how STIHL positions its own products through the dealer network and direct platforms.
+
+If this would be useful, or if you would like to explore any of the areas I have mentioned, I am happy to arrange a conversation.
+
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note customisation">
+                                <h5>Customisation Notes</h5>
+                                <ul>
+                                    <li>Competitors (Husqvarna, DeWalt) verified from research</li>
+                                </ul>
+                            </div>
+                            <div class="email-note strategy">
+                                <h5>Strategy Notes</h5>
+                                <p>Offers a different angle - competitive intelligence. Final email brings threads together with clear but unpressured invitation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Sequence: Kay Green -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <h3>Kay Green</h3>
+                    <div class="contact-badges">
+                        <span class="badge british">🇬🇧 British</span>
+                        <span class="badge cold">Cold</span>
+                    </div>
+                </div>
+
+                <div class="email-tabs">
+                    <button class="email-tab-btn active" data-email="kay-1" data-sequence="kay">
+                        <span class="email-num">1</span> Introduction
+                    </button>
+                    <button class="email-tab-btn" data-email="kay-2" data-sequence="kay">
+                        <span class="email-num">2</span> Content Challenge
+                    </button>
+                    <button class="email-tab-btn" data-email="kay-3" data-sequence="kay">
+                        <span class="email-num">3</span> UK Growth
+                    </button>
+                </div>
+
+                <div id="kay-1" class="email-tab-content active" data-sequence="kay">
+                    <div class="email-item">
+                        <div class="email-title">Email 1: Introduction and Channel Complexity</div>
+                        <div class="email-meta">
+                            <div class="email-meta-item"><span class="email-meta-label">Subject:</span> Digital shelf analytics for STIHL GB</div>
+                            <div class="email-meta-item"><span class="email-meta-label">Timing:</span> Tuesday or Wednesday, 9:00-10:00 GMT</div>
+                        </div>
+                        <div class="email-body">Kay,
+
+I am [SENDER NAME] from eStore. We provide digital shelf analytics for Home and DIY brands - helping companies like Bosch and Grohe monitor how their products appear and perform across online retail websites.
+
+Our strength is UK and European retailer coverage. With STIHL GB selling through retail partners, 700+ dealers, and your own direct channels, I thought it worth reaching out to understand how you currently approach monitoring product performance across these different touchpoints.
+
+If this is something you are thinking about, I would welcome the opportunity to discuss how we might help.
+
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note customisation">
+                                <h5>Customisation Notes</h5>
+                                <ul>
+                                    <li>Bosch and Grohe are verified eStore clients</li>
+                                    <li>700+ UK dealers verified from research</li>
+                                    <li>Check LinkedIn for recent activity from Kay</li>
+                                </ul>
+                            </div>
+                            <div class="email-note strategy">
+                                <h5>Strategy Notes</h5>
+                                <p>Clear introduction, references their specific channel mix (verified from research), offers conversation if relevant.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="kay-2" class="email-tab-content" data-sequence="kay">
+                    <div class="email-item">
+                        <div class="email-title">Email 2: Content Consistency Challenge</div>
+                        <div class="email-meta">
+                            <div class="email-meta-item"><span class="email-meta-label">Subject:</span> Content across multiple channels</div>
+                            <div class="email-meta-item"><span class="email-meta-label">Timing:</span> 6-7 days after Email 1, Tuesday or Wednesday, 9:00-10:00 GMT</div>
+                        </div>
+                        <div class="email-body">Kay,
+
+One challenge we see with Home and DIY brands selling through multiple channels is maintaining content consistency - accurate specifications, up-to-date imagery, clear compatibility information - across all of them.
+
+With STIHL's three battery platforms, each suited to different users and not cross-compatible, getting that information right across retail partners, dealers, and your direct store seems particularly important.
+
+We have pulled together our perspective on digital shelf challenges for Home and DIY brands here: https://estorebrands.com/home-and-diy
+
+If content consistency is something you are working on, I would be happy to share how other brands in the sector approach it.
+
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note customisation">
+                                <h5>Customisation Notes</h5>
+                                <ul>
+                                    <li>Battery platforms verified from research</li>
+                                    <li>Confirm sector landing page is live</li>
+                                </ul>
+                            </div>
+                            <div class="email-note strategy">
+                                <h5>Strategy Notes</h5>
+                                <p>References specific research finding (three battery platforms) and connects it to a real challenge. Offers to share relevant experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="kay-3" class="email-tab-content" data-sequence="kay">
+                    <div class="email-item">
+                        <div class="email-title">Email 3: UK Growth and Priorities</div>
+                        <div class="email-meta">
+                            <div class="email-meta-item"><span class="email-meta-label">Subject:</span> UK growth and digital shelf</div>
+                            <div class="email-meta-item"><span class="email-meta-label">Timing:</span> 6-7 days after Email 2, Tuesday or Wednesday, 9:00-10:00 GMT</div>
+                        </div>
+                        <div class="email-body">Kay,
+
+STIHL GB has been delivering strong growth, and from what I can see, the UK market is becoming increasingly important within the broader STIHL business.
+
+As the channel mix evolves - retail partnerships alongside the dealer network and direct sales - I am interested to understand whether monitoring and optimising digital shelf performance is becoming more of a priority.
+
+If it is, or if any of the areas I have mentioned would be worth exploring, I would welcome a conversation.
+
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note customisation">
+                                <h5>Customisation Notes</h5>
+                                <ul>
+                                    <li>Double-digit UK growth verified from research</li>
+                                    <li>Check for any announcements about UK market priorities</li>
+                                </ul>
+                            </div>
+                            <div class="email-note strategy">
+                                <h5>Strategy Notes</h5>
+                                <p>References verified research finding (UK growth), invites conversation if relevant to her priorities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Sequence: Simon Hewitt -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <h3>Simon Hewitt</h3>
+                    <div class="contact-badges">
+                        <span class="badge british">🇬🇧 British</span>
+                        <span class="badge cold">Cold</span>
+                    </div>
+                </div>
+
+                <div class="email-tabs">
+                    <button class="email-tab-btn active" data-email="simon-1" data-sequence="simon">
+                        <span class="email-num">1</span> Introduction
+                    </button>
+                    <button class="email-tab-btn" data-email="simon-2" data-sequence="simon">
+                        <span class="email-num">2</span> Content Benchmark
+                    </button>
+                    <button class="email-tab-btn" data-email="simon-3" data-sequence="simon">
+                        <span class="email-num">3</span> Competitive Content
+                    </button>
+                </div>
+
+                <div id="simon-1" class="email-tab-content active" data-sequence="simon">
+                    <div class="email-item">
+                        <div class="email-title">Email 1: Introduction and Marketing Focus</div>
+                        <div class="email-meta">
+                            <div class="email-meta-item"><span class="email-meta-label">Subject:</span> Digital shelf for STIHL</div>
+                            <div class="email-meta-item"><span class="email-meta-label">Timing:</span> Tuesday or Wednesday, 9:00-10:00 GMT</div>
+                        </div>
+                        <div class="email-body">Simon,
+
+I am [SENDER NAME] from eStore. We provide digital shelf analytics for Home and DIY brands - helping companies like Bosch and Grohe monitor how their products appear across online retail websites.
+
+You have been at STIHL GB for over a decade, so you will have seen how the online retail landscape has evolved. I am interested to understand how the marketing team currently approaches monitoring product content and performance across the retailers and channels you sell through.
+
+If it would be useful to compare notes on how other brands in the sector approach this, I would be happy to have that conversation.
+
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note customisation">
+                                <h5>Customisation Notes</h5>
+                                <ul>
+                                    <li>Simon's tenure (10+ years) verified from LinkedIn</li>
+                                    <li>Bosch and Grohe are verified eStore clients</li>
+                                </ul>
+                            </div>
+                            <div class="email-note strategy">
+                                <h5>Strategy Notes</h5>
+                                <p>Acknowledges his tenure (shows research), offers to share sector perspective.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="simon-2" class="email-tab-content" data-sequence="simon">
+                    <div class="email-item">
+                        <div class="email-title">Email 2: Content Consistency and Benchmark Capability</div>
+                        <div class="email-meta">
+                            <div class="email-meta-item"><span class="email-meta-label">Subject:</span> Content consistency across channels</div>
+                            <div class="email-meta-item"><span class="email-meta-label">Timing:</span> 6-7 days after Email 1, Tuesday or Wednesday, 9:00-10:00 GMT</div>
+                        </div>
+                        <div class="email-body">Simon,
+
+One area we help Home and DIY brands with is content consistency across retailers - ensuring product specifications, imagery, and compatibility information are accurate and complete wherever customers encounter the product.
+
+For STIHL, with three distinct battery platforms aimed at different user types, that compatibility information seems particularly important to get right. Customers making a significant purchase need to understand what they are buying into.
+
+We have a Content Benchmark capability that helps brands compare their content across retailers and against competitors. I have linked it below: https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content
+
+If content quality is something the marketing team is focused on, I would welcome the chance to discuss how we might help.
+
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note customisation">
+                                <h5>Customisation Notes</h5>
+                                <ul>
+                                    <li>Battery platforms verified from research</li>
+                                    <li>Content Benchmark is relevant for marketing focus</li>
+                                </ul>
+                            </div>
+                            <div class="email-note strategy">
+                                <h5>Strategy Notes</h5>
+                                <p>References specific research finding, offers relevant capability, invites conversation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="simon-3" class="email-tab-content" data-sequence="simon">
+                    <div class="email-item">
+                        <div class="email-title">Email 3: Competitive Content Intelligence</div>
+                        <div class="email-meta">
+                            <div class="email-meta-item"><span class="email-meta-label">Subject:</span> Competitive content</div>
+                            <div class="email-meta-item"><span class="email-meta-label">Timing:</span> 6-7 days after Email 2, Tuesday or Wednesday, 9:00-10:00 GMT</div>
+                        </div>
+                        <div class="email-body">Simon,
+
+One other area that might be relevant: competitive content intelligence.
+
+We can show brands how their competitors present products across retailers - what imagery they use, how they explain product features, where there might be content gaps to exploit.
+
+For STIHL, understanding how Husqvarna, DeWalt, and other competitors position their battery-powered products could inform your own content strategy - particularly as battery products become a larger share of the portfolio.
+
+If competitive content visibility would be useful, or if any of the areas I have mentioned are worth exploring, I am happy to arrange a conversation.
+
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note customisation">
+                                <h5>Customisation Notes</h5>
+                                <ul>
+                                    <li>Competitors verified from research</li>
+                                    <li>Battery transformation (growing share) verified from research</li>
+                                </ul>
+                            </div>
+                            <div class="email-note strategy">
+                                <h5>Strategy Notes</h5>
+                                <p>Offers different angle (competitive intelligence), references battery growth trend, brings threads together with invitation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Sequence: Maria Akouta -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <h3>Maria Akouta</h3>
+                    <div class="contact-badges">
+                        <span class="badge german">🇩🇪 German (assumed)</span>
+                        <span class="badge warm">Warm - Follow-up</span>
+                    </div>
+                </div>
+
+                <div class="email-tabs">
+                    <button class="email-tab-btn active" data-email="maria-1" data-sequence="maria">
+                        <span class="email-num">1</span> Follow-up
+                    </button>
+                    <button class="email-tab-btn" data-email="maria-2" data-sequence="maria">
+                        <span class="email-num">2</span> Sector Context
+                    </button>
+                    <button class="email-tab-btn" data-email="maria-3" data-sequence="maria">
+                        <span class="email-num">3</span> Next Steps
+                    </button>
+                </div>
+
+                <div id="maria-1" class="email-tab-content active" data-sequence="maria">
+                    <div class="email-item">
+                        <div class="email-title">Email 1: Direct Follow-up on Analytics Review</div>
+                        <div class="email-meta">
+                            <div class="email-meta-item"><span class="email-meta-label">Subject:</span> Following up on STIHL analytics</div>
+                            <div class="email-meta-item"><span class="email-meta-label">Timing:</span> Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        </div>
+                        <div class="email-body">Maria,
+
+I am following up on our earlier conversation about a potential analytics review at STIHL. You had mentioned this might be something you were exploring this year.
+
+For context, I am [SENDER NAME] from eStore. We provide digital shelf analytics for consumer brands - helping companies understand how their products appear and perform across online retailers. We work with brands like Bosch, De'Longhi, and Grohe, and our strength is European retailer coverage.
+
+If the analytics review has moved forward and it would be useful to include eStore in the conversation, I would welcome that.
+
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note customisation">
+                                <h5>Customisation Notes</h5>
+                                <ul>
+                                    <li>Check HubSpot for exact content of January 2025 email</li>
+                                    <li>Verify if there was any response</li>
+                                </ul>
+                            </div>
+                            <div class="email-note strategy">
+                                <h5>Strategy Notes</h5>
+                                <p>Direct follow-up on warm thread. Offers to be included if relevant.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="maria-2" class="email-tab-content" data-sequence="maria">
+                    <div class="email-item">
+                        <div class="email-title">Email 2: Sector Context and Value Add</div>
+                        <div class="email-meta">
+                            <div class="email-meta-item"><span class="email-meta-label">Subject:</span> Home and DIY digital shelf</div>
+                            <div class="email-meta-item"><span class="email-meta-label">Timing:</span> 7 days after Email 1, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        </div>
+                        <div class="email-body">Maria,
+
+Whether or not an analytics review is underway, I thought I would share some context that might be useful.
+
+We have been working with Home and DIY brands on digital shelf analytics - helping them monitor product content and performance across European retailers. The challenges in this sector tend to be different from FMCG: more complex product specifications, compatibility information that needs to be accurate, and often multiple audiences to serve.
+
+I have linked our perspective here: https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025
+
+If it would be useful to discuss how this applies to STIHL, I am happy to arrange a conversation.
+
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note customisation">
+                                <h5>Customisation Notes</h5>
+                                <ul>
+                                    <li>Check if Ignite article is live</li>
+                                    <li>If Maria has responded to Email 1, adjust accordingly</li>
+                                </ul>
+                            </div>
+                            <div class="email-note strategy">
+                                <h5>Strategy Notes</h5>
+                                <p>Adds value with relevant content. Clear offer of conversation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="maria-3" class="email-tab-content" data-sequence="maria">
+                    <div class="email-item">
+                        <div class="email-title">Email 3: Concrete Next Steps</div>
+                        <div class="email-meta">
+                            <div class="email-meta-item"><span class="email-meta-label">Subject:</span> What a conversation would cover</div>
+                            <div class="email-meta-item"><span class="email-meta-label">Timing:</span> 7 days after Email 2, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        </div>
+                        <div class="email-body">Maria,
+
+If there is interest in including eStore in a conversation about analytics, here is what I would suggest covering:
+
+How STIHL currently monitors product content and performance across online channels. Where there might be opportunities to improve. How we have helped similar brands, including Robert Bosch Power Tools. And whether there is a fit worth exploring further.
+
+We work with several power tools and Home and DIY brands across Europe. If it would be helpful to talk, I am available.
+
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="email-note customisation">
+                                <h5>Customisation Notes</h5>
+                                <ul>
+                                    <li>Robert Bosch Power Tools is a verified eStore client</li>
+                                </ul>
+                            </div>
+                            <div class="email-note strategy">
+                                <h5>Strategy Notes</h5>
+                                <p>Makes next step concrete. Mentions relevant client for credibility. Clear availability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">🔗</div>
+                    <h2 class="card-title">Content Links Referenced</h2>
+                </div>
+                
+                <table class="assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Content</th>
+                            <th>URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ulrich Email 2</td>
+                            <td>Home & DIY Ignite Article</td>
+                            <td><a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025" target="_blank">estorebrands.com/ignite/...</a></td>
+                        </tr>
+                        <tr>
+                            <td>Kay Email 2</td>
+                            <td>Home & DIY Landing Page</td>
+                            <td><a href="https://estorebrands.com/home-and-diy" target="_blank">estorebrands.com/home-and-diy</a></td>
+                        </tr>
+                        <tr>
+                            <td>Simon Email 2</td>
+                            <td>Content Benchmark Article</td>
+                            <td><a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank">estorebrands.com/ignite/...</a></td>
+                        </tr>
+                        <tr>
+                            <td>Maria Email 2</td>
+                            <td>Home & DIY Ignite Article</td>
+                            <td><a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025" target="_blank">estorebrands.com/ignite/...</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 6: Objection Handling -->
+        <div id="objections" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">🎯</div>
+                    <h2 class="card-title">Decision Framework</h2>
+                </div>
+                
+                <div class="info-box yellow">
+                    <div class="info-box-title">🟡 MODERATE FIT - Consultative Approach Required</div>
+                    <p style="margin-top: 8px;">STIHL's unique distribution model requires honest, exploratory conversations rather than traditional DSA positioning. Lead with UK market strengths, acknowledge constraints upfront, and focus on specific use cases (Screwfix, D2C, dealer content) rather than broad marketplace monitoring.</p>
+                </div>
+
+                <h4 style="margin: 20px 0 12px;">Proceed / Proceed with Caveats / Delay Thresholds</h4>
+                <table class="assessment-table">
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Recommendation</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maria Akouta responds positively to analytics review follow-up</td>
+                            <td><span class="rating-badge high">Proceed</span></td>
+                            <td>Warm lead with stated interest; prioritise this thread</td>
+                        </tr>
+                        <tr>
+                            <td>UK contacts (Kay/Simon) show interest in Screwfix optimisation</td>
+                            <td><span class="rating-badge high">Proceed</span></td>
+                            <td>Clear use case in eStore's core market</td>
+                        </tr>
+                        <tr>
+                            <td>Global conversation about dealer content consistency</td>
+                            <td><span class="rating-badge moderate">Proceed with Caveats</span></td>
+                            <td>Non-standard scope; requires custom scoping conversation</td>
+                        </tr>
+                        <tr>
+                            <td>US-focused conversation about marketplace monitoring</td>
+                            <td><span class="rating-badge" style="background: rgba(244,79,47,0.15); color: var(--estore-red);">Delay/Redirect</span></td>
+                            <td>Limited value proposition; redirect to UK/European use cases</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon orange">💬</div>
+                    <h2 class="card-title">Common Objections & Responses</h2>
+                </div>
+                
+                <p style="margin-bottom: 20px;">Click each objection to expand the recommended response.</p>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <div class="objection-question">❓ "We don't sell on Amazon or major marketplaces - how is digital shelf analytics relevant to us?"</div>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h4>Response</h4>
+                            <p>You're right that traditional marketplace monitoring isn't directly applicable to STIHL's model - and honestly, that's why I reached out with a different angle.</p>
+                            <p>Where we see opportunities for brands with dealer-focused distribution:</p>
+                            <ul>
+                                <li><strong>Retail partnership optimisation:</strong> Your Screwfix partnership is a significant investment - understanding how STIHL products perform vs. competitors on that platform could help maximise that relationship</li>
+                                <li><strong>Own-site D2C analytics:</strong> Monitoring content quality and performance across your direct platforms</li>
+                                <li><strong>Competitive intelligence:</strong> Visibility into how Husqvarna, DeWalt, and EGO position and price products on channels where they compete but you don't</li>
+                                <li><strong>Dealer content consistency:</strong> Understanding how your products appear across dealer websites</li>
+                            </ul>
+                            <p>I'd want to have an exploratory conversation to understand which of these, if any, are actually pain points for you.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <div class="objection-question">❓ "We've spoken to eStore before and it didn't move forward"</div>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h4>Response</h4>
+                            <p>I appreciate you being direct about that. I can see from our records that there have been conversations over the past few years that didn't progress.</p>
+                            <p>I don't know the full story of why that was - but I wanted to reach out because:</p>
+                            <ul>
+                                <li>eStore has evolved significantly, particularly around European retailer coverage and content analytics</li>
+                                <li>Your business has changed too - the Screwfix partnership, STIHL direct expansion, and battery transformation are all relatively recent</li>
+                                <li>Previous conversations may have focused on Amazon/marketplace monitoring, which I now understand isn't relevant to your model</li>
+                            </ul>
+                            <p>I'm approaching this as an exploratory conversation to understand whether there's genuine fit now - not to pressure you into anything. If after talking it's clear there isn't a fit, that's a useful outcome too.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <div class="objection-question">❓ "How many of our retailers can you actually monitor?"</div>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h4>Response</h4>
+                            <p>I'll be direct: STIHL's distribution model is quite different from the brands we typically work with, so the answer depends on how we scope it.</p>
+                            <p><strong>What we can cover now:</strong></p>
+                            <ul>
+                                <li>Screwfix (UK) - your major retail partnership</li>
+                                <li>Your own D2C platforms</li>
+                                <li>Major European retailers where competitors sell</li>
+                            </ul>
+                            <p><strong>What would need exploration:</strong></p>
+                            <ul>
+                                <li>Dealer website monitoring - this would be a custom scope</li>
+                                <li>Regional specialist retailers</li>
+                            </ul>
+                            <p>Traditional "coverage percentage" metrics don't really apply here. I'd want to understand what visibility you actually need before making promises about what we can deliver.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <div class="objection-question">❓ "We already have systems for monitoring our e-commerce performance"</div>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h4>Response</h4>
+                            <p>That makes sense - with STIHL direct and the scale of your e-commerce investment, you'd need robust systems in place.</p>
+                            <p>A couple of questions that might help me understand whether there's anything additional we could offer:</p>
+                            <ul>
+                                <li>Does your current setup give you visibility into how products appear on partner sites like Screwfix, or is it focused on your own platforms?</li>
+                                <li>Do you have competitive intelligence on how Husqvarna, DeWalt, and others position products on channels you're not on?</li>
+                                <li>Is dealer content consistency something you track systematically?</li>
+                            </ul>
+                            <p>If your current systems cover all of that, there may genuinely not be a gap for us to fill. But if there are blind spots, that's where we might be able to help.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <div class="objection-question">❓ "What's your US retailer coverage like?"</div>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h4>Response</h4>
+                            <p>I want to be upfront: our core strength is UK and European markets. We do have US coverage, but it's not as comprehensive as our European capabilities.</p>
+                            <p>For STIHL specifically, the US market presents a unique challenge anyway - with the dealer-exclusive model, traditional retailer monitoring is less applicable. Ace Hardware would be the main chain where we could provide visibility.</p>
+                            <p>My recommendation would be to focus initially on markets where:</p>
+                            <ul>
+                                <li>eStore has strongest coverage (UK, Germany, France)</li>
+                                <li>STIHL has retail partnerships or D2C presence to monitor</li>
+                            </ul>
+                            <p>If there's strong value delivered there, we could discuss expanding scope. But I wouldn't want to overpromise on US capabilities upfront.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <div class="objection-question">❓ "Our dealer network is our priority, not online retail"</div>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h4>Response</h4>
+                            <p>Understood - and that dealer-first model is clearly a competitive advantage for STIHL. I wouldn't want to suggest anything that undermines that.</p>
+                            <p>A few angles that might still be relevant:</p>
+                            <ul>
+                                <li><strong>Dealer support:</strong> Understanding how customers research products online before visiting dealers - what content they encounter, what competitors they compare</li>
+                                <li><strong>Content consistency:</strong> Ensuring product information is accurate across the 55,000+ dealer websites globally</li>
+                                <li><strong>Competitive intelligence:</strong> Even if you're not selling on certain channels, knowing how competitors position themselves there informs your own strategy</li>
+                                <li><strong>Screwfix optimisation:</strong> For the retail partnerships you do have, maximising their effectiveness</li>
+                            </ul>
+                            <p>If none of these resonate, that's fine - but I'd be interested to understand how you currently approach these areas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <div class="objection-question">❓ "What similar brands do you work with?"</div>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h4>Response</h4>
+                            <p>In the Home & DIY / power tools space, our most relevant reference is <strong>Robert Bosch Power Tools</strong> - they're a current client.</p>
+                            <p>We also work with:</p>
+                            <ul>
+                                <li><strong>Grohe</strong> - building materials / home category</li>
+                                <li><strong>De'Longhi</strong> - consumer appliances with complex product portfolios</li>
+                            </ul>
+                            <p>I should be honest that STIHL's dealer-exclusive model is quite different from most of these - they have broader retail distribution. That's partly why I'm approaching this as an exploratory conversation rather than assuming a straightforward fit.</p>
+                            <p>What I can say is that we understand the Home & DIY category well - the product complexity, compatibility challenges, professional vs. consumer audiences.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <div class="objection-question">❓ "How long would implementation take?"</div>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h4>Response</h4>
+                            <p>It depends significantly on scope - and given STIHL's unique distribution model, we'd need to have a proper scoping conversation before I could give a confident answer.</p>
+                            <p>General ranges:</p>
+                            <ul>
+                                <li><strong>UK-focused scope</strong> (Screwfix, D2C, select competitors): 4-8 weeks</li>
+                                <li><strong>Multi-market European deployment:</strong> 3-4 months</li>
+                                <li><strong>Global dealer content analysis:</strong> 6+ months (this would be complex scoping)</li>
+                            </ul>
+                            <p>For STIHL, I'd recommend starting with a focused UK pilot that can deliver value quickly, then expanding based on what works.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <div class="objection-question">❓ "We're focused on battery transformation - how does this help?"</div>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h4>Response</h4>
+                            <p>Battery transformation is fascinating from a content perspective - and I imagine it creates some specific challenges.</p>
+                            <p>With three distinct battery platforms (AS, AK, AP) that aren't cross-compatible, ensuring customers understand:</p>
+                            <ul>
+                                <li>Which system is right for them</li>
+                                <li>What's compatible with what</li>
+                                <li>The value proposition vs. competitors like EGO or DeWalt who sell through Amazon</li>
+                            </ul>
+                            <p>...seems like a content challenge as much as a product one.</p>
+                            <p>Where we might help:</p>
+                            <ul>
+                                <li>Monitoring how battery platform information is presented across channels</li>
+                                <li>Understanding how competitors position their battery systems</li>
+                                <li>Ensuring consistent messaging as battery share grows from 25% to 35%+</li>
+                            </ul>
+                            <p>I'd want to understand whether this is actually a pain point or something you have well covered already.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <div class="objection-question">❓ "This needs to go through our German HQ"</div>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h4>Response</h4>
+                            <p>Understood - and that's helpful context. A few options for how to proceed:</p>
+                            <ul>
+                                <li>We're also in contact with colleagues in Germany (Ulrich Spies at STIHL direct GmbH) - we could potentially coordinate conversations</li>
+                                <li>Alternatively, we could explore a UK-specific pilot that demonstrates value locally before involving HQ</li>
+                                <li>If you can advise on who the right contact would be for a global conversation, I'm happy to reach out directly</li>
+                            </ul>
+                            <p>What would work best from your perspective?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon green">✅</div>
+                    <h2 class="card-title">Objection Handling Principles</h2>
+                </div>
+                
+                <ul class="checklist">
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span><strong>Never dismiss the objection</strong> - acknowledge their unique situation</span>
+                    </li>
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span><strong>Be honest about limitations</strong> - especially around US coverage and non-standard use cases</span>
+                    </li>
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span><strong>Ask questions to understand</strong> - their model is unique; don't assume</span>
+                    </li>
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span><strong>Offer flexibility</strong> - pilots, focused scopes, exploratory conversations</span>
+                    </li>
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span><strong>Acknowledge previous contact history</strong> - don't pretend it didn't happen</span>
+                    </li>
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span><strong>Lead with UK/Europe</strong> - where eStore is strongest and STIHL has most relevant use cases</span>
+                    </li>
+                    <li>
+                        <span class="check-icon positive">✓</span>
+                        <span><strong>Position as exploration</strong> - moderate fit means we genuinely don't know if there's a fit yet</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p><strong>STIHL</strong> | eStore Brand Research & Action Plan</p>
+            <p>Created January 2026 | British English | eStore Confidential</p>
+        </footer>
+    </div>
+
+    <script>
+        // Main Tab Navigation
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and content
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Email Tab Navigation (within each contact sequence)
+        document.querySelectorAll('.email-tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const sequence = button.getAttribute('data-sequence');
+                const emailId = button.getAttribute('data-email');
+                
+                // Remove active class from all email tabs and content in this sequence
+                document.querySelectorAll(`.email-tab-btn[data-sequence="${sequence}"]`).forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelectorAll(`.email-tab-content[data-sequence="${sequence}"]`).forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(emailId).classList.add('active');
+            });
+        });
+
+        // Objection Toggle
+        function toggleObjection(header) {
+            const card = header.parentElement;
+            card.classList.toggle('open');
+        }
+
+        // Collapsible Sections
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const section = header.parentElement;
+                section.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
