@@ -1,0 +1,2687 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WD-40 Company | eStore Brand Research &amp; Action Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --estore-yellow: #ffba1c;
+            --estore-green: #22bb69;
+            --estore-light-blue: #68d7fa;
+            --estore-dark-blue: #1067db;
+            --estore-red: #f44f2f;
+            --estore-orange: #ff7a00;
+            --text-dark: #2c2c2c;
+            --text-medium: #555;
+            --text-light: #777;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-light: #e5e7eb;
+            --border-medium: #d1d5db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-white);
+            border-bottom: 3px solid var(--estore-yellow);
+            padding: 24px 0;
+            margin-bottom: 24px;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .brand-info h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .brand-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .brand-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .fit-badge.moderate {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            color: #856404;
+            border: 2px solid #ffc107;
+        }
+
+        .fit-badge.strong {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border: 2px solid var(--estore-green);
+        }
+
+        .fit-badge.weak {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            border: 2px solid var(--estore-red);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            background: var(--bg-white);
+            padding: 8px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            border: none;
+            background: transparent;
+            font-family: 'Figtree', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-medium);
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .tab-btn.active {
+            background: var(--estore-dark-blue);
+            color: white;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-light);
+        }
+
+        .card h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--estore-yellow);
+        }
+
+        .card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 20px 0 12px 0;
+        }
+
+        .card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-medium);
+            margin: 16px 0 8px 0;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            padding: 16px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            border-left: 4px solid var(--estore-dark-blue);
+        }
+
+        .info-item.highlight-green {
+            border-left-color: var(--estore-green);
+            background: linear-gradient(90deg, rgba(34,187,105,0.08) 0%, var(--bg-light) 100%);
+        }
+
+        .info-item.highlight-yellow {
+            border-left-color: var(--estore-yellow);
+            background: linear-gradient(90deg, rgba(255,186,28,0.1) 0%, var(--bg-light) 100%);
+        }
+
+        .info-item.highlight-orange {
+            border-left-color: var(--estore-orange);
+            background: linear-gradient(90deg, rgba(255,122,0,0.08) 0%, var(--bg-light) 100%);
+        }
+
+        .info-item.highlight-red {
+            border-left-color: var(--estore-red);
+            background: linear-gradient(90deg, rgba(244,79,47,0.08) 0%, var(--bg-light) 100%);
+        }
+
+        .info-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 15px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Status Badges */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-badge.confirmed {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-badge.warm {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-badge.cold {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
+        .status-badge.unknown {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: all 0.2s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .contact-card.priority-high {
+            border-left: 4px solid var(--estore-green);
+        }
+
+        .contact-card.priority-medium {
+            border-left: 4px solid var(--estore-yellow);
+        }
+
+        .contact-card.priority-secondary {
+            border-left: 4px solid var(--estore-light-blue);
+        }
+
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .contact-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .contact-title {
+            font-size: 14px;
+            color: var(--text-medium);
+            margin-top: 4px;
+        }
+
+        .nationality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            background: #f3f4f6;
+            color: var(--text-medium);
+        }
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        /* Email Sequence */
+        .email-sequence {
+            margin-bottom: 32px;
+        }
+
+        .email-contact-header {
+            background: linear-gradient(135deg, var(--estore-dark-blue) 0%, #0d5bba 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px 12px 0 0;
+            margin-bottom: 0;
+        }
+
+        .email-contact-header h3 {
+            color: white;
+            margin: 0 0 4px 0;
+            font-size: 18px;
+        }
+
+        .email-contact-header .contact-meta {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .email-wrapper {
+            border: 1px solid var(--border-light);
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            overflow: hidden;
+        }
+
+        .email-card {
+            padding: 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .email-card:last-child {
+            border-bottom: none;
+        }
+
+        .email-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--estore-yellow);
+            color: var(--text-dark);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 14px;
+            margin-right: 12px;
+        }
+
+        .email-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .email-title {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .email-timing {
+            margin-left: auto;
+            font-size: 13px;
+            color: var(--text-light);
+            background: var(--bg-light);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .email-subject {
+            background: var(--bg-light);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .email-subject strong {
+            color: var(--text-light);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .email-subject p {
+            margin-top: 4px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .email-body {
+            background: #fafbfc;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            white-space: pre-wrap;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .email-notes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .note-box {
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .note-box.customisation {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+        }
+
+        .note-box.strategy {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+        }
+
+        .note-box h4 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .note-box ul {
+            margin-left: 16px;
+        }
+
+        .note-box li {
+            margin-bottom: 4px;
+        }
+
+        /* Objection Cards */
+        .objection-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .objection-header {
+            background: linear-gradient(90deg, var(--estore-red) 0%, #e03e2a 100%);
+            color: white;
+            padding: 16px 20px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .objection-header:hover {
+            background: linear-gradient(90deg, #e03e2a 0%, var(--estore-red) 100%);
+        }
+
+        .objection-toggle {
+            font-size: 18px;
+            transition: transform 0.2s ease;
+        }
+
+        .objection-card.open .objection-toggle {
+            transform: rotate(180deg);
+        }
+
+        .objection-content {
+            padding: 20px;
+            display: none;
+        }
+
+        .objection-card.open .objection-content {
+            display: block;
+        }
+
+        .response-section {
+            margin-bottom: 16px;
+        }
+
+        .response-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .response-section h4 {
+            color: var(--estore-dark-blue);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        tr:hover {
+            background: var(--bg-light);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .disclaimer-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .disclaimer-text {
+            font-size: 14px;
+            color: #92400e;
+        }
+
+        .disclaimer-text strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+
+        .highlight-box.info {
+            background: #eff6ff;
+            border-left: 4px solid var(--estore-dark-blue);
+        }
+
+        .highlight-box.warning {
+            background: #fef3c7;
+            border-left: 4px solid var(--estore-yellow);
+        }
+
+        .highlight-box.success {
+            background: #f0fdf4;
+            border-left: 4px solid var(--estore-green);
+        }
+
+        .highlight-box.danger {
+            background: #fef2f2;
+            border-left: 4px solid var(--estore-red);
+        }
+
+        /* Quick Stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 8px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--estore-dark-blue);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        /* Content Links */
+        .content-links {
+            display: grid;
+            gap: 12px;
+        }
+
+        .content-link {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .content-link:hover {
+            border-color: var(--estore-dark-blue);
+            background: white;
+        }
+
+        .content-link-icon {
+            font-size: 24px;
+        }
+
+        .content-link-text h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--estore-dark-blue);
+        }
+
+        .content-link-text p {
+            font-size: 13px;
+            color: var(--text-medium);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-light);
+            font-size: 13px;
+            border-top: 1px solid var(--border-light);
+            margin-top: 40px;
+        }
+
+        /* Tone Guidance */
+        .tone-guidance {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #7dd3fc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .tone-guidance h3 {
+            color: #0369a1;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .tone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .tone-item {
+            padding: 12px;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .tone-item strong {
+            display: block;
+            font-size: 13px;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .tone-item p {
+            font-size: 13px;
+            color: var(--text-medium);
+        }
+
+        /* Email Sub-Tabs */
+        .email-tabs {
+            display: flex;
+            gap: 0;
+            background: #f1f5f9;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .email-tab-btn {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            font-family: 'Figtree', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-medium);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -1px;
+        }
+
+        .email-tab-btn:hover {
+            background: #e2e8f0;
+            color: var(--text-dark);
+        }
+
+        .email-tab-btn.active {
+            background: white;
+            color: var(--estore-dark-blue);
+            border-bottom-color: var(--estore-yellow);
+        }
+
+        .email-tab-content {
+            display: none;
+            padding: 24px;
+        }
+
+        .email-tab-content.active {
+            display: block;
+        }
+
+        /* Decision Framework */
+        .decision-box {
+            border: 2px solid var(--estore-green);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .decision-header {
+            background: var(--estore-green);
+            color: white;
+            padding: 16px 20px;
+            font-weight: 600;
+        }
+
+        .decision-content {
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .tabs {
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+
+            .tab-btn {
+                white-space: nowrap;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .email-notes {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            .tabs {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+                page-break-before: always;
+            }
+
+            .card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="brand-info">
+                <h1>WD-40 Company</h1>
+                <div class="brand-meta">
+                    <span>📍 San Diego, CA (HQ) / Milton Keynes, UK (EMEA)</span>
+                    <span>💰 $620M Revenue (FY2025)</span>
+                    <span>🏭 Home &amp; Garden / Maintenance Chemicals</span>
+                </div>
+            </div>
+            <div class="fit-badge moderate">
+                🟡 MODERATE FIT
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="strategic-fit">Strategic Fit Assessment</button>
+            <button class="tab-btn" data-tab="history">Our History with Them</button>
+            <button class="tab-btn" data-tab="retailers">Retailer Overview</button>
+            <button class="tab-btn" data-tab="contacts">Key People</button>
+            <button class="tab-btn" data-tab="emails">Draft Email Sequences</button>
+            <button class="tab-btn" data-tab="objections">Objection Handling</button>
+        </nav>
+
+        <!-- Tab 1: Strategic Fit Assessment -->
+        <section id="strategic-fit" class="tab-content active">
+            <div class="card">
+                <h2>Strategic Fit Assessment</h2>
+                
+                <div class="highlight-box warning">
+                    <strong>🟡 MODERATE FIT - Consultative Re-engagement Required</strong>
+                    <p style="margin-top: 8px;">WD-40 represents a strategically significant opportunity with confirmed Profitero usage and strong UK/EMEA presence, but sector alignment is limited to Home &amp; Garden only. The combination of known switching dissatisfaction, established relationship history, and active digital commerce investment creates a viable path forward - but this is a re-engagement play requiring careful positioning, not a slam-dunk.</p>
+                </div>
+
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">$620M</div>
+                        <div class="stat-label">FY2025 Revenue</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">17-20</div>
+                        <div class="stat-label">Online Retailers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">+16%</div>
+                        <div class="stat-label">EMEA Growth YoY</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">176</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Distribution Complexity &amp; Geographic Alignment</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item highlight-green">
+                        <div class="info-label">Total Estimated Retailers</div>
+                        <div class="info-value">~17-20 online retailers identified</div>
+                    </div>
+                    <div class="info-item highlight-yellow">
+                        <div class="info-label">Geographic Breakdown</div>
+                        <div class="info-value">50% US, 40% Europe, 10% Other</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Channel Notes</div>
+                        <div class="info-value">Multi-channel distribution - NOT Amazon-dominant</div>
+                    </div>
+                    <div class="info-item highlight-green">
+                        <div class="info-label">European Presence</div>
+                        <div class="info-value"><strong>STRONG</strong> - EMEA HQ in Milton Keynes</div>
+                    </div>
+                </div>
+
+                <h3>Notable Patterns</h3>
+                <ul>
+                    <li>Sells through 62 unique trade channels across 176 countries</li>
+                    <li><strong>Strong UK presence</strong> via Screwfix, B&amp;Q, Toolstation, Halfords</li>
+                    <li>European presence via Amazon UK/DE/FR, ManoMano, Leroy Merlin</li>
+                    <li>US automotive retailers (AutoZone, O'Reilly, Advance Auto Parts)</li>
+                    <li>Industrial B2B channels (Grainger, MSCDirect, Fastenal) growing fast</li>
+                    <li>EMEA region growing fastest at +16% YoY</li>
+                </ul>
+
+                <h3>Critical Gaps</h3>
+                <ul>
+                    <li>Limited specialist retailer presence (primarily generalist DIY/automotive)</li>
+                    <li>No DTC e-commerce site (product locator only)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Competitive Intelligence Summary</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Status</th>
+                            <th>Confidence</th>
+                            <th>Evidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Profitero</strong></td>
+                            <td><span class="status-badge confirmed">CONFIRMED</span></td>
+                            <td>95%</td>
+                            <td>Philip Tweed quoted in Profitero webinar (May 2022); weekly availability data sharing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>InsightLeap</strong></td>
+                            <td><span class="status-badge confirmed">CONFIRMED</span></td>
+                            <td>90%</td>
+                            <td>Freddy Flores case study on website; Amazon-specific analytics</td>
+                        </tr>
+                        <tr>
+                            <td>CommerceIQ</td>
+                            <td><span class="status-badge unknown">NOT DETECTED</span></td>
+                            <td>-</td>
+                            <td>No job postings, press releases, or case studies found</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box info">
+                    <strong>🔄 Switching Signals - MODERATE OPPORTUNITY</strong>
+                    <p style="margin-top: 8px;">HubSpot data indicates Serena Lillingston-Price mentioned "drop off in Profitero service" at MDS event. Profitero contract renewed until Dec 2024; review planned for 2025. Multi-vendor approach (Profitero + InsightLeap) suggests willingness to evaluate alternatives.</p>
+                </div>
+
+                <h3>Key Positioning Insight</h3>
+                <p>They use Profitero for cross-retailer digital shelf analytics and InsightLeap specifically for Amazon Vendor Central reporting. eStore could position as either <strong>Profitero replacement</strong> OR <strong>complement to InsightLeap</strong> for non-Amazon retailers.</p>
+            </div>
+
+            <div class="card">
+                <h2>Sector Alignment</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>eStore Proven Sector</th>
+                            <th>WD-40 Alignment</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Home &amp; Garden</strong></td>
+                            <td><span class="status-badge confirmed">STRONG</span></td>
+                            <td>Primary alignment - WD-40 products serve DIY, home maintenance, garden tool care</td>
+                        </tr>
+                        <tr>
+                            <td>Consumer Electronics</td>
+                            <td><span class="status-badge unknown">Weak</span></td>
+                            <td>Peripheral only (contact cleaner exists but not core)</td>
+                        </tr>
+                        <tr>
+                            <td>Beauty &amp; Personal Care</td>
+                            <td><span class="status-badge unknown">Weak</span></td>
+                            <td>Industrial hand cleaners being divested</td>
+                        </tr>
+                        <tr>
+                            <td>Pharmaceuticals/Healthcare</td>
+                            <td><span class="status-badge unknown">Weak</span></td>
+                            <td>No alignment</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box warning">
+                    <strong>Case Study Availability</strong>
+                    <p style="margin-top: 8px;">No direct WD-40 or lubricants case studies available. Grohe (building materials) is a current client that could provide tangential reference. Would need to rely on general Home &amp; DIY sector expertise positioning.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Relationship History Summary</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item highlight-yellow">
+                        <div class="info-label">Current/Lapsed Client</div>
+                        <div class="info-value">Neither - never been an eStore client</div>
+                    </div>
+                    <div class="info-item highlight-orange">
+                        <div class="info-label">Previous RFP</div>
+                        <div class="info-value">Yes - evaluated in 2019-2020, lost to Profitero</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Sister Brand Relationships</div>
+                        <div class="info-value">None identified</div>
+                    </div>
+                    <div class="info-item highlight-green">
+                        <div class="info-label">LinkedIn Connections</div>
+                        <div class="info-value">Multiple touchpoints exist</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box success">
+                    <strong>Tactical Advantage: WARM RE-ENGAGEMENT</strong>
+                    <p style="margin-top: 8px;">Extensive prior engagement since 2019 across UK, EMEA, and NA. Not cold outreach. Key relationships established with Serena Lillingston-Price (UK - shared Profitero concerns), Philip Tweed (UK - Amazon/digital shelf lead), and multiple US contacts around sustainability/analytics discussions.</p>
+                </div>
+
+                <h3>Historical Context</h3>
+                <p>Lost 2019-2020 deal to Profitero. Notes indicate "commercial team selected a known provider outside of marketing's control" - suggests decision was driven by commercial/procurement, not product fit.</p>
+            </div>
+
+            <div class="card">
+                <h2>Market Dynamics &amp; Timing Indicators</h2>
+                
+                <h3>Recent Events</h3>
+                <ul>
+                    <li><strong>September 2025:</strong> Divested UK homecare brands (1001, Carpet Fresh) for £5.6M - focusing on "pure-play maintenance"</li>
+                    <li><strong>March 2024:</strong> Acquired Brazilian distributor Theron Marketing for $6.9M</li>
+                    <li><strong>FY2024:</strong> Deployed new ERP system across 50% of business; rolled out Salesforce CRM in US</li>
+                    <li><strong>Leadership stable:</strong> CEO Steve Brass since 2022 (with company since 1991)</li>
+                </ul>
+
+                <h3>Strategic Initiatives</h3>
+                <ul>
+                    <li><strong>"Four Must-Win Battles"</strong> framework - digital commerce is explicitly one of them</li>
+                    <li>E-commerce growing 10-12% annually; +22% in Q1 FY2026</li>
+                    <li>Building "AI-enabled infrastructure" for digital transformation</li>
+                    <li>WD-40 Specialist line targeting 15%+ CAGR</li>
+                </ul>
+
+                <h3>Competitive Pressure</h3>
+                <p>CRC Industries, B'laster, 3M, Henkel Loctite all competing in maintenance category. ~80% market share in lubricants but only 28% of $1.65B global opportunity captured. Private label/store brand lubricants emerging as threat.</p>
+            </div>
+
+            <div class="card">
+                <h2>Synthesis &amp; Recommendation</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Impact</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Profitero dissatisfaction + review timing</td>
+                            <td><span class="status-badge confirmed">Positive</span></td>
+                            <td>Window exists but may have passed</td>
+                        </tr>
+                        <tr>
+                            <td>Strong UK/EMEA presence</td>
+                            <td><span class="status-badge confirmed">Positive</span></td>
+                            <td>Milton Keynes HQ, £100M+ European business</td>
+                        </tr>
+                        <tr>
+                            <td>Active digital commerce investment</td>
+                            <td><span class="status-badge confirmed">Positive</span></td>
+                            <td>One of "Four Must-Win Battles"</td>
+                        </tr>
+                        <tr>
+                            <td>Prior relationship history</td>
+                            <td><span class="status-badge confirmed">Positive</span></td>
+                            <td>Warm re-engagement, not cold</td>
+                        </tr>
+                        <tr>
+                            <td>Sector alignment (Home &amp; Garden only)</td>
+                            <td><span class="status-badge warm">Limiting</span></td>
+                            <td>Single sector match limits reference points</td>
+                        </tr>
+                        <tr>
+                            <td>Historical loss to Profitero</td>
+                            <td><span class="status-badge warm">Limiting</span></td>
+                            <td>Need to address what's changed</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="decision-box">
+                    <div class="decision-header">
+                        📋 Recommended Approach: CONSULTATIVE RE-ENGAGEMENT
+                    </div>
+                    <div class="decision-content">
+                        <ul>
+                            <li>Acknowledge prior conversations and relationship</li>
+                            <li>Reference their stated priorities (digital commerce as "must-win battle")</li>
+                            <li>Be honest about what's changed since 2020 evaluation</li>
+                            <li>Position around European strength and Profitero service gap</li>
+                            <li>Don't oversell - this is a relationship rebuild</li>
+                        </ul>
+                        <p style="margin-top: 16px;"><strong>Estimated Difficulty:</strong> MODERATE-HIGH</p>
+                        <p>Prior loss creates scepticism to overcome. Would need to reach operational decision-makers who can champion internally. Timing may have passed if 2025 review already concluded.</p>
+                    </div>
+                </div>
+
+                <h3>Implementation Readiness</h3>
+                <p>Multi-channel UK/European distribution suggests reasonable time-to-value. Pattern indicates ~60-70% coverage likely in eStore's existing infrastructure for their core retailers. DIY specialists (Screwfix, B&amp;Q, Toolstation) and Amazon are likely covered. Industrial B2B platforms (Grainger, Distrelec) would need verification.</p>
+                <p><strong>Estimated time-to-value:</strong> 4-8 weeks for core retailers if coverage confirmed.</p>
+            </div>
+        </section>
+
+        <!-- Tab 2: Our History with Them -->
+        <section id="history" class="tab-content">
+            <div class="card">
+                <h2>HubSpot Relationship Summary</h2>
+                
+                <p>WD-40 has been actively engaged by eStore since 2019 across UK, EMEA, and North America. The relationship has substantial history but no conversion to date.</p>
+
+                <h3>Key Historical Milestones</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Period</th>
+                            <th>Activity</th>
+                            <th>Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>2019-2020</strong></td>
+                            <td>Initial evaluation period; demos and follow-ups with David Whittome, Sarah Kronn</td>
+                            <td>Lost to Profitero</td>
+                        </tr>
+                        <tr>
+                            <td><strong>January 2020</strong></td>
+                            <td>RFP decision</td>
+                            <td>"Commercial team selected a known provider outside of marketing's control"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2023</strong></td>
+                            <td>Re-engagement around Profitero contract renewal timing</td>
+                            <td>Confirmed review planned</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MDS Event</strong></td>
+                            <td>Met Serena Lillingston-Price</td>
+                            <td>Shared "interesting feedback around drop off in Profitero service"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2023-2024</strong></td>
+                            <td>Confirmed Profitero renewed until Dec 2024</td>
+                            <td>Review team planned for 2025</td>
+                        </tr>
+                        <tr>
+                            <td><strong>January 2025</strong></td>
+                            <td>Outreach to Bryony Evans about 2025 analytics review</td>
+                            <td>OOO reply received</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Known Contacts and Their Stance</h2>
+                
+                <div class="contact-card priority-high">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Serena Lillingston-Price</div>
+                            <div class="contact-title">eCommerce Account Manager, UK</div>
+                        </div>
+                        <span class="status-badge confirmed">Positive</span>
+                    </div>
+                    <p>Shared Profitero concerns at MDS; planned to be on review team. Direct prior contact with Alex Fishwick.</p>
+                </div>
+
+                <div class="contact-card priority-medium">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Elena Gies</div>
+                            <div class="contact-title">Former - Key Decision-Maker</div>
+                        </div>
+                        <span class="status-badge unknown">May Have Left</span>
+                    </div>
+                    <p>Was key decision-maker on Profitero renewal. Found at Thorlabs - may have left WD-40.</p>
+                </div>
+
+                <div class="contact-card priority-medium">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Phil Tweed</div>
+                            <div class="contact-title">Amazon/Digital Shelf Lead</div>
+                        </div>
+                        <span class="status-badge unknown">Cannot Verify</span>
+                    </div>
+                    <p>Profitero relationship owner; multiple calls on Amazon Navigator topics. Cannot verify current role - may have moved on.</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Bryony Evans</div>
+                            <div class="contact-title">UK Contact</div>
+                        </div>
+                        <span class="status-badge cold">Neutral</span>
+                    </div>
+                    <p>OOO reply in Jan 2025; no substantive engagement. Indicated possible 2025 review.</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">US Contacts (Freddy, Brian, Eric)</div>
+                            <div class="contact-title">Various Roles</div>
+                        </div>
+                        <span class="status-badge cold">Neutral</span>
+                    </div>
+                    <p>Engaged on sustainability/CPF badge and analytics topics. Freddy featured in InsightLeap case study.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Competitor Intelligence Detail</h2>
+                
+                <div class="highlight-box info">
+                    <strong>Profitero Usage - 95% Confidence</strong>
+                    <p style="margin-top: 8px;"><strong>Evidence:</strong> Philip Tweed quoted in Profitero webinar (May 2022): "We use the availability data we get through Profitero to adjust our activity, particularly our campaigns and AMS investments." Weekly data sharing between eCommerce and Supply Chain teams confirmed.</p>
+                    <p style="margin-top: 8px;"><strong>Source:</strong> <a href="https://www.profitero.com/blog/nailing-ecommerce-success-wd40" target="_blank">profitero.com/blog/nailing-ecommerce-success-wd40</a></p>
+                </div>
+
+                <div class="highlight-box info">
+                    <strong>InsightLeap Usage - 90% Confidence</strong>
+                    <p style="margin-top: 8px;"><strong>Evidence:</strong> Case study on InsightLeap website features Freddy Flores (E-Commerce Marketing Manager): "One of the major impacts InsightLeap has had on our tribe is saving hours of time in reporting on our Amazon performance."</p>
+                    <p style="margin-top: 8px;"><strong>Source:</strong> <a href="https://insightleap.com/case-studies/wd-40-company-on-how-insightleap-has-streamlined-their-ecommerce-reporting-and-workflow" target="_blank">insightleap.com case study</a></p>
+                </div>
+
+                <h3>Not Detected</h3>
+                <p>No evidence found for: CommerceIQ, mindsite, Brand Nudge, Data Impact</p>
+            </div>
+
+            <div class="card">
+                <h2>Blockers &amp; Timing Considerations</h2>
+                
+                <div class="highlight-box danger">
+                    <strong>⚠️ Critical Considerations</strong>
+                    <ul style="margin-top: 8px; margin-bottom: 0;">
+                        <li><strong>2025 Review Timing:</strong> May have already concluded - need to verify</li>
+                        <li><strong>Commercial vs Marketing Decision:</strong> Original loss was procurement-driven; may need different stakeholder path</li>
+                        <li><strong>Phil Tweed Status:</strong> Cannot verify - was key contact for Profitero relationship</li>
+                        <li><strong>Elena Gies Status:</strong> May have left WD-40 - was positioned as key decision-maker</li>
+                        <li><strong>Multi-Vendor Approach:</strong> Already using Profitero + InsightLeap; may complicate positioning</li>
+                    </ul>
+                </div>
+
+                <h3>Potential Internal Champion</h3>
+                <p><strong>Serena Lillingston-Price</strong> - Expressed Profitero dissatisfaction, confirmed she would be on review team, operational role gives credibility to technical evaluation, UK-based aligns with eStore strength.</p>
+                <p><strong>Risk:</strong> Unknown whether she is still in role or still engaged with this topic.</p>
+            </div>
+
+            <div class="card">
+                <h2>Content to Reference</h2>
+                
+                <div class="content-links">
+                    <a href="https://estorebrands.com/home-and-diy" target="_blank" class="content-link">
+                        <div class="content-link-icon">🏠</div>
+                        <div class="content-link-text">
+                            <h4>Home &amp; DIY Landing Page</h4>
+                            <p>Primary sector page for UK contacts. Position as: "We've written about the specific challenges home and DIY brands face on the digital shelf."</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025" target="_blank" class="content-link">
+                        <div class="content-link-icon">📖</div>
+                        <div class="content-link-text">
+                            <h4>Digital Shelf Analytics for Home &amp; DIY Brands 2025</h4>
+                            <p>Long-form sector piece. Email 2 placement. "This piece captures some of the patterns we're seeing."</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://estorebrands.com/ignite/asda-xpert-a-new-era-of-retail-collaboration" target="_blank" class="content-link">
+                        <div class="content-link-icon">🛒</div>
+                        <div class="content-link-text">
+                            <h4>ASDA Xpert Partnership</h4>
+                            <p>UK contacts only, if ASDA is relevant. "Our ASDA partnership gives brands retailer-verified insights."</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank" class="content-link">
+                        <div class="content-link-icon">📊</div>
+                        <div class="content-link-text">
+                            <h4>Content Benchmark Feature</h4>
+                            <p>Email 3 if content quality focus. "Might be interesting given your Smart Straw and premium format positioning."</p>
+                        </div>
+                    </a>
+                    
+                    <a href="https://estorebrands.com/ignite/introducing-ai-business-answers" target="_blank" class="content-link">
+                        <div class="content-link-icon">🤖</div>
+                        <div class="content-link-text">
+                            <h4>AI Business Answers Feature</h4>
+                            <p>Email 3 if AI/automation interest. "Given your AI-enabled infrastructure development, you might find this interesting."</p>
+                        </div>
+                    </a>
+                </div>
+
+                <h3>Content Integration Guidelines</h3>
+                <ul>
+                    <li><strong>Email 1:</strong> No links - keep conversational and relationship-focused</li>
+                    <li><strong>Email 2:</strong> Primary sector article OR relevant feature article (one link maximum)</li>
+                    <li><strong>Email 3:</strong> Can include content if it adds genuine value and feels natural</li>
+                </ul>
+                <p><strong>Important:</strong> Don't force content into every email. Only include where it genuinely adds value. These are value-add resources, not sales materials.</p>
+            </div>
+        </section>
+
+        <!-- Tab 3: Retailer Overview -->
+        <section id="retailers" class="tab-content">
+            <div class="card">
+                <h2>Retailer Overview</h2>
+                
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">17-20</div>
+                        <div class="stat-label">Online Retailers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">50%</div>
+                        <div class="stat-label">US-Based</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">40%</div>
+                        <div class="stat-label">Europe-Based</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">HIGH</div>
+                        <div class="stat-label">Channel Diversity</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box info">
+                    <strong>📋 Strategic Overview Note</strong>
+                    <p style="margin-top: 8px;">This is a high-level retailer pattern analysis. WD-40's multi-channel distribution (mass retail, specialist automotive, DIY, industrial B2B) suggests reasonable alignment with eStore's existing infrastructure for their European retailers.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Verified Retailer Presence</h2>
+                
+                <h3>🇺🇸 United States (~10 retailers)</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Mass Retail</div>
+                        <div class="info-value">Amazon US (branded store, Best Seller), Walmart.com, Home Depot, Lowe's, Target</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Automotive Retail</div>
+                        <div class="info-value">AutoZone, O'Reilly Auto Parts, Advance Auto Parts</div>
+                    </div>
+                    <div class="info-item highlight-yellow">
+                        <div class="info-label">Industrial B2B</div>
+                        <div class="info-value">Grainger, MSCDirect - Growing fast but may need coverage verification</div>
+                    </div>
+                </div>
+
+                <h3>🇬🇧 United Kingdom (~5 retailers)</h3>
+                <div class="info-grid">
+                    <div class="info-item highlight-green">
+                        <div class="info-label">DIY Specialists</div>
+                        <div class="info-value">Screwfix, B&amp;Q, Toolstation - Core home improvement retailers (likely covered)</div>
+                    </div>
+                    <div class="info-item highlight-green">
+                        <div class="info-label">Marketplace &amp; Automotive</div>
+                        <div class="info-value">Amazon UK (Best Seller), Halfords</div>
+                    </div>
+                </div>
+
+                <h3>🇪🇺 Europe (~4-5 retailers)</h3>
+                <div class="info-grid">
+                    <div class="info-item highlight-green">
+                        <div class="info-label">Marketplaces</div>
+                        <div class="info-value">Amazon Germany, Amazon France</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">DIY Retail</div>
+                        <div class="info-value">ManoMano (Germany), Leroy Merlin (France)</div>
+                    </div>
+                    <div class="info-item highlight-yellow">
+                        <div class="info-label">Industrial</div>
+                        <div class="info-value">Distrelec - May need coverage verification</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Notable Patterns</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item highlight-green">
+                        <div class="info-label">✅ Strength</div>
+                        <div class="info-value">Strong UK DIY retail presence - Screwfix, B&amp;Q, Toolstation are core home improvement retailers</div>
+                    </div>
+                    <div class="info-item highlight-green">
+                        <div class="info-label">✅ Strength</div>
+                        <div class="info-value">Multi-channel distribution - not Amazon-dependent; traditional retail equally important</div>
+                    </div>
+                    <div class="info-item highlight-green">
+                        <div class="info-label">✅ Strength</div>
+                        <div class="info-value">European presence substantial - France, Germany, UK all have direct retailer relationships</div>
+                    </div>
+                    <div class="info-item highlight-yellow">
+                        <div class="info-label">📈 Growth Area</div>
+                        <div class="info-value">B2B e-commerce growing - Grainger, MSCDirect, Fastenal mentioned as fast-growth channels</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Critical Gaps</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item highlight-orange">
+                        <div class="info-label">⚠️ Gap</div>
+                        <div class="info-value">No DTC e-commerce capability (product locator only, no transactions)</div>
+                    </div>
+                    <div class="info-item highlight-orange">
+                        <div class="info-label">⚠️ Gap</div>
+                        <div class="info-value">Limited specialist retailer diversification beyond DIY/automotive</div>
+                    </div>
+                    <div class="info-item highlight-yellow">
+                        <div class="info-label">⚠️ Verification Needed</div>
+                        <div class="info-value">Industrial B2B platforms (Grainger, Distrelec) may not be in eStore coverage</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Implementation Assessment</h2>
+                
+                <div class="decision-box">
+                    <div class="decision-header">
+                        ⏱️ Time-to-Value Estimate
+                    </div>
+                    <div class="decision-content">
+                        <p><strong>Pattern indicates:</strong> Multi-channel UK/European distribution suggests reasonable eStore coverage for their core retailers.</p>
+                        <ul style="margin-top: 12px;">
+                            <li><strong>Likely covered:</strong> DIY specialists (Screwfix, B&amp;Q, Toolstation) and Amazon</li>
+                            <li><strong>Needs verification:</strong> Industrial B2B platforms (Grainger, Distrelec)</li>
+                            <li><strong>Estimated coverage:</strong> ~60-70% for core retailers</li>
+                        </ul>
+                        <p style="margin-top: 16px;"><strong>Estimated time-to-value:</strong> 4-8 weeks for core retailers if coverage confirmed. Industrial B2B platforms may require onboarding.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box warning">
+                    <strong>⚠️ Note</strong>
+                    <p style="margin-top: 8px;">This is pattern recognition based on research. Detailed coverage checking against eStore_Retailer_Coverage_Master.csv recommended before finalising implementation timeline with prospect.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 4: Key People -->
+        <section id="contacts" class="tab-content">
+            <div class="card">
+                <h2>Historical Contacts (From Prior Engagement)</h2>
+                
+                <p style="margin-bottom: 16px;">These contacts have prior history with eStore and should be referenced when approaching new contacts.</p>
+
+                <div class="contact-card priority-high">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Serena Lillingston-Price</div>
+                            <div class="contact-title">eCommerce Account Manager, UK</div>
+                        </div>
+                        <div>
+                            <span class="status-badge confirmed">Prior Contact - MDS</span>
+                            <span class="nationality-badge">🇬🇧 British</span>
+                        </div>
+                    </div>
+                    <p>Met Alex Fishwick at Digital Grocery Summit. Shared "interesting feedback around drop off in Profitero service". Confirmed Profitero renewal until Dec 2024 and that she would be on the 2025 review team.</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Bryony Evans</div>
+                            <div class="contact-title">UK Contact</div>
+                        </div>
+                        <span class="status-badge cold">OOO Reply Jan 2025</span>
+                    </div>
+                    <p>Outreach about 2025 analytics review received OOO reply. May have insights on review outcome - follow up recommended.</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">US Contacts (Freddy Flores, Brian Savarese, Eric Munster)</div>
+                            <div class="contact-title">Various - E-commerce &amp; Analytics</div>
+                        </div>
+                        <span class="status-badge cold">Prior Engagement</span>
+                    </div>
+                    <p>Engaged on CPF badge, location-based analytics, and sustainability discussions. Freddy featured in InsightLeap case study - re-engagement opportunity.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Primary Targets (Operational Decision-Makers)</h2>
+                
+                <div class="contact-card priority-high">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Preston Ley — HIGHEST PRIORITY</div>
+                            <div class="contact-title">Managing Director, Global MD and Emerging Markets; Global eCommerce Business Lead</div>
+                        </div>
+                        <div>
+                            <span class="status-badge warm">Warm Re-engagement</span>
+                            <span class="nationality-badge">🇬🇧 British</span>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        <div>
+                            <strong>Location:</strong> Milton Keynes, UK
+                        </div>
+                        <div>
+                            <strong>Tenure:</strong> 27+ years (since 1998)
+                        </div>
+                        <div>
+                            <strong>Education:</strong> MA in Leadership, Henley Business School
+                        </div>
+                        <div>
+                            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/preston-ley-03131514a" target="_blank">View Profile</a>
+                        </div>
+                    </div>
+                    <h4>Why He's the Right Contact:</h4>
+                    <ul>
+                        <li>UK-based with global e-commerce remit - perfect alignment with eStore's strength</li>
+                        <li>Senior enough to influence vendor decisions but operational enough to evaluate solutions</li>
+                        <li>Long tenure provides institutional credibility for internal championing</li>
+                        <li>MA from Henley shows commitment to professional development</li>
+                    </ul>
+                    <h4>Specific Hooks:</h4>
+                    <ul>
+                        <li>Reference intersection of digital commerce and geographic expansion priorities</li>
+                        <li>European digital shelf expertise supporting EMEA's +16% growth</li>
+                        <li>Multi-retailer visibility beyond Amazon (where they already have InsightLeap)</li>
+                    </ul>
+                </div>
+
+                <div class="contact-card priority-high">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Serena Lillingston-Price — HIGH PRIORITY</div>
+                            <div class="contact-title">eCommerce Account Manager, UK</div>
+                        </div>
+                        <div>
+                            <span class="status-badge confirmed">Warm - Direct Prior Contact</span>
+                            <span class="nationality-badge">🇬🇧 British</span>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        <div>
+                            <strong>Location:</strong> Milton Keynes, UK
+                        </div>
+                        <div>
+                            <strong>Prior Contact:</strong> Met at MDS (Digital Grocery Summit)
+                        </div>
+                    </div>
+                    <h4>Why She's the Right Contact:</h4>
+                    <ul>
+                        <li>Direct Profitero user who expressed dissatisfaction</li>
+                        <li>Confirmed she would be on the 2025 review team</li>
+                        <li>Operational role means she understands pain points firsthand</li>
+                        <li>Can provide internal validation for eStore capabilities</li>
+                    </ul>
+                    <h4>Specific Hooks:</h4>
+                    <ul>
+                        <li>Reference MDS conversation and her Profitero service concerns</li>
+                        <li>Ask how the 2025 review process went (or if still ongoing)</li>
+                        <li>Position as follow-up to prior dialogue, not cold outreach</li>
+                    </ul>
+                </div>
+
+                <div class="contact-card priority-high">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Kieron Roberts — HIGH PRIORITY</div>
+                            <div class="contact-title">Sales Director UK &amp; Ireland</div>
+                        </div>
+                        <div>
+                            <span class="status-badge cold">Cold - No Prior Contact</span>
+                            <span class="nationality-badge">🇬🇧 British</span>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        <div>
+                            <strong>Location:</strong> Greater Nottingham, UK
+                        </div>
+                        <div>
+                            <strong>Education:</strong> Currently pursuing Masters in Management, Cranfield
+                        </div>
+                        <div>
+                            <strong>LinkedIn Tags:</strong> "E-Commerce | DE&amp;I Champion | Coach"
+                        </div>
+                        <div>
+                            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kieron-roberts-aa549633/" target="_blank">View Profile</a>
+                        </div>
+                    </div>
+                    <h4>Why He's the Right Contact:</h4>
+                    <ul>
+                        <li>LinkedIn explicitly mentions E-Commerce as focus</li>
+                        <li>UK Sales Director with revenue accountability for e-commerce channel</li>
+                        <li>Cranfield education suggests strategic sophistication</li>
+                    </ul>
+                    <h4>Specific Hooks:</h4>
+                    <ul>
+                        <li>Reference UK e-commerce growth priorities</li>
+                        <li>Position digital shelf analytics as revenue enabler</li>
+                        <li>UK market focus aligns perfectly with eStore's strength</li>
+                    </ul>
+                </div>
+
+                <div class="contact-card priority-medium">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Mark Guerra — MEDIUM-HIGH PRIORITY</div>
+                            <div class="contact-title">Senior E-commerce Project Manager</div>
+                        </div>
+                        <div>
+                            <span class="status-badge cold">Cold - No Prior Contact</span>
+                            <span class="nationality-badge">🇺🇸 American</span>
+                        </div>
+                    </div>
+                    <div class="contact-details">
+                        <div>
+                            <strong>Location:</strong> Brick, NJ area (US)
+                        </div>
+                        <div>
+                            <strong>Recent Role Expansion:</strong> Now also supporting Data and Analytics
+                        </div>
+                        <div>
+                            <strong>Trade Shows:</strong> Active at AAPEX (automotive aftermarket)
+                        </div>
+                        <div>
+                            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mark-guerra-369bb56/" target="_blank">View Profile</a>
+                        </div>
+                    </div>
+                    <h4>Why He's the Right Contact:</h4>
+                    <ul>
+                        <li>Combined e-commerce and data analytics focus is perfect for DSA discussions</li>
+                        <li>Project Manager role suggests involvement in vendor evaluation</li>
+                        <li>US perspective complements UK contacts</li>
+                    </ul>
+                    <h4>Specific Hooks:</h4>
+                    <ul>
+                        <li>Reference his combined e-commerce + data analytics responsibilities</li>
+                        <li>Position digital shelf analytics as enabling his reporting/insights work</li>
+                        <li>AAPEX presence indicates automotive aftermarket focus</li>
+                    </ul>
+                    <div class="highlight-box warning" style="margin-top: 12px;">
+                        <strong>⚠️ Geographic Note:</strong> Be honest about eStore's US coverage limitations. Lead with European strength.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Secondary Targets (Strategic Influencers)</h2>
+                
+                <div class="contact-card priority-secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Patricia Olsem</div>
+                            <div class="contact-title">Division President, Americas</div>
+                        </div>
+                        <span class="status-badge unknown">Reference Only</span>
+                    </div>
+                    <div class="contact-details">
+                        <div>
+                            <strong>Location:</strong> San Diego, CA
+                        </div>
+                        <div>
+                            <strong>Tenure:</strong> 20+ years (since 2005)
+                        </div>
+                        <div>
+                            <strong>Prior Experience:</strong> Brand management at ConAgra Foods, Diageo
+                        </div>
+                    </div>
+                    <p><strong>How to Reference:</strong> Mention her marketing and innovation background. Reference CPG brand management expertise. Cite Americas digital commerce expansion successes. <em>Do not contact directly</em> - reference her priorities to US operational contacts.</p>
+                </div>
+
+                <div class="contact-card priority-secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Bill Noble</div>
+                            <div class="contact-title">Group Managing Director (EIMEA and Global MD/Emerging Markets)</div>
+                        </div>
+                        <span class="status-badge unknown">Reference Only</span>
+                    </div>
+                    <div class="contact-details">
+                        <div>
+                            <strong>Location:</strong> Milton Keynes, UK
+                        </div>
+                        <div>
+                            <strong>Tenure:</strong> 32+ years (since 1993)
+                        </div>
+                        <div>
+                            <strong>Background:</strong> Opened Malaysian office, managed Asian regional operations
+                        </div>
+                    </div>
+                    <p><strong>How to Reference:</strong> Senior EMEA leader - likely Preston Ley's reporting line. Reference his long tenure and European market expertise. Mention EMEA's position as fastest-growing region. <em>Do not contact directly</em> - use to understand EMEA decision-making authority.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Executive Context (Reference Only)</h2>
+                
+                <div class="highlight-box info">
+                    <strong>CEO Steve Brass - Statements to Reference</strong>
+                    <blockquote style="margin: 12px 0; padding-left: 16px; border-left: 3px solid var(--estore-dark-blue); font-style: italic;">
+                        "Digital commerce is not simply a transactional channel - it's a powerful engine for brand building and education."
+                    </blockquote>
+                    <blockquote style="margin: 12px 0; padding-left: 16px; border-left: 3px solid var(--estore-dark-blue); font-style: italic;">
+                        "Digital commerce intersects with all our must-win battles, much like the central overlap in a Venn diagram."
+                    </blockquote>
+                    <p style="margin-top: 12px;"><strong>How to Use:</strong> Reference CEO's digital commerce commitment when positioning eStore. Shows executive-level prioritisation that operational contacts can leverage internally.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Contact/Role Type</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Phil Tweed</strong></td>
+                            <td>Could not verify current role - may have left WD-40. Was Amazon/digital shelf lead and Profitero relationship owner. Do not contact until verified.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Elena Gies</strong></td>
+                            <td>Appears to have left WD-40 - found at Thorlabs. Was key decision-maker on Profitero renewal.</td>
+                        </tr>
+                        <tr>
+                            <td>Manufacturing/Operations roles</td>
+                            <td>No digital responsibility</td>
+                        </tr>
+                        <tr>
+                            <td>Regional roles below Director level</td>
+                            <td>Limited decision-making authority</td>
+                        </tr>
+                        <tr>
+                            <td>C-suite executives (CEO, CFO)</td>
+                            <td>Too senior for initial outreach</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Tab 5: Draft Email Sequences -->
+        <section id="emails" class="tab-content">
+            <div class="disclaimer">
+                <div class="disclaimer-icon">⚠️</div>
+                <div class="disclaimer-text">
+                    <strong>Draft Emails - Human Review Required</strong>
+                    These emails are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Verify contact details, check HubSpot for recent activity, and ensure messaging is appropriate for current circumstances.
+                </div>
+            </div>
+
+            <div class="tone-guidance">
+                <h3>🗣️ Nationality-Based Tone Guidance</h3>
+                <div class="tone-grid">
+                    <div class="tone-item">
+                        <strong>🇬🇧 British Contacts</strong>
+                        <p>Understated, professional. Avoid hard sells. Show intellectual curiosity. Let results speak for themselves.</p>
+                    </div>
+                    <div class="tone-item">
+                        <strong>🇺🇸 American Contacts</strong>
+                        <p>More direct is acceptable. Lead with value and results. Be upfront about geographic limitations early.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preston Ley Emails -->
+            <div class="email-sequence">
+                <div class="email-contact-header">
+                    <h3>Preston Ley</h3>
+                    <div class="contact-meta">Managing Director, Global MD and Emerging Markets; Global eCommerce Business Lead | Milton Keynes, UK | 🇬🇧 British | Warm Re-engagement</div>
+                </div>
+                <div class="email-wrapper">
+                    <div class="email-tabs">
+                        <button class="email-tab-btn active" data-email="preston-1">Email 1</button>
+                        <button class="email-tab-btn" data-email="preston-2">Email 2</button>
+                        <button class="email-tab-btn" data-email="preston-3">Email 3</button>
+                    </div>
+                    
+                    <div id="preston-1" class="email-tab-content active">
+                        <div class="email-header">
+                            <span class="email-number">1</span>
+                            <span class="email-title">The Re-engagement</span>
+                            <span class="email-timing">📅 Tuesday or Wednesday, 9:00-10:00 AM GMT</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong>
+                            <p>WD-40's digital commerce priorities - worth reconnecting?</p>
+                        </div>
+                        <div class="email-body">Hi Preston,
+
+I'm [SENDER NAME] from eStore - we help brands selling through online retailers track and improve their product performance across things like availability, content accuracy, pricing, and search rankings. We work with companies like De'Longhi, Bosch, and Grohe.
+
+I can see there's been some conversation between eStore and WD-40 Company over the years, including discussions back in 2019-2020 and more recent engagement with your colleagues around digital shelf analytics. I don't have the full picture of where things landed, but thought it worth reaching out as quite a lot has changed on our side since then.
+
+What prompted me to get in touch now is WD-40 Company's positioning of digital commerce as one of your "must-win battles" - combined with EMEA being your fastest-growing region. With Milton Keynes as your European headquarters, there's an obvious alignment with where we're strongest.
+
+I'm curious whether your current setup gives you the cross-retailer picture you need across European markets - particularly beyond Amazon, where I understand you already have tools in place. Or whether that's even something on your radar given everything else on your plate.
+
+Either way, I'd be interested to hear how you're thinking about digital shelf analytics as part of the broader e-commerce acceleration.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="note-box customisation">
+                                <h4>📝 Customisation Notes</h4>
+                                <ul>
+                                    <li>Verify Preston's current title and responsibilities before sending</li>
+                                    <li>Check HubSpot for any recent activity or notes about WD-40</li>
+                                    <li>If there's specific detail about who he spoke with at eStore previously, reference by name</li>
+                                </ul>
+                            </div>
+                            <div class="note-box strategy">
+                                <h4>💡 Strategy Notes</h4>
+                                <p>This email acknowledges the relationship history without pretending to know everything. It leads with eStore's introduction (required for cold-ish outreach), references their strategic priorities (Four Must-Win Battles, EMEA growth), and positions around European strength - where eStore can genuinely add value. The question about "beyond Amazon" opens the door to positioning against Profitero without naming them directly. Non-assumptive close.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="preston-2" class="email-tab-content">
+                        <div class="email-header">
+                            <span class="email-number">2</span>
+                            <span class="email-title">The European Angle</span>
+                            <span class="email-timing">📅 5-7 days after Email 1, Tuesday-Thursday, 9:00-10:00 AM GMT</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong>
+                            <p>European digital shelf complexity</p>
+                        </div>
+                        <div class="email-body">Hi Preston,
+
+Following up on my previous note - I wanted to share something that might be useful regardless of whether we speak.
+
+We've been working with home improvement and DIY brands on their European digital shelf strategies, and the consistent challenge is the complexity of monitoring performance across multiple markets and languages. UK retailers operate very differently from German ones, which operate differently from French ones - and getting a coherent picture across all of them is harder than it should be.
+
+I imagine with WD-40 Company's direct operations across UK, France, Germany, Italy, and Benelux, this is familiar territory. Particularly with the WD-40 Specialist line where you're targeting growth - understanding how that range is represented across Screwfix versus ManoMano versus Leroy Merlin is the kind of thing that either works smoothly or becomes a headache.
+
+We've put together some thinking on the specific challenges home and DIY brands face on the digital shelf: https://estorebrands.com/home-and-diy
+
+Curious whether multi-market visibility is something you're actively working on, or whether the current approach is serving you well enough.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="note-box customisation">
+                                <h4>📝 Customisation Notes</h4>
+                                <ul>
+                                    <li>Verify WD-40 Specialist growth priorities are still current</li>
+                                    <li>Confirm the retailer examples (Screwfix, ManoMano, Leroy Merlin) are relevant to their distribution</li>
+                                    <li>Check if Preston has engaged with any eStore content previously</li>
+                                </ul>
+                            </div>
+                            <div class="note-box strategy">
+                                <h4>💡 Strategy Notes</h4>
+                                <p>This email adds genuine value by acknowledging the specific complexity of European multi-market monitoring - a problem eStore is well-positioned to solve. The Home and DIY sector page is included naturally, not forced. The reference to WD-40 Specialist shows research without being showy. The question is specific and invites conversation without demanding it.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="preston-3" class="email-tab-content">
+                        <div class="email-header">
+                            <span class="email-number">3</span>
+                            <span class="email-title">The Actionability Angle</span>
+                            <span class="email-timing">📅 5-7 days after Email 2, Tuesday-Thursday, 9:00-10:00 AM GMT</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong>
+                            <p>From data to decisions</p>
+                        </div>
+                        <div class="email-body">Hi Preston,
+
+One thing I didn't mention in my previous notes - and something that's changed significantly at eStore over the past 18 months - is the focus on actionability.
+
+The challenge we've heard consistently from e-commerce teams is that they're drowning in data but still spending hours figuring out what to do about it. So we've invested heavily in moving from "here's your data" to "here's what you should do about it" - with AI-powered prioritisation that surfaces the actions most likely to impact revenue.
+
+Given WD-40 Company's work on AI-enabled infrastructure, I wonder whether that resonates with how you're thinking about digital commerce capabilities. Or whether the current setup is delivering actionable insights efficiently enough.
+
+I'd be curious to hear how the e-commerce team currently handles the question of "what should we focus on today" across your European retailer footprint.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="note-box customisation">
+                                <h4>📝 Customisation Notes</h4>
+                                <ul>
+                                    <li>Verify the AI infrastructure mention is still current from their strategic priorities</li>
+                                    <li>Check for any AI-related initiatives or job postings that might inform this angle</li>
+                                    <li>Research whether Preston has spoken about AI or automation in any public context</li>
+                                </ul>
+                            </div>
+                            <div class="note-box strategy">
+                                <h4>💡 Strategy Notes</h4>
+                                <p>This email adds a new angle (actionability/AI) that wasn't covered in previous emails - avoiding the "graceful exit" anti-pattern. It connects to their stated AI infrastructure investment, showing continued research. The question is specific and invites dialogue about their actual workflow. Ends with curiosity, not an offer to disappear.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Serena Lillingston-Price Emails -->
+            <div class="email-sequence">
+                <div class="email-contact-header">
+                    <h3>Serena Lillingston-Price</h3>
+                    <div class="contact-meta">eCommerce Account Manager, UK | Milton Keynes, UK | 🇬🇧 British | Warm - Direct Prior Contact (MDS)</div>
+                </div>
+                <div class="email-wrapper">
+                    <div class="email-tabs">
+                        <button class="email-tab-btn active" data-email="serena-1">Email 1</button>
+                        <button class="email-tab-btn" data-email="serena-2">Email 2</button>
+                        <button class="email-tab-btn" data-email="serena-3">Email 3</button>
+                    </div>
+                    
+                    <div id="serena-1" class="email-tab-content active">
+                        <div class="email-header">
+                            <span class="email-number">1</span>
+                            <span class="email-title">The Follow-up</span>
+                            <span class="email-timing">📅 Tuesday or Wednesday, 9:00-10:00 AM GMT</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong>
+                            <p>Following up from the MDS conversation</p>
+                        </div>
+                        <div class="email-body">Hi Serena,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer brands, working with companies like De'Longhi, Bosch, and Grohe across their European retailer presence.
+
+I understand you met with my colleague Alex Fishwick at the Digital Grocery Summit, where you mentioned some interesting feedback about your current digital shelf analytics setup - particularly around service levels. You'd also mentioned being part of a planned review process in 2025.
+
+I'm curious how that review has progressed - whether you've made changes, are still evaluating, or whether the timing shifted. I don't want to assume anything about where things landed, but thought it worth checking in.
+
+If the review is still ongoing or if there are gaps in your current setup that haven't been addressed, I'd welcome the chance to understand your situation better. Either way, I'd be interested to hear how the UK e-commerce team is finding things.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="note-box customisation">
+                                <h4>📝 Customisation Notes</h4>
+                                <ul>
+                                    <li>Verify with Alex Fishwick what was specifically discussed at MDS</li>
+                                    <li>Check HubSpot for any follow-up activity since the MDS conversation</li>
+                                    <li>Confirm Serena is still in the same role before sending</li>
+                                </ul>
+                            </div>
+                            <div class="note-box strategy">
+                                <h4>💡 Strategy Notes</h4>
+                                <p>This email references the specific prior conversation and the stated concerns - showing continuity rather than cold outreach. It asks directly about the review status without assuming the answer. The tone is appropriately warm given the relationship history, but doesn't presume the outcome. Non-pushy close.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="serena-2" class="email-tab-content">
+                        <div class="email-header">
+                            <span class="email-number">2</span>
+                            <span class="email-title">The Service Angle</span>
+                            <span class="email-timing">📅 5-7 days after Email 1, Tuesday-Thursday, 9:00-10:00 AM GMT</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong>
+                            <p>What's changed at eStore</p>
+                        </div>
+                        <div class="email-body">Hi Serena,
+
+Following up on my previous note - I wanted to share a bit about what's changed at eStore, in case it's relevant to your situation.
+
+We've invested heavily over the past 18 months in making the platform more actionable and easier to use. The feedback we'd heard consistently was that e-commerce teams were spending too much time pulling reports and not enough time acting on them - so we've focused on surfacing prioritised recommendations and reducing the manual work involved.
+
+We've also strengthened our UK retailer partnerships - our ASDA Xpert collaboration being one example, where we're providing retailer-verified data rather than relying purely on external scraping.
+
+I don't know whether any of this addresses the specific concerns you'd mentioned at MDS, but thought it worth sharing in case there's overlap. If you'd looked at eStore a couple of years ago, what you'd see today is quite different.
+
+Happy to share more detail if useful.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="note-box customisation">
+                                <h4>📝 Customisation Notes</h4>
+                                <ul>
+                                    <li>Review what specific service concerns were raised at MDS</li>
+                                    <li>Check if ASDA is relevant to WD-40's UK distribution before including</li>
+                                    <li>Verify the innovation messaging is appropriate for this contact</li>
+                                </ul>
+                            </div>
+                            <div class="note-box strategy">
+                                <h4>💡 Strategy Notes</h4>
+                                <p>This email addresses the service concerns that were mentioned at MDS by sharing what's changed - without being defensive. The ASDA Xpert reference adds credibility for UK retailer presence. The framing of "if you'd looked at us a couple of years ago" acknowledges the 2020 evaluation without dwelling on the loss. Offers to share more without demanding a meeting.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="serena-3" class="email-tab-content">
+                        <div class="email-header">
+                            <span class="email-number">3</span>
+                            <span class="email-title">The Operational Question</span>
+                            <span class="email-timing">📅 5-7 days after Email 2, Tuesday-Thursday, 9:00-10:00 AM GMT</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong>
+                            <p>Day-to-day analytics workflow</p>
+                        </div>
+                        <div class="email-body">Hi Serena,
+
+One thing I'm curious about - and something we don't always get insight into from strategic conversations - is how the day-to-day analytics workflow actually functions for UK e-commerce teams.
+
+With WD-40 Company's presence across Screwfix, B&amp;Q, Toolstation, and Amazon UK, I imagine there's a fair amount of complexity in understanding what's happening across those channels in any given week. Whether that's stock levels, content accuracy, or competitive positioning.
+
+I'd be interested to understand how your team currently handles that - whether you have a single view across retailers or whether it's more fragmented. Not to pitch anything, just to understand the reality versus what we see from the outside.
+
+Either way, if there's ever useful thinking we can share about how other home improvement brands approach this, I'm happy to send it through.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="note-box customisation">
+                                <h4>📝 Customisation Notes</h4>
+                                <ul>
+                                    <li>Verify the UK retailer examples are still accurate for WD-40's distribution</li>
+                                    <li>Check if Serena has shared anything publicly about her workflow or challenges</li>
+                                    <li>Ensure this doesn't overlap too much with previous conversations</li>
+                                </ul>
+                            </div>
+                            <div class="note-box strategy">
+                                <h4>💡 Strategy Notes</h4>
+                                <p>This email adds a new angle by focusing on operational workflow rather than strategic positioning. It shows understanding of the specific retailers they sell through (research, not capability claims). The explicit "not to pitch anything" statement is earned by the genuine curiosity framing. Ends with an offer of value, not an exit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kieron Roberts Emails -->
+            <div class="email-sequence">
+                <div class="email-contact-header">
+                    <h3>Kieron Roberts</h3>
+                    <div class="contact-meta">Sales Director UK &amp; Ireland | Greater Nottingham, UK | 🇬🇧 British | Cold - No Prior Contact</div>
+                </div>
+                <div class="email-wrapper">
+                    <div class="email-tabs">
+                        <button class="email-tab-btn active" data-email="kieron-1">Email 1</button>
+                        <button class="email-tab-btn" data-email="kieron-2">Email 2</button>
+                        <button class="email-tab-btn" data-email="kieron-3">Email 3</button>
+                    </div>
+                    
+                    <div id="kieron-1" class="email-tab-content active">
+                        <div class="email-header">
+                            <span class="email-number">1</span>
+                            <span class="email-title">The UK Revenue Angle</span>
+                            <span class="email-timing">📅 Tuesday or Wednesday, 9:00-10:00 AM GMT</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong>
+                            <p>Digital shelf and UK sales performance</p>
+                        </div>
+                        <div class="email-body">Hi Kieron,
+
+I'm [SENDER NAME] from eStore - we help brands selling through online retailers track and improve their product performance across things like availability, content accuracy, pricing, and search rankings. We work with companies like De'Longhi, Bosch, and Grohe.
+
+I saw your role combines UK and Ireland sales leadership with a specific focus on e-commerce - which is increasingly where the two intersect. As more sales happen through online retailers like Screwfix, B&amp;Q, and Amazon, the digital shelf becomes a revenue lever, not just a marketing metric.
+
+I'm curious whether that's something the UK sales team is actively measuring and optimising - or whether digital shelf analytics is more of a marketing-led conversation at WD-40 Company. Different brands handle this quite differently.
+
+Either way, I'd be interested to hear how you think about the connection between online product performance and UK sales outcomes.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="note-box customisation">
+                                <h4>📝 Customisation Notes</h4>
+                                <ul>
+                                    <li>Verify Kieron's e-commerce focus from his LinkedIn profile</li>
+                                    <li>Check for any overlap with Preston or Serena's responsibilities</li>
+                                    <li>Research any public statements he's made about sales strategy</li>
+                                </ul>
+                            </div>
+                            <div class="note-box strategy">
+                                <h4>💡 Strategy Notes</h4>
+                                <p>This email leads with relevance to his sales accountability (revenue, not just marketing metrics). It acknowledges the intersection of sales and e-commerce that his LinkedIn profile suggests. The question is genuine - we don't know how WD-40 structures this internally. Non-assumptive close.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="kieron-2" class="email-tab-content">
+                        <div class="email-header">
+                            <span class="email-number">2</span>
+                            <span class="email-title">The Competitor Insight</span>
+                            <span class="email-timing">📅 5-7 days after Email 1, Tuesday-Thursday, 9:00-10:00 AM GMT</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong>
+                            <p>DIY brands and digital shelf complexity</p>
+                        </div>
+                        <div class="email-body">Hi Kieron,
+
+Following up on my previous note - I wanted to share something we're seeing across home improvement and DIY brands that might be relevant.
+
+The competitive intensity on digital shelves has increased significantly - particularly around search visibility and promotional timing. Brands like CRC Industries, 3M, and Henkel are all investing more heavily in how their products appear and perform across online retailers. Which means standing still is effectively falling behind.
+
+For a brand like WD-40 with dominant market share, the challenge isn't necessarily winning new shelf space - it's making sure the existing position isn't eroded by competitors who are more aggressive in the digital environment.
+
+I don't know how much of this resonates with what you're seeing in UK sales, but I'd be curious to understand whether competitive digital shelf performance is something that factors into your planning.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="note-box customisation">
+                                <h4>📝 Customisation Notes</h4>
+                                <ul>
+                                    <li>Verify the competitor names are accurate and relevant</li>
+                                    <li>Check for any recent competitive activity that would strengthen this angle</li>
+                                    <li>Research whether Kieron has spoken publicly about competitive positioning</li>
+                                </ul>
+                            </div>
+                            <div class="note-box strategy">
+                                <h4>💡 Strategy Notes</h4>
+                                <p>This email adds value by framing the competitive landscape from research (CRC Industries, 3M, Henkel). It positions the challenge in terms relevant to a sales leader (defending market share, competitive pressure). The question connects the insight to his specific responsibility.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="kieron-3" class="email-tab-content">
+                        <div class="email-header">
+                            <span class="email-number">3</span>
+                            <span class="email-title">The UK Retailer Perspective</span>
+                            <span class="email-timing">📅 5-7 days after Email 2, Tuesday-Thursday, 9:00-10:00 AM GMT</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong>
+                            <p>UK retailer relationships and digital shelf</p>
+                        </div>
+                        <div class="email-body">Hi Kieron,
+
+One thing I haven't touched on yet - and something that's relevant given your UK and Ireland remit - is how differently the major DIY retailers operate when it comes to product content and availability.
+
+B&amp;Q and Screwfix are owned by the same parent company but have quite different digital approaches. Toolstation operates differently again. Amazon is its own world. Getting a coherent picture of performance across all of them - and understanding which retailer needs attention this week - is harder than it should be.
+
+With the WD-40 Specialist line targeting growth, I imagine there's particular interest in how that range is represented across each channel. Whether the content is consistent, whether products are showing up in the right search results, whether stock issues are being flagged.
+
+Curious whether this is something you have good visibility on, or whether it's one of those areas that's harder to track than it should be.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="note-box customisation">
+                                <h4>📝 Customisation Notes</h4>
+                                <ul>
+                                    <li>Verify the UK retailer examples are accurate for WD-40's distribution</li>
+                                    <li>Research whether Kieron has any specific retailer responsibilities</li>
+                                    <li>Check for any WD-40 Specialist growth targets that are publicly mentioned</li>
+                                </ul>
+                            </div>
+                            <div class="note-box strategy">
+                                <h4>💡 Strategy Notes</h4>
+                                <p>This email adds a new angle by focusing on UK retailer specifics - showing understanding of the market he's responsible for. The Kingfisher ownership detail (B&amp;Q/Screwfix) demonstrates research depth. The WD-40 Specialist reference connects to their stated growth priorities. Ends with curiosity, not an exit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mark Guerra Emails -->
+            <div class="email-sequence">
+                <div class="email-contact-header">
+                    <h3>Mark Guerra</h3>
+                    <div class="contact-meta">Senior E-commerce Project Manager | Brick, NJ (US) | 🇺🇸 American | Cold - No Prior Contact</div>
+                </div>
+                <div class="email-wrapper">
+                    <div class="email-tabs">
+                        <button class="email-tab-btn active" data-email="mark-1">Email 1</button>
+                        <button class="email-tab-btn" data-email="mark-2">Email 2</button>
+                        <button class="email-tab-btn" data-email="mark-3">Email 3</button>
+                    </div>
+                    
+                    <div id="mark-1" class="email-tab-content active">
+                        <div class="email-header">
+                            <span class="email-number">1</span>
+                            <span class="email-title">The Project Perspective</span>
+                            <span class="email-timing">📅 Tuesday or Wednesday, 9:00-10:00 AM EST</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong>
+                            <p>Digital shelf analytics evaluation</p>
+                        </div>
+                        <div class="email-body">Hi Mark,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer brands, helping teams track availability, content quality, pricing, and search performance across online retailers. We work with companies like De'Longhi, Bosch, and Whirlpool.
+
+I noticed your role combines e-commerce project management with data and analytics support - which often means being involved in platform evaluations and vendor decisions. I'm reaching out to understand whether digital shelf analytics is an area WD-40 Company is actively assessing, or whether the current setup is meeting your needs.
+
+I'll be direct about our positioning: eStore is strongest in European markets, where we have deep coverage and expertise. For US coverage, we'd want to have an honest conversation about what's possible. I mention this because I know WD-40 Company operates globally and I don't want to waste your time if the focus is primarily Americas-based.
+
+That said, if there's interest in understanding European retailer performance better - particularly given EMEA's strong growth - I'd welcome the chance to explore whether we can help.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="note-box customisation">
+                                <h4>📝 Customisation Notes</h4>
+                                <ul>
+                                    <li>Verify Mark's current responsibilities from LinkedIn</li>
+                                    <li>Check if he has any European project involvement</li>
+                                    <li>Research any trade show or industry engagement that might inform the approach</li>
+                                </ul>
+                            </div>
+                            <div class="note-box strategy">
+                                <h4>💡 Strategy Notes</h4>
+                                <p>This email is appropriately direct for an American recipient while being honest about eStore's geographic positioning. It acknowledges his project management role and positions around potential platform evaluation involvement. The honesty about US coverage limitations builds trust rather than overpromising.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="mark-2" class="email-tab-content">
+                        <div class="email-header">
+                            <span class="email-number">2</span>
+                            <span class="email-title">The Data Analytics Connection</span>
+                            <span class="email-timing">📅 5-7 days after Email 1, Tuesday-Thursday, 9:00-10:00 AM EST</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong>
+                            <p>Digital shelf data and e-commerce reporting</p>
+                        </div>
+                        <div class="email-body">Hi Mark,
+
+Following up on my previous note - I wanted to share something relevant to your data analytics responsibilities.
+
+One pattern we see consistently is that e-commerce teams have access to plenty of data but struggle to translate it into action. Different retailers, different formats, different refresh frequencies - and no single view that tells you "here's what needs attention today."
+
+We've invested heavily in making eStore more actionable, with AI-powered prioritisation that surfaces the recommendations most likely to impact revenue. The goal is reducing the time from "here's your data" to "here's what you should do about it."
+
+Given your combined e-commerce and data analytics focus, I'd be curious whether this resonates with the challenges you're seeing - or whether the current setup is delivering actionable insights efficiently enough.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="note-box customisation">
+                                <h4>📝 Customisation Notes</h4>
+                                <ul>
+                                    <li>Research whether WD-40 has mentioned data challenges in any public context</li>
+                                    <li>Check if Mark has any LinkedIn posts about analytics or reporting</li>
+                                    <li>Verify the actionability angle is relevant to his specific role</li>
+                                </ul>
+                            </div>
+                            <div class="note-box strategy">
+                                <h4>💡 Strategy Notes</h4>
+                                <p>This email connects to his expanded data analytics responsibilities. It focuses on the actionability problem rather than data collection - a differentiation point. The question is specific to his likely experience without assuming too much.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="mark-3" class="email-tab-content">
+                        <div class="email-header">
+                            <span class="email-number">3</span>
+                            <span class="email-title">The Automotive Aftermarket Angle</span>
+                            <span class="email-timing">📅 5-7 days after Email 2, Tuesday-Thursday, 9:00-10:00 AM EST</span>
+                        </div>
+                        <div class="email-subject">
+                            <strong>Subject:</strong>
+                            <p>AAPEX and digital shelf for automotive</p>
+                        </div>
+                        <div class="email-body">Hi Mark,
+
+One thing I noticed from your background - you've been active at AAPEX and in the automotive aftermarket space. That's a category with its own digital shelf complexity, particularly with the mix of B2B platforms like Grainger and MSCDirect alongside traditional consumer retail.
+
+WD-40 Company's growth in trade channels and the focus on the WD-40 Specialist line for professional users creates an interesting challenge: monitoring performance across channels that operate very differently from each other.
+
+I don't know how much of the digital shelf analytics conversation touches on these industrial and B2B channels versus the consumer retail side, but I'd be curious to hear how you think about the two. It's an area where we're seeing increasing interest but limited solutions designed specifically for the complexity involved.
+
+Best regards,
+[SENDER NAME]</div>
+                        <div class="email-notes">
+                            <div class="note-box customisation">
+                                <h4>📝 Customisation Notes</h4>
+                                <ul>
+                                    <li>Verify the AAPEX involvement from LinkedIn research</li>
+                                    <li>Confirm B2B channels (Grainger, MSCDirect) are relevant to WD-40's strategy</li>
+                                    <li>Research whether there's specific WD-40 Specialist professional focus</li>
+                                </ul>
+                            </div>
+                            <div class="note-box strategy">
+                                <h4>💡 Strategy Notes</h4>
+                                <p>This email adds a new angle by connecting to his automotive aftermarket experience. It shows research depth (AAPEX attendance) and positions around a genuine complexity (B2B vs B2C channels). The question invites expertise-sharing rather than assuming a problem. Ends with curiosity about his perspective, not an exit.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 6: Objection Handling -->
+        <section id="objections" class="tab-content">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                
+                <div class="decision-box">
+                    <div class="decision-header">
+                        🟡 MODERATE FIT - Proceed with Consultative Approach
+                    </div>
+                    <div class="decision-content">
+                        <p><strong>Recommended Action:</strong> Proceed with outreach but position as consultative re-engagement, not aggressive sales.</p>
+                        <h4 style="margin-top: 16px;">Key Conditions for Success:</h4>
+                        <ul>
+                            <li>Acknowledge prior relationship history and what's changed at eStore</li>
+                            <li>Lead with European strength - don't oversell US capabilities</li>
+                            <li>Position around Profitero service concerns if appropriate</li>
+                            <li>Focus on operational decision-makers who can champion internally</li>
+                            <li>Be honest about implementation timeline based on retailer coverage</li>
+                        </ul>
+                        <h4 style="margin-top: 16px;">Proceed / Delay Criteria:</h4>
+                        <table style="margin-top: 8px;">
+                            <tr>
+                                <td><strong>Proceed if:</strong></td>
+                                <td>2025 review still ongoing; contacts engaged; European focus confirmed</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Delay if:</strong></td>
+                                <td>Review already concluded with renewal; key contacts have left; US focus only</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Common Objections &amp; Responses</h2>
+                
+                <div class="objection-card open">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We already have Profitero / We're happy with our current provider"
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="response-section">
+                            <h4>Acknowledge &amp; Explore</h4>
+                            <p>"That makes complete sense - Profitero is well-established in the market. May I ask what's working well for you currently? I'm curious because we've heard varying feedback from different teams about their experience."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Reframe</h4>
+                            <p>"We're not suggesting you need to replace everything. Some brands use us alongside their existing tools - particularly for European retailer coverage where we have deeper partnerships and local expertise. Would that kind of complementary approach be worth exploring?"</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Evidence</h4>
+                            <p>Reference the known Profitero service concerns mentioned by Serena at MDS (if appropriate): "We've heard from some teams that service levels and data actionability have been challenges. If that resonates, we've invested heavily in those areas over the past 18 months."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Redirect</h4>
+                            <p>"Even if you're happy overall, it might be worth a conversation when your renewal comes up - just to have a benchmark for what else is available. No pressure to change, but informed decisions are usually better decisions."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We evaluated you in 2020 and chose Profitero"
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="response-section">
+                            <h4>Acknowledge</h4>
+                            <p>"You're right - and I appreciate you being direct about that. The 2020 evaluation was before my time, but I understand Profitero was selected, and there were reasons for that decision."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>What's Changed</h4>
+                            <p>"A lot has changed at eStore since then. We've invested heavily in actionability - moving from 'here's your data' to 'here's what you should do about it' with AI-powered prioritisation. We've also strengthened our UK retailer partnerships, including direct collaborations like ASDA Xpert. If you'd looked at us in 2020, what you'd see today is quite different."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Reframe</h4>
+                            <p>"I'm not here to relitigate that decision. But given digital commerce is now one of your 'must-win battles' and EMEA is growing fastest, it might be worth understanding how the landscape has shifted. Would a brief conversation about what's changed - on both sides - be useful?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "What's your US coverage like?" / "We need global coverage"
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="response-section">
+                            <h4>Be Honest</h4>
+                            <p>"I'll be direct: our deepest coverage is in UK and Europe. That's where we've invested most heavily and where we have the strongest retailer partnerships. For US retailers, we have capability, but I wouldn't want to oversell - we'd want to have an honest conversation about what's possible and what timeline looks like."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Reframe Around Their Priorities</h4>
+                            <p>"Given EMEA is your fastest-growing region at +16% YoY, and you have your European headquarters in Milton Keynes, there's an argument that European digital shelf excellence should be a priority. Would it make sense to start where we're strongest and see how that delivers value before expanding scope?"</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Complementary Positioning</h4>
+                            <p>"Some brands use different tools for different regions - deeper European expertise from us, other solutions for Americas. That might not be the right approach for you, but it's worth considering if regional performance varies significantly."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "How many of our retailers can you actually monitor?"
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="response-section">
+                            <h4>Be Transparent</h4>
+                            <p>"That's exactly the right question. Based on our analysis of your European retailer footprint, we estimate we can cover 60-70% of your core retailers immediately - including Screwfix, B&amp;Q, Toolstation, Amazon UK/DE/FR, and most major DIY retailers. For some industrial B2B platforms like Grainger and Distrelec, we'd need to verify and potentially onboard."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Time-to-Value</h4>
+                            <p>"For the retailers we already cover, you could be seeing data within 2-4 weeks. For any that need onboarding, that's typically a 6-8 week process. So realistic time-to-value for a comprehensive European view would be around 2-3 months."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Offer Specifics</h4>
+                            <p>"Would it be helpful if I put together a detailed coverage matrix showing exactly which of your retailers we can monitor today versus what would need onboarding? That way you'd have a clear picture before any further conversation."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We already have InsightLeap for Amazon"
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="response-section">
+                            <h4>Acknowledge</h4>
+                            <p>"InsightLeap is strong for Amazon Vendor Central reporting - Freddy's case study speaks to that. The question is whether you have the same depth of insight for your non-Amazon retailers."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Complementary Position</h4>
+                            <p>"We're not suggesting you replace InsightLeap. But with Screwfix, B&amp;Q, Toolstation, and European retailers like ManoMano and Leroy Merlin - do you have the same visibility there? eStore could complement your Amazon-specific tool with cross-retailer coverage."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>The Bigger Picture</h4>
+                            <p>"Your CEO has talked about digital commerce as intersecting with all your must-win battles. If Amazon is covered but everything else is fragmented, you might be missing part of the picture - especially in Europe where you're growing fastest."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We don't have budget for this right now"
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="response-section">
+                            <h4>Acknowledge</h4>
+                            <p>"Completely understand - budget timing is real. Can I ask when your planning cycle typically runs? I don't want to be a pest, but I also don't want to miss the window when this kind of investment gets considered."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>ROI Framing</h4>
+                            <p>"One thing that might be worth quantifying: what's the revenue impact of stock-outs, poor search positioning, or content issues across your European retailers? If we could show even a 1-2% improvement in availability or search share, what would that translate to in revenue terms?"</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Pilot Approach</h4>
+                            <p>"We sometimes start with a focused pilot - say, UK retailers only, or a specific product line like WD-40 Specialist. That reduces initial investment while proving value before a broader rollout. Would that kind of phased approach be more feasible?"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "This is a marketing decision, not sales"
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="response-section">
+                            <h4>Bridge the Gap</h4>
+                            <p>"Interesting - in some organisations it sits with marketing, in others with sales or e-commerce teams. The decision often depends on whether digital shelf is seen as a content/brand issue or a revenue/availability issue. Where does the line fall at WD-40?"</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Revenue Connection</h4>
+                            <p>"The reason I reached out to you specifically is that digital shelf performance directly impacts sales outcomes - stock-outs, search ranking, buy box share all affect revenue. Even if marketing owns the content side, sales feels the impact. Would it make sense to have a joint conversation?"</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Referral</h4>
+                            <p>"If this is better suited for a marketing conversation, who would you recommend I speak with? I want to make sure I'm connecting with the right people."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We have limited resources to implement another tool"
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="response-section">
+                            <h4>Acknowledge</h4>
+                            <p>"That's a legitimate concern - implementation burden is real, especially when teams are already stretched. Can I ask what your experience has been with your current tools in terms of time required to get value?"</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Time-Saving Positioning</h4>
+                            <p>"One of the things we've invested in heavily is reducing the manual work involved. The feedback we'd heard was that e-commerce teams were spending too much time pulling reports and not enough time acting on them. Our AI-powered prioritisation is designed to surface 'here's what you should do today' without hours of analysis."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Support Model</h4>
+                            <p>"We also provide dedicated support during onboarding and ongoing. This isn't a self-service tool where you're left to figure it out - we're invested in making sure you see value quickly."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We just renewed our contract / The review already happened"
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="response-section">
+                            <h4>Acknowledge</h4>
+                            <p>"Understood - if the decision's been made, there's not much point in pushing. Can I ask how long the renewal period is? And whether there were any areas that didn't fully meet your needs that might be worth addressing before the next cycle?"</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Stay Connected</h4>
+                            <p>"Would it be helpful if I stayed in touch periodically - not to sell, but to share relevant thinking about digital shelf trends in the DIY category? That way if circumstances change or the next review comes up, we've maintained a relationship."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Complementary Angle</h4>
+                            <p>"Even with a renewed contract, some brands find value in complementary tools for specific use cases. If there are gaps in European coverage or specific retailers that aren't well served, that might be worth a conversation separately from your main platform."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "Send me some information and I'll look at it"
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="response-section">
+                            <h4>Qualify the Interest</h4>
+                            <p>"Happy to do that. To make sure I send something relevant, can I ask what specifically would be most useful? A general overview, something focused on European coverage, or pricing information?"</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Create a Follow-up Hook</h4>
+                            <p>"I'll put together something focused on [their interest]. Would it make sense to schedule a brief call next week to walk through any questions - say 15 minutes? That way you don't have to interpret slides in isolation."</p>
+                        </div>
+                        <div class="response-section">
+                            <h4>Provide Value</h4>
+                            <p>"I'll also include the thinking we've put together on digital shelf challenges for home and DIY brands - might be useful regardless of whether we speak further."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item highlight-green">
+                        <div class="info-label">Principle 1</div>
+                        <div class="info-value"><strong>Never dismiss the objection</strong> - acknowledge it genuinely, then explore the underlying concern</div>
+                    </div>
+                    <div class="info-item highlight-green">
+                        <div class="info-label">Principle 2</div>
+                        <div class="info-value"><strong>Be honest about limitations</strong> - US coverage, implementation timeline, sector fit. Trust is more valuable than overselling.</div>
+                    </div>
+                    <div class="info-item highlight-green">
+                        <div class="info-label">Principle 3</div>
+                        <div class="info-value"><strong>Ask questions before positioning</strong> - understand their specific situation before offering solutions</div>
+                    </div>
+                    <div class="info-item highlight-green">
+                        <div class="info-label">Principle 4</div>
+                        <div class="info-value"><strong>Offer flexibility</strong> - pilots, phased approaches, complementary positioning. Reduce the perceived risk.</div>
+                    </div>
+                    <div class="info-item highlight-green">
+                        <div class="info-label">Principle 5</div>
+                        <div class="info-value"><strong>Use evidence where possible</strong> - reference their stated priorities, CEO quotes, known challenges. Don't make claims without support.</div>
+                    </div>
+                    <div class="info-item highlight-green">
+                        <div class="info-label">Principle 6</div>
+                        <div class="info-value"><strong>Know when to step back</strong> - if the timing is wrong or fit is poor, maintain the relationship for future opportunities</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>WD-40 Company | eStore Brand Research &amp; Action Plan</p>
+        <p>Created: January 2026 | Researcher: James (eStore)</p>
+        <p style="margin-top: 8px; font-style: italic;">This document contains strategic intelligence. Handle confidentially.</p>
+    </footer>
+
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and content
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Email Sub-Tab Navigation
+        document.querySelectorAll('.email-tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Get the parent email-wrapper
+                const wrapper = button.closest('.email-wrapper');
+                
+                // Remove active class from all buttons and content in this wrapper
+                wrapper.querySelectorAll('.email-tab-btn').forEach(btn => btn.classList.remove('active'));
+                wrapper.querySelectorAll('.email-tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding content
+                const emailId = button.getAttribute('data-email');
+                document.getElementById(emailId).classList.add('active');
+            });
+        });
+
+        // Objection Toggle
+        function toggleObjection(header) {
+            const card = header.parentElement;
+            card.classList.toggle('open');
+        }
+
+        // Initialize first objection as open
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstObjection = document.querySelector('.objection-card');
+            if (firstObjection) {
+                firstObjection.classList.add('open');
+            }
+        });
+    </script>
+</body>
+</html>
