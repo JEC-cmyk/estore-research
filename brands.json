@@ -1,11 +1,7 @@
 [
-    {"file": "bausch-lomb2", "name": "Bausch + Lomb"},
-    {"file": "bausch-lomb3", "name": "Bausch + Lomb (NEW)"},
-    {"file": "estee-lauder", "name": "Estee Lauder"},
-    {"file": "estee-lauder2", "name": "Estee Lauder (NEW)"},
-    {"file": "molson-coors4", "name": "Molson Coors"},
-    {"file": "molson-coors", "name": "Molson Coors (NEW)"},
-    {"file": "motorola-solutions", "name": "Motorola Solutions"},
-    {"file": "lg-electronics", "name": "LG Electronics"},
-    {"file": "lg-electronics2", "name": "LG Electronics (NEW)"}
+    {"file": "bausch-lomb3", "name": "Bausch + Lomb"},
+    {"file": "estee-lauder2", "name": "Estee Lauder"},
+    {"file": "molson-coors", "name": "Molson Coors"},
+    {"file": "lg-electronics2", "name": "LG Electronics"},
+    {"file": "wd-40", "name": "WD-40"}
 ]
