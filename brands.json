@@ -2,6 +2,7 @@
     {"file": "bausch-lomb3", "name": "Bausch + Lomb"},
     {"file": "estee-lauder2", "name": "Estee Lauder"},
     {"file": "molson-coors", "name": "Molson Coors"},
-    {"file": "lg-electronics2", "name": "LG Electronics"},
+    {"file": "lg-electronics2", "name": "LG Electronics
+    {"file": "brother-industries", "name": "Brother"},
     {"file": "wd-40", "name": "WD-40"}
 ]
