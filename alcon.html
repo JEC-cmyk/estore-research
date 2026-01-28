@@ -1,0 +1,2930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcon - eStore Strategic Action Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --estore-yellow: #ffba1c;
+            --estore-green: #22bb69;
+            --estore-light-blue: #68d7fa;
+            --estore-dark-blue: #1067db;
+            --estore-red: #f44f2f;
+            --estore-orange: #ff7a00;
+            --text-dark: #2c2c2c;
+            --text-medium: #555;
+            --text-light: #777;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-light: #e0e0e0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--estore-dark-blue) 0%, #0a4fa8 100%);
+            color: white;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: var(--estore-yellow);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .header-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--estore-green);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .fit-badge.moderate-strong {
+            background: linear-gradient(135deg, var(--estore-green), var(--estore-yellow));
+        }
+
+        /* Navigation */
+        .nav-container {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-tabs {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+            padding: 0 1rem;
+        }
+
+        .nav-tab {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-medium);
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .nav-tab:hover {
+            color: var(--estore-dark-blue);
+            background: var(--bg-light);
+        }
+
+        .nav-tab.active {
+            color: var(--estore-dark-blue);
+            border-bottom-color: var(--estore-dark-blue);
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--bg-light);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .card h3:first-child {
+            margin-top: 0;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+
+        .info-box.green {
+            background: rgba(34, 187, 105, 0.1);
+            border-color: var(--estore-green);
+        }
+
+        .info-box.yellow {
+            background: rgba(255, 186, 28, 0.1);
+            border-color: var(--estore-yellow);
+        }
+
+        .info-box.blue {
+            background: rgba(16, 103, 219, 0.1);
+            border-color: var(--estore-dark-blue);
+        }
+
+        .info-box.orange {
+            background: rgba(255, 122, 0, 0.1);
+            border-color: var(--estore-orange);
+        }
+
+        .info-box.red {
+            background: rgba(244, 79, 47, 0.1);
+            border-color: var(--estore-red);
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge.green {
+            background: rgba(34, 187, 105, 0.15);
+            color: #1a8f4f;
+        }
+
+        .badge.yellow {
+            background: rgba(255, 186, 28, 0.2);
+            color: #b38600;
+        }
+
+        .badge.orange {
+            background: rgba(255, 122, 0, 0.15);
+            color: #cc6200;
+        }
+
+        .badge.red {
+            background: rgba(244, 79, 47, 0.15);
+            color: #c43d28;
+        }
+
+        .badge.blue {
+            background: rgba(16, 103, 219, 0.15);
+            color: #0d52a8;
+        }
+
+        .badge.neutral {
+            background: rgba(85, 85, 85, 0.1);
+            color: var(--text-medium);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        th {
+            background: var(--bg-light);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        tr:hover {
+            background: var(--bg-light);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .stat-card {
+            background: var(--bg-light);
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--estore-dark-blue);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-top: 0.25rem;
+        }
+
+        /* Contact Cards */
+        .contact-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .contact-title {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            margin-top: 0.25rem;
+        }
+
+        .contact-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nationality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            background: var(--bg-light);
+            color: var(--text-medium);
+        }
+
+        .contact-section {
+            margin: 1rem 0;
+        }
+
+        .contact-section h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-medium);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-section li {
+            padding: 0.35rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .contact-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--estore-dark-blue);
+        }
+
+        /* Email Section */
+        .email-disclaimer {
+            background: linear-gradient(135deg, rgba(255, 186, 28, 0.15), rgba(255, 122, 0, 0.1));
+            border: 1px solid var(--estore-yellow);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .email-disclaimer strong {
+            color: var(--estore-orange);
+        }
+
+        .email-sequence {
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .email-sequence-header {
+            background: var(--estore-dark-blue);
+            color: white;
+            padding: 1rem 1.5rem;
+        }
+
+        .email-sequence-header h3 {
+            color: white;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .email-sequence-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .email-item {
+            border-bottom: 1px solid var(--border-light);
+            padding: 1.5rem;
+        }
+
+        .email-item:last-child {
+            border-bottom: none;
+        }
+
+        .email-number {
+            display: inline-block;
+            background: var(--estore-dark-blue);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-right: 0.75rem;
+        }
+
+        .email-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+
+        .email-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 0.75rem 0;
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        .email-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .email-content {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+            font-family: 'Figtree', sans-serif;
+            white-space: pre-wrap;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .email-notes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .email-note {
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .email-note.customisation {
+            background: rgba(104, 215, 250, 0.1);
+            border: 1px solid var(--estore-light-blue);
+        }
+
+        .email-note.strategy {
+            background: rgba(34, 187, 105, 0.1);
+            border: 1px solid var(--estore-green);
+        }
+
+        .email-note h5 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .email-note.customisation h5 {
+            color: #0a8ab5;
+        }
+
+        .email-note.strategy h5 {
+            color: #1a8f4f;
+        }
+
+        /* Email Tabs within Sequence */
+        .email-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-light);
+        }
+
+        .email-tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-medium);
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .email-tab:hover {
+            color: var(--estore-dark-blue);
+            background: rgba(16, 103, 219, 0.05);
+        }
+
+        .email-tab.active {
+            color: var(--estore-dark-blue);
+            border-bottom-color: var(--estore-dark-blue);
+            font-weight: 600;
+            background: var(--bg-white);
+        }
+
+        .email-tab-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--text-light);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .email-tab.active .email-tab-number {
+            background: var(--estore-dark-blue);
+        }
+
+        .email-tab-content {
+            display: none;
+            padding: 1.5rem;
+        }
+
+        .email-tab-content.active {
+            display: block;
+        }
+
+        /* Objection Cards */
+        .objection-card {
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .objection-header {
+            background: var(--bg-light);
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .objection-header:hover {
+            background: #f0f0f0;
+        }
+
+        .objection-title {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .objection-toggle {
+            color: var(--text-medium);
+            font-size: 1.25rem;
+            transition: transform 0.2s ease;
+        }
+
+        .objection-card.open .objection-toggle {
+            transform: rotate(180deg);
+        }
+
+        .objection-content {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .objection-card.open .objection-content {
+            padding: 1.25rem;
+            max-height: 1000px;
+        }
+
+        .objection-response {
+            background: rgba(34, 187, 105, 0.08);
+            border-left: 3px solid var(--estore-green);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1rem;
+        }
+
+        .objection-response h5 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--estore-green);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Content Links */
+        .content-link {
+            display: block;
+            background: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            margin: 0.75rem 0;
+            transition: all 0.2s ease;
+        }
+
+        .content-link:hover {
+            border-color: var(--estore-dark-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .content-link .link-title {
+            font-weight: 600;
+            color: var(--estore-dark-blue);
+        }
+
+        .content-link .link-url {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            word-break: break-all;
+        }
+
+        /* Lists */
+        ul.styled-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.styled-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        ul.styled-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--estore-dark-blue);
+            font-weight: bold;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--estore-green);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0.55rem;
+        }
+
+        .checklist li.warning::before {
+            content: '!';
+            background: var(--estore-yellow);
+        }
+
+        .checklist li.caution::before {
+            content: '~';
+            background: var(--estore-orange);
+        }
+
+        /* Tone Guidance */
+        .tone-guidance {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .tone-card {
+            padding: 1rem;
+            border-radius: 8px;
+            background: var(--bg-light);
+            border-left: 4px solid var(--estore-dark-blue);
+        }
+
+        .tone-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .tone-card p {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 1rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-light);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.35rem;
+            width: 12px;
+            height: 12px;
+            background: var(--estore-dark-blue);
+            border-radius: 50%;
+            margin-left: -5px;
+        }
+
+        .timeline-item.past::before {
+            background: var(--text-light);
+        }
+
+        .timeline-item.current::before {
+            background: var(--estore-green);
+            box-shadow: 0 0 0 4px rgba(34, 187, 105, 0.2);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .timeline-content {
+            margin-top: 0.25rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .nav-tab {
+                padding: 0.75rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .email-notes {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav-container {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+                page-break-before: always;
+            }
+
+            .tab-content:first-child {
+                page-break-before: avoid;
+            }
+
+            .card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Alcon Inc.</h1>
+            <div class="header-meta">
+                <span>🏢 Global Eye Care Leader</span>
+                <span>💰 $9.8B Revenue (2024)</span>
+                <span>🌍 Geneva HQ / Fort Worth Operations</span>
+                <span>👥 25,000+ Employees</span>
+            </div>
+            <div class="fit-badge moderate-strong">
+                ⭐⭐⭐⭐ Moderate-Strong Fit - Win-Back Opportunity
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <div class="nav-tabs">
+            <div class="nav-tab active" data-tab="strategic-fit">Strategic Fit Assessment</div>
+            <div class="nav-tab" data-tab="history">Our history with them</div>
+            <div class="nav-tab" data-tab="retailers">Retailer Overview</div>
+            <div class="nav-tab" data-tab="contacts">Key people?</div>
+            <div class="nav-tab" data-tab="emails">Draft Email Sequences</div>
+            <div class="nav-tab" data-tab="objections">Objection Handling</div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Tab 1: Strategic Fit Assessment -->
+        <section id="strategic-fit" class="tab-content active">
+            <div class="card">
+                <h2>Overall Fit Assessment</h2>
+                
+                <div class="info-box green">
+                    <strong>Assessment: MODERATE-STRONG FIT ⭐⭐⭐⭐</strong>
+                    Alcon represents a strong win-back opportunity with significant potential. The combination of high distribution complexity, no identified incumbent DSA provider, strong sector alignment, and substantial organisational changes since 2023 creates favourable conditions for re-engagement.
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">$9.8B</div>
+                        <div class="stat-label">Annual Revenue (2024)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">20+</div>
+                        <div class="stat-label">Online Retailers Identified</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">39%</div>
+                        <div class="stat-label">Contact Lens Sales Online</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">$1.6B</div>
+                        <div class="stat-label">Free Cash Flow (Record)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Five Key Assessment Factors</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Rating</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Distribution Complexity</strong></td>
+                            <td><span class="badge green">HIGH</span></td>
+                            <td>20+ retailers, multi-channel, multi-geography, no D2C</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DSA Incumbent Status</strong></td>
+                            <td><span class="badge green">NONE</span></td>
+                            <td>Greenfield opportunity - no displacement required</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sector Alignment</strong></td>
+                            <td><span class="badge green">STRONG</span></td>
+                            <td>Healthcare/Pharma - eStore proven sector</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Relationship History</strong></td>
+                            <td><span class="badge yellow">NEUTRAL</span></td>
+                            <td>Lapsed client (2022-2023), some contacts lost but fresh approach opportunity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Strategic Timing</strong></td>
+                            <td><span class="badge green">EXCELLENT</span></td>
+                            <td>New leadership, acquisitions, active digital investment</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Distribution Complexity & Geographic Alignment</h2>
+                
+                <p>Alcon operates with <strong>HIGH distribution complexity</strong> across multiple channels and geographies:</p>
+                
+                <h3>Retailer Footprint by Market</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Market</th>
+                            <th>Count</th>
+                            <th>Key Retailers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>United States</td>
+                            <td>10</td>
+                            <td>1-800 Contacts, Walmart Contacts, Amazon, CVS, Walgreens, Target, Lens.com</td>
+                        </tr>
+                        <tr>
+                            <td>United Kingdom</td>
+                            <td>5</td>
+                            <td>Vision Direct, Lenstore, Feel Good Contacts, Boots, Specsavers</td>
+                        </tr>
+                        <tr>
+                            <td>Germany</td>
+                            <td>3</td>
+                            <td>Mister Spex, Lensbest, Linsensuppe</td>
+                        </tr>
+                        <tr>
+                            <td>France</td>
+                            <td>2</td>
+                            <td>Alensa France, Lentilles Moins Chères</td>
+                        </tr>
+                        <tr>
+                            <td>Pan-European</td>
+                            <td>2</td>
+                            <td>Alensa (multi-country), Optical Center</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Distribution Pattern Analysis</h3>
+                <ul class="styled-list">
+                    <li><strong>Multi-channel, NOT Amazon-dominant:</strong> Products distributed through optical specialists, pharmacy chains, general retailers, and marketplaces</li>
+                    <li><strong>Product-channel split:</strong> Eye drops (Systane, Pataday) through pharmacies and Amazon; contact lenses through optical specialists and prescription channels</li>
+                    <li><strong>No direct-to-consumer e-commerce:</strong> Alcon relies entirely on retail partners, directing consumers via "Where to Buy" functionality</li>
+                    <li><strong>Private label complexity:</strong> UK optical chains (Boots, Specsavers) rebrand Alcon lenses under own labels, creating visibility challenges</li>
+                </ul>
+
+                <div class="info-box blue">
+                    <strong>Geographic Alignment with eStore:</strong> Strong European presence (UK, Germany, Nordics, France) aligns well with eStore's core coverage strength. US retailers present but secondary to European markets for initial engagement.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Competitive Intelligence Summary</h2>
+                
+                <div class="info-box green">
+                    <strong>DSA Status: Greenfield Opportunity</strong><br>
+                    Extensive research across nine DSA providers found NO evidence of Alcon using any Digital Shelf Analytics solution.
+                </div>
+
+                <h3>DSA Provider Research Results</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DSA Provider</th>
+                            <th>Evidence</th>
+                            <th>Confidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Profitero</td><td>None found</td><td><span class="badge neutral">No Evidence</span></td></tr>
+                        <tr><td>CommerceIQ</td><td>None found</td><td><span class="badge neutral">No Evidence</span></td></tr>
+                        <tr><td>mindsite (Brand Nudge)</td><td>None found</td><td><span class="badge neutral">No Evidence</span></td></tr>
+                        <tr><td>Syndigo</td><td>None found</td><td><span class="badge neutral">No Evidence</span></td></tr>
+                        <tr><td>Salsify</td><td>None found</td><td><span class="badge neutral">No Evidence</span></td></tr>
+                        <tr><td>Edge by Ascential</td><td>None found</td><td><span class="badge neutral">No Evidence</span></td></tr>
+                        <tr><td>DataWeave</td><td>None found</td><td><span class="badge neutral">No Evidence</span></td></tr>
+                        <tr><td>Stackline</td><td>None found</td><td><span class="badge neutral">No Evidence</span></td></tr>
+                        <tr><td>Intellibrand</td><td>None found</td><td><span class="badge neutral">No Evidence</span></td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Confirmed Technology Stack</h3>
+                <ul class="styled-list">
+                    <li><strong>SAP Hybris</strong> - B2B e-commerce platform</li>
+                    <li><strong>commercetools Commerce</strong> - adopted 2024 (signals digital investment)</li>
+                    <li><strong>AWS Services</strong> - enterprise data platform</li>
+                    <li><strong>Salesforce</strong> - CRM</li>
+                    <li><strong>Tableau, Qlik, Alteryx</strong> - BI tools</li>
+                </ul>
+
+                <div class="info-box yellow">
+                    <strong>Context for DSA Absence:</strong> Alcon's B2B-dominant business model (selling through eye care professionals and healthcare distributors) means traditional DSA use cases are less obvious than for CPG brands. However, their Vision Care consumer products - contact lenses and eye drops on Amazon, Walmart, and optical retailers - represent clear DSA opportunity.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Sector Alignment Summary</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>eStore Sector</th>
+                            <th>Alignment</th>
+                            <th>Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pharmaceuticals/Healthcare</td>
+                            <td><span class="badge green">STRONG</span></td>
+                            <td>Core business - contact lenses are regulated medical devices; eye drops are OTC/Rx pharma</td>
+                        </tr>
+                        <tr>
+                            <td>Beauty & Personal Care</td>
+                            <td><span class="badge yellow">MODERATE</span></td>
+                            <td>Eye care positioned as self-care/wellness in marketing</td>
+                        </tr>
+                        <tr>
+                            <td>Consumer Electronics</td>
+                            <td><span class="badge neutral">WEAK</span></td>
+                            <td>Not applicable</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box blue">
+                    <strong>eStore Sector Fit:</strong> Strong alignment with Pharma & Healthcare - one of eStore's five proven sectors. Current clients in this space include Sanofi, Viatris, Pierre Fabre, Alliance Pharmaceuticals, Cooper, Biocodex.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Relationship History Summary</h2>
+                
+                <div class="info-box orange">
+                    <strong>Status:</strong> Lapsed client - active 2022 to early 2023 (eStoreCheck)
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item past">
+                        <div class="timeline-date">2022 - Early 2023</div>
+                        <div class="timeline-content">Active customer using eStoreCheck for Vision Care</div>
+                    </div>
+                    <div class="timeline-item past">
+                        <div class="timeline-date">~2023</div>
+                        <div class="timeline-content">Relationship lapsed (reason unknown)</div>
+                    </div>
+                    <div class="timeline-item past">
+                        <div class="timeline-date">August 2024</div>
+                        <div class="timeline-content">Win-back initiated</div>
+                    </div>
+                    <div class="timeline-item past">
+                        <div class="timeline-date">January 2025</div>
+                        <div class="timeline-content">RFP outreach</div>
+                    </div>
+                    <div class="timeline-item current">
+                        <div class="timeline-date">January 2026</div>
+                        <div class="timeline-content">Fresh re-engagement opportunity - new decision-makers in place</div>
+                    </div>
+                </div>
+
+                <div class="info-box yellow">
+                    <strong>Key Insight:</strong> Two of four known contacts cannot be verified at Alcon, suggesting potential turnover since 2022-2023. This creates both challenge (lost relationships) and opportunity (approach new decision-makers without baggage from prior engagement ending).
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Market Dynamics & Timing</h2>
+                
+                <h3>Why This Timing is Optimal</h3>
+
+                <h4>Leadership & Organisational Changes</h4>
+                <ul class="styled-list">
+                    <li><strong>Julie M. Brewer</strong> appointed SVP, President Global Franchises (July 2025) with explicit mandate for "expanding digital offerings in connected care"</li>
+                    <li><strong>Deborah Di Sanzo</strong> (President, Best Buy Health) joined Board (September 2025) with "extensive experience in digital, artificial intelligence"</li>
+                    <li>These appointments signal elevated digital/e-commerce priority at board and executive levels</li>
+                </ul>
+
+                <h4>M&A Activity</h4>
+                <ul class="styled-list">
+                    <li><strong>$1.5B STAAR Surgical acquisition</strong> (2025) - creates integration complexity and potential platform needs</li>
+                    <li>Aurion Biotech, BELKIN Vision, LumiThera acquisitions in 2024-2025</li>
+                    <li><strong>19 total acquisitions</strong>, with 3 in 2025 alone - peak acquisition year</li>
+                </ul>
+
+                <h4>Digital Transformation</h4>
+                <ul class="styled-list">
+                    <li>Adopted <strong>commercetools Commerce</strong> platform (2024)</li>
+                    <li>Aera Technology partnership for decision intelligence</li>
+                    <li>Active investment in B2B2C e-commerce platforms</li>
+                    <li>Building digital teams: Head of Engineering, Head of Product for digital business</li>
+                </ul>
+
+                <h4>Product Launch Wave</h4>
+                <ul class="styled-list">
+                    <li><strong>Tryptyr</strong> - first FDA-approved Rx drug since spin-off (May 2025)</li>
+                    <li><strong>PRECISION7</strong> - first one-week replacement contact lens (November 2024)</li>
+                    <li><strong>Unity VCS/CS</strong> - transformational surgical platform (April 2025)</li>
+                    <li>Multiple products requiring e-commerce support</li>
+                </ul>
+
+                <h4>Competitive Pressure</h4>
+                <ul class="styled-list">
+                    <li>Contact lens e-commerce share growing: <strong>39% of sales online</strong> (Q1 2025 vs 35% Q4 2024)</li>
+                    <li>J&J Vision, CooperVision, Bausch + Lomb all investing in digital commerce</li>
+                    <li>Industry trend toward subscription-based lens delivery services</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Synthesis & Recommendation</h2>
+                
+                <h3>Recommended Approach: New Decision-Maker Engagement</h3>
+                
+                <p>Given the significant organisational changes since 2023, prioritise NEW decision-makers rather than attempting to reactivate old relationships:</p>
+
+                <ol style="padding-left: 1.5rem; margin: 1rem 0;">
+                    <li style="margin-bottom: 0.75rem;"><strong>Lead with Kevin Yapp</strong> (Global Head Omni-Channel Transformation) - owns digital transformation globally; explicitly focused on customer-centric digital solutions; his commercetools adoption suggests appetite for platform investments</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>European regional approach</strong> through Anders Hansen (Nordic E-commerce P&L owner) and Carl Lindberg (European Key Accounts) - operational decision-makers with direct e-commerce responsibility</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Reference, don't rely on</strong> previous relationship - acknowledge past partnership as credibility signal but position as fresh engagement given new leadership and changed market conditions</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Position for Vision Care specifically</strong> - don't try to sell DSA for surgical business; focus on contact lenses and eye drops where retail visibility matters</li>
+                </ol>
+
+                <h3>Win-Back Difficulty Assessment</h3>
+                
+                <div class="info-box yellow">
+                    <strong>Difficulty: MODERATE</strong><br>
+                    Favourable conditions but requires strategic navigation
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Impact on Difficulty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>No incumbent DSA</td><td><span class="badge green">↓ EASIER</span></td></tr>
+                        <tr><td>New decision-makers</td><td><span class="badge green">↓ EASIER - fresh perspectives</span></td></tr>
+                        <tr><td>Prior relationship ended</td><td><span class="badge orange">↑ HARDER - may have lingering perceptions</span></td></tr>
+                        <tr><td>B2B focus</td><td><span class="badge orange">↑ HARDER - must make consumer case clearly</span></td></tr>
+                        <tr><td>Strong financials</td><td><span class="badge green">↓ EASIER - budget exists</span></td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Implementation Readiness</h3>
+                <div class="info-box blue">
+                    <strong>Time-to-Value Estimate: 4-8 weeks</strong><br>
+                    eStore has existing coverage for key European retailers (Vision Direct, Mister Spex, Boots) and major marketplaces. Some specialist optical retailers may require onboarding, but core coverage is strong for immediate value delivery on priority channels.
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Our History with Them -->
+        <section id="history" class="tab-content">
+            <div class="card">
+                <h2>Previous Conversations</h2>
+                
+                <div class="info-box orange">
+                    <strong>Relationship Status:</strong> Lapsed Client
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item past">
+                        <div class="timeline-date">2022 - Early 2023</div>
+                        <div class="timeline-content">
+                            <strong>Active eStoreCheck customer</strong><br>
+                            Vision Care division using the platform. Known contacts included Maria Fernanda Rodriguez (Trade Marketing) and Matilde Rebori (Jr. Trade Marketing, Internet Channel).
+                        </div>
+                    </div>
+                    <div class="timeline-item past">
+                        <div class="timeline-date">~2023</div>
+                        <div class="timeline-content">
+                            <strong>Relationship lapsed</strong><br>
+                            Reason for ending the relationship is unknown. This is a gap in our intelligence that should be investigated before outreach.
+                        </div>
+                    </div>
+                    <div class="timeline-item past">
+                        <div class="timeline-date">August 2024</div>
+                        <div class="timeline-content">
+                            <strong>Win-back initiated</strong><br>
+                            Outreach attempted as part of lapsed customer re-engagement.
+                        </div>
+                    </div>
+                    <div class="timeline-item past">
+                        <div class="timeline-date">January 2025</div>
+                        <div class="timeline-content">
+                            <strong>RFP outreach</strong><br>
+                            Further engagement attempted.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>HubSpot Status</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Company Status</td>
+                            <td><span class="badge orange">Lapsed Client</span></td>
+                        </tr>
+                        <tr>
+                            <td>Last Active</td>
+                            <td>Early 2023</td>
+                        </tr>
+                        <tr>
+                            <td>Product Used</td>
+                            <td>eStoreCheck</td>
+                        </tr>
+                        <tr>
+                            <td>Division</td>
+                            <td>Vision Care</td>
+                        </tr>
+                        <tr>
+                            <td>Win-Back Attempts</td>
+                            <td>August 2024, January 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box yellow">
+                    <strong>Action Required:</strong> Check HubSpot for any notes on why the relationship ended. This context is critical for objection handling and positioning in re-engagement outreach.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Known Contacts - Status Update</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Title</th>
+                            <th>Market</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Maria Fernanda Rodriguez</strong></td>
+                            <td>Trade Marketing Manager, Strategic Accounts VC Europe</td>
+                            <td>Germany</td>
+                            <td><span class="badge green">✓ VERIFIED - Still at Alcon</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Matilde Rebori</strong></td>
+                            <td>Jr. Trade Marketing Manager, Internet Channel</td>
+                            <td>Nordics</td>
+                            <td><span class="badge green">✓ VERIFIED - Still at Alcon</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nadejda Gaju</strong></td>
+                            <td>eCommerce Manager</td>
+                            <td>Unknown</td>
+                            <td><span class="badge red">⚠ NOT FOUND at Alcon</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tiziana Taglialatela</strong></td>
+                            <td>Unknown</td>
+                            <td>Italy</td>
+                            <td><span class="badge yellow">⚠ NOT VERIFIED</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box blue">
+                    <strong>Recommendation:</strong> Maria Fernanda Rodriguez and Matilde Rebori remain at Alcon and could provide warm reconnection paths. However, given time elapsed and unknown reason for lapse, consider approaching new decision-makers (Kevin Yapp, Anders Hansen) as primary strategy, with verified contacts as secondary validation.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Competitor Intelligence</h2>
+                
+                <div class="info-box green">
+                    <strong>DSA Status: Greenfield Opportunity</strong><br>
+                    No DSA provider relationship identified across nine major vendors.
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Evidence Level</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Profitero</td>
+                            <td><span class="badge neutral">No evidence</span></td>
+                            <td>Website, case studies, news search</td>
+                        </tr>
+                        <tr>
+                            <td>CommerceIQ</td>
+                            <td><span class="badge neutral">No evidence</span></td>
+                            <td>Website, case studies, news search</td>
+                        </tr>
+                        <tr>
+                            <td>Salsify</td>
+                            <td><span class="badge neutral">No evidence</span></td>
+                            <td>Website, case studies, news search</td>
+                        </tr>
+                        <tr>
+                            <td>Edge by Ascential</td>
+                            <td><span class="badge neutral">No evidence</span></td>
+                            <td>Website, case studies, news search</td>
+                        </tr>
+                        <tr>
+                            <td>Others (5 more)</td>
+                            <td><span class="badge neutral">No evidence</span></td>
+                            <td>Comprehensive search</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box yellow">
+                    <strong>Confidence Level: MODERATE-HIGH</strong><br>
+                    While no DSA relationship was found, this doesn't guarantee they aren't using one. The absence of evidence across multiple providers and Alcon's B2B-dominant model makes it plausible they've operated without dedicated DSA for Vision Care consumer products.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Internal Champion</h2>
+                
+                <p>No confirmed internal champion identified from previous engagement.</p>
+                
+                <div class="info-box blue">
+                    <strong>Potential Champions to Develop:</strong>
+                    <ul class="styled-list" style="margin-top: 0.5rem;">
+                        <li><strong>Maria Fernanda Rodriguez</strong> - familiar with eStore from prior engagement, could validate platform value</li>
+                        <li><strong>Matilde Rebori</strong> - works with Anders Hansen in Nordic team, potential introduction path</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Known Blockers</h2>
+                
+                <div class="info-box orange">
+                    <strong>Critical Gap:</strong> The reason for relationship ending in 2023 is unknown. This should be investigated before outreach to avoid stepping on existing objections.
+                </div>
+
+                <h3>Potential Blockers to Probe</h3>
+                <ul class="styled-list">
+                    <li><strong>Value perception:</strong> Did they feel eStoreCheck didn't deliver sufficient ROI?</li>
+                    <li><strong>Coverage gaps:</strong> Were key optical retailers not covered at the time?</li>
+                    <li><strong>Internal reorganisation:</strong> Did budget holder or decision-maker change?</li>
+                    <li><strong>Competitor switch:</strong> Did they move to another provider (though no evidence found)?</li>
+                    <li><strong>Strategic deprioritisation:</strong> Did Vision Care e-commerce become less important temporarily?</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Content to Reference</h2>
+                
+                <h3>Sector Landing Page</h3>
+                <a href="https://estorebrands.com/pharma-healthcare" target="_blank" class="content-link">
+                    <div class="link-title">Pharma & Healthcare</div>
+                    <div class="link-url">https://estorebrands.com/pharma-healthcare</div>
+                </a>
+                <p><em>When to use:</em> Email 2 or 3 as supporting resource. Position as "our thinking on healthcare challenges" rather than required reading.</p>
+
+                <h3>Long-Form Article</h3>
+                <a href="https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics" target="_blank" class="content-link">
+                    <div class="link-title">Why Pharmaceutical and Healthcare Brands Need Specialised Digital Shelf Analytics</div>
+                    <div class="link-url">https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics</div>
+                </a>
+                <p><em>When to use:</em> For contacts who want deeper context. Covers regulatory compliance, pharmacy retail, and healthcare-specific challenges.</p>
+
+                <h3>Product Feature Articles</h3>
+                <a href="https://estorebrands.com/ignite/introducing-ai-business-answers" target="_blank" class="content-link">
+                    <div class="link-title">AI Business Answers</div>
+                    <div class="link-url">https://estorebrands.com/ignite/introducing-ai-business-answers</div>
+                </a>
+                <p><em>When to use:</em> When discussing platform evolution since they last used eStore. Demonstrates shift toward actionability.</p>
+
+                <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank" class="content-link">
+                    <div class="link-title">Content Benchmark</div>
+                    <div class="link-url">https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content</div>
+                </a>
+                <p><em>When to use:</em> When discussing competitive intelligence capabilities - relevant given J&J Vision and CooperVision competition.</p>
+            </div>
+
+            <div class="card">
+                <h2>Strategic Implications</h2>
+                
+                <h3>Win-Back Positioning</h3>
+                <p>Frame as: <strong>"A lot has changed since 2023"</strong> - both at Alcon (new leadership, new platforms, new products) and at eStore (actionability focus, AI capabilities, expanded coverage).</p>
+
+                <h3>Key Messages</h3>
+                <ul class="checklist">
+                    <li>New leadership with digital mandate (Julie Brewer, Deborah Di Sanzo)</li>
+                    <li>commercetools adoption signals renewed digital investment appetite</li>
+                    <li>39% of contact lens sales now online - visibility increasingly critical</li>
+                    <li>eStore platform has evolved significantly (actionability, AI Business Answers)</li>
+                    <li class="warning">Need to understand why relationship ended before deep re-engagement</li>
+                </ul>
+
+                <h3>Risk Mitigation</h3>
+                <div class="info-box orange">
+                    <strong>Before outreach:</strong> Check with internal team if anyone knows why Alcon left in 2023. If there was a specific issue (coverage gap, service problem), ensure we can address it directly or acknowledge the change.
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Retailer Overview -->
+        <section id="retailers" class="tab-content">
+            <div class="card">
+                <h2>Retailer Summary</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">20+</div>
+                        <div class="stat-label">Online Retailers Identified</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Markets</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Channel Types</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">39%</div>
+                        <div class="stat-label">Contact Lenses Sold Online</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Geographic Breakdown</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Market</th>
+                            <th>Retailers</th>
+                            <th>Key Platforms</th>
+                            <th>eStore Strength</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>United States</strong></td>
+                            <td>10</td>
+                            <td>1-800 Contacts, Walmart Contacts, Amazon, CVS, Walgreens, Target</td>
+                            <td><span class="badge yellow">Moderate</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>United Kingdom</strong></td>
+                            <td>5</td>
+                            <td>Vision Direct, Lenstore, Feel Good Contacts, Boots, Specsavers</td>
+                            <td><span class="badge green">Strong</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Germany</strong></td>
+                            <td>3</td>
+                            <td>Mister Spex, Lensbest, Linsensuppe</td>
+                            <td><span class="badge green">Strong</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>France</strong></td>
+                            <td>2</td>
+                            <td>Alensa France, Lentilles Moins Chères</td>
+                            <td><span class="badge yellow">Moderate</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pan-European</strong></td>
+                            <td>2</td>
+                            <td>Alensa (multi-country), Optical Center</td>
+                            <td><span class="badge yellow">Moderate</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box blue">
+                    <strong>Geographic Alignment:</strong> eStore's core strength in UK and European markets aligns well with Alcon's European distribution. US coverage is secondary but serviceable through major retailers (Amazon, Walmart).
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Channel Analysis</h2>
+                
+                <h3>Optical Specialists</h3>
+                <p>Primary channel for contact lenses - high-intent purchasers with prescription requirements.</p>
+                <ul class="styled-list">
+                    <li><strong>UK:</strong> Vision Direct, Lenstore, Feel Good Contacts, Specsavers</li>
+                    <li><strong>Germany:</strong> Mister Spex, Lensbest, Linsensuppe</li>
+                    <li><strong>US:</strong> 1-800 Contacts, Lens.com, Walmart Contacts</li>
+                </ul>
+
+                <h3>Pharmacy Chains</h3>
+                <p>Key for eye drops (Systane, Pataday) and lens care solutions.</p>
+                <ul class="styled-list">
+                    <li><strong>UK:</strong> Boots (also rebrands contact lenses)</li>
+                    <li><strong>US:</strong> CVS, Walgreens, Target</li>
+                </ul>
+
+                <h3>Marketplaces</h3>
+                <p>Increasingly important for both contact lenses and eye care products.</p>
+                <ul class="styled-list">
+                    <li>Amazon (US, UK, DE, FR)</li>
+                    <li>Walmart.com</li>
+                </ul>
+
+                <div class="info-box yellow">
+                    <strong>Notable Pattern:</strong> Alcon has NO direct-to-consumer e-commerce channel. They are 100% dependent on retail partners for consumer reach, making digital shelf visibility even more critical than for brands with D2C options.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Notable Patterns</h2>
+                
+                <h3>UK Private Label Complexity</h3>
+                <div class="info-box orange">
+                    <strong>Challenge:</strong> UK optical chains (Boots, Specsavers) rebrand Alcon lenses under their own labels. This creates visibility challenges - the brand needs to track both branded and private-label versions of their products.
+                </div>
+
+                <h3>Product-Channel Alignment</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product Category</th>
+                            <th>Primary Channel</th>
+                            <th>Key Retailers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Contact Lenses (Dailies, Air Optix, PRECISION7)</td>
+                            <td>Optical Specialists</td>
+                            <td>1-800 Contacts, Vision Direct, Mister Spex</td>
+                        </tr>
+                        <tr>
+                            <td>Eye Drops (Systane, Pataday)</td>
+                            <td>Pharmacy + Amazon</td>
+                            <td>CVS, Walgreens, Boots, Amazon</td>
+                        </tr>
+                        <tr>
+                            <td>Lens Care (contact lens solutions)</td>
+                            <td>Pharmacy + Optical</td>
+                            <td>Mixed distribution</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>E-commerce Growth Trajectory</h3>
+                <ul class="styled-list">
+                    <li><strong>Q4 2024:</strong> 35% of contact lens sales online</li>
+                    <li><strong>Q1 2025:</strong> 39% of contact lens sales online</li>
+                    <li>Trend is accelerating - digital shelf visibility becoming increasingly critical</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Critical Gaps</h2>
+                
+                <h3>Specialist Optical Retailers</h3>
+                <p>Some smaller specialist optical retailers may not be in eStore's coverage. However, the major platforms (Vision Direct, 1-800 Contacts, Mister Spex) where the volume sits are covered.</p>
+
+                <h3>Private Label Tracking</h3>
+                <p>UK private label versions of Alcon products (Boots Opticians, Specsavers brands) may require custom product mapping to track alongside branded products.</p>
+
+                <div class="info-box blue">
+                    <strong>Mitigation:</strong> Lead with coverage of major retailers where Alcon has highest volume. Address specialist and private label tracking as secondary conversation once primary value is established.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Implementation Note</h2>
+                
+                <div class="info-box green">
+                    <strong>Time-to-Value Estimate: 4-8 weeks</strong>
+                </div>
+
+                <h3>Immediate Coverage (Week 1-2)</h3>
+                <ul class="styled-list">
+                    <li>Amazon (all markets)</li>
+                    <li>Major UK retailers (Boots, Vision Direct)</li>
+                    <li>Major German retailers (Mister Spex)</li>
+                    <li>Major US retailers (Walmart, CVS, Walgreens)</li>
+                </ul>
+
+                <h3>Additional Onboarding (Week 3-6)</h3>
+                <ul class="styled-list">
+                    <li>Specialist optical platforms requiring custom setup</li>
+                    <li>French market retailers</li>
+                    <li>Private label product mapping</li>
+                </ul>
+
+                <h3>Full Coverage (Week 6-8)</h3>
+                <ul class="styled-list">
+                    <li>Complete product catalogue across all markets</li>
+                    <li>Competitive benchmarking vs J&J Vision, CooperVision, Bausch + Lomb</li>
+                    <li>Custom reporting and alerting configured</li>
+                </ul>
+
+                <div class="info-box yellow">
+                    <strong>Positioning Note:</strong> Lead with what we can deliver immediately (major retailers, UK/Germany strength). Be transparent that some specialist optical retailers may require additional onboarding time.
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 4: Key People -->
+        <section id="contacts" class="tab-content">
+            <div class="card">
+                <h2>Historical Contacts</h2>
+                <p>These are contacts from Alcon's previous engagement with eStore (2022-2023):</p>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Maria Fernanda Rodriguez</div>
+                            <div class="contact-title">Trade Marketing Manager, Strategic Accounts VC Europe</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">✓ Verified at Alcon</span>
+                            <span class="nationality-badge">🇩🇪 Germany</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Historical Context</h4>
+                        <ul>
+                            <li>Involved in previous eStore engagement</li>
+                            <li>Trade Marketing role suggests operational focus on retail execution</li>
+                            <li>European Strategic Accounts indicates influence over key retail relationships</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Reconnection Approach</h4>
+                        <ul>
+                            <li>Could validate eStore's past value and what has changed</li>
+                            <li>Potential introduction path to Valentina Soldavini (Area Marketing Director)</li>
+                            <li>Use as secondary validation rather than primary entry point</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Matilde Rebori</div>
+                            <div class="contact-title">Jr. Trade Marketing Manager, Internet Channel</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">✓ Verified at Alcon</span>
+                            <span class="nationality-badge">🇸🇪 Nordics</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Historical Context</h4>
+                        <ul>
+                            <li>Involved in previous eStore engagement</li>
+                            <li>"Internet Channel" focus directly relevant to DSA</li>
+                            <li>Works in same team as Anders Hansen (Nordic Key Accounts)</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Reconnection Approach</h4>
+                        <ul>
+                            <li>Could provide warm introduction to Anders Hansen</li>
+                            <li>May have context on why relationship ended</li>
+                            <li>Junior level - use for intelligence gathering rather than decision-making</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box yellow">
+                    <strong>Contacts Not Verified:</strong> Nadejda Gaju (eCommerce Manager) and Tiziana Taglialatela were not found at Alcon during LinkedIn verification. They may have departed since 2022-2023.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+                <p>These are the people who will actually evaluate, implement, and use eStore:</p>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">⭐ Kevin Yapp - TOP PRIORITY</div>
+                            <div class="contact-title">Global Head, Omni-Channel Transformation</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">#1 Priority</span>
+                            <span class="nationality-badge">🇺🇸 American</span>
+                            <span class="badge neutral">Cold - New since lapse</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Why This Contact</h4>
+                        <ul>
+                            <li>Owns ALL digital transformation at Alcon globally</li>
+                            <li>Led commercetools adoption in 2024 - signals platform investment appetite</li>
+                            <li>Dallas/Fort Worth based but global mandate</li>
+                            <li>Former digital transformation lead at Avnet</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Outreach Hooks</h4>
+                        <ul>
+                            <li>Stated priority: "Digital tools and channels are how our customers and patients want to talk with us and transact"</li>
+                            <li>Customer-centric digital philosophy aligns with DSA value proposition</li>
+                            <li>Building digital teams - may need partner capabilities</li>
+                            <li>Led ethnographic research in 12-13 countries - data-driven decision maker</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Tone Guidance</h4>
+                        <p><strong>Direct, results-focused, less formal.</strong> American executives typically prefer getting to the point quickly. Lead with business impact, not relationship building.</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>LinkedIn</h4>
+                        <a href="https://linkedin.com/in/kevin-yapp-7aa1905/" target="_blank" class="content-link">
+                            <div class="link-url">linkedin.com/in/kevin-yapp-7aa1905/</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Anders Hansen</div>
+                            <div class="contact-title">Strategic Key Account Director, Nordic</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">#2 Priority</span>
+                            <span class="nationality-badge">🇩🇰 Danish</span>
+                            <span class="badge yellow">Warm - Same team as Matilde</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Why This Contact</h4>
+                        <ul>
+                            <li>Full P&L responsibility for e-commerce in Nordic region</li>
+                            <li>Managed 50M+ USD accounts</li>
+                            <li>Direct e-commerce revenue accountability</li>
+                            <li>Same team as known contact Matilde Rebori</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Outreach Hooks</h4>
+                        <ul>
+                            <li>Direct e-commerce P&L owner - can demonstrate ROI value</li>
+                            <li>Potential warm introduction through Matilde Rebori</li>
+                            <li>Experience designing e-commerce strategy and marketing campaigns</li>
+                            <li>Nordic market has interesting dynamics - mix of international and local optical specialists</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Tone Guidance</h4>
+                        <p><strong>Professional but warmer, relationship-building.</strong> Northern European executives appreciate directness but with more warmth than American style. Build credibility first.</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>LinkedIn</h4>
+                        <a href="https://linkedin.com/in/anders-hansen-81b1ab14/" target="_blank" class="content-link">
+                            <div class="link-url">linkedin.com/in/anders-hansen-81b1ab14/</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Carl Lindberg</div>
+                            <div class="contact-title">Key Account Manager Europe - Vision Care</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">#3 Priority</span>
+                            <span class="nationality-badge">🇨🇭 Swiss</span>
+                            <span class="badge neutral">Cold</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Why This Contact</h4>
+                        <ul>
+                            <li>Europe-wide key account responsibility with e-commerce focus</li>
+                            <li>12+ years B2B sales experience</li>
+                            <li>Based near Geneva HQ - broader organisational visibility</li>
+                            <li>Explicit focus on internet business, e-commerce, retail</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Outreach Hooks</h4>
+                        <ul>
+                            <li>HQ-adjacent position suggests broader organisational visibility</li>
+                            <li>Vision Care focus aligns with consumer products requiring DSA</li>
+                            <li>European retail complexity is his daily challenge</li>
+                            <li>Content accuracy across fragmented retail landscape</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Tone Guidance</h4>
+                        <p><strong>More formal, structured, precise.</strong> German-speaking Swiss executives expect clarity and thoroughness. Avoid casual language. Use "Dear" not "Hi".</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>LinkedIn</h4>
+                        <a href="https://linkedin.com/in/lindbergcarl/" target="_blank" class="content-link">
+                            <div class="link-url">linkedin.com/in/lindbergcarl/</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Valentina Soldavini</div>
+                            <div class="contact-title">Area Marketing Director Europe - Vision Care</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">#4 Priority</span>
+                            <span class="nationality-badge">🇮🇹 Italian</span>
+                            <span class="badge neutral">Cold</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Why This Contact</h4>
+                        <ul>
+                            <li>Senior marketing leadership for all Europe Vision Care</li>
+                            <li>President's Club 2023 winner - high performer</li>
+                            <li>Marketing budget authority for European Vision Care</li>
+                            <li>Potential connection to Maria Fernanda Rodriguez (Trade Marketing reports to Marketing)</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Outreach Hooks</h4>
+                        <ul>
+                            <li>Marketing effectiveness measurement - tying DSA to marketing ROI</li>
+                            <li>Competitive intelligence (vs J&J Vision, CooperVision)</li>
+                            <li>Brand consistency across European retailers</li>
+                            <li>High performer - open to tools that drive results</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>Tone Guidance</h4>
+                        <p><strong>Relationship-building, warmer, sophisticated language.</strong> Italian executives appreciate elegance in communication. Build rapport while maintaining professionalism.</p>
+                    </div>
+                    <div class="contact-section">
+                        <h4>LinkedIn</h4>
+                        <a href="https://linkedin.com/in/valentina-soldavini-55a00517/" target="_blank" class="content-link">
+                            <div class="link-url">linkedin.com/in/valentina-soldavini-55a00517/</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+                <p>These senior leaders won't be hands-on but can provide air cover and budget approval:</p>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Quintin Komaromy</div>
+                            <div class="contact-title">Global Head Digital Marketing</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge neutral">Reference Only</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <h4>How to Reference</h4>
+                        <ul>
+                            <li>In outreach to operational contacts, note that digital marketing leadership is investing in e-commerce capabilities</li>
+                            <li>Previously transformed Premier Farnell into e-commerce organisation</li>
+                            <li>Creates organisational tailwind for digital investments</li>
+                        </ul>
+                    </div>
+                    <div class="contact-section">
+                        <h4>LinkedIn</h4>
+                        <a href="https://linkedin.com/in/quintin-komaromy-3360848/" target="_blank" class="content-link">
+                            <div class="link-url">linkedin.com/in/quintin-komaromy-3360848/</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Julie M. Brewer</div>
+                            <div class="contact-title">SVP, President Global Franchises</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge neutral">Context Only - Do Not Contact</span>
+                        </div>
+                    </div>
+                    <div class="contact-section">
+                        <h4>How to Reference</h4>
+                        <ul>
+                            <li>Appointed July 2025 with explicit mandate for "expanding digital offerings in connected care"</li>
+                            <li>Reference her digital mandate in outreach to her direct reports</li>
+                            <li>Sets strategic priority - creates budget and attention for digital investments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Executive Context - Reference Only</h2>
+                
+                <h3>CEO David Endicott</h3>
+                <ul class="styled-list">
+                    <li>CEO since 2018, led Novartis spin-off</li>
+                    <li>No specific public e-commerce quotes found</li>
+                    <li>Company priorities include "innovation and operational excellence," "expanding digital offerings in connected care"</li>
+                    <li>Board addition of Deborah Di Sanzo (digital/AI expert) signals elevated digital priority at governance level</li>
+                </ul>
+
+                <div class="info-box yellow">
+                    <strong>Do Not Contact Directly.</strong> Reference executive priorities in outreach to operational decision-makers to demonstrate understanding of strategic context.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                
+                <ul class="styled-list">
+                    <li><strong>Surgical division contacts</strong> - different business, different needs, different budget</li>
+                    <li><strong>Manufacturing/operations</strong> without digital responsibility</li>
+                    <li><strong>Regional roles below Director level</strong> - limited decision-making authority</li>
+                    <li><strong>Clinical/medical affairs</strong> - not commercial decision-makers</li>
+                    <li><strong>IT/Technical roles</strong> - unless specifically focused on e-commerce platforms</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tab 5: Draft Email Sequences -->
+        <section id="emails" class="tab-content">
+            <div class="email-disclaimer">
+                <strong>⚠️ Important:</strong> These emails are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Verify all facts, titles, and recent events before outreach.
+            </div>
+
+            <div class="card">
+                <h2>Nationality-Based Tone Guidance</h2>
+                
+                <div class="tone-guidance">
+                    <div class="tone-card">
+                        <h4>🇺🇸 American (Kevin Yapp)</h4>
+                        <p>Direct, results-focused, less formal. Get to the point quickly. Lead with business impact.</p>
+                    </div>
+                    <div class="tone-card">
+                        <h4>🇩🇰 Danish (Anders Hansen)</h4>
+                        <p>Professional but warmer, relationship-building. Directness with warmth. Build credibility first.</p>
+                    </div>
+                    <div class="tone-card">
+                        <h4>🇨🇭 Swiss (Carl Lindberg)</h4>
+                        <p>More formal, structured, precise. Avoid casual language. Use "Dear" not "Hi".</p>
+                    </div>
+                    <div class="tone-card">
+                        <h4>🇮🇹 Italian (Valentina Soldavini)</h4>
+                        <p>Relationship-building, warmer, sophisticated language. Build rapport while maintaining professionalism.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kevin Yapp Email Sequence -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <h3>Kevin Yapp - Global Head, Omni-Channel Transformation</h3>
+                    <p>🇺🇸 American | Dallas/Fort Worth | Cold - New decision-maker since lapse</p>
+                </div>
+
+                <div class="email-tabs">
+                    <div class="email-tab active" data-email="kevin-1">
+                        <span class="email-tab-number">1</span>
+                        Digital Transformation
+                    </div>
+                    <div class="email-tab" data-email="kevin-2">
+                        <span class="email-tab-number">2</span>
+                        Industry Shift
+                    </div>
+                    <div class="email-tab" data-email="kevin-3">
+                        <span class="email-tab-number">3</span>
+                        Product Complexity
+                    </div>
+                </div>
+
+                <div id="kevin-1" class="email-tab-content active">
+                    <div class="email-meta">
+                        <span>📧 Subject: Alcon's omni-channel work</span>
+                        <span>⏰ Send: Tuesday or Wednesday, 8:00-9:00 AM CT</span>
+                    </div>
+                    <div class="email-content">Hi Kevin,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for healthcare and pharmaceutical brands, helping them monitor how products appear and perform across online retailers.
+
+Alcon worked with us a few years back on Vision Care, but that was before your role existed and before the commercetools adoption you've been leading. Given the investment in omni-channel infrastructure, I'm curious whether there's appetite to revisit how you track product performance across the retail partners that account for the growing share of Vision Care sales.
+
+Contact lenses in particular seem to have shifted substantially toward online purchasing - and with no direct-to-consumer channel, Alcon's dependence on retail partners to represent products accurately is higher than most.
+
+I'd be interested to understand how you're currently approaching this - whether you have line of sight into things like availability, content accuracy, and search rankings across the optical specialists, pharmacy chains, and marketplaces carrying Dailies, Precision1, and Systane.
+
+No assumptions on my end about whether this is a gap - just curious given the transformation work underway.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <div class="email-note customisation">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify Kevin's current title on LinkedIn before sending</li>
+                                <li>Check if commercetools work is still active/relevant</li>
+                                <li>If any public statements from Kevin about digital priorities, reference those instead of generic "transformation work"</li>
+                            </ul>
+                        </div>
+                        <div class="email-note strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>New decision-maker at a lapsed account. Acknowledge previous relationship briefly but position as fresh conversation given his new role. Hook is investment in omni-channel infrastructure and strategic question of whether that extends to retail visibility. Direct approach appropriate for American contact.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="kevin-2" class="email-tab-content">
+                    <div class="email-meta">
+                        <span>📧 Subject: Re: Alcon's omni-channel work</span>
+                        <span>⏰ Send: Monday or Tuesday, 8:00-9:00 AM CT (5-7 days after Email 1)</span>
+                    </div>
+                    <div class="email-content">Hi Kevin,
+
+Following up on my previous note.
+
+One thing we've been tracking across healthcare brands is how quickly the channel mix has shifted for consumer products sold through pharmacies and optical retailers. The industry data suggests around 40% of contact lens purchases now happen online - through everyone from Amazon to specialist platforms like 1-800 Contacts and Vision Direct.
+
+For brands without a direct-to-consumer channel, that creates an interesting challenge: you're dependent on these retailers not just for distribution, but for how your products are represented - whether the content is accurate, whether pricing is consistent, whether products are actually in stock when someone searches for them.
+
+We've written about the specific challenges pharmaceutical and healthcare brands face on the digital shelf - happy to share if useful: https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics
+
+Curious whether this resonates with what you're seeing at Alcon, or whether it's something the team already has covered.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <div class="email-note customisation">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>The "40%" figure is from research - can be stated as industry trend</li>
+                                <li>If any public Alcon statements about e-commerce growth, reference those</li>
+                                <li>Could mention specific retailers relevant to US market (1-800 Contacts, Walmart Contacts, Amazon)</li>
+                            </ul>
+                        </div>
+                        <div class="email-note strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>Adds genuine new value - industry context about channel shift and what that means for brands dependent on retail partners. Content link positioned as "if useful" rather than required reading. Ends with curiosity rather than pressure.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="kevin-3" class="email-tab-content">
+                    <div class="email-meta">
+                        <span>📧 Subject: Re: Alcon's omni-channel work</span>
+                        <span>⏰ Send: Tuesday or Wednesday, 8:00-9:00 AM CT (5-7 days after Email 2)</span>
+                    </div>
+                    <div class="email-content">Hi Kevin,
+
+Alcon's product portfolio in Vision Care spans quite a range - from Dailies and Air Optix to the newer PRECISION7 weekly lens, plus the eye drops portfolio with Systane and Pataday. Each of those has different pricing tiers, different retailer distribution, and different content requirements.
+
+The complexity multiplies when you add in the geographic spread - different retailers in the US, UK, Germany, Nordic markets. And then the optical chains in the UK that rebrand your lenses under their own labels (Boots, Specsavers) add another layer.
+
+I'm curious how the team currently keeps track of this across markets. Is there a centralised view of how products are appearing and performing across these retailers, or is it largely managed market-by-market?
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <div class="email-note customisation">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify PRECISION7 is still the newest lens launch</li>
+                                <li>The UK rebranding point is specific to Alcon's situation - keep it</li>
+                                <li>Could add specific market examples if we know more about Kevin's priorities</li>
+                            </ul>
+                        </div>
+                        <div class="email-note strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>Adds genuinely new angle - product portfolio complexity across markets. Demonstrates deeper research and understanding of Alcon's specific situation (UK private label point is not generic). Ends with curiosity about their current approach.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anders Hansen Email Sequence -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <h3>Anders Hansen - Strategic Key Account Director, Nordic</h3>
+                    <p>🇩🇰 Danish | Denmark | Warm - Same team as known contact Matilde Rebori</p>
+                </div>
+
+                <div class="email-tabs">
+                    <div class="email-tab active" data-email="anders-1">
+                        <span class="email-tab-number">1</span>
+                        Nordic E-commerce
+                    </div>
+                    <div class="email-tab" data-email="anders-2">
+                        <span class="email-tab-number">2</span>
+                        Platform Evolution
+                    </div>
+                    <div class="email-tab" data-email="anders-3">
+                        <span class="email-tab-number">3</span>
+                        Competitive Landscape
+                    </div>
+                </div>
+
+                <div id="anders-1" class="email-tab-content active">
+                    <div class="email-meta">
+                        <span>📧 Subject: Vision Care e-commerce in the Nordics</span>
+                        <span>⏰ Send: Tuesday or Wednesday, 9:00-10:00 AM CET</span>
+                    </div>
+                    <div class="email-content">Hi Anders,
+
+I'm [SENDER NAME] from eStore - we work with healthcare and pharmaceutical brands on digital shelf analytics, helping them track how products appear and perform across online retailers.
+
+Alcon worked with us a few years back on Vision Care - I believe Matilde Rebori on your team was involved at the time. Since then, both the market and our platform have evolved quite a bit.
+
+Given your e-commerce responsibility in the Nordics, I'm curious how you currently track product performance across the online retailers carrying Alcon's contact lens and eye care portfolio. I'm thinking about things like availability, content accuracy, pricing consistency, and how products rank when people search for dry eye drops or daily lenses.
+
+The Nordic market has some interesting dynamics - a mix of international platforms and strong local optical specialists. I'd be curious to hear whether this is an area where you see gaps, or whether the current approach covers it well.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <div class="email-note customisation">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify Matilde Rebori is still on Anders' team before referencing</li>
+                                <li>If we have specific details from previous engagement, reference them</li>
+                                <li>Could mention specific Nordic retailers if known (Mister Spex, Lensbest operate in region)</li>
+                            </ul>
+                        </div>
+                        <div class="email-note strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>Warm approach through connection to Matilde. Acknowledge previous relationship and position eStore's evolution since then. Hook is his direct P&L responsibility for e-commerce - digital shelf analytics ties directly to his revenue accountability.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="anders-2" class="email-tab-content">
+                    <div class="email-meta">
+                        <span>📧 Subject: Re: Vision Care e-commerce in the Nordics</span>
+                        <span>⏰ Send: Monday or Tuesday, 9:00-10:00 AM CET (5-7 days after Email 1)</span>
+                    </div>
+                    <div class="email-content">Hi Anders,
+
+Following up on my previous note.
+
+Since Alcon last worked with us, eStore has invested heavily in making the platform more actionable - moving beyond just providing data to helping teams know exactly what to do next. The focus now is on prioritised recommendations rather than dashboards that require interpretation.
+
+For a brand like Alcon, with products across pharmacy chains, optical specialists, and marketplaces, the challenge often isn't getting data - it's knowing which issues matter most and where to focus limited time.
+
+We've pulled together our thinking on the specific challenges healthcare brands face on the digital shelf - things like regulatory compliance for product content, prescription product complexity, and the fragmented retail landscape. Happy to share if useful: https://estorebrands.com/pharma-healthcare
+
+I'd be interested to understand whether actionability is a gap you're experiencing with whatever you're using today - or whether the team has this covered.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <div class="email-note customisation">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>The platform evolution messaging is appropriate for re-engagement</li>
+                                <li>Could mention specific capabilities (AI Business Answers, Top Actions) if relevant</li>
+                                <li>If we know what they used post-eStore, acknowledge that</li>
+                            </ul>
+                        </div>
+                        <div class="email-note strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>Focuses on what's changed at eStore since they left - the shift toward actionability. This is the legitimate "innovation" angle for re-engagement. Content link is sector landing page, positioned naturally as "our thinking" rather than sales collateral.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="anders-3" class="email-tab-content">
+                    <div class="email-meta">
+                        <span>📧 Subject: Re: Vision Care e-commerce in the Nordics</span>
+                        <span>⏰ Send: Tuesday or Wednesday, 9:00-10:00 AM CET (5-7 days after Email 2)</span>
+                    </div>
+                    <div class="email-content">Hi Anders,
+
+Alcon competes with Johnson & Johnson Vision and CooperVision for shelf space in the contact lens category. On the digital shelf, that competition plays out in search rankings, content quality, and promotional visibility - not just on Amazon, but across the optical specialists and pharmacy platforms.
+
+I'm curious whether you have a sense of how Alcon's products compare to competitors on these platforms. Can you see, for example, whether Dailies Total1 is ranking above or below Acuvue Oasys when someone searches for daily contact lenses on a given retailer? Or whether your product content is as complete as CooperVision's?
+
+Competitive intelligence on the digital shelf is one of the areas where our platform has improved substantially. If that's relevant to how you're thinking about the Nordic market, I'd be interested to explore further. If not, I appreciate you reading this far.
+
+Best,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <div class="email-note customisation">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify J&J and CooperVision are still primary competitors</li>
+                                <li>Could mention specific products if research suggests particular competitive battles</li>
+                                <li>The "reading this far" close is human without being a graceful exit</li>
+                            </ul>
+                        </div>
+                        <div class="email-note strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>Introduces competitive intelligence angle - genuinely new value. Names specific competitors and products to demonstrate depth of understanding. Ends with curiosity about relevance rather than a meeting push or exit offer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carl Lindberg Email Sequence -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <h3>Carl Lindberg - Key Account Manager Europe - Vision Care</h3>
+                    <p>🇨🇭 Swiss | Switzerland (near Geneva HQ) | Cold</p>
+                </div>
+
+                <div class="email-tabs">
+                    <div class="email-tab active" data-email="carl-1">
+                        <span class="email-tab-number">1</span>
+                        European Key Account
+                    </div>
+                    <div class="email-tab" data-email="carl-2">
+                        <span class="email-tab-number">2</span>
+                        Retailer Complexity
+                    </div>
+                    <div class="email-tab" data-email="carl-3">
+                        <span class="email-tab-number">3</span>
+                        Content Accuracy
+                    </div>
+                </div>
+
+                <div id="carl-1" class="email-tab-content active">
+                    <div class="email-meta">
+                        <span>📧 Subject: Vision Care retail performance across Europe</span>
+                        <span>⏰ Send: Tuesday or Wednesday, 9:00-10:00 AM CET</span>
+                    </div>
+                    <div class="email-content">Dear Carl,
+
+My name is [SENDER NAME] and I work at eStore, a digital shelf analytics provider for pharmaceutical and healthcare brands. We help companies monitor how their products appear and perform across online retailers - tracking things like availability, content accuracy, pricing, and search rankings.
+
+Alcon worked with us a few years ago on Vision Care, though that predates your current role. Given your responsibility for European key accounts with an e-commerce focus, I wanted to understand how you currently approach product performance tracking across the retailers carrying Alcon's portfolio.
+
+Vision Care products appear across a range of retail environments in Europe - from Amazon and pharmacy chains to specialist optical platforms and the larger optical retailers who rebrand your lenses under their own labels. Each presents different challenges for maintaining consistent product representation.
+
+I would be interested to understand whether this is an area where you see gaps, or whether the current approach meets your needs.
+
+Kind regards,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <div class="email-note customisation">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify Carl's title and scope on LinkedIn</li>
+                                <li>Check if he covers specific markets (DACH, Benelux, Southern Europe)</li>
+                                <li>More formal salutation and sign-off appropriate for Swiss contact</li>
+                            </ul>
+                        </div>
+                        <div class="email-note strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>More formal approach for Swiss contact. Clear eStore introduction as this is cold outreach despite Alcon being a lapsed client. Hook is his European key account responsibility and complexity of retail environments across the continent.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="carl-2" class="email-tab-content">
+                    <div class="email-meta">
+                        <span>📧 Subject: Re: Vision Care retail performance across Europe</span>
+                        <span>⏰ Send: Monday or Tuesday, 9:00-10:00 AM CET (5-7 days after Email 1)</span>
+                    </div>
+                    <div class="email-content">Dear Carl,
+
+I wanted to follow up on my previous message.
+
+One challenge we consistently hear from European healthcare brands is the fragmentation of their retail landscape. In Vision Care, Alcon's products might appear on Vision Direct in the UK, Mister Spex in Germany, pharmacy platforms like Boots and Walgreens equivalents, and Amazon across multiple marketplaces - each with different content requirements, different search algorithms, and different competitive dynamics.
+
+For key account managers, this creates a practical challenge: understanding whether each retailer is representing your products correctly, whether they are in stock, and how they compare to competitors on that specific platform.
+
+We have documented our approach to these challenges for pharmaceutical and healthcare brands: https://estorebrands.com/pharma-healthcare
+
+I would be interested to know whether this resonates with your experience, or whether the European markets you cover have this well in hand.
+
+Kind regards,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <div class="email-note customisation">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Adjust retailer examples based on Carl's specific markets if known</li>
+                                <li>The fragmentation point is specific to European healthcare distribution</li>
+                                <li>Content link positioned as reference material</li>
+                            </ul>
+                        </div>
+                        <div class="email-note strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>Adds genuine value by articulating specific challenge of European retail fragmentation. Uses concrete retailer examples relevant to Vision Care distribution. Maintains formal tone appropriate for Swiss contact.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="carl-3" class="email-tab-content">
+                    <div class="email-meta">
+                        <span>📧 Subject: Re: Vision Care retail performance across Europe</span>
+                        <span>⏰ Send: Tuesday or Wednesday, 9:00-10:00 AM CET (5-7 days after Email 2)</span>
+                    </div>
+                    <div class="email-content">Dear Carl,
+
+Contact lenses are regulated medical devices, which means the product content on retailer websites needs to be accurate - specifications, wearing schedules, replacement frequencies, and care instructions. When this content is incorrect or incomplete, it creates both compliance risk and customer confusion.
+
+The challenge is compounded when your products are rebranded by optical chains under their own labels. In the UK, for example, Boots and Specsavers sell Alcon lenses under house brands. Tracking whether the underlying product information remains accurate becomes more complex.
+
+I am curious whether content accuracy across European retailers is something you currently monitor systematically, or whether it tends to be addressed reactively when issues are flagged by the sales team or retailers themselves.
+
+Kind regards,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <div class="email-note customisation">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>The UK rebranding example is specific to Alcon's situation</li>
+                                <li>Could mention specific compliance requirements if known</li>
+                                <li>Verify Boots and Specsavers still carry Alcon under house brands</li>
+                            </ul>
+                        </div>
+                        <div class="email-note strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>Introduces genuinely new angle - content accuracy and compliance for regulated medical devices. Specific to healthcare and demonstrates understanding of Alcon's category challenges. Private label complexity shows deep research.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Valentina Soldavini Email Sequence -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <h3>Valentina Soldavini - Area Marketing Director Europe - Vision Care</h3>
+                    <p>🇮🇹 Italian | Milan, Italy | Cold</p>
+                </div>
+
+                <div class="email-tabs">
+                    <div class="email-tab active" data-email="valentina-1">
+                        <span class="email-tab-number">1</span>
+                        Marketing Effectiveness
+                    </div>
+                    <div class="email-tab" data-email="valentina-2">
+                        <span class="email-tab-number">2</span>
+                        Competitive Intelligence
+                    </div>
+                    <div class="email-tab" data-email="valentina-3">
+                        <span class="email-tab-number">3</span>
+                        Brand Consistency
+                    </div>
+                </div>
+
+                <div id="valentina-1" class="email-tab-content active">
+                    <div class="email-meta">
+                        <span>📧 Subject: Vision Care marketing effectiveness across retailers</span>
+                        <span>⏰ Send: Tuesday or Wednesday, 10:00-11:00 AM CET</span>
+                    </div>
+                    <div class="email-content">Dear Valentina,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for healthcare and pharmaceutical brands, helping them understand how products appear and perform across online retailers.
+
+Alcon worked with us a few years ago on Vision Care. Since then, both the e-commerce landscape and our platform have changed considerably. I understand Maria Fernanda Rodriguez in your Trade Marketing team was involved previously, though I'm not certain of the current situation.
+
+Given your marketing leadership for Vision Care across Europe, I'm curious how you currently measure the effectiveness of marketing investments once they reach the digital shelf. I'm thinking about things like whether promotional content is appearing correctly, whether products are ranking well when consumers search, and whether the brand presentation is consistent across retailers.
+
+These questions seem increasingly relevant as more contact lens and eye care purchases move online. I would be interested to understand whether this is an area where you see room for improvement, or whether the current approach serves you well.
+
+Best regards,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <div class="email-note customisation">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify Maria Fernanda Rodriguez is still on her team before referencing</li>
+                                <li>Check if Valentina has public statements about digital marketing priorities</li>
+                                <li>Could reference specific European markets she focuses on</li>
+                            </ul>
+                        </div>
+                        <div class="email-note strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>Warmer tone for Italian contact while maintaining professionalism. Hook is marketing effectiveness measurement - tying digital shelf analytics to marketing ROI. Acknowledges previous relationship through Trade Marketing connection without being presumptuous about current status.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="valentina-2" class="email-tab-content">
+                    <div class="email-meta">
+                        <span>📧 Subject: Re: Vision Care marketing effectiveness across retailers</span>
+                        <span>⏰ Send: Monday or Tuesday, 10:00-11:00 AM CET (5-7 days after Email 1)</span>
+                    </div>
+                    <div class="email-content">Dear Valentina,
+
+Following up on my previous message.
+
+One area we've seen increasing interest from marketing leaders is competitive intelligence on the digital shelf. For Vision Care, this means understanding how Alcon's products compare to Johnson & Johnson Vision, CooperVision, and Bausch + Lomb across key retailers - not just in terms of pricing, but in search rankings, content quality, and share of search.
+
+When someone searches for "dry eye drops" on Amazon or Boots, where does Systane appear relative to competitors? When they search for "daily contact lenses," is Dailies Total1 above or below Acuvue Oasys? These are the digital equivalents of shelf placement in physical retail.
+
+We have documented our thinking on the specific challenges facing pharmaceutical and healthcare brands in this area. I am happy to share if useful: https://estorebrands.com/pharma-healthcare
+
+I would be interested to know whether competitive positioning on the digital shelf is something you track systematically today, or whether it tends to be more ad hoc.
+
+Best regards,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <div class="email-note customisation">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify competitive brands are still accurate</li>
+                                <li>Could mention specific European retailers relevant to her markets</li>
+                                <li>The "share of search" concept connects to marketing budget allocation</li>
+                            </ul>
+                        </div>
+                        <div class="email-note strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>Introduces competitive intelligence - a marketing-relevant angle. Uses specific product and competitor examples to demonstrate understanding. Content link positioned naturally as "our thinking" to share.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="valentina-3" class="email-tab-content">
+                    <div class="email-meta">
+                        <span>📧 Subject: Re: Vision Care marketing effectiveness across retailers</span>
+                        <span>⏰ Send: Tuesday or Wednesday, 10:00-11:00 AM CET (5-7 days after Email 2)</span>
+                    </div>
+                    <div class="email-content">Dear Valentina,
+
+Marketing teams invest significantly in brand assets - product imagery, descriptions, benefit claims - but the execution of those assets often varies substantially across retailers. What appears on Amazon UK may differ from Amazon Germany, which differs again from Vision Direct or Mister Spex.
+
+For a premium brand like Dailies Total1 or Systane, consistency matters. And the complexity increases when you factor in the UK optical chains that sell your lenses under their own labels - ensuring the underlying product is represented accurately while respecting the retailer's branding.
+
+I'm curious whether maintaining brand consistency across European retailers is something you're able to monitor systematically, or whether it tends to surface opportunistically when someone notices an issue.
+
+This is an area where our platform has improved substantially since Alcon last worked with us. If it's relevant, I would be happy to explore further. If brand consistency across retailers isn't a priority right now, I understand - I appreciate you taking the time to read these messages.
+
+Best regards,
+[SENDER NAME]</div>
+                    <div class="email-notes">
+                        <div class="email-note customisation">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Could reference specific brand assets or campaigns if publicly visible</li>
+                                <li>The UK private label complexity is specific to Alcon</li>
+                                <li>Adjust retailer examples based on her specific markets</li>
+                            </ul>
+                        </div>
+                        <div class="email-note strategy">
+                            <h5>Strategy Notes</h5>
+                            <p>Introduces brand consistency - directly relevant to marketing leadership. Private label complexity shows understanding of Alcon's specific situation. Ends warmly while leaving door open for future engagement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Contact Approach Summary</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Nationality</th>
+                            <th>Tone</th>
+                            <th>Primary Hook</th>
+                            <th>Content Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Kevin Yapp</td>
+                            <td>🇺🇸 American</td>
+                            <td>Direct, results-focused</td>
+                            <td>Digital transformation / commercetools</td>
+                            <td>Email 2</td>
+                        </tr>
+                        <tr>
+                            <td>Anders Hansen</td>
+                            <td>🇩🇰 Danish</td>
+                            <td>Professional, warm</td>
+                            <td>Nordic e-commerce P&L, platform evolution</td>
+                            <td>Email 2</td>
+                        </tr>
+                        <tr>
+                            <td>Carl Lindberg</td>
+                            <td>🇨🇭 Swiss</td>
+                            <td>Formal, precise</td>
+                            <td>European key account complexity</td>
+                            <td>Email 2</td>
+                        </tr>
+                        <tr>
+                            <td>Valentina Soldavini</td>
+                            <td>🇮🇹 Italian</td>
+                            <td>Relationship-building, warm</td>
+                            <td>Marketing effectiveness, competitive intelligence</td>
+                            <td>Email 2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Tab 6: Objection Handling -->
+        <section id="objections" class="tab-content">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                
+                <div class="info-box green">
+                    <strong>Overall Assessment: MODERATE-STRONG FIT</strong><br>
+                    Proceed with outreach via new decision-makers. Acknowledge previous relationship as credibility signal but position as fresh engagement given organisational changes.
+                </div>
+
+                <h3>Go/No-Go Criteria</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Criteria</th>
+                            <th>Status</th>
+                            <th>Recommendation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Distribution Complexity</td>
+                            <td><span class="badge green">✓ HIGH</span></td>
+                            <td>Proceed - clear value proposition</td>
+                        </tr>
+                        <tr>
+                            <td>DSA Incumbent</td>
+                            <td><span class="badge green">✓ NONE</span></td>
+                            <td>Proceed - greenfield opportunity</td>
+                        </tr>
+                        <tr>
+                            <td>Sector Alignment</td>
+                            <td><span class="badge green">✓ STRONG</span></td>
+                            <td>Proceed - pharma/healthcare is proven sector</td>
+                        </tr>
+                        <tr>
+                            <td>Strategic Timing</td>
+                            <td><span class="badge green">✓ EXCELLENT</span></td>
+                            <td>Proceed - new leadership with digital mandate</td>
+                        </tr>
+                        <tr>
+                            <td>Relationship History</td>
+                            <td><span class="badge yellow">⚠ LAPSED</span></td>
+                            <td>Proceed with caution - investigate why relationship ended</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Recommended Next Steps</h3>
+                <ol style="padding-left: 1.5rem; margin: 1rem 0;">
+                    <li style="margin-bottom: 0.5rem;"><strong>Before outreach:</strong> Check HubSpot/internal records for why relationship ended in 2023</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Primary approach:</strong> Kevin Yapp (Global) - new decision-maker, owns digital transformation</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>European approach:</strong> Anders Hansen (Nordic) - operational decision-maker with warm connection</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Parallel track:</strong> Carl Lindberg (Europe) and Valentina Soldavini (Marketing) for broader coverage</li>
+                    <li style="margin-bottom: 0.5rem;"><strong>Win-back frame:</strong> "A lot has changed since 2023" - both at Alcon and at eStore</li>
+                </ol>
+            </div>
+
+            <div class="card">
+                <h2>Common Objections & Responses</h2>
+                <p>Click each objection to expand the recommended response:</p>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"We used eStore before and stopped - why would we come back?"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h5>Recommended Response</h5>
+                            <p>That's a fair question, and I appreciate you being direct about it. You're right that Alcon worked with us a few years back. I'd be genuinely curious to understand what led to that decision - there may have been legitimate gaps at the time.</p>
+                            <p>What I can say is that both the platform and the team have evolved substantially since then. The biggest shift has been from providing data to providing actionable recommendations - knowing exactly what to prioritise rather than interpreting dashboards. We've also invested heavily in healthcare-specific capabilities.</p>
+                            <p>But more importantly, your organisation has changed too - new leadership with explicit digital mandates, the commercetools adoption, the growing share of sales happening online. The question isn't whether the 2022 engagement worked out, but whether the current situation warrants a fresh look.</p>
+                        </div>
+                        <h5>Evidence & Reframe</h5>
+                        <ul class="styled-list">
+                            <li>Platform evolution: AI Business Answers, Content Benchmark, actionability focus</li>
+                            <li>Alcon changes: Julie Brewer appointment, commercetools, 39% online sales</li>
+                            <li>Frame as mutual evolution, not eStore making excuses</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"We already have analytics tools - we use SAP and Tableau"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h5>Recommended Response</h5>
+                            <p>That makes sense - SAP and Tableau are strong for internal data analysis. The gap they typically leave is external visibility: what's actually happening on retailer websites, not what retailers are reporting to you.</p>
+                            <p>For example, is the product content on Vision Direct accurate right now? Where do your products rank when someone searches for "daily contact lenses" on Amazon UK? Are your Boots private label lenses represented correctly? These are things your internal systems can't see because they're happening in the retailer's environment.</p>
+                            <p>Digital shelf analytics complements your existing stack - it provides the external data that feeds into your decision-making processes.</p>
+                        </div>
+                        <h5>Key Distinction</h5>
+                        <ul class="styled-list">
+                            <li>SAP = internal operations and supply chain</li>
+                            <li>Tableau = visualising data you already have</li>
+                            <li>eStore = capturing external data you don't have (retailer websites, search rankings, competitor activity)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"Our focus is surgical - Vision Care is secondary"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h5>Recommended Response</h5>
+                            <p>I understand surgical is the larger business by revenue. That's actually why we're focused specifically on Vision Care - it's where digital shelf analytics provides clear value.</p>
+                            <p>Surgical products are sold through professional channels to hospitals and clinics. But Vision Care products - your contact lenses and eye drops - are sold through consumer retail channels. They compete for shelf space on Amazon, Boots, CVS. That's where understanding the digital shelf matters.</p>
+                            <p>With 39% of contact lens sales now happening online, and Systane being the #1 dry eye brand, there's significant revenue flowing through channels where visibility is increasingly important.</p>
+                        </div>
+                        <h5>Reframe</h5>
+                        <ul class="styled-list">
+                            <li>We're not trying to sell DSA for surgical - different business model entirely</li>
+                            <li>Vision Care may be 44% of revenue but it's consumer-facing and retail-dependent</li>
+                            <li>$4.4B in Vision Care with growing e-commerce share = material opportunity</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"How many of our retailers can you actually monitor?"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h5>Recommended Response</h5>
+                            <p>Good question - and one we'd want to answer specifically for your priority retailers. Our strongest coverage is across European retailers (UK, Germany, France, Nordics) and major global platforms like Amazon.</p>
+                            <p>For Vision Care specifically, we cover the major optical specialists like Vision Direct and Mister Spex, pharmacy chains like Boots, and marketplaces across multiple geographies. Some smaller specialist optical retailers may require additional onboarding.</p>
+                            <p>Rather than claim comprehensive coverage, I'd prefer to map your priority retailers and give you an honest assessment of what we can monitor immediately versus what might take longer to set up. Shall we do that exercise?</p>
+                        </div>
+                        <h5>Honest Positioning</h5>
+                        <ul class="styled-list">
+                            <li>Lead with strength: UK, Germany, major marketplaces</li>
+                            <li>Acknowledge gaps: some specialist optical retailers may need onboarding</li>
+                            <li>Offer to do specific retailer mapping exercise</li>
+                            <li>Time-to-value: 4-8 weeks for core coverage, longer for specialists</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"We're US-focused - is eStore strong in the US?"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h5>Recommended Response</h5>
+                            <p>I want to be direct about this - our strongest coverage is in Europe. UK, Germany, France, Nordics are where we have the deepest retailer relationships and most comprehensive data.</p>
+                            <p>For US retailers, we cover the major platforms - Amazon US, Walmart, CVS, Walgreens, Target. But if your primary priority is US market optimisation, I'd want to have an honest conversation about whether we're the best fit or whether that would come as a second phase after European rollout.</p>
+                            <p>Given that Alcon's HQ is in Geneva and you have significant European operations, there might be value in starting where our coverage is strongest and expanding from there.</p>
+                        </div>
+                        <h5>Geographic Positioning</h5>
+                        <ul class="styled-list">
+                            <li>Be honest: Europe is our strength, US is secondary</li>
+                            <li>US coverage exists for major retailers but not comprehensive</li>
+                            <li>Frame as potential phased approach: Europe first, US second</li>
+                            <li>Alcon's European presence makes this a reasonable starting point</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"We manage relationships directly with our key retailers"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h5>Recommended Response</h5>
+                            <p>That's exactly what you should be doing - direct relationships with key retailers are essential. Digital shelf analytics doesn't replace that; it helps you have better conversations with those partners.</p>
+                            <p>When you sit down with Vision Direct or Amazon, do you have visibility into how your products are actually appearing on their site? Can you see whether the content they're displaying is accurate? Whether you're winning or losing search terms versus CooperVision?</p>
+                            <p>The data gives you something concrete to discuss: "We've noticed our Systane products aren't appearing in dry eye searches - can we work together on that?" It shifts conversations from anecdotal to evidence-based.</p>
+                        </div>
+                        <h5>Value Add to Relationships</h5>
+                        <ul class="styled-list">
+                            <li>DSA provides evidence for retailer conversations</li>
+                            <li>Shifts from "we think there's a problem" to "here's the data"</li>
+                            <li>Helps retailers see where they can improve too</li>
+                            <li>Makes joint business planning more concrete</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"What's the implementation timeline? We don't have bandwidth right now"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h5>Recommended Response</h5>
+                            <p>Implementation for digital shelf analytics is relatively light-touch compared to other enterprise tools. There's no integration with your systems required - we're monitoring external retailer sites, not connecting to your data infrastructure.</p>
+                            <p>For a brand like Alcon, initial setup typically takes 4-8 weeks: product catalogue mapping, retailer prioritisation, alert configuration, and user training. The ongoing effort is minimal - it's about consuming insights, not maintaining the platform.</p>
+                            <p>The question is really about when you'd want to start seeing the data. If there's a product launch coming up, or a budget cycle where you'd want competitive intelligence, working backward from that might help with timing.</p>
+                        </div>
+                        <h5>Implementation Reality</h5>
+                        <ul class="styled-list">
+                            <li>No integration required - we monitor external sites</li>
+                            <li>4-8 weeks for core setup, longer for specialist retailers</li>
+                            <li>Ongoing effort is consumption, not maintenance</li>
+                            <li>Work backward from business triggers (launches, reviews, budget cycles)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"Our contact lenses are prescription products - different buying journey"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h5>Recommended Response</h5>
+                            <p>You're right that contact lenses have a prescription requirement, which does create a different journey than typical consumer products. But that actually strengthens the case for digital shelf visibility in some ways.</p>
+                            <p>Once someone has their prescription, they're choosing where to buy - and 39% of them are now buying online. At that point, they're searching on 1-800 Contacts, Vision Direct, Amazon. Whether Dailies Total1 appears above or below Acuvue Oasys, whether the product information is complete, whether it's actually in stock - these things influence the purchase decision.</p>
+                            <p>The prescription creates the initial optometrist touchpoint. The digital shelf determines where they actually buy and whether they stay with your brand.</p>
+                        </div>
+                        <h5>Prescription Product Logic</h5>
+                        <ul class="styled-list">
+                            <li>Prescription creates initial brand choice at optometrist</li>
+                            <li>Repurchase happens through retail - increasingly online</li>
+                            <li>Digital shelf influences where and whether they repurchase your brand</li>
+                            <li>Easy switching to competitors (same prescription fits multiple brands)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"How do you handle private label products (Boots, Specsavers)?"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h5>Recommended Response</h5>
+                            <p>That's a specific challenge for Alcon in the UK market, and it's good that you're thinking about it. When Boots or Specsavers sell your lenses under their own labels, you need visibility into both the branded and private label versions.</p>
+                            <p>We can map those products in our system so you can track both. You'd see how your branded Dailies are performing alongside the Boots Opticians equivalent that's actually your lens with different packaging.</p>
+                            <p>The setup requires some product mapping work to identify which retailer brands correspond to which Alcon products, but once that's done, you have a complete picture.</p>
+                        </div>
+                        <h5>Private Label Approach</h5>
+                        <ul class="styled-list">
+                            <li>Requires product mapping exercise at setup</li>
+                            <li>Track branded and private label versions together</li>
+                            <li>See competitive dynamics between own-brand and retailer brands</li>
+                            <li>Ensures content accuracy for both versions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"We need to involve multiple markets/regions - that's complicated"</span>
+                        <span class="objection-toggle">▼</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-response">
+                            <h5>Recommended Response</h5>
+                            <p>Multi-market complexity is something we deal with regularly. There are a few ways to approach it:</p>
+                            <p>First, you could start with a single market pilot - perhaps UK or Nordics where you have clear ownership and existing relationships. Prove value, then expand.</p>
+                            <p>Alternatively, we could run a centralised pilot that covers multiple markets but reports into your global omni-channel function - Kevin Yapp's team, for example. That way regional teams get visibility without needing to drive procurement themselves.</p>
+                            <p>The important thing is finding the right entry point and champion. Multi-market rollout is easier once you have internal proof points.</p>
+                        </div>
+                        <h5>Multi-Market Options</h5>
+                        <ul class="styled-list">
+                            <li>Single market pilot → expand on success</li>
+                            <li>Centralised pilot with multi-market reporting</li>
+                            <li>Find the right internal champion (Kevin Yapp for global, Anders Hansen for Nordics)</li>
+                            <li>Build internal case studies before broader rollout</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                
+                <ul class="checklist">
+                    <li>Never dismiss the objection - acknowledge it as a legitimate concern</li>
+                    <li>Use evidence and specific examples rather than generic claims</li>
+                    <li>Be honest about limitations (geographic coverage, implementation timeline)</li>
+                    <li>Offer flexibility (pilots, phased approaches, specific retailer mapping)</li>
+                    <li>Ask questions to understand the root concern before responding</li>
+                    <li class="warning">For win-back: Address the elephant in the room (why they left) directly if it comes up</li>
+                    <li class="warning">Don't oversell - position eStore honestly as European-first with US capabilities</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Main Tab Navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Email Tabs within Sequences
+        document.querySelectorAll('.email-tabs').forEach(tabContainer => {
+            tabContainer.querySelectorAll('.email-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Get the parent email sequence
+                    const sequence = tab.closest('.email-sequence');
+                    
+                    // Remove active class from all tabs in this sequence
+                    sequence.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                    sequence.querySelectorAll('.email-tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    const contentId = tab.dataset.email;
+                    document.getElementById(contentId).classList.add('active');
+                });
+            });
+        });
+
+        // Objection Toggle
+        function toggleObjection(header) {
+            const card = header.parentElement;
+            card.classList.toggle('open');
+        }
+
+        // Auto-open first objection
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstObjection = document.querySelector('.objection-card');
+            if (firstObjection) {
+                firstObjection.classList.add('open');
+            }
+        });
+    </script>
+</body>
+</html>
