@@ -1,0 +1,2848 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geberit - eStore Action Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --estore-yellow: #ffba1c;
+            --estore-green: #22bb69;
+            --estore-light-blue: #68d7fa;
+            --estore-dark-blue: #1067db;
+            --estore-red: #f44f2f;
+            --estore-orange: #ff7a00;
+            --text-primary: #2c2c2c;
+            --text-secondary: #5a5a5a;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-light: #e1e5eb;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--estore-yellow);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .brand-info h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .brand-info .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .fit-badge.moderate {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe8a1 100%);
+            color: #856404;
+            border: 2px solid #ffc107;
+        }
+
+        .fit-badge .icon {
+            font-size: 1.2rem;
+        }
+
+        .header-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 12px;
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--estore-dark-blue);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            background: var(--bg-white);
+            padding: 12px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            background: var(--bg-light);
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background: var(--estore-dark-blue);
+            color: white;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            background: var(--bg-white);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 32px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--estore-yellow);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 24px 0 12px 0;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 16px;
+            border-left: 4px solid var(--estore-dark-blue);
+        }
+
+        .info-card.highlight {
+            border-left-color: var(--estore-yellow);
+            background: linear-gradient(135deg, #fffbf0 0%, #fff8e6 100%);
+        }
+
+        .info-card.positive {
+            border-left-color: var(--estore-green);
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+
+        .info-card.warning {
+            border-left-color: var(--estore-orange);
+            background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+        }
+
+        .info-card.negative {
+            border-left-color: var(--estore-red);
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+        }
+
+        .info-card h4 {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .info-card p, .info-card ul {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .info-card ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+
+        .info-card li {
+            margin-bottom: 4px;
+        }
+
+        /* Assessment Grid */
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .assessment-item {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            border: 1px solid var(--border-light);
+        }
+
+        .assessment-item h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .assessment-item .value {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .assessment-item .indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .indicator.positive { color: var(--estore-green); }
+        .indicator.warning { color: var(--estore-orange); }
+        .indicator.negative { color: var(--estore-red); }
+
+        /* Contact Cards */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-card.priority-1 { border-top: 4px solid var(--estore-dark-blue); }
+        .contact-card.priority-2 { border-top: 4px solid var(--estore-green); }
+        .contact-card.priority-3 { border-top: 4px solid var(--estore-light-blue); }
+        .contact-card.priority-4 { border-top: 4px solid var(--estore-orange); }
+        .contact-card.secondary { border-top: 4px solid var(--text-secondary); }
+        .contact-card.historical { border-top: 4px solid var(--estore-yellow); background: #fffbf0; }
+
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .contact-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .contact-title {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .nationality-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .nationality-badge.german {
+            background: #1a1a1a;
+            color: #ffd700;
+        }
+
+        .nationality-badge.british {
+            background: #012169;
+            color: white;
+        }
+
+        .nationality-badge.french {
+            background: linear-gradient(90deg, #002395 33%, white 33%, white 66%, #ed2939 66%);
+            color: #002395;
+            border: 1px solid #ccc;
+        }
+
+        .contact-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .contact-status.cold {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .contact-status.re-engagement {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .contact-status.historical {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+
+        .contact-details {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .contact-details h5 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .contact-details p {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .hook-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .hook-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .hook-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--estore-dark-blue);
+            font-weight: bold;
+        }
+
+        /* Email Sequences */
+        .email-disclaimer {
+            background: linear-gradient(135deg, #e8f4fd 0%, #d1e9fc 100%);
+            border: 2px solid var(--estore-dark-blue);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .email-disclaimer h4 {
+            color: var(--estore-dark-blue);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .email-disclaimer p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .tone-guidance {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .tone-guidance h4 {
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .tone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .tone-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            background: var(--bg-white);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .contact-selector {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .contact-tab {
+            padding: 10px 16px;
+            border: 2px solid var(--border-light);
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .contact-tab:hover {
+            border-color: var(--estore-dark-blue);
+        }
+
+        .contact-tab.active {
+            background: var(--estore-dark-blue);
+            border-color: var(--estore-dark-blue);
+            color: white;
+        }
+
+        .email-sequence {
+            display: none;
+        }
+
+        .email-sequence.active {
+            display: block;
+        }
+
+        .email-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .email-header {
+            background: var(--bg-light);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .email-number {
+            display: inline-block;
+            background: var(--estore-dark-blue);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .email-subject {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .email-timing {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .email-body {
+            padding: 20px;
+        }
+
+        .email-content {
+            background: #fafafa;
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            font-family: inherit;
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+        }
+
+        .email-notes {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .note-box {
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+        }
+
+        .note-box.customisation {
+            background: #e8f5e9;
+            border: 1px solid #a5d6a7;
+        }
+
+        .note-box.strategy {
+            background: #e3f2fd;
+            border: 1px solid #90caf9;
+        }
+
+        .note-box h5 {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .note-box.customisation h5 { color: #2e7d32; }
+        .note-box.strategy h5 { color: #1565c0; }
+
+        .note-box ul {
+            padding-left: 16px;
+            margin: 0;
+        }
+
+        .note-box li {
+            margin-bottom: 4px;
+            color: var(--text-secondary);
+        }
+
+        /* Objection Cards */
+        .objection-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .objection-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        .objection-header {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .objection-header:hover {
+            background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);
+        }
+
+        .objection-text {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .objection-toggle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            transition: transform 0.2s ease;
+        }
+
+        .objection-card.open .objection-toggle {
+            transform: rotate(180deg);
+        }
+
+        .objection-response {
+            display: none;
+            padding: 20px;
+            background: var(--bg-light);
+        }
+
+        .objection-card.open .objection-response {
+            display: block;
+        }
+
+        .response-section {
+            margin-bottom: 16px;
+        }
+
+        .response-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .response-section h5 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--estore-dark-blue);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .response-section p {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        /* Retailer Overview */
+        .retailer-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .retailer-stat {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+
+        .retailer-stat .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--estore-dark-blue);
+        }
+
+        .retailer-stat .label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .retailer-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .retailer-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--bg-light);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .retailer-item .flag {
+            font-size: 1.2rem;
+        }
+
+        .retailer-item .name {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .retailer-item .type {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        /* Decision Framework */
+        .decision-framework {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px solid var(--estore-light-blue);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .decision-framework h4 {
+            color: var(--estore-dark-blue);
+            margin-bottom: 16px;
+        }
+
+        .decision-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .decision-step .step-number {
+            width: 28px;
+            height: 28px;
+            background: var(--estore-dark-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .decision-step .step-content {
+            flex: 1;
+        }
+
+        .decision-step .step-content strong {
+            color: var(--text-primary);
+        }
+
+        .decision-step .step-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Content Links */
+        .content-links {
+            display: grid;
+            gap: 12px;
+        }
+
+        .content-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+            transition: all 0.2s ease;
+        }
+
+        .content-link:hover {
+            border-color: var(--estore-dark-blue);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .content-link .icon {
+            width: 40px;
+            height: 40px;
+            background: var(--estore-dark-blue);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .content-link .text {
+            flex: 1;
+        }
+
+        .content-link .text strong {
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .content-link .text span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Skip List */
+        .skip-list {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: var(--radius-md);
+            padding: 20px;
+        }
+
+        .skip-list h4 {
+            color: var(--estore-red);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skip-list ul {
+            padding-left: 20px;
+            color: var(--text-secondary);
+        }
+
+        .skip-list li {
+            margin-bottom: 4px;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .data-table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+
+        .data-table td {
+            font-size: 0.95rem;
+        }
+
+        .data-table tr:hover {
+            background: var(--bg-light);
+        }
+
+        /* Checklist */
+        .checklist {
+            display: grid;
+            gap: 8px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--bg-light);
+            border-radius: var(--radius-sm);
+        }
+
+        .checklist-item .icon {
+            font-size: 1.2rem;
+        }
+
+        .checklist-item.positive .icon { color: var(--estore-green); }
+        .checklist-item.warning .icon { color: var(--estore-orange); }
+        .checklist-item.negative .icon { color: var(--estore-red); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+
+            .header {
+                padding: 20px;
+            }
+
+            .brand-info h1 {
+                font-size: 1.5rem;
+            }
+
+            .tab-nav {
+                overflow-x: auto;
+            }
+
+            .tab-btn {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+
+            .tab-content {
+                padding: 20px;
+            }
+
+            .email-notes {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .container {
+                max-width: 100%;
+            }
+
+            .tab-nav {
+                display: none;
+            }
+
+            .tab-content {
+                display: block !important;
+                box-shadow: none;
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <div class="brand-info">
+                    <h1>Geberit AG</h1>
+                    <p class="subtitle">European Sanitary Technology & Building Products Leader</p>
+                </div>
+                <div class="fit-badge moderate">
+                    <span class="icon">🟡</span>
+                    <span>MODERATE FIT</span>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <div class="stat-value">CHF 3.1bn</div>
+                    <div class="stat-label">Revenue (2024)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">29.6%</div>
+                    <div class="stat-label">EBITDA Margin</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">~11,000</div>
+                    <div class="stat-label">Employees</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">60,000+</div>
+                    <div class="stat-label">SKUs</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">Greenfield</div>
+                    <div class="stat-label">DSA Status</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="strategic-fit">Strategic Fit Assessment</button>
+            <button class="tab-btn" data-tab="history">Our history with them</button>
+            <button class="tab-btn" data-tab="retailers">Retailer Overview</button>
+            <button class="tab-btn" data-tab="contacts">Key people?</button>
+            <button class="tab-btn" data-tab="emails">Draft Email Sequences</button>
+            <button class="tab-btn" data-tab="objections">Objection Handling</button>
+        </nav>
+
+        <!-- Tab 1: Strategic Fit Assessment -->
+        <div id="strategic-fit" class="tab-content active">
+            <div class="section">
+                <h2 class="section-title">Strategic Fit Assessment</h2>
+                
+                <div class="info-card highlight">
+                    <h4>Executive Summary</h4>
+                    <p>Geberit represents a greenfield DSA opportunity with active digital investment, but its B2B wholesale distribution model and imperfect sector alignment require adapted positioning. The 6+ years of prior outreach with no responses indicates standard DSA messaging has not resonated - a consultative, value-led approach is essential.</p>
+                </div>
+
+                <div class="assessment-grid">
+                    <div class="assessment-item">
+                        <h4>Distribution Complexity</h4>
+                        <div class="value">Three-Stage Wholesale Model</div>
+                        <div class="indicator warning">⚠️ B2B complexity requires adapted positioning</div>
+                    </div>
+                    <div class="assessment-item">
+                        <h4>Geographic Alignment</h4>
+                        <div class="value">85% Europe (Germany 29%, UK ~8%)</div>
+                        <div class="indicator positive">✓ Strong UK/Europe presence aligns with eStore</div>
+                    </div>
+                    <div class="assessment-item">
+                        <h4>DSA Provider Status</h4>
+                        <div class="value">None Confirmed (Greenfield)</div>
+                        <div class="indicator positive">✓ No incumbent to displace</div>
+                    </div>
+                    <div class="assessment-item">
+                        <h4>Sector Alignment</h4>
+                        <div class="value">Building Products / Home & Garden (closest)</div>
+                        <div class="indicator warning">⚠️ Imperfect fit - B2B primary channel</div>
+                    </div>
+                    <div class="assessment-item">
+                        <h4>Relationship History</h4>
+                        <div class="value">6+ Years Cold Outreach</div>
+                        <div class="indicator negative">✗ Standard messaging hasn't worked</div>
+                    </div>
+                    <div class="assessment-item">
+                        <h4>Market Dynamics</h4>
+                        <div class="value">New UK Leadership (July 2025)</div>
+                        <div class="indicator positive">✓ Transition window for fresh approach</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Distribution Complexity & Geographic Alignment</h3>
+                
+                <div class="info-card">
+                    <h4>Distribution Model</h4>
+                    <p><strong>Three-stage wholesale:</strong> Manufacturer → Wholesaler → Plumber/Installer → End Consumer</p>
+                    <ul>
+                        <li>Products primarily sold through trade wholesalers, not direct retail</li>
+                        <li>No direct-to-consumer sales</li>
+                        <li>Amazon present but not dominant channel</li>
+                        <li>Digital shelf has indirect commercial impact in B2B model</li>
+                    </ul>
+                </div>
+
+                <div class="info-card positive">
+                    <h4>European Presence</h4>
+                    <ul>
+                        <li><strong>Global HQ:</strong> Rapperswil-Jona, Switzerland</li>
+                        <li><strong>UK HQ:</strong> Geberit House, Warwick (~150 employees)</li>
+                        <li><strong>Germany:</strong> Pfullendorf (largest production facility)</li>
+                        <li>26 production facilities globally (22 in Europe)</li>
+                        <li>E-commerce/digital leadership centralised at Swiss HQ</li>
+                    </ul>
+                </div>
+
+                <div class="info-card warning">
+                    <h4>Critical Gaps</h4>
+                    <ul>
+                        <li>B2B model means digital shelf has indirect commercial impact</li>
+                        <li>No dedicated regional e-commerce teams</li>
+                        <li>Trade channel (wholesaler websites) may be more relevant than consumer retail</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Competitive Intelligence: DSA Provider Usage</h3>
+                
+                <div class="info-card positive">
+                    <h4>Status: GREENFIELD OPPORTUNITY</h4>
+                    <p><strong>Current DSA Provider:</strong> None confirmed (HIGH confidence)</p>
+                    <p>No mentions of Profitero, CommerceIQ, Syndigo, Salsify, mindsite, Brand Nudge, Edge by Ascential, Stackline, DataWeave, or e.fundamentals in any research. No LinkedIn job postings, press releases, or case studies indicating DSA partnerships.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Confirmed Technology Stack</h4>
+                    <ul>
+                        <li><strong>E-commerce Platform:</strong> commercetools (API-first commerce)</li>
+                        <li><strong>PIM System:</strong> Stibo Systems STEP</li>
+                        <li><strong>CMS:</strong> Crownpeak DXP</li>
+                        <li><strong>ERP/CRM:</strong> Microsoft Dynamics 365 (16 markets)</li>
+                        <li><strong>Cloud:</strong> AWS</li>
+                    </ul>
+                </div>
+
+                <div class="info-card warning">
+                    <h4>Switching Signals</h4>
+                    <p>None - no incumbent to displace. However, strong existing tech stack (commercetools + Stibo STEP) may satisfy current perceived needs and create "we're covered" objection.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Sector Alignment</h3>
+                
+                <table class="data-table">
+                    <tr>
+                        <th>Metric</th>
+                        <th>Assessment</th>
+                    </tr>
+                    <tr>
+                        <td>Primary Sector</td>
+                        <td>Building Products / Sanitary Technology</td>
+                    </tr>
+                    <tr>
+                        <td>GICS Classification</td>
+                        <td>Industrials → Building Products</td>
+                    </tr>
+                    <tr>
+                        <td>eStore Sector Alignment</td>
+                        <td>Home & Garden (closest fit, but imperfect)</td>
+                    </tr>
+                    <tr>
+                        <td>Alignment Strength</td>
+                        <td>🟡 MODERATE</td>
+                    </tr>
+                </table>
+
+                <div class="info-card positive">
+                    <h4>Arguments FOR Home & Garden Fit</h4>
+                    <ul>
+                        <li>Products used in residential settings (~60% renovation market)</li>
+                        <li>Bathroom fixtures are home improvement products</li>
+                        <li>Competes in DIY/home improvement channels (B&Q, Hornbach)</li>
+                        <li>End consumers purchase for renovations</li>
+                    </ul>
+                </div>
+
+                <div class="info-card warning">
+                    <h4>Arguments AGAINST</h4>
+                    <ul>
+                        <li>Primary B2B sales channel (wholesalers → trade professionals)</li>
+                        <li>GICS classifies as Industrials/Building Products, not Consumer Discretionary</li>
+                        <li>Core business is infrastructure ("behind-the-wall" systems)</li>
+                        <li>"Garden" element completely absent</li>
+                        <li>Primary customers are plumbers and installers, not consumers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Market Dynamics & Strategic Timing</h3>
+                
+                <div class="info-card positive">
+                    <h4>Recent Leadership Changes ⭐ KEY OPPORTUNITY</h4>
+                    <ul>
+                        <li><strong>Andy Lever</strong> → Managing Director UK & Ireland (July 2025) - NEW</li>
+                        <li><strong>Matthew Balnaves</strong> → National Sales Director UK & Ireland (January 2025) - NEW</li>
+                        <li>Both represent fresh decision-makers during transition window</li>
+                    </ul>
+                </div>
+
+                <div class="info-card positive">
+                    <h4>Digital Investment Signals</h4>
+                    <ul>
+                        <li>CHF 30 million additional digitalisation spending (2024)</li>
+                        <li>CHF 20 million additional IT/digitalisation spending (2025)</li>
+                        <li>CHF 20 million increase announced for 2026</li>
+                        <li>AI Competence Centre established (2024)</li>
+                        <li>commercetools + Stibo Systems implementation underway</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Competitive Pressure</h4>
+                    <ul>
+                        <li><strong>Villeroy & Boch</strong> acquired Ideal Standard (February 2024, €600m) - creates combined competitor</li>
+                        <li><strong>Grohe</strong> (Lixil Group) remains primary competitor in concealed cisterns/flush plates</li>
+                        <li>European building construction declining since mid-2022</li>
+                        <li>Renovation market (~60% of Geberit sales) showing recovery signs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Synthesis & Recommendation</h3>
+                
+                <div class="checklist">
+                    <div class="checklist-item positive">
+                        <span class="icon">✓</span>
+                        <span><strong>Greenfield DSA opportunity</strong> - No incumbent to displace</span>
+                    </div>
+                    <div class="checklist-item positive">
+                        <span class="icon">✓</span>
+                        <span><strong>Active digital investment</strong> - CHF 20-30m annually</span>
+                    </div>
+                    <div class="checklist-item positive">
+                        <span class="icon">✓</span>
+                        <span><strong>UK leadership transition</strong> - Creates window for fresh approach</span>
+                    </div>
+                    <div class="checklist-item positive">
+                        <span class="icon">✓</span>
+                        <span><strong>Premium, profitable company</strong> - CHF 3.1bn revenue, 29.6% EBITDA</span>
+                    </div>
+                    <div class="checklist-item warning">
+                        <span class="icon">⚠️</span>
+                        <span><strong>B2B wholesale model</strong> - Requires adapted DSA positioning</span>
+                    </div>
+                    <div class="checklist-item warning">
+                        <span class="icon">⚠️</span>
+                        <span><strong>6+ years prior outreach</strong> - Standard messaging hasn't worked</span>
+                    </div>
+                    <div class="checklist-item warning">
+                        <span class="icon">⚠️</span>
+                        <span><strong>Imperfect sector alignment</strong> - Home & Garden is closest but not exact</span>
+                    </div>
+                    <div class="checklist-item warning">
+                        <span class="icon">⚠️</span>
+                        <span><strong>Strong existing tech stack</strong> - May not perceive gap</span>
+                    </div>
+                </div>
+
+                <div class="info-card highlight" style="margin-top: 20px;">
+                    <h4>Recommended Approach: CONSULTATIVE / VALUE-LED</h4>
+                    <p><strong>Do NOT use standard DSA messaging</strong> (hasn't worked for 6 years). Instead:</p>
+                    <ul>
+                        <li>Lead with competitive intelligence (continue Geberit vs. Grohe angle)</li>
+                        <li>Target UK leadership transition (Andy Lever, Matthew Balnaves)</li>
+                        <li>Position for trade channel analytics, not consumer retail</li>
+                        <li>Demonstrate category expertise in Building Products/Sanitary</li>
+                    </ul>
+                </div>
+
+                <div class="info-card warning" style="margin-top: 16px;">
+                    <h4>Estimated Difficulty of Winning: MEDIUM-HIGH</h4>
+                    <ul>
+                        <li><strong>Time horizon:</strong> 12-18 months minimum</li>
+                        <li><strong>Primary barrier:</strong> B2B model limits perceived DSA ROI</li>
+                        <li><strong>Key success factor:</strong> Demonstrating value for wholesale channel visibility</li>
+                        <li><strong>Champion required:</strong> Kai Hildebrandt (HQ) or Matthew Balnaves (UK) most likely</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Our History With Them -->
+        <div id="history" class="tab-content">
+            <div class="section">
+                <h2 class="section-title">Our History With Them</h2>
+                
+                <div class="info-card negative">
+                    <h4>Relationship Status: COLD</h4>
+                    <p><strong>Duration:</strong> 6+ years of outreach (since 2019)</p>
+                    <p><strong>Primary Contact Owner:</strong> Michal Chadala</p>
+                    <p><strong>Response Rate:</strong> No visible responses - entirely one-way outbound</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Previous Conversations & Outcomes</h3>
+                
+                <table class="data-table">
+                    <tr>
+                        <th>Period</th>
+                        <th>Activity</th>
+                        <th>Outcome</th>
+                    </tr>
+                    <tr>
+                        <td>2019</td>
+                        <td>Internal note on Geberit Channel Manager role</td>
+                        <td>Research only</td>
+                    </tr>
+                    <tr>
+                        <td>Oct 2022-2023</td>
+                        <td>Multiple emails to David Holme, Kai Hildebrandt, Guillaume Leurent</td>
+                        <td>No response</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>Outbound calls to Kai Hildebrandt, Guillaume Leurent</td>
+                        <td>No answer, VM left</td>
+                    </tr>
+                    <tr>
+                        <td>Jan 2025</td>
+                        <td>Email to Lewis Dixon (digital analytics review)</td>
+                        <td>No response</td>
+                    </tr>
+                    <tr>
+                        <td>Jan 2026</td>
+                        <td>Emails to Daniel Marz (Geberit vs. Grohe analysis)</td>
+                        <td>No response (Daniel Marz may have left)</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Known Contacts & Their Stance</h3>
+                
+                <table class="data-table">
+                    <tr>
+                        <th>Contact</th>
+                        <th>Status</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Kai Hildebrandt</td>
+                        <td><span style="color: var(--estore-orange);">Unresponsive</span></td>
+                        <td>Multiple touches 2022-2024, no engagement</td>
+                    </tr>
+                    <tr>
+                        <td>David Holme</td>
+                        <td><span style="color: var(--estore-orange);">Unresponsive</span></td>
+                        <td>Multiple touches since 2022</td>
+                    </tr>
+                    <tr>
+                        <td>Guillaume Leurent</td>
+                        <td><span style="color: var(--estore-orange);">Unresponsive</span></td>
+                        <td>Multiple touches, calls attempted</td>
+                    </tr>
+                    <tr>
+                        <td>Lewis Dixon</td>
+                        <td><span style="color: var(--estore-orange);">Unresponsive</span></td>
+                        <td>Single touch Jan 2025</td>
+                    </tr>
+                    <tr>
+                        <td>Daniel Marz</td>
+                        <td><span style="color: var(--text-secondary);">Unknown</span></td>
+                        <td>Contacted Jan 2026; may have left company</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Themes Used in Prior Outreach</h3>
+                
+                <div class="info-card warning">
+                    <h4>Previously Used (DO NOT REPEAT)</h4>
+                    <ul>
+                        <li>Digital shelf analytics and framework</li>
+                        <li>Digital Price Index / eCommerce deflation</li>
+                        <li>Discovery calls for eStoreCheck</li>
+                        <li>Premium brand content tactics (sent 2023)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card positive">
+                    <h4>Most Promising Angle (CONTINUE)</h4>
+                    <p><strong>Geberit vs. Grohe competitive analysis</strong> - used in January 2026 outreach. This competitive intelligence angle is the most relevant direction and should be continued.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Competitive Intelligence</h3>
+                
+                <div class="info-card positive">
+                    <h4>DSA Provider Status: GREENFIELD</h4>
+                    <p><strong>Confidence Level:</strong> HIGH</p>
+                    <p>Extensive research across LinkedIn job postings, press releases, case studies, and technology partnerships found no evidence of DSA tool usage. No mentions of any major DSA providers.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Competitive Positioning Implications</h4>
+                    <ul>
+                        <li>No incumbent to displace = opportunity</li>
+                        <li>Strong existing tech stack = potential "we're covered" objection</li>
+                        <li>commercetools + Stibo STEP = product content infrastructure exists</li>
+                        <li>No DSA = potential blind spot for competitive visibility</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Internal Champion Status</h3>
+                
+                <div class="info-card warning">
+                    <h4>None Identified</h4>
+                    <p>No contact has shown interest or engagement. Best prospects for champion development:</p>
+                    <ol>
+                        <li><strong>Matthew Balnaves</strong> - New, commercial excellence background, analytical</li>
+                        <li><strong>Adam Ester</strong> - Stated desire to be "more analytical," not previously contacted</li>
+                        <li><strong>Kai Hildebrandt</strong> - Right role but hasn't engaged despite multiple attempts</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Content to Reference</h3>
+                
+                <div class="content-links">
+                    <a href="https://estorebrands.com/home-and-diy" class="content-link" target="_blank">
+                        <div class="icon">🏠</div>
+                        <div class="text">
+                            <strong>Home & Garden Sector Page</strong>
+                            <span>Primary sector landing page - position as "Brands in home improvement and building products"</span>
+                        </div>
+                    </a>
+                    <a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025" class="content-link" target="_blank">
+                        <div class="icon">📊</div>
+                        <div class="text">
+                            <strong>Digital Shelf Analytics for Home & DIY Brands 2025</strong>
+                            <span>Fresh content for Email 2 - NOT previously sent</span>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="info-card positive" style="margin-top: 16px;">
+                    <h4>Content DO Use</h4>
+                    <ul>
+                        <li>Fresh competitive intelligence (Geberit vs. Grohe analysis)</li>
+                        <li>Trade channel visibility angle (new positioning)</li>
+                        <li>UK market-specific insights</li>
+                        <li>AI/digital transformation alignment</li>
+                    </ul>
+                </div>
+
+                <div class="info-card negative">
+                    <h4>Content DO NOT Use</h4>
+                    <ul>
+                        <li>Previously sent content (Digital Shelf Framework, Premium Brand Tactics)</li>
+                        <li>Generic DSA messaging</li>
+                        <li>Standard CPG retail shelf positioning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Strategic Implications</h3>
+                
+                <div class="info-card highlight">
+                    <h4>Key Insight</h4>
+                    <p>Wide contact map exists but no internal champion identified. Standard DSA messaging has not broken through in 6+ years. A significantly differentiated approach is required, leading with competitive intelligence and targeting the new UK leadership during their transition window.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Retailer Overview -->
+        <div id="retailers" class="tab-content">
+            <div class="section">
+                <h2 class="section-title">Retailer Overview</h2>
+                
+                <div class="retailer-summary">
+                    <div class="retailer-stat">
+                        <div class="number">18-20</div>
+                        <div class="label">Online Retailers Identified</div>
+                    </div>
+                    <div class="retailer-stat">
+                        <div class="number">85%</div>
+                        <div class="label">European Distribution</div>
+                    </div>
+                    <div class="retailer-stat">
+                        <div class="number">11</div>
+                        <div class="label">UK Retailers</div>
+                    </div>
+                    <div class="retailer-stat">
+                        <div class="number">Multi-Channel</div>
+                        <div class="label">Distribution Model</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Geographic Breakdown</h3>
+                
+                <table class="data-table">
+                    <tr>
+                        <th>Region</th>
+                        <th>Share</th>
+                        <th>Key Markets</th>
+                    </tr>
+                    <tr>
+                        <td>Germany</td>
+                        <td>29%</td>
+                        <td>Largest single market</td>
+                    </tr>
+                    <tr>
+                        <td>Switzerland</td>
+                        <td>11%</td>
+                        <td>HQ location</td>
+                    </tr>
+                    <tr>
+                        <td>UK</td>
+                        <td>~8%</td>
+                        <td>Strong bathroom specialist presence</td>
+                    </tr>
+                    <tr>
+                        <td>Italy, Austria, Benelux, France</td>
+                        <td>24% combined</td>
+                        <td>Core European markets</td>
+                    </tr>
+                    <tr>
+                        <td>Rest of Europe/International</td>
+                        <td>28%</td>
+                        <td>Emerging markets</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">UK Retailers (11 identified)</h3>
+                
+                <div class="retailer-list">
+                    <div class="retailer-item">
+                        <span class="flag">🇬🇧</span>
+                        <div>
+                            <div class="name">Amazon UK</div>
+                            <div class="type">Mass Market</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇬🇧</span>
+                        <div>
+                            <div class="name">Victorian Plumbing</div>
+                            <div class="type">Bathroom Specialist</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇬🇧</span>
+                        <div>
+                            <div class="name">Sanctuary Bathrooms</div>
+                            <div class="type">Bathroom Specialist</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇬🇧</span>
+                        <div>
+                            <div class="name">QS Supplies</div>
+                            <div class="type">Bathroom Specialist</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇬🇧</span>
+                        <div>
+                            <div class="name">Drench</div>
+                            <div class="type">Bathroom Specialist</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇬🇧</span>
+                        <div>
+                            <div class="name">B&Q</div>
+                            <div class="type">DIY Retailer</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇬🇧</span>
+                        <div>
+                            <div class="name">Wolseley/Plumb Center</div>
+                            <div class="type">Trade Wholesaler</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇬🇧</span>
+                        <div>
+                            <div class="name">Trading Depot</div>
+                            <div class="type">Trade Supplier</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇬🇧</span>
+                        <div>
+                            <div class="name">FixTheBog</div>
+                            <div class="type">Specialist</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇬🇧</span>
+                        <div>
+                            <div class="name">Unbeatable Bathrooms</div>
+                            <div class="type">Bathroom Specialist</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇬🇧</span>
+                        <div>
+                            <div class="name">AQVA Bathrooms</div>
+                            <div class="type">Bathroom Specialist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Germany/Europe Retailers (4 identified)</h3>
+                
+                <div class="retailer-list">
+                    <div class="retailer-item">
+                        <span class="flag">🇩🇪</span>
+                        <div>
+                            <div class="name">Amazon DE</div>
+                            <div class="type">Mass Market</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇩🇪</span>
+                        <div>
+                            <div class="name">Hornbach</div>
+                            <div class="type">DIY Retailer</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇩🇪</span>
+                        <div>
+                            <div class="name">Bauhaus</div>
+                            <div class="type">DIY Retailer</div>
+                        </div>
+                    </div>
+                    <div class="retailer-item">
+                        <span class="flag">🇩🇪</span>
+                        <div>
+                            <div class="name">Reuter</div>
+                            <div class="type">Bathroom Specialist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">US Retailers (1 identified)</h3>
+                
+                <div class="retailer-list">
+                    <div class="retailer-item">
+                        <span class="flag">🇺🇸</span>
+                        <div>
+                            <div class="name">Amazon US</div>
+                            <div class="type">Mass Market</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Notable Patterns</h3>
+                
+                <div class="info-card positive">
+                    <h4>Strengths</h4>
+                    <ul>
+                        <li><strong>Strong UK bathroom specialist presence</strong> - Multiple dedicated bathroom retailers carry Geberit</li>
+                        <li><strong>DIY channel coverage</strong> - B&Q (UK), Hornbach, Bauhaus (Germany)</li>
+                        <li><strong>Amazon present but not dominant</strong> - Products available but not primary channel</li>
+                        <li><strong>Trade wholesaler websites</strong> - Wolseley/Plumb Center indicates B2B digital presence</li>
+                        <li><strong>Premium positioning maintained</strong> - Present on quality-focused specialists, not discount channels</li>
+                    </ul>
+                </div>
+
+                <div class="info-card warning">
+                    <h4>Critical Gaps</h4>
+                    <ul>
+                        <li><strong>B2B/trade focus</strong> - Many sales happen through wholesaler channels not tracked by typical DSA</li>
+                        <li><strong>No direct-to-consumer</strong> - Geberit doesn't sell directly; all through distribution partners</li>
+                        <li><strong>Trade channel visibility</strong> - Wholesaler websites (Wolseley, Travis Perkins) may be more relevant than consumer retail</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Implementation Note</h3>
+                
+                <div class="info-card highlight">
+                    <h4>Time-to-Value Considerations</h4>
+                    <p>Given Geberit's B2B model, eStore's value proposition needs to address:</p>
+                    <ol>
+                        <li>Product content accuracy across distributor websites</li>
+                        <li>Competitive visibility on trade channels</li>
+                        <li>Price parity monitoring across merchant partners</li>
+                        <li>Consumer research/consideration stage visibility (even if purchase happens through trade)</li>
+                    </ol>
+                    <p style="margin-top: 12px;"><strong>Estimated time-to-value:</strong> Dependent on whether eStore can demonstrate trade channel relevance. Standard consumer retail coverage may not fully address Geberit's needs. Expect 3-6 months for meaningful value demonstration.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Key People -->
+        <div id="contacts" class="tab-content">
+            <div class="section">
+                <h2 class="section-title">Key People?</h2>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Historical Contacts (Previously Engaged)</h3>
+                
+                <div class="contact-grid">
+                    <div class="contact-card historical">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">David Holme</div>
+                                <div class="contact-title">Previous Contact</div>
+                            </div>
+                        </div>
+                        <span class="contact-status historical">HISTORICAL - PARK</span>
+                        <div class="contact-details">
+                            <h5>Status</h5>
+                            <p>Multiple touches since 2022 with no response. Consider parking this contact.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card historical">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">Guillaume Leurent</div>
+                                <div class="contact-title">Previous Contact</div>
+                            </div>
+                        </div>
+                        <span class="contact-status historical">HISTORICAL - PARK</span>
+                        <div class="contact-details">
+                            <h5>Status</h5>
+                            <p>Multiple touches and calls attempted with no response. Consider parking this contact.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Primary Targets - Operational Decision-Makers</h3>
+
+                <div class="tone-guidance">
+                    <h4>🌍 Nationality-Based Tone Guidance</h4>
+                    <div class="tone-grid">
+                        <div class="tone-item">
+                            <span class="nationality-badge german">🇩🇪 German</span>
+                            <span>Direct, data-driven, technical depth</span>
+                        </div>
+                        <div class="tone-item">
+                            <span class="nationality-badge british">🇬🇧 British</span>
+                            <span>Conversational, understated, practical</span>
+                        </div>
+                        <div class="tone-item">
+                            <span class="nationality-badge french">🇫🇷 French</span>
+                            <span>Formal opening, sophisticated, strategic</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-grid">
+                    <div class="contact-card priority-1">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">Kai Hildebrandt ⭐</div>
+                                <div class="contact-title">Head of Digital Marketing</div>
+                            </div>
+                            <span class="nationality-badge german">🇩🇪 German</span>
+                        </div>
+                        <span class="contact-status re-engagement">RE-ENGAGEMENT</span>
+                        <div class="contact-details">
+                            <h5>Location</h5>
+                            <p>Zürich, Switzerland (HQ)</p>
+                            
+                            <h5>Why They're the Right Contact</h5>
+                            <p>HQ-level authority over digital commerce. Direct responsibility for e-commerce strategy. Strong omnichannel/e-commerce background from Vorwerk (Thermomix). Aligned with Geberit's digital transformation priorities. Leading CHF 20-30m annual digitalisation investment.</p>
+                            
+                            <h5>Specific Hooks</h5>
+                            <ul class="hook-list">
+                                <li>"Your commercetools implementation creates an opportunity to close the loop between product content syndication and shelf performance"</li>
+                                <li>"With CHF 20m+ in digital investment, visibility into how that content performs across retailer channels would help demonstrate ROI"</li>
+                                <li>Reference his Vorwerk e-commerce background and data-driven approach</li>
+                            </ul>
+
+                            <h5>Relationship Status</h5>
+                            <p>Previously contacted multiple times 2022-2024, no response. Needs differentiated approach.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card priority-2">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">Lewis Dixon</div>
+                                <div class="contact-title">Digital Marketing Manager</div>
+                            </div>
+                            <span class="nationality-badge british">🇬🇧 British</span>
+                        </div>
+                        <span class="contact-status re-engagement">RE-ENGAGEMENT</span>
+                        <div class="contact-details">
+                            <h5>Location</h5>
+                            <p>West Midlands, UK</p>
+                            
+                            <h5>Why They're the Right Contact</h5>
+                            <p>UK-based (eStore home market). Relatively new to Geberit (joined February 2024) - building capabilities, open to new tools. Digital native background with content creation expertise. Operational role - would use insights day-to-day.</p>
+                            
+                            <h5>Specific Hooks</h5>
+                            <ul class="hook-list">
+                                <li>"As you build out Geberit UK's digital marketing capabilities, competitive visibility data could help prioritise content investments"</li>
+                                <li>"Understanding how Geberit content performs vs. Grohe on Victorian Plumbing, QS Supplies could inform your UK digital strategy"</li>
+                            </ul>
+
+                            <h5>Relationship Status</h5>
+                            <p>Contacted January 2025, no response. Single previous touch.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card priority-3">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">Adam Ester ⭐ NEW</div>
+                                <div class="contact-title">Key Accounts Director - Distribution and Large Retail</div>
+                            </div>
+                            <span class="nationality-badge british">🇬🇧 British</span>
+                        </div>
+                        <span class="contact-status cold">COLD - NOT CONTACTED</span>
+                        <div class="contact-details">
+                            <h5>Location</h5>
+                            <p>Sandy, UK</p>
+                            
+                            <h5>Why They're the Right Contact</h5>
+                            <p>Directly responsible for retail/distribution relationships. <strong>Explicitly stated interest in becoming "more analytical and focus on key data"</strong> for strategic account plans. Deep product and company knowledge. Commercial focus - understands ROI conversations.</p>
+                            
+                            <h5>Specific Hooks</h5>
+                            <ul class="hook-list">
+                                <li>"You mentioned wanting to be more analytical with key account planning - competitive shelf data could strengthen your strategic account conversations"</li>
+                                <li>"Understanding Geberit's share of shelf vs. Grohe at B&Q, Victorian Plumbing could inform your retailer negotiations"</li>
+                            </ul>
+
+                            <h5>Relationship Status</h5>
+                            <p>Not previously contacted - fresh opportunity.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card priority-4">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">Marie-Laure Nicolau</div>
+                                <div class="contact-title">Digital Marketing Manager</div>
+                            </div>
+                            <span class="nationality-badge french">🇫🇷 French</span>
+                        </div>
+                        <span class="contact-status cold">COLD - NOT CONTACTED</span>
+                        <div class="contact-details">
+                            <h5>Location</h5>
+                            <p>France</p>
+                            
+                            <h5>Why They're the Right Contact</h5>
+                            <p>Direct e-commerce experience (unusual at Geberit). French market represents significant Geberit presence. Self-describes as "Experte en SEO, SEA, Web Marketing and E-commerce". Search expertise aligns with share-of-search analytics.</p>
+                            
+                            <h5>Specific Hooks</h5>
+                            <ul class="hook-list">
+                                <li>"Your SEO/SEM expertise would appreciate visibility into organic search performance across French bathroom retailers"</li>
+                                <li>"Understanding how Geberit's product content ranks vs. Grohe, Roca on category searches"</li>
+                            </ul>
+
+                            <h5>Relationship Status</h5>
+                            <p>Not previously contacted - fresh opportunity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Secondary Targets - Strategic Influencers</h3>
+                
+                <div class="contact-grid">
+                    <div class="contact-card secondary">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">Martin Baumüller</div>
+                                <div class="contact-title">Head of Group Executive Area Marketing & Brands (CMO)</div>
+                            </div>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Location</h5>
+                            <p>Zürich, Switzerland</p>
+                            
+                            <h5>Background</h5>
+                            <p>Group Executive Board member since 2016. PhD from University of Bern, MBA from NTU Singapore. Former McKinsey engagement manager. <strong>CMO of the Year 2023 (Switzerland)</strong>.</p>
+                            
+                            <h5>How to Reference (DO NOT Contact Directly)</h5>
+                            <p>"Geberit's marketing transformation under Martin Baumüller has earned industry recognition..." - Use to reference in outreach to his team.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card secondary">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">Andy Lever ⭐ NEW</div>
+                                <div class="contact-title">Managing Director, UK & Ireland</div>
+                            </div>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Appointment</h5>
+                            <p>1 July 2025</p>
+                            
+                            <h5>Background</h5>
+                            <p>14 years at Geberit. Previously National Sales Director for Projects. Led non-residential sales function. Served on UK Executive Board.</p>
+                            
+                            <h5>How to Reference</h5>
+                            <p>"With Andy Lever's recent appointment as Managing Director, Geberit UK is entering an exciting new chapter..." - Potential escalation contact if operational contacts engage.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card secondary">
+                        <div class="contact-header">
+                            <div>
+                                <div class="contact-name">Matthew Balnaves ⭐ NEW</div>
+                                <div class="contact-title">National Sales Director, UK & Ireland</div>
+                            </div>
+                        </div>
+                        <div class="contact-details">
+                            <h5>Appointment</h5>
+                            <p>January 2025</p>
+                            
+                            <h5>Background</h5>
+                            <p>Previously Head of Commercial Excellence at Wienerberger. 15 years at Hilti in senior commercial leadership. MBA, global leadership development programme. <strong>Data-driven approach</strong> from Wienerberger/Hilti experience.</p>
+                            
+                            <h5>How to Reference</h5>
+                            <p>"Matthew Balnaves brings commercial excellence expertise from Wienerberger and Hilti..." - Strong potential champion given commercial/analytical background.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Executive Context (Reference Only - DO NOT Contact)</h3>
+                
+                <div class="info-card">
+                    <h4>CEO: Dr. Christian Buhl</h4>
+                    <p><strong>Tenure:</strong> Since 2015 (10 years)</p>
+                    <p><strong>Background:</strong> PhD financial market research, Physics (ETH Zurich), McKinsey</p>
+                    <p><strong>Digital Commentary:</strong> "AI is the next big step in digitization"</p>
+                    <p><strong>Strategic Priorities:</strong> Piping expansion, shower toilets, growth outside Europe, digital/AI investment</p>
+                    
+                    <h5 style="margin-top: 12px;">Useful CEO Quotes</h5>
+                    <ul>
+                        <li>"We are making further investments in IT, digitalization, and artificial intelligence"</li>
+                        <li>"AI is the next big step in digitization" - appointed Head of AI role</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Contacts to Skip</h3>
+                
+                <div class="skip-list">
+                    <h4>⛔ Do Not Contact</h4>
+                    <ul>
+                        <li><strong>Daniel Marz</strong> - NOT FOUND at Geberit (may have left or name incorrect)</li>
+                        <li><strong>Manufacturing/Operations roles</strong> - No digital commerce relevance</li>
+                        <li><strong>Regional sales managers</strong> - Below decision-making level</li>
+                        <li><strong>Clinical/technical product managers</strong> - No commercial/digital responsibility</li>
+                        <li><strong>David Holme</strong> - Previously contacted multiple times with no response - consider parking</li>
+                        <li><strong>Guillaume Leurent</strong> - Previously contacted multiple times with no response - consider parking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 5: Draft Email Sequences -->
+        <div id="emails" class="tab-content">
+            <div class="section">
+                <h2 class="section-title">Draft Email Sequences</h2>
+                
+                <div class="email-disclaimer">
+                    <h4>⚠️ Important: These Emails Require Human Review</h4>
+                    <p>These emails are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Verify all facts, check contacts are still in role, and adjust tone for your relationship with the recipient.</p>
+                </div>
+
+                <div class="tone-guidance">
+                    <h4>🌍 Nationality-Based Tone Guidance</h4>
+                    <div class="tone-grid">
+                        <div class="tone-item">
+                            <span class="nationality-badge german">🇩🇪 German</span>
+                            <span>Direct, data-driven, technical depth, formal opening</span>
+                        </div>
+                        <div class="tone-item">
+                            <span class="nationality-badge british">🇬🇧 British</span>
+                            <span>Conversational, understated, practical, friendly but professional</span>
+                        </div>
+                        <div class="tone-item">
+                            <span class="nationality-badge french">🇫🇷 French</span>
+                            <span>Formal opening, sophisticated, strategic framing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-selector">
+                    <button class="contact-tab active" data-contact="kai">Kai Hildebrandt 🇩🇪</button>
+                    <button class="contact-tab" data-contact="lewis">Lewis Dixon 🇬🇧</button>
+                    <button class="contact-tab" data-contact="adam">Adam Ester 🇬🇧</button>
+                    <button class="contact-tab" data-contact="marie">Marie-Laure Nicolau 🇫🇷</button>
+                </div>
+
+                <!-- Kai Hildebrandt Emails -->
+                <div id="kai-emails" class="email-sequence active">
+                    <h3 class="section-subtitle">Kai Hildebrandt - Head of Digital Marketing (Re-engagement)</h3>
+                    
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 1</span>
+                            <div class="email-subject">Subject: Geberit's position across European bathroom retailers</div>
+                            <div class="email-timing">Send: Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">Kai,
+
+I'm [SENDER NAME] from eStore - we help building products and home improvement brands understand how their products appear and perform across online retailers, covering things like content accuracy, availability, search rankings, and competitive positioning. We work with brands including Grohe in this space.
+
+We've reached out to Geberit before without success, so I'm trying a different approach.
+
+Most of our conversations with brands start with operational questions - content quality, stock-outs, pricing. But I'm curious about something more strategic: how does Geberit track its competitive position across the European bathroom specialist and DIY channels?
+
+With the Villeroy & Boch acquisition of Ideal Standard creating a larger combined competitor, and continued pressure from Roca and others, I'd imagine competitive intelligence is becoming more valuable - not just on Amazon, but across the trade and retail sites where specifiers and installers research products.
+
+I don't know if this is something you're already well-served on, or if there's a gap. Curious to understand.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <div class="note-box customisation">
+                                    <h5>Customisation Notes</h5>
+                                    <ul>
+                                        <li>Verify Kai is still in role before sending</li>
+                                        <li>Check for any new digital initiatives announced since research</li>
+                                        <li>Confirm the Villeroy & Boch / Ideal Standard acquisition is still the most relevant competitive development</li>
+                                    </ul>
+                                </div>
+                                <div class="note-box strategy">
+                                    <h5>Strategy Notes</h5>
+                                    <ul>
+                                        <li>Opens with honest acknowledgment that previous outreach hasn't worked</li>
+                                        <li>Mentions Grohe as client (credibility signal)</li>
+                                        <li>Differentiates from standard DSA pitch by focusing on strategic competitive question</li>
+                                        <li>Names Villeroy & Boch and Roca as competitors (NOT Grohe)</li>
+                                        <li>Question-based close invites dialogue without pressure</li>
+                                        <li>References trade channel relevance (not just consumer retail)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 2</span>
+                            <div class="email-subject">Subject: Where installers research (not where consumers buy)</div>
+                            <div class="email-timing">Send: 5-7 days after Email 1, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">Kai,
+
+Following up with a thought that might be relevant given Geberit's distribution model.
+
+Most digital shelf analytics focuses on consumer retail - Amazon, traditional e-commerce. But for building products brands, the more interesting question is often: how do you appear on the sites where trade professionals actually research before specifying?
+
+Geberit's three-stage distribution (manufacturer → wholesaler → installer → end consumer) means the digital shelf that influences purchase decisions isn't always the one where the transaction happens. Victorian Plumbing, Hornbach, Reuter - these are research destinations for specifiers, even when the actual order goes through a wholesaler.
+
+With CHF 20 million going into digitalisation this year, I'd imagine there's interest in understanding whether that investment is translating into better presence where it matters - not just on your own platforms, but across the sites that influence specification decisions.
+
+We've written about the specific challenges home and building products brands face in this area - happy to share if useful: https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025
+
+Would be interested in your perspective on how Geberit thinks about this.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <div class="note-box customisation">
+                                    <h5>Customisation Notes</h5>
+                                    <ul>
+                                        <li>Verify the CHF 20m digitalisation figure is current (from 2025 annual guidance)</li>
+                                        <li>Check if any new platforms or digital initiatives have been announced</li>
+                                    </ul>
+                                </div>
+                                <div class="note-box strategy">
+                                    <h5>Strategy Notes</h5>
+                                    <ul>
+                                        <li>Introduces a genuinely new angle (trade channel vs. consumer retail)</li>
+                                        <li>Shows understanding of Geberit's unique B2B distribution model</li>
+                                        <li>References specific digital investment to show research depth</li>
+                                        <li>Links to sector content naturally (positioned as "if useful")</li>
+                                        <li>Still asking questions, not asserting what they need</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 3</span>
+                            <div class="email-subject">Subject: New UK leadership, fresh perspective?</div>
+                            <div class="email-timing">Send: 5-7 days after Email 2, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">Kai,
+
+One more thought, then I'll leave this with you.
+
+With Andy Lever taking over as Managing Director UK and Matthew Balnaves joining as National Sales Director, Geberit UK seems to be entering a new chapter. Both come from backgrounds where data-driven commercial decisions were central - Lever from projects, Balnaves from Wienerberger and Hilti.
+
+I mention this because the UK is where we're strongest. We have deep coverage across British bathroom retailers and DIY channels, and we work with several building products brands on understanding how they appear and perform in this market.
+
+If there's any interest in exploring what competitive intelligence across UK retailers might look like for Geberit - whether that's a conversation with you or a connection to the UK team - I'd be happy to explore.
+
+Either way, I appreciate you reading this far.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <div class="note-box customisation">
+                                    <h5>Customisation Notes</h5>
+                                    <ul>
+                                        <li>Verify Andy Lever and Matthew Balnaves are still in their roles</li>
+                                        <li>Check for any UK-specific initiatives or announcements</li>
+                                    </ul>
+                                </div>
+                                <div class="note-box strategy">
+                                    <h5>Strategy Notes</h5>
+                                    <ul>
+                                        <li>Adds genuinely new angle (UK leadership transition as window)</li>
+                                        <li>Positions eStore's UK strength honestly (not overselling global)</li>
+                                        <li>Names specific people to show depth of research</li>
+                                        <li>Offers flexibility (conversation with Kai or UK team connection)</li>
+                                        <li>Ends with curiosity and appreciation, not pressure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lewis Dixon Emails -->
+                <div id="lewis-emails" class="email-sequence">
+                    <h3 class="section-subtitle">Lewis Dixon - Digital Marketing Manager UK (Re-engagement)</h3>
+                    
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 1</span>
+                            <div class="email-subject">Subject: How Geberit appears across UK bathroom specialists</div>
+                            <div class="email-timing">Send: Tuesday or Wednesday, 9:00-10:00 GMT</div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">Lewis,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for building products and home improvement brands, helping them understand how products appear and perform across online retailers. We work with brands including Grohe in this category.
+
+I reached out at the start of last year without hearing back, so I'm trying a slightly different angle.
+
+Rather than the usual digital shelf pitch about content and availability, I'm curious about something more specific: does Geberit UK have good visibility into how you appear across the bathroom specialists - and how that compares to competitors like Villeroy & Boch and Roca?
+
+Sites like Victorian Plumbing, QS Supplies, and Sanctuary Bathrooms are where trade professionals and serious renovators research before buying. Understanding how Geberit's flush plates and concealed cisterns rank in search, how your content compares, and where you're winning or losing share - that's the kind of intelligence that can inform both marketing and commercial conversations.
+
+I don't know if this is something you're already well-served on. Curious whether it resonates.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <div class="note-box customisation">
+                                    <h5>Customisation Notes</h5>
+                                    <ul>
+                                        <li>Verify Lewis is still in role (relatively new, joined February 2024)</li>
+                                        <li>Check for any UK digital marketing initiatives he's led</li>
+                                    </ul>
+                                </div>
+                                <div class="note-box strategy">
+                                    <h5>Strategy Notes</h5>
+                                    <ul>
+                                        <li>Honest acknowledgment of previous outreach</li>
+                                        <li>Mentions Grohe as client (credibility)</li>
+                                        <li>Focuses on competitive angle with specific UK retailers</li>
+                                        <li>Names Villeroy & Boch and Roca as competitors (NOT Grohe)</li>
+                                        <li>Question-based close, no meeting request</li>
+                                        <li>British tone - direct but friendly</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 2</span>
+                            <div class="email-subject">Subject: 60,000 products, dozens of retailers</div>
+                            <div class="email-timing">Send: 5-7 days after Email 1, Tuesday or Wednesday, 9:00-10:00 GMT</div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">Lewis,
+
+Building on my earlier note - another angle that might be relevant.
+
+Geberit has over 60,000 products across 51 language variants. When those products appear on retailer sites like Victorian Plumbing, B&Q, or Trading Depot, the content often gets adapted, truncated, or simply handled differently by each platform.
+
+For brands with complex technical products - installation frames, piping systems, flush plates with precise specifications - content accuracy matters. A missing dimension or incorrect compatibility note can lead to returns, installer complaints, or lost sales to competitors whose content is clearer.
+
+With your background in digital content creation, I'd imagine you're already thinking about how to maintain consistency across these channels. The question is whether you have the visibility to know where the gaps are.
+
+We've published some thinking on how building products brands approach this - happy to share if useful: https://estorebrands.com/home-and-diy
+
+Interested in your take.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <div class="note-box customisation">
+                                    <h5>Customisation Notes</h5>
+                                    <ul>
+                                        <li>Verify the 60,000 products / 51 language variants figure is current</li>
+                                        <li>Check Lewis's LinkedIn for any content-related projects</li>
+                                    </ul>
+                                </div>
+                                <div class="note-box strategy">
+                                    <h5>Strategy Notes</h5>
+                                    <ul>
+                                        <li>References his specific background (digital content creation)</li>
+                                        <li>Shows understanding of technical product complexity</li>
+                                        <li>Makes a genuine point about content accuracy for installation products</li>
+                                        <li>Links to sector page naturally</li>
+                                        <li>Adds new value (content angle) vs. Email 1's competitive angle</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 3</span>
+                            <div class="email-subject">Subject: New leadership, new priorities?</div>
+                            <div class="email-timing">Send: 5-7 days after Email 2, Tuesday or Wednesday, 9:00-10:00 GMT</div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">Lewis,
+
+One more angle, then I'll leave this with you to judge whether it's worth pursuing.
+
+With Andy Lever as the new Managing Director and Matthew Balnaves bringing commercial excellence expertise from Wienerberger and Hilti, it seems like Geberit UK might be entering a period where data-driven commercial decisions get more attention.
+
+I mention it because competitive intelligence - understanding how Geberit performs across UK bathroom retailers - is often the kind of thing that resonates with commercially-minded leadership. It supports both marketing optimisation and key account conversations.
+
+If there's interest in understanding what this might look like for Geberit UK, I'd be happy to have that conversation - whether that's with you, with the new commercial team, or both.
+
+What's your sense of whether this is the right time to explore?
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <div class="note-box customisation">
+                                    <h5>Customisation Notes</h5>
+                                    <ul>
+                                        <li>Verify Andy Lever and Matthew Balnaves are still in their roles</li>
+                                        <li>Check for any new UK commercial initiatives</li>
+                                    </ul>
+                                </div>
+                                <div class="note-box strategy">
+                                    <h5>Strategy Notes</h5>
+                                    <ul>
+                                        <li>Links digital marketing to commercial leadership priorities</li>
+                                        <li>Offers flexibility on who to involve</li>
+                                        <li>Ends with genuine question, not pressure</li>
+                                        <li>Positions eStore as supporting both marketing AND sales conversations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adam Ester Emails -->
+                <div id="adam-emails" class="email-sequence">
+                    <h3 class="section-subtitle">Adam Ester - Key Accounts Director (Cold)</h3>
+                    
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 1</span>
+                            <div class="email-subject">Subject: Competitive data for key account conversations</div>
+                            <div class="email-timing">Send: Tuesday or Wednesday, 9:00-10:00 GMT</div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">Adam,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for building products and home improvement brands. In practice, that means helping brands understand how their products appear and perform across online retailers - things like search rankings, content quality, availability, and competitive positioning. We work with brands including Grohe in this space.
+
+I came across your profile while researching Geberit UK. Your progression from sales through to Key Accounts Director suggests you've seen the business from multiple angles. You mentioned wanting to be "more analytical and focus on key data" in strategic account planning - that's exactly the kind of challenge we help with.
+
+I'm curious whether competitive intelligence plays a role in your key account conversations. Understanding how Geberit's flush plates and concealed cisterns perform at B&Q, or how your content and search rankings compare on Victorian Plumbing - that's the kind of data that can strengthen strategic account reviews and support negotiations.
+
+I don't know if this is something you're already well-served on. Happy to explore whether there's a fit.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <div class="note-box customisation">
+                                    <h5>Customisation Notes</h5>
+                                    <ul>
+                                        <li>Verify Adam's LinkedIn profile and the "more analytical" quote</li>
+                                        <li>Check for any key account wins or initiatives he's mentioned</li>
+                                    </ul>
+                                </div>
+                                <div class="note-box strategy">
+                                    <h5>Strategy Notes</h5>
+                                    <ul>
+                                        <li>Full eStore introduction (cold outreach)</li>
+                                        <li>Mentions Grohe as client (credibility)</li>
+                                        <li>References his own stated desire to be more analytical</li>
+                                        <li>Commercial angle focused on key account conversations</li>
+                                        <li>Names specific retailers relevant to his role</li>
+                                        <li>Question-based close</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 2</span>
+                            <div class="email-subject">Subject: Standing out in a consolidating market</div>
+                            <div class="email-timing">Send: 5-7 days after Email 1, Tuesday or Wednesday, 9:00-10:00 GMT</div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">Adam,
+
+Following up with a thought that might be relevant to your key account work.
+
+With Villeroy & Boch's acquisition of Ideal Standard creating a larger combined competitor, and continued pressure from Roca and others, competitive dynamics in bathroom fixtures seem to be intensifying. For key account directors, that often means more questions about share of shelf, search visibility, and promotional activity.
+
+The challenge is that this data is scattered across dozens of retailer sites. Manually checking how Geberit appears on B&Q, Victorian Plumbing, or Hornbach - and how that compares to competitors - is time-consuming. And by the time you've gathered it, the picture has already changed.
+
+That's the gap we help fill. Systematic competitive intelligence across the retailers that matter, updated regularly, so commercial teams can make data-driven decisions about where to focus.
+
+We've written about how building products brands approach this - happy to share if useful: https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025
+
+Interested in whether this resonates with your priorities.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <div class="note-box customisation">
+                                    <h5>Customisation Notes</h5>
+                                    <ul>
+                                        <li>Verify the Villeroy & Boch / Ideal Standard timing is still relevant</li>
+                                        <li>Check for any competitive wins or losses Adam might have mentioned</li>
+                                    </ul>
+                                </div>
+                                <div class="note-box strategy">
+                                    <h5>Strategy Notes</h5>
+                                    <ul>
+                                        <li>Adds competitive dynamics context with Villeroy & Boch and Roca (NOT Grohe)</li>
+                                        <li>Shows understanding of competitive landscape</li>
+                                        <li>Makes the problem concrete (manual checking is time-consuming)</li>
+                                        <li>Positions eStore as solving a real problem</li>
+                                        <li>Links to content naturally</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 3</span>
+                            <div class="email-subject">Subject: Commercial excellence meets competitive intelligence</div>
+                            <div class="email-timing">Send: 5-7 days after Email 2, Tuesday or Wednesday, 9:00-10:00 GMT</div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">Adam,
+
+One more angle to consider.
+
+Matthew Balnaves joining as National Sales Director - with his commercial excellence background from Wienerberger and Hilti - suggests Geberit UK might be moving toward more data-driven commercial decision-making. That's the kind of environment where competitive intelligence across retailers tends to get more attention and budget.
+
+I mention it because the work you do in key accounts - preparing strategic reviews, negotiating with major retailers, understanding competitive positioning - is exactly where this kind of data adds value.
+
+If there's interest in exploring what systematic competitive intelligence across UK retailers might look like for Geberit, I'd be happy to have that conversation. Whether that's something you'd lead on, or something to involve the broader commercial team in, I'm flexible.
+
+What's your read on whether this is something worth exploring?
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <div class="note-box customisation">
+                                    <h5>Customisation Notes</h5>
+                                    <ul>
+                                        <li>Verify Matthew Balnaves is still in role</li>
+                                        <li>Check for any commercial excellence initiatives announced</li>
+                                    </ul>
+                                </div>
+                                <div class="note-box strategy">
+                                    <h5>Strategy Notes</h5>
+                                    <ul>
+                                        <li>Connects to new leadership priorities</li>
+                                        <li>Reinforces relevance to his specific role</li>
+                                        <li>Offers flexibility on how to proceed</li>
+                                        <li>Ends with genuine question</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marie-Laure Nicolau Emails -->
+                <div id="marie-emails" class="email-sequence">
+                    <h3 class="section-subtitle">Marie-Laure Nicolau - Digital Marketing Manager France (Cold)</h3>
+                    
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 1</span>
+                            <div class="email-subject">Subject: How Geberit ranks across French bathroom retailers</div>
+                            <div class="email-timing">Send: Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">Marie-Laure,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for building products and home improvement brands across Europe. In practice, that means helping brands understand how their products appear and perform on retailer websites - covering search rankings, content quality, availability, and competitive positioning. We work with brands including Grohe in this category.
+
+Your expertise in SEO and traffic acquisition is relevant here, though from a different angle. Most of that work focuses on driving traffic to your own properties, but there's a parallel question: how does Geberit perform in search on the retailer sites where customers actually buy?
+
+Sites like Reuter, Hornbach, and French bathroom specialists are where serious renovators and trade professionals research before purchasing. Understanding how Geberit's concealed cisterns and flush plates rank in category searches, and where content gaps might be affecting visibility - that's a different lens on the same optimisation challenge.
+
+I don't know if this is something you're already exploring. Curious whether it resonates.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <div class="note-box customisation">
+                                    <h5>Customisation Notes</h5>
+                                    <ul>
+                                        <li>Verify Marie-Laure's current role and LinkedIn profile</li>
+                                        <li>Research French bathroom retailers beyond Reuter</li>
+                                    </ul>
+                                </div>
+                                <div class="note-box strategy">
+                                    <h5>Strategy Notes</h5>
+                                    <ul>
+                                        <li>Full eStore introduction (cold outreach)</li>
+                                        <li>Mentions Grohe as client (credibility)</li>
+                                        <li>References her specific SEO/SEM expertise</li>
+                                        <li>Connects retailer search to her existing skill set</li>
+                                        <li>Names relevant French/European retailers</li>
+                                        <li>Question-based close</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 2</span>
+                            <div class="email-subject">Subject: Product content performance on retailer sites</div>
+                            <div class="email-timing">Send: 5-7 days after Email 1, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">Marie-Laure,
+
+Following up with a thought that builds on my previous note.
+
+With Geberit managing over 60,000 products across multiple markets, ensuring consistent and accurate product content is already complex. But once that content reaches retailer sites - Reuter, Hornbach, bathroom specialists - it often gets adapted, truncated, or presented differently by each platform.
+
+For technical products like installation systems and flush plates, these inconsistencies can affect both search performance and conversion. A missing specification or unclear compatibility note might not just lose a sale - it might lose it to a competitor with clearer content.
+
+Your background in e-commerce and content management suggests this is familiar territory. The question is whether you have systematic visibility into how Geberit's content actually performs across these retailer destinations, rather than just what you syndicate to them.
+
+We've written about the specific challenges home and building products brands face in this area - happy to share if useful: https://estorebrands.com/home-and-diy
+
+Interested in your perspective.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <div class="note-box customisation">
+                                    <h5>Customisation Notes</h5>
+                                    <ul>
+                                        <li>Verify the 60,000 products figure</li>
+                                        <li>Check for any content or PIM initiatives Marie-Laure has led</li>
+                                    </ul>
+                                </div>
+                                <div class="note-box strategy">
+                                    <h5>Strategy Notes</h5>
+                                    <ul>
+                                        <li>Builds on Email 1 (search → content performance)</li>
+                                        <li>References her e-commerce background</li>
+                                        <li>Makes the problem concrete for technical products</li>
+                                        <li>Generic competitor reference (not naming Grohe)</li>
+                                        <li>Links to sector page naturally</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="email-card">
+                        <div class="email-header">
+                            <span class="email-number">Email 3</span>
+                            <div class="email-subject">Subject: Villeroy & Boch's next move</div>
+                            <div class="email-timing">Send: 5-7 days after Email 2, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        </div>
+                        <div class="email-body">
+                            <div class="email-content">Marie-Laure,
+
+One more thought to round out this thread.
+
+The Villeroy & Boch acquisition of Ideal Standard creates a combined competitor with broader European reach. For Geberit, that likely means more competitive pressure in the French market - both in traditional channels and on the retailer sites where specification research happens.
+
+Understanding how Geberit performs against this combined competitor - not just in aggregate, but across specific retailers and categories - is the kind of intelligence that can inform both marketing and commercial strategy.
+
+We have strong coverage across European retailers, including the French market, and we work with several building products brands on competitive intelligence. If there's interest in exploring what that might look like for Geberit France, I'd welcome the conversation.
+
+Either way, I hope this has been useful food for thought.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <div class="note-box customisation">
+                                    <h5>Customisation Notes</h5>
+                                    <ul>
+                                        <li>Verify current competitive dynamics in France</li>
+                                        <li>Check for any French market announcements from Geberit</li>
+                                    </ul>
+                                </div>
+                                <div class="note-box strategy">
+                                    <h5>Strategy Notes</h5>
+                                    <ul>
+                                        <li>Introduces competitive dynamics angle specific to European market</li>
+                                        <li>Focuses on Villeroy & Boch as competitor (NOT Grohe)</li>
+                                        <li>Positions eStore's European strength</li>
+                                        <li>Offers conversation without pressure</li>
+                                        <li>Sophisticated close appropriate for French business culture</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 6: Objection Handling -->
+        <div id="objections" class="tab-content">
+            <div class="section">
+                <h2 class="section-title">Objection Handling</h2>
+                
+                <div class="decision-framework">
+                    <h4>Decision Framework for MODERATE FIT</h4>
+                    <div class="decision-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <strong>Assess Engagement Quality</strong>
+                            <p>If contacts respond with genuine interest → Proceed to discovery call. If responses are polite but non-committal → Add value with relevant content. If no response after 3 emails → Park for 6 months, try different contact.</p>
+                        </div>
+                    </div>
+                    <div class="decision-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <strong>Validate B2B Use Case</strong>
+                            <p>Discovery must confirm whether Geberit sees value in trade channel visibility. If B2B model creates "not relevant to us" objection → Pivot to competitive intelligence angle. If they confirm interest in retailer visibility → Standard qualification process.</p>
+                        </div>
+                    </div>
+                    <div class="decision-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <strong>Set Realistic Timeline</strong>
+                            <p>Given 6+ years of prior outreach, expect 12-18 month sales cycle minimum. Don't rush - consultative approach requires patience. Success metric: Getting a champion, not closing quickly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Common Objections & Responses</h3>
+                
+                <div class="objection-grid">
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-text">"We already have a PIM system (Stibo STEP)"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-response">
+                            <div class="response-section">
+                                <h5>Acknowledge</h5>
+                                <p>Stibo STEP is excellent for managing product information and syndication. Many of our clients use it alongside our platform.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Differentiate</h5>
+                                <p>The gap we fill is different: PIM tells you what content you're sending out; we tell you how that content actually appears and performs once it reaches retailer sites. Victorian Plumbing might truncate your descriptions, B&Q might display specifications differently, and neither Stibo nor any PIM can tell you that.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe</h5>
+                                <p>Think of it as closing the loop. You invest in creating great content in Stibo - wouldn't it be valuable to know whether that investment is paying off at the shelf level?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-text">"We're a B2B business - digital shelf analytics isn't relevant to us"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-response">
+                            <div class="response-section">
+                                <h5>Acknowledge</h5>
+                                <p>You're right that Geberit's three-stage distribution model is different from typical CPG brands. Most DSA is designed for consumer retail, which isn't your primary channel.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe</h5>
+                                <p>But here's the thing: even in B2B, the digital shelf influences decisions. When an architect specifies concealed cisterns, they often research on Victorian Plumbing or Reuter first. When a plumber considers which brand to recommend, they check product specs online. The purchase might go through Wolseley, but the consideration happens on these visible platforms.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Evidence</h5>
+                                <p>We work with other building products brands who have similar distribution models. They use our platform for competitive intelligence and content compliance - making sure their products look right on the sites that influence specifiers, even if the transaction happens elsewhere.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-text">"How many of our retailers can you actually monitor?"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-response">
+                            <div class="response-section">
+                                <h5>Be Honest</h5>
+                                <p>We'd need to work through your specific retailer list, but we have strong coverage across UK bathroom specialists (Victorian Plumbing, QS Supplies, Sanctuary Bathrooms) and DIY channels (B&Q). For German retailers like Hornbach and Amazon DE, we also have good coverage.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Acknowledge Gaps</h5>
+                                <p>Where we may need to build out coverage is on some of the trade wholesaler sites - these tend to be more complex technically. We can absolutely add retailers, but it takes 2-3 months per new connection.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Propose Path Forward</h5>
+                                <p>What I'd suggest is sharing your priority retailer list, and we can map that against our current coverage. That way you'll know exactly what we can monitor immediately versus what would require onboarding time.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-text">"We don't have budget for another platform"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-response">
+                            <div class="response-section">
+                                <h5>Acknowledge</h5>
+                                <p>Budget constraints are real, especially when you're already investing CHF 20 million+ in digitalisation. Adding another line item isn't trivial.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Reframe Value</h5>
+                                <p>The question is whether competitive intelligence across retailers helps you get more value from those existing investments. If your commercetools platform is pushing content that isn't displaying correctly, or if Grohe is outperforming you in search on key retailers - that's information that could inform where to focus your digital investment.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Suggest Pilot</h5>
+                                <p>We often start with a focused pilot - UK bathroom specialists only, for example - to demonstrate value before any larger commitment. That way you can see whether the insights justify the investment without a significant upfront cost.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-text">"Decisions are made at HQ in Switzerland"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-response">
+                            <div class="response-section">
+                                <h5>Acknowledge</h5>
+                                <p>Understood - Geberit's centralised structure means strategic technology decisions typically flow through Rapperswil. That's common for Swiss multinationals.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Propose Path</h5>
+                                <p>What often works in these situations is starting with a regional use case that demonstrates value, which then becomes the business case for a broader conversation. The UK is a good candidate because it's a significant market, eStore has strong local coverage, and there's new leadership who might appreciate data-driven insights.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Offer Support</h5>
+                                <p>If it's helpful, we can also engage with Kai Hildebrandt's team at HQ directly - they're overseeing the digital transformation. Would a coordinated approach work better?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-text">"We've had vendors approach us before and it never went anywhere"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-response">
+                            <div class="response-section">
+                                <h5>Acknowledge Honestly</h5>
+                                <p>I'm aware - in fact, we've reached out to Geberit several times over the years without success. I'm being direct about that because I think a different approach is needed.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Differentiate</h5>
+                                <p>Previous outreach focused on standard digital shelf analytics messaging - content, availability, pricing. What I'm suggesting is more specific: competitive intelligence against Villeroy & Boch, Roca, and others on the platforms where specifiers research. That's a more targeted value proposition for a B2B building products brand.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Low-Pressure Offer</h5>
+                                <p>I'm not asking for a commitment - just whether competitive visibility across retailers is something that would be useful to explore. If it's not, I'd rather know now than keep sending emails that don't add value.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-text">"Our sector (Building Products) isn't really your focus"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-response">
+                            <div class="response-section">
+                                <h5>Be Honest</h5>
+                                <p>You're right that our traditional strength is in CPG and consumer goods. Building Products isn't our largest sector.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Bridge the Gap</h5>
+                                <p>However, we work with Home & Garden brands and have been expanding into building products specifically because the digital shelf challenges are similar: complex product specifications, multiple retailers, competitive intensity. The methodology translates even if the sector is different.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Proof Point</h5>
+                                <p>We work with Grohe in this category, which suggests the platform works for sanitary products. The principles of monitoring how products appear on retailer sites, tracking competitive positioning, and ensuring content accuracy - these apply regardless of sector.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-text">"We're happy with our current approach to competitor monitoring"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-response">
+                            <div class="response-section">
+                                <h5>Explore Current State</h5>
+                                <p>That's good to hear. Can I ask what that looks like today? Are you manually checking competitor products on key retailers, using a specific tool, or getting reports from your retailer partners?</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Identify Gaps</h5>
+                                <p>The reason I ask is that most brands we speak to have some form of competitor awareness, but it's often partial or periodic. What we add is systematic coverage - across all your priority retailers, updated regularly, with historical trends so you can spot changes over time.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Offer Comparison</h5>
+                                <p>If you're genuinely covered, that's great - no need for another tool. But if you're curious whether there are gaps, I'd be happy to show you what we'd track for Geberit versus what you're seeing today. No obligation - just a useful benchmark.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-text">"The timing isn't right - we're focused on other priorities"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-response">
+                            <div class="response-section">
+                                <h5>Respect the Constraint</h5>
+                                <p>Completely understand. With the digital transformation work, new leadership settling in, and market pressures, there's a lot competing for attention.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Offer Future Follow-Up</h5>
+                                <p>When would be a better time to revisit? I don't want to add to the noise, but I also don't want to disappear if this is something that might be relevant in Q3 or Q4.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Leave Value</h5>
+                                <p>In the meantime, happy to share some content on how building products brands are approaching digital shelf challenges - no strings attached. That way you have something useful even if the timing isn't right for a conversation now.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="objection-card">
+                        <div class="objection-header" onclick="toggleObjection(this)">
+                            <span class="objection-text">"What makes you different from other DSA providers?"</span>
+                            <span class="objection-toggle">▼</span>
+                        </div>
+                        <div class="objection-response">
+                            <div class="response-section">
+                                <h5>UK/European Strength</h5>
+                                <p>We're UK-headquartered with particularly strong coverage across European retailers. For Geberit, that means we can monitor Victorian Plumbing, Hornbach, Reuter, and the bathroom specialists that matter in your core markets - not just Amazon and Walmart like US-focused platforms.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Consultative Approach</h5>
+                                <p>We position ourselves as consultants first, platform second. That means we focus on actionable insights rather than overwhelming dashboards. For a brand like Geberit with a complex distribution model, that translation layer is valuable.</p>
+                            </div>
+                            <div class="response-section">
+                                <h5>Category Experience</h5>
+                                <p>We work with Grohe in this space, so we understand the sanitary products category - the technical product complexity, the trade channel dynamics, the competitive landscape. That context matters.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-subtitle">Objection Handling Principles</h3>
+                
+                <div class="info-card">
+                    <h4>Approach for MODERATE FIT Prospect</h4>
+                    <ul>
+                        <li><strong>Never dismiss the objection</strong> - Geberit's concerns about B2B relevance and sector fit are valid</li>
+                        <li><strong>Lead with honesty</strong> - Acknowledge prior failed outreach and imperfect sector alignment</li>
+                        <li><strong>Use evidence carefully</strong> - Grohe is a client, but don't oversell category experience</li>
+                        <li><strong>Offer flexibility</strong> - Pilots, focused use cases, regional starts are all options</li>
+                        <li><strong>Ask questions</strong> - Understanding their current state helps tailor the response</li>
+                        <li><strong>Be patient</strong> - 12-18 month timeline is realistic; don't rush to close</li>
+                        <li><strong>Accept "no" gracefully</strong> - If it's not a fit, parking the account is better than forcing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab Navigation
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all tabs and content
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Contact Tab Navigation for Emails
+        document.querySelectorAll('.contact-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all contact tabs and sequences
+                document.querySelectorAll('.contact-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.email-sequence').forEach(s => s.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding sequence
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.contact + '-emails').classList.add('active');
+            });
+        });
+
+        // Objection Toggle
+        function toggleObjection(header) {
+            const card = header.parentElement;
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
