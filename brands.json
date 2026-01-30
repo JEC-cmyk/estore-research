@@ -8,5 +8,6 @@
     {"file": "alcon", "name": "Alcon", "owner": "Laura"},
     {"file": "geberit", "name": "Geberit", "owner": "Mariusz"},
     {"file": "wd-40", "name": "WD-40", "owner": "Michal"},
-    {"file": "nike", "name": "Nike", "owner": "Mariusz"}
+    {"file": "nike", "name": "Nike", "owner": "Mariusz"},
+    {"file": "nyx-professional-makeup", "name": "NYX Professional Makeup", "owner": "Mariusz"}
 ]
