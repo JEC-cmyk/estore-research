@@ -1,0 +1,2619 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Inc. - eStore Action Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --estore-yellow: #ffba1c;
+            --estore-green: #22bb69;
+            --estore-light-blue: #68d7fa;
+            --estore-dark-blue: #1067db;
+            --estore-red: #f44f2f;
+            --estore-orange: #ff7a00;
+            --text-dark: #2c2c2c;
+            --text-medium: #555555;
+            --text-light: #777777;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-light: #e5e7eb;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--estore-dark-blue) 0%, #0a4a9e 100%);
+            color: white;
+            padding: 32px 40px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(255,186,28,0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .header-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .header-stats {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        
+        .header-stat {
+            text-align: left;
+        }
+        
+        .header-stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--estore-yellow);
+        }
+        
+        .header-stat-label {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+        
+        /* Fit Level Badge */
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            margin-top: 16px;
+        }
+        
+        .fit-badge.moderate {
+            background: linear-gradient(135deg, var(--estore-yellow), #e5a617);
+            color: var(--text-dark);
+        }
+        
+        .fit-badge.strong {
+            background: linear-gradient(135deg, var(--estore-green), #1a9456);
+            color: white;
+        }
+        
+        .fit-badge.weak {
+            background: linear-gradient(135deg, var(--estore-red), #d4432a);
+            color: white;
+        }
+        
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-white);
+            padding: 6px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 14px 20px;
+            border: none;
+            background: transparent;
+            color: var(--text-medium);
+            font-family: 'Figtree', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        
+        .tab-btn:hover {
+            background: var(--bg-light);
+            color: var(--text-dark);
+        }
+        
+        .tab-btn.active {
+            background: var(--estore-dark-blue);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--bg-light);
+        }
+        
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .card-icon.blue { background: rgba(16,103,219,0.1); color: var(--estore-dark-blue); }
+        .card-icon.green { background: rgba(34,187,105,0.1); color: var(--estore-green); }
+        .card-icon.yellow { background: rgba(255,186,28,0.1); color: #d49a00; }
+        .card-icon.red { background: rgba(244,79,47,0.1); color: var(--estore-red); }
+        .card-icon.orange { background: rgba(255,122,0,0.1); color: var(--estore-orange); }
+        
+        .card h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+        
+        .card p {
+            color: var(--text-medium);
+            margin-bottom: 12px;
+        }
+        
+        /* Assessment Grid */
+        .assessment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .assessment-item {
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid var(--estore-dark-blue);
+        }
+        
+        .assessment-item.positive {
+            border-left-color: var(--estore-green);
+        }
+        
+        .assessment-item.neutral {
+            border-left-color: var(--estore-yellow);
+        }
+        
+        .assessment-item.negative {
+            border-left-color: var(--estore-red);
+        }
+        
+        .assessment-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        
+        .assessment-item p {
+            font-size: 14px;
+            color: var(--text-medium);
+            margin-bottom: 0;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .info-box.highlight {
+            background: linear-gradient(135deg, rgba(255,186,28,0.1) 0%, rgba(255,186,28,0.05) 100%);
+            border: 1px solid rgba(255,186,28,0.3);
+        }
+        
+        .info-box.warning {
+            background: linear-gradient(135deg, rgba(244,79,47,0.08) 0%, rgba(244,79,47,0.03) 100%);
+            border: 1px solid rgba(244,79,47,0.2);
+        }
+        
+        .info-box.success {
+            background: linear-gradient(135deg, rgba(34,187,105,0.08) 0%, rgba(34,187,105,0.03) 100%);
+            border: 1px solid rgba(34,187,105,0.2);
+        }
+        
+        .info-box.info {
+            background: linear-gradient(135deg, rgba(16,103,219,0.08) 0%, rgba(16,103,219,0.03) 100%);
+            border: 1px solid rgba(16,103,219,0.2);
+        }
+        
+        /* Bullet Lists */
+        ul.bullet-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        ul.bullet-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            color: var(--text-medium);
+        }
+        
+        ul.bullet-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: var(--estore-dark-blue);
+            border-radius: 50%;
+        }
+        
+        ul.bullet-list li.positive::before { background: var(--estore-green); }
+        ul.bullet-list li.negative::before { background: var(--estore-red); }
+        ul.bullet-list li.neutral::before { background: var(--estore-yellow); }
+        
+        /* Contact Cards */
+        .contact-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border-light);
+            transition: all 0.2s ease;
+        }
+        
+        .contact-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--estore-dark-blue);
+        }
+        
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+        
+        .contact-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+        
+        .contact-title {
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+        
+        .contact-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .badge.priority {
+            background: var(--estore-yellow);
+            color: var(--text-dark);
+        }
+        
+        .badge.location {
+            background: var(--bg-light);
+            color: var(--text-medium);
+        }
+        
+        .badge.nationality {
+            background: rgba(16,103,219,0.1);
+            color: var(--estore-dark-blue);
+        }
+        
+        .badge.status-cold {
+            background: rgba(104,215,250,0.2);
+            color: #0891b2;
+        }
+        
+        .badge.status-lapsed {
+            background: rgba(255,122,0,0.15);
+            color: var(--estore-orange);
+        }
+        
+        .badge.status-departed {
+            background: rgba(244,79,47,0.1);
+            color: var(--estore-red);
+        }
+        
+        /* Email Sections */
+        .email-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+            background: var(--bg-light);
+            padding: 4px;
+            border-radius: 8px;
+        }
+        
+        .email-tab-btn {
+            flex: 1;
+            padding: 10px 16px;
+            border: none;
+            background: transparent;
+            color: var(--text-medium);
+            font-family: 'Figtree', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .email-tab-btn:hover {
+            background: rgba(255,255,255,0.5);
+        }
+        
+        .email-tab-btn.active {
+            background: var(--bg-white);
+            color: var(--estore-dark-blue);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .email-content {
+            display: none;
+        }
+        
+        .email-content.active {
+            display: block;
+        }
+        
+        .email-box {
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .email-subject {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+        
+        .email-timing {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+        
+        .email-body {
+            background: var(--bg-white);
+            border-radius: 8px;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            white-space: pre-wrap;
+            border: 1px solid var(--border-light);
+        }
+        
+        .email-notes {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .email-notes h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+        
+        .email-notes ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .email-notes li {
+            font-size: 13px;
+            color: var(--text-medium);
+            margin-bottom: 6px;
+        }
+        
+        /* Objection Cards */
+        .objection-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border-light);
+            border-left: 4px solid var(--estore-orange);
+        }
+        
+        .objection-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .objection-title::before {
+            content: '"';
+            font-size: 24px;
+            color: var(--estore-orange);
+            font-weight: 700;
+        }
+        
+        .objection-response h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--estore-dark-blue);
+            margin-bottom: 8px;
+        }
+        
+        .objection-response p {
+            font-size: 14px;
+            color: var(--text-medium);
+            margin-bottom: 12px;
+        }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 14px;
+        }
+        
+        .data-table th {
+            background: var(--bg-light);
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .data-table td {
+            color: var(--text-medium);
+        }
+        
+        .data-table tr:hover td {
+            background: var(--bg-light);
+        }
+        
+        /* Status Indicators */
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .status-indicator.covered {
+            background: rgba(34,187,105,0.1);
+            color: var(--estore-green);
+        }
+        
+        .status-indicator.not-covered {
+            background: rgba(244,79,47,0.1);
+            color: var(--estore-red);
+        }
+        
+        .status-indicator.unknown {
+            background: rgba(255,186,28,0.15);
+            color: #b8860b;
+        }
+        
+        /* Retailer Grid */
+        .retailer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .retailer-item {
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .retailer-name {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .retailer-market {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        
+        /* Summary Stats */
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .summary-stat {
+            background: var(--bg-white);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+        }
+        
+        .summary-stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--estore-dark-blue);
+            margin-bottom: 4px;
+        }
+        
+        .summary-stat-label {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        
+        /* Disclaimer Box */
+        .disclaimer {
+            background: linear-gradient(135deg, rgba(255,186,28,0.12) 0%, rgba(255,186,28,0.05) 100%);
+            border: 1px solid rgba(255,186,28,0.4);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .disclaimer-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: #b8860b;
+            margin-bottom: 8px;
+        }
+        
+        .disclaimer p {
+            font-size: 14px;
+            color: var(--text-medium);
+            margin: 0;
+        }
+        
+        /* Tone Guidance */
+        .tone-guidance {
+            background: var(--bg-light);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .tone-guidance h3 {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+        
+        .tone-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        
+        .tone-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .tone-flag {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        
+        .tone-text {
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+        
+        .tone-text strong {
+            color: var(--text-dark);
+        }
+        
+        /* Sequence Selector */
+        .sequence-selector {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        
+        .sequence-btn {
+            padding: 12px 20px;
+            border: 2px solid var(--border-light);
+            background: var(--bg-white);
+            color: var(--text-medium);
+            font-family: 'Figtree', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .sequence-btn:hover {
+            border-color: var(--estore-dark-blue);
+            color: var(--estore-dark-blue);
+        }
+        
+        .sequence-btn.active {
+            background: var(--estore-dark-blue);
+            border-color: var(--estore-dark-blue);
+            color: white;
+        }
+        
+        .sequence-content {
+            display: none;
+        }
+        
+        .sequence-content.active {
+            display: block;
+        }
+        
+        /* Quote Block */
+        .quote-block {
+            background: var(--bg-light);
+            border-left: 4px solid var(--estore-dark-blue);
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-style: italic;
+            color: var(--text-medium);
+        }
+        
+        .quote-block cite {
+            display: block;
+            margin-top: 8px;
+            font-style: normal;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        
+        /* Content Links */
+        .content-links {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .content-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.2s ease;
+        }
+        
+        .content-link:hover {
+            background: rgba(16,103,219,0.1);
+        }
+        
+        .content-link-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--estore-dark-blue);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .content-link-text {
+            flex: 1;
+        }
+        
+        .content-link-title {
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        
+        .content-link-desc {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-light);
+            font-size: 13px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 16px;
+            }
+            
+            .header {
+                padding: 24px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .header-stats {
+                gap: 20px;
+            }
+            
+            .tab-btn {
+                min-width: auto;
+                padding: 12px 16px;
+                font-size: 13px;
+            }
+            
+            .assessment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .tab-nav,
+            .email-tabs,
+            .sequence-selector {
+                display: none;
+            }
+            
+            .tab-content,
+            .email-content,
+            .sequence-content {
+                display: block !important;
+                page-break-inside: avoid;
+            }
+            
+            .card,
+            .contact-card,
+            .objection-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="brand-badge">
+                    <span>⚡</span>
+                    <span>eStore Brand Research & Action Plan</span>
+                </div>
+                <h1>Nike Inc.</h1>
+                <p class="header-subtitle">Global Athletic Footwear & Apparel | NYSE: NKE</p>
+                <div class="header-stats">
+                    <div class="header-stat">
+                        <div class="header-stat-value">$46.3B</div>
+                        <div class="header-stat-label">FY2025 Revenue</div>
+                    </div>
+                    <div class="header-stat">
+                        <div class="header-stat-value">€13.6B</div>
+                        <div class="header-stat-label">EMEA Revenue</div>
+                    </div>
+                    <div class="header-stat">
+                        <div class="header-stat-value">40+</div>
+                        <div class="header-stat-label">Key Retail Partners</div>
+                    </div>
+                    <div class="header-stat">
+                        <div class="header-stat-value">77,800</div>
+                        <div class="header-stat-label">Employees</div>
+                    </div>
+                </div>
+                <div class="fit-badge moderate">
+                    🟡 MODERATE FIT - Consultative Approach Required
+                </div>
+            </div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="strategic-fit">Strategic Fit Assessment</button>
+            <button class="tab-btn" data-tab="history">Our history with them</button>
+            <button class="tab-btn" data-tab="retailers">Retailer Overview</button>
+            <button class="tab-btn" data-tab="contacts">Key people?</button>
+            <button class="tab-btn" data-tab="emails">Draft Email Sequences</button>
+            <button class="tab-btn" data-tab="objections">Objection Handling</button>
+        </nav>
+
+        <!-- Tab 1: Strategic Fit Assessment -->
+        <div id="strategic-fit" class="tab-content active">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon yellow">📊</div>
+                    <h2>Strategic Fit Assessment</h2>
+                </div>
+                
+                <div class="info-box highlight">
+                    <h3>Overall Assessment: 🟡 MODERATE FIT</h3>
+                    <p>Nike represents a significant opportunity with genuine strategic alignment around their wholesale pivot, but multiple factors require careful navigation. The combination of sector expansion risk, departed contacts, and Nike's proprietary analytics investment means this is a consultative, long-term opportunity rather than a quick win.</p>
+                </div>
+
+                <div class="assessment-grid">
+                    <div class="assessment-item positive">
+                        <h4>✅ Distribution Complexity & Geographic Alignment</h4>
+                        <p><strong>40+ key online retail partners globally</strong> with multi-channel distribution across mass market, sports specialists, and pure-play e-commerce. EMEA represents 27% of revenue (€13.6B) with HQ in Hilversum, Netherlands. UK designated as one of three priority countries - strong alignment with eStore's European expertise.</p>
+                    </div>
+                    
+                    <div class="assessment-item positive">
+                        <h4>✅ Competitive Intelligence - No Incumbent</h4>
+                        <p><strong>No confirmed DSA provider identified.</strong> Extensive research across Profitero, CommerceIQ, Stackline, Edge by Ascential, Salsify, Syndigo, mindsite, and Brand Nudge found no evidence of Nike as a customer. However, Nike has built proprietary analytics through Zodiac, Celect, and Datalogue acquisitions.</p>
+                    </div>
+                    
+                    <div class="assessment-item negative">
+                        <h4>❌ Sector Alignment - Outside Core Five</h4>
+                        <p><strong>Footwear & Apparel sector falls outside eStore's proven sectors</strong> (Consumer Electronics, Beauty & Personal Care, Pharmaceuticals/Healthcare, Beverages, Home & Garden). No direct case studies available. Closest analogues: Consumer Electronics (high SKU complexity) and Beauty (visual merchandising).</p>
+                    </div>
+                    
+                    <div class="assessment-item neutral">
+                        <h4>⚠️ Relationship History - Lapsed Client</h4>
+                        <p><strong>€68.5k historic revenue (2016-2025)</strong> demonstrates previous commercial relationship. However, all four warm contacts have departed Nike. Effectively cold outreach despite brand recognition within Nike organisation.</p>
+                    </div>
+                    
+                    <div class="assessment-item positive">
+                        <h4>✅ Market Dynamics - Strong Timing Indicators</h4>
+                        <p><strong>Nike's "Win Now" wholesale pivot creates genuine DSA need.</strong> Amazon return (2025), expanded Connected Partnerships, and new EMEA leadership (César Garcia, Feb 2026) all create engagement opportunities. UK designated as priority market aligns with eStore strength.</p>
+                    </div>
+                    
+                    <div class="assessment-item neutral">
+                        <h4>⚠️ Implementation Readiness - 4-8 Weeks</h4>
+                        <p><strong>Core European retailers likely covered</strong> (JD Sports, Zalando, Sports Direct, ASOS are standard coverage). Time-to-value estimate: 4-8 weeks for core European retailers. Specialist sports retailers may require verification.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon green">🎯</div>
+                    <h2>Synthesis & Recommendation</h2>
+                </div>
+                
+                <h3>Primary Value Proposition</h3>
+                <div class="quote-block">
+                    "As Nike rebuilds its marketplace ecosystem under the 'Win Now' strategy, eStore provides independent visibility to ensure retail partners present Nike products consistently, accurately, and at appropriate price points across European digital shelves - complementing Nike's first-party data with third-party retail intelligence."
+                </div>
+                
+                <h3>Key Positive Indicators</h3>
+                <ul class="bullet-list">
+                    <li class="positive">Nike's wholesale pivot creates genuine need for third-party retail monitoring</li>
+                    <li class="positive">Amazon return (2025) dramatically increases marketplace complexity</li>
+                    <li class="positive">New EMEA leadership (César Garcia, Feb 2026) may welcome fresh vendor relationships</li>
+                    <li class="positive">€13.6B EMEA business provides substantial revenue potential</li>
+                    <li class="positive">UK designated as priority country; London as priority city</li>
+                    <li class="positive">No confirmed incumbent DSA provider to displace</li>
+                    <li class="positive">Lapsed client status provides brand recognition foundation</li>
+                </ul>
+                
+                <h3>Key Risk Factors</h3>
+                <ul class="bullet-list">
+                    <li class="negative">All four warm contacts have left Nike - effectively cold outreach</li>
+                    <li class="negative">Proprietary analytics investment may reduce perceived external vendor need</li>
+                    <li class="negative">Footwear & Apparel outside eStore's five proven sectors - no case studies</li>
+                    <li class="negative">December 2025 restructuring eliminated CTO role - technology now cost-focused</li>
+                    <li class="negative">Nike's scale and complexity may exceed eStore's typical client profile</li>
+                    <li class="negative">Previous engagement (2016-2025) never progressed to large closed projects</li>
+                </ul>
+                
+                <div class="info-box info">
+                    <h3>Recommended Approach: CONSULTATIVE with New Contact Development</h3>
+                    <ul class="bullet-list">
+                        <li>Develop new European contacts (Monica Rosado, Mark Draper) given warm contact departures</li>
+                        <li>Lead with wholesale pivot narrative - DSA essential for monitoring expanded retail partner performance</li>
+                        <li>Reference Amazon return - immediate monitoring need for 2025</li>
+                        <li>Position as complementary to Nike's proprietary first-party analytics</li>
+                        <li>Target Q2 2026 for outreach, allowing César Garcia to settle into EMEA VP/GM role</li>
+                        <li>Consider reaching out to Sanver Azak for introduction or competitive intelligence</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box warning">
+                    <h3>Estimated Difficulty: HIGH</h3>
+                    <ul class="bullet-list">
+                        <li><strong>Timeline:</strong> 12-18 months to meaningful engagement</li>
+                        <li><strong>Competitive risk:</strong> Low (no incumbent) but Nike may prefer enterprise-scale vendors</li>
+                        <li><strong>Decision complexity:</strong> Multiple stakeholders across regions, recent restructuring creates uncertainty</li>
+                        <li><strong>Budget availability:</strong> Uncertain given cost-cutting focus and CTO elimination</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Our History With Them -->
+        <div id="history" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">📜</div>
+                    <h2>Previous Conversations & HubSpot History</h2>
+                </div>
+                
+                <div class="summary-stats">
+                    <div class="summary-stat">
+                        <div class="summary-stat-value">€68.5k</div>
+                        <div class="summary-stat-label">Historic Revenue</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-stat-value">2016-2025</div>
+                        <div class="summary-stat-label">Engagement Period</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-stat-value" style="color: var(--estore-orange);">LAPSED</div>
+                        <div class="summary-stat-label">Current Status</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-stat-value" style="color: var(--estore-red);">0</div>
+                        <div class="summary-stat-label">Active Contacts</div>
+                    </div>
+                </div>
+                
+                <h3>Engagement Timeline</h3>
+                
+                <div class="info-box">
+                    <h4>Recent Activity (2024-2025)</h4>
+                    <ul class="bullet-list">
+                        <li>Amy Hawksley-Blackburn led outbound sequences to re-engage prior eStore users (Vicki Tan, Erkmen Cine)</li>
+                        <li>Net-new outreach to Borja Larragan and Sanver Azak on "eRetail Analytics Review in 2025?"</li>
+                        <li>Some attempts bounced (invalid mailbox for Sanver Azak)</li>
+                        <li><strong>Most recent outreach:</strong> February 2025</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>2023 Activity</h4>
+                    <ul class="bullet-list">
+                        <li>Location-based analytics webinar invitation campaign</li>
+                        <li>Coordinated campaign inviting broad Nike audience (Blake Bowyer, Kari Simpson, Mike Rackley, etc.)</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>2022 Activity</h4>
+                    <ul class="bullet-list">
+                        <li>Amazon / Virtual Analyst campaigns from Robert Mann</li>
+                        <li>Targeted Nike's Amazon/e-commerce stakeholders around Amazon Growth Summit</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>2021-2020 Activity</h4>
+                    <ul class="bullet-list">
+                        <li>Multi-touch sequences from Kristina Petrović to Ahu Torun Altug</li>
+                        <li>eStoreLabs, content optimisation, SEO, PIM services</li>
+                        <li>Case studies shared (Nestlé Purina, L'Oréal)</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box">
+                    <h4>Earlier History (pre-2020)</h4>
+                    <ul class="bullet-list">
+                        <li>Exploratory calls and notes about Nike's limited need/budget</li>
+                        <li>Initial inbound interest via web form (Tomek Wozniak)</li>
+                        <li>Notes from 2017-2018 show "no budget", "no technical possibilities", "come back January 2019"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon red">⚠️</div>
+                    <h2>Critical Finding: All Warm Contacts Have Departed</h2>
+                </div>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Previous Connection</th>
+                            <th>Current Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Vicki Tan</strong></td>
+                            <td>Ex-LEGO (used eStore)</td>
+                            <td><span class="status-indicator not-covered">❌ Unable to verify at Nike</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Erkmen Cine</strong></td>
+                            <td>Ex-L'Oréal</td>
+                            <td><span class="status-indicator not-covered">❌ Left Nike - now at Nutreco</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Borja Larragan</strong></td>
+                            <td>Nike contact</td>
+                            <td><span class="status-indicator not-covered">❌ No longer at Nike</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sanver Azak</strong></td>
+                            <td>Sr. Director EMEA PGTM</td>
+                            <td><span class="status-indicator not-covered">❌ Left Nike - now independent consultant</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box highlight">
+                    <h4>Note on Sanver Azak</h4>
+                    <p>Though departed, Sanver led Nike.NET B2B platform with $5B+ annual revenue and may provide introductions or competitive intelligence. Consider outreach for warm introduction or market intelligence.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">🔍</div>
+                    <h2>Competitor Intelligence</h2>
+                </div>
+                
+                <div class="info-box success">
+                    <h3>Current DSA Provider: None Confirmed</h3>
+                    <p><strong>Confidence level:</strong> Unknown - no external vendor identified</p>
+                </div>
+                
+                <h3>Evidence Gathered</h3>
+                <ul class="bullet-list">
+                    <li>Extensive research across Profitero, CommerceIQ, Stackline, Edge by Ascential, Salsify, Syndigo, mindsite, and Brand Nudge found no evidence of Nike as a customer</li>
+                    <li>No LinkedIn job postings mentioning DSA vendor tools</li>
+                    <li>No press releases or case studies identifying Nike partnership</li>
+                </ul>
+                
+                <h3>Nike's Proprietary Analytics Approach</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Acquisition</th>
+                            <th>Year</th>
+                            <th>Capability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Zodiac</strong></td>
+                            <td>2018</td>
+                            <td>Customer data analytics for personalisation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Celect</strong></td>
+                            <td>2019</td>
+                            <td>Predictive analytics for inventory/demand sensing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Datalogue</strong></td>
+                            <td>2021</td>
+                            <td>Data integration platform</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p><strong>Technology stack:</strong> Snowflake, Databricks, proprietary neural networks, 160+ million membership accounts providing first-party data</p>
+                
+                <div class="info-box info">
+                    <h4>Strategic Implication</h4>
+                    <p>The absence of a confirmed DSA vendor, combined with Nike's 2025 return to wholesale and Amazon, may create a new need for third-party retail analytics that their proprietary systems weren't designed to address. Nike's internal tools focus on first-party data from owned channels; third-party retail monitoring is a distinct capability gap.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon orange">📚</div>
+                    <h2>Content to Reference</h2>
+                </div>
+                
+                <div class="info-box warning">
+                    <p><strong>Note:</strong> Footwear & Apparel is outside eStore's five proven sectors. There is no direct sector landing page to reference. Content positioning will need to emphasise transferable capabilities rather than sector-specific expertise.</p>
+                </div>
+                
+                <h3>If Conversation Progresses, Consider:</h3>
+                <div class="content-links">
+                    <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" class="content-link" target="_blank">
+                        <div class="content-link-icon">📊</div>
+                        <div class="content-link-text">
+                            <div class="content-link-title">Content Benchmark Article</div>
+                            <div class="content-link-desc">Relevant for discussions about competitive positioning or content quality. Only share if explicitly relevant to the conversation.</div>
+                        </div>
+                    </a>
+                    <a href="https://estorebrands.com/ignite/introducing-ai-business-answers" class="content-link" target="_blank">
+                        <div class="content-link-icon">🤖</div>
+                        <div class="content-link-text">
+                            <div class="content-link-title">AI Business Answers Article</div>
+                            <div class="content-link-desc">Only if contact shows specific interest in AI/automation capabilities.</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <h3 style="margin-top: 24px;">Do Not Reference</h3>
+                <ul class="bullet-list">
+                    <li class="negative">Sector landing pages (none directly applicable)</li>
+                    <li class="negative">Case studies (none in Footwear & Apparel)</li>
+                </ul>
+                
+                <h3 style="margin-top: 24px;">How to Position Content Naturally</h3>
+                <ul class="bullet-list">
+                    <li>Lead with Nike's specific challenges (wholesale pivot, Amazon return, marketplace complexity)</li>
+                    <li>Reference content as "thinking that might be relevant" rather than sales material</li>
+                    <li>Acknowledge sector difference: "While we've primarily worked in [X sector], the challenges around [specific issue] are very similar..."</li>
+                    <li>Position eStore insights as complementary to Nike's first-party analytics</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab 3: Retailer Overview -->
+        <div id="retailers" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon green">🏪</div>
+                    <h2>Retailer Pattern Analysis</h2>
+                </div>
+                
+                <div class="summary-stats">
+                    <div class="summary-stat">
+                        <div class="summary-stat-value">40+</div>
+                        <div class="summary-stat-label">Key Retail Partners</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-stat-value">15-20</div>
+                        <div class="summary-stat-label">UK/European Retailers</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-stat-value">10-15</div>
+                        <div class="summary-stat-label">US Retailers</div>
+                    </div>
+                    <div class="summary-stat">
+                        <div class="summary-stat-value">4-8 weeks</div>
+                        <div class="summary-stat-label">Est. Time-to-Value</div>
+                    </div>
+                </div>
+                
+                <div class="info-box info">
+                    <p><strong>Note:</strong> This is strategic pattern analysis, not detailed coverage checking. eStore's UK/European retailer coverage likely aligns well with Nike's European retail partners.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">🇪🇺</div>
+                    <h2>Geographic Breakdown</h2>
+                </div>
+                
+                <h3>UK/Europe (~15-20 retailers)</h3>
+                <div class="retailer-grid">
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">JD Sports</div>
+                            <div class="retailer-market">UK - Connected Partner</div>
+                        </div>
+                        <span class="status-indicator covered">✅ Standard Coverage</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">Zalando</div>
+                            <div class="retailer-market">25 European Markets</div>
+                        </div>
+                        <span class="status-indicator covered">✅ Standard Coverage</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">Sports Direct / Frasers</div>
+                            <div class="retailer-market">UK</div>
+                        </div>
+                        <span class="status-indicator covered">✅ Standard Coverage</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">ASOS</div>
+                            <div class="retailer-market">UK/Europe</div>
+                        </div>
+                        <span class="status-indicator covered">✅ Standard Coverage</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">Size?</div>
+                            <div class="retailer-market">UK Specialist</div>
+                        </div>
+                        <span class="status-indicator unknown">⚠️ Verify</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">Footasylum</div>
+                            <div class="retailer-market">UK Specialist</div>
+                        </div>
+                        <span class="status-indicator unknown">⚠️ Verify</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">Schuh</div>
+                            <div class="retailer-market">UK Footwear</div>
+                        </div>
+                        <span class="status-indicator unknown">⚠️ Verify</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">Foot Locker Europe</div>
+                            <div class="retailer-market">~377 stores</div>
+                        </div>
+                        <span class="status-indicator unknown">⚠️ Verify</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">Printemps</div>
+                            <div class="retailer-market">France - New 2025</div>
+                        </div>
+                        <span class="status-indicator unknown">⚠️ Verify</span>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 24px;">US Market (~10-15 retailers)</h3>
+                <div class="retailer-grid">
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">Amazon US</div>
+                            <div class="retailer-market">Returning 2025</div>
+                        </div>
+                        <span class="status-indicator covered">✅ Standard Coverage</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">Dick's Sporting Goods</div>
+                            <div class="retailer-market">First Connected Partner</div>
+                        </div>
+                        <span class="status-indicator unknown">⚠️ Verify</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">Foot Locker US</div>
+                            <div class="retailer-market">US Specialist</div>
+                        </div>
+                        <span class="status-indicator unknown">⚠️ Verify</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">Macy's</div>
+                            <div class="retailer-market">Re-entered Oct 2023</div>
+                        </div>
+                        <span class="status-indicator unknown">⚠️ Verify</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">DSW</div>
+                            <div class="retailer-market">Returning 2025</div>
+                        </div>
+                        <span class="status-indicator unknown">⚠️ Verify</span>
+                    </div>
+                    <div class="retailer-item">
+                        <div>
+                            <div class="retailer-name">Zappos</div>
+                            <div class="retailer-market">Returning 2025</div>
+                        </div>
+                        <span class="status-indicator unknown">⚠️ Verify</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon yellow">📌</div>
+                    <h2>Notable Patterns & Gaps</h2>
+                </div>
+                
+                <h3>Strong UK/European Presence</h3>
+                <ul class="bullet-list">
+                    <li class="positive"><strong>JD Sports:</strong> Nike's #1 global partner, Connected Partnership since September 2022</li>
+                    <li class="positive"><strong>Zalando:</strong> Connected Partnership since October 2022, covers 25 European markets</li>
+                    <li class="positive"><strong>Sports Direct/Frasers Group:</strong> Long-term UK partner</li>
+                    <li class="positive"><strong>Size?, Footasylum, Schuh:</strong> UK specialist coverage</li>
+                </ul>
+                
+                <h3 style="margin-top: 20px;">Critical Gaps & Considerations</h3>
+                <ul class="bullet-list">
+                    <li class="negative"><strong>Sector-specific challenges:</strong> Footwear & Apparel sector differs from eStore's core focus</li>
+                    <li class="negative">Product data requirements emphasise sizing, fit, visual merchandising vs. specifications</li>
+                    <li class="negative">Returns prevention (sizing accuracy) is critical metric in footwear</li>
+                    <li class="neutral">Some niche/specialist footwear retailers may not be in eStore coverage</li>
+                    <li class="neutral">Sneaker-specific platforms (StockX, GOAT, Flight Club) may be app-only or login-required</li>
+                </ul>
+                
+                <div class="info-box info" style="margin-top: 24px;">
+                    <h3>Implementation Note</h3>
+                    <p><strong>Time-to-value estimate: 4-8 weeks for core European retailers</strong></p>
+                    <ul class="bullet-list">
+                        <li>JD Sports, Zalando, Sports Direct, ASOS are standard UK/European retailer coverage</li>
+                        <li>Mass market retailers (Amazon, Boots, Tesco) typically well covered</li>
+                        <li>Specialist sports retailers may require verification</li>
+                        <li>Detailed coverage checking would be required before making specific commitments</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Key People -->
+        <div id="contacts" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon red">👥</div>
+                    <h2>Historical Contacts (All Departed)</h2>
+                </div>
+                
+                <div class="info-box warning">
+                    <p><strong>Critical finding:</strong> All previously warm contacts have left Nike. This effectively makes this a cold outreach situation despite the lapsed client relationship.</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Sanver Azak</div>
+                            <div class="contact-title">Former Sr. Director EMEA PGTM</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge status-departed">❌ Departed</span>
+                            <span class="badge location">📍 Now Independent Consultant</span>
+                        </div>
+                    </div>
+                    <p><strong>Potential value:</strong> Led Nike.NET B2B platform with $5B+ annual revenue. May provide introductions or competitive intelligence. Consider outreach for warm introduction or market intelligence.</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Vicki Tan</div>
+                            <div class="contact-title">Ex-LEGO (used eStore)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge status-departed">❌ Unable to verify at Nike</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Erkmen Cine</div>
+                            <div class="contact-title">Ex-L'Oréal</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge status-departed">❌ Left Nike - now at Nutreco</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Borja Larragan</div>
+                            <div class="contact-title">Nike digital/retail media analytics</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge status-departed">❌ No longer at Nike</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon green">⭐</div>
+                    <h2>Primary Targets - Operational Decision-Makers</h2>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Monica Rosado</div>
+                            <div class="contact-title">Director EMEA Marketplace Operations Pure Players</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge priority">⭐ TOP PRIORITY</span>
+                            <span class="badge nationality">🇳🇱 Netherlands-based</span>
+                            <span class="badge status-cold">Cold</span>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h4>Why they're the right contact</h4>
+                        <ul class="bullet-list">
+                            <li>Digital shelf analytics directly relevant to marketplace operations role</li>
+                            <li>Pure-play e-commerce retailers are high-priority DSA monitoring targets</li>
+                            <li>EMEA-based aligns with eStore's European strength</li>
+                            <li>Operational level - appropriate for vendor evaluation and implementation</li>
+                        </ul>
+                    </div>
+                    <div class="info-box highlight">
+                        <h4>Specific hooks for outreach</h4>
+                        <ul class="bullet-list">
+                            <li>Nike's expanded marketplace partnerships require enhanced monitoring</li>
+                            <li>Reference Zalando Connected Partnership complexity across 25 markets</li>
+                            <li>Content consistency and pricing compliance across pure-play partners</li>
+                            <li>Complement Nike's first-party data with third-party retail intelligence</li>
+                        </ul>
+                    </div>
+                    <p><strong>Tone guidance:</strong> Professional but conversational. Netherlands-based contact - direct communication style is appropriate.</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Mark Draper</div>
+                            <div class="contact-title">Senior Director EMEA Consumer, Marketplace and Marketing Technology</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge nationality">🇬🇧 British (likely)</span>
+                            <span class="badge location">📍 Amsterdam</span>
+                            <span class="badge status-cold">Cold</span>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h4>Why they're the right contact</h4>
+                        <ul class="bullet-list">
+                            <li>Technology decision-maker with analytics background (PhD from Imperial College)</li>
+                            <li>Marketplace and consumer technology in scope</li>
+                            <li>EMEA-based aligns with eStore's European strength</li>
+                            <li>Analytics-driven background may be receptive to data-focused value proposition</li>
+                        </ul>
+                    </div>
+                    <div class="info-box highlight">
+                        <h4>Specific hooks for outreach</h4>
+                        <ul class="bullet-list">
+                            <li>Technology integration with existing Nike systems (Snowflake, Databricks)</li>
+                            <li>Data and analytics capabilities (appeals to PhD background)</li>
+                            <li>Complementing first-party data with third-party marketplace intelligence</li>
+                            <li>Supporting marketplace technology modernisation</li>
+                        </ul>
+                    </div>
+                    <p><strong>Tone guidance:</strong> Warmer tone appropriate for British background. Appeal to analytical/technical mindset. PhD from Imperial College - appreciate data-driven positioning.</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Sebastien Amsellem</div>
+                            <div class="contact-title">Commercial Director</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge nationality">🇫🇷 French</span>
+                            <span class="badge location">📍 Paris</span>
+                            <span class="badge status-cold">Cold</span>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h4>Why they're the right contact</h4>
+                        <ul class="bullet-list">
+                            <li>Commercial decision-maker with P&L responsibility (~$500M portfolio)</li>
+                            <li>Strategic partnerships focus aligns with DSA value proposition</li>
+                            <li>Led Paris 2024 Olympics Marketplace strategy - demonstrates complex marketplace management</li>
+                            <li>French market represents significant European opportunity</li>
+                        </ul>
+                    </div>
+                    <div class="info-box highlight">
+                        <h4>Specific hooks for outreach</h4>
+                        <ul class="bullet-list">
+                            <li>Post-Olympics marketplace optimisation and learnings</li>
+                            <li>Strategic partnerships approach to retailer relationships</li>
+                            <li>Commercial value demonstration through analytics</li>
+                            <li>Supporting revenue growth through better retail execution</li>
+                        </ul>
+                    </div>
+                    <p><strong>Tone guidance:</strong> Sophisticated framing appropriate for French business culture. Focus on strategic thinking and intellectual interest. Higher emphasis on elegance and conceptual positioning.</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Olaf Scholz</div>
+                            <div class="contact-title">Director Key Sports Partners & Marketplace Lead Germany</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge nationality">🇩🇪 German</span>
+                            <span class="badge location">📍 Frankfurt</span>
+                            <span class="badge status-cold">Cold</span>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h4>Why they're the right contact</h4>
+                        <ul class="bullet-list">
+                            <li>DACH region is significant European market (Germany, Austria, Switzerland)</li>
+                            <li>Marketplace Lead title directly relevant to DSA</li>
+                            <li>Sports specialist retailer relationships (Intersport)</li>
+                            <li>Regional decision-making authority</li>
+                        </ul>
+                    </div>
+                    <div class="info-box highlight">
+                        <h4>Specific hooks for outreach</h4>
+                        <ul class="bullet-list">
+                            <li>DACH region marketplace complexity</li>
+                            <li>E-commerce growth measurement and optimisation</li>
+                            <li>Supporting retailer relationship quality</li>
+                            <li>German market specificity (language, regional retailers)</li>
+                        </ul>
+                    </div>
+                    <p><strong>Tone guidance:</strong> More formal communication style ("Herr Scholz"). Clear, structured, fact-based. German business culture appreciates precision and direct value articulation.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">🎯</div>
+                    <h2>Secondary Targets - Strategic Influencers</h2>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">César Garcia</div>
+                            <div class="contact-title">VP/GM EMEA (Effective 2 February 2026)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge priority" style="background: var(--estore-orange);">⭐ NEW APPOINTMENT</span>
+                            <span class="badge location">📍 Hilversum, Netherlands</span>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h4>Background</h4>
+                        <ul class="bullet-list">
+                            <li>25-year Nike veteran</li>
+                            <li>Expertise in merchandising, sport priorities, and analytics integration</li>
+                            <li>Replacing retiring Carl Grebert</li>
+                            <li>Highest-level EMEA decision-maker</li>
+                        </ul>
+                    </div>
+                    <div class="info-box info">
+                        <h4>Approach</h4>
+                        <p>Build relationships with operational contacts first. Position César as strategic sponsor target for H2 2026. Reference his analytics integration expertise in positioning. Allow settling period before direct outreach.</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Matt Friend</div>
+                            <div class="contact-title">EVP & Chief Financial Officer</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge location">📍 Beaverton, Oregon, USA</span>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h4>Strategic Value</h4>
+                        <ul class="bullet-list">
+                            <li>Expanded scope: Now oversees Global Sales and Nike Direct (December 2025 restructuring)</li>
+                            <li>Ultimate commercial decision-maker for sales and direct channels</li>
+                            <li>Key voice on Nike Digital strategy transformation</li>
+                        </ul>
+                    </div>
+                    <div class="info-box warning">
+                        <h4>Approach</h4>
+                        <p>Too senior for initial outreach. Target after European engagement established. Reference his public statements on Nike Digital transformation but do not contact directly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon yellow">💬</div>
+                    <h2>Executive Context - Reference Only</h2>
+                </div>
+                
+                <h3>CEO Elliott Hill - Key Public Statements</h3>
+                <div class="quote-block">
+                    "We're repositioning Nike Digital and restoring our sales organisation... Digital and physical, owned and partnered retail floor sets must work together in a consistent ecosystem."
+                    <cite>— Elliott Hill, on wholesale relationships</cite>
+                </div>
+                
+                <div class="quote-block">
+                    "When we lead with sport, we create impact for Nike... We want to be great at all touch points."
+                    <cite>— Elliott Hill, on strategic priorities</cite>
+                </div>
+                
+                <h3>CFO Matt Friend - Digital Commerce Commentary</h3>
+                <div class="quote-block">
+                    "Nike Digital has become a platform where we have been capturing demand and competing with our wholesale partners rather than creating and growing demand for our brands."
+                    <cite>— Matt Friend, on Nike Digital challenges</cite>
+                </div>
+                
+                <div class="info-box info">
+                    <h4>Use in Outreach</h4>
+                    <p>Reference these statements to demonstrate understanding of Nike's strategic direction. Position eStore as supporting the "Win Now" marketplace elevation priority. Do not contact these executives directly.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon red">🚫</div>
+                    <h2>Contacts to Skip</h2>
+                </div>
+                <ul class="bullet-list">
+                    <li class="negative"><strong>US-based executives</strong> (CEO, CFO, COO) - inappropriate for initial vendor outreach, too senior</li>
+                    <li class="negative"><strong>Retail store operations</strong> - different from e-commerce/marketplace focus</li>
+                    <li class="negative"><strong>Manufacturing/supply chain</strong> - outside digital shelf scope</li>
+                    <li class="negative"><strong>Marketing/brand roles</strong> without commercial/marketplace responsibility</li>
+                    <li class="negative"><strong>Previous contacts who have left Nike</strong> (Vicki Tan, Erkmen Cine, Borja Larragan) - though Sanver Azak may be valuable for introductions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab 5: Draft Email Sequences -->
+        <div id="emails" class="tab-content">
+            <div class="disclaimer">
+                <div class="disclaimer-title">
+                    <span>⚠️</span>
+                    <span>Important Notice</span>
+                </div>
+                <p>These emails are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Verify all contact details are current and customise specific references based on the latest information available.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon blue">🌍</div>
+                    <h2>Nationality-Based Tone Guidance</h2>
+                </div>
+                
+                <div class="tone-guidance">
+                    <div class="tone-item">
+                        <span class="tone-flag">🇳🇱</span>
+                        <div class="tone-text">
+                            <strong>Monica Rosado (Netherlands-based):</strong> Direct communication style is appropriate. Professional but conversational. Get to the point without excessive preamble.
+                        </div>
+                    </div>
+                    <div class="tone-item">
+                        <span class="tone-flag">🇬🇧</span>
+                        <div class="tone-text">
+                            <strong>Mark Draper (British):</strong> Warmer tone appropriate. Appeal to analytical/technical mindset given PhD background. Slightly more collegial approach.
+                        </div>
+                    </div>
+                    <div class="tone-item">
+                        <span class="tone-flag">🇫🇷</span>
+                        <div class="tone-text">
+                            <strong>Sebastien Amsellem (French):</strong> Sophisticated, strategic framing. Higher emphasis on elegance and conceptual positioning. Focus on intellectual interest and strategic thinking.
+                        </div>
+                    </div>
+                    <div class="tone-item">
+                        <span class="tone-flag">🇩🇪</span>
+                        <div class="tone-text">
+                            <strong>Olaf Scholz (German):</strong> More formal style ("Herr Scholz"). Clear, structured, fact-based. German business culture appreciates precision and direct value articulation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sequence Selector -->
+            <div class="sequence-selector">
+                <button class="sequence-btn active" data-sequence="monica">Monica Rosado</button>
+                <button class="sequence-btn" data-sequence="mark">Mark Draper</button>
+                <button class="sequence-btn" data-sequence="sebastien">Sebastien Amsellem</button>
+                <button class="sequence-btn" data-sequence="olaf">Olaf Scholz</button>
+            </div>
+            
+            <!-- Monica Rosado Sequence -->
+            <div id="sequence-monica" class="sequence-content active">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon green">📧</div>
+                        <h2>Monica Rosado - Director EMEA Marketplace Operations Pure Players</h2>
+                    </div>
+                    <p><strong>Priority:</strong> ⭐ TOP PRIORITY | <strong>Location:</strong> The Randstad, Netherlands | <strong>Status:</strong> Cold - new contact</p>
+                    
+                    <div class="email-tabs">
+                        <button class="email-tab-btn active" data-email="monica-1">Email 1</button>
+                        <button class="email-tab-btn" data-email="monica-2">Email 2</button>
+                        <button class="email-tab-btn" data-email="monica-3">Email 3</button>
+                    </div>
+                    
+                    <div id="email-monica-1" class="email-content active">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Nike's marketplace expansion across Europe</div>
+                            <div class="email-timing">Send timing: Tuesday or Wednesday, 9:00-10:00 CET</div>
+                            <div class="email-body">Monica,
+
+I'm [SENDER NAME] from eStore - we help brands selling through online retailers understand how their products appear and perform across things like availability, content accuracy, pricing, and search rankings. We work with companies like Bosch, Whirlpool, and Sanofi.
+
+Nike's return to wholesale is creating an interesting challenge. With Connected Partnerships like Zalando now spanning 25 European markets, and partnerships with JD Sports, ASOS, and others in the mix, the complexity of ensuring consistent product presentation is significant.
+
+When products go live across that many markets and retail partners simultaneously, how do you currently track whether what appears on Zalando Germany matches what's on Zalando France - or whether JD Sports is representing products the way Nike intends?
+
+Our experience with brands managing multi-market, multi-retailer distribution suggests this tends to fall into three camps - brands that rely heavily on retailer teams, brands that have built internal tools, or brands that use third-party analytics like eStore. I'd be interested to understand how Nike approaches this, and whether there's value in you being aware of what we do.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <h4>Customisation notes</h4>
+                                <ul>
+                                    <li>Verify Monica's LinkedIn is current before sending</li>
+                                    <li>Check if there are any recent Nike/Zalando announcements to reference</li>
+                                    <li>If Nike has announced any new European marketplace partnerships, consider referencing</li>
+                                </ul>
+                                <h4>Strategy notes</h4>
+                                <ul>
+                                    <li>Leads with clear eStore introduction as required for cold outreach</li>
+                                    <li>Uses specific research finding: Zalando Connected Partnership spanning 25 European markets</li>
+                                    <li>Asks direct question about their current approach without assuming they have a problem</li>
+                                    <li>Explicitly positions eStore as the third-party analytics option and asks if awareness would be valuable</li>
+                                    <li>No meeting request - just opens door for conversation</li>
+                                    <li>Professional but conversational tone appropriate for Netherlands-based contact</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="email-monica-2" class="email-content">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Re: Nike's marketplace expansion across Europe</div>
+                            <div class="email-timing">Send timing: 5-7 days after Email 1, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                            <div class="email-body">Monica,
+
+Following up with a thought that might be useful.
+
+One pattern we see with brands managing Connected Partnership-style arrangements is that content consistency becomes harder, not easier, as partnerships mature. The initial launch gets attention, but over time product descriptions, imagery, and specifications can drift as retailers update their own systems.
+
+For Nike specifically, with Jordan Brand products on Zalando alongside core Nike, and different pricing and promotional strategies by market, I'd imagine the monitoring challenge is substantial.
+
+Does Nike's Connected Partnership model include shared visibility on how products actually appear across markets, or is that something each side manages independently?
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <h4>Customisation notes</h4>
+                                <ul>
+                                    <li>If Monica engages with Email 1, adapt Email 2 to reference her response</li>
+                                    <li>Consider adding link to Content Benchmark article if conversation warrants it</li>
+                                    <li>Check for any recent content quality issues with Nike products on European retailers</li>
+                                </ul>
+                                <h4>Strategy notes</h4>
+                                <ul>
+                                    <li>Adds new value (pattern recognition about content drift in maturing partnerships)</li>
+                                    <li>Uses specific research finding: Jordan Brand products on Zalando, multi-brand complexity</li>
+                                    <li>Direct question explores the actual partnership structure without assuming we know the answer</li>
+                                    <li>Maintains consultative tone appropriate for Moderate Fit assessment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="email-monica-3" class="email-content">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Re: Nike's marketplace expansion across Europe</div>
+                            <div class="email-timing">Send timing: 5-7 days after Email 2, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                            <div class="email-body">Monica,
+
+One more angle that might be relevant.
+
+Nike's investments in Zodiac, Celect, and Datalogue have built impressive first-party analytics capabilities. What those tools do exceptionally well is understand Nike's owned channels and customer data.
+
+What they weren't designed for is providing independent visibility into how third-party retailers present Nike products - the gap between what Nike sends to a retailer and what actually appears on their site.
+
+As Nike's wholesale footprint expands through partnerships like JD Sports and the Amazon return, that third-party retail intelligence becomes a different kind of challenge. Not replacing your existing analytics, but complementing them. This is specifically what eStore does.
+
+Is this a gap Nike is thinking about, or do the Connected Partnership data-sharing arrangements address it?
+
+Worth a conversation?
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <h4>Customisation notes</h4>
+                                <ul>
+                                    <li>Only send if no response to Emails 1 and 2</li>
+                                    <li>If Monica has engaged, this email should be adapted to the conversation</li>
+                                    <li>Verify the Amazon return is still on track before referencing</li>
+                                </ul>
+                                <h4>Strategy notes</h4>
+                                <ul>
+                                    <li>Adds new angle: positioning against Nike's internal capabilities rather than other DSA vendors</li>
+                                    <li>Uses specific research findings: Zodiac, Celect, Datalogue acquisitions, Amazon return</li>
+                                    <li>Honest positioning about what eStore does vs. Nike's first-party tools</li>
+                                    <li>Makes explicit that this is what eStore does</li>
+                                    <li>Ends with direct question, not a graceful exit</li>
+                                    <li>Maintains consultative approach throughout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mark Draper Sequence -->
+            <div id="sequence-mark" class="sequence-content">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon green">📧</div>
+                        <h2>Mark Draper - Senior Director EMEA Consumer, Marketplace and Marketing Technology</h2>
+                    </div>
+                    <p><strong>Location:</strong> Amsterdam, Netherlands | <strong>Nationality:</strong> British (likely) | <strong>Status:</strong> Cold - new contact</p>
+                    
+                    <div class="email-tabs">
+                        <button class="email-tab-btn active" data-email="mark-1">Email 1</button>
+                        <button class="email-tab-btn" data-email="mark-2">Email 2</button>
+                        <button class="email-tab-btn" data-email="mark-3">Email 3</button>
+                    </div>
+                    
+                    <div id="email-mark-1" class="email-content active">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Third-party retail intelligence at Nike</div>
+                            <div class="email-timing">Send timing: Tuesday or Wednesday, 9:00-10:00 CET</div>
+                            <div class="email-body">Mark,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers. We help companies like Bosch, De'Longhi, and Sanofi track how their products appear across things like availability, content accuracy, pricing, and search rankings.
+
+I came across your background - PhD from Imperial, technology roles at Burberry before Nike - and thought you might have a perspective on something.
+
+Nike's investments in analytics infrastructure (Zodiac, Celect, Datalogue) have built strong first-party data capabilities. But as Nike expands its wholesale footprint - the Amazon return, expanded partnerships with JD Sports and Zalando - there's a different data challenge: understanding what's actually happening on retailers' sites, not just what Nike sends to them.
+
+From a technology perspective, how does Nike think about integrating third-party retail data with your existing analytics stack? Is that something the marketplace technology team is actively exploring, or is it handled differently?
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <h4>Customisation notes</h4>
+                                <ul>
+                                    <li>Verify Mark's LinkedIn and current role before sending</li>
+                                    <li>Check if his PhD or Imperial College connection could be referenced more specifically</li>
+                                    <li>Research any recent Nike technology announcements that might be relevant</li>
+                                </ul>
+                                <h4>Strategy notes</h4>
+                                <ul>
+                                    <li>References Mark's specific background (PhD, Imperial College, Burberry) to demonstrate research</li>
+                                    <li>Appeals to his analytical/technical mindset</li>
+                                    <li>Positions question around technology integration rather than pure sales conversation</li>
+                                    <li>Warmer tone appropriate for British background, but still professional</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="email-mark-2" class="email-content">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Re: Third-party retail intelligence at Nike</div>
+                            <div class="email-timing">Send timing: 5-7 days after Email 1, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                            <div class="email-body">Mark,
+
+Following up with something that might be relevant given your technology focus.
+
+One pattern we see with brands that have invested heavily in their own analytics infrastructure is that third-party retail data often sits in a separate silo. First-party customer data, website analytics, and CRM systems are well integrated - but digital shelf data from retailers exists elsewhere, if it exists at all.
+
+For brands with Nike's analytical sophistication, the question becomes less "do we need digital shelf analytics?" and more "how does third-party retail intelligence feed into our existing data ecosystem?"
+
+We've worked with brands who connect eStore data to their existing Snowflake or Databricks environments, creating a more complete picture across owned and wholesale channels.
+
+Given your role bridging consumer, marketplace, and marketing technology, has this kind of integration been something Nike's team has explored - or has the priority been elsewhere?
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <h4>Customisation notes</h4>
+                                <ul>
+                                    <li>Adapt if Mark responds to Email 1</li>
+                                    <li>Snowflake and Databricks are confirmed parts of Nike's stack - these are safe references</li>
+                                    <li>If there's any public information about Nike's data architecture, consider incorporating</li>
+                                </ul>
+                                <h4>Strategy notes</h4>
+                                <ul>
+                                    <li>Adds new value: data integration perspective rather than just capability pitch</li>
+                                    <li>Uses specific research finding: Nike's Snowflake and Databricks technology stack</li>
+                                    <li>Speaks to his technology responsibilities directly</li>
+                                    <li>Question positions eStore as complement, not replacement</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="email-mark-3" class="email-content">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Re: Third-party retail intelligence at Nike</div>
+                            <div class="email-timing">Send timing: 5-7 days after Email 2, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                            <div class="email-body">Mark,
+
+One more thought that might be relevant.
+
+Nike's European marketplace is particularly complex - 25 markets through Zalando alone, plus JD Sports, ASOS, and regional partners. Each market has its own language requirements, regulatory nuances, and retailer-specific content standards.
+
+From a technology perspective, monitoring product content and performance across that footprint is a different challenge than managing global brand consistency from a central system. The data volume, the language complexity, and the rate of change make it difficult.
+
+We've focused heavily on European retailers specifically - it's where our coverage and expertise is strongest. For brands with significant European wholesale presence, that tends to matter.
+
+Is the European marketplace complexity something the technology team is actively thinking about, or is it primarily managed regionally?
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <h4>Customisation notes</h4>
+                                <ul>
+                                    <li>Only send if no response to Emails 1 and 2</li>
+                                    <li>If engaged, adapt to the conversation</li>
+                                    <li>Check for any recent European expansion news</li>
+                                </ul>
+                                <h4>Strategy notes</h4>
+                                <ul>
+                                    <li>Adds new angle: European market complexity specifically</li>
+                                    <li>Honest geographic positioning (European strength)</li>
+                                    <li>Uses specific research: 25 markets through Zalando, regional partners</li>
+                                    <li>Ends with direct question about Nike's structure, not an exit</li>
+                                    <li>Maintains technical/analytical framing appropriate for Mark</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sebastien Amsellem Sequence -->
+            <div id="sequence-sebastien" class="sequence-content">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon green">📧</div>
+                        <h2>Sebastien Amsellem - Commercial Director</h2>
+                    </div>
+                    <p><strong>Location:</strong> Paris, France | <strong>Nationality:</strong> French | <strong>Status:</strong> Cold - new contact</p>
+                    
+                    <div class="email-tabs">
+                        <button class="email-tab-btn active" data-email="sebastien-1">Email 1</button>
+                        <button class="email-tab-btn" data-email="sebastien-2">Email 2</button>
+                        <button class="email-tab-btn" data-email="sebastien-3">Email 3</button>
+                    </div>
+                    
+                    <div id="email-sebastien-1" class="email-content active">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Nike's European marketplace following Paris 2024</div>
+                            <div class="email-timing">Send timing: Tuesday or Wednesday, 9:30-10:30 CET</div>
+                            <div class="email-body">Sebastien,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, helping companies track how their products appear across availability, content accuracy, pricing, and search rankings. We work with brands like Bosch, Whirlpool, and Sanofi.
+
+Your leadership of Nike's Paris 2024 Olympics marketplace strategy caught my attention. Managing product presentation and availability across retail partners during an event of that scale requires coordination that most brands never have to attempt.
+
+Now that the Olympics intensity has passed, are there learnings from that experience that are shaping how Nike approaches ongoing marketplace management? The monitoring disciplines required during a major event often reveal gaps in how things work during normal operations.
+
+Nike's return to wholesale - the Amazon partnership, expanded relationships with Printemps and other European retailers - suggests marketplace complexity is increasing, not decreasing. I'd be interested to understand how the commercial team thinks about ensuring retail partners execute well across that expanding footprint.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <h4>Customisation notes</h4>
+                                <ul>
+                                    <li>Research any public case studies or articles about Nike's Paris 2024 approach</li>
+                                    <li>Check if Sebastien has spoken publicly about the Olympics experience</li>
+                                    <li>Verify Printemps partnership is still active and relevant</li>
+                                </ul>
+                                <h4>Strategy notes</h4>
+                                <ul>
+                                    <li>References specific research finding: Sebastien led Paris 2024 Olympics Marketplace strategy</li>
+                                    <li>Sophisticated framing appropriate for French business culture</li>
+                                    <li>Focuses on strategic thinking and learnings rather than operational detail</li>
+                                    <li>No hard sell - positions as intellectual interest in their approach</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="email-sebastien-2" class="email-content">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Re: Nike's European marketplace following Paris 2024</div>
+                            <div class="email-timing">Send timing: 5-7 days after Email 1, Tuesday or Wednesday, 9:30-10:30 CET</div>
+                            <div class="email-body">Sebastien,
+
+Following up with a thought that might be relevant to your commercial focus.
+
+One pattern we observe with brands managing strategic retail partnerships is a gap between the commercial agreement and the execution reality. The business terms are carefully negotiated, but day-to-day product presentation - content quality, search positioning, availability tracking - often receives less attention.
+
+For Nike specifically, with Connected Partnerships designed around deep integration with retailers like Zalando and JD Sports, the question becomes: how do you validate that the execution matches the strategic intent?
+
+Commercial teams typically don't have time to manually audit product pages across dozens of markets. But without that data, it's difficult to know whether retail partners are delivering on their commitments.
+
+This is the gap eStore addresses - providing independent visibility into how products actually appear across retail partners. Is this something Nike's commercial team has a view on?
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <h4>Customisation notes</h4>
+                                <ul>
+                                    <li>Adapt if Sebastien responds to Email 1</li>
+                                    <li>If there's any public information about Nike's Connected Partnership terms, consider incorporating</li>
+                                    <li>Check for any recent Zalando or JD Sports partnership announcements</li>
+                                </ul>
+                                <h4>Strategy notes</h4>
+                                <ul>
+                                    <li>Adds new value: the gap between commercial agreement and execution reality</li>
+                                    <li>Uses specific research finding: Connected Partnerships with Zalando and JD Sports</li>
+                                    <li>Frames around governance and strategic validation - appropriate for senior commercial role</li>
+                                    <li>Explicitly states what eStore does and asks for their perspective</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="email-sebastien-3" class="email-content">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Re: Nike's European marketplace following Paris 2024</div>
+                            <div class="email-timing">Send timing: 5-7 days after Email 2, Tuesday or Wednesday, 9:30-10:30 CET</div>
+                            <div class="email-body">Sebastien,
+
+One more perspective that might be relevant given your P&L responsibility.
+
+Nike's wholesale pivot involves significant commercial investment in retail partnerships. The strategic rationale is clear - expanding reach, rebuilding relationships with retailers Nike had stepped back from. But measuring the return on that investment requires visibility into how products actually perform in those channels.
+
+First-party sales data tells part of the story. But understanding why products perform differently across retailers - whether it's content quality, search positioning, availability, or competitive dynamics - requires a different kind of intelligence.
+
+For commercial leaders managing significant portfolio responsibility, the question is often: how do I know which retail partnerships are executing well, and where should I be pushing for improvement?
+
+How does Nike's commercial team approach that measurement challenge today?
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <h4>Customisation notes</h4>
+                                <ul>
+                                    <li>Only send if no response to Emails 1 and 2</li>
+                                    <li>If engaged, adapt to the conversation</li>
+                                    <li>Reference the ~$500M portfolio scope if appropriate</li>
+                                </ul>
+                                <h4>Strategy notes</h4>
+                                <ul>
+                                    <li>Adds new angle: commercial measurement and ROI on wholesale investment</li>
+                                    <li>Frames around his specific responsibility (P&L, portfolio management)</li>
+                                    <li>Ends with direct question about their current approach, not an exit</li>
+                                    <li>Maintains sophisticated, strategic tone throughout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Olaf Scholz Sequence -->
+            <div id="sequence-olaf" class="sequence-content">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-icon green">📧</div>
+                        <h2>Olaf Scholz - Director Key Sports Partners & Marketplace Lead Germany</h2>
+                    </div>
+                    <p><strong>Location:</strong> Frankfurt, Germany | <strong>Nationality:</strong> German | <strong>Status:</strong> Cold - new contact</p>
+                    
+                    <div class="email-tabs">
+                        <button class="email-tab-btn active" data-email="olaf-1">Email 1</button>
+                        <button class="email-tab-btn" data-email="olaf-2">Email 2</button>
+                        <button class="email-tab-btn" data-email="olaf-3">Email 3</button>
+                    </div>
+                    
+                    <div id="email-olaf-1" class="email-content active">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Nike's marketplace performance across Germany, Austria, and Switzerland</div>
+                            <div class="email-timing">Send timing: Tuesday or Wednesday, 9:00-10:00 CET</div>
+                            <div class="email-body">Herr Scholz,
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers. We help companies such as Bosch, De'Longhi, and Whirlpool track how their products appear across availability, content accuracy, pricing, and search rankings. Our particular strength is European retailers, including the German-speaking markets.
+
+Your role leading Nike's marketplace elevation in the DACH region suggests you're navigating considerable complexity. Managing relationships with Intersport across Germany, Austria, and Switzerland - each with different local requirements - alongside online retailers and marketplaces requires careful coordination.
+
+I have a specific question: when products are represented across different Intersport partners and online channels simultaneously, how does your team currently verify consistency? Whether specifications are accurate, whether imagery matches current campaigns, whether availability reflects actual stock position?
+
+This is an area where we work with brands facing similar multi-retailer, multi-market challenges. I would be interested to understand how Nike approaches it in the DACH region, and whether there would be value in a conversation about what we do.
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <h4>Customisation notes</h4>
+                                <ul>
+                                    <li>Verify current Intersport partnership status in DACH region</li>
+                                    <li>Check for any recent Nike announcements specific to German market</li>
+                                    <li>Consider whether "Herr Scholz" is appropriate or if first name would be acceptable given his likely mid-senior level</li>
+                                </ul>
+                                <h4>Strategy notes</h4>
+                                <ul>
+                                    <li>More formal opening appropriate for German business culture ("Herr Scholz")</li>
+                                    <li>Clear, structured eStore introduction</li>
+                                    <li>Specific research finding: Intersport accounts across Germany, Austria, Switzerland</li>
+                                    <li>Direct question about their current approach</li>
+                                    <li>Explicit invitation to discuss what eStore does</li>
+                                    <li>Emphasises European/DACH coverage strength</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="email-olaf-2" class="email-content">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Re: Nike's marketplace performance across Germany, Austria, and Switzerland</div>
+                            <div class="email-timing">Send timing: 5-7 days after Email 1, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                            <div class="email-body">Herr Scholz,
+
+Following up with a point that may be relevant to your marketplace responsibilities.
+
+For footwear and apparel brands, product specification accuracy carries particular weight. Size charts, material specifications, fit descriptions - when these are inconsistent across retailers, the impact shows up in returns and customer complaints.
+
+In the DACH region, where consumer expectations for accuracy are high, I would expect this creates specific challenges. What appears on Nike.de needs to match what appears on Zalando.de and on Intersport partner sites. Managing that consistency across technical specifications, not just marketing content, is complex.
+
+We have built specific capabilities for monitoring specification accuracy across European retailers. For brands managing extensive product ranges - Nike with its footwear, apparel, and equipment categories - this tends to be where issues accumulate without systematic monitoring.
+
+Is specification consistency something your team tracks systematically, or is it primarily handled through retailer relationship management?
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <h4>Customisation notes</h4>
+                                <ul>
+                                    <li>Adapt if Olaf responds to Email 1</li>
+                                    <li>Research any specific product categories Nike is prioritising in DACH</li>
+                                    <li>Check if there are any German consumer protection or specification requirements to reference</li>
+                                </ul>
+                                <h4>Strategy notes</h4>
+                                <ul>
+                                    <li>Adds new value: specification accuracy angle specific to footwear/apparel</li>
+                                    <li>References German consumer expectations for precision (culturally relevant)</li>
+                                    <li>Uses specific research finding: Nike's product categories across footwear, apparel, equipment</li>
+                                    <li>Practical question about their current process</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="email-olaf-3" class="email-content">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Re: Nike's marketplace performance across Germany, Austria, and Switzerland</div>
+                            <div class="email-timing">Send timing: 5-7 days after Email 2, Tuesday or Wednesday, 9:00-10:00 CET</div>
+                            <div class="email-body">Herr Scholz,
+
+One additional perspective that may be relevant.
+
+Your marketplace elevation mandate for the DACH region implies specific performance expectations. Measuring that elevation - whether products are better positioned, better presented, and more discoverable than before - requires baseline data and ongoing tracking.
+
+For a brand with Nike's presence, measuring performance against competitors like Adidas and Puma in the same retail environments would provide useful context. Not just whether Nike's presentation is improving, but whether it's improving relative to competitive alternatives.
+
+We provide this kind of competitive benchmarking across European retailers. For brands with specific regional performance mandates, understanding how you compare to competitors at the retailer level tends to be valuable.
+
+Is competitive positioning across retail partners something you're able to measure currently, or would that be useful?
+
+[SENDER NAME]</div>
+                            <div class="email-notes">
+                                <h4>Customisation notes</h4>
+                                <ul>
+                                    <li>Only send if no response to Emails 1 and 2</li>
+                                    <li>If engaged, adapt to the conversation</li>
+                                    <li>Verify Adidas and Puma are the most relevant competitors to reference for DACH</li>
+                                </ul>
+                                <h4>Strategy notes</h4>
+                                <ul>
+                                    <li>Adds new angle: competitive benchmarking against Adidas and Puma</li>
+                                    <li>Uses specific research finding: marketplace elevation mandate</li>
+                                    <li>References specific competitors relevant to footwear/apparel category</li>
+                                    <li>Ends with direct question about current capability and usefulness, not an exit</li>
+                                    <li>Maintains formal, structured German business communication style throughout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon orange">🔗</div>
+                    <h2>Content Link Recommendations</h2>
+                </div>
+                
+                <div class="info-box warning">
+                    <p><strong>Note:</strong> Footwear & Apparel is outside eStore's five proven sectors. There is no direct sector landing page to reference.</p>
+                </div>
+                
+                <h3>If Conversation Progresses, Consider:</h3>
+                <div class="content-links">
+                    <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" class="content-link" target="_blank">
+                        <div class="content-link-icon">📊</div>
+                        <div class="content-link-text">
+                            <div class="content-link-title">Content Benchmark</div>
+                            <div class="content-link-desc">Relevant for discussions about competitive positioning or content quality. Only share if explicitly relevant to the conversation.</div>
+                        </div>
+                    </a>
+                    <a href="https://estorebrands.com/ignite/introducing-ai-business-answers" class="content-link" target="_blank">
+                        <div class="content-link-icon">🤖</div>
+                        <div class="content-link-text">
+                            <div class="content-link-title">AI Business Answers</div>
+                            <div class="content-link-desc">Only if contact shows specific interest in AI/automation capabilities.</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <h3 style="margin-top: 20px;">Do Not Reference</h3>
+                <ul class="bullet-list">
+                    <li class="negative">Sector landing pages (none directly applicable)</li>
+                    <li class="negative">Case studies (none in Footwear & Apparel)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tab 6: Objection Handling -->
+        <div id="objections" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon yellow">🎯</div>
+                    <h2>Decision Framework</h2>
+                </div>
+                
+                <div class="info-box highlight">
+                    <h3>Fit Level: 🟡 MODERATE FIT</h3>
+                    <p>Nike represents a significant opportunity with genuine strategic alignment around their wholesale pivot, but multiple factors require careful navigation. Proceed with consultative approach, manage expectations on timeline, and be honest about sector expansion context.</p>
+                </div>
+                
+                <h3>Key Decision Factors</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Assessment</th>
+                            <th>Implication</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Distribution Complexity</strong></td>
+                            <td><span class="status-indicator covered">✅ Strong</span></td>
+                            <td>40+ retailers, multi-market - genuine DSA need</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Geographic Alignment</strong></td>
+                            <td><span class="status-indicator covered">✅ Strong</span></td>
+                            <td>EMEA HQ in Hilversum, UK priority market</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Competitive Intelligence</strong></td>
+                            <td><span class="status-indicator covered">✅ Positive</span></td>
+                            <td>No incumbent DSA to displace</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sector Alignment</strong></td>
+                            <td><span class="status-indicator not-covered">❌ Weak</span></td>
+                            <td>Outside core five sectors - no case studies</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Relationship History</strong></td>
+                            <td><span class="status-indicator unknown">⚠️ Mixed</span></td>
+                            <td>Lapsed client but all contacts departed</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Market Dynamics</strong></td>
+                            <td><span class="status-indicator covered">✅ Strong</span></td>
+                            <td>Wholesale pivot, Amazon return, new leadership</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box info" style="margin-top: 24px;">
+                    <h3>Recommended Approach</h3>
+                    <ul class="bullet-list">
+                        <li><strong>Proceed with consultative approach</strong> - focus on learning about their situation, not pushing solution</li>
+                        <li><strong>Lead with European strength</strong> - eStore's UK/Europe coverage aligns with Nike's EMEA focus</li>
+                        <li><strong>Position as complement</strong> - third-party retail intelligence alongside Nike's first-party analytics</li>
+                        <li><strong>Acknowledge sector context</strong> - be transparent about footwear/apparel being new territory</li>
+                        <li><strong>Manage timeline expectations</strong> - this is a 12-18 month opportunity, not a quick win</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon orange">💬</div>
+                    <h2>Common Objections & Responses</h2>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-title">We've built our own analytics capabilities internally</div>
+                    <div class="objection-response">
+                        <h4>Response Framework</h4>
+                        <p>Acknowledge the investment in Zodiac, Celect, and Datalogue - these are impressive capabilities for understanding Nike's owned channels and customer data.</p>
+                        <p>The distinction: your internal tools excel at first-party data from Nike.com, the Nike App, and customer behaviour. What they weren't designed for is independent visibility into how third-party retailers actually present Nike products.</p>
+                        <p><strong>Key reframe:</strong> This isn't about replacing your existing analytics - it's about complementing them. As the wholesale footprint expands through Amazon, JD Sports, Zalando, and others, there's a different data challenge: understanding what happens after Nike sends product content to a retailer.</p>
+                        <p><strong>Evidence:</strong> Nike's technology stack (Snowflake, Databricks) is designed for data Nike controls. Third-party retail monitoring requires scraping and normalising data from retailers' sites - a different technical challenge entirely.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-title">We get data sharing through our Connected Partnerships</div>
+                    <div class="objection-response">
+                        <h4>Response Framework</h4>
+                        <p>Connected Partnerships with JD Sports and Zalando are impressive integration models. The data sharing is valuable for understanding sales performance and customer behaviour within those retailers.</p>
+                        <p><strong>Key distinction:</strong> Partners share what they choose to share. Independent monitoring provides visibility into things partners might not prioritise - content accuracy issues, pricing inconsistencies, competitor positioning, search ranking changes.</p>
+                        <p><strong>Key reframe:</strong> How do you validate that the execution matches the strategic intent of the partnership? Commercial agreements are carefully negotiated, but day-to-day product presentation often receives less attention.</p>
+                        <p>eStore provides the independent view that verifies your partners are delivering on their commitments - not replacing the partnership data, but validating it.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-title">Do you have experience with footwear and apparel brands?</div>
+                    <div class="objection-response">
+                        <h4>Response Framework</h4>
+                        <p>Be honest: footwear and apparel isn't our primary focus. We've worked most extensively with Consumer Electronics, Beauty & Personal Care, Pharmaceuticals, Beverages, and Home & Garden brands.</p>
+                        <p><strong>Key reframe:</strong> The core challenges are transferable. Brands in those sectors manage similarly complex distribution - hundreds of retailers, multiple markets, varying content standards, competitive monitoring needs.</p>
+                        <p><strong>Specific parallels:</strong></p>
+                        <ul>
+                            <li>Consumer Electronics: High SKU complexity, specification accuracy, visual merchandising</li>
+                            <li>Beauty: Visual content consistency, promotional calendar management, brand presentation</li>
+                        </ul>
+                        <p>The technical capability - monitoring product pages across retailers - works the same way regardless of category. What differs is the specific metrics that matter. For footwear, sizing accuracy and returns prevention might be more critical than ingredient lists.</p>
+                        <p><strong>Honest positioning:</strong> We'd be learning together. If Nike is interested, we could explore a focused pilot to understand the specific requirements of your category.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-title">How many of our retailers can you actually monitor?</div>
+                    <div class="objection-response">
+                        <h4>Response Framework</h4>
+                        <p>Our coverage is strongest in UK and European retailers - which aligns with Nike's EMEA focus and Hilversum headquarters.</p>
+                        <p><strong>Core coverage (likely covered):</strong> JD Sports, Zalando, Sports Direct, ASOS, Amazon (UK/EU) - these are standard coverage for us.</p>
+                        <p><strong>Requiring verification:</strong> Specialist sports retailers like Size?, Footasylum, Schuh, Foot Locker Europe - we'd need to confirm specific coverage.</p>
+                        <p><strong>US retailers:</strong> We have some coverage, but our strength is European. We're honest that we're not the best choice if the primary focus is US retailers.</p>
+                        <p><strong>Time-to-value estimate:</strong> 4-8 weeks for core European retailers. Specialist sports retailers might require some onboarding time.</p>
+                        <p><strong>Honest positioning:</strong> If the goal is comprehensive global coverage from day one, that's not us. If the goal is deep European coverage that aligns with Nike's EMEA priorities, we're well positioned.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-title">We're focused on cost efficiency right now</div>
+                    <div class="objection-response">
+                        <h4>Response Framework</h4>
+                        <p>Understood - the December restructuring and CTO role elimination signal a clear cost-efficiency focus. That's a reasonable priority given market conditions.</p>
+                        <p><strong>Key reframe:</strong> Digital shelf analytics can support cost efficiency by reducing manual monitoring effort. If team members are currently spot-checking retailer sites or responding reactively to content issues, automation creates operational leverage.</p>
+                        <p><strong>Alternative framing:</strong> Nike's wholesale pivot involves significant investment in retail partnerships. Understanding whether those partnerships are executing well - or where they're falling short - helps ensure that investment delivers returns.</p>
+                        <p><strong>Flexible engagement:</strong> We can discuss pilots or phased approaches that demonstrate value before broader commitment. Starting with a focused use case (e.g., monitoring Connected Partnership execution in three priority markets) reduces initial investment while proving the concept.</p>
+                        <p><strong>Timing consideration:</strong> If now isn't the right time, we're happy to stay in touch. The wholesale expansion is creating monitoring complexity that's likely to become more acute over time.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-title">We're still settling into the new organisational structure</div>
+                    <div class="objection-response">
+                        <h4>Response Framework</h4>
+                        <p>Completely understand. The December 2025 restructuring was significant - new COO scope, CTO role eliminated, CFO overseeing Nike Direct. César Garcia starting as EMEA VP/GM in February adds another dimension. Change takes time to absorb.</p>
+                        <p><strong>Respectful positioning:</strong> We're not pushing for immediate action. Our goal in reaching out now is to introduce ourselves and understand how Nike is thinking about marketplace monitoring - not to close a deal while you're navigating organisational change.</p>
+                        <p><strong>Helpful framing:</strong> New leadership often brings fresh perspectives on vendor relationships. If it would be useful to have a conversation about how other brands approach third-party retail analytics, we're happy to share insights without any commitment expectation.</p>
+                        <p><strong>Follow-up approach:</strong> Would it be helpful to reconnect in Q2 once the new structure has had time to settle? We can provide some thinking on the market that might be useful context for any vendor evaluations that happen then.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-title">We work with enterprise vendors who can handle our scale</div>
+                    <div class="objection-response">
+                        <h4>Response Framework</h4>
+                        <p>Fair point. Nike's scale is significant - $46B globally, 77,800 employees, 40+ retail partners. Enterprise vendors offer certain advantages at that scale.</p>
+                        <p><strong>Honest acknowledgment:</strong> We're not trying to position as an enterprise-scale vendor. We work with mid-market brands and the European operations of larger companies.</p>
+                        <p><strong>Potential fit:</strong> Where we sometimes find relevance is with specific regional or functional needs. If there's a particular European monitoring challenge that isn't fully addressed by enterprise solutions, we might be a useful complement.</p>
+                        <p><strong>Alternative value:</strong> Sometimes brands find value in having a specialist provider for specific markets or use cases, separate from their global enterprise stack. Our European focus and agility can fill gaps that broader platforms don't prioritise.</p>
+                        <p><strong>No-pressure close:</strong> If your enterprise vendors are meeting your needs comprehensively, that's great. If you ever find gaps in European coverage or responsiveness, we'd welcome a conversation.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-title">What ROI can you demonstrate?</div>
+                    <div class="objection-response">
+                        <h4>Response Framework</h4>
+                        <p>ROI in digital shelf analytics typically comes from several sources:</p>
+                        <ul>
+                            <li><strong>Content issue identification:</strong> Catching incorrect specs, missing images, or outdated descriptions that affect conversion</li>
+                            <li><strong>Availability monitoring:</strong> Identifying out-of-stock situations across retailers faster than retailer reporting</li>
+                            <li><strong>Price compliance:</strong> Detecting unauthorised discounting or MAP violations</li>
+                            <li><strong>Competitive intelligence:</strong> Understanding how competitors are positioned and promoted</li>
+                            <li><strong>Operational efficiency:</strong> Reducing manual monitoring effort</li>
+                        </ul>
+                        <p><strong>Honest limitation:</strong> We don't have footwear/apparel-specific case studies to reference. Our proof points are from other categories.</p>
+                        <p><strong>Suggested approach:</strong> For Nike specifically, we'd recommend starting with a focused pilot that establishes baseline metrics for a defined set of retailers and markets. That creates Nike-specific ROI data rather than relying on analogies from other sectors.</p>
+                        <p><strong>Value hypothesis:</strong> Given Nike's wholesale expansion and Connected Partnership model, the value likely lies in validating partner execution and catching content drift before it affects customer experience.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-title">We've spoken with eStore before and it didn't go anywhere</div>
+                    <div class="objection-response">
+                        <h4>Response Framework</h4>
+                        <p>You're right - we have history. Our records show engagement dating back to 2016, with various outreach over the years.</p>
+                        <p><strong>Acknowledgment:</strong> Previous conversations didn't progress to a significant engagement. Notes from earlier years mention budget constraints and timing not being right. That's fair context.</p>
+                        <p><strong>What's different now:</strong></p>
+                        <ul>
+                            <li><strong>Nike's strategy has shifted:</strong> The wholesale pivot and Amazon return create different monitoring needs than during the DTC-focused years</li>
+                            <li><strong>Market has evolved:</strong> Digital shelf analytics is more mature, with clearer use cases and integration options</li>
+                            <li><strong>We're approaching differently:</strong> Not pushing for immediate commitment - genuinely trying to understand if there's fit given current circumstances</li>
+                        </ul>
+                        <p><strong>Honest positioning:</strong> If the previous assessment was that eStore wasn't the right fit, that might still be true. We're not assuming anything - just curious whether the changed context warrants a fresh look.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-title">What makes you different from Profitero, CommerceIQ, or other DSA vendors?</div>
+                    <div class="objection-response">
+                        <h4>Response Framework</h4>
+                        <p><strong>European focus:</strong> Unlike US-headquartered vendors, we lead with UK and European expertise. Our coverage depth in European retailers - including regional specialists - tends to be stronger.</p>
+                        <p><strong>Consultative approach:</strong> We're smaller and more agile. That means faster responsiveness, more flexibility in engagement models, and genuine partnership rather than enterprise vendor dynamics.</p>
+                        <p><strong>No incumbent to protect:</strong> We don't have a large installed base in footwear/apparel, which means we approach Nike with genuine curiosity rather than defending existing positioning.</p>
+                        <p><strong>Honest limitation:</strong> We're not trying to compete head-to-head with enterprise DSA vendors on global scale. Where we're stronger is European depth, flexibility, and responsive partnership.</p>
+                        <p><strong>Best fit scenario:</strong> Brands with significant European operations who want specialist European coverage alongside (or instead of) global enterprise platforms.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon green">✅</div>
+                    <h2>Objection Handling Principles</h2>
+                </div>
+                <ul class="bullet-list">
+                    <li class="positive"><strong>Never dismiss the objection</strong> - acknowledge the underlying concern and show you understand</li>
+                    <li class="positive"><strong>Be honest about limitations</strong> - sector expansion context, scale considerations, geographic focus</li>
+                    <li class="positive"><strong>Use evidence appropriately</strong> - reference specific Nike research findings, not generic claims</li>
+                    <li class="positive"><strong>Offer flexibility</strong> - pilots, phased approaches, focused use cases</li>
+                    <li class="positive"><strong>Ask questions to understand</strong> - the objection often reveals what they actually care about</li>
+                    <li class="positive"><strong>Maintain consultative posture</strong> - we're trying to understand if there's fit, not forcing a sale</li>
+                    <li class="positive"><strong>Manage timeline expectations</strong> - this is a 12-18 month opportunity, not a quick win</li>
+                    <li class="positive"><strong>Position as complement</strong> - alongside Nike's first-party analytics, not replacing them</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>eStore Brand Research & Action Plan | Nike Inc. | Generated 30 January 2026</p>
+            <p>Research based on publicly available information. Verify all details before outreach.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Main Tab Navigation
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active from all tabs and content
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active to clicked tab and corresponding content
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+        
+        // Email Sequence Selector
+        document.querySelectorAll('.sequence-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active from all sequence buttons and content
+                document.querySelectorAll('.sequence-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.sequence-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active to clicked button and corresponding content
+                btn.classList.add('active');
+                document.getElementById('sequence-' + btn.dataset.sequence).classList.add('active');
+            });
+        });
+        
+        // Email Tab Navigation (within each sequence)
+        document.querySelectorAll('.email-tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Get parent card
+                const card = btn.closest('.card');
+                
+                // Remove active from sibling tabs and content
+                card.querySelectorAll('.email-tab-btn').forEach(b => b.classList.remove('active'));
+                card.querySelectorAll('.email-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active to clicked tab and corresponding content
+                btn.classList.add('active');
+                card.querySelector('#email-' + btn.dataset.email).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
