@@ -1,12 +1,12 @@
 [
-    {"file": "bausch-lomb3", "name": "Bausch + Lomb"},
-    {"file": "estee-lauder2", "name": "Estee Lauder"},
-    {"file": "molson-coors", "name": "Molson Coors"},
-    {"file": "lg-electronics2", "name": "LG Electronics"},
-    {"file": "brother-industries", "name": "Brother"},
-    {"file": "stihl", "name": "Stihl"},
-    {"file": "alcon", "name": "Alcon"},
-    {"file": "geberit", "name": "Geberit"},
-    {"file": "wd-40", "name": "WD-40"},
-    {"file": "nike", "name": "Nike"}
+    {"file": "bausch-lomb3", "name": "Bausch + Lomb", "owner": "Michal"},
+    {"file": "estee-lauder2", "name": "Estee Lauder", "owner": "Mariusz"},
+    {"file": "molson-coors", "name": "Molson Coors", "owner": "David H"},
+    {"file": "lg-electronics2", "name": "LG Electronics", "owner": "Michal"},
+    {"file": "brother-industries", "name": "Brother", "owner": "Michal"},
+    {"file": "stihl", "name": "Stihl", "owner": "Mariusz"},
+    {"file": "alcon", "name": "Alcon", "owner": "Laura"},
+    {"file": "geberit", "name": "Geberit", "owner": "Mariusz"},
+    {"file": "wd-40", "name": "WD-40", "owner": "Michal"},
+    {"file": "nike", "name": "Nike", "owner": "Mariusz"}
 ]
