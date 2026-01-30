@@ -1,0 +1,2182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYX Professional Makeup - eStore Action Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+        
+        .header-meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .header-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.25rem;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            background: #1067db;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1067db;
+            font-weight: 700;
+        }
+        
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+        
+        .card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+            color: #495057;
+            font-weight: 600;
+        }
+        
+        .card p {
+            margin-bottom: 1rem;
+        }
+        
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .fit-badge.strong {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border: 2px solid #22bb69;
+        }
+        
+        .fit-badge.moderate {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            color: #856404;
+            border: 2px solid #ffba1c;
+        }
+        
+        .fit-badge.weak {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            border: 2px solid #f44f2f;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .summary-item {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid #1067db;
+        }
+        
+        .summary-item h4 {
+            margin-top: 0;
+            color: #1067db;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .summary-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-box {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-box .value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1067db;
+        }
+        
+        .stat-box .label {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .info-box {
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .info-box.blue {
+            background: #e7f3ff;
+            border-left: 4px solid #1067db;
+        }
+        
+        .info-box.green {
+            background: #e8f5e9;
+            border-left: 4px solid #22bb69;
+        }
+        
+        .info-box.yellow {
+            background: #fff8e1;
+            border-left: 4px solid #ffba1c;
+        }
+        
+        .info-box.red {
+            background: #ffebee;
+            border-left: 4px solid #f44f2f;
+        }
+        
+        .info-box.orange {
+            background: #fff3e0;
+            border-left: 4px solid #ff7a00;
+        }
+        
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge.green {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .badge.yellow {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .badge.red {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .badge.blue {
+            background: #e7f3ff;
+            color: #1067db;
+        }
+        
+        .badge.grey {
+            background: #e9ecef;
+            color: #495057;
+        }
+        
+        .badge.orange {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        
+        .contact-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #1067db;
+        }
+        
+        .contact-card.secondary {
+            border-left-color: #68d7fa;
+        }
+        
+        .contact-card.historical {
+            border-left-color: #ffba1c;
+        }
+        
+        .contact-card.skip {
+            border-left-color: #f44f2f;
+            background: #fff5f5;
+        }
+        
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c2c2c;
+        }
+        
+        .contact-title {
+            font-size: 0.95rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .contact-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .tone-box {
+            background: #e7f3ff;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .tone-box strong {
+            color: #1067db;
+        }
+        
+        .email-sequence {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .email-sequence-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .email-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .email-tab {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .email-tab:hover {
+            border-color: #1067db;
+        }
+        
+        .email-tab.active {
+            background: #1067db;
+            border-color: #1067db;
+            color: white;
+        }
+        
+        .email-content {
+            display: none;
+        }
+        
+        .email-content.active {
+            display: block;
+        }
+        
+        .email-box {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .email-subject {
+            font-weight: 600;
+            color: #1067db;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .email-timing {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+        
+        .email-body {
+            white-space: pre-line;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .email-notes {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #dee2e6;
+        }
+        
+        .email-notes h5 {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-notes p {
+            font-size: 0.9rem;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .objection-card {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+        
+        .objection-header {
+            padding: 1rem 1.25rem;
+            background: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .objection-header:hover {
+            background: #e9ecef;
+        }
+        
+        .objection-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .objection-card.open .objection-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .objection-body {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .objection-card.open .objection-body {
+            display: block;
+        }
+        
+        .disclaimer {
+            background: #fff8e1;
+            border: 2px solid #ffba1c;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .disclaimer strong {
+            color: #856404;
+        }
+        
+        .content-link {
+            display: block;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            text-decoration: none;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .content-link:hover {
+            background: #e7f3ff;
+            border-color: #1067db;
+        }
+        
+        .content-link .link-title {
+            font-weight: 600;
+            color: #1067db;
+            margin-bottom: 0.25rem;
+        }
+        
+        .content-link .link-url {
+            font-size: 0.8rem;
+            color: #6c757d;
+            word-break: break-all;
+        }
+        
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #22bb69;
+            font-weight: bold;
+        }
+        
+        .checklist li.warning::before {
+            content: "⚠";
+            color: #ffba1c;
+        }
+        
+        .checklist li.cross::before {
+            content: "✗";
+            color: #f44f2f;
+        }
+        
+        .retailer-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .retailer-region {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+        
+        .retailer-region h4 {
+            margin-top: 0;
+            color: #1067db;
+            border-bottom: 2px solid #1067db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .retailer-list {
+            font-size: 0.9rem;
+        }
+        
+        .retailer-list li {
+            margin-bottom: 0.25rem;
+        }
+        
+        .competitor-table {
+            margin-top: 1rem;
+        }
+        
+        .competitor-table .badge {
+            margin-right: 0.5rem;
+        }
+        
+        .factors-table {
+            margin-top: 1rem;
+        }
+        
+        .factors-table td:first-child {
+            font-weight: 600;
+            color: #22bb69;
+        }
+        
+        .factors-table tr.negative td:first-child {
+            color: #f44f2f;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                text-align: center;
+            }
+            
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>NYX Professional Makeup</h1>
+        <div class="header-subtitle">eStore Action Plan - Beauty & Personal Care</div>
+        <div class="header-meta">
+            <div class="header-meta-item">
+                <strong>Parent:</strong> L'Oréal (Consumer Products Division)
+            </div>
+            <div class="header-meta-item">
+                <strong>Revenue:</strong> ~$497M (2025 est.)
+            </div>
+            <div class="header-meta-item">
+                <strong>Created:</strong> January 2026
+            </div>
+            <div class="header-meta-item">
+                <strong>Author:</strong> James / eStore Sales Development
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('fit')">Strategic Fit Assessment</button>
+            <button class="tab" onclick="showTab('history')">Our history with them</button>
+            <button class="tab" onclick="showTab('retailers')">Retailer Overview</button>
+            <button class="tab" onclick="showTab('contacts')">Key people?</button>
+            <button class="tab" onclick="showTab('emails')">Draft Email Sequences</button>
+            <button class="tab" onclick="showTab('objections')">Objection Handling</button>
+        </div>
+        
+        <!-- TAB 1: STRATEGIC FIT ASSESSMENT -->
+        <div id="fit" class="tab-content active">
+            <div class="card">
+                <div class="fit-badge moderate">🟡 MODERATE FIT</div>
+                <h2>Strategic Assessment Summary</h2>
+                <p>NYX Professional Makeup presents a <strong>moderate-fit opportunity</strong> requiring a consultative nurture approach rather than aggressive outreach. The combination of perfect sector alignment, high distribution complexity, and previous contact creates potential - but multiple confirmed DSA providers and enterprise procurement complexity at L'Oréal create significant barriers. Success probability is 5-10%.</p>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">~$497M</div>
+                        <div class="label">2025 Est. Revenue</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">70+</div>
+                        <div class="label">Countries</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">20-25</div>
+                        <div class="label">Major Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">5-10%</div>
+                        <div class="label">Win Probability</div>
+                    </div>
+                </div>
+                
+                <div class="info-box yellow">
+                    <strong>Recommended Approach:</strong> CONSULTATIVE NURTURE - Not aggressive outreach. Given presence of established DSA providers and lapsed previous engagement, focus on value-add content, genuine curiosity, and long-term relationship building.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Distribution Complexity & Geographic Alignment</h2>
+                
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Total Retailers</h4>
+                        <p>~20-25 confirmed across 70+ countries. Definitively multi-channel, NOT Amazon-dominant.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Geographic Breakdown</h4>
+                        <p>45-55% North America, 30-35% Europe (UK/EU), 15-20% Other (APAC, LatAm, Middle East)</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>European Presence</h4>
+                        <p>L'Oréal UK & Ireland HQ at White City Place, London (1,000+ employees). Strong UK high street presence via Boots (134 SKUs), Superdrug. Excellent DACH coverage via dm, Douglas, Rossmann.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>eStore Alignment</h4>
+                        <p>Strong alignment with eStore's DACH drugstore coverage (dm, Rossmann) and UK high street presence (Boots, Superdrug). European markets could deliver rapid time-to-value.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Competitive Intelligence Summary</h2>
+                
+                <div class="info-box red">
+                    <strong>Status:</strong> MULTIPLE DSA PROVIDERS CONFIRMED - Profitero, Edge by Ascential, NielsenIQ, Salsify, Revuze all deployed across L'Oréal.
+                </div>
+                
+                <table class="competitor-table">
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Status</th>
+                            <th>Function</th>
+                            <th>Evidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Profitero</td>
+                            <td><span class="badge red">Confirmed</span></td>
+                            <td>Digital shelf analytics</td>
+                            <td>L'Oréal USA job posting (eCommerce Data Engineer)</td>
+                        </tr>
+                        <tr>
+                            <td>Edge by Ascential</td>
+                            <td><span class="badge red">Confirmed</span></td>
+                            <td>E-commerce measurement</td>
+                            <td>Quote from Antoine Borde, L'Oréal Global Director</td>
+                        </tr>
+                        <tr>
+                            <td>NielsenIQ</td>
+                            <td><span class="badge red">Confirmed</span></td>
+                            <td>Market insights</td>
+                            <td>Case study (August 2024), 200-250 users</td>
+                        </tr>
+                        <tr>
+                            <td>Salsify</td>
+                            <td><span class="badge red">Confirmed</span></td>
+                            <td>PIM, content syndication</td>
+                            <td>Salsify website client list</td>
+                        </tr>
+                        <tr>
+                            <td>Revuze</td>
+                            <td><span class="badge red">Confirmed</span></td>
+                            <td>Reviews/ratings analytics</td>
+                            <td>Case study on global expansion (2023)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p><strong>Switching Signals:</strong> LIMITED. NielsenIQ partnership appears recent (case study August 2024), suggesting active investment in e-commerce analytics infrastructure.</p>
+                
+                <p><strong>Opportunity Angle:</strong> Multi-provider complexity may create opportunity if eStore can identify gaps or offer superior functionality in specific areas (e.g., actionability vs. data volume, DACH drugstore coverage where eStore has heritage).</p>
+            </div>
+            
+            <div class="card">
+                <h2>Sector Alignment Summary</h2>
+                
+                <div class="info-box green">
+                    <strong>Sector Alignment:</strong> STRONG - Beauty & Personal Care is a proven eStore sector with existing clients including Wella and Galderma.
+                </div>
+                
+                <h3>Typical Beauty DSA Challenges NYX Faces</h3>
+                <ul>
+                    <li><strong>Variant complexity:</strong> 45+ shades in foundation lines, 35+ shades in Butter Gloss</li>
+                    <li><strong>Visual content requirements:</strong> 30-50 assets per product page</li>
+                    <li><strong>Review influence:</strong> TikTok virality creates sudden demand spikes</li>
+                    <li><strong>Ingredient transparency:</strong> Cruelty-free/vegan claims require consistent representation</li>
+                    <li><strong>Trend responsiveness:</strong> Social media monitoring drives inventory decisions</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Relationship History Summary</h2>
+                
+                <div class="info-box yellow">
+                    <strong>Classification:</strong> WARM RE-ENGAGEMENT - Previous contact exists from September 2022.
+                </div>
+                
+                <table>
+                    <tr>
+                        <td><strong>Previous Contact</strong></td>
+                        <td>"Rebecca" engaged September 2022 regarding Amazon/digital shelf topics and JBPx Amazon Growth Summit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Likely Match</strong></td>
+                        <td>Rebecca Morgenthaler, Director of Digital Innovation at NYX Professional Makeup</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Outcome</strong></td>
+                        <td>No further engagement since 2022 - lapsed contact (~3.5 years elapsed)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tactical Advantage</strong></td>
+                        <td>Warm re-entry point exists; can reference previous conversation</td>
+                    </tr>
+                </table>
+                
+                <p><strong>Sister Brands Potential:</strong> Maybelline, Garnier, L'Oréal Paris, CeraVe, La Roche-Posay all within Consumer Products Division - potential land-and-expand opportunity.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Market Dynamics Summary</h2>
+                
+                <h3>Recent Events Creating Timing Window</h3>
+                <ul>
+                    <li><strong>January 2026:</strong> Major CPD leadership transition - Fabrice Megarbane appointed President (succeeding Alexis Perakis-Valat)</li>
+                    <li><strong>January 2026:</strong> Tina Fair promoted to President, CPD North America</li>
+                    <li><strong>September 2023:</strong> Denée Pearson appointed Global Brand President</li>
+                    <li><strong>2024:</strong> Super Bowl ad campaign (first-ever for brand) featuring Duck Plump with Cardi B</li>
+                </ul>
+                
+                <h3>Competitive Pressure Intensifying</h3>
+                <ul>
+                    <li><strong>e.l.f. Cosmetics:</strong> 25 consecutive quarters of growth, $1.3B revenue, gained 190 basis points US market share, acquired Rhode for $800M</li>
+                    <li><strong>Rare Beauty:</strong> $2.7B valuation, expanding to Ulta in 2026, capturing Gen Z attention</li>
+                    <li><strong>Morphe:</strong> Emerged from bankruptcy, recovering (33% YTD sales growth in 2025)</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Synthesis & Recommendation</h2>
+                
+                <h3>Key Factors Driving Assessment</h3>
+                
+                <table class="factors-table">
+                    <thead>
+                        <tr>
+                            <th>Positive Factors</th>
+                            <th>Negative Factors</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Perfect sector fit with eStore's Beauty & Personal Care expertise</td>
+                            <td class="negative">Multi-provider DSA stack already deployed (Profitero, Edge, NielsenIQ, Salsify)</td>
+                        </tr>
+                        <tr>
+                            <td>High distribution complexity across 70+ countries, 20+ retailers</td>
+                            <td class="negative">No response since September 2022 suggests low prioritisation</td>
+                        </tr>
+                        <tr>
+                            <td>Strong European presence with L'Oréal UK HQ in London</td>
+                            <td class="negative">Enterprise complexity of L'Oréal procurement</td>
+                        </tr>
+                        <tr>
+                            <td>Previous contact exists (Rebecca Morgenthaler)</td>
+                            <td class="negative">Recent NielsenIQ partnership (August 2024) indicates active vendor relationship</td>
+                        </tr>
+                        <tr>
+                            <td>Leadership transition (January 2026) creates timing window</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Competitive pressure from e.l.f./Rare Beauty may drive demand</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Primary Value Proposition Positioning</h3>
+                <ol>
+                    <li><strong>Actionability focus:</strong> "Most platforms show you 200 potential issues. Ours shows you the 5 that matter most today, with clear next steps for each."</li>
+                    <li><strong>European retailer coverage:</strong> Strong DACH drugstore coverage (dm, Rossmann) matching NYX's distribution</li>
+                    <li><strong>Beauty category expertise:</strong> Existing clients include Wella and Galderma navigating similar variant complexity</li>
+                </ol>
+                
+                <h3>Estimated Difficulty of Winning</h3>
+                <ul>
+                    <li>Probability of initial meeting: 30-40%</li>
+                    <li>Probability of progressing to evaluation: 15-20%</li>
+                    <li>Probability of winning: 5-10%</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Implementation Readiness</h2>
+                
+                <div class="info-box yellow">
+                    <strong>Time-to-Value Estimate:</strong> European markets could deliver rapid insights (2-4 weeks for initial data) given eStore's strong DACH and UK coverage. However, enterprise procurement complexity at L'Oréal likely extends full implementation to 3-6 months.
+                </div>
+                
+                <p><strong>Key Consideration:</strong> The primary barrier is not retailer coverage but competitive displacement. L'Oréal's multi-provider stack creates significant switching costs and requires identifying specific capability gaps where eStore can add incremental value.</p>
+                
+                <h3>Final Assessment Checklist</h3>
+                <ul class="checklist">
+                    <li>Perfect sector alignment - Beauty & Personal Care is proven eStore category</li>
+                    <li>High distribution complexity validates digital shelf analytics need</li>
+                    <li>Strong European presence aligns with eStore geographic strength</li>
+                    <li>Previous contact provides warm re-entry point</li>
+                    <li class="warning">Multiple confirmed DSA providers create displacement challenge</li>
+                    <li class="warning">Enterprise procurement complexity requires multi-stakeholder buy-in</li>
+                    <li class="warning">3.5 years since last contact - relationship has gone cold</li>
+                    <li class="cross">Recent NielsenIQ partnership suggests active vendor investment</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- TAB 2: OUR HISTORY WITH THEM -->
+        <div id="history" class="tab-content">
+            <div class="card">
+                <h2>Previous Conversations & Outcomes</h2>
+                
+                <div class="info-box yellow">
+                    <strong>Status:</strong> WARM RE-ENGAGEMENT - Previous contact exists but relationship has lapsed (~3.5 years).
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Field</th>
+                            <th>Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Previous Contact Date</strong></td>
+                            <td>September 2022</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Contact Name</strong></td>
+                            <td>"Rebecca" (likely Rebecca Morgenthaler, Director of Digital Innovation)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Topics Discussed</strong></td>
+                            <td>Amazon, digital shelf topics, JBPx Amazon Growth Summit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Outcome</strong></td>
+                            <td>No further engagement since 2022</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Time Elapsed</strong></td>
+                            <td>~3.5 years</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Conversation Context</h3>
+                <ul>
+                    <li>Rebecca engaged regarding Amazon digital shelf optimisation</li>
+                    <li>JBPx Amazon Growth Summit was referenced (suggests Amazon-specific focus at the time)</li>
+                    <li>No follow-up or progression to evaluation</li>
+                    <li>Conversation appears to have been exploratory rather than opportunity-qualified</li>
+                </ul>
+                
+                <h3>L'Oréal Group Relationship</h3>
+                <p>No confirmed current or historical eStore-L'Oréal partnership identified. eStore's 2022 "State of Digital Shelf: Beauty" report references L'Oréal and Maybelline in competitive analysis context.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Competitor Intelligence</h2>
+                
+                <p>L'Oréal operates a multi-provider approach with clear division of responsibilities:</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Function</th>
+                            <th>Confidence</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Profitero</td>
+                            <td>Primary digital shelf monitoring</td>
+                            <td><span class="badge green">HIGH</span></td>
+                            <td>L'Oréal USA job posting (eCommerce Data Engineer)</td>
+                        </tr>
+                        <tr>
+                            <td>Edge by Ascential</td>
+                            <td>E-commerce measurement, content tracking</td>
+                            <td><span class="badge green">HIGH</span></td>
+                            <td>Direct quote from Antoine Borde, L'Oréal Global Ecommerce Acceleration Director</td>
+                        </tr>
+                        <tr>
+                            <td>Salsify</td>
+                            <td>Product content management/PIM</td>
+                            <td><span class="badge green">HIGH</span></td>
+                            <td>Salsify website client list</td>
+                        </tr>
+                        <tr>
+                            <td>NielsenIQ</td>
+                            <td>Market-level insights, omnichannel analytics</td>
+                            <td><span class="badge green">HIGH</span></td>
+                            <td>Published case study (August 2024) with Emilia Simonin</td>
+                        </tr>
+                        <tr>
+                            <td>Revuze</td>
+                            <td>Reviews and ratings analytics</td>
+                            <td><span class="badge green">HIGH</span></td>
+                            <td>Case study on global expansion (2023)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box yellow">
+                    <strong>Switching Signals:</strong> LIMITED. NielsenIQ partnership appears recent (case study August 2024), suggesting active investment in e-commerce analytics infrastructure. No RFP announcements or provider dissatisfaction signals detected.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Internal Champion Status</h2>
+                
+                <div class="info-box red">
+                    <strong>Status:</strong> NO CURRENT CHAMPION
+                </div>
+                
+                <p>Rebecca Morgenthaler is the closest to a warm contact but relationship has lapsed.</p>
+                
+                <h3>Champion Development Strategy</h3>
+                <ol>
+                    <li>Re-engage Rebecca with value-add content and genuine curiosity</li>
+                    <li>Reference September 2022 conversation to establish continuity</li>
+                    <li>Offer insights without requiring meeting</li>
+                    <li>Build trust through consistent, low-pressure engagement</li>
+                    <li>Position for introduction to Maya once relationship reestablished</li>
+                </ol>
+            </div>
+            
+            <div class="card">
+                <h2>Known Blockers & Timing Considerations</h2>
+                
+                <h3>Blockers</h3>
+                <ul>
+                    <li>Multi-provider DSA stack already deployed (Profitero, Edge, NielsenIQ, Salsify, Revuze)</li>
+                    <li>Recent NielsenIQ partnership (August 2024) suggests active vendor investment</li>
+                    <li>Enterprise procurement complexity at L'Oréal requires multi-stakeholder buy-in</li>
+                    <li>3.5 years since last contact - relationship has gone cold</li>
+                </ul>
+                
+                <h3>Timing Considerations</h3>
+                <ul>
+                    <li><strong>January 2026 leadership transition:</strong> Fabrice Megarbane takes over as CPD President - creates strategic window as new leadership establishes priorities</li>
+                    <li><strong>Competitive pressure intensifying:</strong> e.l.f. and Rare Beauty gains may drive demand for enhanced analytics</li>
+                    <li><strong>Post-holiday timing:</strong> Q1 2026 may be good window as teams regroup after holiday season</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Content to Reference</h2>
+                
+                <a href="https://estorebrands.com/beauty-personal-care" target="_blank" class="content-link">
+                    <div class="link-title">Beauty & Personal Care Landing Page</div>
+                    <div class="link-url">https://estorebrands.com/beauty-personal-care</div>
+                </a>
+                
+                <a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026" target="_blank" class="content-link">
+                    <div class="link-title">Digital Shelf Analytics for Beauty & Personal Care Brands (2026)</div>
+                    <div class="link-url">https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026</div>
+                </a>
+                
+                <h3>How to Position Content Naturally</h3>
+                <ul>
+                    <li><strong>DO:</strong> Reference content as "something that might be relevant" after establishing rapport</li>
+                    <li><strong>DO:</strong> Frame as "we recently published research on [specific challenge they face]"</li>
+                    <li><strong>DO:</strong> Offer to share insights without requiring meeting</li>
+                    <li><strong>DON'T:</strong> Lead with content links</li>
+                    <li><strong>DON'T:</strong> Make emails feel like marketing campaigns</li>
+                </ul>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Content Approach</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Email 1</td>
+                            <td>NO links - pure value and connection</td>
+                        </tr>
+                        <tr>
+                            <td>Email 2</td>
+                            <td>Optional single link to relevant insight if naturally connected</td>
+                        </tr>
+                        <tr>
+                            <td>Email 3</td>
+                            <td>Landing page link in signature only - focus on graceful close</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- TAB 3: RETAILER OVERVIEW -->
+        <div id="retailers" class="tab-content">
+            <div class="card">
+                <h2>High-Level Retailer Summary</h2>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">20-25</div>
+                        <div class="label">Major Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">70+</div>
+                        <div class="label">Countries</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">HIGH</div>
+                        <div class="label">Channel Diversity</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">Multi-channel</div>
+                        <div class="label">NOT Amazon-dominant</div>
+                    </div>
+                </div>
+                
+                <div class="info-box blue">
+                    <strong>Key Insight:</strong> NYX is definitively multi-channel with primary volume through mass retail (Target, Walmart, CVS, Walgreens) and beauty specialty (Ulta), with Amazon complementary.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Confirmed Retailers by Region</h2>
+                
+                <div class="retailer-summary">
+                    <div class="retailer-region">
+                        <h4>🇺🇸 United States (8-10 retailers)</h4>
+                        <ul class="retailer-list">
+                            <li>Ulta Beauty (beauty specialty)</li>
+                            <li>Target (mass retail)</li>
+                            <li>Walmart (mass retail)</li>
+                            <li>CVS (pharmacy)</li>
+                            <li>Walgreens (pharmacy)</li>
+                            <li>Amazon US (e-commerce)</li>
+                            <li>Macy's (department)</li>
+                            <li>JCPenney (department)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="retailer-region">
+                        <h4>🇬🇧 United Kingdom (5-6 retailers)</h4>
+                        <ul class="retailer-list">
+                            <li>Boots (134 SKUs - high street)</li>
+                            <li>Superdrug (high street)</li>
+                            <li>Amazon UK (e-commerce)</li>
+                            <li>Sephora UK (beauty specialty)</li>
+                            <li>Very (e-commerce)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="retailer-region">
+                        <h4>🇩🇪 Germany/DACH (3-4 retailers)</h4>
+                        <ul class="retailer-list">
+                            <li>dm-drogerie markt (4,000+ stores)</li>
+                            <li>Douglas (beauty specialty)</li>
+                            <li>Rossmann (drugstore)</li>
+                            <li>Amazon.de (e-commerce)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="retailer-region">
+                        <h4>🇪🇺 Other Europe (3-4 retailers)</h4>
+                        <ul class="retailer-list">
+                            <li>Sephora France (beauty specialty)</li>
+                            <li>Notino (CEE e-commerce)</li>
+                            <li>Regional Amazon platforms</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="retailer-region">
+                        <h4>🌐 DTC</h4>
+                        <ul class="retailer-list">
+                            <li>nyxcosmetics.com</li>
+                            <li>Regional sites (UK, Germany, Benelux)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Notable Patterns</h2>
+                
+                <ul>
+                    <li><strong>Strong UK high street presence:</strong> Boots with 134 SKUs, Superdrug - aligns with eStore's UK coverage strength</li>
+                    <li><strong>Excellent DACH drugstore coverage:</strong> dm, Douglas, Rossmann - aligns with eStore's Central European heritage</li>
+                    <li><strong>Multi-channel approach:</strong> Not Amazon-dependent; primary volume through traditional mass retail</li>
+                    <li><strong>Beauty specialty strength:</strong> Ulta Beauty partnership critical (breakthrough 2007 distribution deal)</li>
+                    <li><strong>Regional Amazon presence:</strong> US, UK, Germany, France</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Critical Gaps</h2>
+                
+                <div class="info-box green">
+                    <strong>None identified for retailer types</strong> - strong multi-channel presence across all relevant beauty channels.
+                </div>
+                
+                <ul>
+                    <li><strong>Primary gap is competitive:</strong> DSA providers already monitoring these retailers</li>
+                    <li><strong>No specialist retailers missing:</strong> NYX distribution covers all relevant beauty channels</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Implementation Note</h2>
+                
+                <div class="info-box yellow">
+                    <strong>Time-to-Value Estimate:</strong> Given eStore's strong coverage of DACH drugstores (dm, Rossmann) and UK high street (Boots, Superdrug), European markets could deliver rapid time-to-value (2-4 weeks for initial insights).
+                </div>
+                
+                <p>However, enterprise procurement complexity at L'Oréal likely extends full implementation to 3-6 months. The primary barrier is not retailer coverage but competitive displacement of existing providers.</p>
+                
+                <p><strong>NOTE:</strong> This is pattern recognition based on research, NOT detailed coverage checking against eStore_Retailer_Coverage_Master.csv. Full retailer coverage verification should be completed before outreach if opportunity progresses.</p>
+            </div>
+        </div>
+        
+        <!-- TAB 4: KEY PEOPLE -->
+        <div id="contacts" class="tab-content">
+            <div class="card">
+                <h2>Historical Contacts</h2>
+                
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Rebecca Morgenthaler ⭐ PREVIOUS CONTACT</div>
+                            <div class="contact-title">Director, Digital Innovation, NYX Professional Makeup</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge yellow">Warm Re-engagement</span>
+                            <span class="badge blue">🇺🇸 American</span>
+                        </div>
+                    </div>
+                    <p><strong>Previous Contact:</strong> September 2022 regarding Amazon, digital shelf topics, JBPx Amazon Growth Summit</p>
+                    <p><strong>Outcome:</strong> No further engagement since 2022 - lapsed contact (~3.5 years)</p>
+                    <p><strong>Current Status:</strong> Works directly under Maya Kosovalic on NYX digital innovation team. Listed as key team member in Maya's 2023 Cannes Lions recap.</p>
+                    <p><strong>Tactical Advantage:</strong> Warm re-entry point exists; can reference previous conversation. Can facilitate introduction to Maya if relationship rebuilt.</p>
+                    <div class="tone-box">
+                        <strong>Tone Guidance:</strong> Direct American communication. Acknowledge time elapsed honestly. Lead with value-add, not pitch. Reference September 2022 conversation to establish continuity.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Maya Kosovalic ⭐ TOP PRIORITY</div>
+                            <div class="contact-title">Vice President, Digital Innovation & E-Commerce, NYX Professional Makeup</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">#1 Priority</span>
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge grey">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Background:</strong> 19+ years experience across Canada, China, Brazil, Argentina, US. Previously Associate VP Digital Marketing & E-Commerce at NYX (2018-2022). BBA from Schulich School of Business.</p>
+                    <p><strong>Key Responsibilities:</strong> Leading innovation agenda for NYX. Connecting beauty, consumer, commerce, and technology. Spearheading NYX's leadership role in beauty tech.</p>
+                    <p><strong>Recent Initiatives:</strong></p>
+                    <ul>
+                        <li>March 2024: Appointed to RAD AI advisory board (AI-powered marketing solutions)</li>
+                        <li>June 2023: Spoke at Cannes Lions on Amazon Port stage about fandom, gaming, brand engagement</li>
+                        <li>Active in gaming/metaverse initiatives</li>
+                    </ul>
+                    <p><strong>Why She's the Right Contact:</strong> Direct responsibility for digital commerce and innovation at NYX. Decision-making authority for technology solutions. Reports to senior L'Oréal leadership with budget authority. Interest in AI-powered tools (RAD AI board appointment).</p>
+                    <h4>Specific Hooks</h4>
+                    <ul>
+                        <li>RAD AI advisory board appointment shows interest in AI marketing tools</li>
+                        <li>Cannes Lions talk on "fandom and brand engagement across platforms" aligns with omnichannel visibility</li>
+                        <li>Quote: "Human behavior is consumer behavior and the way we engage in unstructured free play will impact how we engage with brands"</li>
+                        <li>Gaming/metaverse focus creates relevance for multi-platform monitoring</li>
+                    </ul>
+                    <div class="tone-box">
+                        <strong>Tone Guidance:</strong> Direct American communication. Get to the point quickly. Lead with curiosity about her AI/innovation work. Value clarity and actionability. Confident but not arrogant.
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Anna Vinitskaia</div>
+                            <div class="contact-title">Brand Business Director, NYX Professional Makeup (L'Oréal Canada)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">#3 Priority</span>
+                            <span class="badge blue">🇨🇦 Canadian</span>
+                            <span class="badge grey">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Background:</strong> Previously Category Director with Sales and E-commerce focus. 6 years at Agropur. Strong FMCG experience.</p>
+                    <p><strong>Key Responsibilities:</strong> Direct NYX responsibility in Canadian market. E-commerce and category management. Regional P&L ownership.</p>
+                    <p><strong>Why She's the Right Contact:</strong> Regional entry point may face less enterprise procurement complexity. E-commerce/category management background aligns with DSA value proposition. Could provide regional proof point before broader L'Oréal engagement.</p>
+                    <h4>Specific Hooks</h4>
+                    <ul>
+                        <li>Canadian market expansion opportunities</li>
+                        <li>Regional digital shelf challenges</li>
+                        <li>Category management across Canadian retailers (Shoppers Drug Mart, Walmart Canada, Amazon.ca)</li>
+                    </ul>
+                    <div class="tone-box">
+                        <strong>Tone Guidance:</strong> Professional but slightly warmer than US tone. Relationship-building valued. Focus on regional challenges and local market dynamics.
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Megan Gerke</div>
+                            <div class="contact-title">Former Global VP Digital/eCommerce & Innovation (now at L'Oréal Luxe)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">#4 Priority</span>
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge grey">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Background:</strong> Recently moved to L'Oréal Luxe. 4.5 years at NYX in senior digital commerce roles. Deep NYX digital commerce knowledge.</p>
+                    <p><strong>Key Achievements at NYX:</strong></p>
+                    <ul>
+                        <li>Created NYXTAPE: First-ever beauty x music platform on TikTok (500M+ impressions)</li>
+                        <li>Led Xbox shoppable media campaign (41M global impressions)</li>
+                        <li>Led global platform migration across 20+ markets</li>
+                    </ul>
+                    <p><strong>Why She's the Right Contact:</strong> Retains deep NYX knowledge and internal relationships. Could facilitate warm introduction to current NYX team. Now at L'Oréal Luxe - potential second brand opportunity.</p>
+                    <h4>Specific Hooks</h4>
+                    <ul>
+                        <li>Reference her NYXTAPE and Xbox achievements</li>
+                        <li>Ask for introduction to current NYX team</li>
+                        <li>Explore L'Oréal Luxe digital commerce needs</li>
+                    </ul>
+                    <div class="tone-box">
+                        <strong>Tone Guidance:</strong> Direct American communication. Position as learning opportunity. Ask for her perspective as someone who has navigated both NYX and Luxe digital commerce challenges.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Han Wen ⭐ KEY STRATEGIC CONTACT</div>
+                            <div class="contact-title">Chief Digital & Marketing Officer, L'Oréal USA (Member of Management Committee)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge orange">Strategic Influencer</span>
+                            <span class="badge blue">🇺🇸 American</span>
+                        </div>
+                    </div>
+                    <p><strong>Background:</strong> Appointed May 2022. Previously Global CDO for L'Oréal Paris; drove 5x increase in e-commerce business for Professional Products Division. Prior: Group CDO at Clarins (8 years); roles at LVMH.</p>
+                    <p><strong>Key Responsibilities:</strong> Leading digital transformation across all US divisions and brands. Consumer insights & intelligence. Digital go-to-market strategies. Media planning.</p>
+                    <p><strong>Why She's the Right Contact:</strong> Enterprise-level decision-making authority. Oversees digital strategy across ALL L'Oréal USA brands (including NYX). Budget authority for technology investments. Could facilitate cross-brand L'Oréal conversation.</p>
+                    <p><strong>Key Quote</strong> (from CEO David Greenberg): "Han brings deep experience and expertise to this strategic role at a time when digital is at the forefront of our business."</p>
+                    <h4>Use For</h4>
+                    <ul>
+                        <li>Referencing her strategic priorities in outreach to Maya/Rebecca</li>
+                        <li>Escalation if operational contacts unresponsive</li>
+                        <li>Enterprise-level conversation about L'Oréal-wide digital shelf strategy</li>
+                    </ul>
+                </div>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Asmita Dubey</div>
+                            <div class="contact-title">Chief Digital & Marketing Officer, L'Oréal Groupe</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge orange">Reference Only</span>
+                            <span class="badge red">DO NOT CONTACT</span>
+                        </div>
+                    </div>
+                    <p><strong>Background:</strong> Named 2023 WFA Global Marketer of the Year. Member of Executive Committee since 2021. Built first joint-business partnerships with Alibaba and Tencent.</p>
+                    <p><strong>Key Quotes:</strong></p>
+                    <ul>
+                        <li>"We measure everything because we are in permanent transformation. If we don't measure, we don't know if we are failing or succeeding."</li>
+                        <li>"TikTok commerce is big for us in Indonesia and Vietnam, so we are definitely betting on social commerce."</li>
+                    </ul>
+                    <p><strong>Use For:</strong> Reference her measurement philosophy in emails to operational contacts. Do NOT reach out directly.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Executive Context (Reference Only - Do Not Contact)</h2>
+                
+                <p><strong>Fabrice Megarbane</strong> (incoming President, Consumer Products Division, January 2026):</p>
+                <ul>
+                    <li>"As Chief Global Growth Officer since 2024, he has shaped the company's integrated growth strategy and accelerated e-commerce with partners such as Amazon and TikTok."</li>
+                    <li><strong>Use:</strong> Reference his e-commerce focus in timing outreach around leadership transition</li>
+                </ul>
+                
+                <p><strong>Alexis Perakis-Valat</strong> (outgoing President, Consumer Products Division):</p>
+                <ul>
+                    <li>"When I arrived at the helm of the division... we just declared that it was great to be innovative, but that it was not okay NOT to be seen by our retailers as their preferred partner across FMCG."</li>
+                    <li><strong>Use:</strong> Reference retailer partnership priority in value proposition</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                
+                <div class="contact-card skip">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Role Type</th>
+                                <th>Reason to Skip</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Unrelated divisions (surgical, professional products without digital focus)</td>
+                                <td>No DSA relevance</td>
+                            </tr>
+                            <tr>
+                                <td>Manufacturing/operations without digital responsibility</td>
+                                <td>No buying authority</td>
+                            </tr>
+                            <tr>
+                                <td>Regional roles below VP level (except specific regional targets)</td>
+                                <td>Limited decision-making power</td>
+                            </tr>
+                            <tr>
+                                <td>Clinical/medical affairs</td>
+                                <td>No commercial focus</td>
+                            </tr>
+                            <tr>
+                                <td>Marketing roles without e-commerce responsibility</td>
+                                <td>Wrong buying centre</td>
+                            </tr>
+                            <tr>
+                                <td>IT/Technology roles without business ownership</td>
+                                <td>Technical influence only</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 5: DRAFT EMAIL SEQUENCES -->
+        <div id="emails" class="tab-content">
+            <div class="disclaimer">
+                <strong>⚠️ Important:</strong> These emails are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Always verify contact details and current circumstances before outreach.
+            </div>
+            
+            <div class="card">
+                <h2>Nationality-Based Tone Guidance</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>🇺🇸 American Contacts</h4>
+                        <p>Direct, efficient communication. Get to the point quickly. Value clarity and actionability. Confident but not arrogant. Lead with curiosity, not pitch.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>🇨🇦 Canadian Contacts</h4>
+                        <p>Professional but slightly warmer. Relationship-building valued. Focus on regional challenges and local market dynamics.</p>
+                    </div>
+                </div>
+                
+                <div class="info-box yellow">
+                    <strong>Moderate Fit = Consultative Nurture Tone:</strong> Curious, not assertive. Question-led, not pitch-led. Value-add focused, not meeting-focused. Long-term relationship building, not quick close. Acknowledge they have existing solutions without requiring them to admit it.
+                </div>
+            </div>
+            
+            <!-- Contact 1: Maya Kosovalic -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Maya Kosovalic</h3>
+                        <p>Vice President, Digital Innovation & E-Commerce, NYX Professional Makeup</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇺🇸 American</span>
+                        <span class="badge grey">Cold</span>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-contact="maya">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Question about AI in beauty commerce</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM PT</div>
+                        <div class="email-body">Maya,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for beauty brands, helping them track things like product availability, content accuracy, pricing, and search rankings across online retailers.
+
+I saw your appointment to the RAD AI advisory board and it prompted a question. Most AI investment in beauty seems focused on marketing and personalisation. I'm curious whether NYX is also exploring AI for operational decisions - things like identifying which products have incorrect content on which retailers, or where stock-outs are costing sales.
+
+We've been building AI-powered prioritisation into our platform - moving from "here's 500 content issues to review" to "here are the 5 that are actually affecting conversion this week, and here's what to do about them". 
+
+I'm curious whether that kind of operational prioritisation is something NYX has solved, or whether it's still a challenge when you're managing thousands of product pages across dozens of retailers.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Maya's RAD AI board appointment is still current before sending</p>
+                        <p>Check if NYX has announced any AI operations initiatives that could be referenced</p>
+                        <p>LinkedIn check for any recent posts about AI or technology she's shared</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Opens with specific research finding (RAD AI) that shows homework done. Positions question around a genuine gap in the market (marketing AI vs operations AI). eStore introduced clearly in first sentence with specific DSA terms. Ends with question, not statement. Direct American tone.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Managing 45 shades across 20+ retailers</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM PT (5-7 days after Email 1)</div>
+                        <div class="email-body">Maya,
+
+I've been looking at how NYX manages variant complexity - Butter Gloss alone has 35+ shades, and that's before you add Can't Stop Won't Stop foundations. Multiply that across Ulta, Target, Boots, Douglas, Amazon in multiple markets, and you're dealing with thousands of individual product pages that all need accurate images, descriptions, and pricing.
+
+The beauty brands we work with - Wella, Galderma - face similar challenges. What we've found is that most platforms show you the problem (missing images, wrong descriptions) but don't help you prioritise which problems actually affect sales. That's where we've focused our development.
+
+I'm curious whether variant complexity at this scale is something you've cracked, or whether it's still a work in progress. Not suggesting NYX needs another platform - I'm sure you're well-equipped.
+
+We've written about the specific challenges beauty brands face with content across retailers - happy to share if useful: https://estorebrands.com/beauty-personal-care
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify current shade counts for key product lines before sending</p>
+                        <p>Check if Wella/Galderma are still appropriate references (no competitive conflict)</p>
+                        <p>Confirm Butter Gloss and Can't Stop Won't Stop are still hero products</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds substantive new value - specific operational challenge. References specific research (45 shades, 35+ Butter Gloss variants). Names existing beauty clients for credibility without specifics. Acknowledges they likely have solutions already. Single link, positioned as "if useful".</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: European retailers vs US - different game?</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM PT (5-7 days after Email 2)</div>
+                        <div class="email-body">Maya,
+
+NYX has strong European distribution through dm, Douglas, Boots, Notino - retailers that operate quite differently to the US mass retail model. The content requirements, promotional mechanics, and search algorithms vary significantly.
+
+Our strength is European coverage. We started in Central Europe and built deep retailer relationships there before expanding. If there's ever a question about whether what works on US platforms translates to European retailers - whether content that performs well on Target also performs on dm - we can probably help answer it.
+
+I'm curious how NYX approaches European digital shelf performance versus US. Is it managed through the same tools and processes, or does the European side require a different approach?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Research any specific European initiatives or challenges NYX has mentioned publicly</p>
+                        <p>Check if there's been any European expansion news to reference</p>
+                        <p>Verify dm and Douglas are still key European retailers for NYX</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuinely new angle (European vs US performance). Honest about where eStore is strongest. Ends with curiosity, not exit offer. Opens door for conversation about current approach.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact 2: Rebecca Morgenthaler -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Rebecca Morgenthaler</h3>
+                        <p>Director, Digital Innovation, NYX Professional Makeup</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇺🇸 American</span>
+                        <span class="badge yellow">Re-engagement</span>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-contact="rebecca">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Picking up where we left off</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM PT</div>
+                        <div class="email-body">Rebecca,
+
+I'm [SENDER NAME] from eStore. I can see we had some contact back in 2022 around Amazon and the JBPx Growth Summit - a lot has happened since then, both at NYX and on our side.
+
+eStore has evolved quite a bit. We've moved from being primarily a data platform to something more focused on actionability - helping brands prioritise what to fix first (which content issues are actually affecting conversion, which stock-outs are costing the most) rather than just showing everything that's wrong.
+
+I don't know if the challenges you were exploring in 2022 are still relevant, or if things have moved on entirely. But if digital shelf analytics is still on the radar, I'd be curious to hear how you're approaching it now.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify the September 2022 contact details with HubSpot/CRM before sending</p>
+                        <p>Check if Rebecca has changed roles or responsibilities since 2022</p>
+                        <p>Look for any recent LinkedIn activity to personalise further</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Acknowledges the previous relationship directly. eStore introduced with clear evolution story and specific DSA examples. Honest about time elapsed. Warm re-engagement tone.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: 35 shades of Butter Gloss</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM PT (5-7 days after Email 1)</div>
+                        <div class="email-body">Rebecca,
+
+Something that's changed in how we work since 2022 - we've invested heavily in helping brands manage variant complexity at scale.
+
+NYX's product lines are a good example of why this matters. Butter Gloss across 35+ shades, foundations with 45+ variants - each needs accurate images, descriptions, and pricing across every retailer. When Ulta shows different images than Target, or Amazon UK has outdated descriptions, it creates friction that affects conversion.
+
+The beauty brands we work with - Wella and Galderma - face similar challenges. What's shifted in our approach is moving from "here's every content issue" to "here's what's actually costing you sales this week".
+
+I don't know whether variant management is something NYX has solved or whether it's still a pain point. Curious either way.
+
+We've put together some thinking on digital shelf challenges specific to beauty brands: https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify current shade counts are accurate</p>
+                        <p>Confirm Ulta, Target, Amazon UK are still key retailers for NYX</p>
+                        <p>Check if Wella/Galderma references are still appropriate</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Builds on Email 1 with substantive new value. Specific research references (shade counts, retailer examples). Links to long-form beauty content naturally. Acknowledges uncertainty about their current state.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: New CPD leadership - new priorities?</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM PT (5-7 days after Email 2)</div>
+                        <div class="email-body">Rebecca,
+
+L'Oréal's Consumer Products Division has new leadership this year. New presidents often mean strategic reviews and shifted priorities.
+
+I'm curious whether digital shelf analytics sits differently in the priority stack now versus where it was a few years ago. The e-commerce acceleration work under previous leadership was significant - wondering whether that investment trajectory continues or whether focus has shifted elsewhere.
+
+We're strongest in European markets - dm, Douglas, Boots, Rossmann are retailers we know well. If there's ever a question about whether NYX's digital shelf performance in Europe matches what you're seeing in the US, we can probably help answer it.
+
+How has the new leadership affected what Maya's team is focused on?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Fabrice Megarbane's CPD appointment timing and any public statements</p>
+                        <p>Check for any announced strategic shifts under new leadership</p>
+                        <p>Confirm Maya Kosovalic is still Rebecca's manager</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuinely new angle (leadership transition timing). Positions eStore around European strength honestly. Ends with direct question about team priorities. References research without asserting what they should do.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact 3: Anna Vinitskaia -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Anna Vinitskaia</h3>
+                        <p>Brand Business Director, NYX Professional Makeup (L'Oréal Canada)</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇨🇦 Canadian</span>
+                        <span class="badge grey">Cold</span>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-contact="anna">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: NYX Canada digital shelf</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM ET</div>
+                        <div class="email-body">Anna,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for beauty brands, helping them track product availability, content accuracy, pricing, and search rankings across online retailers.
+
+I've been thinking about the challenge of managing a global brand like NYX at a regional level. Canadian retail has its own dynamics - Shoppers Drug Mart, Walmart Canada, Amazon.ca - but the brand standards come from LA.
+
+I'm curious how that tension plays out for digital shelf management. Do you have visibility into how NYX products appear across Canadian retailers - whether images are correct, descriptions are up to date, products are in stock? Is that something the regional team owns, or does it sit centrally?
+
+We work with several beauty brands navigating similar multi-market challenges. Happy to share how others approach it if useful.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Research Canadian retailer landscape for NYX - verify Shoppers, Walmart Canada, Amazon.ca</p>
+                        <p>Check if Anna has regional P&L ownership or reports to global</p>
+                        <p>Look for any Canadian-specific NYX initiatives or challenges</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Regional angle may face less enterprise complexity. Specific Canadian retailer references show research. Questions explore her situation rather than asserting needs. eStore introduced clearly with specific DSA terms. Canadian tone - professional but slightly warmer.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Same product, different story</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM ET (5-7 days after Email 1)</div>
+                        <div class="email-body">Anna,
+
+One pattern we see with global beauty brands: the Canadian retailer shows different product content than the US version - different images, different descriptions, sometimes different claims. For a brand like NYX with 35+ Butter Gloss shades and dozens of foundation variants, keeping content consistent across borders becomes complex.
+
+The question is whether that inconsistency matters. Sometimes it doesn't. But if it's affecting customer experience or compliance, it's worth knowing where the gaps are.
+
+We've been working with beauty brands like Wella on similar challenges - helping them understand not just what's inconsistent, but whether that inconsistency is actually affecting conversion rates.
+
+Does content consistency across Canadian versus US retailers come up as an issue, or is it more of a "we'll deal with it if there's a problem" situation?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Butter Gloss shade count is current</p>
+                        <p>Check if there are known Canada/US content differences to reference</p>
+                        <p>Confirm Wella is still appropriate reference for Canadian context</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds substantive new value (cross-border content challenge). Specific examples (shade counts, variants). Questions her situation rather than prescribing solutions. Acknowledges this might not be a priority.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Shoppers versus Walmart.ca versus Amazon</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM ET (5-7 days after Email 2)</div>
+                        <div class="email-body">Anna,
+
+Shoppers Drug Mart, Walmart Canada, and Amazon.ca all have different search algorithms and promotional mechanics. What works to get products found on one platform doesn't necessarily translate to another.
+
+I'm curious whether NYX Canada approaches each retailer with distinct digital shelf strategies, or whether there's a unified playbook that gets applied across the board. Both approaches have merit - I'm interested in which works better for a brand with NYX's variant complexity.
+
+We're particularly strong in understanding how search rankings and content quality interact across different retailer platforms. If that's ever a question mark for the Canadian team, I'd be happy to share how other beauty brands approach it.
+
+How does NYX Canada think about retailer-specific versus unified digital shelf strategy?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Research any specific Canadian retail partnerships or initiatives</p>
+                        <p>Check if there are known differences in NYX's approach by retailer</p>
+                        <p>Look for any public statements about Canadian e-commerce strategy</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuinely new angle (retailer-specific vs unified strategy). Shows expertise without asserting what they should do. Ends with direct question, not exit offer. Positions eStore's search/content expertise naturally.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact 4: Megan Gerke -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Megan Gerke</h3>
+                        <p>Former Global VP Digital/eCommerce & Innovation (now at L'Oréal Luxe)</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇺🇸 American</span>
+                        <span class="badge grey">Cold</span>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-contact="megan">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: NYX to Luxe - different digital shelf challenges?</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM PT</div>
+                        <div class="email-body">Megan,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for beauty brands, helping them track product availability, content accuracy, pricing, and search rankings across online retailers.
+
+I saw you've moved from NYX to L'Oréal Luxe, and I'm curious how the digital shelf challenges compare. Mass beauty through Target and Ulta versus prestige through Sephora and Nordstrom - the retailers, the content requirements, the promotional dynamics all seem quite different.
+
+We work with beauty brands at both ends of the spectrum. What I find interesting is whether the lessons from NYX's "masstige" positioning translate to luxury, or whether it's a completely different set of problems.
+
+Has the move given you a different perspective on what matters for digital shelf performance?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Megan's current role at L'Oréal Luxe</p>
+                        <p>Check which Luxe brands she's now working with</p>
+                        <p>Look for any recent LinkedIn posts about her role transition</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Role transition creates natural conversation opener. Positions question around genuine curiosity (mass vs prestige). eStore introduced clearly with specific DSA terms. Ends with question. Direct American tone.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: NYXTAPE and Xbox - the operational side</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM PT (5-7 days after Email 1)</div>
+                        <div class="email-body">Megan,
+
+The NYXTAPE TikTok platform and Xbox shoppable media campaigns were interesting from an operational perspective - 500M+ impressions and 41M global impressions respectively. What sits behind campaigns like that is a lot of coordination.
+
+When viral campaigns drive traffic to retailers, the digital shelf has to be ready - correct content, accurate pricing, products in stock. I'm curious whether that coordination was smooth at NYX, or whether it was more chaotic than it looked from outside.
+
+We work with beauty brands on exactly that challenge - making sure product pages are accurate and in-stock when marketing drives demand. It's less visible than the campaigns themselves, but arguably more important for conversion.
+
+If you ever have time for a conversation about how NYX managed that coordination, I'd find it useful for how we think about our platform.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify NYXTAPE and Xbox campaign details and results</p>
+                        <p>Check if Megan was directly involved in these campaigns</p>
+                        <p>Look for any interviews or posts where she discussed these initiatives</p>
+                        <h5>Strategy Notes</h5>
+                        <p>References her specific achievements (research-based). Positions question around operational reality vs external perception. Asks for her perspective - positions her as expert. Conversation framed as learning opportunity.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Luxe digital shelf priorities</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM PT (5-7 days after Email 2)</div>
+                        <div class="email-body">Megan,
+
+Now that you're on the Luxe side, I'm curious whether digital shelf analytics sits differently in the priority stack.
+
+Prestige beauty often focuses more on brand experience and less on search optimisation. But with Sephora, Nordstrom, and Neiman Marcus all having significant online presence, the fundamentals still apply - content accuracy, availability, pricing consistency.
+
+We've worked with both mass and prestige beauty brands. What I've noticed is that prestige brands often underinvest in digital shelf analytics because the volume is lower - but the margin protection argument is actually stronger.
+
+If L'Oréal Luxe is thinking about digital shelf performance across prestige retailers, I'd be curious how they're approaching it - dedicated solution, embedded in broader commerce tools, or not really a focus yet.
+
+How does the Luxe perspective compare to what you experienced at NYX?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Research L'Oréal Luxe's digital strategy and any public statements</p>
+                        <p>Check which prestige retailers are priorities for Luxe brands</p>
+                        <p>Look for any recent Luxe digital commerce initiatives</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Opens door to second brand opportunity (L'Oréal Luxe). Positions insight (prestige underinvestment) without asserting what they should do. Ends with direct question about her perspective. Acknowledges different value proposition for prestige vs mass.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 6: OBJECTION HANDLING -->
+        <div id="objections" class="tab-content">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                
+                <div class="info-box yellow">
+                    <strong>MODERATE FIT = CONSULTATIVE NURTURE APPROACH</strong>
+                </div>
+                
+                <p>Given presence of established DSA providers and lapsed previous engagement, aggressive outreach is unlikely to succeed. Recommended approach:</p>
+                
+                <ol>
+                    <li>Re-engage Rebecca Morgenthaler with value-add content referencing September 2022 conversation</li>
+                    <li>Target Maya Kosovalic as primary decision-maker; leverage her RAD AI advisory role</li>
+                    <li>Time outreach around leadership transition (Q1 2026) when new CPD President establishes priorities</li>
+                    <li>Position around actionability and European coverage gaps vs. existing deployments</li>
+                    <li>Offer competitive audit focused on specific retailers/markets where current providers may have gaps</li>
+                </ol>
+                
+                <h3>Decision Thresholds</h3>
+                <ul>
+                    <li><strong>Proceed to meeting:</strong> Any positive response showing genuine interest in conversation</li>
+                    <li><strong>Continue nurture:</strong> No response or polite decline - maintain quarterly touchpoints</li>
+                    <li><strong>Pause outreach:</strong> Explicit request to stop contact or confirmation of active RFP with competitors</li>
+                    <li><strong>Re-evaluate in 6-12 months:</strong> If contract renewal cycles or provider dissatisfaction signals emerge</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Common Objections & Responses</h2>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We already have Profitero / Edge / multiple DSA providers"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "That makes sense - most global beauty brands have some form of digital shelf monitoring in place. L'Oréal's investment in e-commerce analytics is well-documented."</p>
+                        
+                        <p><strong>Explore:</strong> "I'm curious how well the current setup serves NYX's specific needs. With variant complexity at your scale - 45 shades in foundations, 35+ in Butter Gloss - is the prioritisation working? Or is there still a gap between seeing problems and knowing which ones to fix first?"</p>
+                        
+                        <p><strong>Position Differentiation:</strong> "Where we've found value with multi-provider environments is filling specific gaps. Our European retailer coverage - dm, Douglas, Rossmann - is deeper than most US-centric platforms. And our focus is actionability over data volume. Not replacement, but complement."</p>
+                        
+                        <p><strong>Close:</strong> "Would it be useful to compare what you're seeing from current providers against what we'd show for a few key European retailers? No commitment - just a data point."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're happy with our current setup"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "Good to hear - having working solutions is better than the chaos some brands deal with."</p>
+                        
+                        <p><strong>Explore:</strong> "When you say happy - is that 'it does what we need' or 'we love it'? The distinction matters because 'it works' often means there are things you've learned to work around."</p>
+                        
+                        <p><strong>Position:</strong> "We're not trying to displace anyone. But if there are specific areas - European retailers, actionable prioritisation, variant complexity - where current tools fall short, that's worth knowing. Sometimes a focused specialist complements a broader platform."</p>
+                        
+                        <p><strong>Close:</strong> "Happy to stay in touch. If priorities shift or you hit limitations with current tools, I'd welcome the conversation."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"How strong is your US coverage?"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Honest Answer:</strong> "Our heritage is European - dm, Rossmann, Douglas, Boots are retailers we know deeply. US coverage is solid for major platforms - Target, Walmart, Amazon - but it's not where we differentiate."</p>
+                        
+                        <p><strong>Reframe:</strong> "If you're looking for US-first coverage, you probably have that already. What we offer is depth in European markets where US-centric platforms often have gaps. With L'Oréal's London HQ and NYX's strong DACH presence, that might be more valuable than marginal improvements to US monitoring."</p>
+                        
+                        <p><strong>Position:</strong> "The question is whether European digital shelf performance gets the same attention as US. If it does and current tools handle it well, we're probably not the right fit. If there's a gap - or uncertainty about whether European matches US - that's where we add value."</p>
+                        
+                        <p><strong>Close:</strong> "Would it be useful to see what we show for dm or Boots specifically? That would tell you quickly whether there's incremental value."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're not looking at new vendors right now"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "Understood - vendor evaluations are time-consuming and enterprise procurement at L'Oréal isn't something you'd start lightly."</p>
+                        
+                        <p><strong>Explore Timing:</strong> "Is that a budget cycle thing, or is there something specific happening that makes timing wrong? I ask because with new CPD leadership this year, priorities often get reviewed. Happy to reconnect when timing is better."</p>
+                        
+                        <p><strong>Offer Value:</strong> "Even without a formal evaluation, if there's ever a specific question - how are our products appearing on dm, what's happening with search rankings on Boots - I'm happy to pull some data as a one-off. No commitment, just useful information."</p>
+                        
+                        <p><strong>Close:</strong> "When would be a better time to check back in? Q3? After budget cycle? I don't want to be a nuisance."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"I'm not the right person for this"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "Appreciated - getting to the right person is more useful than having the wrong conversation."</p>
+                        
+                        <p><strong>Explore:</strong> "Can I ask - is digital shelf analytics something that sits with a different team entirely, or is it more that someone else on Maya's team handles vendor relationships?"</p>
+                        
+                        <p><strong>Ask for Direction:</strong> "If you could point me in the right direction - even just a name or function - that would be helpful. I don't want to waste your time or theirs with cold outreach if there's a better route."</p>
+                        
+                        <p><strong>Offer Value:</strong> "And if you're curious about what we do - even if you're not the decision-maker - I'm happy to send over some thinking on digital shelf challenges for beauty brands. No obligation."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"What makes you different from Profitero/Edge?"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "Fair question - both are established players with good products."</p>
+                        
+                        <p><strong>Differentiate:</strong> "Three things stand out for us: First, <strong>actionability</strong> - we focus on the 5 issues that matter most this week, not the 500 that exist. Second, <strong>European depth</strong> - dm, Rossmann, Douglas, Boots are retailers we've built deep relationships with. Third, <strong>beauty expertise</strong> - variant complexity is core to what we do. Wella, Galderma face similar challenges."</p>
+                        
+                        <p><strong>Be Honest:</strong> "What we're not is a full enterprise stack. If you need global coverage across 50 markets with heavy integration requirements, Profitero or Edge might be better fits. We're specialists, not generalists."</p>
+                        
+                        <p><strong>Close:</strong> "The question is whether specialist depth in specific areas adds value alongside broader platforms. Sometimes it does, sometimes it doesn't. Would it be useful to compare outputs for a few specific retailers?"</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"How long would implementation take?"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Honest Answer:</strong> "For European retailers where we have existing coverage - dm, Rossmann, Boots - you'd see initial data within 2-4 weeks. For a full L'Oréal-scale implementation with enterprise requirements, realistically 3-6 months."</p>
+                        
+                        <p><strong>Manage Expectations:</strong> "Enterprise procurement at L'Oréal adds complexity that's outside our control. Security reviews, legal, integration discussions with your existing tech stack - those take time regardless of what we do."</p>
+                        
+                        <p><strong>Offer Alternatives:</strong> "What some brands do is start with a focused pilot - one market, one brand, limited scope. That lets you see value quickly while longer procurement conversations happen in parallel. We've run pilots as short as 30 days."</p>
+                        
+                        <p><strong>Close:</strong> "Would a pilot approach work for how L'Oréal evaluates vendors? Or does everything need to go through full enterprise procurement?"</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Send me some information and I'll review it"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "Happy to - though I'd rather send something relevant to your situation than generic materials."</p>
+                        
+                        <p><strong>Qualify:</strong> "Can I ask a couple of quick questions first? What's the biggest challenge right now - is it content accuracy, variant management, European visibility, or something else? And which retailers matter most - the US mass retail, European drugstores, or both?"</p>
+                        
+                        <p><strong>Offer Value:</strong> "I can send you our beauty-specific overview, which covers what we're seeing with brands like Wella and Galderma. But even better, I could put together a brief perspective on NYX's specific retailer landscape - what we'd monitor, what we'd look for. Would that be more useful?"</p>
+                        
+                        <p><strong>Close:</strong> "Either way, I'll follow up in a week or so to see if it sparked any questions."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We talked to eStore years ago and decided not to proceed"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "I appreciate you remembering - and I'm aware we had some contact back in 2022. A lot has changed since then."</p>
+                        
+                        <p><strong>Explore:</strong> "Can I ask what the deciding factors were at the time? Was it coverage, functionality, timing, or something else? Understanding what didn't work helps me know whether things have changed enough to be worth another look."</p>
+                        
+                        <p><strong>Position Evolution:</strong> "Since 2022, our biggest shift has been from data reporting to actionable prioritisation. The feedback we got from brands was 'too much data, not enough direction.' So we rebuilt around that."</p>
+                        
+                        <p><strong>Close:</strong> "If the issues from 2022 were around actionability or European coverage, those are areas we've invested heavily in. If it was something else - timing, budget, fit - I understand if things haven't changed. Either way, appreciate the honesty."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"L'Oréal has global vendor contracts - we can't add new providers"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "That makes sense - enterprise vendor management at L'Oréal's scale requires structure."</p>
+                        
+                        <p><strong>Explore:</strong> "Is there any flexibility for specialist solutions that complement existing contracts? Or regional pilots that don't trigger full enterprise procurement? Some organisations have carve-outs for niche providers."</p>
+                        
+                        <p><strong>Offer Alternatives:</strong> "If formal vendor status isn't possible, there might be value in informal benchmarking. We could provide a one-time European retailer audit - no contract, no commitment - just data that helps you evaluate whether current providers are delivering everything you need in those markets."</p>
+                        
+                        <p><strong>Close:</strong> "Would that kind of informal engagement work within L'Oréal's structure? Or is any third-party involvement off the table?"</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                <ul>
+                    <li><strong>Never dismiss the objection</strong> - Acknowledge it genuinely before responding</li>
+                    <li><strong>Be honest about limitations</strong> - Especially geographic coverage (lead with European strength)</li>
+                    <li><strong>Position as complement, not replacement</strong> - Multi-provider stack means incremental value, not displacement</li>
+                    <li><strong>Offer flexibility</strong> - Pilots, phased approaches, geography-focused starts</li>
+                    <li><strong>Ask questions</strong> - Understand the root concern before responding</li>
+                    <li><strong>Don't over-explain</strong> - They're sophisticated; respect that</li>
+                    <li><strong>Respect the nurture approach</strong> - This is long-term relationship building, not quick close</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>eStore Action Plan - NYX Professional Makeup | January 2026</p>
+        <p>Created by James / eStore Sales Development</p>
+    </footer>
+    
+    <script>
+        // Tab Navigation
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active to clicked tab
+            event.target.classList.add('active');
+        }
+        
+        // Email Tab Navigation
+        document.querySelectorAll('.email-tabs').forEach(container => {
+            container.querySelectorAll('.email-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const emailNum = this.dataset.email;
+                    const sequence = this.closest('.email-sequence');
+                    
+                    // Remove active from sibling tabs
+                    container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                    
+                    // Add active to clicked tab
+                    this.classList.add('active');
+                    
+                    // Hide all email contents in this sequence
+                    sequence.querySelectorAll('.email-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show corresponding email content
+                    sequence.querySelector(`.email-content[data-email="${emailNum}"]`).classList.add('active');
+                });
+            });
+        });
+        
+        // Objection Card Toggle
+        function toggleObjection(header) {
+            const card = header.closest('.objection-card');
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
