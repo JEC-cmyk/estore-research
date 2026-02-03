@@ -1,0 +1,2298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BenQ - eStore Action Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+        
+        .header-meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .header-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.25rem;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            background: #1067db;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1067db;
+            font-weight: 700;
+        }
+        
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+        
+        .card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+            color: #495057;
+            font-weight: 600;
+        }
+        
+        .card p {
+            margin-bottom: 1rem;
+        }
+        
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .fit-badge.strong {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border: 2px solid #22bb69;
+        }
+        
+        .fit-badge.moderate {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            color: #856404;
+            border: 2px solid #ffba1c;
+        }
+        
+        .fit-badge.weak {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            border: 2px solid #f44f2f;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .summary-item {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid #1067db;
+        }
+        
+        .summary-item h4 {
+            margin-top: 0;
+            color: #1067db;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .summary-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-box {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-box .value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1067db;
+        }
+        
+        .stat-box .label {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .info-box {
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .info-box.blue {
+            background: #e7f3ff;
+            border-left: 4px solid #1067db;
+        }
+        
+        .info-box.green {
+            background: #e8f5e9;
+            border-left: 4px solid #22bb69;
+        }
+        
+        .info-box.yellow {
+            background: #fff8e1;
+            border-left: 4px solid #ffba1c;
+        }
+        
+        .info-box.red {
+            background: #ffebee;
+            border-left: 4px solid #f44f2f;
+        }
+        
+        .info-box.orange {
+            background: #fff3e0;
+            border-left: 4px solid #ff7a00;
+        }
+        
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge.green {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .badge.yellow {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .badge.red {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .badge.blue {
+            background: #e7f3ff;
+            color: #1067db;
+        }
+        
+        .badge.grey {
+            background: #e9ecef;
+            color: #495057;
+        }
+        
+        .badge.orange {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        
+        .contact-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #1067db;
+        }
+        
+        .contact-card.secondary {
+            border-left-color: #68d7fa;
+        }
+        
+        .contact-card.historical {
+            border-left-color: #ffba1c;
+        }
+        
+        .contact-card.skip {
+            border-left-color: #f44f2f;
+            background: #fff5f5;
+        }
+        
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c2c2c;
+        }
+        
+        .contact-title {
+            font-size: 0.95rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .contact-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .tone-box {
+            background: #e7f3ff;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .tone-box strong {
+            color: #1067db;
+        }
+        
+        .email-sequence {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .email-sequence-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .email-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .email-tab {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .email-tab:hover {
+            border-color: #1067db;
+        }
+        
+        .email-tab.active {
+            background: #1067db;
+            border-color: #1067db;
+            color: white;
+        }
+        
+        .email-content {
+            display: none;
+        }
+        
+        .email-content.active {
+            display: block;
+        }
+        
+        .email-box {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .email-subject {
+            font-weight: 600;
+            color: #1067db;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .email-timing {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+        
+        .email-body {
+            white-space: pre-line;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .email-notes {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #dee2e6;
+        }
+        
+        .email-notes h5 {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-notes p {
+            font-size: 0.9rem;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .objection-card {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+        
+        .objection-header {
+            padding: 1rem 1.25rem;
+            background: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .objection-header:hover {
+            background: #e9ecef;
+        }
+        
+        .objection-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .objection-card.open .objection-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .objection-body {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .objection-card.open .objection-body {
+            display: block;
+        }
+        
+        .disclaimer {
+            background: #fff8e1;
+            border: 2px solid #ffba1c;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .disclaimer strong {
+            color: #856404;
+        }
+        
+        .content-link {
+            display: block;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            text-decoration: none;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .content-link:hover {
+            background: #e7f3ff;
+            border-color: #1067db;
+        }
+        
+        .content-link .link-title {
+            font-weight: 600;
+            color: #1067db;
+            margin-bottom: 0.25rem;
+        }
+        
+        .content-link .link-url {
+            font-size: 0.8rem;
+            color: #6c757d;
+            word-break: break-all;
+        }
+        
+        .content-link .link-desc {
+            font-size: 0.85rem;
+            color: #495057;
+            margin-top: 0.25rem;
+        }
+        
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #22bb69;
+            font-weight: bold;
+        }
+        
+        .checklist li.warning::before {
+            content: "⚠";
+            color: #ffba1c;
+        }
+        
+        .checklist li.cross::before {
+            content: "✗";
+            color: #f44f2f;
+        }
+        
+        .retailer-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .retailer-region {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+        
+        .retailer-region h4 {
+            margin-top: 0;
+            color: #1067db;
+            border-bottom: 2px solid #1067db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .retailer-list {
+            font-size: 0.9rem;
+        }
+        
+        .retailer-list li {
+            margin-bottom: 0.25rem;
+        }
+        
+        .timeline-event {
+            background: #f8f9fa;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #1067db;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: #1067db;
+            white-space: nowrap;
+            min-width: 100px;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-desc {
+            font-size: 0.95rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                text-align: center;
+            }
+            
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-event {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>BenQ Corporation</h1>
+        <div class="header-subtitle">eStore Action Plan - Consumer Electronics (Monitors, Projectors, Peripherals)</div>
+        <div class="header-meta">
+            <div class="header-meta-item">
+                <strong>Parent:</strong> Qisda Corporation (TWSE: 2352)
+            </div>
+            <div class="header-meta-item">
+                <strong>Group Revenue:</strong> ~US$6.21B (FY2024, consolidated Qisda)
+            </div>
+            <div class="header-meta-item">
+                <strong>Created:</strong> 3 February 2026
+            </div>
+            <div class="header-meta-item">
+                <strong>Author:</strong> James / eStore Sales Development
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('fit')">Strategic Fit Assessment</button>
+            <button class="tab" onclick="showTab('history')">Our history with them</button>
+            <button class="tab" onclick="showTab('retailers')">Retailer Overview</button>
+            <button class="tab" onclick="showTab('contacts')">Key people?</button>
+            <button class="tab" onclick="showTab('emails')">Draft Email Sequences</button>
+            <button class="tab" onclick="showTab('objections')">Objection Handling</button>
+        </div>
+        
+        <!-- TAB 1: STRATEGIC FIT ASSESSMENT -->
+        <div id="fit" class="tab-content active">
+            <div class="card">
+                <div class="fit-badge strong">🟢 STRONG FIT</div>
+                <h2>Strategic Assessment Summary</h2>
+                <p>BenQ represents a <strong>strong greenfield DSA opportunity</strong> for eStore despite extensive prior outbound activity (2022-2025) that generated no meaningful engagement. The combination of no identified DSA provider, extensive multi-channel European distribution, strong Consumer Electronics sector alignment, established European operations with clear UK and European decision-makers, and a heavy product launch calendar creates favourable conditions for partnership. Previous outreach was broad and generic; this approach is targeted, research-specific, and consultative - a genuinely different proposition.</p>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">~US$6.2B</div>
+                        <div class="label">Group Revenue (FY2024)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">~24</div>
+                        <div class="label">Identified Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">200-250</div>
+                        <div class="label">Active SKUs</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">100+</div>
+                        <div class="label">Countries</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">1,700+</div>
+                        <div class="label">Global Employees</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">201-500</div>
+                        <div class="label">European Employees</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Distribution Complexity & Geographic Alignment</h2>
+                
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Geographic Breakdown</h4>
+                        <p>~40-45% US, ~35-40% UK/Europe, ~15-20% Asia-Pacific. European HQ in Eindhoven, Netherlands (since 1994). UK office in Bicester, Oxfordshire.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Channel Profile</h4>
+                        <p>Genuinely multi-channel - NOT Amazon-dominant. Amazon estimated at 30-40% of online volume. Strategic diversity across specialist IT retailers, mass-market chains, and DTC.</p>
+                    </div>
+                </div>
+                
+                <h3>European Presence</h3>
+                <ul>
+                    <li><strong>Netherlands:</strong> BenQ Europe B.V. headquartered in Eindhoven (established 1994), 201-500 European employees. Digital and e-commerce leadership centralised here.</li>
+                    <li><strong>UK:</strong> Office in Bicester, dedicated B2C and B2B teams. Managing Director Royce Lye with nearly 20 years tenure.</li>
+                    <li><strong>Dedicated entities:</strong> Benelux, DACH, France, and Spain operations.</li>
+                    <li><strong>Taiwan:</strong> Global HQ - R&D, manufacturing oversight. BenQ Corporation (parent brand of Qisda group).</li>
+                </ul>
+                
+                <div class="info-box green">
+                    <strong>Notable Patterns:</strong> Strong UK presence across Currys, Argos, Scan, Ebuyer, Box, John Lewis. Strong Benelux/DACH presence via Coolblue, Bol.com, Alternate, MediaMarkt. French market covered via LDLC, Fnac, Amazon FR. Specialist IT retailers are a key channel (Scan described as "close partners for many years"). DTC operations are mature - benq.eu/en-uk store with free delivery, refurbished products, spare parts, student discounts.
+                </div>
+                
+                <div class="info-box yellow">
+                    <strong>Critical Gaps:</strong> Limited visibility into Southern/Eastern European retailers. Nordic retailers not identified (Elkjop/Elgiganten, Komplett, Dustin). Specialist AV/home cinema retailers not fully mapped.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Competitive Intelligence Summary</h2>
+                
+                <div class="info-box green">
+                    <strong>🟢 Greenfield Opportunity:</strong> No incumbent DSA provider identified despite extensive research. Most DSA providers focus heavily on CPG/FMCG - consumer electronics display/monitor specialists appear underrepresented in their portfolios. This is not a competitive displacement - it's a new market opportunity.
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DSA Provider</th>
+                            <th>Status</th>
+                            <th>Confidence</th>
+                            <th>Evidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Profitero</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No case studies, no BenQ mentions found</td>
+                        </tr>
+                        <tr>
+                            <td>CommerceIQ</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>CPG-focused customer base; unlikely fit for CE monitors</td>
+                        </tr>
+                        <tr>
+                            <td>mindsite</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No partnership found</td>
+                        </tr>
+                        <tr>
+                            <td>Brand Nudge</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No evidence</td>
+                        </tr>
+                        <tr>
+                            <td>Edge by Ascential</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No relationship identified</td>
+                        </tr>
+                        <tr>
+                            <td>DataWeave</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No partnership found</td>
+                        </tr>
+                        <tr>
+                            <td>Salsify</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No BenQ case study; PIM/content focus</td>
+                        </tr>
+                        <tr>
+                            <td>Syndigo</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>CPG/food service focus</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box blue">
+                    <strong>Key Observation:</strong> Recent BenQ job postings mention GA4, HubSpot, Google Search Console but no DSA-specific tools. Their DTC platform uses Adobe Experience Manager (AEM) with Adobe Dynamic Media and Adobe Analytics - sophisticated but focused on owned channels, not third-party retailer monitoring.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Sector Alignment</h2>
+                
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Primary Sector</h4>
+                        <p><strong>Consumer Electronics</strong> - one of eStore's five proven sectors. Strong alignment.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Comparable eStore Clients</h4>
+                        <p>BSH (home appliances), Miele (home appliances), Epson (projectors - direct BenQ competitor), Philips (consumer electronics), De'Longhi (home appliances).</p>
+                    </div>
+                </div>
+                
+                <h3>Why the Sector Alignment Matters</h3>
+                <ul>
+                    <li><strong>High product complexity:</strong> Monitors require detailed specs (panel type, refresh rate, colour accuracy). Projectors need lumens, throw distance, connectivity. Each retailer formats these differently.</li>
+                    <li><strong>~200-250 active SKUs</strong> across monitors, projectors, lighting, interactive displays, and ZOWIE gaming peripherals.</li>
+                    <li><strong>20+ retailers</strong> across UK/Europe requiring monitoring.</li>
+                    <li><strong>High competitive intensity:</strong> Dell, HP, Samsung, LG, ASUS on every retailer shelf.</li>
+                    <li><strong>Very high content complexity:</strong> Technical specifications, comparison tools, imagery all vary by retailer.</li>
+                </ul>
+                
+                <div class="info-box blue">
+                    <strong>Epson Connection:</strong> Epson is a current eStore client and BenQ's primary projector competitor - demonstrates direct sector expertise. Note: do NOT mention Epson by name in outreach. Reference "leading projector brands" or "consumer electronics manufacturers" generically.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Market Dynamics: Strategic Timing</h2>
+                
+                <h3>Recent Events Creating Urgency</h3>
+                
+                <div class="timeline-event">
+                    <div class="timeline-date">Jan 2026</div>
+                    <div class="timeline-desc"><strong>RD280UG flagship programming monitor launch</strong> - New category BenQ pioneered. Needs shelf optimisation across retailers that don't yet have a category structure for it.</div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">Sep 2025</div>
+                    <div class="timeline-desc"><strong>QD-OLED MOBIUZ gaming monitors (EX271UZ, EX321UZ)</strong> - Premium gaming segment expansion requiring retailers to understand premium positioning.</div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">Nov 2025</div>
+                    <div class="timeline-desc"><strong>TK705i/TK705STi projectors, BR9708 cinema projector</strong> - Multiple projector launches across consumer and cinema segments.</div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">Oct 2024</div>
+                    <div class="timeline-desc"><strong>MA Series Mac-focused monitors</strong> - New audience segment (Apple users) requiring different positioning.</div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">2024-2025</div>
+                    <div class="timeline-desc"><strong>ZOWIE wireless gaming peripherals (EC-DW series)</strong> - Esports brand evolution into wireless.</div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">May 2025</div>
+                    <div class="timeline-desc"><strong>COMPUTEX 2025 - "AI WOW" theme</strong> - BenQ Group doubled booth size. Group-wide digital transformation signal.</div>
+                </div>
+                
+                <h3>Competitive Pressure</h3>
+                <ul>
+                    <li>BenQ experienced a <strong>22.8% monitor sales decline in 2023</strong> amid industry headwinds.</li>
+                    <li>Competitors ASUS, Acer, AOC targeting <strong>10-13.6% growth</strong>.</li>
+                    <li>In projectors, BenQ holds <strong>#1 European market share (23.42% in 4K)</strong> but faces intensifying competition from Epson, Sony, and emerging laser projector players.</li>
+                    <li>Monitor market overall growing at <strong>5.36% CAGR</strong> ($45.2B in 2024, projected $61.18B by 2030).</li>
+                </ul>
+                
+                <h3>Strategic Initiatives</h3>
+                <ul>
+                    <li>DTC model adopted in 2016 - digital commerce strategically embedded at corporate level.</li>
+                    <li>benq.com showing <strong>366% revenue growth</strong> (recent 3-month period).</li>
+                    <li><strong>72% of direct sales on mobile devices.</strong></li>
+                    <li>"AI WOW" theme at COMPUTEX 2025 - AI integration across products.</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Synthesis & Recommendation</h2>
+                
+                <div class="info-box green">
+                    <strong>Recommended Approach:</strong> Confident but self-aware outreach. BenQ has been extensively contacted by eStore (2022-2025) with no meaningful engagement - previous messaging was broad and generic. This approach is fundamentally different: targeted, research-specific, consultative. Lead with European expertise, reference consumer electronics sector knowledge, position around the complexity of managing product listings across diverse retailer types. Do NOT reference previous outreach explicitly unless asked.
+                </div>
+                
+                <h3>Key Factors Driving Assessment</h3>
+                <ul class="checklist">
+                    <li>Greenfield DSA opportunity - no identified competitor to displace</li>
+                    <li>Extensive multi-channel European distribution creating genuine monitoring complexity</li>
+                    <li>Strong sector alignment - Consumer Electronics is one of eStore's five proven sectors, with direct competitor Epson already a client</li>
+                    <li>Established European operations with clear UK and European decision-makers</li>
+                    <li>Heavy product launch activity creating immediate relevance for digital shelf monitoring</li>
+                    <li>Competitive pressure in monitors driving need for better e-commerce intelligence</li>
+                </ul>
+                
+                <h3>Estimated Difficulty of Winning</h3>
+                <p><strong>Medium</strong></p>
+                <ul>
+                    <li><strong>Pro:</strong> No incumbent DSA provider, strong sector alignment, good timing (heavy launches), accessible European contacts, eStore already serves direct competitor Epson</li>
+                    <li><strong>Con:</strong> Extensive prior outbound activity (2022-2025) with no engagement - one contact explicitly requested no further emails; Taiwanese HQ may mean European team has limited technology procurement authority; consumer electronics companies are underrepresented in DSA adoption generally (education needed); potential for long procurement cycles</li>
+                </ul>
+                
+                <h3>Critical Considerations</h3>
+                <ul>
+                    <li class="warning">BenQ Europe may need HQ approval for technology purchases - understand decision-making authority early</li>
+                    <li class="warning">The "no existing DSA provider" situation cuts both ways: no competitor to displace, but also means they may not yet recognise the need for DSA tooling - outreach should educate as well as sell</li>
+                    <li>Lead with UK/Europe positioning - this is where eStore adds most value and where BenQ has dedicated operations</li>
+                </ul>
+                
+                <h3>Implementation Readiness</h3>
+                <div class="info-box blue">
+                    <strong>Time-to-Value Estimate:</strong> BenQ's key European retailers (Amazon UK/DE/FR/ES/IT, Currys, MediaMarkt) are likely well-represented in eStore's coverage infrastructure. Specialist IT retailers (Scan, Ebuyer, LDLC) and Benelux platforms (Coolblue, Bol.com) would need to be verified. Overall expectation is <strong>moderate-to-good coverage alignment</strong>, suggesting reasonable time-to-value. Full retailer-by-retailer coverage checking against eStore_Retailer_Coverage_Master.csv to be conducted separately.
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 2: OUR HISTORY WITH THEM -->
+        <div id="history" class="tab-content">
+            <div class="card">
+                <h2>Previous Contact History</h2>
+                
+                <div class="info-box orange">
+                    <strong>Status: Extensive prior outbound - no commercial relationship established</strong><br>
+                    BenQ has an active company record in HubSpot with significant outreach history spanning 2022-2025. High volume of email activity across multiple contacts and regions. No evidence BenQ has ever bought from eStore, run a project, or progressed beyond prospecting stage.
+                </div>
+                
+                <h3>Engagement Summary</h3>
+                <p>The relationship has been purely outbound/prospecting from our side. Main outreach themes have included digital shelf analytics (availability, search, reviews, retail media), omnichannel/location-based analytics, out-of-stocks, and category-specific pitches around monitors, gaming laptops, and projectors - often with benchmark/eScore visuals.</p>
+                
+                <div class="info-box red">
+                    <strong>Warning Signals:</strong> Occasional auto-replies and explicit "please stop emailing me" signals (e.g. from Mike Borze). Some bounced/undeliverable emails indicating out-of-date contacts. Previous internal qualification notes include: "No E-Commerce personnel in Europe - poor fit, relegated" and "Now at Cooler Master and not BenQ" on a prior champion contact.
+                </div>
+                
+                <h3>Key BenQ Contacts Previously Engaged</h3>
+                
+                <h4>Europe / Global E-commerce & Digital Roles</h4>
+                <ul>
+                    <li><strong>Denis Luise</strong> - Contacted repeatedly about RFP/RFI for digital shelf analytics, new purchasing driver data, search/ratings & reviews analytics</li>
+                    <li><strong>Mike Borze</strong> - Senior leadership; multiple outbound emails on digital brand performance. Explicitly requested we stop sending emails</li>
+                    <li><strong>Oliver Barz</strong> - MD/VP Europe; targeted with digital brand performance and customer success content</li>
+                    <li><strong>Guido Forsthoevel</strong> - Contacted several times about out-of-stocks/omnichannel analytics. Later emails mis-routed to his ViewSonic address; some bounces</li>
+                    <li><strong>Jordan Weber, Robert Hill, Cristian Iova, Derek Griffard, Fanny Wang</strong> - Multiple sequences on omnichannel research, out-of-stock impact, store-level availability analytics</li>
+                </ul>
+                
+                <h4>DACH / EU E-commerce & Category Roles</h4>
+                <ul>
+                    <li><strong>Carly Cheshire</strong> - Previously contacted as part of broader BenQ UK outreach (out-of-stocks, store-level analytics)</li>
+                    <li><strong>Alex Astbury, Danny Neijs, Alexander Birk, Ralf Plitzner, Michael Grote, Ralf Becker, Thomas Behringer, Chris Goff</strong> - Contacted around out-of-stocks, Amazon Germany/Otto category opportunities, webinar invites. Chris Goff responded with an out-of-office auto-reply</li>
+                </ul>
+                
+                <h4>Other Regions</h4>
+                <ul>
+                    <li><strong>Patricia Navarro</strong> - LATAM-focused outreach about e-commerce performance</li>
+                    <li><strong>Andrew Lee, Jin-Wei Yeh, Sean Han</strong> - North America/APAC webinar invites and Amazon accuracy campaigns</li>
+                </ul>
+                
+                <h3>Activity Timeline</h3>
+                <div class="timeline-event">
+                    <div class="timeline-date">Q1 2025</div>
+                    <div class="timeline-detail">
+                        <strong>Renewed outreach</strong>
+                        <span>Digital analytics review with Thomas Behringer. Note that a prior champion moved to Cooler Master.</span>
+                    </div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-detail">
+                        <strong>Amazon/Otto category push</strong>
+                        <span>Multiple sequences around BenQ's opportunities on Amazon Germany and Otto (gaming laptops, projectors), primarily driven by Amy Hawksley-Blackburn.</span>
+                    </div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-detail">
+                        <strong>Omnichannel & out-of-stocks narrative</strong>
+                        <span>Shift in messaging led by Michal Chadala. Large multi-contact campaigns across EU/US on out-of-stock revenue loss, daily store-level availability, and pricing analytics.</span>
+                    </div>
+                </div>
+                <div class="timeline-event">
+                    <div class="timeline-date">2022</div>
+                    <div class="timeline-detail">
+                        <strong>Initial BenQ Europe push</strong>
+                        <span>Led by Max Gall around digital shelf analytics RFPs, new purchasing driver data, review-based insights (eStoreListening), and prescriptive analytics.</span>
+                    </div>
+                </div>
+                
+                <h3>Parent Company Connections</h3>
+                <p>Qisda Corporation (TWSE: 2352) owns BenQ 100%. The BenQ Group comprises 20+ companies (BenQ Materials, DFI, Partner Tech, Alpha Networks). No evidence any group company is an eStore client.</p>
+                
+                <h3>Shared Retailer Connections</h3>
+                <p>BenQ products appear alongside existing eStore Consumer Electronics clients at major European retailers including Amazon (all markets), Currys, MediaMarkt, Coolblue, and Fnac - potential for anonymised performance benchmarking references.</p>
+                
+                <div class="info-box blue">
+                    <strong>Strategic Implication:</strong> This is NOT a cold prospect - BenQ has been extensively contacted over 3+ years. However, none of the previous outreach generated meaningful engagement, and the messaging has been broad and unfocused. The new approach via the Strategic Fit Assessment framework offers a genuinely different angle: specific, researched, consultative. Key difference is targeting the right people (Henny Hovens is new; Carly Cheshire was previously contacted but with generic messaging) with specific, brand-relevant intelligence rather than bulk campaigns.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Competitor Intelligence</h2>
+                
+                <div class="info-box green">
+                    <strong>Assessment: True greenfield opportunity.</strong> BenQ has mature e-commerce operations ($10.78M monthly US revenue, $4.41M monthly EU revenue via DTC) without apparent digital shelf optimisation tooling for third-party retailers.
+                </div>
+                
+                <p>The absence of DSA adoption may indicate:</p>
+                <ul>
+                    <li>The need hasn't been articulated internally yet</li>
+                    <li>It's managed manually/ad hoc by individual market teams</li>
+                    <li>Budget hasn't been allocated for this category of tooling</li>
+                </ul>
+                
+                <p>Most DSA providers heavily target CPG/FMCG brands. Consumer electronics companies (particularly display/monitor specialists) appear underrepresented in their customer portfolios. This means outreach should include education on DSA value alongside eStore positioning.</p>
+                
+                <h3>Tech Stack Observations</h3>
+                <ul>
+                    <li><strong>DTC Platform:</strong> Adobe Experience Manager (AEM) with Adobe Dynamic Media and Adobe Analytics</li>
+                    <li><strong>Marketing:</strong> GA4, HubSpot, Google Search Console (from job postings)</li>
+                    <li><strong>No DSA tools:</strong> No LinkedIn job postings mentioning "digital shelf", "e-commerce analytics", "retail analytics"</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Known Blockers & Timing Considerations</h2>
+                
+                <ul>
+                    <li><strong>Prior outreach fatigue:</strong> BenQ has received extensive eStore outbound (2022-2025) with no engagement. Mike Borze explicitly requested no further emails. Risk that new contacts may be aware of previous approaches. Mitigation: this approach is fundamentally different in quality and specificity</li>
+                    <li><strong>Procurement authority:</strong> European team may need Taiwan HQ approval for technology purchases - could extend sales cycle</li>
+                    <li><strong>DSA awareness:</strong> BenQ may not currently recognise the need for DSA tooling - initial outreach may need to educate as well as sell</li>
+                    <li><strong>Budget cycles:</strong> As a Taiwanese-headquartered company, budget cycles may follow calendar year or April-March fiscal year - verify early in conversations</li>
+                    <li><strong>Competing priorities:</strong> BenQ is clearly focused on product innovation and DTC growth - DSA may not be on their radar yet, which means it needs to be positioned as enabling their existing priorities rather than adding a new one</li>
+                </ul>
+                
+                <h3>Internal Champion</h3>
+                <div class="info-box yellow">
+                    <strong>None identified from previous outreach.</strong> Despite 3+ years of prospecting, no BenQ contact has shown genuine engagement. Primary outreach targets (Henny Hovens - new contact; Carly Cheshire - previously contacted but with fresh angle) are the most likely candidates to become internal champions. The key difference now: targeted, research-backed outreach rather than bulk campaigns.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Content to Reference</h2>
+                <p>Sector-specific content that can be shared during outreach to demonstrate eStore's consumer electronics expertise.</p>
+                
+                <a href="https://estorebrands.com/consumer-electronics" target="_blank" class="content-link">
+                    <div class="link-title">Consumer Electronics Sector Landing Page</div>
+                    <div class="link-url">https://estorebrands.com/consumer-electronics</div>
+                    <div class="link-desc">Position as: "We've written about the specific challenges consumer electronics brands face on the digital shelf." Best for Email 2 or 3 - after establishing relevance.</div>
+                </a>
+                
+                <a href="https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics" target="_blank" class="content-link">
+                    <div class="link-title">Why Consumer Electronics Brands Need Specialised Digital Shelf Analytics</div>
+                    <div class="link-url">https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics</div>
+                    <div class="link-desc">Primary article for Email 2. Position as educational content demonstrating sector expertise, not sales collateral.</div>
+                </a>
+                
+                <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank" class="content-link">
+                    <div class="link-title">Introducing Content Benchmark</div>
+                    <div class="link-url">https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content</div>
+                    <div class="link-desc">Use if conversation focuses on how BenQ's product pages compare to competitors (Dell, ASUS, Samsung) across retailers.</div>
+                </a>
+                
+                <a href="https://estorebrands.com/ignite/introducing-ai-business-answers" target="_blank" class="content-link">
+                    <div class="link-title">Introducing AI Business Answers</div>
+                    <div class="link-url">https://estorebrands.com/ignite/introducing-ai-business-answers</div>
+                    <div class="link-desc">Use if contact shows interest in AI/automation - aligns with BenQ's "AI WOW" strategic theme.</div>
+                </a>
+                
+                <h3>Content Placement Guidelines</h3>
+                <ul>
+                    <li><strong>Email 1:</strong> No links - keep it conversational and human</li>
+                    <li><strong>Email 2:</strong> Include the Consumer Electronics Ignite article as educational content</li>
+                    <li><strong>Email 3:</strong> Could include the sector landing page if adding a genuinely new angle, or reference Content Benchmark if relevant</li>
+                    <li><strong>General rule:</strong> Don't force content into emails where it doesn't fit naturally</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- TAB 3: RETAILER OVERVIEW -->
+        <div id="retailers" class="tab-content">
+            <div class="card">
+                <h2>Retailer Pattern Analysis</h2>
+                
+                <div class="info-box blue">
+                    <strong>Note:</strong> This is a strategic overview based on pattern recognition, not a detailed retailer-by-retailer coverage check against eStore_Retailer_Coverage_Master.csv. Full coverage checking to be conducted separately if outreach proceeds.
+                </div>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">~24</div>
+                        <div class="label">Total Retailers Identified</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">8</div>
+                        <div class="label">UK Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">7</div>
+                        <div class="label">European Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">5</div>
+                        <div class="label">US Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">2+</div>
+                        <div class="label">DTC Stores</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Retailer Breakdown by Region</h2>
+                
+                <div class="retailer-summary">
+                    <div class="retailer-region">
+                        <h4>🇬🇧 United Kingdom (8)</h4>
+                        <ul class="retailer-list">
+                            <li><strong>Amazon UK</strong> - Major marketplace</li>
+                            <li><strong>Currys</strong> - Mass-market CE retailer</li>
+                            <li><strong>Argos</strong> - Mass-market generalist</li>
+                            <li><strong>Scan</strong> - Specialist IT ("close partners for many years")</li>
+                            <li><strong>Ebuyer</strong> - Specialist IT/CE online</li>
+                            <li><strong>Box</strong> - Specialist IT/CE online</li>
+                            <li><strong>Laptops Direct</strong> - Specialist IT</li>
+                            <li><strong>John Lewis</strong> - Premium department store</li>
+                        </ul>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>🇪🇺 Continental Europe (7)</h4>
+                        <ul class="retailer-list">
+                            <li><strong>Amazon DE/FR/ES/IT</strong> - Major marketplaces</li>
+                            <li><strong>MediaMarkt/Saturn</strong> - Mass-market CE (DACH)</li>
+                            <li><strong>Coolblue</strong> - CE specialist (Benelux, official partner)</li>
+                            <li><strong>Bol.com</strong> - Largest Benelux marketplace (official partner)</li>
+                            <li><strong>Alternate</strong> - IT specialist (DACH, official partner)</li>
+                            <li><strong>LDLC</strong> - French IT specialist</li>
+                            <li><strong>Fnac</strong> - French CE/culture (79+ BenQ projector listings)</li>
+                        </ul>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>🇺🇸 United States (5)</h4>
+                        <ul class="retailer-list">
+                            <li><strong>Amazon US</strong> - Major marketplace</li>
+                            <li><strong>Best Buy</strong> - Mass-market CE</li>
+                            <li><strong>B&H Photo</strong> - Specialist photography/CE</li>
+                            <li><strong>Newegg</strong> - Specialist IT/gaming</li>
+                            <li><strong>Walmart</strong> - Mass-market generalist</li>
+                        </ul>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>🌐 DTC Operations</h4>
+                        <ul class="retailer-list">
+                            <li><strong>benq.eu</strong> (UK, EU markets) - Full DTC store with free delivery, refurbished products, spare parts, student discounts</li>
+                            <li><strong>benq.com</strong> (US) - DTC showing 366% revenue growth</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Notable Patterns</h2>
+                
+                <div class="info-box green">
+                    <strong>Genuinely Multi-Channel:</strong> Not Amazon-dependent. Strong relationships with specialist IT retailers (Scan, LDLC), mass-market chains (Currys, MediaMarkt), premium retailers (John Lewis), and Benelux platforms (Coolblue, Bol.com). This diversity is exactly the kind of complexity digital shelf analytics addresses.
+                </div>
+                
+                <h3>Channel Diversity by Product Category</h3>
+                <ul>
+                    <li><strong>Monitors:</strong> Sold through IT specialists (Scan, Ebuyer, LDLC, Alternate), mass-market CE (Currys, MediaMarkt), and Amazon</li>
+                    <li><strong>Projectors:</strong> CE generalists and specialist AV retailers, plus Amazon and DTC</li>
+                    <li><strong>Lighting (ScreenBar):</strong> Primarily Amazon and DTC - accessory/gift category</li>
+                    <li><strong>ZOWIE gaming:</strong> Gaming-focused channels and specialist IT</li>
+                </ul>
+                
+                <h3>Key Retailer Relationships</h3>
+                <ul>
+                    <li><strong>Scan:</strong> Described as "close partners for many years" - deep specialist IT relationship</li>
+                    <li><strong>Coolblue:</strong> Official partner (€2.6B turnover)</li>
+                    <li><strong>Bol.com:</strong> Largest Benelux marketplace, official partner</li>
+                    <li><strong>Alternate:</strong> Official partner in DACH region</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Critical Gaps & Implementation Notes</h2>
+                
+                <div class="info-box yellow">
+                    <strong>Gaps to Acknowledge:</strong>
+                    <ul style="margin-top: 0.5rem; margin-bottom: 0;">
+                        <li>Nordic retailers not identified (Elkjop/Elgiganten, Komplett, Dustin)</li>
+                        <li>Southern European retailers beyond Amazon ES/IT not identified</li>
+                        <li>Eastern European retailers not identified (though BenQ has presence)</li>
+                        <li>Specialist AV/home cinema retailers not fully mapped</li>
+                    </ul>
+                </div>
+                
+                <div class="info-box blue">
+                    <strong>Implementation Expectation:</strong> BenQ's key European retailers (Amazon UK/DE/FR/ES/IT, Currys, MediaMarkt) are likely well-represented in eStore's coverage infrastructure given they're major CE retail platforms. Specialist IT retailers (Scan, Ebuyer, LDLC) and Benelux platforms (Coolblue, Bol.com) would need to be verified. Overall expectation is <strong>moderate-to-good coverage alignment</strong>, suggesting reasonable time-to-value for European markets.
+                </div>
+                
+                <div class="info-box orange">
+                    <strong>Geographic Positioning:</strong> eStore's strength is European coverage. For BenQ's US retailers (Best Buy, B&H Photo, Newegg, Walmart), be upfront that European coverage is where eStore is best positioned to help right now. US coverage is something to discuss but not to oversell.
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 4: KEY PEOPLE -->
+        <div id="contacts" class="tab-content">
+            <div class="card">
+                <h2>Historical Contacts</h2>
+                
+                <div class="info-box orange">
+                    <strong>Significant prior outreach history (2022-2025).</strong> BenQ has an active HubSpot company record with extensive outbound activity. No commercial relationship was ever established. Key contacts previously engaged include Denis Luise (RFP/RFI), Oliver Barz (MD/VP Europe), Guido Forsthoevel (omnichannel), and Carly Cheshire (UK retail). Mike Borze explicitly requested we stop emailing. A previous champion moved to Cooler Master. Internal notes once flagged "No E-Commerce personnel in Europe - poor fit" - but the landscape has changed with Henny Hovens now in the Head of B2C Europe role (joined 2023).
+                </div>
+                
+                <div class="info-box blue">
+                    <strong>What's different this time:</strong> Previous outreach was broad, bulk-campaign messaging (out-of-stocks, omnichannel analytics, webinar invites). The new approach is targeted, research-specific, and consultative - addressing BenQ's actual multi-channel complexity and product launch challenges. Henny Hovens is an entirely new contact not previously engaged. Carly Cheshire was contacted before but only with generic messaging.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+                <p>These are the people who will evaluate, implement, and use eStore. Target all four for parallel outreach sequences.</p>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#1 Henny Hovens</div>
+                            <div class="contact-title">Head of B2C, BenQ Europe</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇳🇱 Dutch</span>
+                            <span class="badge grey">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Eijsden, Netherlands (near Eindhoven HQ)</p>
+                    <p><strong>LinkedIn:</strong> Search "Henny Hovens BenQ" (profile identified via RocketReach)</p>
+                    
+                    <h4>Background</h4>
+                    <ul>
+                        <li>Returned to BenQ in 2023; previously at BenQ 2010-2016</li>
+                        <li>Sales Director at MEDION Benelux (2019-2023)</li>
+                        <li>Key Account Manager Retail at ALSO Group (2017-2019)</li>
+                        <li>Education: Zuyd Hogeschool (NIMA A-B Marketing), PMA Institute Orlando</li>
+                    </ul>
+                    
+                    <h4>Why He's the Right Contact</h4>
+                    <ul>
+                        <li>As Head of B2C for all of Europe, owns the relationship with online retailers and the e-commerce sales strategy</li>
+                        <li>Background includes key account management at MEDION (CE) and ALSO Group (IT distribution) - understands retailer dynamics from both brand and distributor perspectives</li>
+                        <li>Oversees all B2C sales operations including consumer retail and e-commerce channels across Europe</li>
+                    </ul>
+                    
+                    <h4>Outreach Hooks</h4>
+                    <ul>
+                        <li>Deep retail channel management experience - understands e-tailer relationships and managing product presence across diverse platforms</li>
+                        <li>Recent return to BenQ (2023) suggests a fresh mandate to grow B2C - likely open to new tools and approaches</li>
+                        <li>Benelux expertise directly relevant for European e-commerce strategy</li>
+                        <li>Would understand DSA value from his retailer/distributor-side experience</li>
+                    </ul>
+                    
+                    <div class="tone-box">
+                        <strong>Tone Guidance (Dutch):</strong> Direct, efficient, get to the point. No unnecessary fluff or pleasantries. Dutch communication style values substance over style. Lead with the practical challenge, not the relationship-building.
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#2 Carly Cheshire</div>
+                            <div class="contact-title">Head of B2C, BenQ UK</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇬🇧 British</span>
+                            <span class="badge yellow">Previously Contacted</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Milton Keynes, United Kingdom</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/carly-cheshire-768a8124/" target="_blank">View Profile</a></p>
+                    
+                    <div class="info-box yellow" style="margin-bottom: 1rem;">
+                        <strong>Prior Contact Note:</strong> Carly was previously contacted as part of broader BenQ UK outreach campaigns (out-of-stocks, store-level analytics). No meaningful engagement resulted. The new approach is entirely different: targeted, research-specific, and focused on her B2C retail challenges rather than generic bulk messaging.
+                    </div>
+                    
+                    <h4>Background</h4>
+                    <ul>
+                        <li>6+ years at BenQ UK</li>
+                        <li>Promoted to Head of B2C as part of 2020 vertical restructure separating B2B and B2C divisions</li>
+                        <li>Team size: 12 employees in sales department</li>
+                        <li>Direct report to Managing Director Royce Lye</li>
+                    </ul>
+                    
+                    <h4>Why She's the Right Contact</h4>
+                    <ul>
+                        <li>UK-based decision-maker who owns the consumer retail relationship for BenQ's UK business</li>
+                        <li>Promotion during the 2020 restructure indicates she was trusted with a newly created strategic role</li>
+                        <li>Managing Director Royce Lye publicly praised her appointment</li>
+                        <li>Long tenure provides decision-making authority and deep knowledge of UK retail landscape</li>
+                    </ul>
+                    
+                    <h4>Outreach Hooks</h4>
+                    <ul>
+                        <li>UK-based - ideal for eStore's core market strength</li>
+                        <li>Manages team of 12 - scope suggests budget influence</li>
+                        <li>Active on LinkedIn discussing gaming and consumer tech</li>
+                        <li>Short path to executive buy-in (reports to MD Royce Lye)</li>
+                    </ul>
+                    
+                    <div class="tone-box">
+                        <strong>Tone Guidance (British):</strong> Professional but warm. Conversational rather than formal. Slightly warmer than the Dutch approach. Reference UK-specific retailers and challenges.
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#3 Vicente Lochschmidt</div>
+                            <div class="contact-title">Marketing Team Lead, BenQ Europe Corporate</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇦🇹 Austrian</span>
+                            <span class="badge grey">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Vienna, Austria</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/vicente-lochschmidt-24248474/" target="_blank">View Profile</a></p>
+                    
+                    <h4>Background</h4>
+                    <ul>
+                        <li>Scope: Central and Eastern Europe (10+ countries)</li>
+                        <li>Education: Executive Masters at SDA Bocconi (Milan) & ESADE (Barcelona)</li>
+                        <li>Manages 10 international social media accounts</li>
+                        <li>Coordinates with 5 agencies (content, growth, budget)</li>
+                        <li>Executes web, SEO/SEM, digital advertising, email campaigns</li>
+                        <li>Oversees marketing database and lead nurturing</li>
+                    </ul>
+                    
+                    <h4>Why He's the Right Contact</h4>
+                    <ul>
+                        <li>Has mentioned analysing how BenQ products are listed on reseller websites - DSA-adjacent thinking</li>
+                        <li>Multi-country European scope (10+ countries) means he directly experiences the complexity eStore addresses</li>
+                        <li>Agency coordination experience - understands working with third-party technology partners</li>
+                    </ul>
+                    
+                    <h4>Outreach Hooks</h4>
+                    <ul>
+                        <li>Already thinking about digital shelf challenges (reseller listing analysis)</li>
+                        <li>Multi-market scope creates natural alignment with eStore's European coverage</li>
+                        <li>Active LinkedIn presence, attends networking events - likely receptive to inbound approaches</li>
+                        <li>Strong academic credentials (Bocconi, ESADE) - will appreciate data-driven, strategic positioning</li>
+                    </ul>
+                    
+                    <div class="tone-box">
+                        <strong>Tone Guidance (Austrian):</strong> Precise, factual, detail-oriented. German/Austrian communication style values accuracy and evidence. Be data-driven and structured. Avoid vague claims.
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#4 Alena Kosinova</div>
+                            <div class="contact-title">B2C Digital MarCom Specialist, BenQ Europe</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇳🇱 Netherlands-based</span>
+                            <span class="badge grey">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Eindhoven, Netherlands (European HQ)</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/alena-kosinova-17366a106/" target="_blank">View Profile</a></p>
+                    
+                    <h4>Background</h4>
+                    <ul>
+                        <li>Education: Erasmus University Rotterdam</li>
+                        <li>Digital/online marketing for B2C products across European markets</li>
+                        <li>Based at European HQ in Eindhoven</li>
+                    </ul>
+                    
+                    <h4>Why She's the Right Contact</h4>
+                    <ul>
+                        <li>Directly focused on digital/online marketing for consumer products</li>
+                        <li>Based at European HQ - close to central decision-making</li>
+                        <li>Could serve as internal champion or influencer for DSA adoption</li>
+                    </ul>
+                    
+                    <h4>Outreach Hooks</h4>
+                    <ul>
+                        <li>Direct B2C digital marketing focus - likely involved in online content and digital shelf presentation</li>
+                        <li>Proximity to senior decision-makers at Eindhoven HQ</li>
+                        <li>Erasmus University background suggests analytical, internationally-minded approach</li>
+                        <li>Potential internal champion who could advocate for DSA tooling</li>
+                    </ul>
+                    
+                    <div class="tone-box">
+                        <strong>Tone Guidance (International):</strong> Professional, approachable. More conversational than Vicente's approach but still substantive. Position DSA as complementary to her existing digital marketing work.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+                <p>These senior leaders won't be hands-on but can provide air cover and budget approval. Do not contact directly for initial outreach - use for escalation or reference.</p>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Jay Wu</div>
+                            <div class="contact-title">President, BenQ Europe B.V.</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge grey">Strategic Influencer</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Eindhoven, Netherlands</p>
+                    
+                    <h4>Background & Relevance</h4>
+                    <ul>
+                        <li>MSc Finance & Economics, University of Southampton (UK) - understands European market</li>
+                        <li>BA Economics, National Taipei University</li>
+                        <li>Former Senior Director B2B Division at BenQ America</li>
+                        <li>Former Associate Director Public Display Products at global HQ</li>
+                    </ul>
+                    
+                    <div class="info-box blue">
+                        <strong>Use For:</strong> Reference his European growth priorities when reaching out to his reports. His UK education (Southampton) provides a cultural bridge. Strategic decisions on technology partnerships flow through his office. Escalation path if operational contacts don't respond.
+                    </div>
+                </div>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Royce Lye</div>
+                            <div class="contact-title">Managing Director, BenQ UK</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge grey">Strategic Influencer</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Bicester, United Kingdom</p>
+                    
+                    <h4>Background & Relevance</h4>
+                    <ul>
+                        <li>Nearly 20 years at BenQ - extraordinary tenure</li>
+                        <li>Led the 2020 restructure creating dedicated B2B/B2C divisions</li>
+                        <li>Carly Cheshire's direct boss</li>
+                        <li>Long tenure suggests he values proven solutions and partnerships</li>
+                        <li>Publicly quoted praising team structure</li>
+                    </ul>
+                    
+                    <div class="info-box blue">
+                        <strong>Use For:</strong> Do not contact directly. Escalation path if Carly doesn't respond. Mention his leadership of the B2B/B2C restructure when positioning the importance of dedicated consumer e-commerce tools.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Executive Context (Reference Only - Do Not Contact)</h2>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Peter Huang</div>
+                            <div class="contact-title">President, BenQ Corporation</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge red">Do Not Contact Directly</span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Led digital transformation in 2016, adopting DTC model</li>
+                        <li>Described BenQ as "a learning organisation" focused on continuous business model innovation</li>
+                    </ul>
+                    <p><strong>Use For:</strong> Referencing corporate-level commitment to digital commerce when writing to European contacts.</p>
+                </div>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Conway Lee</div>
+                            <div class="contact-title">CEO, BenQ Corporation</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge red">Do Not Contact Directly</span>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Described BenQ as "a human-centric brand" where technology should address people's needs</li>
+                    </ul>
+                    <p><strong>Use For:</strong> Framing eStore's value around improving the consumer experience on retailer websites - aligns with BenQ's human-centric philosophy.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                
+                <div class="contact-card skip">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Contact/Role Type</th>
+                                <th>Reason to Skip</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>B2B division contacts</td>
+                                <td>Different business unit - corporate displays, signage, education are B2B sales, not consumer e-commerce</td>
+                            </tr>
+                            <tr>
+                                <td>IT/technical support roles</td>
+                                <td>Not involved in commercial decisions</td>
+                            </tr>
+                            <tr>
+                                <td>Manufacturing/supply chain</td>
+                                <td>Not relevant to digital shelf analytics</td>
+                            </tr>
+                            <tr>
+                                <td>Asia-Pacific regional roles</td>
+                                <td>Outside eStore's core geographic strength</td>
+                            </tr>
+                            <tr>
+                                <td>Junior marketing specialists</td>
+                                <td>Below decision-making level (exception: Alena Kosinova included as potential internal champion)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 5: DRAFT EMAIL SEQUENCES -->
+        <div id="emails" class="tab-content">
+            <div class="disclaimer">
+                <strong>⚠️ Important:</strong> These emails are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Always verify contact details and current circumstances before outreach.
+            </div>
+            
+            <div class="card">
+                <h2>Nationality-Based Tone Guidance</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>🇳🇱 Dutch (Henny Hovens)</h4>
+                        <p>Direct, efficient, get to the point. Dutch communication style values substance over style. No unnecessary fluff.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>🇬🇧 British (Carly Cheshire)</h4>
+                        <p>Professional but warm, conversational. Slightly warmer tone. Reference UK-specific retailers and challenges.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>🇦🇹 Austrian (Vicente Lochschmidt)</h4>
+                        <p>Precise, factual, detail-oriented. German/Austrian communication style values accuracy. Be data-driven and structured.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>🇳🇱 International (Alena Kosinova)</h4>
+                        <p>Professional, approachable. Netherlands-based, likely international communication style. More conversational than Vicente's approach.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact 1: Henny Hovens -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Henny Hovens</h3>
+                        <p>Head of B2C, BenQ Europe</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇳🇱 Dutch</span>
+                        <span class="badge grey">Cold</span>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-contact="henny">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: BenQ's retailer mix across Europe</div>
+                        <div class="email-timing">📅 Send timing: Tuesday, 9:00am CET</div>
+                        <div class="email-body">Henny,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics brands, helping them monitor and improve how their products appear, perform, and sell across online retailers.
+
+BenQ's European retail footprint is what prompted me to write. Selling through specialist IT retailers like Scan and LDLC alongside mass-market platforms like MediaMarkt and Coolblue, and marketplaces like Amazon and Bol.com, creates a specific challenge: each channel type has different content formats, search algorithms, and pricing dynamics. A product listing that performs well on Coolblue may look completely different on Amazon DE or Fnac.
+
+For brands with ~200-250 active SKUs spanning monitors, projectors, lighting, and peripherals, the complexity multiplies quickly - particularly when you add language variants and regional pricing across European markets.
+
+We work with consumer electronics brands navigating exactly this kind of multi-channel, multi-market complexity. I'm curious whether BenQ Europe currently monitors product performance across third-party retailers in any systematic way, or whether it's managed more on an ad hoc basis.
+
+Either answer would be useful to understand.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Henny's current title on LinkedIn before sending. Check whether BenQ has added any new European retailers since research. Confirm Scan and LDLC are still listed as key partners on BenQ's site.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Opens with clear eStore introduction. The multi-channel angle speaks directly to Henny's role managing B2C across all European channels. References specific retailers BenQ sells through (demonstrating research) without making coverage claims about eStore. The SKU count and product categories show homework. Closes with an honest, non-presumptuous question. Dutch communication style - direct, no fluff.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Monitor specs across European retailers</div>
+                        <div class="email-timing">📅 Send timing: 5-7 days after Email 1, Thursday, 10:00am CET</div>
+                        <div class="email-body">Henny,
+
+A thought that followed from my previous email.
+
+Consumer electronics products - monitors in particular - carry an unusual content burden on retailer websites. Panel type, refresh rate, colour gamut, HDR compatibility, connectivity options, VESA mount specifications. When a retailer gets one of these wrong, or presents them in a non-standard format, it can directly affect purchasing decisions and returns.
+
+Multiply that by BenQ's range of sub-brands - MOBIUZ for gaming, DesignVue and PhotoVue for creative professionals, the newer RD Series for programming - and each has a different buyer who cares about different specs. A MOBIUZ customer wants response time and refresh rate. A PhotoVue buyer wants Delta E accuracy and colour space coverage. The same retailer may handle both products differently.
+
+We've been exploring these challenges specifically for consumer electronics brands - how retailers handle technical specifications differently, and what that means for product performance. Some of our thinking is here if it's of interest: https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics
+
+I'd be interested to know whether content accuracy across retailers is something BenQ Europe tracks actively, or whether it's more of a known challenge without a systematic approach.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Check BenQ's product pages on Coolblue vs Amazon DE vs MediaMarkt to see if spec presentation differs (it almost certainly does). Review MOBIUZ and DesignVue product listings for spec accuracy examples. If you find a specific example of inconsistent specs, consider referencing it (carefully - don't criticise).</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Builds genuinely on Email 1 by deepening the content complexity angle with specific BenQ examples. The sub-brand differentiation (MOBIUZ vs DesignVue vs RD Series) shows understanding of BenQ's portfolio and how different buyers care about different things. The Ignite article is positioned as educational content, not required reading. Closing question mirrors Email 1's honest, non-assumptive style.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Selling a category retailers don't have a shelf for yet</div>
+                        <div class="email-timing">📅 Send timing: 5-7 days after Email 2, Tuesday, 9:30am CET</div>
+                        <div class="email-body">Henny,
+
+One more thought - from a different angle.
+
+BenQ's RD Series programming monitors represent something unusual: a product category BenQ is defining rather than competing in. When a brand creates a new category, the digital shelf challenge is different from defending an established one. Retailers don't have an obvious category page for it. Search algorithms don't know how to rank it. Comparison tools don't include the right specifications.
+
+That means the listing itself has to do more work - it needs to educate the buyer and position the product simultaneously, without the benefit of an established category structure on the retailer's site. How those listings appear on Scan, Amazon, or Coolblue in the first weeks matters disproportionately for category adoption.
+
+The parallel challenge exists with the MOBIUZ QD-OLED monitors - a premium tier that sits above the existing gaming monitor category and requires retailers to understand why it commands a different price point.
+
+I'm curious how BenQ Europe approaches new product launches across retailers - whether there's a systematic process for ensuring listings are optimised from day one, or whether it's more iterative.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Search for RD Series listings on key European retailers to understand how they're currently categorised. Check whether QD-OLED MOBIUZ monitors have landed on European retailers yet. Look at how competitors' premium monitors are categorised for comparison.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Genuinely new angle from Emails 1 and 2. The category creation challenge is specific to BenQ (not generic CE industry talk) and demonstrates deep understanding of their product strategy. The RD Series and QD-OLED examples are concrete. Ends with curiosity about their launch process - invites dialogue without pressure. Does not offer to step back or exit.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact 2: Carly Cheshire -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Carly Cheshire</h3>
+                        <p>Head of B2C, BenQ UK</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇬🇧 British</span>
+                        <span class="badge yellow">Previously Contacted</span>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-contact="carly">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: BenQ across UK retail - Currys to Scan to John Lewis</div>
+                        <div class="email-timing">📅 Send timing: Wednesday, 8:30am GMT</div>
+                        <div class="email-body">Carly,
+
+I'm [SENDER NAME] from eStore - we're a UK-based digital shelf analytics company. We help consumer electronics brands monitor and improve how their products perform across online retailers - things like whether product content is accurate, whether products are in stock, how they rank in search results, and how pricing compares to competitors.
+
+I was looking at BenQ's UK distribution and it struck me as a particularly interesting challenge to manage. Currys, Amazon UK, Argos, Scan, Ebuyer, Box, John Lewis - each retailer presents products differently and serves a different audience. A gaming monitor buyer on Scan has very different expectations from someone browsing John Lewis.
+
+With BenQ's range spanning MOBIUZ gaming, professional displays, projectors, and the ScreenBar lighting range, the content requirements across those retailers are substantial. The specs a Scan customer needs for a MOBIUZ monitor are quite different from how John Lewis would present a ScreenBar to a gift buyer.
+
+We work with a number of consumer electronics brands managing similar UK retail complexity. I'm curious whether BenQ UK has a systematic way of monitoring how products appear and perform across your retail partners, or whether it's more of a manual process.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Check BenQ's listings on Currys vs Scan vs John Lewis for concrete differences. Verify John Lewis still carries BenQ (particularly ScreenBar products). Look at Carly's LinkedIn for any posts or activity that suggest current priorities.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>UK-focused angle for a UK-based contact. The eStore introduction emphasises UK heritage (UK-based company). Naming specific UK retailers demonstrates research and speaks directly to Carly's daily reality. The contrast between Scan's technical audience and John Lewis's broader consumer audience is specific to BenQ's challenge. Conversational British tone - slightly warmer than Henny's emails.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: BenQ, Dell, Samsung - same shelf, different stories</div>
+                        <div class="email-timing">📅 Send timing: 5-7 days after Email 1, Monday, 9:00am GMT</div>
+                        <div class="email-body">Carly,
+
+Following on from my previous email - a different dimension of the UK retail challenge.
+
+On every retailer where BenQ sells monitors, the products sit alongside Dell, Samsung, LG, HP, and ASUS. How each brand presents itself on that shared digital shelf affects which products get clicked, compared, and ultimately purchased.
+
+This goes beyond having good product images and descriptions. It's about search rankings - when someone types "4K monitor" or "gaming monitor" on Currys, where does BenQ appear versus Samsung or Dell? It's about review scores and how they influence purchase decisions. It's about whether BenQ's key differentiators (eye-care technology, colour accuracy for creative professionals) are actually visible in the way retailers present the listings.
+
+Digital shelf analytics gives brands a structured view of these competitive dynamics - not just a snapshot, but ongoing tracking of how product performance changes over time. We've written about the specific challenges consumer electronics brands face in this area, and some of our thinking is here if useful: https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics
+
+I'd be interested to know how BenQ UK currently keeps track of competitive positioning across retailers - whether it's something you monitor actively or rely on retailer feedback for.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Search "4K monitor" or "gaming monitor" on Currys and note where BenQ appears vs Samsung/Dell. Check review counts and ratings for BenQ vs competitors on Amazon UK. Look for any BenQ UK marketing highlighting eye-care or colour accuracy differentiators.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuine new value by shifting from content accuracy (Email 1) to competitive positioning. The named competitors (Dell, Samsung, LG) are BenQ's real rivals and Carly deals with this daily. The search ranking and review examples are concrete DSA use cases, not vague "visibility" language. The Ignite article is offered as optional reading. Closing question invites dialogue about current practice.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: benq.co.uk vs how retailers tell BenQ's story</div>
+                        <div class="email-timing">📅 Send timing: 5-7 days after Email 2, Wednesday, 9:00am GMT</div>
+                        <div class="email-body">Carly,
+
+A different thought occurred to me about BenQ's UK retail presence.
+
+BenQ's own website does a strong job of telling the product story - detailed spec comparisons, use-case explanations for different monitor ranges, lifestyle imagery. The difference between a MOBIUZ gaming monitor and an EW Series home entertainment display is clear when you're on benq.co.uk.
+
+On retailer websites, that brand storytelling often gets compressed into whatever template the retailer uses. A Currys product page for a MOBIUZ monitor might not communicate the gaming-specific features that differentiate it from a standard monitor at the same price point. The product becomes a set of specs rather than a solution for a specific buyer.
+
+It's a gap most brands with strong DTC operations experience - the content they control on their own site is significantly richer than what appears on the third-party platforms where the majority of sales actually happen. The challenge is understanding the size of that gap and where it matters most.
+
+I'd be curious whether this is something BenQ UK has explored - whether there's been any comparison of how products are presented on benq.co.uk versus how they appear on Currys or Amazon.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Visit benq.co.uk and compare a MOBIUZ product page with the same product on Currys and Amazon UK. Note specific differences in how the product story is told. If the gap is dramatic, consider referencing it (carefully).</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Genuinely new angle - the DTC-to-retail content gap. This is specific to BenQ because their DTC site (366% revenue growth) is clearly a strategic priority, which makes the contrast with retailer listings more relevant. The observation about product storytelling vs spec sheets is concrete and likely resonates with anyone managing both channels. Ends with curiosity, not pressure.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact 3: Vicente Lochschmidt -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Vicente Lochschmidt</h3>
+                        <p>Marketing Team Lead, BenQ Europe Corporate</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇦🇹 Austrian</span>
+                        <span class="badge grey">Cold</span>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-contact="vicente">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Product content across 10 European markets</div>
+                        <div class="email-timing">📅 Send timing: Tuesday, 9:00am CET</div>
+                        <div class="email-body">Vicente,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics brands. In practice, that means monitoring how products appear and perform across online retailers: content accuracy, pricing, availability, search rankings, and competitive positioning.
+
+BenQ's European structure is what prompted me to write. Managing product content and performance across 10-plus countries, each with different languages, retailer platforms, and content requirements, is a challenge that scales quickly. A monitor listing on MediaMarkt in Germany has different specifications formatting from the same product on Fnac in France or Coolblue in the Netherlands.
+
+Your role coordinating marketing across Central and Eastern European markets means you likely experience this complexity directly - the same product needs consistent positioning across multiple languages and retail platforms, while adapting to local market requirements.
+
+We work with consumer electronics brands navigating multi-market European distribution. I'm curious whether BenQ Europe has a systematic approach to monitoring product content and performance across regional retailers, or whether each market manages this independently.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Vicente's current scope and title on LinkedIn. Check BenQ product listings across DE, FR, NL retailers for content differences. Look at his LinkedIn activity for any posts about marketing challenges or tools.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Formal, structured approach appropriate for Austrian business culture. The multi-market angle speaks directly to Vicente's 10-country scope. The observation about specification formatting differences across retailers is specific and verifiable. References his actual responsibilities without using sales opener phrases. Closing question acknowledges the possibility of either centralised or decentralised approaches.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: From manual listing checks to systematic monitoring</div>
+                        <div class="email-timing">📅 Send timing: 5-7 days after Email 1, Thursday, 10:00am CET</div>
+                        <div class="email-body">Vicente,
+
+Building on my previous email - one specific thought.
+
+Analysing how products appear on reseller websites is something most marketing teams do to some degree. Checking a product listing on Amazon or MediaMarkt, verifying the images are correct, confirming the price matches expectations. The challenge is doing this systematically across hundreds of products and dozens of retailers, across multiple languages, on an ongoing basis.
+
+For a brand like BenQ with ~200-250 active SKUs spanning monitors, projectors, interactive displays, and peripherals, a manual approach means that by the time someone identifies a problem - an incorrect specification, an out-of-stock flag, a competitor outranking on search - it may have already affected sales for days or weeks.
+
+Digital shelf analytics automates that monitoring: tracking availability, content accuracy, pricing, and search performance across retailers, and surfacing the issues that matter most by revenue impact. We've explored this specifically for consumer electronics brands, and some of our analysis is here if relevant: https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics
+
+I'd be interested to know whether BenQ Europe's current approach to tracking reseller performance is something you'd describe as systematic or more reactive.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>The research found Vicente has mentioned analysing product listings on reseller websites - this email builds on that. Check if BenQ has any automated tools for content syndication or product information management. Verify the SKU count remains approximately accurate.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>This email connects to Vicente's actual experience (he's mentioned analysing reseller listings) without using "I noticed" phrasing. The progression from manual checking to systematic monitoring is educational without being patronising. Concrete examples (incorrect specs, out-of-stock, search rankings) use specific DSA language. The Ignite article supports the educational approach. Austrian communication style - factual, evidence-based.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: How Dell and Samsung position against BenQ in European search</div>
+                        <div class="email-timing">📅 Send timing: 5-7 days after Email 2, Tuesday, 9:30am CET</div>
+                        <div class="email-body">Vicente,
+
+A different perspective from my previous emails.
+
+In the monitor market, BenQ competes with Dell, Samsung, LG, HP, and ASUS on every major European retailer. How each brand appears when a buyer searches for "professional monitor" or "gaming monitor" on MediaMarkt DE or Amazon FR directly influences consideration and purchase.
+
+This competitive dimension is difficult to track manually. Search rankings shift based on algorithms, promotions, review velocity, and content quality. A competitor running a promotion may temporarily outrank BenQ for key search terms. A product with more reviews may appear higher even if BenQ's offering is technically superior.
+
+Digital shelf analytics provides structured competitive intelligence - not occasional spot-checks, but ongoing tracking of how BenQ products compare to competitors across search rankings, pricing, content completeness, and review performance on each retailer. For a brand managing competitive positioning across 10-plus European markets, that kind of systematic view would be difficult to replicate manually.
+
+I'd be curious whether competitive positioning on retailer platforms is something BenQ Europe monitors at a regional level, or whether each market handles competitive intelligence independently.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Search for BenQ monitors on MediaMarkt DE and Amazon FR alongside Dell/Samsung to see current positioning. Note any promotional activity from competitors that might be affecting rankings. Check whether BenQ runs any retailer-specific promotions in European markets.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>New angle - competitive intelligence across European retailers. Connects Vicente's multi-market scope to a concrete challenge: understanding how BenQ stacks up against five major competitors across diverse European retail platforms. The examples (search rankings, promotions, review velocity) are specific DSA use cases. Ends with a question about centralised vs market-level competitive tracking. No exit offer.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact 4: Alena Kosinova -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Alena Kosinova</h3>
+                        <p>B2C Digital MarCom Specialist, BenQ Europe</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇳🇱 Netherlands-based</span>
+                        <span class="badge grey">Cold</span>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-contact="alena">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: What happens after the click - BenQ on retailer sites</div>
+                        <div class="email-timing">📅 Send timing: Wednesday, 10:00am CET</div>
+                        <div class="email-body">Alena,
+
+I'm [SENDER NAME] from eStore - we're a digital shelf analytics company working with consumer electronics brands. We help brands understand how their products appear and perform on online retailer websites - things like content accuracy, search rankings, pricing, availability, and competitive positioning.
+
+I was thinking about BenQ's digital marketing across European markets and a challenge that sits at the intersection of marketing and retail. A well-targeted ad campaign drives traffic to a retailer's product page - but what the buyer finds there is often outside the brand's direct control. Whether the product images are current, whether the specifications are accurate, whether the product ranks well against competitors on that retailer's search results - these factors determine whether the marketing investment converts.
+
+For a brand like BenQ with products across gaming monitors, professional displays, projectors, and peripherals, the content requirements are technical and varied. Different products need to communicate different value propositions on the same retailer platform.
+
+I'm curious whether the digital marketing team at BenQ Europe has much insight into how products appear on retailer websites, or whether that sits with a different part of the organisation.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Check Alena's LinkedIn for current role description and any content she's shared. Verify her responsibilities still include B2C digital marketing. Look for any BenQ Europe digital marketing campaigns currently running.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Connects to Alena's digital marketing role by positioning DSA as complementary to her existing work. The "what happens after the click" framing is relevant without being presumptuous. More approachable tone than Vicente's emails while remaining professional. The closing question asks about organisational structure rather than assuming she has a problem to solve.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Product pages that work as hard as the campaigns driving traffic to them</div>
+                        <div class="email-timing">📅 Send timing: 5-7 days after Email 1, Monday, 9:30am CET</div>
+                        <div class="email-body">Alena,
+
+Following on from my previous email - one specific angle.
+
+When BenQ invests in digital campaigns to promote a product like the MOBIUZ gaming monitors, the goal is to drive purchase consideration. The challenge is that much of that consideration happens on retailer product pages that BenQ doesn't fully control.
+
+If a Coolblue listing has outdated images, or an Amazon product page is missing key specifications like response time and HDR compatibility, the campaign spend may drive traffic to a page that doesn't represent the product accurately. The disconnect between marketing investment and retail execution is something most consumer electronics brands experience but few measure systematically.
+
+Digital shelf analytics bridges that gap by tracking content quality, completeness, and accuracy across retailers - giving marketing teams data on whether the product pages their campaigns point to are actually doing the product justice.
+
+We've explored this challenge specifically for consumer electronics brands, and some of our thinking is here if it's useful: https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics
+
+I'd be interested in whether content quality on retailer platforms is something that comes across your desk, or whether it sits elsewhere in the organisation.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Check a MOBIUZ listing on Coolblue and Amazon NL for content quality. Look for any BenQ digital campaigns currently running that point to retailer pages. Verify whether Alena's role involves any retailer-facing content work.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Builds on Email 1 by deepening the marketing-to-retail connection with a specific BenQ example (MOBIUZ campaigns). The content quality angle is concrete - outdated images and missing specs are tangible problems. The Ignite article is positioned as optional educational content. Acknowledges that this might not be her direct responsibility, which is honest and respectful of her actual scope.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: New product launches and retailer readiness</div>
+                        <div class="email-timing">📅 Send timing: 5-7 days after Email 2, Wednesday, 10:00am CET</div>
+                        <div class="email-body">Alena,
+
+A different angle from my previous emails.
+
+BenQ has maintained an intense product launch cadence - programming monitors, QD-OLED gaming displays, new projector ranges, Mac-focused monitors. Each launch involves coordinating product content across multiple European retailers, each with different listing requirements, approval processes, and content formats.
+
+From a digital marketing perspective, the timing of launch campaigns needs to align with when retailers actually have the product listed, in stock, and accurately described. If marketing is driving awareness before retailers have the listing live, or if the listing goes live with placeholder content, there's a gap between the campaign narrative and the retail reality.
+
+Digital shelf analytics helps brands track launch readiness across retailers - confirming when products are listed, whether content is complete and accurate, and how quickly retailers are updating their pages. For a brand launching products across multiple European markets simultaneously, that kind of systematic tracking can be valuable.
+
+I'd be curious whether launch coordination with retailers is something the marketing team at BenQ Europe is involved in, or whether it's managed entirely through the sales and retail partnerships side.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Check which BenQ products have launched most recently on European retailers. Look for any timing gaps between BenQ's own launch announcements and retailer availability. Verify whether Alena's role includes any product launch marketing responsibilities.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Genuinely new angle - product launch readiness. Connects to BenQ's heavy launch calendar (research finding) and positions DSA as enabling better launch execution. The marketing-to-retail timing challenge is relevant to Alena's digital marketing role without assuming she directly manages retailer relationships. Ends with a question about organisational structure rather than a direct ask.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- TAB 6: OBJECTION HANDLING -->
+        <div id="objections" class="tab-content">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                
+                <div class="info-box green">
+                    <strong>Fit Level: 🟢 STRONG FIT</strong><br>
+                    Proceed with confident outreach using a consultative, educative approach. Note: this is a re-approach after extensive prior outbound (2022-2025) that generated no engagement. The quality and specificity of this approach is fundamentally different.
+                </div>
+                
+                <h3>Why We're Proceeding Despite Prior History</h3>
+                <ul class="checklist">
+                    <li>Greenfield DSA opportunity - no incumbent identified</li>
+                    <li>Extensive multi-channel European distribution creating genuine complexity</li>
+                    <li>Consumer Electronics is one of eStore's five proven sectors</li>
+                    <li>Established European operations with accessible decision-makers</li>
+                    <li>Heavy product launch calendar creating immediate monitoring relevance</li>
+                    <li>Competitive pressure in monitors driving need for better e-commerce intelligence</li>
+                    <li>Henny Hovens (Head of B2C Europe, joined 2023) is an entirely new contact not previously engaged</li>
+                    <li>Previous internal note "No E-Commerce personnel in Europe" is now outdated - B2C leadership clearly exists</li>
+                </ul>
+                
+                <h3>What Makes This Different from Previous Outreach</h3>
+                <ul>
+                    <li class="warning"><strong>Prior outreach risk:</strong> 3+ years of generic bulk campaigns may have created negative brand association. Mike Borze explicitly asked us to stop. Mitigation: this approach is targeted, research-specific, and consultative - a genuinely different quality of engagement.</li>
+                    <li class="warning"><strong>DSA education needed:</strong> BenQ may not recognise the need for DSA tooling yet. First emails need to explain the value, not assume they're already in-market.</li>
+                    <li class="warning"><strong>Procurement authority:</strong> European team may need Taiwan HQ approval. Understand decision-making dynamics early.</li>
+                    <li><strong>Greenfield advantage:</strong> No competitor to displace means no switching costs, but also no established budget line for DSA.</li>
+                </ul>
+                
+                <h3>Recommended Tone</h3>
+                <p><strong>Confident but Curious.</strong> This is a sophisticated global brand with mature e-commerce operations. Don't over-explain DSA basics to experienced e-commerce professionals. Ask smart questions rather than making assumptions. Position eStore as a peer exploring a potential fit, not a vendor pitching. Lead with European expertise and sector knowledge.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Common Objections & Responses</h2>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're already handling this internally / We track our retailer performance ourselves"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "That makes sense - most brands start with internal processes, especially when the channel is manageable."</p>
+                        
+                        <p><strong>Reframe:</strong> "The question I'd ask is whether the approach scales across your full retail footprint. With ~200-250 SKUs across Scan, Coolblue, MediaMarkt, Amazon in five markets, Fnac, Bol.com - each with different content formats and search algorithms - is the team able to track content accuracy, availability, and competitive positioning fast enough to act on issues before they affect sales?"</p>
+                        
+                        <p><strong>Evidence:</strong> "We work with consumer electronics brands that hit a tipping point where manual checking across 20+ retailers and multiple languages couldn't keep pace. The gap between what's published and what's actually live on the retailer site is where the problems happen."</p>
+                        
+                        <p><strong>Close:</strong> "Would it be useful to see how we'd approach BenQ's specific retailer landscape? No commitment - just to understand whether there's a gap worth addressing."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We don't currently use digital shelf analytics - I'm not sure we need it"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "That's fair - and honestly, not every brand does. Consumer electronics companies in particular have been slower to adopt DSA than FMCG brands."</p>
+                        
+                        <p><strong>Educate:</strong> "The challenge it solves is specific: when you have hundreds of products listed across dozens of retailers in multiple languages, things go wrong. Wrong specifications, missing images, out-of-stock flags not updating, competitors outranking on search terms. Each one individually is small, but collectively they affect conversion."</p>
+                        
+                        <p><strong>Make it Tangible:</strong> "Here's a simple test - check a MOBIUZ monitor listing on Coolblue versus the same product on Amazon DE versus MediaMarkt. Are the specifications presented the same way? Are the images current? Is the pricing consistent with what you expect? DSA automates that check across every product, every retailer, every day."</p>
+                        
+                        <p><strong>Close:</strong> "I wouldn't push this if BenQ had five products on Amazon. It's the combination of product complexity, retailer diversity, and competitive intensity that makes it relevant. Happy to share some examples of what we've found for other CE brands if that would be useful."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"How many of our retailers can you actually monitor?"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Be Honest:</strong> "Good question, and I want to be transparent. Our strength is UK and European retailers - that's where we have the deepest coverage and strongest expertise."</p>
+                        
+                        <p><strong>Specifics:</strong> "For your European retailers - Amazon across multiple markets, Currys, MediaMarkt - we have strong coverage. These are well within our existing infrastructure. Specialist IT retailers like Scan and Ebuyer, and Benelux platforms like Coolblue and Bol.com, would need to be verified specifically but are the kind of retailers we're built to monitor."</p>
+                        
+                        <p><strong>US Position:</strong> "For US retailers like Best Buy, B&H Photo, and Newegg, we'd want to have an honest conversation about what's possible. We cover major platforms but wouldn't claim the same depth as our European coverage."</p>
+                        
+                        <p><strong>Reframe:</strong> "Given BenQ Europe's Eindhoven headquarters and strong UK presence, there might be an angle starting with European markets where we can deliver value quickly - then assessing US needs separately."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"This decision needs to go through our Taiwan headquarters"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "Understood - that's common with globally-managed brands. We work with several European divisions of companies with headquarters in Asia, so we're familiar with how that process works."</p>
+                        
+                        <p><strong>Reframe:</strong> "What we've found is that starting with a European pilot - focused on UK and Northern European retailers where the value is clearest - can build the business case needed for headquarters approval. It's easier to get buy-in for a regional proof of concept than a global rollout."</p>
+                        
+                        <p><strong>Practical:</strong> "Would it be helpful if we put together a brief assessment of what we could deliver for BenQ Europe specifically? That way, if there's merit, you'd have something concrete to bring to the approval conversation rather than just a vendor pitch."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"This isn't a priority right now - we're focused on product launches / DTC growth"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "Understood - there's always more to do than time allows, especially with the launch cadence BenQ has been maintaining."</p>
+                        
+                        <p><strong>Gentle Challenge:</strong> "Can I ask something? Product launches and DTC growth are actually two of the biggest use cases for digital shelf analytics. When you launch the RD Series programming monitors or new QD-OLED gaming displays, do you have visibility into whether retailers have the listings live, with correct content, on day one? And does the DTC team know how their product pages compare to what appears on Currys or Amazon?"</p>
+                        
+                        <p><strong>Reframe:</strong> "DSA doesn't compete with those priorities - it makes them more effective. It's the difference between launching a product and hoping retailers get it right, versus knowing they have."</p>
+                        
+                        <p><strong>Close:</strong> "Happy to share a brief perspective on what we're seeing with other CE brands - no pitch, just context. Then you can decide if it's worth more time."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We already have Adobe Experience Manager / a PIM system"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "AEM and PIM systems are essential - they're about creating and distributing content to retailers."</p>
+                        
+                        <p><strong>Clarify the Difference:</strong> "Digital shelf analytics is about what's actually live on the retailer site after that content has been published. The gap between what you send through AEM and what appears on Coolblue or MediaMarkt - that's where issues happen. Wrong images, outdated descriptions, missing specifications, search ranking drops. PIM ensures content goes out correctly; DSA ensures it stays correct on the other end."</p>
+                        
+                        <p><strong>Evidence:</strong> "We work alongside PIM systems, not instead of them. BenQ's AEM setup handles owned channels beautifully - the question is whether you have the same visibility into third-party retailer pages."</p>
+                        
+                        <p><strong>Close:</strong> "Would it be useful to see how eStore complements what you're already using? It's a different layer of visibility."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"What's the ROI? How do we justify the investment?"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "Legitimate question. ROI in digital shelf analytics typically comes from three places."</p>
+                        
+                        <p><strong>Evidence:</strong></p>
+                        <ul>
+                            <li><strong>Recovered revenue:</strong> Fixing out-of-stocks and content issues that were losing sales. For ~200-250 SKUs across 20+ retailers, even small improvements add up.</li>
+                            <li><strong>Time savings:</strong> Automating what the team currently does manually. How many hours does someone spend checking retailer sites each week across multiple markets?</li>
+                            <li><strong>Competitive intelligence:</strong> Understanding how Dell, Samsung, ASUS, and LG position against BenQ on every shared retailer - and being able to respond systematically rather than reactively.</li>
+                        </ul>
+                        
+                        <p><strong>Close:</strong> "We'd want to understand your current process and pain points before quoting specific numbers. Would a discovery conversation make sense to size the opportunity?"</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We need to see a pilot first"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "That's a sensible approach - especially for a brand evaluating a new category of tooling."</p>
+                        
+                        <p><strong>Offer Options:</strong></p>
+                        <ul>
+                            <li><strong>Geography-focused:</strong> Start with UK retailers only - Currys, Scan, Amazon UK, Ebuyer, John Lewis - where we have strongest coverage</li>
+                            <li><strong>Category-focused:</strong> Start with gaming monitors (MOBIUZ) or projectors only to limit scope</li>
+                            <li><strong>Time-limited:</strong> 60-90 day trial with defined success criteria</li>
+                        </ul>
+                        
+                        <p><strong>Close:</strong> "What would a successful pilot look like from your perspective? That would help us design something meaningful rather than just a demo."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're focused on the US market primarily"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "That makes sense - the US is a significant market for BenQ."</p>
+                        
+                        <p><strong>Be Honest:</strong> "I want to be upfront: our strength is European coverage. For US retailers, we cover major platforms but wouldn't claim the same depth as our European infrastructure."</p>
+                        
+                        <p><strong>Reframe:</strong> "That said, BenQ Europe has 201-500 employees, a dedicated HQ in Eindhoven, and strong distribution across UK, Benelux, DACH, and France. If European e-commerce performance matters to the business - and with retailers like Currys, MediaMarkt, Coolblue, and Fnac it likely does - there's a specific value we can deliver here."</p>
+                        
+                        <p><strong>Close:</strong> "Would it make sense to explore European coverage first, and assess US needs as a separate conversation?"</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We've heard from eStore before / You've already contacted us"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Be Honest:</strong> "You're right - and I won't pretend otherwise. eStore has reached out to BenQ before, and I understand that earlier contact may not have resonated."</p>
+                        
+                        <p><strong>Differentiate:</strong> "I want to be upfront about why I'm reaching out now. The previous approaches were broad - not specific to BenQ's situation. What I'm exploring is something more focused: the specific complexity of managing product content across your retailer mix - Scan, Currys, MediaMarkt, Amazon, Coolblue - each with different content formats and search dynamics. That's a very different conversation from a generic pitch about digital shelf analytics."</p>
+                        
+                        <p><strong>Acknowledge Their Perspective:</strong> "If the timing still isn't right, I completely understand. But I'd rather you make that decision based on what we can actually do for BenQ specifically, rather than whatever impression the earlier outreach left."</p>
+                        
+                        <p><strong>Close:</strong> "Would a 15-minute conversation to see if there's genuine relevance be worth it? If not, no hard feelings - I'd rather know than keep sending emails."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Send me some information and I'll review it"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge:</strong> "Happy to - though I'd rather send something relevant to your situation than generic materials."</p>
+                        
+                        <p><strong>Qualify:</strong> "Can I ask a couple of quick questions first? What's the biggest challenge right now - is it content accuracy across retailers, competitive visibility, product launch execution, or something else? And which retailers matter most - the specialist IT channels, Amazon, or the mass-market platforms?"</p>
+                        
+                        <p><strong>Offer Value:</strong> "I can send our consumer electronics overview, which covers what we're seeing with brands managing similar multi-channel complexity. Or even better, I could put together a brief perspective on BenQ's specific retailer landscape. Would that be more useful?"</p>
+                        
+                        <p><strong>Close:</strong> "Either way, I'll follow up in a week or so to see if it sparked any questions."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                <ul>
+                    <li><strong>Never dismiss the objection</strong> - Acknowledge it genuinely before responding</li>
+                    <li><strong>Use evidence and specifics</strong> - Reference BenQ's business (retailers, products, competitors), not generic claims</li>
+                    <li><strong>Be honest about limitations</strong> - Especially geographic coverage (European strength, US caveats)</li>
+                    <li><strong>Educate where needed</strong> - BenQ may not be familiar with DSA as a category. Explain value without being patronising</li>
+                    <li><strong>Offer flexibility</strong> - Pilots, phased approaches, geography-focused starts</li>
+                    <li><strong>Ask questions</strong> - Understand the root concern before responding</li>
+                    <li><strong>Respect procurement complexity</strong> - Taiwan HQ approval may be needed; offer to help build the business case</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>eStore Action Plan - BenQ Corporation | February 2026</p>
+        <p>Created by James / eStore Sales Development</p>
+    </footer>
+    
+    <script>
+        // Tab Navigation
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            
+            event.target.classList.add('active');
+        }
+        
+        // Email Tab Navigation
+        document.querySelectorAll('.email-tabs').forEach(container => {
+            container.querySelectorAll('.email-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const emailNum = this.dataset.email;
+                    const sequence = this.closest('.email-sequence');
+                    
+                    container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    
+                    sequence.querySelectorAll('.email-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    sequence.querySelector(`.email-content[data-email="${emailNum}"]`).classList.add('active');
+                });
+            });
+        });
+        
+        // Objection Card Toggle
+        function toggleObjection(header) {
+            const card = header.closest('.objection-card');
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
