@@ -11,5 +11,6 @@
     {"file": "nike", "name": "Nike", "owner": "Mariusz"},
     {"file": "glanbia", "name": "Glanbia", "owner": "Laura"},
     {"file": "ferrero", "name": "Ferrero", "owner": "Joe"},
-    {"file": "nyx-professional-makeup", "name": "NYX Professional Makeup", "owner": "Mariusz"}
+    {"file": "nyx-professional-makeup", "name": "NYX Professional Makeup", "owner": "Mariusz"},
+    {"file": "benq", "name": "BenQ", "owner": "Michal"}
 ]
