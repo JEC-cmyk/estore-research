@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glanbia Performance Nutrition - eStore Action Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header h1 { font-size: 2rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .header-subtitle { font-size: 1.1rem; opacity: 0.95; margin-bottom: 1rem; }
+        .header-meta {
+            font-size: 0.9rem; opacity: 0.9;
+            display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem;
+        }
+        .header-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        
+        .tabs {
+            display: flex; gap: 0.5rem; margin-bottom: 2rem;
+            background: white; padding: 1rem; border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); flex-wrap: wrap;
+        }
+        .tab {
+            padding: 0.75rem 1.25rem; background: #f8f9fa; border: none;
+            border-radius: 8px; cursor: pointer; font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem; font-weight: 600; color: #2c2c2c; transition: all 0.3s ease;
+        }
+        .tab:hover { background: #e9ecef; }
+        .tab.active { background: #1067db; color: white; }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        .card {
+            background: white; border-radius: 12px; padding: 2rem;
+            margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .card h2 { font-size: 1.5rem; margin-bottom: 1rem; color: #1067db; font-weight: 700; }
+        .card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; margin-top: 1.5rem; color: #2c2c2c; font-weight: 600; }
+        .card h4 { font-size: 1rem; margin-bottom: 0.5rem; margin-top: 1rem; color: #495057; font-weight: 600; }
+        .card p { margin-bottom: 1rem; }
+        
+        .fit-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 1rem 1.5rem; border-radius: 8px;
+            font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;
+        }
+        .fit-badge.strong { background: linear-gradient(135deg, #d4edda, #c3e6cb); color: #155724; border: 2px solid #22bb69; }
+        .fit-badge.moderate { background: linear-gradient(135deg, #fff3cd, #ffeeba); color: #856404; border: 2px solid #ffba1c; }
+        .fit-badge.weak { background: linear-gradient(135deg, #f8d7da, #f5c6cb); color: #721c24; border: 2px solid #f44f2f; }
+        
+        .summary-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; margin-top: 1.5rem;
+        }
+        .summary-item {
+            background: #f8f9fa; padding: 1.25rem; border-radius: 8px; border-left: 4px solid #1067db;
+        }
+        .summary-item h4 { margin-top: 0; color: #1067db; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .summary-item p { margin-bottom: 0; font-size: 0.95rem; }
+        
+        .stat-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem; margin: 1.5rem 0;
+        }
+        .stat-box { background: #f8f9fa; padding: 1.25rem; border-radius: 8px; text-align: center; }
+        .stat-box .value { font-size: 1.75rem; font-weight: 700; color: #1067db; }
+        .stat-box .label { font-size: 0.85rem; color: #6c757d; margin-top: 0.25rem; }
+        
+        .info-box { padding: 1rem 1.25rem; border-radius: 8px; margin: 1rem 0; }
+        .info-box.blue { background: #e7f3ff; border-left: 4px solid #1067db; }
+        .info-box.green { background: #e8f5e9; border-left: 4px solid #22bb69; }
+        .info-box.yellow { background: #fff8e1; border-left: 4px solid #ffba1c; }
+        .info-box.red { background: #ffebee; border-left: 4px solid #f44f2f; }
+        .info-box.orange { background: #fff3e0; border-left: 4px solid #ff7a00; }
+        
+        ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #dee2e6; }
+        th { background: #f8f9fa; font-weight: 600; color: #495057; }
+        tr:hover { background: #f8f9fa; }
+        
+        .badge {
+            display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px;
+            font-size: 0.8rem; font-weight: 600;
+        }
+        .badge.green { background: #d4edda; color: #155724; }
+        .badge.yellow { background: #fff3cd; color: #856404; }
+        .badge.red { background: #f8d7da; color: #721c24; }
+        .badge.blue { background: #e7f3ff; color: #1067db; }
+        .badge.grey { background: #e9ecef; color: #495057; }
+        .badge.orange { background: #fff3e0; color: #e65100; }
+        
+        .contact-card {
+            background: #f8f9fa; border-radius: 12px; padding: 1.5rem;
+            margin-bottom: 1.5rem; border-left: 4px solid #1067db;
+        }
+        .contact-card.secondary { border-left-color: #68d7fa; }
+        .contact-card.historical { border-left-color: #ffba1c; }
+        .contact-card.skip { border-left-color: #f44f2f; background: #fff5f5; }
+        .contact-card.vacant { border-left-color: #6c757d; background: #f8f9fa; border-style: dashed; border-left-style: dashed; }
+        
+        .contact-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;
+        }
+        .contact-name { font-size: 1.2rem; font-weight: 700; color: #2c2c2c; }
+        .contact-title { font-size: 0.95rem; color: #6c757d; margin-top: 0.25rem; }
+        .contact-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        
+        .tone-box {
+            background: #e7f3ff; padding: 0.75rem 1rem; border-radius: 8px;
+            margin-top: 1rem; font-size: 0.9rem;
+        }
+        .tone-box strong { color: #1067db; }
+        
+        .email-sequence {
+            background: #f8f9fa; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;
+        }
+        .email-sequence-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
+            padding-bottom: 1rem; border-bottom: 2px solid #e9ecef;
+        }
+        .email-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .email-tab {
+            padding: 0.5rem 1rem; background: white; border: 2px solid #e9ecef;
+            border-radius: 8px; cursor: pointer; font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease;
+        }
+        .email-tab:hover { border-color: #1067db; }
+        .email-tab.active { background: #1067db; border-color: #1067db; color: white; }
+        .email-content { display: none; }
+        .email-content.active { display: block; }
+        .email-box {
+            background: white; border-radius: 8px; padding: 1.5rem;
+            margin-bottom: 1rem; border: 1px solid #e9ecef;
+        }
+        .email-subject { font-weight: 600; color: #1067db; margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e9ecef; }
+        .email-timing { font-size: 0.85rem; color: #6c757d; margin-bottom: 1rem; }
+        .email-body { white-space: pre-line; font-size: 0.95rem; line-height: 1.7; }
+        .email-notes { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed #dee2e6; }
+        .email-notes h5 { font-size: 0.9rem; color: #6c757d; margin-bottom: 0.5rem; }
+        .email-notes p { font-size: 0.9rem; color: #495057; margin-bottom: 0.5rem; }
+        
+        .objection-card {
+            background: white; border-radius: 8px; margin-bottom: 1rem;
+            border: 1px solid #e9ecef; overflow: hidden;
+        }
+        .objection-header {
+            padding: 1rem 1.25rem; background: #f8f9fa; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            font-weight: 600; color: #2c2c2c;
+        }
+        .objection-header:hover { background: #e9ecef; }
+        .objection-arrow { transition: transform 0.3s ease; }
+        .objection-card.open .objection-arrow { transform: rotate(180deg); }
+        .objection-body { display: none; padding: 1.25rem; border-top: 1px solid #e9ecef; }
+        .objection-card.open .objection-body { display: block; }
+        
+        .disclaimer {
+            background: #fff8e1; border: 2px solid #ffba1c; border-radius: 8px;
+            padding: 1rem 1.25rem; margin-bottom: 2rem;
+        }
+        .disclaimer strong { color: #856404; }
+        
+        .content-link {
+            display: block; background: #f8f9fa; padding: 1rem; border-radius: 8px;
+            margin-bottom: 0.75rem; text-decoration: none; color: #2c2c2c;
+            transition: all 0.3s ease; border: 1px solid #e9ecef;
+        }
+        .content-link:hover { background: #e7f3ff; border-color: #1067db; }
+        .content-link .link-title { font-weight: 600; color: #1067db; margin-bottom: 0.25rem; }
+        .content-link .link-url { font-size: 0.8rem; color: #6c757d; word-break: break-all; }
+        
+        .checklist { list-style: none; margin-left: 0; }
+        .checklist li { padding: 0.5rem 0; padding-left: 2rem; position: relative; }
+        .checklist li::before { content: "\2713"; position: absolute; left: 0; color: #22bb69; font-weight: bold; }
+        .checklist li.warning::before { content: "\26A0"; color: #ffba1c; }
+        .checklist li.cross::before { content: "\2717"; color: #f44f2f; }
+        
+        .retailer-summary {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem; margin-top: 1.5rem;
+        }
+        .retailer-region {
+            background: #f8f9fa; padding: 1.25rem; border-radius: 8px;
+        }
+        .retailer-region h4 {
+            margin-top: 0; color: #1067db; border-bottom: 2px solid #1067db;
+            padding-bottom: 0.5rem; margin-bottom: 1rem;
+        }
+        .retailer-list { font-size: 0.9rem; }
+        .retailer-list li { margin-bottom: 0.25rem; }
+        
+        .timeline-item {
+            padding: 1rem 1.25rem; border-left: 3px solid #1067db; margin-bottom: 1rem;
+            background: #f8f9fa; border-radius: 0 8px 8px 0;
+        }
+        .timeline-item.warm { border-left-color: #ffba1c; }
+        .timeline-item.stalled { border-left-color: #f44f2f; }
+        .timeline-item .timeline-date { font-weight: 600; color: #1067db; font-size: 0.9rem; }
+        .timeline-item.warm .timeline-date { color: #ffba1c; }
+        .timeline-item.stalled .timeline-date { color: #f44f2f; }
+        
+        .phase-box {
+            padding: 1.25rem; border-radius: 8px; margin-bottom: 1rem;
+            border: 2px solid #e9ecef;
+        }
+        .phase-box.active-phase { border-color: #1067db; background: #f0f7ff; }
+        
+        footer {
+            text-align: center; padding: 2rem; color: #6c757d; font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header { padding: 1.5rem 1rem; }
+            .header h1 { font-size: 1.5rem; }
+            .container { padding: 1rem; }
+            .tabs { flex-direction: column; }
+            .tab { text-align: center; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .summary-grid { grid-template-columns: 1fr; }
+            .retailer-summary { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Glanbia Performance Nutrition (GPN)</h1>
+        <div class="header-subtitle">eStore Brand Research &amp; Action Plan</div>
+        <div class="header-meta">
+            <div class="header-meta-item"><strong>Fit Level:</strong> <span class="badge yellow">MODERATE FIT</span></div>
+            <div class="header-meta-item"><strong>Client Status:</strong> <span class="badge orange">LAPSED CUSTOMER</span></div>
+            <div class="header-meta-item"><strong>Revenue:</strong> $1.8B (33% online)</div>
+            <div class="header-meta-item"><strong>Current DSA:</strong> Stackline (confirmed)</div>
+            <div class="header-meta-item"><strong>Created:</strong> 3 February 2026</div>
+            <div class="header-meta-item"><strong>Author:</strong> James</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('tab-fit')">Strategic Fit Assessment</button>
+            <button class="tab" onclick="showTab('tab-history')">Our History with Them</button>
+            <button class="tab" onclick="showTab('tab-retailers')">Retailer Overview</button>
+            <button class="tab" onclick="showTab('tab-contacts')">Key People?</button>
+            <button class="tab" onclick="showTab('tab-emails')">Draft Email Sequences</button>
+            <button class="tab" onclick="showTab('tab-objections')">Objection Handling</button>
+        </div>
+        
+        <!-- ===================== TAB 1: STRATEGIC FIT ASSESSMENT ===================== -->
+        <div id="tab-fit" class="tab-content active">
+            
+            <div class="card">
+                <h2>Strategic Fit Assessment</h2>
+                <div class="fit-badge moderate">&#x1F7E1; MODERATE FIT</div>
+                <p>GPN represents a compelling but complex re-engagement opportunity. They are a <strong>lapsed eStore customer</strong> with extensive relationship history, confirmed DSA usage (Stackline), substantial e-commerce scale (~$600M online revenue), and explicit "Digital Shelf Optimisation" priorities. However, their existing Stackline relationship, ongoing organisational transformation, and margin pressure require careful competitive positioning and timing.</p>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">$1.8B</div>
+                        <div class="label">Annual Revenue (FY2024)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">~$600M</div>
+                        <div class="label">Online Revenue (33.2%)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">36%</div>
+                        <div class="label">International Revenue</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">20-25+</div>
+                        <div class="label">Estimated Online Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">~2,300</div>
+                        <div class="label">Employees (GPN)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">Sep 2024</div>
+                        <div class="label">Last Discovery Call</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Distribution Complexity &amp; Geographic Alignment</h2>
+                <div class="info-box green">
+                    <strong>Highly multi-channel distribution (NOT Amazon-dominant)</strong> - 35% of revenue flows through food, drug, mass and club channels outside Amazon. 36% of revenue is international, with genuine European infrastructure including UK offices (Harrogate), manufacturing (Middlesbrough), and a VP Europe role.
+                </div>
+                
+                <h3>Channel Distribution (by revenue)</h3>
+                <table>
+                    <tr><th>Channel</th><th>Revenue Share</th><th>Revenue ($M)</th></tr>
+                    <tr><td>Food/Drug/Mass/Club (FDMC)</td><td>35.2%</td><td>$635M</td></tr>
+                    <tr><td>Online (incl. Amazon)</td><td>33.2%</td><td>$600M</td></tr>
+                    <tr><td>Distributor</td><td>20.1%</td><td>$364M</td></tr>
+                    <tr><td>Specialty</td><td>11.5%</td><td>$208M</td></tr>
+                </table>
+                
+                <h3>Geographic Breakdown</h3>
+                <table>
+                    <tr><th>Region</th><th>Revenue Share</th><th>Key Markets</th></tr>
+                    <tr><td>GPN Americas</td><td>64% ($1.16B)</td><td>US, Canada, Mexico</td></tr>
+                    <tr><td>GPN International</td><td>36% ($646M)</td><td>UK, Germany, France, Benelux, Asia Pacific</td></tr>
+                </table>
+                
+                <div class="info-box blue">
+                    <strong>European infrastructure confirmed:</strong> UK registered office in Harrogate, manufacturing facility in Middlesbrough, VP Europe role (Ronak Mashru), dedicated E-Commerce Director Europe position, and the now-divested Body &amp; Fit D2C business was Netherlands-based.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Competitive Intelligence: DSA Provider</h2>
+                <div class="info-box yellow">
+                    <strong>Stackline is a confirmed DSA provider</strong> - Published case study with named executive quote (Gina Zilleox, Sr. Director Category Management). Relationship appears Amazon-focused, creating potential gaps in non-Amazon retailer coverage and European markets.
+                </div>
+                
+                <table>
+                    <tr><th>Provider</th><th>Status</th><th>Confidence</th><th>Evidence</th></tr>
+                    <tr><td><strong>Stackline</strong></td><td><span class="badge green">CONFIRMED</span></td><td>HIGH</td><td>Published case study with executive quote</td></tr>
+                    <tr><td>Profitero</td><td><span class="badge grey">No evidence</span></td><td>Unknown</td><td>-</td></tr>
+                    <tr><td>CommerceIQ</td><td><span class="badge grey">No evidence</span></td><td>Unknown</td><td>-</td></tr>
+                    <tr><td>Edge by Ascential</td><td><span class="badge grey">No evidence</span></td><td>Unknown</td><td>-</td></tr>
+                    <tr><td>Salsify</td><td><span class="badge grey">No evidence</span></td><td>Unknown</td><td>-</td></tr>
+                </table>
+                
+                <h3>Stackline Scope</h3>
+                <ul>
+                    <li>Amazon category insights and competitive intelligence</li>
+                    <li>Custom segment definitions aligned with GPN's internal category structure</li>
+                    <li>Protein powder segment monitoring across $7B+ category, 20,000+ SKUs</li>
+                    <li>Claimed benefit: "~10 hours per month of manual work" saved</li>
+                </ul>
+                
+                <h3>Switching Signals &amp; eStore Angle</h3>
+                <ul>
+                    <li><strong>Amazon-centric gap:</strong> 35% FDMC channel and 36% international revenue may be underserved by Stackline</li>
+                    <li><strong>New leadership:</strong> Monica McGurk, Andy Shaw, Jeffrey Sigmen may re-evaluate existing tools</li>
+                    <li><strong>"Digital Shelf Optimisation agenda"</strong> explicitly stated in job postings - active investment intent</li>
+                    <li><strong>Body &amp; Fit divestiture</strong> shifts focus toward retailer/marketplace channels</li>
+                </ul>
+                
+                <div class="info-box blue">
+                    <strong>Positioning:</strong> eStore as complementary or alternative for <strong>European retailer coverage</strong> and <strong>non-Amazon channels</strong> where Stackline's Amazon-centric approach may leave gaps. Do NOT position as direct Stackline replacement (creates defensive reaction).
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Sector Alignment</h2>
+                <table>
+                    <tr><th>Aspect</th><th>Assessment</th></tr>
+                    <tr><td>Primary Sector</td><td>Vitamins &amp; Supplements / Sports Nutrition</td></tr>
+                    <tr><td>eStore Proven Sector Match</td><td>Pharma: Vitamins &amp; Supplements &#x2705;</td></tr>
+                    <tr><td>Alignment Strength</td><td><span class="badge yellow">MODERATE-STRONG</span></td></tr>
+                </table>
+                <ul>
+                    <li>Sports nutrition is adjacent to healthcare/pharma where eStore has proven expertise (Sanofi, Viatris, Pierre Fabre)</li>
+                    <li>Product content complexity (health claims, ingredient lists, regulatory compliance) aligns with eStore's healthcare experience</li>
+                    <li>EU EFSA health claims regulations create content compliance challenges eStore can address</li>
+                    <li>Danone (vitamins &amp; supplements current client) provides closest sector parallel</li>
+                    <li>No direct sports nutrition case study available - reference healthcare/pharma clients for regulatory content expertise</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Relationship History</h2>
+                <div class="info-box orange">
+                    <strong>This is a RE-ENGAGEMENT opportunity, NOT cold outreach.</strong> GPN is a lapsed eStore customer with extensive engagement history (2022-2025), a completed discovery call (September 2024), and multiple warm contacts. The September 2024 deal stalled for unknown reasons.
+                </div>
+                
+                <h3>Key Tactical Advantages</h3>
+                <ul>
+                    <li><strong>Lapsed customer status</strong> - Familiarity with eStore platform and team</li>
+                    <li><strong>Completed discovery call</strong> - Already past initial qualification</li>
+                    <li><strong>POC/scoping work done</strong> - Proposal groundwork exists</li>
+                    <li><strong>Multiple warm contacts</strong> - Not starting from zero</li>
+                    <li><strong>"Strong interest" signal</strong> - Julia Dixon's positive response in September 2024</li>
+                </ul>
+                
+                <div class="info-box red">
+                    <strong>Critical question:</strong> What happened after the September 2024 discovery call? Julia Dixon said she'd revert after internal discussion but the trail goes cold. Must understand why the deal stalled before re-engaging. Check with David Halls for context.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Market Dynamics: Strategic Timing</h2>
+                <h3>Recent Events (2024-2025)</h3>
+                <table>
+                    <tr><th>Date</th><th>Event</th><th>Implication</th></tr>
+                    <tr><td>Jan 2025</td><td>Monica McGurk appointed CEO, GPN Americas</td><td>New decision-maker with explicit e-commerce expertise (ex-Coca-Cola, Kellogg)</td></tr>
+                    <tr><td>Jan 2025</td><td>Andy Shaw appointed CEO, GPN International</td><td>New EMEA decision-maker (ex-Red Bull UK MD)</td></tr>
+                    <tr><td>Mar 2024</td><td>Wendy Chang Smith appointed Chief Digital &amp; Transformation Officer</td><td>Digital transformation mandate; ex-Amazon VP</td></tr>
+                    <tr><td>Nov 2024</td><td>$50M cost savings programme announced</td><td>Budget pressure but "accelerating digital transformation" stated</td></tr>
+                    <tr><td>Feb 2025</td><td>SlimFast divestiture announced</td><td>Portfolio simplification toward "protein growth brands"</td></tr>
+                    <tr><td>2025</td><td>Body &amp; Fit sold to Supreme PLC</td><td>D2C exit - shifts focus to retailer/marketplace channels</td></tr>
+                </table>
+                
+                <h3>Timing Indicators</h3>
+                <div class="summary-grid">
+                    <div class="summary-item" style="border-left-color: #22bb69;">
+                        <h4 style="color: #22bb69;">POSITIVE SIGNALS</h4>
+                        <ul style="margin-bottom: 0;">
+                            <li>New leadership may re-evaluate existing vendor relationships</li>
+                            <li>Digital transformation is stated strategic priority</li>
+                            <li>Q1 2026 results (late April) will clarify budget position</li>
+                            <li>"Digital Shelf Optimisation agenda" explicitly stated</li>
+                        </ul>
+                    </div>
+                    <div class="summary-item" style="border-left-color: #ffba1c;">
+                        <h4 style="color: #ffba1c;">CAUTION SIGNALS</h4>
+                        <ul style="margin-bottom: 0;">
+                            <li>Multiple new executives in first year of roles - still settling</li>
+                            <li>Transformation programme execution through 2025-2027</li>
+                            <li>Margin pressure (13-14% EBITDA) may constrain immediate investment</li>
+                            <li>Whey protein costs surged ~25% YoY ($200M headwind)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Optimal Engagement Windows</h3>
+                <ol>
+                    <li><strong>Post-Q1 2026 results (April-May 2026)</strong> - Budget clarity for new fiscal year</li>
+                    <li><strong>Pre-SupplySide West (Sep-Oct 2026)</strong> - Industry engagement peak</li>
+                    <li><strong>After transformation stabilises</strong> - New operating model bedding in</li>
+                </ol>
+            </div>
+            
+            <div class="card">
+                <h2>Synthesis &amp; Recommendation</h2>
+                
+                <h3>Key Factors Driving Assessment</h3>
+                <table>
+                    <tr><th>Factor</th><th>Impact</th><th>Notes</th></tr>
+                    <tr><td>Lapsed customer with warm contacts</td><td><span class="badge green">Positive</span></td><td>Significant tactical advantage vs cold outreach</td></tr>
+                    <tr><td>Explicit DSA priority stated</td><td><span class="badge green">Positive</span></td><td>"Digital Shelf Optimisation agenda" in job postings</td></tr>
+                    <tr><td>$600M online revenue scale</td><td><span class="badge green">Positive</span></td><td>Substantial addressable market</td></tr>
+                    <tr><td>Multi-channel complexity</td><td><span class="badge green">Positive</span></td><td>Validates need for comprehensive DSA</td></tr>
+                    <tr><td>European operations (36% revenue)</td><td><span class="badge green">Positive</span></td><td>Natural entry point for UK-based provider</td></tr>
+                    <tr><td>Stackline incumbent</td><td><span class="badge yellow">Challenge</span></td><td>Must demonstrate differentiated value</td></tr>
+                    <tr><td>Margin pressure (13-14% EBITDA)</td><td><span class="badge yellow">Challenge</span></td><td>May constrain near-term budgets</td></tr>
+                    <tr><td>Organisational transformation</td><td><span class="badge yellow">Challenge</span></td><td>Multiple new executives, strategy in flux</td></tr>
+                    <tr><td>September 2024 deal stalled</td><td><span class="badge red">Unknown</span></td><td>Need to understand what happened</td></tr>
+                </table>
+                
+                <div class="info-box blue">
+                    <strong>Recommended Approach: CONSULTATIVE RE-ENGAGEMENT</strong>
+                    <p style="margin-bottom: 0; margin-top: 0.5rem;">Position eStore as the <strong>European digital shelf specialist</strong> that complements or replaces Amazon-focused tools. Lead with UK/European retailer coverage depth, multi-channel monitoring beyond Amazon, healthcare/supplements compliance expertise, and the ASDA exclusive partnership. Acknowledge previous engagement honestly and offer a "fresh start" given changed circumstances.</p>
+                </div>
+                
+                <h3>Estimated Difficulty of Winning: MEDIUM-HIGH</h3>
+                <table>
+                    <tr><th>Factor</th><th>Difficulty</th></tr>
+                    <tr><td>Competition (Stackline incumbent)</td><td>High</td></tr>
+                    <tr><td>Budget constraints</td><td>Medium-High</td></tr>
+                    <tr><td>Organisational change</td><td>Medium</td></tr>
+                    <tr><td>Relationship foundation</td><td>Medium (positive)</td></tr>
+                    <tr><td>Geographic fit</td><td>Medium (positive)</td></tr>
+                </table>
+                
+                <h3>Implementation Readiness</h3>
+                <div class="info-box green">
+                    <strong>Estimated time-to-value: 4-8 weeks for UK/European markets</strong> where eStore coverage is strongest. Core UK retailers (Amazon UK, ASDA, Tesco, Boots, Holland &amp; Barrett) likely well-covered. US implementation timeline would be longer given coverage gaps in specialist nutrition retailers.
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== TAB 2: OUR HISTORY WITH THEM ===================== -->
+        <div id="tab-history" class="tab-content">
+            
+            <div class="card">
+                <h2>Our History with Glanbia Performance Nutrition</h2>
+                <div class="info-box orange">
+                    <strong>Lapsed Customer - Extensive Multi-Year Engagement</strong>
+                    <p style="margin-bottom: 0; margin-top: 0.5rem;">GPN represents an extensive, multi-year engagement with eStore, culminating in a September 2024 discovery call that did not convert. The relationship spans multiple campaigns and contact points across 2022-2025.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Engagement Timeline</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2022-Early 2023</div>
+                    <p><strong>Digital shelf benchmarking discussions</strong></p>
+                    <p>Jiri Lasa confirmed Dealavo replaced with another provider; open to future discussions.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <p><strong>Amazon Climate Pledge Friendly badge campaign</strong></p>
+                    <p>Large multi-contact outreach to 10+ Glanbia stakeholders. Sustainability-focused engagement.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <p><strong>Omnichannel OOS research</strong></p>
+                    <p>Engaged Daniel Jesionek on out-of-stock analytics.</p>
+                </div>
+                
+                <div class="timeline-item warm">
+                    <div class="timeline-date">September 2024 - Discovery Call Completed</div>
+                    <p><strong>eStore &amp; GPN Intro Call (Microsoft Teams)</strong></p>
+                    <p><strong>eStore attendees:</strong> David Halls, Francis Nicholas</p>
+                    <p><strong>GPN attendees:</strong> David Randall, Julia Dixon</p>
+                    <p>Post-meeting actions: Example scoping document sent for potential POC/roll-out plan. Deck and accuracy comparison case study shared. Julia Dixon confirmed <strong>"strong interest"</strong> and said she'd revert after internal discussion.</p>
+                </div>
+                
+                <div class="timeline-item stalled">
+                    <div class="timeline-date">September 2024 - Trail Goes Cold</div>
+                    <p><strong>David Randall follow-up</strong> - Auto-reply (OOO). No further response from Julia Dixon despite "strong interest" signal.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <p><strong>Dermot Murphy outreach</strong> - "eRetail Analytics Review in 2025?" - Response unknown.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <p><strong>Sannam Chopra outreach</strong> - Asda Xpert demo proposal - Status unknown.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>HubSpot Status</h2>
+                <table>
+                    <tr><th>Field</th><th>Status</th></tr>
+                    <tr><td>Client Status</td><td><span class="badge orange">LAPSED CUSTOMER</span></td></tr>
+                    <tr><td>Sector</td><td>Pharma: Vitamins &amp; Supplements</td></tr>
+                    <tr><td>Last Meaningful Engagement</td><td>September 2024 (discovery call)</td></tr>
+                    <tr><td>Deal Stage</td><td>Stalled post-discovery</td></tr>
+                    <tr><td>Total Contacts in System</td><td>10+ (from various campaigns)</td></tr>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Known Contacts &amp; Their Stance</h2>
+                <table>
+                    <tr><th>Contact</th><th>Last Known Stance</th><th>Current Status</th></tr>
+                    <tr><td><strong>Julia Dixon</strong></td><td>"Strong interest" (Sep 2024)</td><td><span class="badge yellow">Unknown - verify if still at GPN</span></td></tr>
+                    <tr><td><strong>David Randall</strong></td><td>Participated in discovery call</td><td><span class="badge yellow">Unknown - verify role and status</span></td></tr>
+                    <tr><td><strong>Dermot Murphy</strong></td><td>Received 2025 outreach</td><td><span class="badge grey">Response unknown</span></td></tr>
+                    <tr><td><strong>Sannam Chopra</strong></td><td>Received Asda Xpert proposal</td><td><span class="badge grey">Response unknown</span></td></tr>
+                    <tr><td><strong>Jiri Lasa</strong></td><td>Open to future discussions (Jan 2023)</td><td><span class="badge grey">Likely moved on</span></td></tr>
+                </table>
+                
+                <div class="info-box red">
+                    <strong>No clear internal champion identified.</strong> Julia Dixon expressed "strong interest" but trail went cold. No evidence of active advocacy for eStore internally. Action required: Check with David Halls on what happened post-discovery call.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Blockers &amp; Timing Considerations</h2>
+                <ol>
+                    <li><strong>Why September 2024 stalled</strong> - Must understand before re-engaging; ask David Halls for context</li>
+                    <li><strong>Contact validation required</strong> - Multiple contacts may have changed roles in transformation</li>
+                    <li><strong>New leadership not briefed</strong> - Monica McGurk, Andy Shaw, Jeffrey Sigmen likely don't know about previous eStore engagement</li>
+                    <li><strong>Budget uncertainty</strong> - Margin pressure (13-14% EBITDA guidance) may constrain investments</li>
+                    <li><strong>Transformation distraction</strong> - Organisation in flux may not be ready for new vendor evaluation</li>
+                    <li><strong>Stackline incumbent</strong> - Relationship appears active; any approach must differentiate</li>
+                </ol>
+            </div>
+            
+            <div class="card">
+                <h2>Competitor Intelligence</h2>
+                
+                <h3>Confirmed: Stackline</h3>
+                <div class="info-box blue">
+                    <strong>Confidence: HIGH</strong> - Published case study with named executive quote (Gina Zilleox, Sr. Director Category Management).
+                </div>
+                <p><strong>Source:</strong> <a href="https://www.stackline.com/case-studies/glanbia-redefines-supplements-strategy-with-custom-intelligence" target="_blank" style="color: #1067db;">Stackline Case Study</a></p>
+                <p><strong>Scope:</strong> Amazon category insights, custom segment definitions, protein powder segment monitoring ($7B+ category, 20,000+ SKUs), consumer search behaviour analysis.</p>
+                <p><strong>Key observation:</strong> Relationship appears Amazon-focused. Potential gaps in non-Amazon retailer coverage (Walmart, Target, UK grocers), European marketplace depth, and content syndication/compliance.</p>
+                
+                <h3>Other Known Technology</h3>
+                <table>
+                    <tr><th>Tool</th><th>Category</th><th>Status</th></tr>
+                    <tr><td>SAP Commerce Cloud (Hybris)</td><td>E-commerce platform</td><td>Confirmed (2021 deployment)</td></tr>
+                    <tr><td>Euromonitor</td><td>Market research</td><td>Likely (job posting requirements)</td></tr>
+                    <tr><td>Black Swan Data</td><td>AI/Consumer trends</td><td>Confirmed (partnership announcement)</td></tr>
+                    <tr><td>Futureman Digital</td><td>Amazon agency</td><td>Confirmed (agency relationship)</td></tr>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Content to Reference</h2>
+                
+                <h3>Sector Landing Page</h3>
+                <a href="https://estorebrands.com/sectors/pharmaceutical-and-healthcare/" target="_blank" class="content-link">
+                    <div class="link-title">Pharmaceutical &amp; Healthcare Sector Page</div>
+                    <div class="link-url">https://estorebrands.com/sectors/pharmaceutical-and-healthcare/</div>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">GPN sits in vitamins &amp; supplements which falls under eStore's pharmaceutical and healthcare expertise. Lead with health claims compliance, regulatory content requirements, and multi-retailer complexity.</p>
+                </a>
+                
+                <h3>Relevant Ignite Articles</h3>
+                <a href="https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics" target="_blank" class="content-link">
+                    <div class="link-title">Why Pharmaceutical &amp; Healthcare Brands Need Specialised Digital Shelf Analytics</div>
+                    <div class="link-url">https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics</div>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Directly addresses regulatory content requirements and pharmacy/mass retail complexity. Suggested placement: Email 2 (Jeffrey Sigmen sequence).</p>
+                </a>
+                <a href="https://estorebrands.com/ignite/asda-xpert-a-new-era-of-retail-collaboration" target="_blank" class="content-link">
+                    <div class="link-title">ASDA Xpert: A New Era of Retail Collaboration</div>
+                    <div class="link-url">https://estorebrands.com/ignite/asda-xpert-a-new-era-of-retail-collaboration</div>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">ASDA exclusive partnership article. Suggested placement: Email 2 (European contact sequence).</p>
+                </a>
+                
+                <h3>Content Placement Rules</h3>
+                <ul>
+                    <li>Never attach PDFs or documents</li>
+                    <li>Links should feel helpful, not salesy</li>
+                    <li>Reference content naturally, don't force it</li>
+                    <li>Maximum one link per email</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- ===================== TAB 3: RETAILER OVERVIEW ===================== -->
+        <div id="tab-retailers" class="tab-content">
+            
+            <div class="card">
+                <h2>Retailer Overview</h2>
+                <div class="info-box blue">
+                    <strong>Note:</strong> This is a strategic pattern analysis based on research, not a detailed coverage check against eStore's retailer master. It identifies where GPN sells and how that aligns with eStore's geographic strengths.
+                </div>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">20-25+</div>
+                        <div class="label">Estimated Online Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">~60%</div>
+                        <div class="label">US Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">~30%</div>
+                        <div class="label">European Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">LOW</div>
+                        <div class="label">Amazon Dependency (33%)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Retailers by Channel</h2>
+                <div class="retailer-summary">
+                    <div class="retailer-region">
+                        <h4>Mass Market (High Volume)</h4>
+                        <ul class="retailer-list">
+                            <li>Amazon (US, UK, DE, FR, ES, IT, NL)</li>
+                            <li>Walmart.com</li>
+                            <li>Target.com</li>
+                            <li>Costco.com</li>
+                            <li>ASDA</li>
+                            <li>Tesco</li>
+                        </ul>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>Specialist Nutrition</h4>
+                        <ul class="retailer-list">
+                            <li>GNC</li>
+                            <li>Vitamin Shoppe</li>
+                            <li>Holland &amp; Barrett</li>
+                            <li>Bodybuilding.com</li>
+                        </ul>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>Pharmacy</h4>
+                        <ul class="retailer-list">
+                            <li>Walgreens</li>
+                            <li>CVS</li>
+                            <li>Boots</li>
+                        </ul>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>Sports &amp; Fitness</h4>
+                        <ul class="retailer-list">
+                            <li>Dick's Sporting Goods</li>
+                            <li>Sports Direct</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Notable Patterns</h2>
+                <ul class="checklist">
+                    <li><strong>Strong UK presence</strong> - Holland &amp; Barrett, Boots, ASDA, Tesco, Sports Direct all carry GPN brands</li>
+                    <li><strong>Multi-channel complexity</strong> - Not Amazon-dependent; 35% revenue through FDMC channel</li>
+                    <li><strong>European marketplace diversity</strong> - Amazon presence across UK, DE, FR, ES, IT, NL</li>
+                    <li><strong>Health/pharmacy positioning</strong> - Boots and pharmacy presence aligns with eStore healthcare expertise</li>
+                </ul>
+                
+                <h3>Critical Gaps</h3>
+                <ul class="checklist">
+                    <li class="warning"><strong>Specialist sports nutrition e-tailers</strong> - Bodybuilding.com, MyProtein marketplace coverage uncertain</li>
+                    <li class="warning"><strong>European specialist retailers</strong> - Coverage of continental European supplement specialists unclear</li>
+                    <li class="warning"><strong>D2C platforms</strong> - Body &amp; Fit divested; own brand sites not primary focus</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Implementation Note</h2>
+                <div class="info-box green">
+                    <strong>Estimated time-to-value: 4-8 weeks for UK/European markets</strong>
+                </div>
+                <h3>Rationale</h3>
+                <ul>
+                    <li>Core UK retailers (Amazon UK, ASDA, Tesco, Boots, Holland &amp; Barrett) likely well-covered by eStore</li>
+                    <li>Pharmacy channel (Boots, LloydsPharmacy) aligns with eStore healthcare coverage</li>
+                    <li>US mass retailers (Walmart, Target) likely covered but specialist nutrition (GNC, Vitamin Shoppe) uncertain</li>
+                    <li>European Amazon marketplaces covered</li>
+                </ul>
+                
+                <div class="info-box yellow">
+                    <strong>Recommendation:</strong> Lead with UK/European coverage where eStore is strongest; be transparent about US specialist retailer coverage status. For UK/European retailers, eStore can typically deliver value in 4-8 weeks. US implementation would likely take longer depending on retailer requirements.
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== TAB 4: KEY PEOPLE ===================== -->
+        <div id="tab-contacts" class="tab-content">
+            
+            <div class="card">
+                <h2>Historical Contacts (Verify Before Re-engaging)</h2>
+                <div class="info-box yellow">
+                    <strong>Important:</strong> These contacts were engaged in previous campaigns but their current status needs verification. GPN has undergone significant organisational transformation since these engagements - roles and personnel may have changed.
+                </div>
+                
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Julia Dixon</div>
+                            <div class="contact-title">Discovery call participant (September 2024)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge yellow">WARM - "Strong Interest"</span>
+                            <span class="badge orange">VERIFY STATUS</span>
+                        </div>
+                    </div>
+                    <p>Confirmed "strong interest" after September 2024 discovery call and said she'd revert after internal discussion. Trail went cold. <strong>Action:</strong> Verify if still at GPN and understand why deal stalled.</p>
+                </div>
+                
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">David Randall</div>
+                            <div class="contact-title">E-commerce/Commercial leader</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge yellow">WARM - Discovery Call</span>
+                            <span class="badge orange">VERIFY STATUS</span>
+                        </div>
+                    </div>
+                    <p>Participated in September 2024 discovery call. Showed OOO auto-reply in subsequent follow-ups. <strong>Action:</strong> Verify still at GPN and confirm current role.</p>
+                </div>
+                
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Dermot Murphy</div>
+                            <div class="contact-title">eRetail analytics</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge grey">2025 Outreach</span>
+                        </div>
+                    </div>
+                    <p>Received 2025 outreach ("eRetail Analytics Review in 2025?"). Response status unknown.</p>
+                </div>
+                
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Sannam Chopra</div>
+                            <div class="contact-title">Asda Xpert demo contact</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge grey">2025 Outreach</span>
+                        </div>
+                    </div>
+                    <p>Received Asda Xpert demo proposal in 2025. Response status unknown.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#1: Jeffrey Sigmen</div>
+                            <div class="contact-title">Chief Customer Officer, Americas</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">COLD</span>
+                            <span class="badge grey">American</span>
+                        </div>
+                    </div>
+                    <table>
+                        <tr><td><strong>Location</strong></td><td>Los Angeles, CA, USA</td></tr>
+                        <tr><td><strong>Tenure</strong></td><td>Joined GPN late 2025</td></tr>
+                        <tr><td><strong>Previous</strong></td><td>CCO at Reyes Coca-Cola Bottling; 20+ years Coca-Cola</td></tr>
+                        <tr><td><strong>Key Scope</strong></td><td>Customer and channel strategy for Americas; e-commerce performance; Amazon, Walmart, Target, Costco</td></tr>
+                    </table>
+                    <p><strong>Why they're the right contact:</strong> Direct authority over e-commerce and customer channels. New in role - actively evaluating tools and capabilities. Coca-Cola background means familiarity with sophisticated DSA approaches. Reports into Monica McGurk.</p>
+                    <h4>Specific Hooks</h4>
+                    <ul>
+                        <li>"Given your Coca-Cola background managing Amazon and Walmart, curious how you're thinking about digital shelf visibility for GPN's portfolio"</li>
+                        <li>Multi-channel complexity (35% FDMC) and how that differs from Amazon-only monitoring</li>
+                        <li>New leadership angle - offer fresh perspective on European digital shelf landscape</li>
+                    </ul>
+                    <div class="tone-box">
+                        <strong>Tone Guidance:</strong> Direct, results-focused American style. No dancing around the point. Opens with question rather than assertion.
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#2: Monica McGurk</div>
+                            <div class="contact-title">CEO, GPN Americas</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">COLD</span>
+                            <span class="badge grey">American</span>
+                            <span class="badge orange">STRATEGIC / ESCALATION</span>
+                        </div>
+                    </div>
+                    <table>
+                        <tr><td><strong>Location</strong></td><td>Greater Chicago Area, USA</td></tr>
+                        <tr><td><strong>Tenure</strong></td><td>Appointed January 2025</td></tr>
+                        <tr><td><strong>Previous</strong></td><td>SVP Strategy &amp; E-commerce at Coca-Cola; Chief eCommerce Officer at Kellogg; CEO Tropicana Brands; McKinsey Partner</td></tr>
+                        <tr><td><strong>Key Scope</strong></td><td>P&amp;L for GPN Americas (64% of revenue); strategic direction for digital commerce</td></tr>
+                    </table>
+                    <p><strong>Why they're the right contact:</strong> Ultimate decision-maker for Americas digital commerce investments. Explicit e-commerce expertise. New in role - may not know about previous eStore discussions. Board member of BellRing Brands (GPN competitor).</p>
+                    <div class="info-box yellow">
+                        <strong>Note:</strong> Consider as escalation if Jeffrey Sigmen doesn't respond, rather than simultaneous outreach. Two emails maximum for CEO-level contact.
+                    </div>
+                    <div class="tone-box">
+                        <strong>Tone Guidance:</strong> Brief, strategic, respectful of seniority. Keep emails very concise. Focus on differentiated angle, offer easy redirect.
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#3: Ronak Mashru</div>
+                            <div class="contact-title">VP Europe, GPN</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">COLD</span>
+                            <span class="badge grey">British (likely)</span>
+                            <span class="badge red">NEEDS VERIFICATION</span>
+                        </div>
+                    </div>
+                    <table>
+                        <tr><td><strong>Location</strong></td><td>UK-based (likely)</td></tr>
+                        <tr><td><strong>Key Scope</strong></td><td>Regional P&amp;L for Europe; UK, Germany, France, Benelux markets</td></tr>
+                    </table>
+                    <p><strong>Why they're the right contact:</strong> European decision-maker aligned with eStore's geographic strength. Direct relevance for UK retailer coverage value proposition. May have different priorities than US-focused leadership.</p>
+                    <div class="info-box red">
+                        <strong>Action Required:</strong> This contact needs LinkedIn verification. Role identified from corporate announcements but individual profile not confirmed. Verify role and contact details before reaching out.
+                    </div>
+                    <div class="tone-box">
+                        <strong>Tone Guidance:</strong> Professional British tone, slightly more formal. Lead with UK/European retailer expertise.
+                    </div>
+                </div>
+                
+                <div class="contact-card vacant">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#4: Head of Digital Commerce &amp; Insights, Europe</div>
+                            <div class="contact-title">Role identified in job postings - may be filled or vacant</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge grey">STATUS UNKNOWN</span>
+                            <span class="badge red">NEEDS IDENTIFICATION</span>
+                        </div>
+                    </div>
+                    <p><strong>Role responsibilities (from job posting):</strong></p>
+                    <ul>
+                        <li>"Drive GPN's Digital Shelf Optimisation agenda"</li>
+                        <li>"Lead the E-Commerce Data, Analytics &amp; Insights strategy"</li>
+                        <li>"Ensuring GPN has effective tools and partnerships"</li>
+                        <li>"Lead the evolution of the strategy to advance GPN Europe's tech and tools"</li>
+                    </ul>
+                    <div class="info-box blue">
+                        <strong>Why this role matters:</strong> Explicitly mentions "Digital Shelf Optimisation agenda" - direct relevance to eStore. Would be the operational owner of DSA tools in Europe. Search LinkedIn for current holder; if recently filled, new person may be evaluating tools.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Wendy Chang Smith</div>
+                            <div class="contact-title">Chief Digital &amp; Transformation Officer (Group Level)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">COLD</span>
+                            <span class="badge grey">American</span>
+                            <span class="badge orange">AIR COVER ONLY</span>
+                        </div>
+                    </div>
+                    <table>
+                        <tr><td><strong>Location</strong></td><td>Dublin, Ireland</td></tr>
+                        <tr><td><strong>Tenure</strong></td><td>Appointed March 2024</td></tr>
+                        <tr><td><strong>Previous</strong></td><td>VP Insights/Planning/Analytics at Amazon (2019-2020); VP/CFO EMEA at Kellogg</td></tr>
+                    </table>
+                    <p><strong>How to reference:</strong> Mention her digital transformation mandate in emails to operational contacts. "Given the digital transformation programme Wendy Chang Smith is leading..." Use as escalation if operational contacts stall. <strong>Do NOT cold email directly.</strong></p>
+                </div>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Andy Shaw</div>
+                            <div class="contact-title">CEO, GPN International (EMEA &amp; ASPAC)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">COLD</span>
+                            <span class="badge grey">British (likely)</span>
+                            <span class="badge orange">ESCALATION ONLY</span>
+                        </div>
+                    </div>
+                    <table>
+                        <tr><td><strong>Location</strong></td><td>Europe-based</td></tr>
+                        <tr><td><strong>Tenure</strong></td><td>Appointed January 2025</td></tr>
+                        <tr><td><strong>Previous</strong></td><td>14 years at Red Bull (MD UK, MD Iberia); GlaxoSmithKline</td></tr>
+                    </table>
+                    <p><strong>How to reference:</strong> Use as escalation contact for European approach if operational contacts don't respond. His Red Bull UK background makes UK retailer references particularly relevant. Single email only at CEO level.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Executive Context (Reference Only - Do NOT Contact)</h2>
+                <p><strong>Hugh McGuire - CEO, Glanbia plc</strong></p>
+                <p>Former GPN CEO (2008-2023) who built the business. Key quotes to reference: "Accelerating digital transformation" as strategic pillar, "commercial excellence" driving growth, $50M cost savings programme. His tenure as GPN CEO means he understands digital commerce challenges intimately.</p>
+                
+                <p><strong>Mark Garvey - Group CFO</strong></p>
+                <p>Controls investment budgets. Transformation programme oversight. Not relevant for direct outreach but influences budget decisions.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                <div class="contact-card skip">
+                    <ul style="margin-bottom: 0;">
+                        <li><strong>Glanbia Nutritionals contacts</strong> - B2B ingredients business, different division</li>
+                        <li><strong>Glanbia Ireland contacts</strong> - Dairy co-op, different business</li>
+                        <li><strong>Manufacturing/Operations roles</strong> - Not involved in digital commerce decisions</li>
+                        <li><strong>Brand Marketing (non-digital)</strong> - Too far from DSA decision-making</li>
+                        <li><strong>Previous contacts who've left</strong> - Robin Reinhold, Luke O'Sullivan noted as former</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== TAB 5: DRAFT EMAIL SEQUENCES ===================== -->
+        <div id="tab-emails" class="tab-content">
+            
+            <div class="disclaimer">
+                <strong>&#9888; Draft Emails - Review Before Sending:</strong> These emails are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Verify all contact details, confirm current roles, and check with David Halls about what happened after the September 2024 discovery call before re-engaging.
+            </div>
+            
+            <div class="card">
+                <h2>Nationality-Based Tone Guidance</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>AMERICAN CONTACTS</h4>
+                        <p>Jeffrey Sigmen, Monica McGurk: Direct, results-focused. Get to the point quickly. Reference specific metrics and outcomes. No excessive formality.</p>
+                    </div>
+                    <div class="summary-item" style="border-left-color: #22bb69;">
+                        <h4>BRITISH CONTACTS</h4>
+                        <p>Ronak Mashru, European contacts, Andy Shaw: Professional but slightly more formal. Lead with European expertise. Understated confidence rather than bold claims.</p>
+                    </div>
+                </div>
+                
+                <h3>Sequence Coordination</h3>
+                <div class="phase-box active-phase">
+                    <h4 style="margin-top: 0; color: #1067db;">Phase 1 (Weeks 1-3)</h4>
+                    <p>Run Jeffrey Sigmen and European contact sequences in parallel.</p>
+                </div>
+                <div class="phase-box">
+                    <h4 style="margin-top: 0;">Phase 2 (Weeks 4-5) - If No Response</h4>
+                    <p>Monica McGurk Emails 1-2 (escalation for Americas). Andy Shaw Email 1 (escalation for International).</p>
+                </div>
+                <div class="phase-box">
+                    <h4 style="margin-top: 0;">Phase 3 (Post-Q1 2026 Results, Late April)</h4>
+                    <p>If all sequences unresponsive, revisit when budgets are clearer.</p>
+                </div>
+                
+                <h3>Internal Actions Before Sending</h3>
+                <ol>
+                    <li>Check with David Halls: What happened after September 2024 discovery call? Why did it stall?</li>
+                    <li>Verify European contacts: Confirm Ronak Mashru status and identify Head of Digital Commerce Europe</li>
+                    <li>Review previous materials: What scoping document and POC proposal were sent?</li>
+                    <li>Understand Stackline relationship: Any intelligence on satisfaction with current provider?</li>
+                </ol>
+            </div>
+            
+            <!-- JEFFREY SIGMEN SEQUENCE -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3 style="margin-top: 0;">Jeffrey Sigmen</h3>
+                        <p style="margin: 0;">Chief Customer Officer, Americas &nbsp; <span class="badge blue">COLD</span> <span class="badge grey">American</span></p>
+                    </div>
+                    <div><span class="badge blue">3 Emails | 5-7 Day Intervals</span></div>
+                </div>
+                
+                <div class="email-tabs">
+                    <button class="email-tab active" data-email="js1">Email 1</button>
+                    <button class="email-tab" data-email="js2">Email 2</button>
+                    <button class="email-tab" data-email="js3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="js1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: GPN's non-Amazon channels</div>
+                        <div class="email-timing">Send: Tuesday or Wednesday, 8:00-9:00am PT</div>
+                        <div class="email-body">Jeffrey,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers.
+
+I understand you joined Glanbia Performance Nutrition from Coca-Cola, where you managed e-commerce across Amazon, Walmart, Costco, and Kroger. I'd imagine the transition to a different portfolio brings its own set of challenges - particularly around how products appear and perform across each retailer.
+
+The reason I'm reaching out: we had some conversations with Glanbia Performance Nutrition back in 2024 that didn't progress, and I'm not entirely sure why. Given you're new in the role, I thought it worth reaching out fresh rather than assume you know the history.
+
+The angle that might be relevant: with 35% of GPN revenue flowing through food, drug, and mass channels outside Amazon, I'm curious how you're currently monitoring digital shelf performance across those retailers. Platforms like Stackline are strong on Amazon, but the Walmart/Target/Costco picture is often less clear.
+
+If that's something you're thinking about, I'd be interested to hear how you're approaching it.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Jeffrey's exact start date at GPN before sending. Check for any public information about his initial priorities. Consider referencing specific FDMC retailers if research confirms particular focus.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Direct American tone - no dancing around the point. Acknowledges previous GPN relationship honestly. Positions Stackline as strong on Amazon without being dismissive. Opens with question rather than assertion. No meeting request or pressure.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="js2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: European vs US digital shelf performance</div>
+                        <div class="email-timing">Send: Tuesday or Wednesday, 5-7 days after Email 1</div>
+                        <div class="email-body">Jeffrey,
+
+Following up on my earlier note about digital shelf analytics beyond Amazon.
+
+One dimension I didn't mention: with 36% of Glanbia Performance Nutrition revenue coming from international markets, I'd imagine there's complexity in understanding how Optimum Nutrition and your other brands perform across European retailers specifically.
+
+The challenge is often different from the US. European markets fragment across different retailer types - pharmacy chains like Boots, health specialists like Holland & Barrett, grocery like ASDA and Tesco - each with different content requirements and competitive dynamics. The supplements category also faces EU EFSA health claims regulations that create content compliance challenges.
+
+eStore's strength is European retailer coverage. We've worked with healthcare and supplements brands on these exact challenges. We've written about the specific considerations for pharmaceutical and healthcare brands on the digital shelf - here's the article if useful: https://estorebrands.com/ignite/why-pharmaceutical-and-healthcare-brands-need-specialised-digital-shelf-analytics
+
+I'm curious whether European digital shelf performance sits within your remit, or whether that's managed separately.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Check if Jeffrey has any European responsibility or if it's entirely Andy Shaw's domain. Research any specific European initiatives GPN has announced. Verify current brand portfolio.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuinely new angle (European dimension) rather than restating Email 1. References specific research finding (36% international revenue). Includes content link naturally positioned as value-add. Ends with qualifying question about European remit.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="js3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: What's changed at eStore</div>
+                        <div class="email-timing">Send: Tuesday or Wednesday, 5-7 days after Email 2</div>
+                        <div class="email-body">Jeffrey,
+
+One more thought - given Glanbia Performance Nutrition had conversations with eStore previously, I wanted to acknowledge that what you'd see today is quite different from what was evaluated then.
+
+We've invested heavily in making the platform more actionable - moving beyond "here's your data" to "here's what you should do about it." Features like AI-powered prioritisation and daily action recommendations have changed how teams actually use digital shelf insights.
+
+I don't know what specifically didn't progress in 2024, so I won't assume this addresses it. But if the concern was around actionability or ease of use, that's where the most significant evolution has happened.
+
+Either way, I'd be curious to understand how you're currently thinking about digital shelf analytics across GPN's retailer mix - whether that's working well, or whether there are gaps worth exploring.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Before sending, try to understand why 2024 conversations stalled (check with David Halls). If specific concerns are known, reference them more directly. Consider timing relative to GPN's Q1 2026 results (late April).</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds new angle (platform evolution) rather than offering to step back. Acknowledges previous relationship honestly without pretending to know full story. Innovation messaging appropriate for re-engagement context. Ends with curiosity, not an exit offer.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- MONICA MCGURK SEQUENCE -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3 style="margin-top: 0;">Monica McGurk</h3>
+                        <p style="margin: 0;">CEO, GPN Americas &nbsp; <span class="badge blue">COLD</span> <span class="badge grey">American</span> <span class="badge orange">ESCALATION</span></p>
+                    </div>
+                    <div><span class="badge blue">2 Emails | 7-10 Day Interval</span></div>
+                </div>
+                
+                <div class="email-tabs">
+                    <button class="email-tab active" data-email="mm1">Email 1</button>
+                    <button class="email-tab" data-email="mm2">Email 2</button>
+                </div>
+                
+                <div class="email-content active" data-email="mm1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Digital shelf analytics for GPN</div>
+                        <div class="email-timing">Send: Tuesday morning, 7:30-8:30am CT</div>
+                        <div class="email-body">Monica,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers.
+
+I'm reaching out because eStore had conversations with Glanbia Performance Nutrition in 2024 that didn't progress, and given the leadership changes since then, I thought it worth a fresh approach.
+
+The specific angle: with 35% of GPN revenue flowing through food, drug, and mass channels outside Amazon, and 36% coming from international markets, there's often a gap in understanding how products perform across European retailers and non-Amazon US channels. That's where eStore has invested most deeply.
+
+I've also reached out to Jeffrey Sigmen on this. If there's someone else who owns digital shelf analytics for GPN, I'd welcome the direction.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Consider whether to send to Monica first or Jeffrey first (or simultaneously). If Jeffrey has already responded positively, may not need Monica outreach. Verify Monica's current priorities from any recent public statements.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Very brief - respects senior executive's time. Acknowledges previous relationship honestly. Focuses on differentiated angle (European, non-Amazon). Offers easy redirect if she's not the right contact. No pressure, no meeting request.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="mm2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: GPN's digital transformation priorities</div>
+                        <div class="email-timing">Send: 7-10 days after Email 1 (only if no response)</div>
+                        <div class="email-body">Monica,
+
+Brief follow-up on my earlier note about digital shelf analytics.
+
+Given the digital transformation programme Glanbia is running, I'm curious where digital shelf monitoring fits in the priority stack. It often sits between "nice to have" and "critical infrastructure" depending on how much revenue flows through online retailers and how competitive the category is.
+
+For GPN, with $600M+ in online revenue and competitive pressure from brands like BellRing, I'd imagine there's a case for robust visibility into how products appear across retailer sites. Whether that's a current focus or not, I'd be interested to understand.
+
+If Jeffrey Sigmen or someone else on your team is the right contact, happy to connect with them directly.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Only send if Email 1 received no response. Check for any recent announcements about GPN's digital priorities. Consider timing relative to transformation programme milestones.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Still brief - doesn't overstay welcome. References research (digital transformation, BellRing competition, $600M online). Positions DSA within broader strategic context. Offers redirect again. No third email for CEO - two touches is sufficient.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EUROPEAN CONTACT SEQUENCE -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3 style="margin-top: 0;">European Operational Contact</h3>
+                        <p style="margin: 0;">Ronak Mashru, VP Europe (NEEDS VERIFICATION) &nbsp; <span class="badge blue">COLD</span> <span class="badge grey">British (likely)</span></p>
+                    </div>
+                    <div><span class="badge red">VERIFY BEFORE SENDING</span> <span class="badge blue">3 Emails | 5-7 Day Intervals</span></div>
+                </div>
+                
+                <div class="info-box red" style="margin: 0 0 1.5rem 0;">
+                    <strong>Critical:</strong> Verify contact before sending. Confirm Ronak Mashru status on LinkedIn and identify current holder of European digital commerce role. If Head of Digital Commerce Europe has been filled, that person may be a better primary target.
+                </div>
+                
+                <div class="email-tabs">
+                    <button class="email-tab active" data-email="eu1">Email 1</button>
+                    <button class="email-tab" data-email="eu2">Email 2</button>
+                    <button class="email-tab" data-email="eu3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="eu1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Digital shelf analytics for GPN Europe</div>
+                        <div class="email-timing">Send: Tuesday or Wednesday, 9:00-10:00am GMT</div>
+                        <div class="email-body">[NAME],
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, with particular strength across UK and European markets.
+
+I'm reaching out because eStore had conversations with the Glanbia Performance Nutrition team in 2024 that didn't progress, but I'm not sure if the European side was involved in those discussions. Given the focus on digital shelf optimisation that I've seen in GPN's European team priorities, it seemed worth a fresh approach.
+
+The specific angle: for brands like Optimum Nutrition selling across retailers like Holland & Barrett, Boots, ASDA, and Tesco in the UK, plus the European Amazons, there's often a fragmented picture of how products appear and perform. Add in EU EFSA health claims compliance for supplements, and content accuracy becomes particularly important.
+
+That's the challenge eStore was built to address. We have deep European retailer coverage and have worked with healthcare and supplements brands on exactly this.
+
+I'm curious how GPN Europe currently approaches digital shelf monitoring - whether it's centralised with the Americas team, managed locally, or still being figured out.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>CRITICAL: Verify contact name and title before sending. Research any specific European initiatives or challenges. Check if previous eStore conversations included European stakeholders. Verify brand portfolio presence across named UK retailers.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Leads with European strength - eStore's core differentiation. Professional British tone. Acknowledges previous relationship but notes European team may not have been involved. References Digital Shelf Optimisation agenda from job postings. Ends with qualifying question.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="eu2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: ASDA Xpert for GPN</div>
+                        <div class="email-timing">Send: Tuesday or Wednesday, 5-7 days after Email 1</div>
+                        <div class="email-body">[NAME],
+
+Following up on digital shelf analytics for GPN Europe.
+
+One thing I didn't mention: eStore has an exclusive partnership with ASDA called ASDA Xpert. It provides retailer-verified data directly from ASDA's systems rather than scraped data, which means more accurate availability and content information.
+
+Given GPN's presence in ASDA, this might be relevant. We've written about how it works here: https://estorebrands.com/ignite/asda-xpert-a-new-era-of-retail-collaboration
+
+Separately, I'm curious how the European digital shelf picture fits with what the Americas team is doing. I've also reached out to Jeffrey Sigmen - not sure if there's coordination across regions on this or if it's managed independently.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify GPN has meaningful ASDA presence before emphasising ASDA Xpert. Check if any previous eStore conversations mentioned ASDA Xpert specifically. Consider whether ASDA is a priority retailer for GPN or secondary.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuinely new information (ASDA Xpert partnership). ASDA Xpert is a named partnership eStore can discuss openly. Includes content link positioned naturally. Connects to broader organisational question. British professional tone maintained.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="eu3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: What's changed at eStore</div>
+                        <div class="email-timing">Send: Tuesday or Wednesday, 5-7 days after Email 2</div>
+                        <div class="email-body">[NAME],
+
+One more thought on digital shelf analytics for GPN Europe.
+
+If your team has evaluated eStore previously, or if impressions have filtered through from the Americas conversations, I wanted to note that the platform has evolved significantly. We've invested heavily in actionability - moving beyond data dashboards to prioritised daily actions and AI-powered recommendations for what to do next.
+
+For European markets specifically, this matters because the retailer landscape fragments across different types (pharmacy, health specialist, grocery, Amazon marketplaces) each with different content requirements. The challenge isn't just collecting data - it's knowing which issues to address first.
+
+Either way, I'd be curious to understand how GPN Europe thinks about digital shelf performance across your retailer mix. Is it something you're actively monitoring, or more of a gap you're aware of but haven't prioritised?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Check if European team had any direct exposure to previous eStore evaluation. Consider timing relative to European strategic planning cycles. Verify whether Head of Digital Commerce Europe role has been filled.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds new angle (platform evolution) specific to European context. Connects innovation messaging to European market fragmentation challenge. Ends with curiosity about current situation, not an exit offer. Professional British tone throughout.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ANDY SHAW SEQUENCE -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3 style="margin-top: 0;">Andy Shaw</h3>
+                        <p style="margin: 0;">CEO, GPN International &nbsp; <span class="badge blue">COLD</span> <span class="badge grey">British (likely)</span> <span class="badge orange">ESCALATION ONLY</span></p>
+                    </div>
+                    <div><span class="badge red">1 Email Only | After Operational Contacts Exhausted</span></div>
+                </div>
+                
+                <div class="email-content active" data-email="as1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Digital shelf analytics for GPN International</div>
+                        <div class="email-timing">Send: Only after operational European contacts exhausted</div>
+                        <div class="email-body">Andy,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, with particular strength across UK and European markets.
+
+I've reached out to your team about this but wanted to flag it at your level as well. eStore had conversations with Glanbia Performance Nutrition in 2024 that didn't progress, and given the leadership changes since then, I thought it worth a fresh approach.
+
+The specific angle: for brands like Optimum Nutrition selling across UK retailers like Boots, Holland & Barrett, ASDA, and Tesco, plus European Amazon marketplaces, there's often a fragmented picture of digital shelf performance. That's the challenge eStore was built to address.
+
+If there's someone on your team who owns this area, I'd welcome the direction.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Only send if Ronak Mashru and other operational contacts haven't responded. Consider timing relative to any strategic announcements. His Red Bull UK background may make UK retailer references particularly relevant.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Very brief - respects CEO-level time. Acknowledges previous relationship. Focuses on UK/European differentiation. Offers easy redirect to appropriate team member. Single email only - do not follow up at CEO level.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ===================== TAB 6: OBJECTION HANDLING ===================== -->
+        <div id="tab-objections" class="tab-content">
+            
+            <div class="card">
+                <h2>Decision Framework</h2>
+                <div class="info-box yellow">
+                    <strong>GPN is a MODERATE FIT - approach should be CONSULTATIVE RE-ENGAGEMENT.</strong> This is not cold outreach. The recommended tone is measured, not overly bullish. Focus on understanding, not selling. Ask more than tell. Soft call-to-action ("worth a conversation" not "book a demo"). No timeline pressure.
+                </div>
+                
+                <h3>Fit Level Drives Positioning</h3>
+                <table>
+                    <tr><th>Aspect</th><th>Guidance</th></tr>
+                    <tr><td>Confidence level</td><td>Measured, not overly bullish</td></tr>
+                    <tr><td>Pitch intensity</td><td>Low - focus on understanding, not selling</td></tr>
+                    <tr><td>Question ratio</td><td>High - ask more than tell</td></tr>
+                    <tr><td>Call-to-action</td><td>Soft - "worth a conversation" not "book a demo"</td></tr>
+                    <tr><td>Timeline pressure</td><td>None - let them set the pace</td></tr>
+                    <tr><td>Competition acknowledgment</td><td>Open - acknowledge Stackline exists</td></tr>
+                    <tr><td>Gap acknowledgment</td><td>Honest - be upfront about US coverage questions</td></tr>
+                </table>
+                
+                <h3>Key Positioning Principles</h3>
+                <ul>
+                    <li><strong>European retailer expertise</strong> - Lead with UK/European coverage as primary differentiator</li>
+                    <li><strong>Multi-channel beyond Amazon</strong> - Position against Stackline's Amazon focus without attacking directly</li>
+                    <li><strong>Healthcare compliance</strong> - Leverage supplements/pharma content expertise</li>
+                    <li><strong>Previous engagement</strong> - Acknowledge openly; don't pretend history doesn't exist</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Common Objections &amp; Responses</h2>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We already use Stackline for digital shelf analytics"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Don't challenge Stackline directly - acknowledge their strength on Amazon and position eStore as complementary for the channels Stackline doesn't cover well.</p>
+                        <p><strong>Key points:</strong></p>
+                        <ul>
+                            <li>"Stackline is strong on Amazon - no argument there. The question is whether 35% of your revenue flowing through FDMC channels and 36% through international markets gets the same level of visibility."</li>
+                            <li>"This isn't about replacing what's working. It's about whether there are gaps in non-Amazon and European coverage that leave blind spots."</li>
+                            <li>"We've worked alongside other DSA providers at several clients - complementary toolsets often give the most complete picture."</li>
+                        </ul>
+                        <p><strong>Evidence:</strong> Stackline's published case study focuses explicitly on Amazon category insights and custom segments. No mention of FDMC, European retailers, or content compliance.</p>
+                        <p><strong>Redirect:</strong> Ask what visibility they currently have into Walmart, Target, Boots, Holland &amp; Barrett, and ASDA performance. If the answer is limited, that's the gap.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We evaluated eStore in 2024 and didn't proceed"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Acknowledge the history honestly and focus on what's changed since then - both at eStore and at GPN.</p>
+                        <p><strong>Key points:</strong></p>
+                        <ul>
+                            <li>"I know we connected back in September 2024 and things didn't progress - I'm not entirely sure why, and I'm not going to pretend otherwise."</li>
+                            <li>"A lot has changed at GPN since then - new leadership, new strategic priorities, the Body &amp; Fit divestiture shifting focus to retailer channels."</li>
+                            <li>"eStore has also evolved significantly - particularly around actionability, AI-powered prioritisation, and European retailer depth."</li>
+                            <li>"Given the changes on both sides, it might be worth a fresh conversation - no pressure if the timing isn't right."</li>
+                        </ul>
+                        <p><strong>What NOT to do:</strong> Don't be defensive. Don't assume you know why they didn't proceed. Don't dismiss their previous evaluation.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"How many of our retailers can you actually monitor?"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Be transparent about strengths and gaps. Lead with European coverage where eStore is strongest.</p>
+                        <p><strong>Key points:</strong></p>
+                        <ul>
+                            <li>"For your UK and European retailers - Amazon UK, ASDA, Tesco, Boots, Holland &amp; Barrett, European Amazons - we have strong existing coverage and can deliver value within 4-8 weeks."</li>
+                            <li>"For US mass retailers like Walmart and Target, we also have coverage."</li>
+                            <li>"For specialist nutrition retailers like GNC and Vitamin Shoppe, I'd want to have an honest conversation about what's possible and what timeline looks like."</li>
+                            <li>"Rather than overstate what we can do, I'd prefer to start with the markets where we can deliver immediate value and expand from there."</li>
+                        </ul>
+                        <p><strong>Positioning:</strong> Honesty about coverage builds trust. A phased approach (Europe first, then expand) is more credible than promising everything immediately.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're in the middle of a transformation - not the right time"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Respect the timing concern genuinely. Don't force urgency that doesn't exist.</p>
+                        <p><strong>Key points:</strong></p>
+                        <ul>
+                            <li>"Completely understand. Transformations create enough complexity without adding new vendor evaluations on top."</li>
+                            <li>"That said, digital shelf analytics often gets more important during transformation, not less - especially when new leadership is trying to understand what's actually happening across retail channels."</li>
+                            <li>"Happy to park this and reconnect after Q1 results when things may be clearer. Would it be useful if I checked back in April-May timeframe?"</li>
+                        </ul>
+                        <p><strong>Key principle:</strong> Don't push. Let them set the pace. Offer to reconnect at a specific future date rather than an indefinite "let's stay in touch."</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We don't have budget for new tools right now"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Acknowledge the margin pressure context. Don't dismiss the budget concern - it's real given 13-14% EBITDA guidance and $200M input cost headwind.</p>
+                        <p><strong>Key points:</strong></p>
+                        <ul>
+                            <li>"I understand - the margin pressure from whey costs is well-documented and I wouldn't pretend it's not affecting investment decisions."</li>
+                            <li>"Two thoughts: first, digital shelf tools often pay for themselves through content error detection and competitive pricing alerts - we can model the ROI specifically for your retailer mix."</li>
+                            <li>"Second, we can start small - a focused European pilot covering your top 5-6 UK retailers would give you real data on value without a significant commitment."</li>
+                        </ul>
+                        <p><strong>Alternative angle:</strong> The $50M cost savings programme includes "accelerating digital transformation" - position DSA as part of the efficiency agenda, not an incremental cost.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We need US-focused coverage - our Americas business is 64% of revenue"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Acknowledge the US importance. Be honest about where eStore is strongest while noting US capabilities.</p>
+                        <p><strong>Key points:</strong></p>
+                        <ul>
+                            <li>"You're right that Americas is the majority of the business, and that's where Stackline appears to be strong, particularly on Amazon."</li>
+                            <li>"The question is whether the non-Amazon US channels (Walmart, Target, CVS, Walgreens) and the 36% international business get the same level of attention."</li>
+                            <li>"eStore covers US mass retailers like Walmart and Target, and we have deep European coverage. The opportunity might be in the gaps between what Stackline covers and what we can add."</li>
+                            <li>"We could start with European markets where the fit is strongest and extend to US non-Amazon channels based on what you're seeing."</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Our category team handles competitive intelligence - they're happy with what they have"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Respect the category team's work. Position eStore as enabling them, not replacing them.</p>
+                        <p><strong>Key points:</strong></p>
+                        <ul>
+                            <li>"Category teams are often the most demanding users of digital shelf data because they understand the competitive nuances. If your team is getting what they need, that's great."</li>
+                            <li>"The question I'd ask is whether they're spending time manually gathering data across retailers, or whether they have automated monitoring giving them daily alerts."</li>
+                            <li>"The Stackline case study mentions saving 10 hours per month on manual work for Amazon. But what about time spent on non-Amazon competitive analysis?"</li>
+                        </ul>
+                        <p><strong>Redirect:</strong> Ask to understand their current workflow for monitoring content, pricing, and availability across non-Amazon retailers. The manual effort there is often significant.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're focusing on protein growth brands - supplements monitoring isn't a priority"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Align with their stated strategic priority. The "protein growth brands" focus (Optimum Nutrition, Isopure, BSN) is precisely where digital shelf monitoring matters most.</p>
+                        <p><strong>Key points:</strong></p>
+                        <ul>
+                            <li>"The protein growth brand strategy is exactly where digital shelf analytics has the most impact. Optimum Nutrition is the world's #1 selling whey protein - defending that position across 20+ retailers requires visibility into how it appears everywhere."</li>
+                            <li>"With BellRing growing faster in RTD and THG/Myprotein competing aggressively in Europe, the competitive dynamics around your core brands are intensifying."</li>
+                            <li>"SlimFast and Body &amp; Fit are divested - the brands that remain are the ones worth monitoring most closely."</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"What makes eStore different from every other DSA provider?"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Be specific to GPN's situation rather than giving a generic capabilities pitch.</p>
+                        <p><strong>Key differentiators for GPN:</strong></p>
+                        <ul>
+                            <li><strong>European coverage depth:</strong> "Built for European markets from day one, not a bolt-on. UK grocers, pharmacies, health specialists, European Amazons - that's our core strength."</li>
+                            <li><strong>Non-Amazon focus:</strong> "35% of your revenue flows through channels that Amazon-focused tools don't cover well."</li>
+                            <li><strong>Healthcare expertise:</strong> "Regulatory content requirements in supplements is a challenge we understand from working with Sanofi, Viatris, and Danone."</li>
+                            <li><strong>ASDA exclusive partnership:</strong> "Direct retailer integration with ASDA providing retailer-verified data, not scraped approximations."</li>
+                            <li><strong>Lapsed customer familiarity:</strong> "You know us, we know you - let's see what's changed."</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"I need to check with the team / I'll get back to you"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> This is often a soft brush-off but could be genuine. Make it easy for them to come back, and offer to help their internal conversation.</p>
+                        <p><strong>Key points:</strong></p>
+                        <ul>
+                            <li>"Of course - take the time you need. If it would be useful, I can put together a brief overview of what eStore covers specifically for GPN's retailer mix, which might help the internal conversation."</li>
+                            <li>"Would it help if I shared a summary of what's changed since the 2024 evaluation? Might save your team time in assessing whether it's worth another look."</li>
+                        </ul>
+                        <p><strong>Follow-up approach:</strong> If no response after 2 weeks, one brief follow-up referencing the specific action they mentioned. After that, pause and revisit in the next engagement window.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                <ul>
+                    <li><strong>Never dismiss the objection</strong> - Acknowledge it genuinely, especially budget and timing concerns</li>
+                    <li><strong>Use evidence, not promises</strong> - Reference specific data points (35% FDMC, 36% international, Stackline's Amazon focus)</li>
+                    <li><strong>Offer flexibility</strong> - Pilots, phased approaches, Europe-first starts</li>
+                    <li><strong>Be honest about limitations</strong> - Especially US specialist retailer coverage and geographic gaps</li>
+                    <li><strong>Ask questions to understand root concern</strong> - The stated objection is often not the real issue</li>
+                    <li><strong>Don't over-explain</strong> - GPN is sophisticated; respect that</li>
+                    <li><strong>Acknowledge Stackline exists</strong> - Position as complementary, not competitive</li>
+                    <li><strong>Reference the previous relationship</strong> - "I know we had conversations in 2024 that didn't progress - happy to start fresh"</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Geographic Positioning Approach</h2>
+                <div class="info-box blue">
+                    <strong>Lead with UK/Europe.</strong> Given GPN's 36% international revenue and eStore's European strength:
+                </div>
+                <ol>
+                    <li>Position as the <strong>"European digital shelf specialist"</strong></li>
+                    <li>Reference UK operations (Harrogate, Middlesbrough) to show market understanding</li>
+                    <li>Note that US platforms often underserve European retailer coverage</li>
+                    <li>ASDA exclusive partnership as proof point of UK commitment</li>
+                    <li>Offer to start with European markets and expand to US later</li>
+                </ol>
+            </div>
+        </div>
+        
+    </div>
+    
+    <footer>
+        <p>eStore Action Plan - Glanbia Performance Nutrition | February 2026</p>
+        <p>Created by James / eStore Business Development</p>
+    </footer>
+    
+    <script>
+        // Tab Navigation
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        // Email Tab Navigation
+        document.querySelectorAll('.email-tabs').forEach(container => {
+            container.querySelectorAll('.email-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const emailNum = this.dataset.email;
+                    const sequence = this.closest('.email-sequence');
+                    container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    sequence.querySelectorAll('.email-content').forEach(c => c.classList.remove('active'));
+                    sequence.querySelector(`.email-content[data-email="${emailNum}"]`).classList.add('active');
+                });
+            });
+        });
+        
+        // Objection Card Toggle
+        function toggleObjection(header) {
+            header.closest('.objection-card').classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
