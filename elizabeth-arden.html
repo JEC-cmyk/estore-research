@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elizabeth Arden - eStore Action Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 { font-size: 2rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .header-subtitle { font-size: 1.1rem; opacity: 0.95; margin-bottom: 1rem; }
+        
+        .header-meta {
+            font-size: 0.9rem; opacity: 0.9;
+            display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem;
+        }
+        .header-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        
+        .tabs {
+            display: flex; gap: 0.5rem; margin-bottom: 2rem;
+            background: white; padding: 1rem; border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.25rem; background: #f8f9fa;
+            border: none; border-radius: 8px; cursor: pointer;
+            font-family: 'Figtree', sans-serif; font-size: 0.9rem;
+            font-weight: 600; color: #2c2c2c; transition: all 0.3s ease;
+        }
+        .tab:hover { background: #e9ecef; }
+        .tab.active { background: #1067db; color: white; }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        .card {
+            background: white; border-radius: 12px; padding: 2rem;
+            margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .card h2 { font-size: 1.5rem; margin-bottom: 1rem; color: #1067db; font-weight: 700; }
+        .card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; margin-top: 1.5rem; color: #2c2c2c; font-weight: 600; }
+        .card h4 { font-size: 1rem; margin-bottom: 0.5rem; margin-top: 1rem; color: #495057; font-weight: 600; }
+        .card p { margin-bottom: 1rem; }
+        .card ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        .card ul li { margin-bottom: 0.5rem; }
+        
+        .fit-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 1rem 1.5rem; border-radius: 8px;
+            font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;
+        }
+        .fit-badge.strong { background: #d4edda; color: #155724; border: 2px solid #22bb69; }
+        .fit-badge.moderate { background: #fff3cd; color: #856404; border: 2px solid #ffba1c; }
+        .fit-badge.weak { background: #f8d7da; color: #721c24; border: 2px solid #f44f2f; }
+        
+        .info-box {
+            padding: 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;
+            border-left: 4px solid;
+        }
+        .info-box.green { background: #d4edda; border-color: #22bb69; }
+        .info-box.blue { background: #d6eeff; border-color: #1067db; }
+        .info-box.orange { background: #fff3cd; border-color: #ff7a00; }
+        .info-box.red { background: #f8d7da; border-color: #f44f2f; }
+        .info-box.grey { background: #e9ecef; border-color: #6c757d; }
+        
+        .stat-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem; margin-bottom: 1.5rem;
+        }
+        .stat-card {
+            background: #f8f9fa; padding: 1.25rem; border-radius: 8px;
+            text-align: center; border: 1px solid #e9ecef;
+        }
+        .stat-card .stat-value { font-size: 1.75rem; font-weight: 700; color: #1067db; }
+        .stat-card .stat-label { font-size: 0.85rem; color: #6c757d; margin-top: 0.25rem; }
+        
+        .badge {
+            display: inline-block; padding: 0.25rem 0.75rem;
+            border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+        }
+        .badge.green { background: #d4edda; color: #155724; }
+        .badge.blue { background: #d6eeff; color: #0d5cb6; }
+        .badge.orange { background: #fff3cd; color: #856404; }
+        .badge.red { background: #f8d7da; color: #721c24; }
+        .badge.grey { background: #e9ecef; color: #495057; }
+        .badge.yellow { background: #fff3cd; color: #856404; }
+        .badge.purple { background: #e8d5f5; color: #5b2d8e; }
+        
+        table {
+            width: 100%; border-collapse: collapse; margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        th {
+            background: #f8f9fa; padding: 0.75rem 1rem;
+            text-align: left; font-weight: 600; border-bottom: 2px solid #dee2e6;
+        }
+        td {
+            padding: 0.75rem 1rem; border-bottom: 1px solid #dee2e6;
+            vertical-align: top;
+        }
+        tr:hover { background: #f8f9fa; }
+        
+        .contact-card {
+            border: 1px solid #dee2e6; border-radius: 12px;
+            padding: 1.5rem; margin-bottom: 1.5rem;
+            transition: box-shadow 0.3s ease;
+        }
+        .contact-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .contact-card.primary { border-left: 4px solid #1067db; }
+        .contact-card.secondary { border-left: 4px solid #ff7a00; }
+        .contact-card.historical { border-left: 4px solid #22bb69; }
+        .contact-card.skip { border-left: 4px solid #f44f2f; opacity: 0.8; }
+        
+        .contact-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;
+        }
+        .contact-name { font-size: 1.15rem; font-weight: 700; color: #2c2c2c; }
+        .contact-title { font-size: 0.95rem; color: #6c757d; }
+        .contact-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        
+        .email-sequence { margin-bottom: 2rem; }
+        .email-sequence-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;
+            padding-bottom: 1rem; border-bottom: 2px solid #e9ecef;
+        }
+        .email-sequence-header h3 { margin: 0; }
+        
+        .email-tabs {
+            display: flex; gap: 0.25rem; margin-bottom: 1rem;
+        }
+        .email-tab {
+            padding: 0.5rem 1rem; background: #f8f9fa; border: 1px solid #dee2e6;
+            border-radius: 6px 6px 0 0; cursor: pointer;
+            font-family: 'Figtree', sans-serif; font-size: 0.85rem;
+            font-weight: 600; color: #6c757d; transition: all 0.2s;
+        }
+        .email-tab:hover { background: #e9ecef; }
+        .email-tab.active { background: #1067db; color: white; border-color: #1067db; }
+        
+        .email-content { display: none; }
+        .email-content.active { display: block; }
+        
+        .email-box {
+            background: #fafbfc; border: 1px solid #dee2e6;
+            border-radius: 0 8px 8px 8px; padding: 1.5rem;
+        }
+        .email-subject {
+            font-weight: 600; margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem; border-bottom: 1px solid #e9ecef;
+        }
+        .email-timing {
+            font-size: 0.85rem; color: #6c757d; margin-bottom: 1rem;
+        }
+        .email-body {
+            white-space: pre-wrap; line-height: 1.7; font-size: 0.95rem;
+        }
+        .email-notes {
+            background: #fff3cd; border-radius: 8px; padding: 1.25rem;
+            margin-top: 1rem; font-size: 0.9rem;
+        }
+        .email-notes h5 { margin-bottom: 0.5rem; color: #856404; }
+        .email-notes p, .email-notes ul { margin-bottom: 0.5rem; }
+        .email-notes ul { margin-left: 1.25rem; }
+        
+        .strategy-notes {
+            background: #d6eeff; border-radius: 8px; padding: 1.25rem;
+            margin-top: 0.75rem; font-size: 0.9rem;
+        }
+        .strategy-notes h5 { margin-bottom: 0.5rem; color: #0d5cb6; }
+        
+        .objection-card {
+            border: 1px solid #dee2e6; border-radius: 12px;
+            padding: 1.5rem; margin-bottom: 1.5rem;
+            transition: box-shadow 0.3s ease;
+        }
+        .objection-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .objection-statement {
+            font-weight: 600; font-size: 1.05rem; color: #f44f2f;
+            margin-bottom: 1rem; padding-bottom: 0.75rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .checklist { list-style: none; margin-left: 0; }
+        .checklist li { padding: 0.5rem 0; padding-left: 2rem; position: relative; }
+        .checklist li::before {
+            content: '✓'; position: absolute; left: 0;
+            color: #22bb69; font-weight: 700; font-size: 1.1rem;
+        }
+        
+        .disclaimer-box {
+            background: #fff3cd; border: 2px solid #ffba1c;
+            border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .timeline-item {
+            padding: 1rem 0 1rem 2rem; border-left: 3px solid #1067db;
+            position: relative; margin-bottom: 0.5rem;
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -7px; top: 1.25rem;
+            width: 12px; height: 12px; border-radius: 50%;
+            background: #1067db; border: 2px solid white;
+        }
+        .timeline-date { font-weight: 600; color: #1067db; font-size: 0.9rem; }
+        .timeline-detail { color: #495057; margin-top: 0.25rem; }
+        
+        .tone-guide {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem; margin-bottom: 1.5rem;
+        }
+        .tone-card {
+            background: #f8f9fa; border-radius: 8px; padding: 1.25rem;
+            border: 1px solid #e9ecef;
+        }
+        .tone-card h4 { margin-top: 0; }
+        
+        .content-link {
+            display: block; padding: 1rem; background: #f8f9fa;
+            border-radius: 8px; border: 1px solid #e9ecef;
+            margin-bottom: 0.75rem; text-decoration: none; color: #2c2c2c;
+            transition: all 0.2s;
+        }
+        .content-link:hover { border-color: #1067db; background: #d6eeff; }
+        .content-link strong { color: #1067db; }
+        
+        .two-col {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.5rem; }
+            .container { padding: 1rem; }
+            .card { padding: 1.25rem; }
+            .tabs { flex-direction: column; }
+            .tab { text-align: center; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .two-col { grid-template-columns: 1fr; }
+            .contact-header { flex-direction: column; }
+            .email-sequence-header { flex-direction: column; }
+            .tone-guide { grid-template-columns: 1fr; }
+        }
+        
+        @media print {
+            .tabs { display: none; }
+            .tab-content { display: block !important; page-break-inside: avoid; }
+            .header { background: #1067db !important; -webkit-print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Elizabeth Arden</h1>
+        <div class="header-subtitle">eStore Strategic Fit Assessment &amp; Action Plan</div>
+        <div class="header-meta">
+            <div class="header-meta-item">📋 Parent: Revlon Group Holdings LLC</div>
+            <div class="header-meta-item">💰 Revlon Revenue: ~$2.0bn (Elizabeth Arden est. $560-750m)</div>
+            <div class="header-meta-item">🌍 130+ countries</div>
+            <div class="header-meta-item">🏢 HQ: New York / UK: London NW1</div>
+            <div class="header-meta-item">📅 Created: 4 February 2026</div>
+            <div class="header-meta-item">👤 Author: James</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="tabs" role="tablist">
+            <button class="tab active" data-tab="fit" role="tab" aria-selected="true">1. Strategic Fit Assessment</button>
+            <button class="tab" data-tab="history" role="tab">2. Our History with Them</button>
+            <button class="tab" data-tab="retailers" role="tab">3. Retailer Overview</button>
+            <button class="tab" data-tab="contacts" role="tab">4. Key People</button>
+            <button class="tab" data-tab="emails" role="tab">5. Draft Email Sequences</button>
+            <button class="tab" data-tab="objections" role="tab">6. Objection Handling</button>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- TAB 1: STRATEGIC FIT ASSESSMENT -->
+        <!-- ================================================================ -->
+        <div id="fit" class="tab-content active">
+            <div class="card">
+                <h2>Strategic Fit Assessment</h2>
+                <div class="fit-badge strong">🟢 STRONG FIT</div>
+                <p>Elizabeth Arden is a high-priority warm re-engagement opportunity. No incumbent DSA provider, extensive European distribution, perfect sector alignment with Beauty &amp; Personal Care, four confirmed contacts still at the company from prior engagement, and optimal timing with new digital-first leadership across Revlon.</p>
+                
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">~20-25</div>
+                        <div class="stat-label">Online retailers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">16+</div>
+                        <div class="stat-label">DTC country sites</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">150-200+</div>
+                        <div class="stat-label">Estimated active SKUs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">50%</div>
+                        <div class="stat-label">E-commerce growth (YoY)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">15%</div>
+                        <div class="stat-label">E-commerce as % of sales</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">130+</div>
+                        <div class="stat-label">Countries</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Distribution Complexity &amp; Geographic Alignment</h2>
+                <div class="info-box green">
+                    <strong>Geographic breakdown:</strong> ~50% US, ~35% UK/Europe, ~15% Asia-Pacific/Other. Multi-channel, NOT Amazon-dominant. UK is reportedly Revlon's second-largest e-commerce market after the US.
+                </div>
+                <p>Elizabeth Arden operates a genuinely multi-channel distribution model across mass retail (Walmart, Target), department stores (Macy's, Nordstrom, John Lewis), specialty beauty (Sephora, Ulta, Lookfantastic), pharmacy chains (Boots UK, CVS), and marketplaces (Amazon US/UK). This diversity creates real digital shelf monitoring complexity.</p>
+                <p>Strong UK high street presence through Boots, John Lewis, and Marks &amp; Spencer. Good European footprint via Douglas (Germany), Notino (pan-EU), and Sephora (France/EU). 16+ country-specific DTC e-commerce sites add a content consistency challenge.</p>
+                
+                <h3>European Corporate Infrastructure</h3>
+                <p>Elizabeth Arden has legal entities and operational teams in seven European countries: UK (London), France (Paris), Germany (Wiesbaden), Austria (Vienna), Denmark (Brondby), Spain (Madrid), and Switzerland (Geneva). This is not a US company with token European distribution - it's a genuinely multi-market European operation.</p>
+                
+                <div class="info-box blue">
+                    <strong>eStore alignment:</strong> European retailer coverage should be relatively strong given eStore's existing monitoring of major UK and EU beauty retailers. Key retailers like Boots, Amazon UK, Sephora, Douglas, Notino, and Lookfantastic are within eStore's infrastructure scope. US coverage will require honest assessment - lead with European strength.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Competitive Intelligence: DSA Providers</h2>
+                <div class="info-box green">
+                    <strong>Current DSA provider: UNKNOWN</strong> - No confirmed provider identified after extensive search. This appears to be a greenfield opportunity.
+                </div>
+                <p>Revlon was a confirmed Jumpshot customer (per July 2019 PR Newswire release). Jumpshot shut down permanently in January 2020 due to privacy concerns, leaving Revlon without their digital intelligence provider. No replacement DSA solution has been publicly identified in the five years since.</p>
+                <p>Providers checked with no results: Profitero, CommerceIQ, Salsify, Syndigo, Edge by Ascential, DataWeave, Mindsite, Brand Nudge, Brandview.</p>
+                <p>Recent job postings mention Google Analytics, Nielsen/IRI market data, and Salesforce Commerce Cloud but no specific DSA tools.</p>
+                
+                <h3>Switching Signals &amp; Opportunity Indicators</h3>
+                <ul>
+                    <li>New CIDO appointed April 2025 (Ralph Marshall) - new digital leadership typically triggers technology vendor reviews</li>
+                    <li>Post-bankruptcy technology refresh - companies emerging from restructuring often reassess vendor relationships</li>
+                    <li>E-commerce grew 50% from 2023-2024 (now 15% of total sales) - expanding digital presence without visible DSA creates capability gap</li>
+                    <li>elizabetharden.com grew 84% in one quarter - strong DTC growth signals need for analytics</li>
+                    <li>Established Digital Centre of Excellence - building internal capabilities while potentially seeking external tools</li>
+                </ul>
+                
+                <h3>Technology Stack (Not DSA - Context Only)</h3>
+                <table>
+                    <thead><tr><th>Tool</th><th>Category</th></tr></thead>
+                    <tbody>
+                        <tr><td>Salesforce Commerce Cloud (SFRA)</td><td>E-commerce platform</td></tr>
+                        <tr><td>SAP Analytics Cloud</td><td>Business intelligence</td></tr>
+                        <tr><td>Google Analytics</td><td>Web analytics</td></tr>
+                        <tr><td>Nielsen/IRI</td><td>Market research data</td></tr>
+                        <tr><td>Obsess</td><td>Virtual store platform</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Sector Alignment</h2>
+                <div class="info-box green">
+                    <strong>Primary sector:</strong> Beauty &amp; Personal Care &nbsp;|&nbsp; <strong>Alignment:</strong> 🟢 STRONG - one of eStore's five proven sectors
+                </div>
+                <p>Sub-categories: skincare (core), fragrance (strong portfolio), colour cosmetics (smaller focus). Elizabeth Arden sits at the accessible prestige level (similar to Clinique, Clarins) - well within the brand tier eStore serves.</p>
+                <h3>eStore Beauty Sector Credentials</h3>
+                <table>
+                    <thead><tr><th>Brand</th><th>Status</th><th>Notes</th></tr></thead>
+                    <tbody>
+                        <tr><td>L'Oreal</td><td><span class="badge green">Current client</span></td><td>Strong proof point for prestige beauty</td></tr>
+                        <tr><td>Galderma</td><td><span class="badge green">Current client</span></td><td>Beauty/skincare adjacent</td></tr>
+                        <tr><td>Wella</td><td><span class="badge green">Current client</span></td><td>Beauty/hair care</td></tr>
+                        <tr><td>Coty</td><td><span class="badge orange">Lapsed client</span></td><td>Handle carefully if raised - demonstrates familiarity but may indicate past challenges</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Relationship History Summary</h2>
+                <div class="info-box green">
+                    <strong>Status:</strong> WARM RE-ENGAGEMENT - extensive prior contact history since March 2021. This is NOT cold outreach.
+                </div>
+                <table>
+                    <thead><tr><th>Contact</th><th>Status</th><th>Current Role</th></tr></thead>
+                    <tbody>
+                        <tr><td>Claudia Ossa</td><td><span class="badge green">✅ Confirmed</span></td><td>SVP IT Global eCommerce and Digital</td></tr>
+                        <tr><td>Molly Haldy</td><td><span class="badge green">✅ Confirmed</span></td><td>SVP US Sales</td></tr>
+                        <tr><td>Sarah Barringer</td><td><span class="badge green">✅ Confirmed</span></td><td>Senior National Account Manager, UK</td></tr>
+                        <tr><td>Charlotte Edwards</td><td><span class="badge green">✅ Confirmed</span></td><td>National Account Executive, UK/Europe</td></tr>
+                        <tr><td>Sophie Ford</td><td><span class="badge orange">⚠️ Likely</span></td><td>Role unconfirmed</td></tr>
+                        <tr><td>Ana Cerdeira</td><td><span class="badge red">❌ Left</span></td><td>Departed December 2020</td></tr>
+                    </tbody>
+                </table>
+                <p>Four confirmed contacts still at company including one senior decision-maker (Claudia Ossa, SVP level). Meeting history from September 2022 establishes familiarity and credibility. Most recent outreach was January 2026 (Laura Luz to Sophie Ford, Charlotte Edwards, Sarah Barringer).</p>
+            </div>
+            
+            <div class="card">
+                <h2>Market Dynamics: Strategic Timing</h2>
+                <div class="info-box green">
+                    <strong>Assessment:</strong> OPTIMAL timing window
+                </div>
+                
+                <h3>Revlon Bankruptcy &amp; Emergence</h3>
+                <p>June 2022: Filed Chapter 11 with ~$3.5 billion debt. May 2023: Emerged as private company, eliminated $2.7 billion debt. Current debt: ~$1.5 billion. No longer publicly traded - Ronald Perelman's 85% stake completely wiped out. Now owned by former lenders including Glendon Capital, King Street Capital, Angelo Gordon, and Cyrus Capital Partners.</p>
+                
+                <h3>Leadership Transformation (Entire C-Suite Refreshed Since Aug 2023)</h3>
+                <table>
+                    <thead><tr><th>Role</th><th>Name</th><th>Start Date</th><th>Relevance</th></tr></thead>
+                    <tbody>
+                        <tr><td>CEO</td><td>Michelle Peluso</td><td>November 2024</td><td>Digital-first background (CVS, IBM, Travelocity)</td></tr>
+                        <tr><td>Executive Chair</td><td>Elizabeth Smith</td><td>August 2023</td><td>Former CEO Bloomin' Brands</td></tr>
+                        <tr><td>CFO</td><td>Ted McCormick</td><td>August 2023</td><td>Unilever experience</td></tr>
+                        <tr><td>CIDO</td><td>Ralph Marshall</td><td>April 2025</td><td>NEW - Merlin, Starbucks, Nando's tech leadership</td></tr>
+                        <tr><td>President, Elizabeth Arden</td><td>Amber Garrison</td><td>October 2025</td><td>NEW - Former Origins Global Brand President (Estee Lauder)</td></tr>
+                        <tr><td>Chief Strategy &amp; Transformation</td><td>Will Cornock</td><td>September 2023</td><td>Former BCG partner</td></tr>
+                    </tbody>
+                </table>
+                <p>Board includes Martin Brok (former CEO Sephora) and Paul Pressler (Chairman eBay, former CEO Gap).</p>
+                
+                <h3>Strategic Developments Favouring Engagement</h3>
+                <ul>
+                    <li>CEO Peluso has stated 2025 is "a plan of growth and investment"</li>
+                    <li>E-commerce accounts for 15% of total sales (50% growth 2023-2024)</li>
+                    <li>elizabetharden.com grew 84% in one quarter</li>
+                    <li>115th anniversary celebrations throughout 2025 with renewed brand focus</li>
+                    <li>New fragrance partnerships (Ice Spice, Palm Angels) signal commercial momentum</li>
+                    <li>CEO emphasises "rebuilding digital muscle" and omnichannel strategy</li>
+                    <li>National multi-channel SmarterRetinol campaign launched April 2025</li>
+                    <li>New CIDO (April 2025) and new Elizabeth Arden President (October 2025) both evaluating their landscape</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Synthesis &amp; Recommendation</h2>
+                <div class="fit-badge strong">🟢 STRONG FIT</div>
+                
+                <h3>Key Factors Driving Assessment</h3>
+                <ol>
+                    <li><strong>No incumbent DSA provider</strong> - greenfield opportunity, no displacement required</li>
+                    <li><strong>Multi-channel distribution complexity</strong> - 20+ online retailers across US and Europe, 16+ DTC sites, diverse channel mix demands unified digital shelf visibility</li>
+                    <li><strong>Perfect sector alignment</strong> - Beauty &amp; Personal Care is eStore's proven sector with L'Oreal as current client</li>
+                    <li><strong>Warm relationship</strong> - four confirmed contacts still at company including SVP-level decision-maker, meeting history, recent January 2026 outreach</li>
+                    <li><strong>Optimal timing</strong> - new digital-focused CEO (Nov 2024), new CIDO (Apr 2025), new EA President (Oct 2025), post-bankruptcy investment phase</li>
+                    <li><strong>Strong European presence</strong> - UK is second-largest e-commerce market, offices in 7+ European countries, aligns directly with eStore's UK/European focus</li>
+                </ol>
+                
+                <div class="info-box blue">
+                    <strong>Primary value proposition:</strong> "Help Elizabeth Arden gain unified visibility across your growing digital shelf - across Boots, Sephora, Amazon UK, Douglas, and more - as your new leadership team invests in digital transformation."
+                </div>
+                
+                <h3>Recommended Approach</h3>
+                <p>Warm re-engagement with confident positioning. Lead with existing relationship, reference prior engagement, and position eStore as enabling the new leadership team's digital priorities.</p>
+                
+                <h3>Estimated Difficulty of Winning: Moderate-to-Favourable</h3>
+                <div class="two-col">
+                    <div class="info-box green">
+                        <strong>Favourable factors:</strong>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>Warm relationship with meeting history</li>
+                            <li>No incumbent DSA to displace</li>
+                            <li>Strong sector fit with beauty credentials</li>
+                            <li>European geographic alignment</li>
+                            <li>New leadership actively investing in digital</li>
+                        </ul>
+                    </div>
+                    <div class="info-box orange">
+                        <strong>Challenges:</strong>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>Post-bankruptcy budget sensitivity</li>
+                            <li>Large organisation with multiple stakeholders</li>
+                            <li>May require multi-threading across US and European teams</li>
+                            <li>New leadership still bedding in - decisions may be slower</li>
+                            <li>Five years of outreach without conversion</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Implementation Readiness</h3>
+                <div class="info-box blue">
+                    <strong>Time-to-value estimate:</strong> European markets should be relatively fast given eStore's coverage of major UK and EU beauty retailers. US retailers will require honest assessment. A phased approach starting with European markets is recommended.
+                </div>
+                
+                <h3>Final Assessment Checklist</h3>
+                <ul class="checklist">
+                    <li>Distribution complexity validates need for digital shelf analytics</li>
+                    <li>No incumbent DSA provider - greenfield opportunity</li>
+                    <li>Beauty &amp; Personal Care sector alignment confirmed</li>
+                    <li>Warm relationship with confirmed contacts</li>
+                    <li>Optimal timing with new leadership and digital investment</li>
+                    <li>Strong European presence aligned with eStore geography</li>
+                    <li>Multi-channel distribution creates genuine monitoring complexity</li>
+                    <li>E-commerce growing rapidly (50% YoY) increasing urgency</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- TAB 2: OUR HISTORY WITH THEM -->
+        <!-- ================================================================ -->
+        <div id="history" class="tab-content">
+            <div class="card">
+                <h2>Engagement History</h2>
+                <div class="info-box green">
+                    <strong>Relationship duration:</strong> March 2021 - January 2026 (nearly 5 years)&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Nature:</strong> Primarily outbound sales and education
+                </div>
+                
+                <h3>Key Engagement Timeline</h3>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2021</div>
+                    <div class="timeline-detail">Initial outreach to Vanessa Koll (KAM), Ana Cerdeira (National Key Account), Claudia Ossa. Webinar invite to Claudia Ossa (June 2021: "From Digital Shelf Analytics to Perfect Store Online" featuring Kellogg's).</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">14 September 2022 - MEETING HELD</div>
+                    <div class="timeline-detail">"Elizabeth Arden x AMZ navigator" meeting with Sima Gabej and others. eStore attendees: Lili Vadasz, Lloyd Best. This is the high-water mark of the relationship.</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-detail">Emails to Sima Gabej about standalone competitor benchmarking tool and "lite" digital shelf product. Outreach to Molly Haldy about store-level insights and lost sales (Nov-Dec 2023).</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - Multi-Market Wave</div>
+                    <div class="timeline-detail">Beatrice Dieu (France - Notino/Nocibe/Boots), Bernd Kortenkamp (Germany - Notino/Flaconi), Becky Krape (UK - Boots/Notino), wave of 15+ US contacts about Macy's female fragrance performance (July 2024). Some emails blocked by security policies.</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2026 - Most Recent</div>
+                    <div class="timeline-detail">Laura Luz emails to Sophie Ford, Charlotte Edwards, Sarah Barringer about e-commerce landscape and SKU inconsistencies between Boots and Amazon. Follow-up tasks due April 2026.</div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>HubSpot Status &amp; Previous Outcomes</h2>
+                <div class="info-box orange">
+                    <strong>Previous outcomes:</strong> No conversion to date despite extensive outreach. The relationship has been characterised by persistent outreach without clear engagement signals. However, the January 2026 emails took a different angle (e-commerce landscape, SKU inconsistencies) which may resonate better with the new leadership team.
+                </div>
+                
+                <h3>Key Themes from Prior Outreach</h3>
+                <ul>
+                    <li><strong>Female fragrance benchmarking</strong> - most persistent theme; competitor performance on specific retailers</li>
+                    <li><strong>Retailer-specific gaps</strong> - highlighting where Elizabeth Arden falls behind competitors on Notino, Nocibe, Boots, Flaconi, Macy's</li>
+                    <li><strong>Store-level availability</strong> - lost sales messaging for US contacts</li>
+                    <li><strong>SKU-level inconsistencies</strong> - most recent angle (January 2026): differences between Boots and Amazon product listings</li>
+                </ul>
+                
+                <h3>Known Contacts and Their Stance</h3>
+                <table>
+                    <thead><tr><th>Contact</th><th>Last Engaged</th><th>Notes</th></tr></thead>
+                    <tbody>
+                        <tr><td>Sophie Ford, Charlotte Edwards, Sarah Barringer</td><td>January 2026</td><td>Received Laura Luz's emails. No response documented. Follow-up tasks due April 2026.</td></tr>
+                        <tr><td>Claudia Ossa</td><td>2021</td><td>SVP-level. No recent contact. Still at company in senior digital role.</td></tr>
+                        <tr><td>Molly Haldy</td><td>Nov-Dec 2023</td><td>SVP US Sales. Received store-level insights emails. No conversion.</td></tr>
+                        <tr><td>Sima Gabej</td><td>2022-2023</td><td>Key contact including the September 2022 meeting. Current status unverified.</td></tr>
+                        <tr><td>Beatrice Dieu, Bernd Kortenkamp, Becky Krape</td><td>2024</td><td>Market-specific contacts. Some emails blocked. Current status unverified.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Competitor Intelligence</h2>
+                <div class="info-box green">
+                    <strong>Assessment:</strong> Greenfield opportunity. No DSA provider to displace.
+                </div>
+                
+                <table>
+                    <thead><tr><th>Provider</th><th>Status</th><th>Confidence</th><th>Evidence</th></tr></thead>
+                    <tbody>
+                        <tr><td>Profitero</td><td>No relationship found</td><td>Unknown</td><td>No mentions in job postings, press, or case studies</td></tr>
+                        <tr><td>CommerceIQ</td><td>No relationship found</td><td>Unknown</td><td>No mentions</td></tr>
+                        <tr><td>Salsify</td><td>No relationship found</td><td>Unknown</td><td>No mentions</td></tr>
+                        <tr><td>Syndigo</td><td>No relationship found</td><td>Unknown</td><td>No mentions</td></tr>
+                        <tr><td>Edge by Ascential</td><td>No direct relationship</td><td>Unknown</td><td>Revlon used Jumpshot (shut down Jan 2020)</td></tr>
+                        <tr><td>DataWeave</td><td>No relationship found</td><td>Unknown</td><td>No mentions</td></tr>
+                        <tr><td>Mindsite</td><td>No relationship found</td><td>Unknown</td><td>No mentions</td></tr>
+                        <tr><td>Brand Nudge</td><td>No relationship found</td><td>Unknown</td><td>No mentions</td></tr>
+                        <tr><td>Brandview</td><td>No relationship found</td><td>Unknown</td><td>No mentions</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Internal Champion &amp; Blockers</h2>
+                
+                <div class="info-box orange">
+                    <strong>Internal champion:</strong> No confirmed internal champion. The September 2022 meeting with Sima Gabej was the closest to internal advocacy. Claudia Ossa (SVP IT Global eCommerce) is the most promising potential champion if re-engaged successfully - she has both the seniority and the functional relevance.
+                </div>
+                
+                <h3>Known Blockers &amp; Timing Considerations</h3>
+                <ul>
+                    <li><strong>Email fatigue risk:</strong> Multiple waves of outreach over 5 years without conversion. New approach needed - don't repeat the same messaging.</li>
+                    <li><strong>Security policy blocks:</strong> Some previous emails were blocked (particularly to Beatrice Dieu and some US contacts). Verify deliverability before sending.</li>
+                    <li><strong>April 2026 follow-up tasks:</strong> Already scheduled for Sophie Ford, Charlotte Edwards, Sarah Barringer. Coordinate timing with Laura Luz to avoid conflicting messages.</li>
+                    <li><strong>New leadership window:</strong> The entire C-suite has turned over since the bankruptcy. Prior contacts (pre-2023) may reference people and priorities that no longer apply. Fresh messaging required.</li>
+                </ul>
+                
+                <h3>Recommended Approach Given History</h3>
+                <ol>
+                    <li><strong>Acknowledge the history honestly:</strong> "I know we've been in touch with your team over the years" - don't pretend this is the first contact</li>
+                    <li><strong>Lead with what's changed:</strong> New leadership, new digital priorities, eStore's evolved capabilities</li>
+                    <li><strong>Different angle from prior outreach:</strong> Previous emails focused on retailer-specific benchmarks and competitive gaps. New approach should focus on strategic digital transformation support</li>
+                    <li><strong>Multi-thread beyond UK accounts:</strong> Escalate to Claudia Ossa (technology buyer) and Frederic Laffort (European digital leader)</li>
+                    <li><strong>Coordinate with Laura Luz:</strong> Her January 2026 emails are the most recent touchpoint. New outreach should build on her messaging</li>
+                </ol>
+            </div>
+            
+            <div class="card">
+                <h2>Content to Reference</h2>
+                <p>Use these resources strategically in outreach. Don't force content into every email - only include where it genuinely adds value.</p>
+                
+                <a href="https://estorebrands.com/beauty-personal-care" class="content-link" target="_blank">
+                    <strong>🌐 Beauty &amp; Personal Care Sector Landing Page</strong><br>
+                    <span style="color: #6c757d;">Email 1 or 2 - establishes eStore's beauty sector expertise. Position as: "We've built specific expertise in Beauty &amp; Personal Care"</span>
+                </a>
+                
+                <a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026" class="content-link" target="_blank">
+                    <strong>📄 Ignite: Digital Shelf Analytics for Beauty &amp; Personal Care Brands (2026)</strong><br>
+                    <span style="color: #6c757d;">Email 2 - value-add educational content. Position as: "if useful" not required reading</span>
+                </a>
+                
+                <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" class="content-link" target="_blank">
+                    <strong>📄 Ignite: Introducing Content Benchmark</strong><br>
+                    <span style="color: #6c757d;">If conversation turns to content consistency or competitive benchmarking. Relevant to Elizabeth Arden's multi-retailer content challenge.</span>
+                </a>
+                
+                <a href="https://estorebrands.com/ignite/introducing-ai-business-answers" class="content-link" target="_blank">
+                    <strong>📄 Ignite: Introducing AI Business Answers</strong><br>
+                    <span style="color: #6c757d;">For technology contacts (Claudia Ossa, Ralph Marshall). Position as: "AI-powered answers rather than just dashboards"</span>
+                </a>
+                
+                <a href="https://estorebrands.com/ignite/asda-xpert-a-new-era-of-retail-collaboration" class="content-link" target="_blank">
+                    <strong>📄 Ignite: ASDA Xpert</strong><br>
+                    <span style="color: #6c757d;">Only if ASDA is relevant to Elizabeth Arden's UK distribution (check first). Differentiator: verified retailer data vs scraped data.</span>
+                </a>
+                
+                <h3>Suggested Email Placement</h3>
+                <table>
+                    <thead><tr><th>Email</th><th>Content</th><th>Positioning</th></tr></thead>
+                    <tbody>
+                        <tr><td>Email 1</td><td>No links - keep conversational</td><td>Re-engagement, establish context</td></tr>
+                        <tr><td>Email 2</td><td>Beauty &amp; Personal Care Ignite article</td><td>Educational value-add, not sales collateral</td></tr>
+                        <tr><td>Email 3</td><td>No links - final angle</td><td>Keep simple, add new value</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- TAB 3: RETAILER OVERVIEW -->
+        <!-- ================================================================ -->
+        <div id="retailers" class="tab-content">
+            <div class="card">
+                <h2>Retailer Pattern Analysis</h2>
+                <div class="info-box blue">
+                    <strong>Note:</strong> This is a strategic overview based on pattern recognition. It provides a high-level view of Elizabeth Arden's online retail distribution to inform outreach positioning, not a detailed per-retailer coverage audit.
+                </div>
+                
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-value">20-25</div>
+                        <div class="stat-label">Estimated online retailers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">~50%</div>
+                        <div class="stat-label">US retailers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">~35%</div>
+                        <div class="stat-label">UK/Europe retailers</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">High</div>
+                        <div class="stat-label">Channel diversity</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>UK &amp; European Retailers (10 identified)</h2>
+                <p>These are the retailers most relevant to eStore's geographic strength and the primary focus for initial outreach positioning.</p>
+                <table>
+                    <thead><tr><th>Retailer</th><th>Market</th><th>Type</th><th>Strategic Relevance</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Boots UK</strong></td><td>🇬🇧 UK</td><td>Pharmacy/Beauty</td><td>Critical UK retailer. Sarah Barringer manages this account. January 2026 emails referenced Boots/Amazon SKU inconsistencies.</td></tr>
+                        <tr><td><strong>John Lewis</strong></td><td>🇬🇧 UK</td><td>Department Store</td><td>Premium positioning aligned with Elizabeth Arden's prestige brand.</td></tr>
+                        <tr><td><strong>Marks &amp; Spencer</strong></td><td>🇬🇧 UK</td><td>Department Store/Beauty</td><td>Key UK high street presence.</td></tr>
+                        <tr><td><strong>Lookfantastic</strong></td><td>🇬🇧 UK</td><td>Online Beauty Specialist</td><td>Major online beauty platform, strong search and content requirements.</td></tr>
+                        <tr><td><strong>Amazon UK</strong></td><td>🇬🇧 UK</td><td>Marketplace</td><td>Key marketplace. SKU inconsistency angle from January 2026 emails.</td></tr>
+                        <tr><td><strong>Sephora UK/EU</strong></td><td>🇬🇧🇫🇷 Multi</td><td>Specialty Beauty</td><td>Critical prestige beauty retailer across European markets.</td></tr>
+                        <tr><td><strong>Notino</strong></td><td>🇪🇺 Pan-EU</td><td>Online Beauty/Fragrance</td><td>Pan-European beauty platform. Strong in fragrance - relevant to EA portfolio.</td></tr>
+                        <tr><td><strong>Douglas</strong></td><td>🇩🇪 Germany</td><td>Specialty Beauty</td><td>Key continental European beauty retailer. Relevant to Frederic Laffort's EMEA role.</td></tr>
+                        <tr><td><strong>Sephora France</strong></td><td>🇫🇷 France</td><td>Specialty Beauty</td><td>Important for French market. Previous outreach to Beatrice Dieu referenced Sephora.</td></tr>
+                        <tr><td><strong>Direct Cosmetics</strong></td><td>🇬🇧 UK</td><td>Discount Beauty</td><td>UK discount beauty channel presence.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>US Retailers (8 identified)</h2>
+                <p>Important for understanding Elizabeth Arden's full distribution footprint, but be honest about eStore's US coverage capabilities.</p>
+                <table>
+                    <thead><tr><th>Retailer</th><th>Market</th><th>Type</th><th>Strategic Relevance</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Amazon US</strong></td><td>🇺🇸 US</td><td>Marketplace</td><td>Key marketplace globally.</td></tr>
+                        <tr><td><strong>Macy's</strong></td><td>🇺🇸 US</td><td>Department Store</td><td>July 2024 outreach wave focused on Macy's female fragrance performance.</td></tr>
+                        <tr><td><strong>Ulta Beauty</strong></td><td>🇺🇸 US</td><td>Specialty Beauty</td><td>Largest US specialty beauty retailer. Critical for prestige brands.</td></tr>
+                        <tr><td><strong>Nordstrom</strong></td><td>🇺🇸 US</td><td>Department Store</td><td>Premium positioning aligned with prestige brand.</td></tr>
+                        <tr><td><strong>Target</strong></td><td>🇺🇸 US</td><td>Mass Retail</td><td>Mass retail exposure.</td></tr>
+                        <tr><td><strong>Walmart</strong></td><td>🇺🇸 US</td><td>Mass Retail</td><td>Largest US retailer.</td></tr>
+                        <tr><td><strong>CVS Pharmacy</strong></td><td>🇺🇸 US</td><td>Pharmacy</td><td>Pharmacy channel. CEO Peluso's prior employer.</td></tr>
+                        <tr><td><strong>Boscov's</strong></td><td>🇺🇸 US</td><td>Regional Department Store</td><td>Regional presence.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Notable Patterns</h2>
+                <ul>
+                    <li><strong>Strong UK high street presence:</strong> Boots, John Lewis, M&amp;S - all key UK beauty retailers where eStore has coverage capabilities</li>
+                    <li><strong>Multi-channel diversity:</strong> No single channel dominance. Products spread across pharmacy, department store, specialty beauty, and mass retail</li>
+                    <li><strong>European specialty beauty:</strong> Douglas and Notino provide important continental European coverage relevant to eStore's geographic strength</li>
+                    <li><strong>DTC complexity:</strong> 16+ country-specific e-commerce sites create significant content consistency challenges</li>
+                    <li><strong>Prestige positioning maintained:</strong> Listed at Nordstrom, John Lewis, Macy's - not just mass retail. Content quality matters more at prestige level</li>
+                </ul>
+                
+                <h3>Critical Gaps</h3>
+                <ul>
+                    <li>Limited visibility in European pharmacy/drugstore chains beyond Boots (dm, Rossmann, Muller)</li>
+                    <li>Travel retail growing but largely offline</li>
+                    <li>Less penetration in emerging beauty e-tailers (Cult Beauty, SpaceNK - worth checking)</li>
+                </ul>
+                
+                <div class="info-box blue">
+                    <strong>Implementation Note:</strong> European retailer coverage should be relatively strong given eStore's existing monitoring of major UK and EU beauty retailers. Key retailers like Boots, Amazon UK, Sephora, Douglas, Notino, and Lookfantastic are within eStore's infrastructure scope. For US retailers, lead with transparency. A phased approach starting with European markets is the honest and effective positioning.
+                </div>
+                
+                <div class="info-box green">
+                    <strong>Geographic Positioning:</strong> Lead with UK/European strength. "We have deep coverage across European retailers - Boots, Douglas, Notino, Sephora, Lookfantastic - and strong expertise in multi-market, multi-language environments. For your European markets, we can add immediate value."
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- TAB 4: KEY PEOPLE -->
+        <!-- ================================================================ -->
+        <div id="contacts" class="tab-content">
+            <div class="card">
+                <h2>Historical Contacts</h2>
+                <p>These contacts have been engaged previously by eStore. The relationship is warm - reference previous conversations where appropriate.</p>
+                
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Sarah Barringer</div>
+                            <div class="contact-title">Senior National Account Manager, Elizabeth Arden</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">✅ Confirmed at company</span>
+                            <span class="badge blue">🇬🇧 British</span>
+                            <span class="badge yellow">Jan 2026 contact</span>
+                        </div>
+                    </div>
+                    <p><strong>Previous engagement:</strong> Received Laura Luz's January 2026 emails about e-commerce landscape and SKU inconsistencies between Boots and Amazon. Follow-up tasks due April 2026.</p>
+                    <p><strong>Status:</strong> Most recent warm contact. Primary re-engagement target for UK.</p>
+                </div>
+                
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Charlotte Edwards</div>
+                            <div class="contact-title">National Account Executive, UK/Europe</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">✅ Confirmed at company</span>
+                            <span class="badge blue">🇬🇧 British</span>
+                            <span class="badge yellow">Jan 2026 contact</span>
+                        </div>
+                    </div>
+                    <p><strong>Previous engagement:</strong> Received Laura Luz's January 2026 emails. Follow-up tasks due April 2026.</p>
+                    <p><strong>Status:</strong> Warm contact. Supports UK/EU accounts.</p>
+                </div>
+                
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Claudia Ossa</div>
+                            <div class="contact-title">SVP IT Global eCommerce and Digital, Revlon</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">✅ Confirmed at company</span>
+                            <span class="badge grey">US-based</span>
+                            <span class="badge yellow">2021 contact</span>
+                        </div>
+                    </div>
+                    <p><strong>Previous engagement:</strong> Contacted in 2021. Invited to June 2021 webinar. No recent contact but still at company in senior digital role.</p>
+                    <p><strong>Status:</strong> Senior decision-maker. Most promising potential champion. Key escalation target.</p>
+                </div>
+                
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Sophie Ford</div>
+                            <div class="contact-title">Role unconfirmed</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge orange">⚠️ Likely at company</span>
+                            <span class="badge yellow">Jan 2026 contact</span>
+                        </div>
+                    </div>
+                    <p><strong>Previous engagement:</strong> Received Laura Luz's January 2026 emails. Follow-up tasks due April 2026.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+                
+                <div class="contact-card primary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#1 Sarah Barringer ⭐ WARM RE-ENGAGEMENT</div>
+                            <div class="contact-title">Senior National Account Manager, Elizabeth Arden</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇬🇧 British</span>
+                            <span class="badge green">Warm</span>
+                        </div>
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sarah-barringer-b328a75b/" target="_blank">Profile</a>&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Location:</strong> Greater London, UK</p>
+                    <p><strong>Background:</strong> Loughborough University graduate. Manages key UK national accounts including Boots and Marks &amp; Spencer.</p>
+                    <h4>Why She's the Right Contact</h4>
+                    <p>Directly manages the UK retailer relationships where eStore can provide immediate value. UK-based, aligned with eStore's geographic strength. Most recent eStore contact (January 2026).</p>
+                    <h4>Specific Hooks</h4>
+                    <ul>
+                        <li>Reference Laura Luz's January 2026 emails about SKU inconsistencies between Boots and Amazon - that's exactly the problem eStore solves</li>
+                        <li>Position digital shelf analytics as supporting her Boots and M&amp;S accounts</li>
+                        <li>Lead with European retailer expertise - Boots, Lookfantastic, John Lewis</li>
+                    </ul>
+                    <div class="info-box grey">
+                        <strong>Tone:</strong> British - direct, professional, warm. Conversational rather than formal. This is a re-engagement, so reference the prior contact naturally.
+                    </div>
+                </div>
+                
+                <div class="contact-card primary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#2 Claudia Ossa ⭐ WARM RE-ENGAGEMENT</div>
+                            <div class="contact-title">SVP IT Global eCommerce and Digital, Revlon</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge grey">US-based</span>
+                            <span class="badge green">Warm</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> New York, US</p>
+                    <p><strong>Background:</strong> Was at Elizabeth Arden prior to the Revlon acquisition. Described as "visionary in eCommerce and Digital workspaces" with expertise in agile approaches to web platforms. Long tenure spanning the Revlon/Elizabeth Arden integration.</p>
+                    <h4>Why She's the Right Contact</h4>
+                    <p>Senior decision-maker with authority over technology purchasing decisions for e-commerce tools. Spans both IT and digital commerce - DSA tools sit at this intersection.</p>
+                    <h4>Specific Hooks</h4>
+                    <ul>
+                        <li>Reference prior eStore engagement history (she may remember or have been briefed)</li>
+                        <li>Position DSA as enabling her Digital Centre of Excellence vision</li>
+                        <li>Frame as technology infrastructure supporting e-commerce growth (50% YoY)</li>
+                        <li>Appeal to her global scope - eStore's European coverage complements whatever US tools she uses</li>
+                    </ul>
+                </div>
+                
+                <div class="contact-card primary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#3 Frederic Laffort - NEW CONTACT</div>
+                            <div class="contact-title">VP EMEA Prestige, Digital and Travel Retail, Elizabeth Arden</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge purple">🇫🇷 French</span>
+                            <span class="badge red">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Europe</p>
+                    <p><strong>Background:</strong> Appointed September 2023. Former Senior Managing Director at Safilo (Western Europe). Procter &amp; Gamble experience across Olay, Cover Girl, Max Factor, Wella. Expertise in omnichannel growth, DTC, digital transformation.</p>
+                    <h4>Why He's the Right Contact</h4>
+                    <p>Key European digital decision-maker - directly responsible for the markets where eStore is strongest. His P&amp;G background means he'll understand digital shelf analytics instinctively. Prestige focus aligns with Elizabeth Arden's brand positioning.</p>
+                    <h4>Specific Hooks</h4>
+                    <ul>
+                        <li>Lead with eStore's European retailer coverage (Boots, Douglas, Notino, Sephora EU)</li>
+                        <li>Reference L'Oreal as current eStore client in beauty sector</li>
+                        <li>Frame around EMEA prestige performance across multiple markets and retailers</li>
+                        <li>His P&amp;G background means he'll be familiar with category management and digital shelf concepts</li>
+                    </ul>
+                    <div class="info-box grey">
+                        <strong>Tone:</strong> French nationality - use relationship-focused approach. More formal initial greeting ("Dear Frederic"). Show genuine interest in his EMEA strategy before positioning eStore. "With kind regards" rather than "Best".
+                    </div>
+                </div>
+                
+                <div class="contact-card primary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#4 Beth Russo - NEW CONTACT</div>
+                            <div class="contact-title">VP of North America eCommerce, Revlon</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge red">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> New York City Metropolitan Area</p>
+                    <p><strong>Background:</strong> 10+ years e-commerce experience. Previously at GSK Consumer Healthcare, Mars, Reckitt. Known for launching brands on Amazon including the Flonase Rx-to-OTC transition at GSK.</p>
+                    <h4>Why She's the Right Contact</h4>
+                    <p>Direct operational responsibility for NA e-commerce - she's the person who would use DSA tools day-to-day. Her pharma/CPG background (GSK, Mars, Reckitt) means she'll understand digital shelf analytics.</p>
+                    <h4>Specific Hooks</h4>
+                    <ul>
+                        <li>Reference the 50% e-commerce growth - she's managing increasing complexity</li>
+                        <li>Her GSK/Reckitt background means she may have used DSA tools before</li>
+                        <li>Position around competitive visibility across US retailers</li>
+                    </ul>
+                    <div class="info-box orange">
+                        <strong>Note:</strong> US-focused role - be honest about eStore's European strength and US limitations. May be less relevant if eStore can't cover US retailers well. Consider whether to prioritise her or focus on European contacts.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Ralph Marshall</div>
+                            <div class="contact-title">Chief Information and Digital Officer (CIDO), Revlon</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇬🇧 British background</span>
+                            <span class="badge red">Cold</span>
+                            <span class="badge orange">New in role (Apr 2025)</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> US/UK&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Started:</strong> 1 April 2025</p>
+                    <p><strong>Background:</strong> 25+ years technology leadership. Former Global CTO at Merlin Entertainments, VP Technology EMEA at Starbucks, senior roles at Nando's, McDonald's. British background with international experience.</p>
+                    <h4>Why He's Relevant</h4>
+                    <ul>
+                        <li>Controls technology budget and vendor selection</li>
+                        <li>New in role - will be evaluating technology landscape</li>
+                        <li>British background and EMEA experience may create natural affinity with UK-based eStore</li>
+                        <li>CEO quote: "His end-to-end technical expertise...will be critical"</li>
+                    </ul>
+                    <p><strong>Use for:</strong> Reference his digital priorities when contacting his team. Approach after operational contacts are engaged, or as escalation path.</p>
+                </div>
+                
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Amber Garrison</div>
+                            <div class="contact-title">President, Elizabeth Arden and Global Fragrance, Revlon</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge red">Cold</span>
+                            <span class="badge orange">New in role (Oct 2025)</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> New York&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Started:</strong> October 2025</p>
+                    <p><strong>Background:</strong> 20+ years beauty industry leadership. Former Global Brand President of Origins (Estee Lauder Companies), former Global Brand President of Bumble and Bumble.</p>
+                    <h4>Why She's Relevant</h4>
+                    <ul>
+                        <li>Brand P&amp;L owner with stated digital-first mandate</li>
+                        <li>Her Estee Lauder background means she almost certainly used DSA tools (ELC is a Profitero and Salsify customer) - she'll understand the value proposition immediately</li>
+                        <li>Tasked with "digital-first transformation and innovation strategy"</li>
+                    </ul>
+                    <p><strong>Use for:</strong> Reference her digital-first mandate when contacting her team. Approach after operational engagement is established.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Executive Context (Reference Only - Do NOT Contact Directly)</h2>
+                
+                <div class="contact-card" style="border-left: 4px solid #6c757d;">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Michelle Peluso - CEO, Revlon</div>
+                            <div class="contact-title">Started November 2024</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge red">Do Not Contact</span>
+                        </div>
+                    </div>
+                    <p><strong>Background:</strong> Former EVP Chief Customer and Experience Officer at CVS Health, former Global CMO at IBM and Citi, former CEO of Gilt and Travelocity. Nike board member.</p>
+                    <h4>Key Quotes for Reference in Outreach</h4>
+                    <ul>
+                        <li>"My whole career has been about how technology is changing industries"</li>
+                        <li>2025 is "a plan of growth and investment"</li>
+                        <li>Focus on "rebuilding digital muscle" and omnichannel strategy</li>
+                    </ul>
+                    <p><strong>Use in emails:</strong> "With Michelle Peluso's focus on rebuilding Revlon's digital capabilities..." or "Given the investment priorities your CEO has outlined..."</p>
+                </div>
+                
+                <div class="contact-card" style="border-left: 4px solid #6c757d;">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Will Cornock - Chief Strategy and Transformation Officer</div>
+                            <div class="contact-title">Started September 2023</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge red">Do Not Contact</span>
+                        </div>
+                    </div>
+                    <p><strong>Background:</strong> Former BCG partner, 20 years corporate transformation experience.</p>
+                    <p><strong>Use in emails:</strong> Reference when discussing transformation initiatives and new technology adoption.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                <div class="contact-card skip">
+                    <ul>
+                        <li><strong>Molly Haldy</strong> (SVP US Sales) - while confirmed still at company, her role is US sales focused with no digital/e-commerce remit. Previously contacted Nov-Dec 2023 without conversion. Not the right entry point.</li>
+                        <li><strong>Unrelated divisions</strong> - Revlon brand team, Almay team, American Crew team (unless expanding scope beyond Elizabeth Arden)</li>
+                        <li><strong>Manufacturing/supply chain roles</strong> - no digital shelf relevance</li>
+                        <li><strong>Regional roles below Director level</strong> - insufficient authority for technology purchasing</li>
+                        <li><strong>Any contact whose emails previously bounced or were blocked</strong> - several US contacts from July 2024 had delivery issues; verify before re-attempting</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Contact Priority Matrix</h2>
+                <table>
+                    <thead><tr><th>Priority</th><th>Contact</th><th>Role</th><th>Approach</th><th>Geography</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>#1</strong></td><td>Sarah Barringer</td><td>Senior NAM, UK</td><td>Warm re-engagement - most recent Jan 2026</td><td>🇬🇧 UK</td></tr>
+                        <tr><td><strong>#2</strong></td><td>Claudia Ossa</td><td>SVP IT Global eCommerce</td><td>Warm re-engagement - senior decision-maker</td><td>🇺🇸 US</td></tr>
+                        <tr><td><strong>#3</strong></td><td>Frederic Laffort</td><td>VP EMEA Digital</td><td>Cold but highly relevant - European digital leader</td><td>🇫🇷 Europe</td></tr>
+                        <tr><td><strong>#4</strong></td><td>Beth Russo</td><td>VP NA eCommerce</td><td>Cold - operational, but US-focused</td><td>🇺🇸 US</td></tr>
+                        <tr><td><strong>#5</strong></td><td>Ralph Marshall</td><td>CIDO</td><td>Cold - strategic influencer, new in role</td><td>🇬🇧🇺🇸</td></tr>
+                        <tr><td><strong>#6</strong></td><td>Amber Garrison</td><td>President, Elizabeth Arden</td><td>Cold - strategic influencer, new in role</td><td>🇺🇸 US</td></tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box blue">
+                    <strong>Recommended multi-thread approach:</strong>
+                    <ol style="margin-top: 0.5rem;">
+                        <li>Start with Sarah Barringer (UK, warm, recent contact) - re-engage, understand current situation</li>
+                        <li>Simultaneously approach Frederic Laffort (EMEA Digital) - new cold outreach with European focus</li>
+                        <li>Escalate to Claudia Ossa (SVP IT eCommerce) - warm, senior, technology buyer</li>
+                        <li>Reference Ralph Marshall's digital priorities and Amber Garrison's digital-first mandate when approaching their teams</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- TAB 5: DRAFT EMAIL SEQUENCES -->
+        <!-- ================================================================ -->
+        <div id="emails" class="tab-content">
+            <div class="card">
+                <div class="disclaimer-box">
+                    ⚠️ <strong>Important:</strong> These emails are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Verify all facts, confirm contact details are current, and coordinate timing with Laura Luz's existing follow-up tasks (due April 2026).
+                </div>
+                
+                <h2>Nationality-Based Tone Guidance</h2>
+                <div class="tone-guide">
+                    <div class="tone-card">
+                        <h4>🇬🇧 British (Sarah Barringer)</h4>
+                        <p>Direct, professional, warm. Conversational rather than overly formal. "Hi Sarah" is appropriate. Close with "Best". Reference prior contact naturally.</p>
+                    </div>
+                    <div class="tone-card">
+                        <h4>🇫🇷 French (Frederic Laffort)</h4>
+                        <p>More formal initial approach. "Dear Frederic" for first email. Show genuine interest in his strategy before positioning eStore. "With kind regards" for sign-off. Relationship-focused.</p>
+                    </div>
+                    <div class="tone-card">
+                        <h4>🇺🇸 American (Claudia Ossa, Beth Russo)</h4>
+                        <p>Direct, no unnecessary preamble. Lead with value. "Hi Claudia" / "Hi Beth" is fine. Close with "Best". Be honest about geographic strengths.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SARAH BARRINGER EMAILS -->
+            <div class="card">
+                <div class="email-sequence">
+                    <div class="email-sequence-header">
+                        <div>
+                            <h3>Sarah Barringer</h3>
+                            <p>Senior National Account Manager, Elizabeth Arden</p>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇬🇧 British</span>
+                            <span class="badge green">Warm re-engagement</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-tabs" data-contact="sarah">
+                        <button class="email-tab active" data-email="1">Email 1</button>
+                        <button class="email-tab" data-email="2">Email 2</button>
+                        <button class="email-tab" data-email="3">Email 3</button>
+                    </div>
+                    
+                    <div class="email-content active" data-contact="sarah" data-email="1">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Elizabeth Arden and eStore - picking up from earlier this year</div>
+                            <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM GMT</div>
+                            <div class="email-body">Hi Sarah,
+
+I'm [SENDER NAME] from eStore. I was in touch with you earlier this year about product listing inconsistencies between Boots and Amazon, and I wanted to pick that thread back up.
+
+That theme - products appearing differently across different retailer sites - is exactly what our digital shelf analytics platform is built to address. We help brands track things like content accuracy, availability, pricing, and search rankings across their online retailers, and we work with several prestige beauty brands across European markets, including L'Oreal.
+
+What prompted me to write is how much has shifted at Elizabeth Arden over the past couple of years. A new leadership team, e-commerce growing to around 15% of total sales, the SmarterRetinol campaign driving national attention - there's clearly a lot of commercial momentum. With that kind of growth across retailers like Boots, Marks and Spencer, and Amazon UK, keeping product content consistent and competitive becomes a much bigger operational challenge.
+
+I'd be interested to hear how your team is currently managing that across your UK accounts - whether it's something you're tracking systematically or more of an ad hoc process at the moment.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify the details of your January 2026 outreach - ensure the SKU inconsistency angle is what you actually wrote about</li>
+                                <li>Check whether the April 2026 follow-up tasks are still scheduled</li>
+                                <li>Confirm SmarterRetinol campaign is still active/relevant</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-notes">
+                            <h5>Strategy Notes</h5>
+                            <p>Warm re-engagement where Laura is picking up her own earlier conversation - the most natural possible continuation. The SKU inconsistency angle from the January emails is the natural bridge. References specific findings (e-commerce at 15% of sales, SmarterRetinol campaign) without making date claims. Closes with a genuine question about her current process - learning, not selling.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="email-content" data-contact="sarah" data-email="2">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: How prestige beauty brands are approaching the digital shelf</div>
+                            <div class="email-timing">📅 Send timing: Tuesday, 9:00-10:00 AM GMT (5-7 days after Email 1)</div>
+                            <div class="email-body">Hi Sarah,
+
+Following on from my last note - one thing that's been interesting working with prestige beauty brands is how the digital shelf challenge differs from mass-market FMCG.
+
+With a brand like Elizabeth Arden, you're managing product content across quite different retail environments - the way Ceramide Capsules need to appear on Boots is fundamentally different from how they should be presented on Lookfantastic or Amazon UK. Each retailer has its own content requirements, image specifications, and search algorithms. Multiply that across the full skincare and fragrance portfolio and it becomes a significant coordination challenge.
+
+We've put together some thinking specifically on how beauty and personal care brands are navigating this - I've linked it below if it's useful: https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026
+
+I'd welcome hearing how your team approaches content management across your UK retail partners - particularly as the product portfolio keeps expanding with new launches.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify Ceramide Capsules is still a flagship product line before referencing</li>
+                                <li>Check current Elizabeth Arden product listings on Boots and Amazon UK to confirm they have different content presentations</li>
+                                <li>If you find a specific content inconsistency, consider mentioning it - but only if verified</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-notes">
+                            <h5>Strategy Notes</h5>
+                            <p>Adds genuine new value by framing the specific prestige beauty challenge (different content requirements per retailer). References a specific product (Ceramide Capsules) to show research depth. The Ignite article is positioned as "if useful" not required reading. Builds on Email 1's theme but shifts from the general inconsistency problem to the specific prestige beauty dimension.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="email-content" data-contact="sarah" data-email="3">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Monitoring new launches across multiple retailers</div>
+                            <div class="email-timing">📅 Send timing: Wednesday or Thursday, 9:00-10:00 AM GMT (5-7 days after Email 2)</div>
+                            <div class="email-body">Hi Sarah,
+
+One aspect I didn't touch on previously - product launches.
+
+Elizabeth Arden has had a strong run of new products, from the Hyaluronic Acid Ceramide Capsules through to 5th Avenue NYC Downtown. When a new product hits multiple UK retailers simultaneously, the operational challenge shifts from just getting it listed to making sure it's listed correctly - right images, right descriptions, right pricing, and appearing in the right search results on each site.
+
+That's where digital shelf analytics becomes particularly valuable. Rather than manually checking each retailer site, brands can track launch readiness and content accuracy across all their retail partners from a single view - flagging issues like missing images on one retailer or incorrect pricing on another before they cost sales.
+
+I'd be interested to know whether product launch monitoring is something your team currently has a process for, or whether it's more of a retailer-by-retailer check.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify the specific product launches mentioned are accurate (Hyaluronic Acid Ceramide Capsules, 5th Avenue NYC Downtown)</li>
+                                <li>If Elizabeth Arden has a launch imminent at the time of sending, reference that instead for immediacy</li>
+                                <li>Check whether Sarah's role specifically covers new product listings or if that sits with a different team</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-notes">
+                            <h5>Strategy Notes</h5>
+                            <p>Adds a genuinely new angle - product launch monitoring. References specific recent launches to demonstrate research depth. Positions DSA value in practical, operational terms that a National Account Manager would care about. Ends with a question about her current process rather than an exit offer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CLAUDIA OSSA EMAILS -->
+            <div class="card">
+                <div class="email-sequence">
+                    <div class="email-sequence-header">
+                        <div>
+                            <h3>Claudia Ossa</h3>
+                            <p>SVP IT Global eCommerce and Digital, Revlon</p>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge grey">US-based</span>
+                            <span class="badge green">Warm re-engagement</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-tabs" data-contact="claudia">
+                        <button class="email-tab active" data-email="1">Email 1</button>
+                        <button class="email-tab" data-email="2">Email 2</button>
+                        <button class="email-tab" data-email="3">Email 3</button>
+                    </div>
+                    
+                    <div class="email-content active" data-contact="claudia" data-email="1">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Reconnecting - eStore and Elizabeth Arden</div>
+                            <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00 AM EST</div>
+                            <div class="email-body">Hi Claudia,
+
+I'm [SENDER NAME] from eStore. We've been in touch with the Elizabeth Arden team over the past few years, including a meeting back in 2022 with some of your colleagues - and I wanted to reconnect because quite a lot has changed on both sides since then.
+
+eStore provides digital shelf analytics - we help brands monitor how their products appear and perform across online retailers, covering things like availability, content accuracy, pricing, and search rankings. We work with a number of prestige beauty brands across European markets, including L'Oreal.
+
+What makes this feel like the right time to reconnect is how much Elizabeth Arden's digital landscape has evolved. E-commerce growing to around 15% of total sales, the investment in a Digital Centre of Excellence, and a leadership team that's clearly prioritising digital capabilities - these are exactly the conditions where unified digital shelf intelligence becomes foundational rather than optional.
+
+I'd be interested to understand how the team is currently thinking about digital shelf monitoring, particularly across the European and UK retail partners where Elizabeth Arden has such a strong presence.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Reference to the 2022 meeting is deliberate but kept light - don't over-specify attendees unless you can verify who she personally interacted with</li>
+                                <li>Verify the Digital Centre of Excellence is still an active initiative</li>
+                                <li>Check whether Claudia's role or title has changed since the research was conducted</li>
+                                <li>Consider whether to reference Ralph Marshall's appointment (new CIDO) as additional context - but don't force it</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-notes">
+                            <h5>Strategy Notes</h5>
+                            <p>Warm re-engagement at SVP level requires balancing familiarity with respect for seniority. The 2022 meeting reference establishes credibility without assuming she remembers the details. eStore introduction is included because while she's a known contact, it's been years and a refresher is appropriate. References specific findings (15% e-commerce, Digital Centre of Excellence) without making date claims. Asks about European retailers specifically - plays to eStore's strength.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="email-content" data-contact="claudia" data-email="2">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Making digital shelf data actionable</div>
+                            <div class="email-timing">📅 Send timing: Tuesday, 8:00-9:00 AM EST (5-7 days after Email 1)</div>
+                            <div class="email-body">Hi Claudia,
+
+Building on my previous note - one thing that's shifted significantly in the digital shelf analytics space is the move from dashboards and data to actionable intelligence.
+
+For a brand like Elizabeth Arden, with products across Boots, Sephora, Douglas, Notino, Amazon, and more, the challenge isn't just knowing what's happening - it's knowing what to do about it. Which content issues are costing sales? Where are search rankings slipping against competitors? Which retailers have stock gaps that need escalating?
+
+We've invested heavily in this area, particularly around using AI to surface the answers that matter rather than just presenting data. We've written about this approach here if it's of interest: https://estorebrands.com/ignite/introducing-ai-business-answers
+
+Given your role bridging IT and e-commerce, I'd imagine the question of how to make digital tools genuinely actionable for commercial teams is something you think about. I'd welcome hearing how you're approaching that balance.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>The retailer names reference Elizabeth Arden's distribution (their presence, not our coverage)</li>
+                                <li>Verify that Claudia's role still bridges IT and eCommerce as described in the research</li>
+                                <li>The AI Business Answers article is positioned for technology-minded contacts - appropriate for an SVP IT role</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-notes">
+                            <h5>Strategy Notes</h5>
+                            <p>Adds new value by shifting from "what is DSA" to "how has DSA evolved." The actionability angle resonates with a technology leader who's been asked to make tools work for commercial teams. Referencing her specific role (bridging IT and eCommerce) shows research depth. The AI article is positioned naturally as supporting the point being made.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="email-content" data-contact="claudia" data-email="3">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: European digital shelf - where we're strongest</div>
+                            <div class="email-timing">📅 Send timing: Wednesday or Thursday, 8:00-9:00 AM EST (5-7 days after Email 2)</div>
+                            <div class="email-body">Hi Claudia,
+
+One thing I wanted to be straightforward about - eStore's deepest expertise is in European retail coverage. Retailers like Boots, Douglas, Notino, Sephora, and Lookfantastic are our home territory, and multi-market, multi-language environments are where we're most differentiated.
+
+I mention this because Elizabeth Arden has substantial European operations - offices in the UK, France, Germany, Austria, Denmark, Spain, and Switzerland, and the UK is reportedly the second-largest e-commerce market for the brand. That alignment is what makes this interesting from our perspective.
+
+For the US market, that's a separate conversation and one where we'd want to be honest about what's possible and what the timeline looks like. But for European markets, there's a natural fit between what Elizabeth Arden needs and what eStore does best.
+
+I'd be interested to know whether the European digital shelf is managed centrally from your team or whether the regional teams operate more independently - it would help me understand whether a conversation makes sense and who else it might involve.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>The European office locations are from the research - verify these are still accurate</li>
+                                <li>The "second-largest e-commerce market" claim for UK comes from the research summary - verify this can be sourced</li>
+                                <li>This email works best if sent after some indication (even an open or click) that the previous emails landed</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-notes">
+                            <h5>Strategy Notes</h5>
+                            <p>Adds a genuinely new angle - honest geographic positioning. This is a strategic reframe that demonstrates integrity and positions eStore where it's strongest. The honesty about US limitations is disarming and builds trust. The question about centralised vs regional management is operationally intelligent. Ends with a question, not an exit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FREDERIC LAFFORT EMAILS -->
+            <div class="card">
+                <div class="email-sequence">
+                    <div class="email-sequence-header">
+                        <div>
+                            <h3>Frederic Laffort</h3>
+                            <p>VP EMEA Prestige, Digital and Travel Retail, Elizabeth Arden</p>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge purple">🇫🇷 French</span>
+                            <span class="badge red">Cold - new contact</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-tabs" data-contact="frederic">
+                        <button class="email-tab active" data-email="1">Email 1</button>
+                        <button class="email-tab" data-email="2">Email 2</button>
+                        <button class="email-tab" data-email="3">Email 3</button>
+                    </div>
+                    
+                    <div class="email-content active" data-contact="frederic" data-email="1">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Elizabeth Arden's European digital shelf</div>
+                            <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM CET</div>
+                            <div class="email-body">Dear Frederic,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for beauty and personal care brands selling through online retailers. We help brands monitor and improve how their products appear and perform across retailer websites, covering areas like content accuracy, availability, pricing, and search rankings. We work with brands including L'Oreal, Wella, and Galderma across European markets.
+
+I'm writing because we've had a relationship with the Elizabeth Arden team for several years, and given your responsibility for EMEA prestige and digital, it felt right to introduce ourselves properly.
+
+Elizabeth Arden's European distribution - across Boots, Sephora, Douglas, Notino, and Lookfantastic among others - creates genuine complexity. Each retailer has different content standards, different search algorithms, and different promotional mechanics. With a portfolio spanning skincare, fragrance, and colour cosmetics, ensuring consistent product presentation across all of these platforms is a considerable operational undertaking.
+
+Your background at Procter and Gamble across brands like Max Factor and Wella means you'll be familiar with this kind of multi-retailer challenge. I'd be interested to hear how you're approaching digital shelf management across the EMEA prestige business - whether it's something you've formalised or whether it's still an area being shaped.
+
+With kind regards,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify Frederic's current title and that he's still in this role</li>
+                                <li>His Procter and Gamble background (Max Factor, Wella, Olay, Cover Girl) is from the research - use whichever brands are most relevant to his LinkedIn profile</li>
+                                <li>"Dear Frederic" reflects French business communication norms - more formal initial approach</li>
+                                <li>Verify Elizabeth Arden's presence on Douglas, Notino, and Sephora in his specific markets</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-notes">
+                            <h5>Strategy Notes</h5>
+                            <p>Cold outreach to a French senior executive requires full eStore introduction, relationship-focused tone, and respect for hierarchy. Referencing the existing Elizabeth Arden relationship differentiates this from a cold blast. His Procter and Gamble background is the key hook - he'll understand DSA instinctively. The retailer names reference Elizabeth Arden's distribution, not eStore's coverage. "With kind regards" is more appropriate for initial French business correspondence.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="email-content" data-contact="frederic" data-email="2">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: The prestige beauty digital shelf challenge</div>
+                            <div class="email-timing">📅 Send timing: Tuesday, 9:00-10:00 AM CET (5-7 days after Email 1)</div>
+                            <div class="email-body">Dear Frederic,
+
+Following my earlier note - one challenge we see consistently with prestige beauty brands in European markets is the tension between brand control and retailer autonomy.
+
+A product like Eight Hour Cream, which has won over 90 beauty awards and has genuine heritage, needs to be presented with appropriate quality across every retailer site. But each retailer controls their own product pages, and what appears on Boots may look quite different from what appears on Douglas or Notino - in terms of imagery, descriptions, and even the claims being made. For a brand built on prestige positioning, that inconsistency can quietly erode the brand experience.
+
+We've put together some thinking specifically on how beauty brands are navigating this - the article is here if it's of interest: https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026
+
+I appreciate your time is limited, so I'll simply say that if the topic of content consistency and competitive positioning across European retailers is relevant to your current priorities, I'd welcome the opportunity to learn more about your situation.
+
+With kind regards,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify Eight Hour Cream's "90+ beauty awards" claim - this is well-documented but confirm it's still used in Elizabeth Arden's marketing</li>
+                                <li>Check current product pages for Eight Hour Cream on Boots vs Douglas vs Notino to validate the content inconsistency point</li>
+                                <li>If you find a specific content inconsistency, consider mentioning it - but only if verified</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-notes">
+                            <h5>Strategy Notes</h5>
+                            <p>Adds genuine new value by framing the specific prestige beauty challenge - brand control vs retailer autonomy. Uses a flagship product (Eight Hour Cream) to make the point concrete. The content link flows naturally from the topic being discussed. The closing is respectful of his seniority and time without being sycophantic.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="email-content" data-contact="frederic" data-email="3">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Launching products across European markets simultaneously</div>
+                            <div class="email-timing">📅 Send timing: Wednesday or Thursday, 9:00-10:00 AM CET (5-7 days after Email 2)</div>
+                            <div class="email-body">Dear Frederic,
+
+One area I haven't touched on yet - product launches across multiple European markets.
+
+Elizabeth Arden has had several significant launches, including the Hyaluronic Acid Ceramide Capsules and 5th Avenue NYC Downtown. When a new product needs to go live on Boots in the UK, Douglas in Germany, Sephora in France, and Notino across multiple markets - ideally at the same time and with consistent content - the coordination required is substantial. Each market has different regulatory requirements for beauty claims, different language needs, and different retailer content formats.
+
+Digital shelf analytics can provide a single view of launch readiness across all these markets and retailers, flagging where content is missing, where images haven't been uploaded, or where product information is inconsistent before those gaps start affecting sales.
+
+I'd be interested to know how your team currently manages multi-market product launches from a digital shelf perspective - whether there's a systematic process in place or whether it's largely managed market by market.
+
+With kind regards,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify the specific product launches mentioned are still relevant at time of sending</li>
+                                <li>If a new Elizabeth Arden launch is imminent in European markets, reference that instead for immediacy</li>
+                                <li>Regulatory requirements for beauty claims vary significantly across EU markets - this is a genuine pain point</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-notes">
+                            <h5>Strategy Notes</h5>
+                            <p>Adds a genuinely new angle - multi-market launch coordination. Highly relevant to his EMEA responsibility. References specific products to demonstrate research depth. The regulatory angle (beauty claims across markets) shows understanding of his world. The question about "systematic process vs market by market" is a smart diagnostic question.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- BETH RUSSO EMAILS -->
+            <div class="card">
+                <div class="email-sequence">
+                    <div class="email-sequence-header">
+                        <div>
+                            <h3>Beth Russo</h3>
+                            <p>VP of North America eCommerce, Revlon</p>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge red">Cold - new contact</span>
+                        </div>
+                    </div>
+                    
+                    <div class="email-tabs" data-contact="beth">
+                        <button class="email-tab active" data-email="1">Email 1</button>
+                        <button class="email-tab" data-email="2">Email 2</button>
+                        <button class="email-tab" data-email="3">Email 3</button>
+                    </div>
+                    
+                    <div class="email-content active" data-contact="beth" data-email="1">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Digital shelf analytics for Elizabeth Arden - a European perspective</div>
+                            <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00 AM EST</div>
+                            <div class="email-body">Hi Beth,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for beauty and personal care brands, helping them monitor and improve how products appear across online retailer sites. We track things like content accuracy, availability, pricing, and search rankings, and we work with brands including L'Oreal, Wella, and Galderma.
+
+eStore's deepest strength is European retail coverage. We work extensively with retailers across the UK and continental Europe, and that's where we're most differentiated. For the US market, we'd want to have an honest conversation about capabilities and timelines.
+
+The reason I'm writing is that we've had a relationship with the Elizabeth Arden team for several years, and with e-commerce now at around 15% of total sales and growing significantly, the complexity of managing product performance across retailers is clearly increasing. Your experience at GSK Consumer Healthcare and Reckitt means you'll be familiar with the digital shelf challenge - I'd imagine the scale at Elizabeth Arden across Amazon, Walmart, Target, Ulta, and others creates its own version of that complexity.
+
+I'd be interested to hear how you're currently approaching digital shelf monitoring for North America - whether you have tools in place for that or whether it's an area you're evaluating.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify Beth Russo's current role and that she's still at Revlon</li>
+                                <li>Her GSK/Reckitt background is from the research - confirm via LinkedIn which brands/roles are most relevant</li>
+                                <li>The retailer names (Amazon, Walmart, Target, Ulta) reference Elizabeth Arden's US distribution, not eStore's coverage</li>
+                                <li>The 15% e-commerce figure comes from the research - use a qualifying phrase like "around 15%" since the exact figure may have shifted</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-notes">
+                            <h5>Strategy Notes</h5>
+                            <p>American tone - direct, no unnecessary preamble. The honest geographic positioning in paragraph two builds trust immediately and sets realistic expectations. Her CPG background (GSK, Reckitt) is the main hook: she's almost certainly used DSA tools before. The question about current tools is genuine diagnostic discovery. Doesn't oversell eStore's US capabilities.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="email-content" data-contact="beth" data-email="2">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: What European digital shelf data can tell you about US performance</div>
+                            <div class="email-timing">📅 Send timing: Tuesday, 8:00-9:00 AM EST (5-7 days after Email 1)</div>
+                            <div class="email-body">Hi Beth,
+
+Following up on my previous note - one thing that's become increasingly relevant for global beauty brands is how digital shelf performance in one market can inform strategy in another.
+
+Elizabeth Arden sells through quite different retail environments across Europe and North America. The way Ceramide Capsules performs on Boots UK or Douglas in Germany - in terms of content quality, search positioning, and competitive share - can reveal patterns that are useful for optimising the same products on Ulta or Target. Retailer search algorithms work differently, but consumer behaviour around prestige skincare tends to follow similar patterns.
+
+We've written about how brands can benchmark their content quality against competitors across multiple retailers - it's an approach that works particularly well for brands with complex portfolios: https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content
+
+I'd be interested to know whether there's currently any cross-market intelligence sharing between the European and North American e-commerce teams, or whether each region largely operates independently.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>Verify Ceramide Capsules is carried on Boots UK, Douglas, Ulta, and Target before referencing</li>
+                                <li>The Content Benchmark article fits the cross-market benchmarking angle</li>
+                                <li>The cross-market intelligence angle may or may not resonate - depends on how Revlon's e-commerce teams are structured</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-notes">
+                            <h5>Strategy Notes</h5>
+                            <p>Adds genuine new value by introducing the cross-market intelligence angle. Positions eStore's European strength as an asset rather than a limitation - European data can inform US decisions. The Content Benchmark article fits naturally with the benchmarking theme. The question about cross-market collaboration is genuinely diagnostic.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="email-content" data-contact="beth" data-email="3">
+                        <div class="email-box">
+                            <div class="email-subject">Subject: Managing 150+ SKUs across a dozen retailers</div>
+                            <div class="email-timing">📅 Send timing: Wednesday or Thursday, 8:00-9:00 AM EST (5-7 days after Email 2)</div>
+                            <div class="email-body">Hi Beth,
+
+One thing I haven't raised yet is portfolio scale.
+
+Elizabeth Arden has well over 150 active products spanning skincare, fragrance, and colour cosmetics - each with its own set of images, descriptions, ingredients lists, and beauty claims. Across a dozen or more US retail partners, that's thousands of individual product pages that need to be accurate, optimised, and competitive.
+
+From your time at GSK managing the Flonase transition and other launches across Amazon, you'll know that the gap between what should be on a product page and what actually is on a product page can be significant - and it tends to grow as the portfolio expands. Digital shelf analytics gives teams a way to identify and prioritise those gaps without manually checking every listing.
+
+I'd be interested to hear whether portfolio-wide content management is something your team has systematised, or whether it's still largely reactive - catching issues as they surface.
+
+Best,
+[SENDER NAME]</div>
+                        </div>
+                        <div class="email-notes">
+                            <h5>Customisation Notes</h5>
+                            <ul>
+                                <li>The "150+ active products" figure comes from the research estimate of 150-200+ SKUs - use a qualifying term</li>
+                                <li>The Flonase reference is from Beth's GSK background - verify this is accurate via LinkedIn before including</li>
+                                <li>If you can find a specific example of an Elizabeth Arden product listing issue on a US retailer, consider referencing it</li>
+                            </ul>
+                        </div>
+                        <div class="strategy-notes">
+                            <h5>Strategy Notes</h5>
+                            <p>Adds a genuinely new angle - portfolio scale and the operational burden it creates. The Flonase reference shows research into her specific background. The question distinguishes between systematic and reactive approaches - the answer reveals their maturity level and need. Doesn't oversell US capabilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================================================================ -->
+        <!-- TAB 6: OBJECTION HANDLING -->
+        <!-- ================================================================ -->
+        <div id="objections" class="tab-content">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                <div class="info-box green">
+                    <strong>Current assessment: STRONG FIT - Proceed with confident re-engagement</strong>
+                </div>
+                <table>
+                    <thead><tr><th>Scenario</th><th>Recommendation</th><th>Next Steps</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Strong Fit</strong><br>(Current assessment)</td>
+                            <td><span class="badge green">PROCEED</span></td>
+                            <td>Multi-thread outreach: start with Sarah Barringer (warm, UK), simultaneously approach Frederic Laffort (EMEA digital), escalate to Claudia Ossa (technology buyer). Confident but not presumptuous tone.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>If they have an existing DSA provider</strong><br>(Not currently indicated)</td>
+                            <td><span class="badge orange">PROCEED WITH CAVEATS</span></td>
+                            <td>Shift from greenfield to displacement positioning. Focus on European differentiation. Ask about gaps in current solution rather than selling replacement.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>If budget is frozen</strong><br>(Post-bankruptcy constraint)</td>
+                            <td><span class="badge orange">PROCEED WITH CAVEATS</span></td>
+                            <td>Offer pilot/phased approach. Start with European markets only. Position as enabling investment priorities already approved by new leadership.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>If no response after 3 sequences</strong></td>
+                            <td><span class="badge yellow">PAUSE &amp; REASSESS</span></td>
+                            <td>Wait 3-6 months. Monitor for new trigger events (product launches, leadership changes, earnings mentions of digital). Try different contacts or different angle.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Common Objections &amp; Responses</h2>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"We already have analytics tools in place"</div>
+                    <h4>Response</h4>
+                    <p>That's good to hear - it means you already understand the value of data-driven decision-making for e-commerce. Most brands we work with have analytics tools like Google Analytics or SAP for website and business intelligence. What they often find is a gap specifically around digital shelf visibility - how products appear, rank, and perform across third-party retailer websites like Boots, Amazon, Sephora, and Douglas.</p>
+                    <p>It's a different data set from what web analytics or market research tools provide. Rather than replacing what you have, digital shelf analytics fills that specific gap. Would be worth understanding what you're currently using and where the blind spots might be.</p>
+                    <h4>Evidence</h4>
+                    <p>Research identified Google Analytics, SAP Analytics Cloud, and Nielsen/IRI in their stack - none of these provide digital shelf monitoring. The Digital Centre of Excellence suggests they're building capabilities but may have gaps.</p>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"We've spoken to eStore before and it wasn't the right time"</div>
+                    <h4>Response</h4>
+                    <p>You're right - and I want to be upfront that we've been in touch with your team over the past few years, including a meeting in 2022. I think the honest assessment is that timing is genuinely different now.</p>
+                    <p>Since then, the entire leadership team has been refreshed, e-commerce has grown to around 15% of sales, you've appointed a new CIDO, and there's a Digital Centre of Excellence in place. The digital landscape at Elizabeth Arden has fundamentally shifted. We've also evolved - particularly around making digital shelf data actionable rather than just presenting dashboards.</p>
+                    <p>Rather than rehashing old ground, I'd be interested in understanding what's changed on your side and whether the priorities have shifted in a way that makes this conversation more relevant now.</p>
+                    <h4>Evidence</h4>
+                    <p>Five years of outreach history acknowledged honestly. Focus on what's genuinely different: new CEO (Nov 2024), new CIDO (Apr 2025), new EA President (Oct 2025), 50% e-commerce growth, post-bankruptcy investment phase.</p>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"How many of our retailers can you actually monitor?"</div>
+                    <h4>Response</h4>
+                    <p>Great question - and one we're transparent about. eStore's deepest strength is European retail coverage. Retailers like Boots, Amazon UK, Sephora, Douglas, Notino, and Lookfantastic are our home territory. For Elizabeth Arden's European markets, we can provide immediate value.</p>
+                    <p>For the US market, that's a conversation we'd want to have honestly. We have capabilities across major US platforms, but our European coverage is where we're most differentiated and where we can deliver the fastest time-to-value.</p>
+                    <p>Given that the UK is reportedly your second-largest e-commerce market, and you have operations in seven European countries, starting with European coverage and expanding from there is often the most practical approach.</p>
+                    <h4>Evidence</h4>
+                    <p>Honest geographic positioning. eStore's infrastructure covers major European beauty retailers. Phased approach starting with Europe is the realistic and honest recommendation.</p>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"We're still in post-bankruptcy recovery - budget is tight"</div>
+                    <h4>Response</h4>
+                    <p>I understand that completely, and it's one reason we'd suggest a focused, phased approach rather than a full global rollout. Starting with your highest-priority European markets - where eStore's coverage is strongest and Elizabeth Arden has significant operations - means you can see value quickly with a manageable investment.</p>
+                    <p>The other way to think about it: your CEO has said 2025 is "a plan of growth and investment," and e-commerce has grown 50% year on year. That growth creates complexity that costs money if unmanaged - incorrect listings, content gaps, competitive blind spots. Digital shelf analytics is often about protecting revenue you're already generating, not just driving new revenue.</p>
+                    <h4>Evidence</h4>
+                    <p>Revlon emerged from Chapter 11 in May 2023, eliminated $2.7bn in debt. CEO Peluso's stated focus on growth and investment. E-commerce at 15% and growing 50% YoY - the growth is happening whether they invest in visibility or not.</p>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"We handle this internally / our retail team manages it manually"</div>
+                    <h4>Response</h4>
+                    <p>That's actually quite common - and it works when you have a manageable number of retailers and products. The challenge tends to emerge as the portfolio grows and as you expand across more markets.</p>
+                    <p>With 150+ active SKUs across skincare, fragrance, and colour cosmetics, distributed across 20+ retailers globally with 16+ country-specific DTC sites, the manual checking workload becomes significant. It's not just about finding issues - it's about finding them quickly enough to act before they affect sales.</p>
+                    <p>The teams we work with typically find that automation doesn't replace their people - it redirects them from checking product pages to actually improving them. The value is in what your team does with the insights, not just having the data.</p>
+                    <h4>Evidence</h4>
+                    <p>150-200+ estimated active SKUs. 20-25 online retailers. 16+ DTC sites. Multi-category portfolio (skincare, fragrance, colour cosmetics). Multi-market complexity (7+ European countries). This is genuinely too complex for sustainable manual monitoring.</p>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"We'd need something that covers the US as well - can you do that?"</div>
+                    <h4>Response</h4>
+                    <p>I appreciate the directness, and I want to be equally direct. Our strongest coverage is European - that's where we're most differentiated and where we deliver the most value. We do have capabilities in the US market, but I'd want to have an honest conversation about the specifics rather than overpromise.</p>
+                    <p>What many global brands find is that starting with the region where coverage is deepest gives them a model and a benchmark. European digital shelf data can also inform US strategy - consumer behaviour around prestige beauty tends to follow similar patterns even though retailer platforms differ.</p>
+                    <p>If comprehensive US coverage is a non-negotiable starting point, I'd rather be honest about that than oversell. But if you're open to a phased approach starting with Europe, that's where we can deliver genuine value immediately.</p>
+                    <h4>Evidence</h4>
+                    <p>Honest positioning that builds trust. UK is second-largest e-commerce market for Elizabeth Arden. Seven European offices suggest significant European operations worth monitoring.</p>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"What makes you different from Profitero / other DSA providers?"</div>
+                    <h4>Response</h4>
+                    <p>Good question. A few things stand out for a brand in Elizabeth Arden's position:</p>
+                    <p>First, European retail depth. We have deep expertise across European retailers - Boots, Douglas, Notino, Sephora, Lookfantastic - with multi-market, multi-language capabilities that are genuinely hard to replicate. For a brand with operations in seven European countries, that matters.</p>
+                    <p>Second, beauty sector experience. We work with L'Oreal, Wella, and Galderma among others. We understand the specific challenges of prestige beauty - regulatory requirements for claims across markets, the importance of brand presentation quality, the complexity of managing skincare alongside fragrance portfolios.</p>
+                    <p>Third, actionability. We've invested in AI-driven insights that tell your team what to do, not just what's happening. The shift from dashboards to actionable intelligence is where we've focused our development.</p>
+                    <h4>Evidence</h4>
+                    <p>No incumbent DSA identified - so this may be a hypothetical or future objection. Position based on European strength, beauty credentials, and actionability. Don't try to compete head-to-head on US coverage.</p>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"The timing isn't right - we're still settling in with new leadership"</div>
+                    <h4>Response</h4>
+                    <p>That's fair - and I wouldn't want to add noise during a period of transition. At the same time, the new leadership team appears to be actively evaluating the technology landscape. Your new CIDO started in April 2025, and the new Elizabeth Arden President has a stated digital-first mandate.</p>
+                    <p>New leadership evaluating their technology stack is actually the ideal window for a conversation - not to sell, but to make sure you're aware of what's available so that when the evaluation happens, digital shelf analytics is on the table.</p>
+                    <p>Happy to have a low-pressure conversation now and reconnect more formally when the timing is better. Or if there's a specific timeline when technology decisions are being made, I'd welcome knowing that so I can be useful rather than intrusive.</p>
+                    <h4>Evidence</h4>
+                    <p>New CIDO (April 2025), new EA President (October 2025), CEO stated 2025 is "growth and investment". Technology evaluation is standard practice for incoming leaders.</p>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"We're focused on the Revlon brand, not Elizabeth Arden right now"</div>
+                    <h4>Response</h4>
+                    <p>Understood - and that makes sense given the broader portfolio priorities. If Elizabeth Arden isn't the focus right now, digital shelf analytics can apply equally across the Revlon portfolio. The same challenges around content consistency, competitive visibility, and search performance exist for Revlon, Almay, and other brands in the group.</p>
+                    <p>If the conversation makes more sense at the Revlon brand level, or across the full portfolio, we're happy to adjust the scope. The platform is designed to work across multiple brands and markets.</p>
+                    <h4>Evidence</h4>
+                    <p>Revlon owns multiple brands (Revlon, Almay, American Crew, Mitchum, Cutex). Engagement with Elizabeth Arden could open doors to the broader portfolio. Claudia Ossa and Beth Russo have cross-brand remits.</p>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-statement">"Can you show me proof this works for beauty brands specifically?"</div>
+                    <h4>Response</h4>
+                    <p>Absolutely - beauty and personal care is one of our strongest sectors. We currently work with L'Oreal, Wella, and Galderma among others. The prestige beauty challenges - maintaining brand presentation quality across different retailer environments, managing regulatory claims across European markets, coordinating product launches across multiple platforms - are ones we deal with regularly.</p>
+                    <p>We've also published thinking specifically on the digital shelf challenges facing beauty brands, which I can share. But the most useful thing would be a focused demonstration using Elizabeth Arden's own products and retailers - seeing your actual data is always more compelling than general case studies.</p>
+                    <h4>Evidence</h4>
+                    <p>L'Oreal as current client is the strongest proof point. Wella and Galderma add breadth. Beauty &amp; Personal Care Ignite article provides sector-specific content. Offer a demo using their own products as the most convincing evidence.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                <ul>
+                    <li><strong>Never dismiss the objection</strong> - acknowledge it genuinely before responding</li>
+                    <li><strong>Be honest about limitations</strong> - especially geographic coverage. Honesty builds trust faster than overselling</li>
+                    <li><strong>Use evidence, not assertions</strong> - reference specific research findings, not generic claims</li>
+                    <li><strong>Offer flexibility</strong> - pilots, phased rollouts, European-first approaches all reduce perceived risk</li>
+                    <li><strong>Ask questions to understand the root concern</strong> - an objection about budget might really be about value; an objection about timing might really be about priority</li>
+                    <li><strong>Acknowledge the outreach history</strong> - don't pretend this is new. The five-year relationship is either an asset (persistence shows genuine interest) or a liability (email fatigue). Read the situation and adapt</li>
+                    <li><strong>Lead with European strength</strong> - this is where eStore wins. Don't get drawn into a global coverage comparison where competitors may be stronger</li>
+                    <li><strong>Reference the new leadership window</strong> - entire C-suite refreshed since 2023. This is genuinely a different company with different priorities</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Main tab navigation
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
+                });
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+        
+        // Email tab navigation
+        document.querySelectorAll('.email-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const contact = tab.closest('.email-sequence').querySelector('.email-tabs').dataset.contact;
+                
+                // Deactivate all tabs for this contact
+                tab.closest('.email-tabs').querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                
+                // Hide all email content for this contact
+                tab.closest('.email-sequence').querySelectorAll('.email-content').forEach(c => c.classList.remove('active'));
+                
+                // Activate clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const emailNum = tab.dataset.email;
+                tab.closest('.email-sequence').querySelectorAll('.email-content').forEach(c => {
+                    if (c.dataset.email === emailNum) {
+                        c.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
