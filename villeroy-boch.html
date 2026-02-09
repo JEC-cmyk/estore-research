@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villeroy &amp; Boch - eStore Action Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 { font-size: 2rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .header-subtitle { font-size: 1.1rem; opacity: 0.95; margin-bottom: 1rem; }
+        
+        .header-meta {
+            font-size: 0.9rem; opacity: 0.9;
+            display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem;
+        }
+        .header-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        
+        .tabs {
+            display: flex; gap: 0.5rem; margin-bottom: 2rem;
+            background: white; padding: 1rem; border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.25rem; background: #f8f9fa; border: none;
+            border-radius: 8px; cursor: pointer; font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem; font-weight: 600; color: #2c2c2c;
+            transition: all 0.3s ease;
+        }
+        .tab:hover { background: #e9ecef; }
+        .tab.active { background: #1067db; color: white; }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        .card {
+            background: white; border-radius: 12px; padding: 2rem;
+            margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .card h2 { font-size: 1.5rem; margin-bottom: 1rem; color: #1067db; font-weight: 700; }
+        .card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; margin-top: 1.5rem; color: #2c2c2c; font-weight: 600; }
+        .card h4 { font-size: 1rem; margin-bottom: 0.5rem; margin-top: 1rem; color: #495057; font-weight: 600; }
+        .card p { margin-bottom: 1rem; }
+        
+        .fit-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 1rem 1.5rem; border-radius: 8px;
+            font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;
+        }
+        .fit-badge.strong {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724; border: 2px solid #22bb69;
+        }
+        .fit-badge.moderate {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            color: #856404; border: 2px solid #ffba1c;
+        }
+        
+        .summary-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; margin-top: 1.5rem;
+        }
+        .summary-item {
+            background: #f8f9fa; padding: 1.25rem; border-radius: 8px;
+            border-left: 4px solid #1067db;
+        }
+        .summary-item h4 {
+            margin-top: 0; color: #1067db; font-size: 0.95rem;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .summary-item p { margin-bottom: 0; font-size: 0.95rem; }
+        
+        .stat-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem; margin: 1.5rem 0;
+        }
+        .stat-box {
+            background: #f8f9fa; padding: 1.25rem; border-radius: 8px; text-align: center;
+        }
+        .stat-box .value { font-size: 1.75rem; font-weight: 700; color: #1067db; }
+        .stat-box .label { font-size: 0.85rem; color: #6c757d; margin-top: 0.25rem; }
+        
+        .info-box { padding: 1rem 1.25rem; border-radius: 8px; margin: 1rem 0; }
+        .info-box.blue { background: #e7f3ff; border-left: 4px solid #1067db; }
+        .info-box.green { background: #e8f5e9; border-left: 4px solid #22bb69; }
+        .info-box.yellow { background: #fff8e1; border-left: 4px solid #ffba1c; }
+        .info-box.red { background: #ffebee; border-left: 4px solid #f44f2f; }
+        .info-box.orange { background: #fff3e0; border-left: 4px solid #ff7a00; }
+        
+        ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #dee2e6; }
+        th { background: #f8f9fa; font-weight: 600; color: #495057; }
+        tr:hover { background: #f8f9fa; }
+        
+        .badge {
+            display: inline-block; padding: 0.25rem 0.75rem;
+            border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+        }
+        .badge.green { background: #d4edda; color: #155724; }
+        .badge.yellow { background: #fff3cd; color: #856404; }
+        .badge.red { background: #f8d7da; color: #721c24; }
+        .badge.blue { background: #e7f3ff; color: #1067db; }
+        .badge.grey { background: #e9ecef; color: #495057; }
+        .badge.orange { background: #fff3e0; color: #e65100; }
+        
+        .contact-card {
+            background: #f8f9fa; border-radius: 12px; padding: 1.5rem;
+            margin-bottom: 1.5rem; border-left: 4px solid #1067db;
+        }
+        .contact-card.secondary { border-left-color: #68d7fa; }
+        .contact-card.historical { border-left-color: #ffba1c; }
+        .contact-card.executive { border-left-color: #6c757d; }
+        .contact-card.skip { border-left-color: #f44f2f; background: #fff5f5; }
+        
+        .contact-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;
+        }
+        .contact-name { font-size: 1.2rem; font-weight: 700; color: #2c2c2c; }
+        .contact-title { font-size: 0.95rem; color: #6c757d; margin-top: 0.25rem; }
+        .contact-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        
+        .tone-box {
+            background: #e7f3ff; padding: 0.75rem 1rem; border-radius: 8px;
+            margin-top: 1rem; font-size: 0.9rem;
+        }
+        .tone-box strong { color: #1067db; }
+        
+        .email-sequence {
+            background: #f8f9fa; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;
+        }
+        .email-sequence-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
+            padding-bottom: 1rem; border-bottom: 2px solid #e9ecef;
+        }
+        .email-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .email-tab {
+            padding: 0.5rem 1rem; background: white; border: 2px solid #e9ecef;
+            border-radius: 8px; cursor: pointer; font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease;
+        }
+        .email-tab:hover { border-color: #1067db; }
+        .email-tab.active { background: #1067db; border-color: #1067db; color: white; }
+        
+        .email-content { display: none; }
+        .email-content.active { display: block; }
+        
+        .email-box {
+            background: white; border-radius: 8px; padding: 1.5rem;
+            margin-bottom: 1rem; border: 1px solid #e9ecef;
+        }
+        .email-subject {
+            font-weight: 600; color: #1067db; margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem; border-bottom: 1px solid #e9ecef;
+        }
+        .email-timing { font-size: 0.85rem; color: #6c757d; margin-bottom: 1rem; }
+        .email-body { white-space: pre-line; font-size: 0.95rem; line-height: 1.7; }
+        
+        .email-notes {
+            margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed #dee2e6;
+        }
+        .email-notes h5 { font-size: 0.9rem; color: #6c757d; margin-bottom: 0.5rem; }
+        .email-notes p { font-size: 0.9rem; color: #495057; margin-bottom: 0.5rem; }
+        
+        .objection-card {
+            background: white; border-radius: 8px; margin-bottom: 1rem;
+            border: 1px solid #e9ecef; overflow: hidden;
+        }
+        .objection-header {
+            padding: 1rem 1.25rem; background: #f8f9fa; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            font-weight: 600; color: #2c2c2c;
+        }
+        .objection-header:hover { background: #e9ecef; }
+        .objection-arrow { transition: transform 0.3s ease; }
+        .objection-card.open .objection-arrow { transform: rotate(180deg); }
+        .objection-body {
+            display: none; padding: 1.25rem; border-top: 1px solid #e9ecef;
+        }
+        .objection-card.open .objection-body { display: block; }
+        
+        .disclaimer {
+            background: #fff8e1; border: 2px solid #ffba1c; border-radius: 8px;
+            padding: 1rem 1.25rem; margin-bottom: 2rem;
+        }
+        .disclaimer strong { color: #856404; }
+        
+        .content-link {
+            display: block; background: #f8f9fa; padding: 1rem; border-radius: 8px;
+            margin-bottom: 0.75rem; text-decoration: none; color: #2c2c2c;
+            transition: all 0.3s ease; border: 1px solid #e9ecef;
+        }
+        .content-link:hover { background: #e7f3ff; border-color: #1067db; }
+        .content-link .link-title { font-weight: 600; color: #1067db; }
+        .content-link .link-desc { font-size: 0.85rem; color: #6c757d; margin-top: 0.25rem; }
+        
+        .checklist { list-style: none; margin-left: 0; }
+        .checklist li { padding: 0.5rem 0; padding-left: 1.75rem; position: relative; }
+        .checklist li::before {
+            content: '✅'; position: absolute; left: 0; top: 0.5rem;
+        }
+        .checklist li.warning::before { content: '⚠️'; }
+        .checklist li.cross::before { content: '❌'; }
+        .checklist li.info::before { content: 'ℹ️'; }
+        
+        .confidence-indicator {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            font-size: 0.8rem; font-weight: 600; padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+        }
+        .confidence-indicator.high { background: #d4edda; color: #155724; }
+        .confidence-indicator.medium { background: #fff3cd; color: #856404; }
+        .confidence-indicator.low { background: #f8d7da; color: #721c24; }
+        .confidence-indicator.unknown { background: #e9ecef; color: #495057; }
+        
+        .retailer-region { margin-bottom: 1.5rem; }
+        .retailer-region h4 { margin-top: 0.5rem; }
+        
+        .timeline-item {
+            padding: 1rem 0 1rem 2rem; border-left: 3px solid #1067db;
+            position: relative; margin-left: 0.5rem;
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -8px; top: 1.25rem;
+            width: 13px; height: 13px; border-radius: 50%;
+            background: #1067db; border: 2px solid white;
+        }
+        .timeline-item.warning { border-left-color: #ffba1c; }
+        .timeline-item.warning::before { background: #ffba1c; }
+        
+        footer {
+            text-align: center; padding: 2rem; color: #6c757d; font-size: 0.85rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header { padding: 1.5rem 1rem; }
+            .header h1 { font-size: 1.5rem; }
+            .container { padding: 1rem; }
+            .card { padding: 1.25rem; }
+            .tabs { padding: 0.5rem; }
+            .tab { padding: 0.5rem 0.75rem; font-size: 0.8rem; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .summary-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Villeroy &amp; Boch AG</h1>
+    <div class="header-subtitle">eStore Brand Research &amp; Action Plan</div>
+    <div class="header-meta">
+        <div class="header-meta-item">📊 <strong>Fit Level:</strong>&nbsp; Strong Fit</div>
+        <div class="header-meta-item">🏢 <strong>Revenue:</strong>&nbsp; €1.42 billion (FY2024)</div>
+        <div class="header-meta-item">🌍 <strong>HQ:</strong>&nbsp; Mettlach, Germany</div>
+        <div class="header-meta-item">🏭 <strong>Sector:</strong>&nbsp; Home &amp; DIY / Premium Homeware</div>
+        <div class="header-meta-item">📅 <strong>Created:</strong>&nbsp; 9 February 2026</div>
+        <div class="header-meta-item">👤 <strong>Author:</strong>&nbsp; James</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="tabs">
+        <button class="tab active" onclick="showTab('tab-fit')">Strategic Fit Assessment</button>
+        <button class="tab" onclick="showTab('tab-history')">Our History With Them</button>
+        <button class="tab" onclick="showTab('tab-retailers')">Retailer Overview</button>
+        <button class="tab" onclick="showTab('tab-people')">Key People?</button>
+        <button class="tab" onclick="showTab('tab-emails')">Draft Email Sequences</button>
+        <button class="tab" onclick="showTab('tab-objections')">Objection Handling</button>
+    </div>
+
+    <!-- ==================== TAB 1: STRATEGIC FIT ASSESSMENT ==================== -->
+    <div id="tab-fit" class="tab-content active">
+        <div class="card">
+            <div class="fit-badge strong">🟢 STRONG FIT</div>
+            <p>Villeroy &amp; Boch is a high-value, high-fit prospect for eStore. The €1.42 billion German premium brand has no confirmed digital shelf analytics provider, operates across 28+ online retailers in multiple categories, and is undergoing a transformational post-acquisition integration that has doubled its product complexity. eStore's own Ignite article already names Villeroy &amp; Boch alongside GROHE (a current eStore client) as an example of brands that need DSA - creating a natural conversation starter. The company's CDO, Dr. Peter Domma, sits on the Management Board and owns the digital agenda, making him the primary outreach target.</p>
+            
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="value">€1.42B</div>
+                    <div class="label">FY2024 Revenue</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">28+</div>
+                    <div class="label">Online Retailers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">3</div>
+                    <div class="label">Product Categories</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">15,000+</div>
+                    <div class="label">Products (D&amp;L alone)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">140+</div>
+                    <div class="label">Countries Served</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">277</div>
+                    <div class="label">Years of Heritage</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Five-Factor Assessment</h2>
+            
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h4>1. Distribution Complexity &amp; Geographic Alignment</h4>
+                    <p><strong>Score: Very High Complexity, Strong European Alignment</strong></p>
+                    <p>28+ online retailers across three distinct product categories (Bathroom &amp; Wellness, Tableware &amp; Dining, Tiles), spanning the US, UK, and continental Europe. Not Amazon-dominant - deliberately diversified omnichannel strategy. Operates 17 DTC online stores via Salesforce Commerce Cloud and Magento. Distribution flows through specialist bathroom e-tailers, premium department stores, general marketplaces, and specialist tile retailers. Post-Ideal Standard acquisition doubles brand management complexity across shared channels.</p>
+                    <p><strong>Geographic split:</strong> ~50-55% Europe, ~35-40% US, ~5-10% Rest of World. Revenue concentration is overwhelmingly European, aligning with eStore's core strength.</p>
+                </div>
+                
+                <div class="summary-item">
+                    <h4>2. Competitive Intelligence (DSA Provider)</h4>
+                    <p><strong>Status: No DSA provider detected</strong> <span class="confidence-indicator unknown">UNKNOWN / Gap likely</span></p>
+                    <p>Systematic search of all 13 major DSA providers produced zero confirmed connections. PIM system is Contentserv (now Centric PXM following Feb 2025 acquisition by Dassault Systèmes). Centric PXM bundles a DSA module, but no evidence V&amp;B uses it. Job postings reference Keepa (basic Amazon price tracker) but no enterprise DSA tool - unusual for a brand of this size.</p>
+                </div>
+                
+                <div class="summary-item">
+                    <h4>3. Sector Alignment</h4>
+                    <p><strong>Score: Near-Perfect</strong> <span class="badge green">Home &amp; DIY</span></p>
+                    <p>Bathroom &amp; Wellness division (77% of revenue, €1.1B) aligns directly with eStore's Home &amp; DIY sector where eStore already serves GROHE (bathroom fittings), Bosch Power Tools, and WD-40. V&amp;B's bathroom products sell through the same channels that eStore already monitors for GROHE. Adjacent alignment through Luxury/Premium (Harrods, Selfridges, John Lewis) and Hospitality/Contract channels.</p>
+                    <p><strong>Key lever:</strong> GROHE is both a direct V&amp;B competitor and a publicly named eStore client. eStore's Ignite article names V&amp;B alongside GROHE.</p>
+                </div>
+                
+                <div class="summary-item">
+                    <h4>4. Relationship History</h4>
+                    <p><strong>Status: Warm Re-engagement</strong> <span class="badge yellow">Prior Contact 2023</span></p>
+                    <p>Previous eStore outreach Feb-Mar 2023 (3 email waves + calls) did not convert. Two confirmed contacts still at V&amp;B: Giovanni Veltri (promoted twice since, now Sales Director eCommerce B&amp;W) and Maddalena Salsi (E-commerce Manager, France). Dr. Peter Domma (CDO) and Paul-Louis Villeroy de Galhau were not part of the 2023 outreach - they are cold targets.</p>
+                    <p><strong>Tactical advantage:</strong> V&amp;B has undergone transformational change since 2023 (new CEO, €600M acquisition, structural reorganisation). The company contacted in 2023 is fundamentally different today.</p>
+                </div>
+                
+                <div class="summary-item">
+                    <h4>5. Market Dynamics &amp; Timing</h4>
+                    <p><strong>Score: Optimal Timing</strong> <span class="badge green">Multiple Triggers</span></p>
+                    <p><strong>Ideal Standard acquisition</strong> (completed Feb 2024, ~€600M) nearly doubled revenue, tripled fittings market share, added a second brand requiring monitoring across shared retailers. <strong>New CEO</strong> Gabi Schupp (Jan 2024, ex-P&amp;G) brings consumer goods mindset. <strong>CDO on Management Board</strong> since Jan 2023 signals elevated digital priority. <strong>E-commerce declined 13%</strong> in H1 2025 for D&amp;L EMEA, creating diagnostic urgency. GROHE/LIXIL investing heavily in digital platforms, intensifying competitive pressure.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Synthesis &amp; Recommendation</h2>
+            
+            <div class="info-box green">
+                <p><strong>Approach:</strong> Confident, consultative outreach leading with eStore's Home &amp; DIY sector expertise and the GROHE competitive angle. The Ignite article that names Villeroy &amp; Boch by name is the strongest single asset.</p>
+            </div>
+            
+            <h3>Key Factors Driving This Assessment</h3>
+            <ul>
+                <li><strong>No incumbent DSA provider</strong> - This is a greenfield opportunity with no displacement required</li>
+                <li><strong>GROHE is a current eStore client</strong> - V&amp;B's direct competitor, publicly named, creating natural competitive urgency</li>
+                <li><strong>eStore Ignite article names V&amp;B explicitly</strong> - A genuine conversation starter, not a manufactured hook</li>
+                <li><strong>Post-acquisition two-brand complexity</strong> - Ideal Standard integration has doubled product complexity and created new monitoring needs</li>
+                <li><strong>Board-level digital champion</strong> - CDO Peter Domma on the Management Board, owns e-commerce agenda</li>
+                <li><strong>European revenue concentration</strong> - Aligns perfectly with eStore's geographic strength</li>
+            </ul>
+            
+            <h3>Primary Value Proposition Positioning</h3>
+            <p><strong>Primary hook:</strong> Specification accuracy monitoring across 28+ retailers in a category where 23% of listings contain errors - amplified by post-acquisition two-brand complexity.</p>
+            <p><strong>Competitive lever:</strong> GROHE uses eStore to monitor technical plumbing specifications across European markets. V&amp;B now competes more directly with GROHE in fittings post-Ideal Standard acquisition.</p>
+            <p><strong>Content lever:</strong> eStore's Ignite article names Villeroy &amp; Boch by name alongside GROHE and Hansgrohe.</p>
+            
+            <h3>Estimated Difficulty</h3>
+            <p><strong>Moderate.</strong> Enterprise procurement processes and long sales cycle expected. But board-level digital priority + competitive pressure + no incumbent DSA provider = strong positioning. The 2023 outreach failure is easily reframed given the transformational change since then.</p>
+            
+            <h3>Implementation Readiness</h3>
+            <div class="info-box blue">
+                <p><strong>Time-to-value estimate: 4-8 weeks for core European retailers</strong></p>
+                <p>eStore has strong coverage across European department stores, marketplaces, and general retailers (Amazon UK/DE, John Lewis). Specialist bathroom e-tailers may require onboarding. The multi-category distribution pattern (bathroom through specialists, tableware through department stores, tiles through specialist tile retailers) means phased rollout is realistic - start with core European platforms where coverage is strongest.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Final Assessment Checklist</h2>
+            <ul class="checklist">
+                <li>Revenue and scale justify Tier 1 enterprise approach (€1.42B)</li>
+                <li>Distribution complexity validates need for DSA (28+ retailers, 3 categories, 2 brands)</li>
+                <li>No confirmed DSA provider - greenfield opportunity</li>
+                <li>Direct sector alignment with eStore Home &amp; DIY vertical</li>
+                <li>GROHE competitive lever available (current client, direct competitor)</li>
+                <li>Board-level digital champion (CDO on Management Board)</li>
+                <li>European revenue concentration aligns with eStore geographic strength</li>
+                <li>Multiple timing triggers (acquisition integration, e-commerce decline, CEO change)</li>
+                <li>Warm re-engagement opportunity (2 contacts from 2023 still at V&amp;B)</li>
+                <li>eStore content already names V&amp;B (Ignite article)</li>
+                <li class="warning">Enterprise sales cycle expected - patience required</li>
+                <li class="warning">German corporate culture - formal, structured approach needed</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== TAB 2: OUR HISTORY WITH THEM ==================== -->
+    <div id="tab-history" class="tab-content">
+        <div class="card">
+            <h2>Previous Conversations</h2>
+            
+            <div class="info-box yellow">
+                <strong>Previous outreach: February-March 2023</strong> - Three email waves plus calls. Did not convert. Contacts included: Anna Zöller, Maddalena Salsi, Luisa, Christoph, Jean-Rémy Glorieux, Giovanni Veltri, Britta Finter, Sandra Blatton, Luca, Dirk, Judith Lübke, Wendelin Rothe.
+            </div>
+            
+            <h3>Contact Status Check (From 2023 Outreach)</h3>
+            <table>
+                <thead>
+                    <tr><th>Name</th><th>Status</th><th>Current Role</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Maddalena Salsi</strong></td><td><span class="badge green">Still at V&amp;B</span></td><td>E-commerce Manager, based in France</td></tr>
+                    <tr><td><strong>Giovanni Veltri</strong></td><td><span class="badge green">Still at V&amp;B</span></td><td>Sales Director eCommerce B&amp;W (promoted Jan 2025)</td></tr>
+                    <tr><td>Anna Zöller</td><td><span class="badge grey">Unverifiable</span></td><td>No public results</td></tr>
+                    <tr><td>Jean-Rémy Glorieux</td><td><span class="badge grey">Unverifiable</span></td><td>No public results</td></tr>
+                    <tr><td>Britta Finter</td><td><span class="badge grey">Unverifiable</span></td><td>No public results</td></tr>
+                    <tr><td>Sandra Blatton</td><td><span class="badge grey">Unverifiable</span></td><td>No public results</td></tr>
+                    <tr><td>Wendelin Rothe</td><td><span class="badge grey">Unverifiable</span></td><td>No public results</td></tr>
+                    <tr><td>Judith Lübke</td><td><span class="badge grey">Unverifiable</span></td><td>No public results</td></tr>
+                    <tr><td>Christoph, Dirk, Luisa, Luca</td><td><span class="badge grey">Cannot verify</span></td><td>Last names unknown</td></tr>
+                </tbody>
+            </table>
+            
+            <div class="info-box blue">
+                <p><strong>Note:</strong> Many V&amp;B employees have low public LinkedIn visibility or German-language profiles. Direct LinkedIn searches (logged in) would yield better results for the unverifiable contacts.</p>
+            </div>
+            
+            <h3>HubSpot Status</h3>
+            <p>Villeroy &amp; Boch is not listed in the current clients or lapsed customers CSV files. Status should be verified directly in HubSpot. Given the 2023 outreach, there should be existing records with contact history and any notes about why the conversations did not progress.</p>
+            
+            <h3>Internal Champion</h3>
+            <p>None identified from previous outreach. Neither Giovanni Veltri nor Maddalena Salsi appear to have championed eStore internally. However, both remain warm re-engagement opportunities given the significant changes at V&amp;B since 2023.</p>
+            
+            <h3>Known Blockers</h3>
+            <p>No specific blockers documented from the 2023 outreach. The timing may simply not have been right - pre-Ideal Standard acquisition, pre-CEO change, before CDO elevation to Management Board. All three of these factors have since changed.</p>
+        </div>
+
+        <div class="card">
+            <h2>Competitor Intelligence</h2>
+            
+            <table>
+                <thead>
+                    <tr><th>Provider</th><th>Status</th><th>Confidence</th><th>Evidence</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>All 13 major DSA providers (Profitero, CommerceIQ, Salsify, Syndigo, Akeneo, Mindsite, Brand Nudge, Edge by Ascential, DataWeave, Stackline, Similarweb, eStoreMedia, ContentSquare)</td>
+                        <td><span class="badge green">No connection detected</span></td>
+                        <td><span class="confidence-indicator high">High confidence</span></td>
+                        <td>Systematic search of case studies, press releases, LinkedIn job postings, and partnership announcements. Zero confirmed connections.</td>
+                    </tr>
+                    <tr>
+                        <td>Centric PXM (formerly Contentserv)</td>
+                        <td><span class="badge yellow">PIM confirmed, DSA module possible</span></td>
+                        <td><span class="confidence-indicator medium">Medium - PIM confirmed, DSA unclear</span></td>
+                        <td>Contentserv case study confirms PIM usage (15,000 products, 120,000 assets). Contentserv acquired by Centric Software (Feb 2025) which bundles DSA module. V&amp;B listed as Centric PXM reference customer but no evidence of DSA module usage specifically.</td>
+                    </tr>
+                    <tr>
+                        <td>Keepa</td>
+                        <td><span class="badge grey">Amazon price tracker only</span></td>
+                        <td><span class="confidence-indicator high">High</span></td>
+                        <td>Referenced in Key Account Manager e-Commerce Amazon job posting (Cologne). Basic Amazon tool, not enterprise DSA.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="info-box green">
+                <p><strong>Assessment:</strong> This is very likely a greenfield opportunity. No standalone DSA provider detected. The only potential risk is whether Centric PXM's bundled DSA module is being used, but no evidence supports this. Job postings referencing Keepa (a basic Amazon price tracker) for a brand managing EU9 Amazon marketplaces strongly suggests no enterprise DSA tool is in place.</p>
+            </div>
+            
+            <h3>Full Confirmed Technology Stack</h3>
+            <table>
+                <thead>
+                    <tr><th>Category</th><th>Technology</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>PIM/DAM</td><td>Contentserv (now Centric PXM)</td></tr>
+                    <tr><td>ERP</td><td>SAP</td></tr>
+                    <tr><td>E-commerce (DTC)</td><td>Salesforce Commerce Cloud</td></tr>
+                    <tr><td>E-commerce (regional B2B)</td><td>Magento (16 country shops)</td></tr>
+                    <tr><td>CMS</td><td>TYPO3 (30+ country websites)</td></tr>
+                    <tr><td>CRM</td><td>Salesforce CRM + SAP CRM</td></tr>
+                    <tr><td>Marketing automation</td><td>Salesforce Marketing Cloud</td></tr>
+                    <tr><td>Cloud infrastructure</td><td>OVHcloud + VMware vSAN</td></tr>
+                    <tr><td>Analytics</td><td>Google Analytics, SAP Business Objects</td></tr>
+                    <tr><td>A/B testing</td><td>AB Tasty</td></tr>
+                    <tr><td>UGC/Reviews</td><td>Bazaarvoice</td></tr>
+                    <tr><td>Consent management</td><td>Usercentrics</td></tr>
+                    <tr><td>Amazon tools</td><td>Keepa (price tracking)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Content to Reference</h2>
+            
+            <a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025" target="_blank" class="content-link">
+                <div class="link-title">🔥 Home &amp; DIY Ignite Article (PRIMARY)</div>
+                <div class="link-desc">Digital Shelf Analytics for Home &amp; DIY Brands 2025 - <strong>Explicitly names Villeroy &amp; Boch</strong> alongside GROHE and Hansgrohe. Best used in Email 2 across all sequences. Contains key data: 23% specification discrepancies, 35% specification-related returns, 84% sales uplift from page 2 to page 1.</div>
+            </a>
+            
+            <a href="https://estorebrands.com/home-and-diy" target="_blank" class="content-link">
+                <div class="link-title">🏠 Home &amp; DIY Sector Landing Page</div>
+                <div class="link-desc">Positions eStore's Home &amp; DIY capabilities. Names GROHE, Bosch Power Tools, and WD-40 as clients. Good for Email 2 or 3 as a general reference.</div>
+            </a>
+            
+            <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank" class="content-link">
+                <div class="link-title">📊 Content Benchmark Article</div>
+                <div class="link-desc">Introducing Content Benchmark - competitive intelligence for digital shelf content. Useful if content accuracy angle resonates in Email 3.</div>
+            </a>
+            
+            <h3>Strategic Implications</h3>
+            <div class="info-box blue">
+                <p><strong>The Ignite article is the single strongest outreach asset.</strong> It names Villeroy &amp; Boch by name in the context of brands managing thousands of SKUs with extensive technical specifications across dozens of markets. This is not a manufactured hook - it's genuine eStore thought leadership that directly references the prospect.</p>
+            </div>
+            <div class="info-box green">
+                <p><strong>The GROHE competitive angle is the second strongest lever.</strong> GROHE is publicly named as an eStore client managing "technical plumbing specifications across 47 European markets." Post-Ideal Standard acquisition, V&amp;B competes with GROHE more directly in fittings, creating natural urgency.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TAB 3: RETAILER OVERVIEW ==================== -->
+    <div id="tab-retailers" class="tab-content">
+        <div class="card">
+            <h2>Retailer Distribution Overview</h2>
+            
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="value">28+</div>
+                    <div class="label">Online Retailers Identified</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">3</div>
+                    <div class="label">Distinct Product Categories</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">17</div>
+                    <div class="label">DTC Online Stores</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value">50-55%</div>
+                    <div class="label">European Revenue</div>
+                </div>
+            </div>
+            
+            <p>Villeroy &amp; Boch operates a deliberately diversified omnichannel strategy. This is not an Amazon-dominant brand - distribution flows through category-specific channels with distinct patterns for each product division.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Distribution by Category</h2>
+            
+            <div class="retailer-region">
+                <h3>🚿 Bathroom &amp; Wellness (11 retailers identified)</h3>
+                <p>Specialist bathroom e-tailers dominate this category, supplemented by Amazon marketplaces.</p>
+                <table>
+                    <thead><tr><th>Retailer</th><th>Country</th><th>Type</th></tr></thead>
+                    <tbody>
+                        <tr><td>Reuter.com</td><td>Germany/EU</td><td>Specialist bathroom e-tailer</td></tr>
+                        <tr><td>Victorian Plumbing</td><td>UK</td><td>Major bathroom e-tailer</td></tr>
+                        <tr><td>CP Hart</td><td>UK</td><td>Premium bathroom retailer</td></tr>
+                        <tr><td>UK Bathrooms</td><td>UK</td><td>Specialist bathroom retailer</td></tr>
+                        <tr><td>Bathroom Supplies Online</td><td>UK</td><td>Specialist</td></tr>
+                        <tr><td>HeatandPlumb.com</td><td>UK</td><td>Trade-oriented</td></tr>
+                        <tr><td>German Sanitary Mall</td><td>International</td><td>German sanitary wholesale</td></tr>
+                        <tr><td>AF Supply</td><td>US</td><td>Plumbing supply</td></tr>
+                        <tr><td>Amazon US</td><td>US</td><td>Marketplace</td></tr>
+                        <tr><td>Amazon UK</td><td>UK</td><td>Marketplace</td></tr>
+                        <tr><td>Amazon DE</td><td>Germany</td><td>Marketplace</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="retailer-region">
+                <h3>🍽️ Tableware &amp; Dining (12 retailers identified)</h3>
+                <p>Premium department stores and home goods platforms are the primary channels.</p>
+                <table>
+                    <thead><tr><th>Retailer</th><th>Country</th><th>Type</th></tr></thead>
+                    <tbody>
+                        <tr><td>John Lewis</td><td>UK</td><td>Premium department store</td></tr>
+                        <tr><td>Selfridges</td><td>UK</td><td>Luxury department store</td></tr>
+                        <tr><td>Harrods</td><td>UK</td><td>Luxury department store</td></tr>
+                        <tr><td>Macy's</td><td>US</td><td>Major department store</td></tr>
+                        <tr><td>Bloomingdale's</td><td>US</td><td>Premium department store</td></tr>
+                        <tr><td>Nordstrom</td><td>US</td><td>Premium department store</td></tr>
+                        <tr><td>Wayfair</td><td>US</td><td>Home e-commerce platform</td></tr>
+                        <tr><td>The Home Depot</td><td>US</td><td>Home improvement</td></tr>
+                        <tr><td>Replacements.com</td><td>US</td><td>Specialty tableware</td></tr>
+                        <tr><td>RoyalDesign.com</td><td>Sweden/Int'l</td><td>Nordic premium home goods</td></tr>
+                        <tr><td>Everything Kitchens</td><td>US</td><td>Specialty kitchenware</td></tr>
+                        <tr><td>Kathy Kuo Home</td><td>US</td><td>Premium home design</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="retailer-region">
+                <h3>🏗️ Tiles (5 retailers identified)</h3>
+                <p>Specialist tile retailers. Note: V&amp;B Fliesen is 51% owned by Eczacıbaşı Holding - not a core V&amp;B AG segment.</p>
+                <table>
+                    <thead><tr><th>Retailer</th><th>Country</th><th>Type</th></tr></thead>
+                    <tbody>
+                        <tr><td>Tile.Expert</td><td>International</td><td>Specialist tile platform</td></tr>
+                        <tr><td>Land of Tile / Country Floors</td><td>US</td><td>Premium tile retailer</td></tr>
+                        <tr><td>Westside Tile &amp; Stone</td><td>US</td><td>Specialist tile</td></tr>
+                        <tr><td>Tile Centers</td><td>US</td><td>Regional tile</td></tr>
+                        <tr><td>James Hargreaves Clearance</td><td>UK</td><td>Trade clearance</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Notable Patterns</h2>
+            <ul class="checklist">
+                <li><strong>Not Amazon-dominant</strong> - Deliberately diversified across specialist, department store, and marketplace channels</li>
+                <li><strong>Strong UK presence</strong> - Victorian Plumbing, CP Hart, UK Bathrooms, John Lewis, Selfridges, Harrods</li>
+                <li><strong>Category-specific distribution</strong> - Bathroom through specialists and trade, tableware through department stores, tiles through tile specialists</li>
+                <li><strong>Significant US presence</strong> - Macy's, Bloomingdale's, Nordstrom, Wayfair, Home Depot for tableware; AF Supply for bathroom</li>
+                <li><strong>DTC operation is substantial</strong> - 17 online stores, Salesforce Commerce Cloud, 15,000 products in Contentserv PIM</li>
+                <li><strong>Amazon managed strategically</strong> - Dedicated E-Commerce Manager for Amazon/Wayfair (US), KAM for EU9 Amazon marketplace</li>
+                <li class="warning"><strong>Post-acquisition complexity</strong> - Ideal Standard products now need monitoring across shared channels alongside V&amp;B brand</li>
+            </ul>
+            
+            <h3>Critical Gaps</h3>
+            <ul class="checklist">
+                <li class="warning"><strong>Specialist bathroom e-tailers may need onboarding</strong> - Reuter.com, Victorian Plumbing, CP Hart are niche players unlikely to be in eStore's standard coverage</li>
+                <li class="warning"><strong>Tiles retailers are very niche</strong> - Unlikely to be covered but tiles are not a core V&amp;B AG segment anyway</li>
+                <li class="info"><strong>Luxury department stores</strong> - Selfridges, Harrods may require custom onboarding approaches</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Implementation Note</h2>
+            <div class="info-box green">
+                <p><strong>Time-to-value estimate: 4-8 weeks for core European platforms</strong></p>
+            </div>
+            <p>eStore's coverage of major European platforms (Amazon UK, Amazon DE, John Lewis) provides a strong starting point. The phased approach is natural given category-specific distribution:</p>
+            <ul>
+                <li><strong>Phase 1 (Weeks 1-4):</strong> Core platforms already in eStore infrastructure - Amazon UK/DE, John Lewis, major UK/European retailers</li>
+                <li><strong>Phase 2 (Weeks 4-8):</strong> Specialist bathroom retailers requiring onboarding - Reuter.com, Victorian Plumbing, CP Hart</li>
+                <li><strong>Phase 3 (Months 2-3):</strong> US department stores and specialty retailers if US market coverage is required</li>
+            </ul>
+            <div class="info-box blue">
+                <p><strong>Strategic recommendation:</strong> Lead with European coverage (eStore's strength) and the bathroom category (77% of V&amp;B revenue). Tableware through department stores is a natural Phase 2. Tiles can be deprioritised given V&amp;B AG's limited ownership of V&amp;B Fliesen.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TAB 4: KEY PEOPLE ==================== -->
+    <div id="tab-people" class="tab-content">
+        
+        <div class="card">
+            <h2>Historical Contacts (From 2023 Outreach)</h2>
+            <p>Two contacts from the February-March 2023 outreach are confirmed still at Villeroy &amp; Boch and represent warm re-engagement opportunities.</p>
+            
+            <div class="contact-card historical">
+                <div class="contact-header">
+                    <div>
+                        <div class="contact-name">Giovanni Veltri</div>
+                        <div class="contact-title">Sales Director eCommerce, Bath &amp; Wellness</div>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge yellow">Re-engagement</span>
+                        <span class="badge blue">🇩🇪 German (Italian heritage)</span>
+                        <span class="badge green">Promoted Twice Since 2023</span>
+                    </div>
+                </div>
+                <p>Contacted in 2023 outreach. Has been promoted twice since then (Head of eCommerce &amp; Online Marketing B&amp;W → Sales Director eCommerce B&amp;W, Jan 2025). The company he manages e-commerce for has fundamentally changed due to the Ideal Standard acquisition. Re-engagement should acknowledge the previous contact honestly and lead with what has changed.</p>
+            </div>
+            
+            <div class="contact-card historical">
+                <div class="contact-header">
+                    <div>
+                        <div class="contact-name">Maddalena Salsi</div>
+                        <div class="contact-title">E-commerce Manager</div>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge yellow">Re-engagement</span>
+                        <span class="badge blue">🇫🇷🇮🇹 French/Italian</span>
+                    </div>
+                </div>
+                <p>Previous outreach contact from 2023. Still at V&amp;B, based in France. Good warm re-engagement opportunity, particularly as a "foot in the door" to access more senior contacts. French/Italian market focus likely relevant given Ideal Standard's strength in those regions. Bocconi University educated.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Primary Targets - Operational Decision-Makers</h2>
+            
+            <div class="contact-card">
+                <div class="contact-header">
+                    <div>
+                        <div class="contact-name">⭐ Dr. Peter Domma - HIGHEST PRIORITY</div>
+                        <div class="contact-title">Chief Digital Officer, Management Board Member</div>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge red">Cold</span>
+                        <span class="badge blue">🇩🇪 German</span>
+                        <span class="badge green">Board Level</span>
+                    </div>
+                </div>
+                <p><strong>Location:</strong> Mettlach, Saarland, Germany</p>
+                <p><strong>LinkedIn:</strong> linkedin.com/in/dr-peter-domma-b601a8102/</p>
+                <p><strong>Background:</strong> Joined V&amp;B in 2016 as Head of Online Unit; promoted to CDO on Management Board effective Jan 2023. Previously at CosmosDirekt (Generali) as Head of E-Marketing. PhD (summa cum laude) and Diplom-Kaufmann from Saarland University.</p>
+                <p><strong>Responsibilities:</strong> Oversees all digitalisation and IT, including e-commerce. Digital Unit divided into: Business Models &amp; Innovation, Sales &amp; Marketing, CRM, Process Digitisation, Data Science.</p>
+                <p><strong>Why he's the right contact:</strong> Board-level digital champion who directly controls digital investment. His background in e-marketing and conversion optimisation suggests he would understand DSA value immediately. The Ideal Standard integration has doubled product complexity under his digital remit.</p>
+                <p><strong>Outreach hook:</strong> eStore Ignite article naming V&amp;B, GROHE competitive angle, specification accuracy challenge across 28+ retailers post-acquisition.</p>
+                <div class="tone-box">
+                    <strong>Tone guidance:</strong> Formal, structured, precise. Respect seniority (Board member). Lead with substance, not personality. Data-driven approach. Use "Dr. Domma" not first name.
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-header">
+                    <div>
+                        <div class="contact-name">Giovanni Veltri</div>
+                        <div class="contact-title">Sales Director eCommerce, Bath &amp; Wellness</div>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge yellow">Warm Re-engagement</span>
+                        <span class="badge blue">🇩🇪 German (Italian heritage)</span>
+                    </div>
+                </div>
+                <p><strong>Location:</strong> Saarland, Germany</p>
+                <p><strong>LinkedIn:</strong> linkedin.com/in/giovanni-veltri-ab89b2173/</p>
+                <p><strong>Background:</strong> 11+ years at V&amp;B with steady progression: Online Shop Manager (2014) → Senior eCommerce Manager EMEA (2017) → Head of eCommerce B2C (2021) → Head of eCommerce &amp; Online Marketing B&amp;W (2023) → Sales Director eCommerce B&amp;W (Jan 2025). Earlier V&amp;B stint 2001-2006. Languages: German (native), English (full professional).</p>
+                <p><strong>Skills:</strong> Amazon Vendor Management, Digital Sales Management.</p>
+                <p><strong>Why he's the right contact:</strong> Most operationally relevant e-commerce leader for the largest division (B&amp;W = 77% of revenue, €1.1B). Just promoted to Director level in Jan 2025, signalling budget authority and strategic mandate. Built V&amp;B's e-commerce infrastructure from scratch. Was recruiting Amazon Content Manager role (2024), showing he's building out the team.</p>
+                <p><strong>Re-engagement note:</strong> Was contacted in 2023 but V&amp;B has fundamentally changed since then, and he's been promoted twice.</p>
+                <div class="tone-box">
+                    <strong>Tone guidance:</strong> Formal but slightly warmer than Domma. Operational, so be specific about DSA challenges. Acknowledge 2023 contact honestly. Lead with what has changed.
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-header">
+                    <div>
+                        <div class="contact-name">Maddalena Salsi</div>
+                        <div class="contact-title">E-commerce Manager</div>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge yellow">Warm Re-engagement</span>
+                        <span class="badge blue">🇫🇷🇮🇹 French/Italian</span>
+                    </div>
+                </div>
+                <p><strong>Location:</strong> France</p>
+                <p><strong>LinkedIn:</strong> linkedin.com/in/maddalenasalsi/</p>
+                <p><strong>Education:</strong> Bocconi University (Milan)</p>
+                <p><strong>Why she's the right contact:</strong> Previous outreach contact from 2023, still at V&amp;B. Good warm re-engagement opportunity, particularly as a foot-in-the-door to access more senior contacts. French/Italian market focus is highly relevant given Ideal Standard's strength in those regions.</p>
+                <div class="tone-box">
+                    <strong>Tone guidance:</strong> Relationship-building, sophisticated. Warmer approach appropriate for French/Italian cultural context. Acknowledge 2023 contact honestly and without apology.
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-header">
+                    <div>
+                        <div class="contact-name">Paul-Louis Villeroy de Galhau</div>
+                        <div class="contact-title">Senior Sales Manager - E-commerce, DIY, Kitchen</div>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge red">Cold</span>
+                        <span class="badge blue">🇩🇪🇫🇷 German/French</span>
+                    </div>
+                </div>
+                <p><strong>Location:</strong> Likely Germany or France</p>
+                <p><strong>Why he's the right contact:</strong> E-commerce + DIY focus aligns directly with eStore's proposition. His operational sales responsibility for DIY and kitchen channels makes him a natural fit for conversations about content accuracy and search performance across those retailers.</p>
+                <div class="info-box yellow">
+                    <p><strong>Important note:</strong> A member of the founding Villeroy family (Dominique Villeroy de Galhau is 2nd Vice-Chairman of the Supervisory Board). Do NOT reference his family connection under any circumstances. Treat him as any other operational professional.</p>
+                </div>
+                <div class="tone-box">
+                    <strong>Tone guidance:</strong> Formal, respectful. Treat as any other operational professional. Do not reference family connection. Lead with channel-specific challenges.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Secondary Targets - Strategic Influencers</h2>
+            
+            <div class="contact-card secondary">
+                <div class="contact-header">
+                    <div>
+                        <div class="contact-name">Georg Lörz</div>
+                        <div class="contact-title">COO Bath &amp; Wellness, Management Board Member</div>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">Strategic Influencer</span>
+                    </div>
+                </div>
+                <p>COO of the largest division (€1.1B) since August 2024. Previously CEO Bath &amp; Wellness Division. Oversees Operations, Purchasing, and ESG. Relevant as the operational leader of the division most aligned with eStore's Home &amp; DIY sector. Reference his stated priorities in outreach to his direct reports.</p>
+            </div>
+            
+            <div class="contact-card secondary">
+                <div class="contact-header">
+                    <div>
+                        <div class="contact-name">Jan Peter Tewes</div>
+                        <div class="contact-title">EVP Sales, Bath &amp; Wellness</div>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">Strategic Influencer</span>
+                    </div>
+                </div>
+                <p>Former CEO of Ideal Standard International. Now reports to CEO Gabi Schupp. Key sales decision-maker for the bathroom division post-acquisition. Brussels-based heritage from Ideal Standard. Relevant for any channel strategy or sales optimisation conversation. Escalation option if operational contacts are unresponsive.</p>
+            </div>
+            
+            <div class="contact-card secondary">
+                <div class="contact-header">
+                    <div>
+                        <div class="contact-name">Sven Ullrich</div>
+                        <div class="contact-title">EVP Marketing, R&amp;D and Product Management</div>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">Strategic Influencer</span>
+                    </div>
+                </div>
+                <p>Oversees marketing and product management across both brands. Relevant for product content and brand presentation discussions. Could be referenced in outreach to operational contacts.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Executive Context (Reference Only - Do Not Contact Directly)</h2>
+            
+            <div class="contact-card executive">
+                <div class="contact-header">
+                    <div>
+                        <div class="contact-name">Gabi Schupp - CEO</div>
+                        <div class="contact-title">Chief Executive Officer (since January 1, 2024)</div>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge grey">Reference Only</span>
+                    </div>
+                </div>
+                <p>Ex-Procter &amp; Gamble (20+ years, including Global Executive Management team, MD Wella Professional), then Spencer Stuart (EMEA Practice Leader, Consumer Goods &amp; Retail). MBA from University of Miami. Her P&amp;G background means she likely values data-driven decision-making and digital performance metrics.</p>
+                <p><strong>Usable quote:</strong> "We've created a new company that has successfully positioned itself on the market under the umbrella of the Villeroy &amp; Boch Group with two strong brands, clearly defined strategies for growth and an international organisation."</p>
+            </div>
+            
+            <div class="contact-card executive">
+                <div class="contact-header">
+                    <div>
+                        <div class="contact-name">Dr. Markus Warncke - CFO</div>
+                        <div class="contact-title">Chief Financial Officer (since 2015)</div>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge grey">Reference Only</span>
+                    </div>
+                </div>
+                <p>With V&amp;B since 2001. Responsible for Controlling, Accounting, Treasury, IT, Procurement, IR. Contract extended for 3 years from January 2024. Key role in financing the Ideal Standard acquisition.</p>
+            </div>
+            
+            <div class="info-box blue">
+                <p><strong>Board-level digital priority is clear:</strong> Having a CDO on the Management Board (Peter Domma) and explicit corporate statements about digitalisation being "our opportunity for sustainable profitable growth" signal that digital investment proposals will find receptive decision-makers.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Contacts to Skip</h2>
+            <div class="contact-card skip">
+                <ul>
+                    <li><strong>Ideal Standard-only roles</strong> unless they have group-level e-commerce responsibility</li>
+                    <li><strong>Manufacturing/production roles</strong> without digital or commercial responsibility</li>
+                    <li><strong>Regional sales roles below Director level</strong> (too junior for DSA purchasing decisions)</li>
+                    <li><strong>Architecture/design specification roles</strong> (B2B specification channels, not retail)</li>
+                    <li><strong>Sustainability/ESG roles</strong> unless directly relevant to product content compliance</li>
+                    <li><strong>Tiles division contacts</strong> (V&amp;B Fliesen is 51% owned by Eczacıbaşı, not core V&amp;B AG)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TAB 5: DRAFT EMAIL SEQUENCES ==================== -->
+    <div id="tab-emails" class="tab-content">
+        
+        <div class="disclaimer">
+            <strong>⚠️ These emails are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending.</strong> Verify all contact details, titles, and facts are current. Check LinkedIn and company news in the days before sending. Do not send without human review.
+        </div>
+
+        <div class="card">
+            <h2>Tone Guidance by Contact</h2>
+            <table>
+                <thead>
+                    <tr><th>Contact</th><th>Nationality</th><th>Tone</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Dr. Peter Domma</td><td>🇩🇪 German</td><td>Formal, structured, precise. Respect seniority (Board member). Lead with substance.</td></tr>
+                    <tr><td>Giovanni Veltri</td><td>🇩🇪 German (Italian heritage)</td><td>Formal but slightly warmer. Operational, so be specific about DSA challenges. Re-engagement.</td></tr>
+                    <tr><td>Maddalena Salsi</td><td>🇫🇷🇮🇹 French/Italian</td><td>Relationship-building, sophisticated. Re-engagement.</td></tr>
+                    <tr><td>Paul-Louis Villeroy de Galhau</td><td>🇩🇪🇫🇷 German/French</td><td>Formal, respectful. Treat as any other operational professional.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CONTACT 1: Dr. Peter Domma -->
+        <div class="email-sequence">
+            <div class="email-sequence-header">
+                <div>
+                    <h3 style="margin:0;color:#1067db;">Dr. Peter Domma</h3>
+                    <p style="margin:0.25rem 0 0;color:#6c757d;">Chief Digital Officer, Management Board Member</p>
+                </div>
+                <div class="contact-badges">
+                    <span class="badge red">Cold</span>
+                    <span class="badge blue">🇩🇪 German</span>
+                </div>
+            </div>
+            
+            <div class="email-tabs">
+                <button class="email-tab active" data-email="domma-1">Email 1</button>
+                <button class="email-tab" data-email="domma-2">Email 2</button>
+                <button class="email-tab" data-email="domma-3">Email 3</button>
+            </div>
+            
+            <div class="email-content active" data-email="domma-1">
+                <div class="email-box">
+                    <div class="email-subject">Subject: Product specifications across Villeroy & Boch's retail partners</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 08:00-09:00 CET</div>
+                    <div class="email-body">Dr. Domma,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, helping them monitor things like product content accuracy, availability, pricing, and search rankings across retail sites. We work with brands including GROHE, Bosch, and De'Longhi.
+
+I'm writing because Villeroy & Boch sits in a category where specification accuracy is unusually important. Bathroom ceramics, fittings, and furniture all require detailed technical data - dimensions, water efficiency ratings, material compositions, compatibility information - and that data needs to be correct across every retailer carrying the product. Our own research across Home and DIY brands found that 23% of product listings contain at least one specification discrepancy compared to manufacturer data sheets.
+
+With Villeroy & Boch and Ideal Standard now being managed as a combined portfolio, the number of SKUs requiring accurate representation across retailers has effectively doubled. I'd imagine that creates a meaningful challenge - particularly when different retailers handle product content in different ways.
+
+I'd welcome your perspective on whether monitoring how your products appear and perform across third-party retail sites is something your Digital Unit is actively looking at, or whether the focus has been primarily on the PIM and content creation side of the equation so far.
+
+Either way, I'd welcome the chance to share some of the patterns we're seeing across European Home and DIY brands.
+
+[SENDER NAME]</div>
+                </div>
+                <div class="email-notes">
+                    <h5>Customisation Notes</h5>
+                    <p>Verify Dr. Domma's current title is still CDO and Management Board member before sending. Check for any Villeroy & Boch press releases or announcements in the weeks before sending that could be referenced. The 23% specification discrepancy figure comes from the eStore Ignite article on Home & DIY - this is verified eStore data.</p>
+                    <h5>Strategy Notes</h5>
+                    <p>Leads with the specification accuracy problem because it is concrete, quantifiable, and directly relevant to Villeroy & Boch's product categories. The 23% figure from eStore's own research is a genuine insight, not a generic claim. The Ideal Standard integration is referenced factually (doubled SKU complexity) without making assumptions about how they're handling it. The question at the end is genuine - we don't know whether they've addressed this gap or not. The tone is formal and structured, appropriate for a German board-level executive. eStore is introduced clearly in the first sentence.</p>
+                </div>
+            </div>
+            
+            <div class="email-content" data-email="domma-2">
+                <div class="email-box">
+                    <div class="email-subject">Subject: How GROHE approaches digital shelf analytics</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 08:00-09:00 CET (5-7 days after Email 1)</div>
+                    <div class="email-body">Dr. Domma,
+
+Following up on my previous note about product specification accuracy across retailers.
+
+One thing I didn't mention - GROHE is an eStore client. They use our platform to monitor how their technical plumbing specifications are represented across European retail sites. Given that Villeroy & Boch now competes with GROHE more directly in fittings following the Ideal Standard acquisition, I thought this was worth flagging.
+
+We've also published a detailed piece on the specific digital shelf challenges facing Home and DIY brands - covering everything from specification complexity to search rankings and content accuracy. It actually references Villeroy & Boch alongside GROHE and Hansgrohe as examples of brands managing thousands of SKUs with extensive technical documentation across dozens of markets. I've linked it below in case it's useful:
+
+https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025
+
+I'd be interested to understand how Villeroy & Boch currently tracks whether the content you create through Contentserv is actually appearing correctly on retailer sites. That gap between content creation and content execution is where most brands in this space find the biggest surprises.
+
+[SENDER NAME]</div>
+                </div>
+                <div class="email-notes">
+                    <h5>Customisation Notes</h5>
+                    <p>The GROHE reference is publicly available - eStore names GROHE as a client on the Home & DIY sector page. The Ignite article genuinely names Villeroy & Boch - this is not fabricated. The Contentserv reference is verified from the public case study (Aline Mattes, 15,000 products, 120,000 digital assets). Do not reference Centric PXM acquisition unless you can confirm Villeroy & Boch's migration status.</p>
+                    <h5>Strategy Notes</h5>
+                    <p>Adds two genuinely new elements: the GROHE competitive angle and the Ignite article that names Villeroy & Boch. The GROHE reference is powerful because it's factual (publicly named client), directly competitive, and creates natural urgency without manufacturing it. The Ignite article is the strongest content asset available - it names Villeroy & Boch by name. The Contentserv question bridges PIM (where they've invested heavily) to DSA (where there appears to be a gap). Tone remains formal and evidence-based.</p>
+                </div>
+            </div>
+            
+            <div class="email-content" data-email="domma-3">
+                <div class="email-box">
+                    <div class="email-subject">Subject: Managing two brands across shared retail channels</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 08:00-09:00 CET (5-7 days after Email 2)</div>
+                    <div class="email-body">Dr. Domma,
+
+One of the more complex challenges we see in post-acquisition scenarios is monitoring two distinct brands across shared retail channels. Villeroy & Boch positions itself as premium; Ideal Standard as "smart premium." But on a retailer's website, the distinction between the two depends entirely on how each retailer handles the content, categorisation, and pricing of each brand's products.
+
+Questions like whether Ideal Standard products are correctly attributed to the right brand, whether there's unintended cannibalisation in search results, or whether pricing differentials between the two brands are being maintained consistently - these are difficult to answer without systematic monitoring across retailers.
+
+I don't know whether this is a priority your team has already addressed, but given the scale of the integration - merging bathroom and wellness operations across multiple European markets - I'd imagine it's at least on the radar.
+
+I'd be interested to hear how you're thinking about maintaining brand separation across your retail partners as the two portfolios become more integrated operationally.
+
+[SENDER NAME]</div>
+                </div>
+                <div class="email-notes">
+                    <h5>Customisation Notes</h5>
+                    <p>The premium vs. "smart premium" positioning is from Villeroy & Boch's own communications - verify this language is still current. The structural reorganisation (merging Bath & Wellness with Ideal Standard into three functional areas) is documented - use generic language rather than specific dates. Do not assume this is a problem - frame as a question.</p>
+                    <h5>Strategy Notes</h5>
+                    <p>Introduces a genuinely new angle: the post-acquisition two-brand complexity challenge. This is specific to Villeroy & Boch's situation and could not be sent to any other brand. Moves away from the specification accuracy and competitive angles of Emails 1 and 2 and into territory that only matters because of the Ideal Standard acquisition. The questions are genuine - we don't know how they're handling brand separation across retailers. The email ends with a genuine question, not an exit offer.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT 2: Giovanni Veltri -->
+        <div class="email-sequence">
+            <div class="email-sequence-header">
+                <div>
+                    <h3 style="margin:0;color:#1067db;">Giovanni Veltri</h3>
+                    <p style="margin:0.25rem 0 0;color:#6c757d;">Sales Director eCommerce, Bath &amp; Wellness</p>
+                </div>
+                <div class="contact-badges">
+                    <span class="badge yellow">Re-engagement</span>
+                    <span class="badge blue">🇩🇪 German (Italian heritage)</span>
+                </div>
+            </div>
+            
+            <div class="email-tabs">
+                <button class="email-tab active" data-email="veltri-1">Email 1</button>
+                <button class="email-tab" data-email="veltri-2">Email 2</button>
+                <button class="email-tab" data-email="veltri-3">Email 3</button>
+            </div>
+            
+            <div class="email-content active" data-email="veltri-1">
+                <div class="email-box">
+                    <div class="email-subject">Subject: Villeroy & Boch's e-commerce operation since Ideal Standard</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 08:00-09:00 CET</div>
+                    <div class="email-body">Giovanni,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, monitoring things like product content accuracy, availability, pricing, and search rankings across retail sites. We work with several Home and DIY brands including GROHE.
+
+I can see we were in touch with you back in 2023 but it didn't progress. I don't know the full details of why, but I'd imagine the timing may simply not have been right. Quite a lot has changed since then - both at Villeroy & Boch and on our side.
+
+On your side, the Ideal Standard acquisition has fundamentally changed the scale and complexity of what your e-commerce team manages. Bath and Wellness alone is now a EUR 1.1 billion division with two distinct brands to represent across European retailers. On our side, we've invested heavily in making the platform more actionable - moving beyond just providing data toward helping teams understand what to prioritise and why.
+
+I'd be interested to hear how the e-commerce operation has evolved since the acquisition. Managing product content, pricing, and availability across retailers was complex enough with one brand - I'd imagine two brands with different positioning creates a different kind of challenge.
+
+Would be interested to hear how things have developed.
+
+[SENDER NAME]</div>
+                </div>
+                <div class="email-notes">
+                    <h5>Customisation Notes</h5>
+                    <p>Giovanni was contacted in 2023 - we know this from the relationship history. Be specific about the timeframe (2023) but don't reference specific email content. His promotion to Sales Director eCommerce was in January 2025 via LinkedIn - do not congratulate, just treat him at his current level. The EUR 1.1B Bath & Wellness revenue figure is from Villeroy & Boch's FY2024 results - verified. Check his LinkedIn before sending to confirm title and that he's still at Villeroy & Boch.</p>
+                    <h5>Strategy Notes</h5>
+                    <p>Re-engagement email that acknowledges the previous contact honestly without being apologetic or reproachful. The "I don't know the full details" line is honest - we genuinely don't know why it didn't progress. The email immediately pivots to what has changed, on both sides, making this feel like a new conversation rather than a stale follow-up. The Ideal Standard acquisition provides the natural "why now" - the company Giovanni manages e-commerce for has fundamentally changed. The question at the end is genuine and specific to his operational reality.</p>
+                </div>
+            </div>
+            
+            <div class="email-content" data-email="veltri-2">
+                <div class="email-box">
+                    <div class="email-subject">Subject: From Contentserv to the retailer shelf</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 08:00-09:00 CET (5-7 days after Email 1)</div>
+                    <div class="email-body">Giovanni,
+
+Following up on my previous note.
+
+One thing that struck me during our research is the investment Villeroy & Boch has made in product information management - Contentserv handling 15,000 products, 120,000 digital assets, integration with Salesforce Commerce Cloud and Magento across 17 online stores. That's a sophisticated content creation and distribution infrastructure.
+
+The question is what happens after the content leaves the PIM. When a retailer receives your product data - technical specifications, images, descriptions - they don't always display it as intended. Dimensions get truncated, images get cropped, specifications get reformatted or omitted entirely. Our research across Home and DIY brands found that 23% of listings contain at least one specification discrepancy compared to manufacturer data sheets. For products where technical accuracy determines purchase decisions - bathroom dimensions, fitting compatibility, water efficiency ratings - those discrepancies have real commercial consequences.
+
+We've written about this challenge specifically for Home and DIY brands, and it actually references Villeroy & Boch by name:
+
+https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025
+
+I wonder whether closing that gap between content creation and content execution across retailers is something your team is actively measuring, or whether it's more of a known unknown at this stage.
+
+[SENDER NAME]</div>
+                </div>
+                <div class="email-notes">
+                    <h5>Customisation Notes</h5>
+                    <p>The Contentserv details (15,000 products, 120,000 digital assets, Salesforce + Magento integration) come from the public Contentserv case study - verified. The 23% specification discrepancy figure is from eStore's own Ignite article - verified. The Ignite article genuinely names Villeroy & Boch - this is not fabricated. Do not reference Centric PXM unless confirmed they've migrated.</p>
+                    <h5>Strategy Notes</h5>
+                    <p>Adds genuine new value by connecting Villeroy & Boch's known PIM investment to the DSA gap. Demonstrates deep research (the Contentserv details signal we've done our homework) without being showy about it. The 23% figure provides a concrete, category-specific data point. The Ignite article is introduced naturally because it names Villeroy & Boch - it doesn't feel forced. The closing question is specific and non-assumptive: we're asking whether they measure this, not asserting that they don't.</p>
+                </div>
+            </div>
+            
+            <div class="email-content" data-email="veltri-3">
+                <div class="email-box">
+                    <div class="email-subject">Subject: Specification accuracy across European bathroom retailers</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 08:00-09:00 CET (5-7 days after Email 2)</div>
+                    <div class="email-body">Giovanni,
+
+Something we see across European Home and DIY brands is that specification accuracy varies significantly by retailer and by market. A product listing on a German specialist bathroom retailer might have complete technical data, while the same product on a UK marketplace has truncated specifications or missing installation documentation. The same product, different content quality - and the brand often doesn't know until a customer complaint surfaces.
+
+For a business like Villeroy & Boch, which operates across multiple European markets with both specialist bathroom retailers and general marketplaces, those inconsistencies compound. Each market has different retailer expectations, different content formats, and - post-Ideal Standard - different legacy product data to harmonise.
+
+Our European coverage is where we're strongest, and it's where most Home and DIY brands find the deepest value - particularly across the kind of specialist and mid-tier retailers that don't always get the same attention as Amazon.
+
+I'd welcome your thoughts on how your team currently approaches content quality assurance across different European markets, and whether it's something you handle retailer by retailer or more centrally.
+
+[SENDER NAME]</div>
+                </div>
+                <div class="email-notes">
+                    <h5>Customisation Notes</h5>
+                    <p>This email deliberately leads with eStore's European strength - appropriate for a European brand. Do not name specific retailers by eStore coverage status - reference Villeroy & Boch's own retail distribution patterns. The specialist vs. marketplace distinction is relevant because Villeroy & Boch sells through both (e.g., Reuter.com vs. Amazon DE).</p>
+                    <h5>Strategy Notes</h5>
+                    <p>Introduces a new angle: the multi-market specification accuracy challenge across European retailers. This is distinct from the PIM-to-shelf gap (Email 2) because it focuses on market-by-market variation rather than the general gap. It also naturally positions eStore's European strength without making coverage claims. The email ends with a genuine question about how they manage content quality - centralised or retailer-by-retailer - which opens a conversation about operational pain points.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT 3: Maddalena Salsi -->
+        <div class="email-sequence">
+            <div class="email-sequence-header">
+                <div>
+                    <h3 style="margin:0;color:#1067db;">Maddalena Salsi</h3>
+                    <p style="margin:0.25rem 0 0;color:#6c757d;">E-commerce Manager</p>
+                </div>
+                <div class="contact-badges">
+                    <span class="badge yellow">Re-engagement</span>
+                    <span class="badge blue">🇫🇷🇮🇹 French/Italian</span>
+                </div>
+            </div>
+            
+            <div class="email-tabs">
+                <button class="email-tab active" data-email="salsi-1">Email 1</button>
+                <button class="email-tab" data-email="salsi-2">Email 2</button>
+                <button class="email-tab" data-email="salsi-3">Email 3</button>
+            </div>
+            
+            <div class="email-content active" data-email="salsi-1">
+                <div class="email-box">
+                    <div class="email-subject">Subject: Catching up - Villeroy & Boch's e-commerce evolution</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 09:00-10:00 CET</div>
+                    <div class="email-body">Maddalena,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, helping them monitor things like content accuracy, product availability, pricing, and search rankings across retail sites.
+
+I can see we were in contact with you back in 2023, and I appreciate it didn't lead anywhere at the time. The reason I'm reaching out again is that Villeroy & Boch looks like a quite different company now compared to then. The Ideal Standard acquisition has brought a second brand into the portfolio, the Bath and Wellness division has nearly doubled in revenue, and the e-commerce operation is managing a significantly broader product range across European retailers.
+
+From your position managing e-commerce in France - a market where Ideal Standard has a strong heritage - I'd imagine the integration has brought both opportunities and new complexity. Monitoring how both Villeroy & Boch and Ideal Standard products appear across French retail partners, and ensuring each brand is represented with the right positioning and accurate specifications, is the kind of challenge where digital shelf analytics adds the most value.
+
+I'd be interested to hear how things have evolved on your side. No agenda beyond understanding whether there might be a fit worth exploring.
+
+[SENDER NAME]</div>
+                </div>
+                <div class="email-notes">
+                    <h5>Customisation Notes</h5>
+                    <p>Maddalena was contacted in 2023 - acknowledge this honestly. Verify she is still based in France and still at Villeroy & Boch before sending. Ideal Standard's strength in France/Italy is from the research - don't over-specify if uncertain about her exact market responsibility. Her Bocconi education suggests comfort with both Italian and English - write in English but with a warmer, more relationship-oriented tone.</p>
+                    <h5>Strategy Notes</h5>
+                    <p>Warmer, more relationship-building approach appropriate for a French/Italian cultural context. Acknowledges the 2023 contact honestly and without apology, then immediately explains why the timing is different now. The Ideal Standard integration provides the "why now" - it's specific, factual, and directly relevant to her role. The closing is deliberately low-pressure ("no agenda beyond understanding") - we're re-opening a door, not pushing through it. Her France-based role and Ideal Standard's French heritage create a natural connection point.</p>
+                </div>
+            </div>
+            
+            <div class="email-content" data-email="salsi-2">
+                <div class="email-box">
+                    <div class="email-subject">Subject: Product content challenges for premium brands in French retail</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 09:00-10:00 CET (5-7 days after Email 1)</div>
+                    <div class="email-body">Maddalena,
+
+Following up on my previous note.
+
+One challenge we see frequently among premium European brands is maintaining content quality across different types of retailers within the same market. A brand like Villeroy & Boch sells through specialist bathroom retailers, department stores, and marketplaces - each with different content requirements, different image specifications, and different approaches to product categorisation. What works on one platform doesn't necessarily translate to another.
+
+For bathroom products specifically, the technical complexity amplifies this. Dimensions, compatibility specifications, water efficiency certifications, installation requirements - all need to be accurate and complete. Our research across the Home and DIY sector found that 23% of product listings carry at least one specification error compared to the manufacturer's own data. For a premium brand where customers pay a significant price premium, that kind of inaccuracy can erode trust.
+
+We've published a detailed piece on the digital shelf challenges specific to Home and DIY brands that covers this - I've linked it below if it's of interest:
+
+https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025
+
+Would be interested to hear how you approach content quality across your retail partners - whether it's something you actively monitor or more of a reactive process when issues surface.
+
+[SENDER NAME]</div>
+                </div>
+                <div class="email-notes">
+                    <h5>Customisation Notes</h5>
+                    <p>The 23% specification discrepancy figure is from the eStore Ignite article - verified. The Ignite article names Villeroy & Boch - this is a natural inclusion, not forced. Adjust the French retail context if you discover more about which specific French retailers carry Villeroy & Boch. The premium pricing angle (customers paying more expect accuracy) is relevant given Villeroy & Boch's price positioning.</p>
+                    <h5>Strategy Notes</h5>
+                    <p>Adds genuine new value through the specification accuracy data point and the Ignite article. The framing is tailored to Maddalena's likely perspective - managing content across different types of French retailers, each with different requirements. The premium brand angle acknowledges Villeroy & Boch's positioning and connects content accuracy to brand trust. The article is positioned as a resource, not required reading.</p>
+                </div>
+            </div>
+            
+            <div class="email-content" data-email="salsi-3">
+                <div class="email-box">
+                    <div class="email-subject">Subject: Villeroy & Boch and Ideal Standard across the same French retailers</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 09:00-10:00 CET (5-7 days after Email 2)</div>
+                    <div class="email-body">Maddalena,
+
+One more thought on a slightly different topic.
+
+Something I've been thinking about is how the Villeroy & Boch and Ideal Standard brands coexist on the same retail platforms. In a market like France, where both brands have established presence, there must be situations where the same retailer carries products from both. The challenge then becomes ensuring each brand maintains its distinct positioning - Villeroy & Boch as the premium choice, Ideal Standard as the accessible alternative - without one cannibalising the other in search results or category listings.
+
+That's a monitoring challenge that's difficult to manage manually, particularly across multiple retailers simultaneously. It's also the kind of problem that becomes visible only when you have systematic data on how both brands appear side by side.
+
+We work with several multi-brand groups in Europe and this dual-brand complexity is an area where we've developed specific expertise. I'd be interested to know whether this is something your team is actively thinking about, or whether brand separation across shared retail channels is more of an emerging question as the integration progresses.
+
+[SENDER NAME]</div>
+                </div>
+                <div class="email-notes">
+                    <h5>Customisation Notes</h5>
+                    <p>The two-brand coexistence angle is specific to Villeroy & Boch's post-acquisition reality. Do not claim specific multi-brand client examples unless they are public - keep it general. France is a key Ideal Standard market - this makes the angle especially relevant for Maddalena.</p>
+                    <h5>Strategy Notes</h5>
+                    <p>Introduces a genuinely new angle: the two-brand cannibalisation risk on shared retail platforms. Highly specific to Villeroy & Boch's situation and to Maddalena's likely perspective managing e-commerce in a market where both brands have presence. The email doesn't assert this is a problem - it frames it as a question worth considering. The closing asks whether it's on their radar, maintaining the questioning, learning-oriented tone.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTACT 4: Paul-Louis Villeroy de Galhau -->
+        <div class="email-sequence">
+            <div class="email-sequence-header">
+                <div>
+                    <h3 style="margin:0;color:#1067db;">Paul-Louis Villeroy de Galhau</h3>
+                    <p style="margin:0.25rem 0 0;color:#6c757d;">Senior Sales Manager - E-commerce, DIY, Kitchen</p>
+                </div>
+                <div class="contact-badges">
+                    <span class="badge red">Cold</span>
+                    <span class="badge blue">🇩🇪🇫🇷 German/French</span>
+                </div>
+            </div>
+            
+            <div class="email-tabs">
+                <button class="email-tab active" data-email="plvdg-1">Email 1</button>
+                <button class="email-tab" data-email="plvdg-2">Email 2</button>
+                <button class="email-tab" data-email="plvdg-3">Email 3</button>
+            </div>
+            
+            <div class="email-content active" data-email="plvdg-1">
+                <div class="email-box">
+                    <div class="email-subject">Subject: Product content across DIY and kitchen retailers</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 08:30-09:30 CET</div>
+                    <div class="email-body">Paul-Louis,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, monitoring things like product content accuracy, availability, pricing, and search rankings. We work with a number of Home and DIY brands across Europe, including GROHE, Bosch, and WD-40.
+
+I'm writing because of your role managing e-commerce across DIY and kitchen channels for Villeroy & Boch. These are retailer categories where product content complexity is particularly high - kitchen and bathroom products require detailed technical specifications, compatibility information, and installation guidance, and each retailer platform handles that content differently.
+
+Our research across the Home and DIY sector found that 23% of product listings contain at least one specification discrepancy compared to manufacturer data sheets, and that 35% of product returns in the category are specification-related. For a premium brand where the product range spans ceramics, fittings, furniture, and accessories, maintaining accuracy across every retail partner is a substantial operational challenge.
+
+I'd be interested to understand how your team currently monitors whether the product information on your DIY and kitchen retail partners' sites matches what Villeroy & Boch has specified - and whether that's something you manage actively or address when issues arise.
+
+[SENDER NAME]</div>
+                </div>
+                <div class="email-notes">
+                    <h5>Customisation Notes</h5>
+                    <p>Verify Paul-Louis's current title and that he is still at Villeroy & Boch before sending. Do NOT reference his family connection to the founders under any circumstances. The 23% and 35% figures are from the eStore Ignite article - verified. GROHE, Bosch, and WD-40 are publicly named eStore clients in the Home & DIY sector.</p>
+                    <h5>Strategy Notes</h5>
+                    <p>Direct and channel-specific, matching Paul-Louis's operational focus on DIY and kitchen retailers. Two data points from the Ignite article (23% specification errors, 35% specification-related returns) provide concrete evidence that this is a category-wide challenge. Written as a peer-to-peer conversation about an operational challenge, not a pitch. The question is genuine - we don't know how they handle content quality assurance. eStore is introduced clearly with relevant sector credentials.</p>
+                </div>
+            </div>
+            
+            <div class="email-content" data-email="plvdg-2">
+                <div class="email-box">
+                    <div class="email-subject">Subject: How GROHE manages digital shelf performance across Europe</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 08:30-09:30 CET (5-7 days after Email 1)</div>
+                    <div class="email-body">Paul-Louis,
+
+Following up on my previous note about product content accuracy across DIY and kitchen retailers.
+
+One thing I should mention - GROHE is an eStore client. They use our platform to monitor technical product specifications, availability, and search performance across European retailers. Given that Villeroy & Boch now competes with GROHE more directly in fittings since the Ideal Standard acquisition, I thought this was relevant context.
+
+The competitive dimension is interesting because digital shelf performance increasingly determines which brand appears first in on-site search results, which products display complete specifications, and which listings convert browsers into buyers. Two brands might have comparable products, but the one with more accurate, more complete content across more retailers will typically win the digital shelf.
+
+We've published a detailed analysis of the digital shelf challenges specific to Home and DIY brands. It references Villeroy & Boch alongside GROHE and Hansgrohe as examples of brands managing extensive technical specifications across dozens of markets:
+
+https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025
+
+Would be interested to hear how you think about competitive positioning on retail sites - whether it's something you track systematically or more of an intuitive assessment.
+
+[SENDER NAME]</div>
+                </div>
+                <div class="email-notes">
+                    <h5>Customisation Notes</h5>
+                    <p>GROHE as an eStore client is publicly documented on the Home & DIY sector page. The Ignite article naming Villeroy & Boch alongside GROHE is genuine. The Ideal Standard acquisition making Villeroy & Boch a more direct GROHE competitor in fittings is factual. Do not name other specific competitors or make claims about competitor performance.</p>
+                    <h5>Strategy Notes</h5>
+                    <p>The GROHE angle is the strongest competitive lever and is especially relevant for Paul-Louis given his operational sales responsibility. The email frames digital shelf performance as a competitive differentiator - not just a compliance exercise. The Ignite article adds credibility because it names Villeroy & Boch. The question at the end connects competitive positioning to his day-to-day reality of managing sales performance across retail channels.</p>
+                </div>
+            </div>
+            
+            <div class="email-content" data-email="plvdg-3">
+                <div class="email-box">
+                    <div class="email-subject">Subject: Where Villeroy & Boch products rank in on-site search</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 08:30-09:30 CET (5-7 days after Email 2)</div>
+                    <div class="email-body">Paul-Louis,
+
+One area that Home and DIY brands often underestimate is on-site search performance - where their products rank when a customer searches on a retailer's website. A customer typing "premium bathroom basin" into a DIY retailer's search bar will see results influenced by content completeness, keyword optimisation, ratings, and availability. The brand that appears on page one versus page two sees dramatically different conversion - our data shows an 84% sales uplift from moving from page two to page one.
+
+For a brand managing e-commerce across both DIY and kitchen channels, understanding search positioning across each retailer - and how it compares to competitors like GROHE, Duravit, or Hansgrohe on the same platform - is operationally valuable information. It tells you where you're winning, where you're losing, and why.
+
+I'd welcome your perspective on whether on-site search rankings across your retail partners is something your team currently monitors, and if so, how you approach it. It's one of the areas where we see the most immediate commercial impact for Home and DIY brands.
+
+[SENDER NAME]</div>
+                </div>
+                <div class="email-notes">
+                    <h5>Customisation Notes</h5>
+                    <p>The 84% sales uplift figure (page 2 to page 1) is from the eStore Ignite article - verified. Duravit and Hansgrohe are named as competitors for context, not as eStore clients - this is competitor framing, not coverage claims. Do not make specific claims about Villeroy & Boch's current search rankings - we don't have this data.</p>
+                    <h5>Strategy Notes</h5>
+                    <p>Introduces search rankings as a genuinely new angle - distinct from content accuracy (Email 1) and competitive positioning (Email 2). The 84% sales uplift figure is a strong, verifiable data point that makes the commercial case concrete. The email names Villeroy & Boch's actual competitors (Duravit, Hansgrohe) in the context of search competition on retailer platforms, which is relevant and not a coverage claim. The closing question is practical and operational, matching Paul-Louis's channel management role.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TAB 6: OBJECTION HANDLING ==================== -->
+    <div id="tab-objections" class="tab-content">
+        <div class="card">
+            <h2>Decision Framework</h2>
+            
+            <div class="info-box green">
+                <p><strong>Recommendation: PROCEED WITH CONFIDENCE</strong></p>
+                <p>Strong Fit assessment. No incumbent DSA provider detected. Board-level digital champion. Direct competitor (GROHE) is an existing client. European revenue concentration aligns with eStore geographic strength. Multiple timing triggers create urgency.</p>
+            </div>
+            
+            <h3>Approach Based on Fit Level</h3>
+            <table>
+                <thead><tr><th>Scenario</th><th>Action</th></tr></thead>
+                <tbody>
+                    <tr><td><strong>Positive response from Domma or Veltri</strong></td><td>Move quickly to discovery call. Prepare competitive intelligence on GROHE's digital shelf performance. Offer European-focused pilot covering core bathroom retailers.</td></tr>
+                    <tr><td><strong>Positive response from Salsi or Villeroy de Galhau</strong></td><td>Use as entry point. Request introduction or referral to Domma/Veltri for enterprise-level conversation.</td></tr>
+                    <tr><td><strong>Interest but timing concerns</strong></td><td>Offer to share the Ignite article and content benchmark as value-add. Suggest quarterly check-in. Don't push - the Ideal Standard integration may absorb bandwidth for months.</td></tr>
+                    <tr><td><strong>No response after full sequence</strong></td><td>Wait 3-4 months. Re-approach with fresh content or new trigger event. Consider alternative contacts in the Dining &amp; Lifestyle division for a different entry angle.</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>Common Objections &amp; Responses</h2>
+            <p>Click each objection to expand the recommended response.</p>
+            
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"We already have Contentserv/Centric PXM - doesn't that cover digital shelf?"</span>
+                    <span class="objection-arrow">&#9660;</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Acknowledge:</strong> "Contentserv - now Centric PXM - is an excellent PIM. The investment you've made in managing 15,000 products and 120,000 digital assets through that platform is significant."</p>
+                    <p><strong>Reframe:</strong> "PIM systems are designed to create and distribute product content. What they don't do is monitor what happens to that content after it arrives at the retailer. When a retailer receives your product data, they don't always display it as intended - specifications get truncated, images get reformatted, descriptions get edited. Our research shows 23% of Home and DIY listings contain at least one specification discrepancy versus the manufacturer's source data."</p>
+                    <p><strong>Bridge:</strong> "The way to think about it is: Contentserv ensures the content leaving V&amp;B is correct. eStore tells you whether the content on the retailer's site matches what you sent. They're complementary, not competitive - one manages the input, the other monitors the output."</p>
+                    <p><strong>Evidence:</strong> "We work with several brands that use major PIM systems alongside our DSA platform. The gap between content creation and content execution is universal - it's not a PIM quality issue, it's a retailer interpretation issue."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"We're focused on the Ideal Standard integration right now"</span>
+                    <span class="objection-arrow">&#9660;</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Acknowledge:</strong> "Completely understand. Integrating a €600 million acquisition is a massive undertaking, and digital shelf monitoring may not feel like the top priority when you're harmonising operations across two brands."</p>
+                    <p><strong>Gentle challenge:</strong> "That said, the integration is exactly what creates the monitoring need. You now have two distinct brands - Villeroy &amp; Boch positioned as premium, Ideal Standard as 'smart premium' - selling through many of the same retailers. Without systematic monitoring, questions like whether products are correctly attributed to the right brand, whether there's unintended cannibalisation in search results, or whether pricing differentials are being maintained consistently become difficult to answer."</p>
+                    <p><strong>Offer flexibility:</strong> "We could start with something focused - even just monitoring how the two brands appear side by side on your top five European retailers. That would give you visibility into brand separation without requiring a major implementation."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"How many of our retailers can you actually monitor?"</span>
+                    <span class="objection-arrow">&#9660;</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Be honest:</strong> "We have strong coverage across European retailers, which is where Villeroy &amp; Boch's revenue is concentrated. Major platforms like Amazon UK, Amazon DE, and John Lewis are well within our existing infrastructure."</p>
+                    <p><strong>Acknowledge gaps:</strong> "Specialist bathroom e-tailers like Reuter.com or Victorian Plumbing may require onboarding - these are niche players that aren't always in standard DSA coverage. We'd want to be upfront about what we can monitor immediately versus what requires a few weeks of setup."</p>
+                    <p><strong>Reframe:</strong> "The realistic approach is phased. We can start delivering value on your core European platforms within 4-6 weeks, and then onboard specialist retailers over the following months. Most brands find that monitoring even their top ten retailers provides 80% of the actionable insights."</p>
+                    <p><strong>Positioning:</strong> "Our European coverage is where we're strongest. For a brand like Villeroy &amp; Boch with 50-55% European revenue, that's a natural fit. If US coverage is a priority, we'd want to have an honest conversation about timelines."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"We tried talking to eStore in 2023 and it didn't go anywhere"</span>
+                    <span class="objection-arrow">&#9660;</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Acknowledge:</strong> "You're right - we were in touch in early 2023 and it didn't progress. I don't know the full details of why, and I won't pretend to."</p>
+                    <p><strong>Reframe with facts:</strong> "What I can say is that Villeroy &amp; Boch in February 2023 was a fundamentally different company from the one that exists today. Since then you've completed a €600 million acquisition that nearly doubled your revenue, brought a second brand into the portfolio, appointed a new CEO, and reorganised the Bath &amp; Wellness division. The digital shelf monitoring challenge in 2025 is genuinely different from what it was in 2023."</p>
+                    <p><strong>eStore changes:</strong> "On our side, we've also invested heavily - moving from pure data provision toward actionable insights and prioritised recommendations. The platform today is significantly more useful than what we would have shown two years ago."</p>
+                    <p><strong>Low pressure:</strong> "I'm not suggesting we pick up where we left off. I'm suggesting a fresh conversation about whether the fit makes sense given how much has changed on both sides."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"What about US coverage? We sell through Macy's, Nordstrom, Wayfair..."</span>
+                    <span class="objection-arrow">&#9660;</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Be transparent:</strong> "Our strength is European coverage - that's where we have the deepest expertise and broadest retailer network. For a brand like Villeroy &amp; Boch where 50-55% of revenue is European, that's a natural starting point."</p>
+                    <p><strong>US position:</strong> "For US retailers like Macy's, Nordstrom, and Wayfair, we'd need to have an honest conversation about what's possible and on what timeline. We cover the major US marketplaces, but wouldn't claim the same depth as our European coverage."</p>
+                    <p><strong>Suggest phased approach:</strong> "The pragmatic approach might be to start with European retailers where we can deliver value quickly - your German specialist bathroom retailers, Amazon UK and DE, John Lewis - and then assess US needs separately once you've seen the European insights."</p>
+                    <p><strong>Differentiate:</strong> "Unlike US-centric DSA providers like Profitero or CommerceIQ, our European depth means we're monitoring the specialist and mid-tier European retailers that those platforms often miss. For a European-headquartered brand, that's usually where the most valuable insights are."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"We handle this through our Amazon team / Keepa"</span>
+                    <span class="objection-arrow">&#9660;</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Acknowledge:</strong> "Having a dedicated Amazon team with Keepa for price tracking makes sense - Amazon is a critical channel. That's a sensible approach for marketplace-specific monitoring."</p>
+                    <p><strong>Expand the frame:</strong> "The question is what happens beyond Amazon. Villeroy &amp; Boch sells through 28+ online retailers across bathroom specialists, department stores, and general marketplaces. Keepa covers Amazon pricing, but it doesn't monitor specification accuracy on Reuter.com, content quality on John Lewis, or search rankings across Victorian Plumbing. For a brand with V&amp;B's distribution breadth, Amazon-only monitoring leaves significant blind spots."</p>
+                    <p><strong>Competitive angle:</strong> "GROHE uses our platform precisely because they need cross-retailer visibility, not just Amazon tracking. When your direct competitor is monitoring their digital shelf performance across European retailers and you're not, that's a competitive intelligence gap."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"The Dining &amp; Lifestyle division is separate from Bathroom"</span>
+                    <span class="objection-arrow">&#9660;</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Acknowledge:</strong> "Understood - the two divisions have different distribution patterns and different retail partners. That's a fair point."</p>
+                    <p><strong>Use it as an advantage:</strong> "We'd suggest starting with Bath &amp; Wellness, which accounts for 77% of V&amp;B's revenue and aligns most directly with our Home &amp; DIY expertise. That's where the GROHE competitive dynamic is most relevant and where the Ideal Standard integration creates the most monitoring complexity."</p>
+                    <p><strong>D&amp;L opportunity:</strong> "Dining &amp; Lifestyle could be a natural extension once Bath &amp; Wellness value is proven. Department stores like John Lewis, Selfridges, and Harrods present their own content quality challenges - particularly for premium homeware brands where product presentation directly affects brand perception."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"This isn't a priority right now - we have bigger challenges"</span>
+                    <span class="objection-arrow">&#9660;</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Acknowledge:</strong> "Completely understand. With the Ideal Standard integration, market pressures, and organisational change, there's no shortage of priorities competing for attention."</p>
+                    <p><strong>Connect to their priorities:</strong> "Can I ask what the bigger challenges are? If it's the integration itself, digital shelf monitoring actually supports that by identifying where two-brand complexity is creating problems on retailer sites. If it's e-commerce performance - D&amp;L EMEA saw a 13% e-commerce decline in H1 2025 - DSA can diagnose whether that's driven by content issues, search visibility loss, availability problems, or competitive displacement."</p>
+                    <p><strong>Offer value without commitment:</strong> "Happy to share the Ignite article on Home &amp; DIY digital shelf challenges as a resource - it references Villeroy &amp; Boch by name and might surface some useful thinking. No commitment required."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"What makes eStore different from other DSA providers?"</span>
+                    <span class="objection-arrow">&#9660;</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>European depth:</strong> "Our core differentiation is European retailer coverage. We monitor 3,000+ retailers across 70+ markets, with particular depth in UK, DACH, Benelux, Nordics, and Southern Europe. For a European-headquartered brand like Villeroy &amp; Boch, that coverage matters more than having the broadest US network."</p>
+                    <p><strong>Sector expertise:</strong> "We have deep expertise in the Home &amp; DIY sector specifically. GROHE, Bosch Power Tools, WD-40 are clients. We understand the unique challenges of technical specification monitoring for bathroom and home products - dimensions, compatibility, water efficiency ratings, installation requirements."</p>
+                    <p><strong>Partnership approach:</strong> "We position ourselves as a partnership, not just a platform. Dedicated customer success, actionable insights rather than raw data, and a consultative approach to understanding what metrics matter most for each brand's specific situation."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"We need to involve procurement / this requires a tender process"</span>
+                    <span class="objection-arrow">&#9660;</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Acknowledge:</strong> "Completely understand. V&amp;B is a publicly listed company with established procurement processes - that's expected at this scale."</p>
+                    <p><strong>Accommodate:</strong> "We're happy to work within your procurement framework. We can provide whatever documentation, security assessments, or competitive benchmarks your team needs."</p>
+                    <p><strong>Suggest pilot path:</strong> "One approach that works well for enterprise brands is starting with a focused pilot - monitoring a subset of retailers for a defined period. This gives your team concrete data to evaluate the platform's value before committing to a full procurement process. It also gives procurement something tangible to assess."</p>
+                    <p><strong>Internal champion:</strong> "If it would help, we can prepare a brief business case document that your team could use internally. Something that outlines the specific monitoring needs, estimated ROI based on specification accuracy improvements, and a phased implementation plan."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Objection Handling Principles</h2>
+            <ul>
+                <li><strong>Never dismiss the objection</strong> - Acknowledge it genuinely before responding</li>
+                <li><strong>Use evidence, not claims</strong> - Reference verified data points (23% specification errors, 84% sales uplift)</li>
+                <li><strong>Be honest about limitations</strong> - Especially geographic coverage and specialist retailer onboarding timelines</li>
+                <li><strong>Offer flexibility</strong> - Pilots, phased approaches, European-first starts</li>
+                <li><strong>Ask questions</strong> - Understand the root concern before responding</li>
+                <li><strong>Don't over-explain</strong> - V&amp;B contacts are sophisticated; respect that</li>
+                <li><strong>The 2023 outreach is not a liability</strong> - The company has transformed since then; use this as a strength</li>
+                <li><strong>Lead with European strength</strong> - Don't apologise for US coverage; position European depth as a differentiation</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>eStore Action Plan - Villeroy &amp; Boch | February 2026</p>
+    <p>Created by James / eStore Sales Development</p>
+</footer>
+
+<script>
+    // Tab Navigation
+    function showTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        document.getElementById(tabId).classList.add('active');
+        event.target.classList.add('active');
+    }
+
+    // Email Tab Navigation
+    document.querySelectorAll('.email-tabs').forEach(container => {
+        container.querySelectorAll('.email-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const emailNum = this.dataset.email;
+                const sequence = this.closest('.email-sequence');
+                container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                sequence.querySelectorAll('.email-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                sequence.querySelector(`.email-content[data-email="${emailNum}"]`).classList.add('active');
+            });
+        });
+    });
+
+    // Objection Card Toggle
+    function toggleObjection(header) {
+        const card = header.closest('.objection-card');
+        card.classList.toggle('open');
+    }
+</script>
+</body>
+</html>
