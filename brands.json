@@ -14,5 +14,6 @@
     {"file": "nyx-professional-makeup", "name": "NYX Professional Makeup", "owner": "Mariusz"},
     {"file": "elizabeth-arden", "name": "Elizabeth Arden", "owner": "Laura"},
     {"file": "midea-latam", "name": "Midea (LATAM)", "owner": "Ivan"},
-    {"file": "benq", "name": "BenQ", "owner": "Michal"}
+    {"file": "benq", "name": "BenQ", "owner": "Michal"},
+    {"file": "villeroy-boch", "name": "Villeroy & Boch", "owner": "Michal"}
 ]
