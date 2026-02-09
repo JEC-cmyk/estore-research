@@ -15,5 +15,6 @@
     {"file": "elizabeth-arden", "name": "Elizabeth Arden", "owner": "Laura"},
     {"file": "midea-latam", "name": "Midea (LATAM)", "owner": "Ivan"},
     {"file": "benq", "name": "BenQ", "owner": "Michal"},
-    {"file": "villeroy-boch", "name": "Villeroy & Boch", "owner": "Michal"}
+    {"file": "villeroy-boch", "name": "Villeroy & Boch", "owner": "Michal"},
+    {"file": "3m", "name": "3M", "owner": "Laura"}
 ]
