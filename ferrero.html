@@ -520,6 +520,80 @@
             margin-bottom: 0.5rem;
         }
         
+        .linkedin-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e9ecef;
+        }
+        
+        .linkedin-section h4 {
+            color: #1067db;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        .linkedin-timing-guide {
+            background: #e7f3ff;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+            font-size: 0.9rem;
+        }
+        
+        .linkedin-timing-guide p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .linkedin-timing-guide ul {
+            margin-left: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .linkedin-timing-guide li {
+            margin-bottom: 0.25rem;
+        }
+        
+        .linkedin-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .linkedin-badge {
+            display: inline-block;
+            background: #1067db;
+            color: white;
+            padding: 0.2rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .char-count {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: #6c757d;
+            margin-left: 0.5rem;
+        }
+        
+        .linkedin-message {
+            white-space: pre-line;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .linkedin-strategy {
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed #dee2e6;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        
         .objection-card {
             background: white;
             border-radius: 8px;
@@ -767,7 +841,7 @@
             <button class="tab" onclick="showTab('history')">Our history with them</button>
             <button class="tab" onclick="showTab('retailers')">Retailer Overview</button>
             <button class="tab" onclick="showTab('contacts')">Key people?</button>
-            <button class="tab" onclick="showTab('emails')">Draft Email Sequences</button>
+            <button class="tab" onclick="showTab('emails')">Email &amp; LinkedIn Sequences</button>
             <button class="tab" onclick="showTab('objections')">Objection Handling</button>
         </div>
         
@@ -1584,7 +1658,7 @@
         <!-- ============================================ -->
         <div id="emails" class="tab-content">
             <div class="disclaimer">
-                <strong>&#x26A0; Important:</strong> These emails are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Verify all contact details, confirm the German pilot status, and adjust timing references to be current. All emails use [SENDER NAME] placeholder - replace with actual sender name before use.
+                <strong>&#x26A0; Important:</strong> These emails and LinkedIn messages are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Verify all contact details, confirm the German pilot status, and adjust timing references to be current. All emails use [SENDER NAME] placeholder - replace with actual sender name before use.
             </div>
 
             <div class="card">
@@ -1693,6 +1767,41 @@ I am not assuming this is a gap for Ferrero. But I am curious whether the platfo
                         <p>New angle - global versus local platform tension. "US platform extended into Europe through acquisition" differentiates against CommerceIQ without naming them. Acknowledges Ferrero likely has tools. Curiosity close.</p>
                     </div>
                 </div>
+
+                <!-- Guillaume LinkedIn Section -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>When to use:</strong></p>
+                        <ul>
+                            <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                            <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                            <li><strong>Option C - After no email response:</strong> Send after email sequence if all three go unanswered</li>
+                        </ul>
+                        <p><em>Choose one option per contact - don't do all three.</em></p>
+                    </div>
+                    
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">Connection Request</span> <span class="char-count">Under 300 characters</span></div>
+                        <p class="linkedin-message">Guillaume - I am [SENDER NAME] from eStore. We provide digital shelf analytics for FMCG brands across European retailers. Your colleagues in Germany are working with us and I would welcome the chance to connect given your e-commerce remit in France.</p>
+                    </div>
+                    
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">InMail</span></div>
+                        <p class="linkedin-message">Guillaume,
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, tracking availability, content accuracy, pricing, and search rankings across retail platforms. We work with FMCG businesses including Kraft Heinz, Danone, and Unilever.
+
+Your "Accelerating Channels" brief caught my attention. Emerging retail formats - quick commerce, marketplace expansion, new delivery models - are where maintaining consistent product information becomes most difficult. Traditional grocery has established processes, but newer platforms have different content specifications and less predictable availability patterns.
+
+eStore is already working with Ferrero's German e-commerce team, so we are not entirely unknown within the business. Curious whether digital shelf monitoring for the French market is something managed centrally or being built out locally.
+
+[SENDER NAME]</p>
+                        <div class="linkedin-strategy">
+                            <strong>Strategy Notes:</strong> The connection request leverages the German relationship for credibility and is kept concise. The InMail mirrors the Email 1 hook - the "Accelerating Channels" title and the monitoring complexity it implies - but is shorter and more direct. For a French contact with a digital transformation background (HEC MBA), the tone is professional and innovation-oriented. The German pilot is mentioned once for social proof, not as the lead. The closing question mirrors the email's curiosity approach.
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- SEQUENCE 2: John Rowley -->
@@ -1782,6 +1891,43 @@ Has portfolio breadth changed how the UK team thinks about monitoring product pe
                         <p>Verify Kellogg's products are being sold under Ferrero UK. If no engagement from Emails 1-2, consider redirecting to new UK Head.</p>
                         <h5>Strategy Notes</h5>
                         <p>Reframed as general portfolio complexity - a DSA challenge any multi-category FMCG business faces. Connects to DTC via possible category expansion. Curiosity close.</p>
+                    </div>
+                </div>
+
+                <!-- Rowley LinkedIn Section -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>When to use:</strong></p>
+                        <ul>
+                            <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                            <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                            <li><strong>Option C - After no email response:</strong> Send after email sequence if all three go unanswered</li>
+                        </ul>
+                        <p><em>Choose one option per contact - don't do all three.</em></p>
+                    </div>
+                    
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">Connection Request</span> <span class="char-count">Under 300 characters</span></div>
+                        <p class="linkedin-message">John - I am [SENDER NAME] from eStore. We provide digital shelf analytics for consumer brands. Given your e-commerce role at Ferrero UK, I would welcome the chance to connect. Your German colleagues are working with us on a digital shelf programme.</p>
+                    </div>
+                    
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">InMail</span></div>
+                        <p class="linkedin-message">John,
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, helping teams understand how products appear and perform across retail platforms.
+
+I am reaching out because Ferrero's UK e-commerce sits at an interesting intersection. The DTC side - Thorntons and personalised gifts - alongside the broader FMCG portfolio selling through every major UK grocer creates an unusual monitoring challenge. When the same products appear on your own site, on Amazon, and through grocery delivery platforms, the content, pricing, and availability picture can diverge in ways that are hard to track.
+
+Your German e-commerce colleagues are working with us on a digital shelf programme, so eStore is not entirely unknown within Ferrero.
+
+Curious how the DTC and FMCG retail sides connect on the digital shelf front.
+
+[SENDER NAME]</p>
+                        <div class="linkedin-strategy">
+                            <strong>Strategy Notes:</strong> The connection request is brief and uses the German relationship as a credibility signal. The InMail mirrors Email 1's DTC/FMCG intersection hook but is compressed. John's role is DTC-focused, so the message respects that while gently probing the connection to FMCG retail monitoring. If he accepts the connection request, his profile activity may reveal whether he has visibility into the broader e-commerce team - useful intelligence for identifying the incoming UK Head of eCommerce FMCG.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1879,6 +2025,43 @@ How does the UK team currently manage digital shelf performance during those cri
                         <p>Time relative to Ferrero's seasonal calendar. Adapt product examples to next major trading period.</p>
                         <h5>Strategy Notes</h5>
                         <p>New angle. Seasonality is uniquely relevant to Ferrero. Specific products, retailers, and events demonstrate deep understanding. Practical question invites operational conversation.</p>
+                    </div>
+                </div>
+
+                <!-- UK Head LinkedIn Section -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>When to use:</strong> Once the new UK Head of eCommerce FMCG is identified and appointed:</p>
+                        <ul>
+                            <li><strong>Recommended:</strong> Send connection request within first 2 weeks of their start date, before Email 1</li>
+                            <li>New hires are actively building their network - connection acceptance rates are highest in the first 60 days</li>
+                            <li>Research their LinkedIn profile thoroughly before personalising the InMail</li>
+                        </ul>
+                        <p><em>Adapt all messages based on the new hire's background, previous company, and areas of expertise.</em></p>
+                    </div>
+                    
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">Connection Request</span> <span class="char-count">Under 300 characters</span></div>
+                        <p class="linkedin-message">[FIRST NAME] - congratulations on the new role. I am [SENDER NAME] from eStore - we provide digital shelf analytics for FMCG brands across UK retailers. We are already working with Ferrero's German e-commerce team. Would welcome the chance to connect.</p>
+                    </div>
+                    
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">InMail</span></div>
+                        <p class="linkedin-message">[FIRST NAME],
+
+Congratulations on joining Ferrero. I am [SENDER NAME] from eStore - we provide digital shelf analytics for FMCG brands, helping teams monitor availability, content accuracy, pricing, and search rankings across online retailers.
+
+eStore is already working with Ferrero's German e-commerce team on a digital shelf programme, so we are not entirely unknown within the business.
+
+Your role covers a significant digital shelf footprint - Ferrero products across Tesco, Sainsbury's, ASDA, Morrisons, Ocado, and most major UK grocers, spanning confectionery, snacking, biscuits, and cereals. [ADAPT BASED ON NEW HIRE'S BACKGROUND AND PREVIOUS COMPANY.]
+
+If digital shelf analytics is on your early assessment list, happy to share some thinking. If you are already well set up, equally curious to hear how Ferrero approaches it.
+
+[SENDER NAME]</p>
+                        <div class="linkedin-strategy">
+                            <strong>Strategy Notes:</strong> New hires are in evaluation mode and actively networking. The connection request congratulates without overselling. The InMail mirrors Email 1 but is compressed. The [ADAPT] placeholder is critical - research the new hire's previous company and role to personalise the third paragraph. If they came from a company using a competitor DSA tool, reference that context. The two-path closing ("on your assessment list" vs "already set up") works well for someone still learning the landscape.
+                        </div>
                     </div>
                 </div>
             </div>
