@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haier Europe - eStore Action Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 { font-size: 2rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .header-subtitle { font-size: 1.1rem; opacity: 0.95; margin-bottom: 1rem; }
+        
+        .header-meta {
+            font-size: 0.9rem; opacity: 0.9;
+            display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem;
+        }
+        .header-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+        
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        
+        .tabs {
+            display: flex; gap: 0.5rem; margin-bottom: 2rem;
+            background: white; padding: 1rem; border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.25rem; background: #f8f9fa; border: none;
+            border-radius: 8px; cursor: pointer; font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem; font-weight: 600; color: #2c2c2c;
+            transition: all 0.3s ease;
+        }
+        .tab:hover { background: #e9ecef; }
+        .tab.active { background: #1067db; color: white; }
+        
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        .card {
+            background: white; border-radius: 12px; padding: 2rem;
+            margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .card h2 { font-size: 1.5rem; margin-bottom: 1rem; color: #1067db; font-weight: 700; }
+        .card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; margin-top: 1.5rem; color: #2c2c2c; font-weight: 600; }
+        .card h4 { font-size: 1rem; margin-bottom: 0.5rem; margin-top: 1rem; color: #495057; font-weight: 600; }
+        .card p { margin-bottom: 1rem; }
+        
+        .fit-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 1rem 1.5rem; border-radius: 8px;
+            font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;
+        }
+        .fit-badge.strong {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724; border: 2px solid #22bb69;
+        }
+        
+        .summary-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem; margin-top: 1.5rem;
+        }
+        .summary-item {
+            background: #f8f9fa; padding: 1.25rem; border-radius: 8px;
+            border-left: 4px solid #1067db;
+        }
+        .summary-item h4 {
+            margin-top: 0; color: #1067db; font-size: 0.95rem;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .summary-item p { margin-bottom: 0; font-size: 0.95rem; }
+        
+        .stat-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem; margin: 1.5rem 0;
+        }
+        .stat-box {
+            background: #f8f9fa; padding: 1.25rem; border-radius: 8px; text-align: center;
+        }
+        .stat-box .value { font-size: 1.75rem; font-weight: 700; color: #1067db; }
+        .stat-box .label { font-size: 0.85rem; color: #6c757d; margin-top: 0.25rem; }
+        
+        .info-box { padding: 1rem 1.25rem; border-radius: 8px; margin: 1rem 0; }
+        .info-box.blue { background: #e7f3ff; border-left: 4px solid #1067db; }
+        .info-box.green { background: #e8f5e9; border-left: 4px solid #22bb69; }
+        .info-box.yellow { background: #fff8e1; border-left: 4px solid #ffba1c; }
+        .info-box.red { background: #ffebee; border-left: 4px solid #f44f2f; }
+        .info-box.orange { background: #fff3e0; border-left: 4px solid #ff7a00; }
+        
+        ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #dee2e6; }
+        th { background: #f8f9fa; font-weight: 600; color: #495057; }
+        tr:hover { background: #f8f9fa; }
+        
+        .badge {
+            display: inline-block; padding: 0.25rem 0.75rem;
+            border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+        }
+        .badge.green { background: #d4edda; color: #155724; }
+        .badge.yellow { background: #fff3cd; color: #856404; }
+        .badge.red { background: #f8d7da; color: #721c24; }
+        .badge.blue { background: #e7f3ff; color: #1067db; }
+        .badge.grey { background: #e9ecef; color: #495057; }
+        .badge.orange { background: #fff3e0; color: #e65100; }
+        .badge.verified { background: #22bb69; color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+        .badge.unverified { background: #ff7a00; color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+        
+        .contact-card {
+            background: #f8f9fa; border-radius: 12px; padding: 1.5rem;
+            margin-bottom: 1.5rem; border-left: 4px solid #1067db;
+        }
+        .contact-card.secondary { border-left-color: #68d7fa; }
+        .contact-card.historical { border-left-color: #ffba1c; }
+        .contact-card.skip { border-left-color: #f44f2f; background: #fff5f5; }
+        
+        .contact-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;
+        }
+        .contact-name { font-size: 1.2rem; font-weight: 700; color: #2c2c2c; }
+        .contact-title { font-size: 0.95rem; color: #6c757d; margin-top: 0.25rem; }
+        .contact-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        
+        .tone-box {
+            background: #e7f3ff; padding: 0.75rem 1rem; border-radius: 8px;
+            margin-top: 1rem; font-size: 0.9rem;
+        }
+        .tone-box strong { color: #1067db; }
+        
+        .verification-warning {
+            background: #fff3e0; border-left: 4px solid #ff7a00;
+            padding: 10px 15px; margin: 10px 0; border-radius: 0 8px 8px 0; font-size: 0.9rem;
+        }
+        
+        .email-sequence {
+            background: #f8f9fa; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;
+        }
+        .email-sequence-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;
+            padding-bottom: 1rem; border-bottom: 2px solid #e9ecef;
+        }
+        .email-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .email-tab {
+            padding: 0.5rem 1rem; background: white; border: 2px solid #e9ecef;
+            border-radius: 8px; cursor: pointer; font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease;
+        }
+        .email-tab:hover { border-color: #1067db; }
+        .email-tab.active { background: #1067db; border-color: #1067db; color: white; }
+        
+        .email-content { display: none; }
+        .email-content.active { display: block; }
+        
+        .email-box {
+            background: white; border-radius: 8px; padding: 1.5rem;
+            margin-bottom: 1rem; border: 1px solid #e9ecef;
+        }
+        .email-subject { font-weight: 600; color: #1067db; margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 1px solid #e9ecef; }
+        .email-timing { font-size: 0.85rem; color: #6c757d; margin-bottom: 1rem; }
+        .email-body { white-space: pre-line; font-size: 0.95rem; line-height: 1.7; }
+        .email-notes { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed #dee2e6; }
+        .email-notes h5 { font-size: 0.9rem; color: #6c757d; margin-bottom: 0.5rem; }
+        .email-notes p, .email-notes li { font-size: 0.9rem; color: #495057; }
+        
+        .linkedin-section {
+            margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #e9ecef;
+        }
+        .linkedin-section h4 { color: #1067db; margin-bottom: 1rem; font-size: 1.1rem; }
+        .linkedin-timing-guide {
+            background: #e7f3ff; padding: 1rem 1.25rem; border-radius: 8px; margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        .linkedin-timing-guide ul { margin-bottom: 0.5rem; }
+        .linkedin-card {
+            background: white; border-radius: 8px; padding: 1.25rem;
+            margin-bottom: 1rem; border: 1px solid #e9ecef;
+        }
+        .linkedin-badge {
+            display: inline-block; background: #1067db; color: white;
+            padding: 3px 10px; border-radius: 12px; font-size: 0.8rem;
+            font-weight: 600; margin-bottom: 0.75rem;
+        }
+        .char-count { font-size: 0.8rem; color: #6c757d; float: right; }
+        .linkedin-message { font-size: 0.95rem; line-height: 1.6; white-space: pre-line; }
+        .linkedin-strategy { margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed #dee2e6; font-size: 0.9rem; color: #495057; }
+        
+        .objection-card {
+            background: white; border-radius: 8px; margin-bottom: 1rem;
+            border: 1px solid #e9ecef; overflow: hidden;
+        }
+        .objection-header {
+            padding: 1rem 1.25rem; background: #f8f9fa; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center;
+            font-weight: 600; color: #2c2c2c;
+        }
+        .objection-header:hover { background: #e9ecef; }
+        .objection-arrow { transition: transform 0.3s ease; }
+        .objection-card.open .objection-arrow { transform: rotate(180deg); }
+        .objection-body { display: none; padding: 1.25rem; border-top: 1px solid #e9ecef; }
+        .objection-card.open .objection-body { display: block; }
+        
+        .disclaimer {
+            background: #fff8e1; border: 2px solid #ffba1c; border-radius: 8px;
+            padding: 1rem 1.25rem; margin-bottom: 2rem;
+        }
+        .disclaimer strong { color: #856404; }
+        
+        .content-link {
+            display: block; background: #f8f9fa; padding: 1rem; border-radius: 8px;
+            margin-bottom: 0.75rem; text-decoration: none; color: #2c2c2c;
+            transition: all 0.3s ease; border: 1px solid #e9ecef;
+        }
+        .content-link:hover { background: #e7f3ff; border-color: #1067db; }
+        .content-link .link-title { font-weight: 600; color: #1067db; margin-bottom: 0.25rem; }
+        .content-link .link-url { font-size: 0.8rem; color: #6c757d; word-break: break-all; }
+        
+        .checklist { list-style: none; margin-left: 0; }
+        .checklist li { padding: 0.5rem 0; padding-left: 2rem; position: relative; }
+        .checklist li::before { content: "\2714"; position: absolute; left: 0; color: #22bb69; font-weight: bold; }
+        .checklist li.warning::before { content: "\26A0"; color: #ffba1c; }
+        .checklist li.cross::before { content: "\2717"; color: #f44f2f; }
+        
+        .retailer-summary {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem; margin-top: 1.5rem;
+        }
+        .retailer-region {
+            background: #f8f9fa; border-radius: 8px; padding: 1.25rem;
+            border-left: 4px solid #1067db;
+        }
+        .retailer-region h4 { margin-top: 0; color: #1067db; }
+        
+        footer {
+            text-align: center; padding: 2rem; color: #6c757d;
+            font-size: 0.9rem; border-top: 1px solid #e9ecef; margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header { padding: 1.5rem 1rem; }
+            .header h1 { font-size: 1.5rem; }
+            .container { padding: 1rem; }
+            .tabs { flex-direction: column; }
+            .tab { text-align: left; }
+            .summary-grid { grid-template-columns: 1fr; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-header { flex-direction: column; }
+            .email-sequence-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Haier Europe (Haier, Candy, Hoover)</h1>
+        <div class="header-subtitle">eStore Brand Research &amp; Action Plan - Competitive Displacement Opportunity</div>
+        <div class="header-meta">
+            <div class="header-meta-item">&#128197; Created: 11 February 2026</div>
+            <div class="header-meta-item">&#9997; Author: James / eStore Business Development</div>
+            <div class="header-meta-item">&#127919; Fit Level: &#128994; STRONG FIT</div>
+            <div class="header-meta-item">&#127968; Sector: Consumer Electronics + Home &amp; Garden</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" data-tab="fit" onclick="showTab('fit')">Strategic Fit Assessment</button>
+            <button class="tab" data-tab="history" onclick="showTab('history')">Our history with them</button>
+            <button class="tab" data-tab="retailers" onclick="showTab('retailers')">Retailer Overview</button>
+            <button class="tab" data-tab="people" onclick="showTab('people')">Key people?</button>
+            <button class="tab" data-tab="outreach" onclick="showTab('outreach')">Draft Outreach</button>
+            <button class="tab" data-tab="objections" onclick="showTab('objections')">Objection Handling</button>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- TAB 1: STRATEGIC FIT ASSESSMENT -->
+        <!-- ============================================================ -->
+        <div class="tab-content active" id="fit">
+            <div class="card">
+                <h2>Strategic Fit Assessment</h2>
+                <div class="fit-badge strong">&#128994; STRONG FIT - High-Value Displacement Opportunity</div>
+                <p>Haier Europe is a Tier 1 prospect representing eStore's single highest-value opportunity in European home appliances. All five strategic fit data points align strongly, with exceptional timing signals creating a 6-12 month engagement window.</p>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">~&#8364;3.7B</div>
+                        <div class="label">European Revenue (2023)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">3</div>
+                        <div class="label">Brands (Haier/Candy/Hoover)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">25-30+</div>
+                        <div class="label">European Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">6 of 8</div>
+                        <div class="label">Competitors Are eStore Clients</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">+31.4%</div>
+                        <div class="label">European Revenue Growth Q1 2025</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">45+</div>
+                        <div class="label">European Markets</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Five-Point Strategic Assessment</h2>
+
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Distribution Complexity &amp; Geographic Alignment</h4>
+                        <p>100% European focus for eStore-relevant brands. Three brands (Haier/Candy/Hoover) across 25-30+ retailers in 45+ markets. Multi-channel - specialist appliance retailers (Currys, AO, MediaMarkt) are primary channel, not Amazon. DTC limited to Haier brand only - Candy and Hoover entirely dependent on third-party retailers. Perfect geographic alignment with eStore's European strength.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Competitive Intelligence</h4>
+                        <p><strong>Current DSA provider: Wiser Solutions (CONFIRMED)</strong> - customer testimonial on Wiser's product page, logo on client page. Switching signals are strong: July 2025 leadership restructure created brand-new CDXO role, new IT Director appointed, both within first year when vendor audits most commonly occur. No evidence Wiser is optimised for multi-brand European portfolio management.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Sector Alignment</h4>
+                        <p>MAXIMUM alignment. Consumer Electronics + Home &amp; Garden dual sector fit. eStore serves 6 of Haier's 8 major European competitors: BSH (Bosch/Siemens), Beko, Miele, Whirlpool, Hisense/Gorenje, and De'Longhi. De'Longhi 33% sales uplift case study is the strongest proof point - both Italian-headquartered with multi-brand portfolios.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Relationship History</h4>
+                        <p>Re-engagement opportunity with warm contacts. In HubSpot since 2017 at "Opportunity" stage. Three verified warm contacts still at Haier: Roberto Mainardi (Italy), Sion Howard (UK, promoted), Ben Rispin (UK). Previous meeting held November 2023. De'Longhi case study and competitive data previously shared. 18+ months since last contact means this is closer to warm outreach than active relationship.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Market Dynamics &amp; Timing</h4>
+                        <p>Most significant leadership restructure in Haier Europe's history (July 2025). New CDXO Phil Knight within first year - optimal vendor decision window. Ex-CEO Fierling now at Electrolux with intimate Haier knowledge. $775M Carrier acquisition expanding categories. Beko Europe formation increasing competitive pressure. Record 8 consecutive years of fastest growth. 2027 budget planning likely Q3-Q4 2026.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Synthesis &amp; Recommendation</h2>
+                <div class="info-box green">
+                    <p><strong>Recommended approach:</strong> Confident two-pronged strategy. (1) Approach Phil Knight as primary decision-maker with competitive displacement angle. (2) Re-engage Roberto Mainardi and Sion Howard as warm contacts for parallel air cover.</p>
+                </div>
+
+                <h3>Key Factors Driving Assessment</h3>
+                <ul>
+                    <li>Six of Haier's direct competitors are already eStore clients - unmatched competitive benchmarking proposition</li>
+                    <li>Confirmed incumbent (Wiser Solutions) with clear displacement signals from leadership restructure</li>
+                    <li>New CDXO (Phil Knight, UK-based) within first year - actively evaluating tools and building strategy</li>
+                    <li>Multi-brand portfolio complexity (Haier/Candy/Hoover) creates monitoring needs that justify investment</li>
+                    <li>Three verified warm contacts from existing relationship history</li>
+                    <li>European-centric operations align perfectly with eStore's geographic strength</li>
+                </ul>
+
+                <h3>Primary Value Proposition</h3>
+                <p>Competitive benchmarking across six competitor clients enabling category-specific intelligence no other DSA provider can deliver. Lead with De'Longhi 33% uplift case study for concrete ROI proof.</p>
+
+                <h3>Estimated Difficulty</h3>
+                <p>Moderate. Incumbent provider exists but leadership transition creates natural review point. New CDXO within first year is most favourable timing. Multi-brand complexity and category expansion create needs current provider may not address.</p>
+
+                <h3>Critical Considerations</h3>
+                <ul>
+                    <li>This is a displacement opportunity, not greenfield - requires demonstrating clear superiority over Wiser, not just introducing DSA concept</li>
+                    <li>Multi-brand, multi-market complexity means implementation is genuinely 3-6 months for full deployment - be upfront about this</li>
+                    <li>UK-first approach recommended given CDXO location and existing UK contacts</li>
+                    <li>Candy and Hoover having NO DTC capability makes digital shelf analytics existentially important for 2/3 of brand portfolio</li>
+                    <li>Previous outreach over multiple years has not closed - CDXO role and competitive benchmarking proposition provide fresh angle</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Implementation Readiness</h2>
+                <div class="info-box blue">
+                    <p><strong>Time-to-value estimate:</strong> UK-first deployment focusing on one or two brands could demonstrate ROI within 90 days. Full multi-brand, multi-market deployment across five core European markets: 3-6 months. Position phased approach as a strength, not a limitation.</p>
+                </div>
+                <p>Haier Europe's retailer footprint spans established European platforms where eStore has deep coverage (Amazon UK/DE/FR/IT/ES, Currys, AO.com, MediaMarkt). The complexity is not coverage gaps but rather the sheer breadth of three brands across five markets across 25-30+ retailers - that is a deployment and configuration challenge, not a coverage challenge.</p>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- TAB 2: OUR HISTORY WITH THEM -->
+        <!-- ============================================================ -->
+        <div class="tab-content" id="history">
+            <div class="card">
+                <h2>Engagement History</h2>
+                <div class="info-box yellow">
+                    <p><strong>HubSpot Status:</strong> "Opportunity" stage since 2017. Multiple stakeholders contacted across UK, Germany, and Italy over several years without converting to client.</p>
+                </div>
+
+                <h3>Previous Outreach Timeline</h3>
+                <table>
+                    <thead>
+                        <tr><th>Period</th><th>Activity</th><th>Contacts</th><th>Outcome</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>2017 onwards</td><td>Initial engagement</td><td>Various</td><td>Opportunity created in HubSpot</td></tr>
+                        <tr><td>Sept 2022</td><td>Amazon Prime Day outreach</td><td>Andreas</td><td>No confirmed response</td></tr>
+                        <tr><td>Oct-Nov 2023</td><td>Email sequence referencing CEO Meyerowitz's goal for Haier to be #1 in UK&amp;I by 2027. Used whitegoods eCommerce report</td><td>Ben, Justin</td><td>Engagement noted</td></tr>
+                        <tr><td>Nov 2023</td><td>Meeting to review insights and use cases</td><td>Sion (kitchen channel)</td><td>Meeting held - positive interaction</td></tr>
+                        <tr><td>Dec 2023</td><td>Email about Hoover falling behind competitors on Amazon/Argos using Small Appliances UK report</td><td>Ben</td><td>No confirmed conversion</td></tr>
+                        <tr><td>Oct-Dec 2024</td><td>Email sequence leveraging De'Longhi success, offering 2-week free access to competitive landscape data for German retailers (Otto, MediaMarkt)</td><td>Tanja (Germany)</td><td>No confirmed response</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Competitor Intelligence</h2>
+                <table>
+                    <thead>
+                        <tr><th>Provider</th><th>Status</th><th>Confidence</th><th>Source</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Wiser Solutions</strong></td>
+                            <td><span class="badge red">Active Client</span></td>
+                            <td><span class="badge green">CONFIRMED</span></td>
+                            <td>Direct customer testimonial on Wiser Digital Shelf Intelligence product page; second testimonial on Wiser e-commerce brands page; Haier logo on Wiser client page</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Wiser Capabilities Confirmed in Use</h3>
+                <ul>
+                    <li>Category-wide price trend monitoring</li>
+                    <li>Brand positioning by retail partners</li>
+                    <li>Competitor tracking</li>
+                    <li>Share of search monitoring</li>
+                    <li>Consolidated single-platform analytics</li>
+                </ul>
+
+                <h3>Providers with No Evidence of Relationship</h3>
+                <p>Profitero, CommerceIQ, Brandview, Brand Nudge, mindsite, e.fundamentals, Edge by Ascential, Syndigo, Salsify, Stackline, DataWeave, Analytic Index - no evidence found linking any of these to Haier Europe.</p>
+
+                <h3>Technology Partners (Not DSA Competitors)</h3>
+                <ul>
+                    <li><strong>Kiliagon</strong> - Amazon advertising agency (5 EU marketplaces)</li>
+                    <li><strong>Orange Business</strong> - IT infrastructure (SD-WAN, Zscaler)</li>
+                    <li><strong>Workday</strong> - HR</li>
+                    <li><strong>SAP</strong> - Likely ERP (based on job postings)</li>
+                    <li><strong>Shopify</strong> - DTC e-commerce platform</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Internal Champion &amp; Blockers</h2>
+
+                <h3>Internal Champion</h3>
+                <div class="info-box yellow">
+                    <p><strong>No clear internal champion yet.</strong> Previous engagement was broad but shallow. Best candidates: Ben Rispin (operational user, UK-based, previous engagement) or Roberto Mainardi (strategic thinker, AI enthusiast, Italian connection to De'Longhi case study). Phil Knight is the decision-maker target, not the champion.</p>
+                </div>
+
+                <h3>Known Blockers</h3>
+                <ul>
+                    <li><strong>Multiple failed outreach cycles</strong> over several years suggests either wrong contacts, bad timing, or insufficient value proposition. The July 2025 leadership restructure fundamentally changes all three variables</li>
+                    <li><strong>Wiser relationship</strong> is a barrier but also an opportunity - Haier understands DSA value, which shortens the education cycle</li>
+                    <li><strong>Budget cycles:</strong> 2027 budget planning likely Q3-Q4 2026. New CDXO may have discretionary budget for tools in 2026</li>
+                    <li><strong>DACH gap:</strong> Previous contact Tanja cannot be verified. Florian Paulus is recommended replacement. DACH in leadership transition</li>
+                </ul>
+
+                <h3>Recommended Fresh Angle for 2026</h3>
+                <ul>
+                    <li>Phil Knight's CDXO mandate - entirely new, did not exist before July 2025</li>
+                    <li>Six-competitor benchmarking framing - this specific approach has not been used before</li>
+                    <li>Displacement positioning against Wiser - previous outreach did not address an incumbent</li>
+                    <li>Candy/Hoover DTC dependency - powerful new pressure point</li>
+                    <li>Former CEO at Electrolux - competitive intelligence urgency angle not previously available</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Content to Reference</h2>
+
+                <h3>Sector Landing Pages</h3>
+                <a href="https://estorebrands.com/consumer-electronics" target="_blank" class="content-link">
+                    <div class="link-title">Consumer Electronics (PRIMARY)</div>
+                    <div class="link-url">https://estorebrands.com/consumer-electronics</div>
+                    <p style="margin-bottom:0; font-size:0.9rem; margin-top:0.5rem;">Primary sector page. Haier explicitly mentioned as target brand on this page.</p>
+                </a>
+                <a href="https://estorebrands.com/home-and-diy" target="_blank" class="content-link">
+                    <div class="link-title">Home &amp; DIY (SECONDARY)</div>
+                    <div class="link-url">https://estorebrands.com/home-and-diy</div>
+                    <p style="margin-bottom:0; font-size:0.9rem; margin-top:0.5rem;">Relevant for Hoover floorcare and home appliance positioning.</p>
+                </a>
+
+                <h3>Relevant Ignite Articles</h3>
+                <a href="https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics" target="_blank" class="content-link">
+                    <div class="link-title">Why Consumer Electronics Brands Need Specialised Digital Shelf Analytics</div>
+                    <div class="link-url">https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics</div>
+                    <p style="margin-bottom:0; font-size:0.9rem; margin-top:0.5rem;">Suggested placement: Email 2. Educational content demonstrating sector expertise.</p>
+                </a>
+                <a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025" target="_blank" class="content-link">
+                    <div class="link-title">Digital Shelf Analytics for Home &amp; DIY Brands</div>
+                    <div class="link-url">https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025</div>
+                    <p style="margin-bottom:0; font-size:0.9rem; margin-top:0.5rem;">Optional - use if conversation pivots to Hoover/floorcare or home improvement angle.</p>
+                </a>
+                <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank" class="content-link">
+                    <div class="link-title">Introducing Content Benchmark</div>
+                    <div class="link-url">https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content</div>
+                    <p style="margin-bottom:0; font-size:0.9rem; margin-top:0.5rem;">Suggested placement: Email 2 or 3 if competitive benchmarking is the primary hook.</p>
+                </a>
+                <a href="https://estorebrands.com/ignite/introducing-ai-business-answers" target="_blank" class="content-link">
+                    <div class="link-title">Introducing AI Business Answers</div>
+                    <div class="link-url">https://estorebrands.com/ignite/introducing-ai-business-answers</div>
+                    <p style="margin-bottom:0; font-size:0.9rem; margin-top:0.5rem;">Suggested placement: Email 2 for Roberto Mainardi (AI enthusiast). Aligns with Haier's 2025 AI implementation priority.</p>
+                </a>
+
+                <h3>Key Proof Points</h3>
+                <ul>
+                    <li><strong>De'Longhi 33% sales uplift</strong> via keyword optimisation - strongest case study (both Italian-headquartered, multi-brand)</li>
+                    <li><strong>Six competitor clients</strong> in home appliances (BSH, Beko, Miele, Whirlpool, Hisense/Gorenje, De'Longhi)</li>
+                    <li><strong>27% of major appliance sales now online</strong> (growing at 4.7% CAGR) - industry trend creating urgency</li>
+                    <li><strong>Beko Europe formation</strong> (April 2024) as Europe's largest appliance maker - competitive pressure angle</li>
+                    <li><strong>Multi-brand portfolio complexity</strong> - three brands x multiple markets x multiple retailers = exponential monitoring need</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- TAB 3: RETAILER OVERVIEW -->
+        <!-- ============================================================ -->
+        <div class="tab-content" id="retailers">
+            <div class="card">
+                <h2>Retailer Pattern Overview</h2>
+                <div class="info-box blue">
+                    <p>This is a strategic pattern overview based on research, not a detailed retailer-by-retailer coverage check. The focus is on understanding Haier Europe's retail distribution complexity and what it means for eStore's engagement approach.</p>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">25-30+</div>
+                        <div class="label">Estimated Online Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">5</div>
+                        <div class="label">Core European Markets</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">3</div>
+                        <div class="label">Brands to Monitor</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">High</div>
+                        <div class="label">Channel Diversity</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Geographic Breakdown</h2>
+                <div class="retailer-summary">
+                    <div class="retailer-region">
+                        <h4>&#127468;&#127463; United Kingdom (~30%)</h4>
+                        <p>Amazon UK, Currys, AO.com, John Lewis, Argos, Euronics UK, Appliances Direct, Marks Electrical, Hughes, B&amp;Q</p>
+                        <p style="font-size:0.9rem; color:#6c757d; margin-bottom:0;">10 confirmed retailers. Strong mix of generalist, specialist, and DIY.</p>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>&#127470;&#127481; Italy (~25%)</h4>
+                        <p>Amazon.it, MediaWorld, Unieuro, Euronics Italy, Expert, Trony</p>
+                        <p style="font-size:0.9rem; color:#6c757d; margin-bottom:0;">Deepest retail coverage reflecting HQ location in Vimercate (Milan).</p>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>&#127465;&#127466; Germany (~20%)</h4>
+                        <p>Amazon.de, MediaMarkt/Saturn, Otto</p>
+                        <p style="font-size:0.9rem; color:#6c757d; margin-bottom:0;">Key DACH retailers. DACH in leadership transition - potential for strategic conversations.</p>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>&#127467;&#127479; France (~15%)</h4>
+                        <p>Amazon.fr, Darty/Fnac, Boulanger</p>
+                        <p style="font-size:0.9rem; color:#6c757d; margin-bottom:0;">Core French electronics and appliance retailers.</p>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>&#127475;&#127473;&#127463;&#127466; Benelux (~10%)</h4>
+                        <p>Coolblue, Bol.com</p>
+                        <p style="font-size:0.9rem; color:#6c757d; margin-bottom:0;">Secondary market with strong pure-play online retailers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Notable Patterns</h2>
+                <ul>
+                    <li><strong>Multi-channel strength:</strong> Mix of generalist mass market (Amazon), specialist appliance (Currys, AO, MediaMarkt), department stores (John Lewis), DIY (B&amp;Q), and pure-play online (Appliances Direct, Marks Electrical)</li>
+                    <li><strong>Specialist retailers are primary channel:</strong> Currys, AO.com, MediaMarkt - NOT Amazon-dominant. This is important for positioning as it means digital shelf performance on specialist sites matters more than marketplace-only analytics</li>
+                    <li><strong>Three-brand multiplier:</strong> Each brand potentially at each retailer = 3x the monitoring need. Haier, Candy, and Hoover sold through overlapping but not identical retailer sets per market</li>
+                    <li><strong>Amazon managed professionally:</strong> Via Kiliagon agency across 5 EU marketplaces (UK/DE/FR/IT/ES) with full-funnel campaigns. This means sophisticated Amazon operations already in place</li>
+                    <li><strong>DTC limited to Haier brand only:</strong> haier-europe.com on Shopify for premium Haier brand. Candy and Hoover websites are informational only, directing consumers to retailers - making third-party retailer performance existentially important for 2/3 of portfolio</li>
+                </ul>
+
+                <h3>Critical Gaps</h3>
+                <div class="info-box green">
+                    <p><strong>No significant channel gaps identified</strong> for European home appliances. The challenge is breadth and multi-brand complexity, not missing channels. Haier Europe has comprehensive coverage across the major European appliance retail landscape.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Implementation Note</h2>
+                <div class="info-box blue">
+                    <p><strong>Phased approach recommended.</strong> UK-first deployment (Haier + Candy + Hoover across 10 UK retailers) could deliver value within 90 days. Full European roll-out across all five core markets would require 3-6 months. Position this as a strength ("phased approach ensures quality") rather than a limitation.</p>
+                </div>
+                <p>The recommended starting point is the UK market given: Phil Knight (CDXO) is UK-based, existing warm contacts are primarily UK-based (Sion Howard, Ben Rispin), the De'Longhi case study is most relevant to UK retail context, and 10 confirmed UK retailers provide immediate breadth.</p>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- TAB 4: KEY PEOPLE -->
+        <!-- ============================================================ -->
+        <div class="tab-content" id="people">
+            <div class="card">
+                <h2>Historical Contacts</h2>
+                <div class="info-box yellow">
+                    <p><strong>Engagement history since 2017.</strong> Multiple contacts across UK, Germany, and Italy. Three verified warm contacts remain at Haier. Several previous contacts cannot be verified and should not be contacted.</p>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr><th>Contact</th><th>Previous Engagement</th><th>Current Status</th><th>Stance</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Roberto Mainardi</strong></td><td>HubSpot contact from Italy engagement</td><td><span class="badge green">Still at Haier</span></td><td>Warm - re-engagement opportunity</td></tr>
+                        <tr><td><strong>Sion Howard</strong></td><td>Nov 2023 meeting (kitchen channel)</td><td><span class="badge green">Promoted to Sales Leader UK&amp;I</span></td><td>Warm - promotion expands influence</td></tr>
+                        <tr><td><strong>Ben Rispin</strong></td><td>Emails Oct-Dec 2023</td><td><span class="badge yellow">Likely still at Haier</span></td><td>Warm - previous correspondence</td></tr>
+                        <tr><td>Tanja (Germany)</td><td>Emails Oct-Dec 2024</td><td><span class="badge red">Cannot verify</span></td><td>Do not contact</td></tr>
+                        <tr><td>Justin (UK)</td><td>Emails Oct-Nov 2023</td><td><span class="badge red">Cannot verify</span></td><td>Likely departed</td></tr>
+                        <tr><td>Andreas</td><td>Sept 2022 outreach</td><td><span class="badge red">Cannot locate</span></td><td>Likely departed</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#1 Phil Knight &#11088;</div>
+                            <div class="contact-title">Chief Digital Experience Officer (CDXO)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">&#127468;&#127463; British</span>
+                            <span class="badge verified">&#10003; Verified</span>
+                            <span class="badge orange">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Weston-super-Mare, UK</p>
+                    <p><strong>LinkedIn:</strong> Not publicly available at time of research</p>
+                    <p><strong>Background:</strong> Started July 2025. Previously at SharkNinja, Pigro Ltd, digital consultancy. Reports directly to CEO Neil Tunstall. Combines commercial insight with digital-first thinking. Startup/consultancy background suggests data-driven innovation focus.</p>
+                    <p><strong>Key responsibilities:</strong> Mandate to deliver "five-star consumer digital experience" and "empower business to excel in digital landscape". Most senior dedicated digital role in Haier Europe, created as brand-new C-suite position.</p>
+                    <p><strong>Why target:</strong> His mandate maps directly to digital shelf analytics. UK-based and easily accessible. Within first year - actively evaluating tools and building strategy. Reports to CEO - has budget authority.</p>
+                    <p><strong>Specific hooks:</strong> Lead with competitive benchmarking across six competitor clients. Reference "five-star digital experience" mandate. De'Longhi 33% uplift = measurable ROI within his first year. Startup/consultancy background means he will value data-driven, innovation-focused pitch.</p>
+                    <div class="tone-box">
+                        <strong>Tone guidance:</strong> Direct, data-driven, innovation-focused. Avoid corporate boilerplate - his startup background means he will appreciate specificity over formality. Lead with insights, not introductions.
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#2 Roberto Mainardi</div>
+                            <div class="contact-title">Digital Customer Journey Director</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">&#127470;&#127481; Italian</span>
+                            <span class="badge verified">&#10003; Verified</span>
+                            <span class="badge green">Warm</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Milan, Italy</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/robertomainardi/" target="_blank">View Profile</a></p>
+                    <p><strong>Background:</strong> Previously managed Acer Group's global websites, e-commerce, CRM, and social media. Also worked at Motorola and Lenovo. Self-described "Marketing innovations and AI enthusiast".</p>
+                    <p><strong>Key responsibilities:</strong> Owns online customer journey including digital shelf touchpoints. Role encompasses the full digital path from awareness to purchase.</p>
+                    <p><strong>Why target:</strong> Role directly encompasses digital shelf performance. Previous HubSpot contact - existing relationship. AI and innovation focus aligns with Haier's priorities.</p>
+                    <p><strong>Specific hooks:</strong> Position eStore analytics as feeding customer journey optimisation. His AI enthusiasm appreciates data-driven approach. Italian HQ connection - reference De'Longhi naturally.</p>
+                    <div class="tone-box">
+                        <strong>Tone guidance:</strong> Warm and conversational Italian business style. Reference previous contact lightly. Connect digital shelf analytics to customer journey language. Lean into AI and innovation angles.
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#3 Ben Rispin</div>
+                            <div class="contact-title">E-commerce/Online Trading, Haier Europe UK</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">&#127468;&#127463; British</span>
+                            <span class="badge unverified">&#9888; Unverified</span>
+                            <span class="badge green">Warm</span>
+                        </div>
+                    </div>
+                    <div class="verification-warning">
+                        <strong>&#9888; Verification Required:</strong> Ben's status is "likely current" based on LinkedIn showing Haier Europe and a 1Vision strategy post. Confirm his current role and title on LinkedIn before sending any outreach.
+                    </div>
+                    <p><strong>Location:</strong> United Kingdom</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/ben-rispin-95202b11/" target="_blank">View Profile</a></p>
+                    <p><strong>Background:</strong> 10+ years e-commerce trading and merchandising experience at Haier.</p>
+                    <p><strong>Key responsibilities:</strong> Likely hands-on e-commerce trading contact managing online product listings and retailer relationships (AO, Amazon, Currys). Day-to-day DSA tool user.</p>
+                    <p><strong>Why target:</strong> Operational contact who would use eStore daily. Can validate practical value proposition and champion internally. Previous engagement gives warm entry point.</p>
+                    <p><strong>Specific hooks:</strong> UK retailer-specific data (Currys, AO, Amazon UK performance). Show competitor performance at retailers he manages.</p>
+                    <div class="tone-box">
+                        <strong>Tone guidance:</strong> Practical, operational, no-nonsense British style. Keep language practical - Ben is a trader, not a strategist. Focus on daily value, not strategic vision.
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#4 Florian Paulus</div>
+                            <div class="contact-title">Director of Retail Sales, Germany &amp; Austria</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">&#127465;&#127466; German</span>
+                            <span class="badge verified">&#10003; Verified</span>
+                            <span class="badge orange">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Greater Munich, Germany</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/florian-paulus/" target="_blank">View Profile</a></p>
+                    <p><strong>Background:</strong> 17+ years OEM consumer business. Ex-Logitech. Managed B2C/B2B sales including e-commerce in DACH. "Restarted business with Amazon, multiplied revenue".</p>
+                    <p><strong>Key responsibilities:</strong> Manages key DACH retail accounts including MediaMarkt and Euronics. Owns revenue targets for Germany and Austria.</p>
+                    <p><strong>Why target:</strong> Manages MediaMarkt and Euronics - retailers previously referenced in competitive data sent to Tanja. Explicit Amazon experience makes share-of-search data relevant. DACH in leadership transition - receptive to new tools.</p>
+                    <p><strong>Specific hooks:</strong> Fresh competitive data for MediaMarkt.de and Amazon.de showing BSH/Beko performance. His Amazon revenue growth experience makes share-of-search particularly compelling.</p>
+                    <div class="tone-box">
+                        <strong>Tone guidance:</strong> Formal, structured, factual German business communication. Clear sentences. Avoid colloquialisms. Lead with data and specific retailer references. Respect for hierarchy and precision.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#5 Diego Perrone</div>
+                            <div class="contact-title">Managing Director UK &amp; Ireland</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">&#127470;&#127481; Italian</span>
+                            <span class="badge verified">&#10003; Verified</span>
+                            <span class="badge orange">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> UK (likely Warrington)</p>
+                    <p><strong>LinkedIn:</strong> Not publicly available at time of research</p>
+                    <p><strong>Background:</strong> Appointed October 2024. Joined Haier Europe 2022 as Head of Cooling. International experience in strategy/marketing across industrial goods, telecoms, white goods.</p>
+                    <p><strong>Why target:</strong> Sponsor/approver of UK commercial partnerships. New to role and building strategy. P&amp;L owner for UK market.</p>
+                    <p><strong>Specific hooks:</strong> UK-specific competitive intelligence. Reference 1Vision programme and position eStore as accelerator.</p>
+                </div>
+
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#6 Francesco Di Valentin</div>
+                            <div class="contact-title">Chief Business Officer (+ interim MD DACH)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">&#127470;&#127481; Italian</span>
+                            <span class="badge verified">&#10003; Verified</span>
+                            <span class="badge orange">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Vimercate, Italy (also covering DACH)</p>
+                    <p><strong>Background:</strong> Appointed April 2024. 25+ years international sales and marketing expertise. All market MDs report to him.</p>
+                    <p><strong>Why target:</strong> Any pan-European deployment needs his endorsement. Dual DACH coverage creates additional entry point.</p>
+                </div>
+
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#7 Sion Howard</div>
+                            <div class="contact-title">Sales Leader UK&amp;I</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">&#127468;&#127463; British</span>
+                            <span class="badge verified">&#10003; Verified</span>
+                            <span class="badge green">Warm</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Greater Reading area, UK</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sion-howard-88142731/" target="_blank">View Profile</a></p>
+                    <p><strong>Background:</strong> Previously in kitchen channel at Haier, promoted to broader Sales Leader UK&amp;I role August 2024.</p>
+                    <p><strong>Why target:</strong> Warm contact from previous engagement. Promotion represents expanded influence. Reference previous conversation (Nov 2023 meeting).</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Executive Context (Reference Only - Do Not Contact Directly)</h2>
+                <div class="contact-card" style="border-left-color: #6c757d;">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Neil Tunstall - CEO</div>
+                            <div class="contact-title">Appointed April 2024. Ex-Whirlpool and Jacuzzi</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge grey">Reference only</span>
+                        </div>
+                    </div>
+                    <p>Personally championed the July 2025 digital transformation restructure. Created the CDXO role reporting directly to him. Reference his digital transformation agenda when writing to Phil Knight or Diego Perrone.</p>
+                </div>
+
+                <h3>Additional Contact of Interest</h3>
+                <p><strong>Paolo Berti - IT Director (appointed July 2025):</strong> Ex-GE and Kering. Owns technology/systems decisions including DSA tool integration. Could be relevant if engagement progresses to technical evaluation stage.</p>
+            </div>
+
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                <div class="contact-card skip">
+                    <table>
+                        <thead><tr><th>Contact</th><th>Reason</th></tr></thead>
+                        <tbody>
+                            <tr><td>Tanja (Germany)</td><td>Could not verify as current Haier employee. DACH has had significant leadership turnover</td></tr>
+                            <tr><td>Justin (UK)</td><td>Only LinkedIn match is a Field Service Engineer - unlikely the same contact from HubSpot</td></tr>
+                            <tr><td>Andreas</td><td>Could not locate in any relevant role at Haier</td></tr>
+                            <tr><td>Andrew</td><td>Could not locate in any relevant role at Haier</td></tr>
+                            <tr><td>GE Appliances contacts</td><td>North America only - separate operation, not relevant to European engagement</td></tr>
+                            <tr><td>China HQ contacts</td><td>Too distant from European commercial decisions</td></tr>
+                            <tr><td>Manufacturing/operations roles</td><td>No digital or commercial responsibility</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- TAB 5: DRAFT OUTREACH -->
+        <!-- ============================================================ -->
+        <div class="tab-content" id="outreach">
+            <div class="disclaimer">
+                <strong>&#9888; Draft content - requires human review.</strong> These emails and LinkedIn messages are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending.
+            </div>
+
+            <div class="card">
+                <h2>Nationality-Based Tone Guidance</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>&#127468;&#127463; British Contacts (Phil, Ben, Sion)</h4>
+                        <p>Professional but conversational. Direct without being blunt. Self-deprecating humour acceptable. Understatement works well. Avoid overselling.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>&#127470;&#127481; Italian Contacts (Roberto)</h4>
+                        <p>Warm and relationship-oriented. Reference shared context (Italian HQ, De'Longhi parallel). Allow for personal connection. Enthusiastic tone welcome.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>&#127465;&#127466; German Contacts (Florian)</h4>
+                        <p>Formal and structured. Lead with facts and data. Clear, precise sentences. Avoid colloquialisms. Respect hierarchy. Substantive over relational.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACT 1: PHIL KNIGHT -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Phil Knight - Chief Digital Experience Officer</h3>
+                        <p>Top priority target. Cold outreach.</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">&#127468;&#127463; British</span>
+                        <span class="badge verified">&#10003; Verified</span>
+                        <span class="badge orange">Cold</span>
+                    </div>
+                </div>
+
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="phil">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: Haier Europe's digital shelf across European retailers</div>
+                        <div class="email-timing">&#128197; Send timing: Tuesday or Wednesday, 8:00-9:00 AM GMT</div>
+                        <div class="email-body">Hi Phil,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics and home appliance brands, helping them monitor and improve how their products appear, perform, and rank across online retailers. We work with companies like De'Longhi, Bosch, Miele, and Whirlpool.
+
+Managing how three distinct brands - Haier, Candy, and Hoover - appear across retailers like Currys, AO.com, MediaMarkt, and Amazon is a fundamentally different challenge to managing one. It is one of the reasons I wanted to get in touch.
+
+We happen to work with several companies in the European home appliances space, which means we have built up a fairly detailed picture of how the category performs across European retailers - search rankings, content quality, pricing dynamics. That category-level intelligence is something I thought might be useful as you shape the digital experience strategy at Haier Europe.
+
+With Candy and Hoover entirely reliant on third-party retailers for their online presence, I would imagine that how those products appear and perform on retailer sites carries particular weight.
+
+If any of this is relevant to what you are building, I would welcome the chance to learn more about your priorities.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Check Phil's LinkedIn before sending (profile was not publicly available at time of research)</li>
+                            <li>If he has posted anything about his digital strategy or priorities, reference it specifically</li>
+                            <li>Verify the CDXO title is still current</li>
+                            <li>The competitor client point is deliberately understated - the strength comes through without hammering the number</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Leads with eStore's category intelligence rather than declaring a competitive advantage. Phil is building a digital strategy from scratch in his first year - he needs tools, not education. The Candy/Hoover DTC dependency point creates genuine urgency without manufactured pressure. No link in Email 1 - keep it conversational.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: Three brands, five markets, one digital shelf</div>
+                        <div class="email-timing">&#128197; Send timing: 5-7 days after Email 1. Tuesday or Wednesday, 8:00-9:00 AM GMT</div>
+                        <div class="email-body">Hi Phil,
+
+Following on from my previous note - I wanted to share a specific example that might be relevant.
+
+De'Longhi faced a challenge I think you would recognise: an Italian-headquartered company managing multiple brands across European retailers, each with different positioning and pricing strategies. When they started working with eStore, the initial focus was on understanding how their products ranked in search results across key retailers. Within the first year, they achieved a 33% uplift in sales through keyword optimisation alone - essentially making sure their products appeared when consumers were searching for the categories they compete in.
+
+For Haier Europe, with three brand identities to manage across overlapping retail environments, the question is similar - whether each retailer is representing your products accurately, and whether competitors are outperforming you in search, content, and pricing. That is hard to track at scale without structured analytics.
+
+We have put together some thinking on the specific challenges consumer electronics brands face managing their digital shelf across multiple retailers - I have linked it below if it is useful: https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics
+
+I am curious whether multi-brand monitoring is something you are looking at as part of the digital experience strategy, or whether the focus is elsewhere for now.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>If Phil responded to Email 1, adapt this email based on what he said</li>
+                            <li>The De'Longhi 33% figure is a verbal reference - it is a real, approved case study</li>
+                            <li>If he mentioned specific priorities in any response, pivot the content link to match</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuine new value through the De'Longhi case study and the sector article. The De'Longhi parallel is drawn naturally and then the conversation pivots to speak directly to Haier's situation. The question at the end is non-assumptive and gives Phil room to redirect.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: The competitive dynamics in European home appliances</div>
+                        <div class="email-timing">&#128197; Send timing: 5-7 days after Email 2. Tuesday or Wednesday, 8:00-9:00 AM GMT</div>
+                        <div class="email-body">Hi Phil,
+
+One angle I did not touch on previously - the competitive dynamics in European home appliances have shifted quite a bit.
+
+The formation of Beko Europe created the continent's largest appliance maker by volume. Samsung and LG are expanding their connected home ecosystems. And Midea is entering European markets through acquisitions. Each of these competitors is investing in how their products appear and perform across online retailers - which is where roughly a quarter of major appliance sales now happen, and growing.
+
+For Haier Europe, with ambitions to reach the European top three, understanding how these competitors are positioning, pricing, and ranking their products across the same retailers feels like it should be foundational intelligence rather than something gathered ad hoc.
+
+I would be curious how you think about competitive monitoring across the digital shelf - whether that is something you have good visibility on today or an area you are still building out.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>The "quarter of major appliance sales now online" figure (27%) is from industry research - verify it is still current before sending</li>
+                            <li>If Phil has engaged with either previous email, this should be adapted to reflect the conversation</li>
+                            <li>The Beko Europe reference, Samsung/LG expansion, and Midea entry are all verifiable competitive pressures</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Introduces a genuinely new angle - competitive pressure from specific named competitors - rather than restating previous points. Frames competitive intelligence as foundational rather than optional, connecting to Haier Europe's stated ambition. Ends with curiosity, not a graceful exit. No content link.</p>
+                    </div>
+                </div>
+
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages - Phil Knight</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>Recommended: Option A - LinkedIn first</strong> (2-3 days before Email 1). Phil's LinkedIn profile was not publicly visible during research, so a connection request may be the only way to access his profile for further personalisation.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">Connection Request</span>
+                        <span class="char-count">Under 300 characters</span>
+                        <p class="linkedin-message">Hi Phil - I'm [SENDER NAME] from eStore. We work with several home appliance brands on digital shelf analytics across European retailers. Would be good to connect given what you are building at Haier Europe.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">InMail</span>
+                        <p class="linkedin-message">Hi Phil,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics and home appliance brands across European retailers.
+
+Managing three brands across retailers like Currys, AO.com, and MediaMarkt creates a level of monitoring complexity that most analytics platforms are not designed for. We work with several companies in the European appliances space - De'Longhi, BSH, Miele among others - which means we have built up a fairly detailed picture of how the category performs across the retailers you sell through.
+
+I would be curious to understand how you are approaching digital shelf monitoring across the portfolio - is that something on your radar?
+
+Best regards,
+[SENDER NAME]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACT 2: ROBERTO MAINARDI -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Roberto Mainardi - Digital Customer Journey Director</h3>
+                        <p>Warm re-engagement. Previous HubSpot contact from Italy.</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">&#127470;&#127481; Italian</span>
+                        <span class="badge verified">&#10003; Verified</span>
+                        <span class="badge green">Warm</span>
+                    </div>
+                </div>
+
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="roberto">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: Digital shelf analytics for the Haier customer journey</div>
+                        <div class="email-timing">&#128197; Send timing: Tuesday or Wednesday, 9:00-10:00 AM CET</div>
+                        <div class="email-body">Hi Roberto,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics and home appliance brands, helping them monitor and improve how products appear, perform, and rank across online retailers. I believe you have had some contact with eStore previously, and I wanted to reconnect with a fresh perspective.
+
+So much of the digital customer journey at Haier Europe happens on retailer websites - particularly for Candy and Hoover, where the retailer site is effectively the only digital shopfront. Whether a consumer searching for a washing machine on Currys or MediaWorld finds a Haier product, sees accurate content, and encounters a competitive price is a digital experience question as much as it is a sales question.
+
+Since we were last in touch, we have built up a strong presence in the European home appliances category - working with companies like De'Longhi, BSH, and Miele. That means we now have a detailed picture of how competitor products are positioned, priced, and ranked across the same retailers you sell through, which was not something we could offer before.
+
+I would be interested to understand how you are thinking about the digital shelf as part of the broader customer journey - whether it is an area you have good visibility on today, or something that could use more structured analytics.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>The previous HubSpot engagement with Roberto was from the Italy engagement period - reference should be light since details are limited</li>
+                            <li>Review Roberto's LinkedIn activity before sending - he describes himself as a "Marketing innovations and AI enthusiast" so any posts about AI or innovation could provide a more specific hook</li>
+                            <li>The De'Longhi reference is particularly natural here given both companies are Italian-headquartered</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Warm re-engagement tone that acknowledges previous contact without over-claiming knowledge of what was discussed. The customer journey framing connects digital shelf analytics to Roberto's specific mandate. The Candy/Hoover DTC dependency point is reframed around customer experience.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: AI-powered digital shelf intelligence for home appliances</div>
+                        <div class="email-timing">&#128197; Send timing: 5-7 days after Email 1. Tuesday or Wednesday, 9:00-10:00 AM CET</div>
+                        <div class="email-body">Hi Roberto,
+
+Building on my previous note - I know Haier Europe has been investing in AI across the business, and I thought this might be relevant to how you are thinking about analytics for the digital customer journey.
+
+We have been investing heavily in making our platform more actionable - moving beyond providing data to helping teams know exactly what to do next. One area that might interest you is how we have applied AI to competitive benchmarking: rather than teams manually tracking how competitors appear across retailers, the platform identifies where your products are underperforming relative to the category and prioritises what to fix first.
+
+For a portfolio like Haier Europe's - three brands, each needing different positioning across different retailers in different markets - that kind of intelligent prioritisation is what turns data into something a team can actually act on.
+
+We have published some thinking on how AI is changing digital shelf analytics for brands - I have linked it below if it is useful: https://estorebrands.com/ignite/introducing-ai-business-answers
+
+I am curious whether the AI work at Haier Europe extends to how you monitor and optimise product performance across retailers, or whether the focus has been more on connected home and consumer-facing applications.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Roberto's self-description as "AI enthusiast" makes this angle particularly relevant</li>
+                            <li>Haier's 2025 "pivotal year for AI implementation" is the strategic context - do not reference a specific date, keep it general</li>
+                            <li>The AI Business Answers article link is a natural fit given his interests</li>
+                            <li>If Roberto responded to Email 1, adapt this entirely based on his response</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Leans into Roberto's stated interests (AI and innovation) while connecting them specifically to digital shelf analytics. The question at the end distinguishes between Haier's consumer-facing AI (hOn app, connected home) and the operational analytics gap that eStore fills.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: Managing three brands across five European markets</div>
+                        <div class="email-timing">&#128197; Send timing: 5-7 days after Email 2. Tuesday or Wednesday, 9:00-10:00 AM CET</div>
+                        <div class="email-body">Hi Roberto,
+
+One thing I had not touched on previously - the multi-market dimension.
+
+Haier Europe operates across the UK, Germany, France, Italy, and Spain with three brands, each sold through different retailer combinations in each market. A Candy washing machine on MediaWorld in Italy is a different competitive context to the same product on Currys in the UK or MediaMarkt in Germany. The content needs, pricing dynamics, and competitive set shift by market.
+
+When De'Longhi started working with eStore, one of the things that resonated most was the ability to see how their products performed across European retailers in a single platform rather than piecing it together from individual retailer portals. Given your background managing global digital operations at companies like Acer and Motorola, I would imagine you have experienced that fragmentation before.
+
+I would be curious to hear how Haier Europe currently manages this across markets - whether you have a consolidated view of how all three brands perform across retailers, or whether it is more market-by-market today.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>The reference to Roberto's Acer and Motorola background comes from his LinkedIn - verify these are still listed before sending</li>
+                            <li>The De'Longhi multi-market reference is a genuine eStore use case</li>
+                            <li>If Roberto has engaged with previous emails, this should reflect the conversation so far</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Introduces a genuinely new angle - multi-market complexity. The reference to Roberto's previous experience at Acer and Motorola connects naturally to the challenge. The De'Longhi reference is used differently here (multi-market consolidation rather than keyword uplift). Ends with curiosity, not an exit offer.</p>
+                    </div>
+                </div>
+
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages - Roberto Mainardi</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>Recommended: Option B - Alongside</strong> (same day as Email 1). Roberto is a warm contact with a verified LinkedIn profile. His LinkedIn activity (AI enthusiast, innovation focus) may provide additional personalisation hooks for Email 2.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">Connection Request</span>
+                        <span class="char-count">Under 300 characters</span>
+                        <p class="linkedin-message">Hi Roberto - I'm [SENDER NAME] from eStore. We provide digital shelf analytics for home appliance brands across European retailers. I believe we have been in touch previously and wanted to reconnect.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">InMail</span>
+                        <p class="linkedin-message">Hi Roberto,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics and home appliance brands. I believe you have had some contact with eStore previously, and I wanted to reconnect.
+
+So much of the digital customer journey at Haier Europe - particularly for Candy and Hoover - happens on third-party retailer sites. Since we were last in touch, we have built up a strong presence in the European appliances category, working with companies like De'Longhi, BSH, and Miele. That gives us a level of category intelligence that was not available before.
+
+I would be curious to understand how you are thinking about digital shelf monitoring as part of the customer journey - is it an area you have structured analytics for today?
+
+Best regards,
+[SENDER NAME]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACT 3: BEN RISPIN -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Ben Rispin - E-commerce/Online Trading, Haier Europe UK</h3>
+                        <p>Warm re-engagement. Previous emails sent referencing Hoover performance.</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">&#127468;&#127463; British</span>
+                        <span class="badge unverified">&#9888; Unverified</span>
+                        <span class="badge green">Warm</span>
+                    </div>
+                </div>
+                <div class="verification-warning">
+                    <strong>&#9888; Verification Required:</strong> Ben's status is "likely current" based on LinkedIn showing Haier Europe and a 1Vision strategy post. Confirm his current role and title on LinkedIn before sending any outreach.
+                </div>
+
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="ben">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: How Haier's competitors are performing across UK retailers</div>
+                        <div class="email-timing">&#128197; Send timing: Tuesday or Wednesday, 8:00-9:00 AM GMT</div>
+                        <div class="email-body">Hi Ben,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics and home appliance brands. I believe you have had some correspondence with eStore previously, and I wanted to reach out with something that might be relevant to what you are managing day-to-day.
+
+Since we were last in touch, the picture in our part of the market has changed quite a bit. We now work with a number of companies in the European home appliances space - BSH, Beko, Miele, Whirlpool, De'Longhi among others. That means we have built up a fairly detailed view of how competitor products are performing across UK retailers - things like search rankings on Currys and AO.com, content quality on Amazon UK, and pricing dynamics across the category.
+
+I would imagine that knowing where competitor products are outranking Haier, Candy, or Hoover in search - or where their content is better optimised - would be useful intelligence for your team.
+
+I am curious whether that kind of competitive benchmarking is something you have good access to today, or whether it is more of a gap.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li><strong>VERIFY Ben's current role on LinkedIn before sending</strong> - his status is "likely current" not confirmed</li>
+                            <li>The previous engagement involved emails about Hoover performance on Amazon/Argos - this email builds on that theme without repeating it</li>
+                            <li>If Ben has posted anything on LinkedIn about 1Vision or UK commercial strategy, reference it</li>
+                            <li>Keep language practical and operational - Ben is a trader, not a strategist</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Speaks directly to Ben's operational reality. He manages e-commerce trading across three brands at UK retailers - competitive intelligence at those specific retailers is immediately useful. The competitor clients are mentioned naturally as context for what eStore can see, not as a power statement. No content link in Email 1.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: What has changed at eStore since we were last in touch</div>
+                        <div class="email-timing">&#128197; Send timing: 5-7 days after Email 1. Tuesday or Wednesday, 8:00-9:00 AM GMT</div>
+                        <div class="email-body">Hi Ben,
+
+Following on from my previous note - I wanted to share something about how eStore has evolved since we were last in touch, because the platform today is quite different from what you might remember.
+
+The biggest shift has been towards actionability. Rather than just showing data about how products are performing across retailers, the platform now prioritises what to do about it - which products need attention, which retailers have content gaps, where competitors are gaining ground. For a team managing three brands across multiple UK retailers, that kind of daily prioritisation is where the real time saving comes from.
+
+De'Longhi - another multi-brand home appliance company - achieved a 33% sales uplift through keyword optimisation after working with eStore. The core of what drove that was understanding which search terms competitors were winning on and where products were underperforming, then systematically fixing it retailer by retailer.
+
+We have published some thinking on the specific challenges consumer electronics brands face on the digital shelf that might be relevant: https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics
+
+Would be interested to hear whether the challenges around search rankings and content quality across retailers are something you are actively managing, or whether it is handled differently at Haier Europe.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>The "since we were last in touch" framing acknowledges previous engagement without over-claiming</li>
+                            <li>De'Longhi 33% uplift is the approved case study reference</li>
+                            <li>If Ben responded to Email 1, adapt this entirely based on his response</li>
+                            <li>The sector article link is positioned as value-add, not required reading</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuine new value by explaining how eStore has evolved (innovation messaging for warm re-engagement). The De'Longhi case study is used as a practical example - the focus is on what was done (keyword optimisation, retailer-by-retailer improvement) rather than just the outcome.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: Managing three brand strategies on one digital shelf</div>
+                        <div class="email-timing">&#128197; Send timing: 5-7 days after Email 2. Tuesday or Wednesday, 8:00-9:00 AM GMT</div>
+                        <div class="email-body">Hi Ben,
+
+One thing I had not raised before - the challenge of managing three brands with very different positioning on the same digital shelf.
+
+Haier positions as premium. Candy is mid-market. Hoover competes on value and performance. Each has different pricing strategies, different content requirements, and different competitive sets. On a retailer like Currys or Amazon UK, all three might appear in the same search results for "washing machine" - and they need to perform differently rather than cannibalise each other.
+
+That internal portfolio competition is a challenge that most analytics tools are not built for. They tend to track one brand against external competitors, not help you manage the positioning dynamics between your own brands while simultaneously watching the external competitive set.
+
+I would be curious whether managing that internal brand positioning across retailers is something that creates complexity for your team, or whether the brands operate more independently in practice.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>The three-brand portfolio dynamic (Haier/Candy/Hoover cannibalisation risk) is a genuine and specific challenge</li>
+                            <li>If Ben has engaged with previous emails, this should reflect the conversation</li>
+                            <li>No content link - keeps the focus on the strategic question</li>
+                            <li>This angle has not been used in previous eStore outreach to Haier (per HubSpot history)</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Introduces a genuinely new angle - internal portfolio competition - that is specific to Haier Europe and unlikely to be addressed by their current analytics setup. Ends with curiosity about how they manage it today.</p>
+                    </div>
+                </div>
+
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages - Ben Rispin</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>Recommended: Option B - Alongside</strong> (same day as Email 1). Ben is a warm contact with a verified LinkedIn profile. He has posted about 1Vision strategy, so he is active on the platform.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">Connection Request</span>
+                        <span class="char-count">Under 300 characters</span>
+                        <p class="linkedin-message">Hi Ben - I'm [SENDER NAME] from eStore. I believe we have been in touch before about digital shelf analytics for Haier's UK e-commerce channels. Would be good to reconnect.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">InMail</span>
+                        <p class="linkedin-message">Hi Ben,
+
+I'm [SENDER NAME] from eStore - I believe you have had some correspondence with us previously about digital shelf analytics for Haier's UK brands.
+
+I wanted to reconnect because the picture has changed quite a bit since we were last in touch. We now work with a number of companies in the European home appliances space, which means we have a fairly detailed view of how competitor products are performing across the UK retailers you manage - Currys, AO.com, Amazon UK.
+
+I am curious whether competitive benchmarking across those retailers is something you have good access to today, or whether it is more of a gap for the team.
+
+Best regards,
+[SENDER NAME]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACT 4: FLORIAN PAULUS -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Florian Paulus - Director of Retail Sales, Germany &amp; Austria</h3>
+                        <p>Cold outreach. Replaces previous DACH engagement with Tanja.</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">&#127465;&#127466; German</span>
+                        <span class="badge verified">&#10003; Verified</span>
+                        <span class="badge orange">Cold</span>
+                    </div>
+                </div>
+
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="florian">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: Competitive intelligence for Haier's German retail channels</div>
+                        <div class="email-timing">&#128197; Send timing: Tuesday or Wednesday, 9:00-10:00 AM CET</div>
+                        <div class="email-body">Hi Florian,
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics and home appliance brands, helping them monitor and improve how their products appear, perform, and rank across online retailers. We work with companies like De'Longhi, Bosch, Miele, and Whirlpool across European markets.
+
+We have built up a strong presence in the European home appliances category, which means we have a fairly detailed view of how competitor products are performing on the German retailers Haier sells through - MediaMarkt, Amazon.de, Otto, and others. The data covers things like search rankings and share of search on Amazon.de, content quality and pricing accuracy on MediaMarkt.de, and how competitor brands are positioning relative to Haier, Candy, and Hoover.
+
+Given your experience building Amazon revenue in previous roles, I would expect the share of search dimension is something you understand well. I am curious whether you have structured analytics covering how Haier's brands perform on the German digital shelf today, or whether that is an area with gaps.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Florian's Amazon experience ("restarted business with Amazon, multiplied revenue") is from his LinkedIn - verify before sending</li>
+                            <li>The previous DACH engagement was with Tanja and involved competitive data for Otto and MediaMarkt - this email continues that theme with a new contact</li>
+                            <li>German business communication: keep sentences clear and factual, avoid colloquialisms</li>
+                            <li>Do not reference Tanja or previous DACH engagement (she could not be verified as current)</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Structured and factual, reflecting German business communication norms. Leads with a clear explanation of who eStore is and then moves naturally to what eStore can see in the DACH market. The reference to Florian's Amazon expertise connects naturally to the share of search proposition. No content link in Email 1.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: Category benchmarking for home appliances in the DACH market</div>
+                        <div class="email-timing">&#128197; Send timing: 5-7 days after Email 1. Tuesday or Wednesday, 9:00-10:00 AM CET</div>
+                        <div class="email-body">Hi Florian,
+
+Following on from my previous note - I wanted to share a specific example of the kind of intelligence I was describing.
+
+De'Longhi, a multi-brand home appliance company headquartered in Italy, started working with eStore to understand how their products ranked in search results across key European retailers. Through systematic keyword optimisation - identifying where competitor products were outranking theirs and adjusting content accordingly - they achieved a 33% improvement in sales within the first year.
+
+The DACH market faces a similar dynamic. BSH and Beko are investing heavily in how their products appear on MediaMarkt.de and Amazon.de, and the formation of Beko Europe as the continent's largest appliance maker by volume is increasing the competitive pressure on digital shelf performance across the board.
+
+We have written about the specific challenges consumer electronics brands face managing their digital shelf across multiple retailers: https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics
+
+I would be interested to understand whether the competitive dynamics in the DACH appliance market are something you are tracking systematically, or whether it is more ad hoc.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>The BSH and Beko references are factual - both are eStore clients and both compete directly with Haier in DACH</li>
+                            <li>De'Longhi 33% uplift is the approved case study</li>
+                            <li>If Florian responded to Email 1, adapt this entirely</li>
+                            <li>The Beko Europe formation reference is verifiable public information</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuine new value through the De'Longhi case study and the specific DACH competitive context. The transition from De'Longhi to the DACH market is natural - it acknowledges the parallel without labouring the point.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: Managing Haier, Candy, and Hoover on MediaMarkt.de</div>
+                        <div class="email-timing">&#128197; Send timing: 5-7 days after Email 2. Tuesday or Wednesday, 9:00-10:00 AM CET</div>
+                        <div class="email-body">Hi Florian,
+
+One aspect I had not raised previously - the challenge of managing three brands with different positioning strategies on the same German retailers.
+
+On MediaMarkt.de or Amazon.de, a consumer searching for "Waschmaschine" might see Haier, Candy, and Hoover products alongside each other. Each brand needs to compete differently - Haier against BSH at the premium end, Candy against Beko in the mid-market, Hoover in the value segment. Understanding how each brand is performing within its own competitive set, rather than just tracking them as a single portfolio, requires analytics built for multi-brand complexity.
+
+With Candy and Hoover having no direct-to-consumer channel in Germany, their entire digital presence depends on how retailers represent their products. Whether the product content is accurate, whether pricing is competitive, and whether the products appear when consumers search - all of that is controlled by the retailer, not by Haier Europe.
+
+I would be curious how your team currently approaches monitoring Haier, Candy, and Hoover's performance across German retailers - whether you have a consolidated view or whether it is managed brand by brand.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Using the German word "Waschmaschine" is a small but intentional nod to Florian's market - ensure it does not feel forced</li>
+                            <li>The brand-tier competitive positioning (Haier vs BSH, Candy vs Beko, Hoover at value) is accurate per research</li>
+                            <li>If Florian has engaged with previous emails, reflect the conversation</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Introduces the multi-brand complexity angle specific to the German market context. The Candy/Hoover DTC dependency point is reframed for the German context. Ends with curiosity about their current approach.</p>
+                    </div>
+                </div>
+
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages - Florian Paulus</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>Recommended: Option A - LinkedIn first</strong> (2-3 days before Email 1). Florian is an active LinkedIn user. Sending a connection request first warms the ground for the email. Review his posts and activity before finalising Email 1.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">Connection Request</span>
+                        <span class="char-count">Under 300 characters</span>
+                        <p class="linkedin-message">Hi Florian - I am [SENDER NAME] from eStore. We provide digital shelf analytics for home appliance brands across European retailers, including the DACH market. Would be good to connect.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">InMail</span>
+                        <p class="linkedin-message">Hi Florian,
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics and home appliance brands across European retailers, including the DACH market.
+
+We work with several companies in the European appliances space, which means we have a fairly detailed picture of how the category performs on the German retailers Haier sells through - MediaMarkt.de, Amazon.de, and Otto. Given your background in building Amazon revenue, the share of search and competitive ranking data may be particularly relevant.
+
+I would be interested to understand whether you have structured analytics covering Haier's digital shelf performance in Germany today, or whether that is an area with gaps.
+
+Best regards,
+[SENDER NAME]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACT 5: SION HOWARD (Secondary) -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Sion Howard - Sales Leader UK&amp;I (Secondary Target)</h3>
+                        <p>Warm re-engagement. Previous meeting held late 2023; since promoted.</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">&#127468;&#127463; British</span>
+                        <span class="badge verified">&#10003; Verified</span>
+                        <span class="badge green">Warm</span>
+                    </div>
+                </div>
+                <div class="info-box yellow" style="margin-top:0;">
+                    <p><strong>Note:</strong> Secondary target - use as parallel thread to Ben Rispin if needed, or for escalation/air cover.</p>
+                </div>
+
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="sion">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                </div>
+
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">&#128231; Subject: Reconnecting - and congratulations on the expanded role</div>
+                        <div class="email-timing">&#128197; Send timing: Tuesday or Wednesday, 8:00-9:00 AM GMT</div>
+                        <div class="email-body">Hi Sion,
+
+I'm [SENDER NAME] from eStore - I believe you met with one of our team back in late 2023 when you were focused on the kitchen channel. I wanted to reconnect, not least because your move to Sales Leader UK&I means you now have a much broader view of how Haier's brands are performing across retailers.
+
+Since we were last in touch, quite a lot has changed on our side too. We now work with a number of companies in the European home appliances space - BSH, Beko, Miele, Whirlpool, De'Longhi among them - which means we have a detailed view of how competitor products are performing across UK retailers like Currys, AO.com, Amazon UK, and John Lewis. That category intelligence was not something we could offer when we previously spoke.
+
+With your expanded responsibility covering all three brands and the full UK&I market, I am curious whether having structured competitive benchmarking data across your key retailers is something that would be useful, or whether you already have that covered.
+
+Best regards,
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>The November 2023 meeting is referenced as "late 2023" per guidance (avoid specific dates)</li>
+                            <li>Sion's promotion to Sales Leader UK&amp;I (August 2024) is verified on LinkedIn</li>
+                            <li>If Sion remembers the previous meeting positively, this email should land well</li>
+                            <li>Check LinkedIn for any recent activity or posts that could add personalisation</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Naturally connects Sion's promotion (broader responsibility) to the competitive intelligence proposition (broader view). The reference to the previous meeting is specific but not overly detailed. The competitor clients are woven in naturally as context for what has changed.</p>
+                    </div>
+                </div>
+
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages - Sion Howard</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>Recommended: Option B - Alongside</strong> (same day as Email 1). Warm contact, existing familiarity with eStore.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">Connection Request</span>
+                        <span class="char-count">Under 300 characters</span>
+                        <p class="linkedin-message">Hi Sion - I'm [SENDER NAME] from eStore. I believe you met with our team in late 2023 when you were in the kitchen channel. Wanted to reconnect given your expanded UK&I sales role.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- TAB 6: OBJECTION HANDLING -->
+        <!-- ============================================================ -->
+        <div class="tab-content" id="objections">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                <div class="fit-badge strong">&#128994; STRONG FIT - Proceed with Confident Outreach</div>
+                <p>Haier Europe meets all criteria for proceeding with outreach. This is a displacement opportunity against Wiser Solutions, not greenfield. The approach should demonstrate clear superiority over their current provider, leveraging eStore's unmatched competitive benchmarking capability in European home appliances.</p>
+
+                <div class="info-box green">
+                    <p><strong>Two-pronged strategy:</strong> (1) Approach Phil Knight as primary decision-maker with competitive displacement angle. (2) Re-engage Roberto Mainardi, Ben Rispin, and Sion Howard as warm contacts for parallel air cover and internal championing.</p>
+                </div>
+
+                <h3>Key Differentiators for This Opportunity</h3>
+                <ul>
+                    <li><strong>Competitive intelligence depth:</strong> Six competitor clients = category benchmarking Wiser cannot offer</li>
+                    <li><strong>European retailer coverage:</strong> Native European platform vs US-centric alternative</li>
+                    <li><strong>Multi-brand analytics:</strong> Purpose-built for managing portfolio brands with distinct strategies</li>
+                    <li><strong>Sector expertise:</strong> Home appliances is eStore's deepest vertical</li>
+                    <li><strong>Proven ROI:</strong> De'Longhi 33% uplift in directly comparable scenario</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Objection Responses</h2>
+                <p style="color:#6c757d; margin-bottom:1.5rem;">Click any objection to expand the suggested response.</p>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We already work with Wiser Solutions for digital shelf analytics"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Acknowledge, then differentiate on European depth and competitive benchmarking.</p>
+                        <p>"That is good to hear - it means you already understand the value of digital shelf analytics, which makes this conversation easier. The question is whether your current setup gives you the European depth and competitive category intelligence that a company like Haier Europe needs."</p>
+                        <p>"We work with six of Haier's direct competitors in European home appliances - BSH, Beko, Miele, Whirlpool, Hisense/Gorenje, and De'Longhi. That gives us a level of category benchmarking that no other provider can replicate. If you wanted to know how Bosch is optimising its search rankings on Currys or how Beko is pricing on MediaMarkt.de, we can show you that because they are our clients."</p>
+                        <p>"We are not asking you to replace Wiser overnight. But it might be worth seeing what the difference looks like - particularly for European retailer coverage and multi-brand portfolio analytics."</p>
+                        <p><strong>Evidence:</strong> Wiser is US-headquartered and US-centric. Their European retailer coverage, particularly for specialist appliance retailers like AO.com, Currys, MediaMarkt, is likely shallower than eStore's native European coverage. Wiser's testimonial from Haier used British English ("whilst"), suggesting the relationship may be UK-team-centric rather than European-wide.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We don't have budget for another analytics tool right now"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Reframe from cost to competitive cost of inaction, and reference timing.</p>
+                        <p>"I understand budget is always a consideration. What I would ask is whether the cost of not having structured competitive intelligence is something you have quantified. With Beko Europe now the largest appliance maker by volume, Samsung and LG expanding connected home ecosystems, and Midea entering European markets - each of these competitors is investing in digital shelf performance across the same retailers."</p>
+                        <p>"De'Longhi saw a 33% sales uplift through keyword optimisation alone in their first year with eStore. The ROI typically more than justifies the investment, especially for a multi-brand portfolio where each brand has different competitive dynamics to track."</p>
+                        <p>"If 2027 budget planning is happening later this year, it might be worth having the conversation now so that digital shelf analytics is positioned as a line item rather than an afterthought."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"How many of our retailers can you actually monitor?"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Lead with strength in core European retailers, be transparent about phased deployment.</p>
+                        <p>"We have deep coverage across the major European retailers that Haier sells through - Amazon across all five core markets, Currys, AO.com, MediaMarkt, and many others. For your UK operation alone, we can likely monitor across most of your key retail partners from day one."</p>
+                        <p>"For the full multi-brand, multi-market deployment across all five core European markets, we would recommend a phased approach. UK first - where we have the strongest coverage and where your CDXO is based - followed by Germany, Italy, France, and Benelux over a 3-6 month rollout."</p>
+                        <p>"The advantage of this phased approach is that we can demonstrate ROI in the UK market quickly, which builds the business case for broader European deployment. De'Longhi followed a similar path."</p>
+                        <p><strong>Evidence:</strong> eStore has established coverage of major European retailers including Amazon (all markets), Currys, AO.com, and other key platforms. A UK-first deployment could deliver value within 90 days.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Implementation sounds complex for three brands across five markets"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Acknowledge complexity honestly, then reframe phased approach as a strength.</p>
+                        <p>"You are right - deploying across three brands in five markets with 25-30 retailers is a significant implementation. We would not pretend otherwise. That is exactly why we recommend a phased approach."</p>
+                        <p>"Starting with a UK-focused deployment covering Haier, Candy, and Hoover across your 10 UK retailers would deliver meaningful value within 90 days. From there, each market adds incrementally - Germany and Italy next, then France and Benelux."</p>
+                        <p>"This is actually how De'Longhi deployed eStore as well. They started focused, proved the ROI, and then expanded. The multi-brand complexity is exactly why you need purpose-built analytics - managing three brands with different competitive sets, pricing strategies, and content requirements across overlapping retailers is genuinely hard to do without structured tools."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We already use Kiliagon for Amazon - isn't that enough?"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Distinguish between Amazon advertising management and cross-retailer digital shelf analytics.</p>
+                        <p>"Kiliagon are excellent at Amazon advertising management - running campaigns, optimising bids, managing listings across your five EU marketplaces. That is a different problem to what eStore solves."</p>
+                        <p>"Digital shelf analytics covers your entire retail footprint - not just Amazon but Currys, AO.com, MediaMarkt, MediaWorld, John Lewis, and every other retailer you sell through. It is the difference between managing advertising on one platform and understanding how your products perform across the entire digital shelf."</p>
+                        <p>"Where it gets particularly interesting is the competitive intelligence dimension. Kiliagon can tell you how your Amazon campaigns are performing. eStore can tell you how BSH, Beko, and Miele are positioning, pricing, and ranking their products across every retailer you compete on - including Amazon."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Our former CEO is now at Electrolux - how does that affect things?"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Frame this as creating urgency, not risk.</p>
+                        <p>"That is actually one of the reasons this conversation is timely. Your former CEO has intimate knowledge of Haier Europe's strategies, pricing approaches, and competitive positioning. Electrolux now has that intelligence built in."</p>
+                        <p>"Having structured, real-time competitive monitoring across your key retailers becomes more important when a competitor has that kind of insider knowledge. Understanding how Electrolux is adjusting its positioning - and whether it reflects knowledge of Haier's playbook - is exactly the kind of intelligence digital shelf analytics provides."</p>
+                        <p>"eStore does not work with Electrolux, but we work with six of your other competitors. That means we can give you a comprehensive view of competitive dynamics across the category."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We need to focus on our AI and connected home strategy first"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Connect digital shelf analytics to the AI strategy, not compete with it.</p>
+                        <p>"The hOn app and connected home ecosystem are impressive - 10 million users is significant. But those innovations are only valuable to consumers who buy the products in the first place. And for Candy and Hoover, which have no DTC channel, the purchase decision happens entirely on retailer websites."</p>
+                        <p>"Digital shelf analytics is not separate from your AI strategy - it is the data layer that ensures your products are visible, accurately represented, and competitively positioned at the point of purchase. The AI work on the consumer experience side is complementary, not competing."</p>
+                        <p>"If anything, eStore's AI-powered prioritisation can help your team act on digital shelf data more efficiently - identifying which products need attention across which retailers without manual analysis."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We manage our brands independently - why do we need consolidated analytics?"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Highlight the cannibalisation risk and the value of portfolio-level intelligence.</p>
+                        <p>"That is a valid approach, and many multi-brand companies start there. The challenge is that your brands do not operate independently on the digital shelf - they compete with each other as much as with external competitors."</p>
+                        <p>"On Currys or Amazon UK, a consumer searching for 'washing machine' might see Haier, Candy, and Hoover products in the same results. If Candy is cannibalising Haier sales because it appears higher in search, or if Hoover content is inconsistent with its value positioning, that is invisible without consolidated analytics."</p>
+                        <p>"The portfolio-level view is also where the competitive intelligence becomes most powerful. You want to know not just how Haier competes with BSH, but how Candy competes with Beko and how Hoover holds its own in the value segment - all in one platform."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We've spoken to eStore before and it didn't go anywhere"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Acknowledge openly, then explain what has changed on both sides.</p>
+                        <p>"You are right, and I appreciate the directness. We have been in conversation with Haier Europe at various points over the past few years, and it has not resulted in a working partnership. I think the honest answer is that both the timing and the proposition were different."</p>
+                        <p>"What has changed: eStore now works with six of your direct competitors in European home appliances. That category benchmarking capability did not exist when we previously spoke. Haier Europe has also changed - the CDXO role is new, the competitive landscape has shifted with Beko Europe's formation, and the digital shelf has become more strategically important."</p>
+                        <p>"I am not going to pretend this is a fresh first contact. But I do think the conversation is materially different from what it would have been even 18 months ago, and it is worth revisiting."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Can you handle the European language requirements across five markets?"</span>
+                        <span class="objection-arrow">&#9660;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Lead with European strength confidently - this is a genuine differentiator.</p>
+                        <p>"This is one of the areas where eStore's European heritage is a genuine advantage. We were built for multi-market, multi-language environments. Our platform monitors retailer content in the local language of each market - English for the UK, German for DACH, French, Italian, Spanish - and can identify content quality issues, search ranking performance, and pricing dynamics natively in each language."</p>
+                        <p>"For a brand like Haier Europe operating across five core markets with three brands, the ability to monitor and benchmark in-language is not a nice-to-have, it is essential. A 'Waschmaschine' search on MediaMarkt.de is a fundamentally different competitive context to a 'washing machine' search on Currys."</p>
+                        <p>"We work with De'Longhi, BSH, and other multi-market European brands who face exactly this requirement. It is core to what we do."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                <ul>
+                    <li><strong>Never dismiss the objection</strong> - Haier Europe is a sophisticated organisation. Acknowledge concerns genuinely</li>
+                    <li><strong>Lead with evidence</strong> - Use specific competitor client references, De'Longhi case study, and market data</li>
+                    <li><strong>Offer flexibility</strong> - Phased approach, UK-first pilot, specific market focus. Do not present an all-or-nothing proposition</li>
+                    <li><strong>Be honest about limitations</strong> - Implementation timeline, phased deployment reality, coverage across all retailers. Transparency builds trust</li>
+                    <li><strong>Ask questions</strong> - Understand the root concern before providing a detailed response. Often the stated objection is not the real barrier</li>
+                    <li><strong>Position displacement correctly</strong> - Haier already uses Wiser, so they understand DSA value. The conversation is about superiority, not education</li>
+                    <li><strong>Reference the competitive moat</strong> - Six competitor clients is the single most powerful differentiator. Use it consistently but not repetitively</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    
+    <footer>
+        <p>eStore Action Plan - Haier Europe | February 2026</p>
+        <p>Created by James / eStore Sales Development</p>
+        <p style="font-size:0.8rem; margin-top:0.5rem;">DRAFT - requires human review before use. All content should be verified and personalised before sending.</p>
+    </footer>
+    
+    <script>
+        // Main Tab Navigation
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
+        }
+        
+        // Email Tab Navigation
+        document.querySelectorAll('.email-tabs').forEach(container => {
+            container.querySelectorAll('.email-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const emailNum = this.dataset.email;
+                    const sequence = this.closest('.email-sequence');
+                    
+                    container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    sequence.querySelectorAll('.email-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    sequence.querySelector(`.email-content[data-email="${emailNum}"]`).classList.add('active');
+                });
+            });
+        });
+        
+        // Objection Card Toggle
+        function toggleObjection(header) {
+            const card = header.closest('.objection-card');
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
