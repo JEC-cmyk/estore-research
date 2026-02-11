@@ -17,5 +17,6 @@
     {"file": "benq", "name": "BenQ", "owner": "Michal"},
     {"file": "villeroy-boch", "name": "Villeroy & Boch", "owner": "Michal"},
     {"file": "3m", "name": "3M", "owner": "Laura"},
-    {"file": "frieslandcampina2", "name": "Friesland Campina", "owner": "Laura"}
+    {"file": "frieslandcampina2", "name": "Friesland Campina", "owner": "Laura"},
+    {"file": "haier-europe", "name": "Haier", "owner": "Michal"}
 ]
