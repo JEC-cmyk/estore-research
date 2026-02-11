@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pioneer Corporation - eStore Action Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+        
+        .header-meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .header-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.25rem;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            background: #1067db;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1067db;
+            font-weight: 700;
+        }
+        
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+        
+        .card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+            color: #495057;
+            font-weight: 600;
+        }
+        
+        .card p {
+            margin-bottom: 1rem;
+        }
+        
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .fit-badge.strong {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border: 2px solid #22bb69;
+        }
+        
+        .fit-badge.moderate {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            color: #856404;
+            border: 2px solid #ffba1c;
+        }
+        
+        .fit-badge.weak {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            border: 2px solid #f44f2f;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .summary-item {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid #1067db;
+        }
+        
+        .summary-item h4 {
+            margin-top: 0;
+            color: #1067db;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .summary-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-box {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-box .value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1067db;
+        }
+        
+        .stat-box .label {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .info-box {
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .info-box.blue {
+            background: #e7f3ff;
+            border-left: 4px solid #1067db;
+        }
+        
+        .info-box.green {
+            background: #e8f5e9;
+            border-left: 4px solid #22bb69;
+        }
+        
+        .info-box.yellow {
+            background: #fff8e1;
+            border-left: 4px solid #ffba1c;
+        }
+        
+        .info-box.red {
+            background: #ffebee;
+            border-left: 4px solid #f44f2f;
+        }
+        
+        .info-box.orange {
+            background: #fff3e0;
+            border-left: 4px solid #ff7a00;
+        }
+        
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge.green { background: #d4edda; color: #155724; }
+        .badge.yellow { background: #fff3cd; color: #856404; }
+        .badge.red { background: #f8d7da; color: #721c24; }
+        .badge.blue { background: #e7f3ff; color: #1067db; }
+        .badge.grey { background: #e9ecef; color: #495057; }
+        .badge.orange { background: #fff3e0; color: #e65100; }
+        
+        .badge.verified {
+            background: #22bb69;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge.unverified {
+            background: #ff7a00;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .verification-warning {
+            background: #fff3e0;
+            border-left: 4px solid #ff7a00;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .contact-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #1067db;
+        }
+        
+        .contact-card.secondary {
+            border-left-color: #68d7fa;
+        }
+        
+        .contact-card.historical {
+            border-left-color: #ffba1c;
+        }
+        
+        .contact-card.skip {
+            border-left-color: #f44f2f;
+            background: #fff5f5;
+        }
+        
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c2c2c;
+        }
+        
+        .contact-title {
+            font-size: 0.95rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .contact-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .tone-box {
+            background: #e7f3ff;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .tone-box strong {
+            color: #1067db;
+        }
+        
+        .email-sequence {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .email-sequence-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .email-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .email-tab {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .email-tab:hover {
+            border-color: #1067db;
+        }
+        
+        .email-tab.active {
+            background: #1067db;
+            border-color: #1067db;
+            color: white;
+        }
+        
+        .email-content {
+            display: none;
+        }
+        
+        .email-content.active {
+            display: block;
+        }
+        
+        .email-box {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .email-subject {
+            font-weight: 600;
+            color: #1067db;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .email-timing {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+        
+        .email-body {
+            white-space: pre-line;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .email-notes {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #dee2e6;
+        }
+        
+        .email-notes h5 {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-notes p, .email-notes ul {
+            font-size: 0.9rem;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .linkedin-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e9ecef;
+        }
+        
+        .linkedin-section h4 {
+            color: #1067db;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        .linkedin-timing-guide {
+            background: #e7f3ff;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .linkedin-timing-guide p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .linkedin-timing-guide ul {
+            margin-left: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .linkedin-timing-guide li {
+            margin-bottom: 0.25rem;
+        }
+        
+        .linkedin-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .linkedin-badge {
+            display: inline-block;
+            background: #1067db;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .linkedin-card .char-count {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-left: 0.5rem;
+        }
+        
+        .linkedin-message {
+            white-space: pre-line;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 0.5rem;
+        }
+        
+        .linkedin-strategy {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed #dee2e6;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        
+        .objection-card {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+        
+        .objection-header {
+            padding: 1rem 1.25rem;
+            background: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .objection-header:hover {
+            background: #e9ecef;
+        }
+        
+        .objection-body {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .objection-card.open .objection-body {
+            padding: 1.25rem;
+            max-height: 2000px;
+        }
+        
+        .objection-card.open .objection-header {
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .chevron {
+            transition: transform 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .objection-card.open .chevron {
+            transform: rotate(180deg);
+        }
+        
+        .factor-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        .factor-table th, .factor-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .factor-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .disclaimer-box {
+            background: #fff8e1;
+            border: 2px solid #ffba1c;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header { padding: 1.5rem 1rem; }
+            .container { padding: 1rem; }
+            .tabs { gap: 0.25rem; padding: 0.75rem; }
+            .tab { padding: 0.5rem 0.75rem; font-size: 0.8rem; }
+            .card { padding: 1.25rem; }
+            .summary-grid { grid-template-columns: 1fr; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-header { flex-direction: column; }
+            .email-sequence-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Pioneer Corporation</h1>
+        <div class="header-subtitle">eStore Brand Research & Action Plan - Car Audio Aftermarket</div>
+        <div class="header-meta">
+            <div class="header-meta-item">📅 Created: 11 February 2026</div>
+            <div class="header-meta-item">👤 Author: James (eStore Business Development)</div>
+            <div class="header-meta-item">🟡 Moderate Fit</div>
+            <div class="header-meta-item">📦 Sector: Consumer Electronics</div>
+            <div class="header-meta-item">⚠️ DRAFT - requires human review</div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('fit')">Strategic Fit Assessment</button>
+            <button class="tab" onclick="showTab('history')">Our history with them</button>
+            <button class="tab" onclick="showTab('retailers')">Retailer Overview</button>
+            <button class="tab" onclick="showTab('people')">Key people?</button>
+            <button class="tab" onclick="showTab('outreach')">Draft Outreach</button>
+            <button class="tab" onclick="showTab('objections')">Objection Handling</button>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- TAB 1: STRATEGIC FIT ASSESSMENT              -->
+        <!-- ============================================ -->
+        <div class="tab-content active" id="fit">
+
+            <div class="card">
+                <h2>Strategic Fit Assessment</h2>
+                <div class="fit-badge moderate">🟡 Moderate Fit</div>
+                <p>Pioneer is a greenfield DSA opportunity in eStore's proven consumer electronics sector, with genuine multi-channel distribution complexity across 20+ retailers. However, three significant headwinds limit this to moderate: (1) Pioneer's strategic direction is moving toward automotive OEM/B2B, making consumer aftermarket e-commerce a secondary priority; (2) the product portfolio is narrow (primarily car audio), limiting potential contract size; (3) two prior failed outbound attempts and a freshly completed acquisition (December 2025) create high difficulty. This is a viable but challenging prospect requiring a completely reframed approach.</p>
+
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">~$1.5B</div>
+                        <div class="label">Annual Revenue (FY Mar 2025)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">20-25</div>
+                        <div class="label">Online Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">200-400</div>
+                        <div class="label">Estimated SKUs</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">6,554</div>
+                        <div class="label">Employees Globally</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">7/10</div>
+                        <div class="label">Estimated Difficulty</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Five-Factor Assessment</h2>
+
+                <table class="factor-table">
+                    <thead>
+                        <tr>
+                            <th>Factor</th>
+                            <th>Rating</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Sector Alignment</strong></td>
+                            <td><span class="badge green">🟢 Strong</span></td>
+                            <td>Consumer electronics is one of eStore's five proven sectors</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Distribution Complexity</strong></td>
+                            <td><span class="badge yellow">🟡 Moderate</span></td>
+                            <td>20+ retailers, multi-channel, multi-geography</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DSA Whitespace</strong></td>
+                            <td><span class="badge green">🟢 Strong</span></td>
+                            <td>No current DSA provider detected - greenfield opportunity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Revenue Potential</strong></td>
+                            <td><span class="badge yellow">🟡 Weak-Moderate</span></td>
+                            <td>Narrow product portfolio (car audio only), small UK team</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Strategic Priority of E-commerce</strong></td>
+                            <td><span class="badge red">🔴 Weak</span></td>
+                            <td>Pivoting to automotive OEM; consumer aftermarket is secondary</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Relationship History</strong></td>
+                            <td><span class="badge red">🔴 Weak</span></td>
+                            <td>Two failed attempts, mis-targeted 2024 outreach (wrong products)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Timing</strong></td>
+                            <td><span class="badge yellow">🟡 Mixed</span></td>
+                            <td>New ownership = potential vendor review, but also integration chaos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Distribution Complexity & Geographic Alignment</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Channel Diversity</h4>
+                        <p>Genuinely multi-channel: mass market (Amazon, Best Buy, Walmart, Curry's), specialist car audio (Crutchfield, Halfords, Car Audio Centre), and electronics specialist (B&H Photo, Richer Sounds). Specialist retailers are arguably more strategically important than Amazon for Pioneer's considered-purchase products.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Geographic Breakdown</h4>
+                        <p>40-45% US, 35-40% UK/Europe, 10-15% Japan, 5-10% Rest of World. Pioneer Europe NV headquartered in Melsele, Belgium (~98 employees, ~$43.8M revenue). UK branch at South Ruislip (11-50 employees). Additional offices in France, Germany, Netherlands.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>European Presence</h4>
+                        <p>Strong UK presence through Halfords partnership (includes in-store fitting). Amazon UK has a dedicated Pioneer Brand Store. Curry's and Argos carry some range. Specialist retailers (Car Audio Centre, Richer Sounds) provide category credibility.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Critical Gaps</h4>
+                        <p>No DTC e-commerce in Europe (pioneer.co.uk and pioneer-car.eu are brochure sites only). US DTC recently launched via Shopify Plus. E-commerce/digital leadership sits in US (Torrance, CA), not Europe.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Competitive Intelligence</h2>
+                <div class="info-box green">
+                    <strong>🟢 Greenfield Opportunity:</strong> No DSA provider detected. Comprehensive search across LinkedIn jobs, press releases, case studies, provider client lists, conference appearances, and technology databases found no evidence of an existing digital shelf analytics relationship.
+                </div>
+                <h3>Known Tech Stack (Non-DSA)</h3>
+                <ul>
+                    <li><strong>Shopify Plus</strong> - E-commerce platform (recently migrated US operations via agency Irish Titan)</li>
+                    <li><strong>PriceSpider</strong> - "Where to Buy" retailer locator (provides some retail visibility but not comprehensive DSA)</li>
+                    <li><strong>Hotjar</strong> - UX analytics</li>
+                </ul>
+                <p>PriceSpider provides some retail visibility but is not a comprehensive DSA platform. The gap between "knowing where products are sold" and "knowing how products appear on those shelves" is exactly where eStore fits.</p>
+            </div>
+
+            <div class="card">
+                <h2>Sector Alignment</h2>
+                <div class="info-box green">
+                    <strong>🟢 Strong Alignment:</strong> Consumer Electronics is one of eStore's five proven sectors. eStore works with Sennheiser (premium audio - closest comparable), BSH, Philips, Miele, Epson, De'Longhi, Versuni, and Whirlpool.
+                </div>
+                <p>Car audio aftermarket sits within consumer electronics but adds unique complexity: vehicle compatibility data (year, make, model) must be accurate across every retailer. Electronics products require validation of 30-50+ technical specifications per product versus 5-8 for FMCG. Car audio adds the fitment data layer on top, making it one of the most specification-dense consumer electronics categories.</p>
+                <p>Anonymised case study references a "leading electronics company with a 100+ year history" achieving 23% digital shelf score improvement in 3 months with double-digit sales growth.</p>
+            </div>
+
+            <div class="card">
+                <h2>Relationship History</h2>
+                <div class="info-box orange">
+                    <strong>⚠️ Cold Outreach - Prior Failed Attempts:</strong> Two previous outbound attempts (2021 and April 2024) produced no meetings. The April 2024 outreach was fundamentally mis-targeted - it focused on Pioneer headphones which actually belong to AlphaTheta Corporation (Pioneer DJ), not Pioneer Electronics. Treat this as a completely fresh cold start. Do NOT reference previous emails.
+                </div>
+                <p>Pioneer is not a current or lapsed eStore client (confirmed against both client CSVs). No sister brand or parent company relationships identified. CarUX/Innolux have no eStore connection. No internal champion exists.</p>
+            </div>
+
+            <div class="card">
+                <h2>Market Dynamics & Strategic Timing</h2>
+                <h3>Recent Events</h3>
+                <ul>
+                    <li><strong>December 2025:</strong> CarUX/Innolux Corporation completed $1.1 billion acquisition of Pioneer from EQT - just ~10 weeks ago</li>
+                    <li><strong>Mid-2025:</strong> Premium Audio Company ended Pioneer home AV brand licensing agreement. Pioneer stated it will "assume responsibility" for future home AV - no new products yet</li>
+                    <li><strong>May 2025:</strong> Pioneer announced withdrawal from optical disc drive business</li>
+                    <li><strong>2024-2025:</strong> Shopify Plus migration completed for US operations. Phase 1 launched product catalogue; Phase 1.5 introduced DTC; Phase 2 planned for Canada expansion</li>
+                    <li><strong>August 2025:</strong> Expanded US rep partnership, citing "shifting consumer expectations and rapid technological advancements"</li>
+                </ul>
+                <h3>Competitive Pressure</h3>
+                <ul>
+                    <li>Harman International/JBL (~17% market share, Samsung subsidiary) is the dominant competitor</li>
+                    <li>JVC Kenwood Corporation is the direct rival in car audio</li>
+                    <li>Alpine Electronics, Sony, Bose, Panasonic, Rockford Fosgate also compete</li>
+                    <li>Global car audio market valued at ~$10-14 billion (2024), growing at 5-8% CAGR</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Synthesis & Recommendation</h2>
+                <div class="info-box yellow">
+                    <strong>Recommended Approach:</strong> Consultative - earn attention through genuine car audio digital shelf insight, not by pushing a demo. Lead with a specific, actionable observation about Pioneer's presence on Halfords or Amazon UK. Acknowledge their automotive transformation while noting that aftermarket consumer sales still require digital shelf excellence.
+                </div>
+                <h3>Primary Value Proposition</h3>
+                <p>Vehicle compatibility accuracy and technical specification validation across car audio aftermarket retailers. Position eStore as the specialist that understands electronics complexity (30-50+ attributes per product) - not a generic FMCG monitoring tool.</p>
+
+                <h3>Critical Considerations</h3>
+                <ul>
+                    <li>The CarUX acquisition closed just 10 weeks ago - budgets may be frozen, decision-makers may be in flux. Best timing is likely Q2-Q3 2026 once integration settles</li>
+                    <li>Pioneer's strategic direction is automotive OEM/B2B - consumer aftermarket e-commerce is secondary. The person approving DSA investment may not have executive sponsorship</li>
+                    <li>The 2024 outreach was fundamentally mis-targeted (headphones belong to AlphaTheta). Do NOT reference previous emails</li>
+                    <li>The UK branch is small (11-50 employees). Toby Norton (UK Director) likely has broad authority but may lack budget autonomy</li>
+                    <li>If Pioneer re-enters home AV under CarUX ownership, the opportunity becomes materially larger</li>
+                </ul>
+
+                <h3>Moderate Fit Means</h3>
+                <ul>
+                    <li><strong>Be curious, not confident</strong> - don't assume Pioneer needs eStore. Ask whether they're monitoring digital shelf performance</li>
+                    <li><strong>Low pressure</strong> - this is not a "your competitors use us" pitch. Pioneer may genuinely not prioritise this</li>
+                    <li><strong>Offer value first</strong> - share a specific insight about Pioneer's digital shelf as a conversation starter</li>
+                    <li><strong>Play the long game</strong> - likely 6-12 month cultivation, not a quick close</li>
+                    <li><strong>Be prepared to walk away</strong> - if consumer aftermarket e-commerce is irrelevant to them, eStore's time is better spent elsewhere</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Implementation Readiness</h2>
+                <div class="info-box yellow">
+                    <strong>Time-to-Value Estimate:</strong> Mixed. Major mass-market retailers (Amazon, Best Buy, Curry's) are likely covered in eStore's infrastructure, but specialist car audio retailers (Crutchfield, Car Audio Centre, Halfords car audio section) may require onboarding. Full retailer coverage analysis required before confirming implementation timeline.
+                </div>
+                <p>The narrow product portfolio (car audio only, 200-400 SKUs) means the value proposition needs to be compelling on fewer retailer-product combinations than a typical broad electronics brand. Specialist car audio retailers may be more strategically important than mass-market platforms for Pioneer, which could affect coverage percentages.</p>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- TAB 2: OUR HISTORY WITH THEM                 -->
+        <!-- ============================================ -->
+        <div class="tab-content" id="history">
+
+            <div class="card">
+                <h2>Our History With Pioneer</h2>
+                <div class="info-box orange">
+                    <strong>⚠️ Important Context:</strong> Pioneer has been in eStore's HubSpot since February 2020. Two previous outbound campaigns produced no meetings, and the most recent (April 2024) was targeting the wrong company's products entirely. This is effectively a fresh start.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>HubSpot Status</h2>
+                <table>
+                    <tr><th>Field</th><th>Current Value</th><th>Recommended Update</th></tr>
+                    <tr><td>Lifecycle Stage</td><td>Opportunity</td><td>Change to "Lead" - no active pipeline exists</td></tr>
+                    <tr><td>Last Sales Activity</td><td>6 July 2022</td><td>--</td></tr>
+                    <tr><td>Company Size</td><td>~25 employees</td><td>Update to reflect UK branch (11-50) and global (6,554)</td></tr>
+                    <tr><td>Industry</td><td>Consumer Electronics</td><td>Correct - no change needed</td></tr>
+                    <tr><td>Address</td><td>1304 Main Street, Philomath, OR</td><td>Update to UK branch: Odyssey Business Park, South Ruislip</td></tr>
+                    <tr><td>Owner</td><td>CarUX Holding / Innolux Corporation</td><td>Add parent company information</td></tr>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Previous Conversations</h2>
+                
+                <h3>April 2024 - UK Outreach</h3>
+                <ul>
+                    <li>Targeted Jessica and Sarah at Pioneer UK</li>
+                    <li>Messaging focused on Pioneer trailing competitors in headphones on Amazon, Argos, and Curry's</li>
+                    <li>Highlighted eScore Rank (visibility, availability, reviews) and low visibility on high-frequency keywords</li>
+                    <li>Offered 30-minute calls</li>
+                </ul>
+                <div class="info-box red">
+                    <strong>❌ Critical Error:</strong> The headphones being tracked belong to AlphaTheta (Pioneer DJ), not Pioneer Electronics. The entire analysis was for the wrong company's products. Several emails also bounced (Domino Directory / user not listed errors). No meetings secured.
+                </div>
+
+                <h3>2021 - LATAM/US Outreach</h3>
+                <ul>
+                    <li>Targeted contacts in Argentina, Mexico/LATAM, and US</li>
+                    <li>Messaging around helping electronics brands grow e-commerce sales up to +82%</li>
+                    <li>Positioned eStoreMedia for Perfect Store / Digital Shelf, pricing visibility, ratings/reviews</li>
+                </ul>
+                <div class="info-box red">
+                    <strong>❌ Outcome:</strong> Multiple bounced emails to pioneer-usa.com addresses. No meetings secured.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Recommended HubSpot Actions Before Outreach</h2>
+                <ul>
+                    <li>Update the company record - correct address, update revenue, update ownership to CarUX/Innolux</li>
+                    <li>Remove or archive bounced contacts (Jessica, Sarah, LATAM contacts)</li>
+                    <li>Add new contacts identified in this research (Toby Norton, Larry Rougas, Ted Cardenas, Tony Verni) with verification status notes</li>
+                    <li>Update lifecycle stage to "Lead" given no active pipeline</li>
+                    <li>Add company note documenting the AlphaTheta/Pioneer DJ brand confusion to prevent future mis-targeting</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Competitor Intelligence (DSA Providers)</h2>
+                <table>
+                    <thead>
+                        <tr><th>Provider</th><th>Status</th><th>Confidence</th><th>Evidence</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>None detected</td>
+                            <td><span class="badge green">Greenfield</span></td>
+                            <td>Likely greenfield</td>
+                            <td>Comprehensive search across LinkedIn jobs, press releases, case studies, provider client lists, conference appearances, technology databases</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Pioneer appears to be a true greenfield prospect - no digital shelf analytics capability whatsoever. This is both an opportunity (no incumbent to displace) and a challenge (they may not yet recognise the need for DSA, especially if e-commerce is a secondary strategic priority under new automotive-focused ownership).</p>
+            </div>
+
+            <div class="card">
+                <h2>Blockers & Timing Considerations</h2>
+                <ul>
+                    <li><strong>CarUX acquisition just completed</strong> (December 2025) - integration uncertainty, potential budget freezes, leadership changes possible</li>
+                    <li><strong>Previous outreach was mis-targeted</strong> - must NOT reference previous emails about headphones</li>
+                    <li><strong>Small UK team</strong> (11-50 employees) - may lack budget autonomy for DSA investment. Decision may need to escalate to Belgium or US</li>
+                    <li><strong>Email domain uncertainty</strong> - previous bounced emails to pioneer.co.uk and pioneer-usa.com. Current email formats appear to be pioneer-car.eu (Europe) and pioneerelectronics.com (US). Verify before sending</li>
+                    <li><strong>Strategic misalignment risk</strong> - Pioneer's leadership is focused on automotive OEM and mobility AI. Consumer aftermarket e-commerce may not be a priority</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Content to Reference</h2>
+                <h3>Sector Landing Page</h3>
+                <p><a href="https://estorebrands.com/consumer-electronics" target="_blank">Consumer Electronics - estorebrands.com/consumer-electronics</a></p>
+                
+                <h3>Relevant Ignite Articles</h3>
+                <table>
+                    <thead>
+                        <tr><th>Article</th><th>Best Use</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics" target="_blank">Why Consumer Electronics Brands Need Specialised Digital Shelf Analytics</a></td>
+                            <td>Email 2 - primary content piece. Contains key stats (87% won't repurchase after incorrect info, 52.1% of electronics sales online, 30-50+ specs per product)</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-electronics-why-leading-european-brands-dominate-online-visibility" target="_blank">Why Leading European Electronics Brands Dominate Online Visibility</a></td>
+                            <td>Email 3 or follow-up - European angle for Toby Norton or Philippe Parez</td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank">Content Benchmark - Competitive Intelligence</a></td>
+                            <td>Alternative Email 2 if content accuracy angle resonates more than sector overview</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Similar Clients to Reference</h3>
+                <ul>
+                    <li><strong>Sennheiser</strong> - closest comparable (premium audio brand, similar positioning, multi-channel distribution)</li>
+                    <li><strong>BSH, Miele</strong> - demonstrate ability to serve European-headquartered brands with complex specs</li>
+                    <li><strong>Philips</strong> - breadth in consumer electronics</li>
+                    <li><strong>De'Longhi</strong> - premium appliance brand with strong retail presence</li>
+                </ul>
+                <div class="info-box red">
+                    <strong>Do NOT mention:</strong> Red Bull (per standing instruction), any client results that aren't publicly available, any fabricated case studies.
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- TAB 3: RETAILER OVERVIEW                     -->
+        <!-- ============================================ -->
+        <div class="tab-content" id="retailers">
+
+            <div class="card">
+                <h2>Retailer Overview</h2>
+                <div class="info-box blue">
+                    <strong>Note:</strong> This is a strategic pattern analysis, not detailed coverage checking. Full retailer-by-retailer coverage analysis against eStore's infrastructure should be completed before confirming implementation timelines.
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">20-25</div>
+                        <div class="label">Estimated Online Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">10-12</div>
+                        <div class="label">US Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">8-10</div>
+                        <div class="label">UK/European Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">2-3</div>
+                        <div class="label">Other Markets</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Notable Patterns</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>UK Channel Mix</h4>
+                        <p>Halfords is the anchor retailer - carries Pioneer car audio with in-store fitting service. Amazon UK has a dedicated Pioneer Brand Store. Curry's and Argos carry limited range. Specialist retailers (Car Audio Centre, Richer Sounds) provide category credibility.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>US Channel Mix</h4>
+                        <p>Best Buy, Amazon US, Walmart, Crutchfield are the major channels. Pioneer also operates its own DTC store (usa.pioneer on Shopify Plus) - launched recently. Strong specialist retailer presence.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>European Channels</h4>
+                        <p>Amazon.de, Amazon.fr, MediaMarkt (Germany/Poland). No DTC e-commerce in Europe - pioneer.co.uk and pioneer-car.eu are brochure sites only. All European online sales flow through third-party retailers.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Specialist Retailers Dominate</h4>
+                        <p>Car audio is a considered purchase with complex installation requirements. Specialist retailers like Crutchfield (US) and Halfords (UK) provide expert guidance and fitting services. These channels may be more important than Amazon for Pioneer.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Critical Gaps</h2>
+                <ul>
+                    <li><strong>No European DTC:</strong> All European online sales flow through third-party retailers, making digital shelf monitoring even more critical for Pioneer's European business</li>
+                    <li><strong>Specialist car audio retailers may not be covered:</strong> Retailers like Crutchfield, Car Audio Centre, and Halfords' car audio section may or may not be in eStore's coverage master - this needs verification</li>
+                    <li><strong>Aftermarket-only:</strong> Pioneer's OEM business (factory-installed in Toyota/Lexus/GM) does not create consumer-facing digital shelf needs</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Implementation Note</h2>
+                <div class="info-box yellow">
+                    <strong>Time-to-Value Estimate:</strong> Mixed. Pattern suggests moderate coverage likely given the mix of mass-market retailers (Amazon, Best Buy, Curry's - likely covered) and specialist car audio retailers (Halfords, Crutchfield, Car Audio Centre - may require onboarding). If specialist retailers are uncovered, time-to-value extends from weeks to months.
+                </div>
+                <p>The narrow product portfolio (car audio only, 200-400 SKUs) means the value proposition needs to be compelling on fewer retailer-product combinations than a typical broad electronics brand like BSH or Philips. Specialist car audio retailers may be more strategically important than mass-market platforms for Pioneer's category, which could affect how useful a partial coverage picture is.</p>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- TAB 4: KEY PEOPLE?                           -->
+        <!-- ============================================ -->
+        <div class="tab-content" id="people">
+
+            <div class="card">
+                <h2>Historical Contacts</h2>
+                <div class="info-box orange">
+                    <strong>⚠️ All previously targeted contacts appear to have departed or are unreachable.</strong> Jessica and Sarah at Pioneer UK are likely no longer with the company (emails bounced in April 2024). LATAM contacts from 2021 are likely departed (emails bounced, 4+ years old). No active contacts exist in HubSpot that are confirmed as current employees.
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+
+                <!-- Contact #1: Toby Norton -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#1 Toby Norton</div>
+                            <div class="contact-title">UK Director, Pioneer Europe NV UK Branch Office</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇬🇧 British</span>
+                            <span class="badge unverified">⚠️ Unverified</span>
+                            <span class="badge orange">Cold</span>
+                        </div>
+                    </div>
+                    <div class="verification-warning">
+                        <strong>⚠️ Verification Required:</strong> Actively engaging with Pioneer LinkedIn posts throughout 2025 (IAA 2025, Pioneer India launch), listed as UK Director across multiple databases. Strong evidence of current role but LinkedIn profile not directly confirmed. Check before outreach.
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/toby-norton-60738114b/" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> South Ruislip, London, UK</p>
+                    <p><strong>Email format:</strong> Likely tnorton@pioneer-car.eu</p>
+                    <p><strong>Why he's the right contact:</strong> Small team means he is the decision-maker, not a gatekeeper. Direct authority over UK retail relationships. Local to eStore (both UK-based). Likely manages Pioneer's most important UK retail relationship (Halfords).</p>
+                    <p><strong>Specific hooks:</strong> Pioneer's car audio digital shelf presence on Halfords and Amazon UK. Vehicle compatibility accuracy across UK retailers. How products appear in search results for car audio on major UK retail sites. New product launches requiring consistent content across multiple UK retailers.</p>
+                    <div class="tone-box">
+                        <strong>Tone guidance:</strong> British - warm, professional, not too direct. Understated and curious rather than assertive. Lead with UK retail specifics (Halfords, Amazon UK).
+                    </div>
+                </div>
+
+                <!-- Contact #2: Larry Rougas -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#2 Larry Rougas</div>
+                            <div class="contact-title">Executive Vice President, Pioneer Electronics (USA) Inc.</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge verified">✅ Verified</span>
+                            <span class="badge orange">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/larry-rougas-99320a7/" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> Torrance, CA, USA</p>
+                    <p><strong>Verification:</strong> Quoted by name in Pioneer press releases from May 2025 and August 2025.</p>
+                    <p><strong>Email format:</strong> lrougas@pioneerelectronics.com or lrougas@pioneer-usa.com</p>
+                    <p><strong>Background:</strong> Pioneer veteran (1995-2013, returned 2021). Originally joined as Product Specialist, rose to SVP Marketing. Left for Nikon as Director of Sales (2013-2021). Returned as SVP Sales, now EVP. Credited with "bringing Pioneer into the digital age" through the AppRadio launch.</p>
+                    <p><strong>Why he's the right contact:</strong> Most senior operational leader in the US market. His digital transformation credentials suggest he would understand the DSA value proposition. Long tenure means institutional authority.</p>
+                    <p><strong>Specific hooks:</strong> The Shopify Plus DTC launch means Pioneer now sells both direct and through retailers. His "shifting consumer expectations" quote provides a natural conversation opener. Managing 20+ US retail relationships at EVP level requires data-driven visibility.</p>
+                    <div class="tone-box">
+                        <strong>Tone guidance:</strong> American - direct, results-focused, confident. Lead with the complexity of managing multiple US channels plus DTC.
+                    </div>
+                </div>
+
+                <!-- Contact #3: Ted Cardenas -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#3 Ted Cardenas</div>
+                            <div class="contact-title">Vice President, Strategic Brand Partnerships, Pioneer Electronics (USA) Inc.</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge unverified">⚠️ Unverified</span>
+                            <span class="badge orange">Cold</span>
+                        </div>
+                    </div>
+                    <div class="verification-warning">
+                        <strong>⚠️ Verification Required:</strong> Listed on The Org chart reporting to CEO, present in multiple databases, long Pioneer tenure since 2012. Likely current but must be confirmed on LinkedIn before sending.
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/ted-cardenas-763259" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> Los Angeles, CA, USA</p>
+                    <p><strong>Email format:</strong> tcardenas@pioneerelectronics.com</p>
+                    <p><strong>Background:</strong> Oversees brand strategy, sales initiatives, promotional activities, and advertising. Previously VP Marketing for Car Electronics Division (2012+). Has run targeted digital advertising campaigns with 60%+ CTR. Member of Vision Zero Automotive Network advisory board.</p>
+                    <p><strong>Why he's the right contact:</strong> Brand integrity across retailers is core to his role. How Pioneer products are presented on Amazon, Best Buy, and Crutchfield directly impacts brand perception. His digital marketing sophistication suggests rapid comprehension of DSA value.</p>
+                    <p><strong>Specific hooks:</strong> Brand consistency across 20+ online retailers. Content quality and specification accuracy as brand protection. Competitive visibility against JBL/Harman, JVC Kenwood, Alpine on key retailer search results.</p>
+                    <div class="tone-box">
+                        <strong>Tone guidance:</strong> American - professional and direct. Frame around brand consistency and competitive positioning, which align with his brand partnerships remit.
+                    </div>
+                </div>
+
+                <!-- Contact #4: Tony Verni -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#4 Tony Verni</div>
+                            <div class="contact-title">Vice President of Sales, USA/Canada, Pioneer Electronics</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇨🇦 Canadian</span>
+                            <span class="badge verified">✅ Verified</span>
+                            <span class="badge orange">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/tony-verni-91936017/" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> Bolton, Ontario, Canada</p>
+                    <p><strong>Verification:</strong> Listed on ZoomInfo with colleague cross-references matching other confirmed Pioneer employees.</p>
+                    <p><strong>Email format:</strong> tverni@pioneer-usa.com</p>
+                    <p><strong>Background:</strong> Manages all aftermarket sales operations across USA and Canada. Previously at Pro Rep Marketing.</p>
+                    <p><strong>Why he's the right contact:</strong> Hands-on sales leadership with direct retailer relationships. Digital shelf performance directly impacts his team's revenue targets. The planned Canadian e-commerce expansion (Phase 2 of Shopify Plus rollout) creates additional channel complexity.</p>
+                    <p><strong>Specific hooks:</strong> How are Pioneer products performing on Best Buy and Amazon versus JBL and JVC Kenwood? Canadian expansion means new retailers to monitor. Share of search visibility on key category terms.</p>
+                    <div class="tone-box">
+                        <strong>Tone guidance:</strong> North American - direct, results-focused, practical. Frame around sales performance visibility across the retail network.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+
+                <!-- Contact #5: Dennis Stepien -->
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#5 Dennis Stepien</div>
+                            <div class="contact-title">Senior Vice President, Sales - Pioneer Electronics</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge unverified">⚠️ Unverified</span>
+                        </div>
+                    </div>
+                    <div class="verification-warning">
+                        <strong>⚠️ Verification Required:</strong> Listed on ZoomInfo; colleague list matches confirmed Pioneer employees. Must confirm on LinkedIn.
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/dennis-stepien-799a38157" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> Torrance, CA, USA</p>
+                    <p><strong>Use for:</strong> Escalation if Larry Rougas and Tony Verni are unresponsive. Reference his strategic priorities when reaching out to his reports. SVP level suggests significant authority over sales strategy and technology investments.</p>
+                </div>
+
+                <!-- Contact #6: Philippe Parez -->
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#6 Philippe Parez</div>
+                            <div class="contact-title">Senior Sales & Marketing, Pioneer Electronics (Europe)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇧🇪 Belgian/French</span>
+                            <span class="badge unverified">⚠️ Unverified</span>
+                        </div>
+                    </div>
+                    <div class="verification-warning">
+                        <strong>⚠️ Verification Required:</strong> LinkedIn lists Pioneer Electronics as current employer. Must confirm on LinkedIn before referencing.
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/philippe-parez-08010260/" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> Belgium</p>
+                    <p><strong>Background:</strong> Self-described "accomplished Global Sales and Marketing Leader" with 20+ years experience. Specifically lists "digital transformation" and "P&L management across EMEA markets." Previous roles at Roland, Shure, JBL, Kenwood.</p>
+                    <p><strong>Use for:</strong> European escalation target. His digital transformation expertise and EMEA commercial authority make him the strategic influencer for European operations. Could provide air cover for Toby Norton engagement.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Additional UK Contacts (Backup)</h2>
+                <ul>
+                    <li><strong>Geoff Wood</strong> - Sales Manager, Pioneer Europe NV UK Branch <span class="badge unverified">⚠️ Unverified</span></li>
+                    <li><strong>Mike Haseler</strong> - Product & Marketing Manager, Pioneer Europe NV UK Branch <span class="badge unverified">⚠️ Unverified</span> (has posted Pioneer product content on LinkedIn, suggesting active engagement)</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Executive Context (Reference Only - Do NOT Contact)</h2>
+                <p><strong>CEO Shiro Yahara</strong> - Background: Air Liquide Japan CEO, Bain Capital Operating Partner, GE Healthcare, University of Michigan MBA. Appointed 2020 under EQT ownership. Drove transformation from hardware manufacturer to "solution company." Achieved double-digit EBITDA margins. Launched Piomatix AI platform. Vision: "Creating the Future of Mobility Experiences."</p>
+                <div class="info-box blue">
+                    <strong>How to reference:</strong> His transformation agenda and "solution company" language can be referenced when speaking with operational contacts - "I understand Pioneer is evolving from a hardware company to a solutions provider. That makes how your products appear online even more important..."
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                <table>
+                    <thead>
+                        <tr><th>Contact</th><th>Former Role</th><th>Current Status</th><th>Why Skip</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lisa Carter</td>
+                            <td>VP Sales</td>
+                            <td>❌ Departed - now at FORVIA</td>
+                            <td>No longer at Pioneer</td>
+                        </tr>
+                        <tr>
+                            <td>Joan Carles Martin Perez</td>
+                            <td>Sales & Marketing Director, Iberica</td>
+                            <td>❌ Departed - now at Sit&b</td>
+                            <td>No longer at Pioneer</td>
+                        </tr>
+                        <tr>
+                            <td>Kiyokazu Igarashi</td>
+                            <td>Pioneer USA role</td>
+                            <td>❌ Departed - now SVP at Premium Audio Company</td>
+                            <td>Works for company that just ended Pioneer home AV license</td>
+                        </tr>
+                        <tr>
+                            <td>Jessica (pioneer.co.uk)</td>
+                            <td>Unknown</td>
+                            <td>❌ Likely departed - emails bounced April 2024</td>
+                            <td>Email bounced, probably no longer at company</td>
+                        </tr>
+                        <tr>
+                            <td>Sarah (pioneer.co.uk)</td>
+                            <td>Unknown</td>
+                            <td>❌ Likely departed - emails bounced April 2024</td>
+                            <td>Email bounced, probably no longer at company</td>
+                        </tr>
+                        <tr>
+                            <td>Any LATAM contacts (2021)</td>
+                            <td>Various</td>
+                            <td>❌ Unknown/likely departed</td>
+                            <td>Emails bounced, 4+ years old, different strategic focus</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- TAB 5: DRAFT OUTREACH                        -->
+        <!-- ============================================ -->
+        <div class="tab-content" id="outreach">
+
+            <div class="card">
+                <div class="disclaimer-box">
+                    ⚠️ <strong>Draft Content:</strong> These emails and LinkedIn messages are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Verify all contact details and current roles before any outreach.
+                </div>
+
+                <h2>Nationality-Based Tone Guidance</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>🇬🇧 British (Toby Norton)</h4>
+                        <p>Warm, professional, understated. Curious rather than assertive. Lead with UK retail specifics. Don't be too direct too quickly. Use phrases like "I'm curious" and "I'd imagine."</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>🇺🇸 American (Larry Rougas, Ted Cardenas)</h4>
+                        <p>Direct, confident, results-focused. Lead with the business problem and data. Comfortable naming competitors. More assertive questions acceptable.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>🇨🇦 Canadian (Tony Verni)</h4>
+                        <p>Direct like American but slightly less aggressive. Practical and operational. Focus on sales performance and retailer relationships.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CONTACT 1: TOBY NORTON ===== -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Toby Norton</h3>
+                        <p>UK Director, Pioneer Europe NV UK Branch Office</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇬🇧 British</span>
+                        <span class="badge unverified">⚠️ Unverified</span>
+                        <span class="badge orange">Cold</span>
+                    </div>
+                </div>
+
+                <div class="verification-warning">
+                    <strong>⚠️ Verification Required:</strong> Confirm Toby Norton is still UK Director at Pioneer Europe NV before sending any outreach. Check LinkedIn profile.
+                </div>
+
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="toby">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Car audio specifications across UK retailers</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM GMT</div>
+                        <div class="email-body">Hi Toby,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics brands, helping them monitor how their products appear across online retailers. We work with companies like Sennheiser, De'Longhi, and Bosch.
+
+I've been looking at Pioneer's car audio range across UK retailers and something struck me. Car audio is one of the more technically demanding product categories to manage on the digital shelf. Each product needs accurate vehicle compatibility data - year, make, model - alongside the standard technical specifications like power handling, impedance, and mounting dimensions. That's potentially 30 to 50 data points per product, multiplied across every retailer that carries the range.
+
+Pioneer sells through a genuinely varied mix of UK channels - Halfords with their fitting service, Amazon UK with a dedicated Brand Store, Curry's, and specialist car audio retailers. Each of those platforms will have different content requirements and different ways of presenting fitment information. Keeping all of that consistent and accurate is a significant operational challenge, particularly for a UK team managing multiple retail relationships.
+
+I'd imagine this is especially important for Pioneer given that incorrect fitment data in car audio doesn't just cause customer confusion - it drives returns. Industry data suggests electronics return rates run between 3% and 15%, and a large proportion of those returns are non-defective items that simply didn't fit the customer's vehicle.
+
+I'm curious - how does your team currently manage the consistency of product information across those different UK retail platforms? Is that something you're handling manually, or is there a system in place to monitor it?
+
+Would welcome your thoughts.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>⚠️ VERIFY: Confirm Toby Norton is still UK Director at Pioneer Europe NV before sending</li>
+                            <li>Check Pioneer's current Halfords listing - can you spot any content inconsistencies to reference specifically?</li>
+                            <li>Verify the UK Branch Office is still at Odyssey Business Park, South Ruislip</li>
+                            <li>If you can identify a specific Pioneer product with fitment complexity (e.g., a multimedia receiver with vehicle-specific dash kits), reference it</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Leads with Pioneer's unique digital shelf pain point - vehicle compatibility data - rather than generic DSA benefits. The hook is specific to car audio and couldn't be sent to a non-automotive brand. The question at the end is genuine and non-assumptive. British tone: warm, professional, not too direct.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: How electronics brands approach digital shelf complexity</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM GMT (5-7 days after Email 1)</div>
+                        <div class="email-body">Hi Toby,
+
+Following on from my previous note about Pioneer's car audio range across UK retailers - I wanted to share something that might be relevant.
+
+We published some research into the specific challenges consumer electronics brands face managing product content across online retailers. The core finding is that electronics products require validation of 30 to 50 technical specifications per product, compared to 5 to 8 for a typical FMCG product. For car audio, that complexity is arguably higher given the vehicle compatibility layer.
+
+The piece explores how leading European electronics brands are approaching this - how they maintain specification accuracy across multiple retailers and markets, and what happens when content quality slips. One statistic that stood out: 87% of consumers say they won't repurchase from a brand after receiving incorrect product information online.
+
+For a brand like Pioneer, selling car audio through Halfords, Amazon UK, and specialist retailers - each with different content formats and requirements - that specification accuracy question is not a trivial one.
+
+I've linked the article below if it's useful. No obligation to read it, but thought it was relevant given Pioneer's product complexity.
+
+https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics
+
+Curious whether specification accuracy across retailers is something that comes up for your team, or whether you've found a way to manage it that works well?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>⚠️ VERIFY: Confirm Toby Norton is still UK Director before sending</li>
+                            <li>If Email 1 received a response, adapt this email accordingly - it may not be needed or may need to change direction entirely</li>
+                            <li>The 87% statistic comes from the linked article - verify it's still there before referencing</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuine new value by sharing sector-specific research. The content link is positioned as a knowledge-sharing gesture, not a sales pitch. The question at the end builds on Email 1 but from a different angle - specification accuracy rather than fitment data. Still exploratory and non-assumptive.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Managing car audio content across European markets</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 AM GMT (5-7 days after Email 2)</div>
+                        <div class="email-body">Hi Toby,
+
+One more thought on Pioneer's car audio range - this time from a European perspective.
+
+Pioneer sells through retailers across the UK, France, Germany, and Benelux. Each of those markets has its own retail platforms, language requirements, and content standards. A Pioneer car stereo listed on Amazon UK needs English specifications. The same product on Amazon.de needs German. On Amazon.fr, French. And the vehicle compatibility data needs to reflect the cars actually sold in each market - which aren't always the same models.
+
+That's a content management challenge that scales quickly. We work with several European-headquartered electronics brands navigating exactly this - maintaining accurate, localised product content across multiple markets and retailers simultaneously.
+
+I've been thinking about whether Pioneer's European structure - with the Belgium headquarters coordinating UK, France, Germany, and the Netherlands - creates particular challenges around who owns the product content for each market and how consistency is maintained across them.
+
+We wrote about how some European electronics brands are approaching this if it's of interest:
+
+https://estorebrands.com/ignite/digital-shelf-analytics-for-electronics-why-leading-european-brands-dominate-online-visibility
+
+I'm curious - does the European product content sit centrally in Belgium, or does each market manage its own? That dynamic tends to shape how brands think about monitoring and quality control across retail platforms.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>⚠️ VERIFY: Confirm Toby Norton is still UK Director before sending</li>
+                            <li>If either previous email received a response, this email may be unnecessary</li>
+                            <li>Verify Pioneer Europe NV is still headquartered in Melsele, Belgium</li>
+                            <li>Check whether Pioneer's French and German Amazon stores are still active</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Introduces a genuinely new angle - European multi-market complexity - that wasn't covered in Emails 1 or 2. Positions eStore's European strength naturally and ends with a specific, curious question about Pioneer's organisational structure for content management. Not a graceful exit - a fresh perspective that opens a different conversation thread.</p>
+                    </div>
+                </div>
+
+                <!-- Toby Norton LinkedIn -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>When to use LinkedIn:</strong></p>
+                        <ul>
+                            <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                            <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                            <li><strong>Option C - After no email response:</strong> Send after email sequence if all three go unanswered</li>
+                        </ul>
+                        <p><em>Choose one option per contact - don't do all three.</em></p>
+                    </div>
+                    <div class="info-box blue">
+                        <strong>Recommended timing: Option A - LinkedIn first.</strong> As a UK-based contact at a small branch office, Toby may be more responsive on LinkedIn than email. Send connection request 2-3 days before Email 1. The connection request is light and non-salesy.
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">Connection Request</span>
+                        <span class="char-count">229 characters</span>
+                        <p class="linkedin-message">Hi Toby - I'm [SENDER NAME] from eStore. We provide digital shelf analytics for consumer electronics brands across European retailers. Pioneer's UK car audio presence caught my eye. Would be good to connect.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">InMail</span>
+                        <p class="linkedin-message">Hi Toby,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics brands, helping them monitor product performance across online retailers. We work with companies like Sennheiser and Bosch.
+
+I've been looking at Pioneer's car audio range across UK retailers. Car audio is one of the more technically demanding categories on the digital shelf - vehicle compatibility data, technical specifications, and mounting dimensions across platforms like Halfords and Amazon UK. That's a lot of product data to keep accurate and consistent.
+
+I'm curious - how does your team currently manage the consistency of product information across Pioneer's UK retail partners?
+
+[SENDER NAME]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CONTACT 2: LARRY ROUGAS ===== -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Larry Rougas</h3>
+                        <p>Executive Vice President, Pioneer Electronics (USA) Inc.</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇺🇸 American</span>
+                        <span class="badge verified">✅ Verified</span>
+                        <span class="badge orange">Cold</span>
+                    </div>
+                </div>
+
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="larry">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Pioneer's car audio across US retail and direct channels</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 7:00-8:00 AM PT</div>
+                        <div class="email-body">Hi Larry,
+
+I'm [SENDER NAME] from eStore - we help consumer electronics brands monitor and improve how their products appear across online retailers. We track things like product availability, content accuracy, pricing, and search rankings across retail platforms. We work with companies like Sennheiser, De'Longhi, and Bosch.
+
+I've been looking at Pioneer's car audio aftermarket business and one thing that stood out is the range of channels you're now managing. Pioneer sells through Best Buy, Amazon, Walmart, and specialist retailers like Crutchfield - and has also launched a direct-to-consumer store. That's a significant number of places where Pioneer products need to appear accurately and competitively.
+
+Car audio adds a layer of complexity that most consumer electronics categories don't have. Each product needs vehicle compatibility data - year, make, model - alongside technical specifications like power handling, impedance, and mounting dimensions. When a customer on Best Buy or Crutchfield is checking whether a Pioneer head unit fits their 2023 Honda Civic, that fitment data needs to be right. If it isn't, you get returns on products that work perfectly well but were bought for the wrong vehicle.
+
+We're strongest across UK and European retailers, and we also monitor major US platforms including Amazon and Best Buy. For a brand like Pioneer that sells across both US and European channels, there's an interesting conversation about how digital shelf intelligence works across markets.
+
+I'm curious whether managing product content consistency across that many US retail platforms is something your team handles centrally, or whether each retail partner manages their own product data independently?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Larry is a Pioneer veteran with deep institutional knowledge - he'll spot anything generic or uninformed about car audio</li>
+                            <li>His "shifting consumer expectations" quote from August 2025 can inform your thinking but do NOT quote it directly</li>
+                            <li>Check Pioneer's current DTC store (usa.pioneer or similar Shopify URL) to confirm it's still live</li>
+                            <li>Be prepared for his question about US coverage specifics - have an honest answer ready</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Direct and results-focused, matching an American executive's communication style. Leads with the complexity of managing multiple US channels plus DTC, which is squarely in Larry's remit. Geographic positioning states European strength as a positive without conceding weakness. The question at the end is practical and operational.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Specification accuracy in car audio retail</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 7:00-8:00 AM PT (5-7 days after Email 1)</div>
+                        <div class="email-body">Hi Larry,
+
+Following up on my note about Pioneer's car audio range across US retailers - I wanted to share something that might be useful.
+
+We've published research into the specific challenges consumer electronics brands face managing product specifications across online retail platforms. The core finding is that electronics products require validation of 30 to 50 technical specifications per product. For car audio, with vehicle compatibility requirements on top of standard audio specs, the number is likely higher.
+
+One data point that resonated with several of the electronics brands we work with: 87% of consumers say they won't repurchase from a brand after receiving incorrect product information online. For a considered-purchase category like car audio - where customers are specifically checking fitment data before buying - that accuracy question is directly tied to returns and customer satisfaction.
+
+Pioneer's range spans multimedia receivers, speakers, subwoofers, amplifiers, and dash cameras across retailers like Best Buy, Amazon, and Crutchfield. Each of those retailers presents product information differently. Keeping specifications accurate and competitive across all of them is a non-trivial operational task.
+
+I've linked the research below if it's relevant to what your team is thinking about:
+
+https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics
+
+Curious whether the specification accuracy challenge across retail partners is something your team has a handle on, or whether it's one of those things that's hard to track at scale?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>If Email 1 received a response, adapt or skip this email</li>
+                            <li>The 87% statistic comes from the linked article - verify it's still accurate</li>
+                            <li>Larry's digital transformation background (AppRadio launch) suggests he'll appreciate data-driven arguments</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuine new value through sector research. Positions the content as a knowledge-sharing resource, not a sales asset. The question at the end is practical and acknowledges that this is a real operational challenge - it doesn't assume they're failing at it.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Pioneer vs JBL and JVC Kenwood on retailer search</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 7:00-8:00 AM PT (5-7 days after Email 2)</div>
+                        <div class="email-body">Hi Larry,
+
+One more angle on Pioneer's digital shelf presence that I've been thinking about.
+
+Car audio is an interesting competitive landscape online. When a customer searches "car stereo" or "car speakers" on Best Buy or Amazon, Pioneer is competing directly against JBL, JVC Kenwood, Alpine, and Sony for that search result real estate. The brand that appears first, with the most complete and compelling product content, has a meaningful advantage - particularly in a considered-purchase category where customers are comparing specifications.
+
+This is something we track for other consumer electronics brands - share of search on retailer platforms. It's essentially a measure of how visible a brand is when customers are actively shopping the category. For a brand like Pioneer, competing against Harman International's JBL in particular - which has Samsung's resources behind it - understanding where you're winning and losing that search competition could be valuable intelligence.
+
+We've written about how some European electronics brands are using competitive benchmarking on the digital shelf to stay ahead:
+
+https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content
+
+I'd be interested to know whether Pioneer currently has a way to track how its products rank against JBL and JVC Kenwood on key retailer search terms, or whether that's largely a blind spot?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>If previous emails received responses, this may be unnecessary or need redirection</li>
+                            <li>Do a quick search on Amazon or Best Buy for "car stereo" to see where Pioneer actually ranks vs JBL - if you find something specific, mention it</li>
+                            <li>Larry's competitive knowledge is deep - don't oversimplify the competitive landscape</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Completely new angle - competitive search visibility - not covered in Emails 1 or 2. Names Pioneer's actual competitors because this is their competitive landscape, not ours. The Harman/Samsung connection is a genuine strategic pressure point. Ends with a curious question about a capability they likely don't have.</p>
+                    </div>
+                </div>
+
+                <!-- Larry Rougas LinkedIn -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>When to use LinkedIn:</strong></p>
+                        <ul>
+                            <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                            <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                            <li><strong>Option C - After no email response:</strong> Send after email sequence if all three go unanswered</li>
+                        </ul>
+                        <p><em>Choose one option per contact - don't do all three.</em></p>
+                    </div>
+                    <div class="info-box blue">
+                        <strong>Recommended timing: Option C - After no email response.</strong> Given email domain uncertainty (pioneerelectronics.com vs pioneer-usa.com), LinkedIn may be a more reliable channel if emails bounce. Try email first given Larry's verified status.
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">Connection Request</span>
+                        <span class="char-count">248 characters</span>
+                        <p class="linkedin-message">Hi Larry - I'm [SENDER NAME] from eStore. We provide digital shelf analytics for consumer electronics brands. Pioneer's car audio retail presence across Best Buy, Amazon, and Crutchfield caught my attention. Would be good to connect.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">InMail</span>
+                        <p class="linkedin-message">Hi Larry,
+
+I'm [SENDER NAME] from eStore - we help consumer electronics brands monitor how their products appear across online retailers, tracking things like content accuracy, search rankings, and competitive positioning. We work with brands like Sennheiser and Bosch.
+
+Pioneer's car audio aftermarket business stood out to me - you're selling through Best Buy, Amazon, Walmart, Crutchfield, and now direct as well. That's a lot of places where product specifications and vehicle compatibility data need to be accurate and competitive, particularly against JBL and JVC Kenwood.
+
+I'm curious - does your team have a way to monitor how Pioneer products appear and perform across those retail platforms currently?
+
+[SENDER NAME]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CONTACT 3: TED CARDENAS ===== -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Ted Cardenas</h3>
+                        <p>Vice President, Strategic Brand Partnerships, Pioneer Electronics (USA) Inc.</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇺🇸 American</span>
+                        <span class="badge unverified">⚠️ Unverified</span>
+                        <span class="badge orange">Cold</span>
+                    </div>
+                </div>
+
+                <div class="verification-warning">
+                    <strong>⚠️ Verification Required:</strong> Confirm Ted Cardenas is still VP Strategic Brand Partnerships at Pioneer before sending any outreach. Check LinkedIn profile.
+                </div>
+
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="ted">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Pioneer's brand story across 20+ online retailers</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 7:00-8:00 AM PT</div>
+                        <div class="email-body">Hi Ted,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics brands, helping them understand how their products appear across online retailers. We monitor things like content accuracy, search rankings, availability, and pricing across retail platforms. We work with companies like Sennheiser, De'Longhi, and Bosch.
+
+I've been thinking about Pioneer's car audio brand from a content quality perspective. Pioneer sells through more than 20 online retailers across the US and Europe - Amazon, Best Buy, Walmart, Crutchfield, Halfords in the UK, and various specialist car audio platforms. Each of those retailers presents product information in their own format, with their own content requirements.
+
+From a brand partnerships standpoint, that creates an interesting question: is the Pioneer brand story being told consistently across all of those retail touchpoints? A Pioneer multimedia receiver on Crutchfield might have detailed installation guides and vehicle compatibility tools. The same product on Amazon might have a basic bullet-point listing. On Best Buy, something different again.
+
+For a considered-purchase category like car audio, where customers actively research and compare before buying, the quality and consistency of that product content matters. It shapes how the brand is perceived at the moment of purchase decision.
+
+We're strongest across UK and European retailers, and we also monitor major US platforms including Amazon and Best Buy. For a brand with Pioneer's international retail footprint, there's an interesting conversation about how that works across markets.
+
+I'm curious - does your team currently have a way to audit how Pioneer products are represented across different retail platforms, or is that largely managed through individual retailer relationships?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>⚠️ VERIFY: Confirm Ted Cardenas is still VP Strategic Brand Partnerships at Pioneer before sending</li>
+                            <li>His Vision Zero Automotive Network involvement and digital marketing background suggest sophistication - don't oversimplify</li>
+                            <li>Check a few Pioneer listings across Amazon, Best Buy, and Crutchfield to see if content quality actually varies - if you spot a real difference, mention it specifically</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Tailored to Ted's brand partnerships remit. The hook is about brand consistency across retail channels - directly relevant to someone responsible for brand integrity. Professional and direct (American audience) but not pushy.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: What incorrect product content costs electronics brands</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 7:00-8:00 AM PT (5-7 days after Email 1)</div>
+                        <div class="email-body">Hi Ted,
+
+Following my previous note about Pioneer's brand consistency across retail platforms - I wanted to share a piece of research that connects to the brand integrity side of your role.
+
+We published a study looking at how consumer electronics brands manage product content quality across online retailers. One finding that stood out: 87% of consumers say they won't repurchase from a brand after encountering incorrect product information online. For car audio, where technical specifications and vehicle compatibility data are central to the purchase decision, that number is particularly significant.
+
+The research also highlights a gap that's specific to electronics: each product can have 30 to 50 technical specifications that need to be accurate across every retail platform. FMCG brands deal with 5 to 8. Car audio arguably sits at the higher end of that electronics range, given the additional fitment data layer.
+
+For Pioneer, with products across Amazon, Best Buy, Crutchfield, and specialist retailers - each with different content formats - the question becomes: how do you know whether the product information is accurate and complete everywhere?
+
+I've linked the full piece below if it's relevant to what you're working on:
+
+https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics
+
+Is content accuracy across retail partners something that comes up in your brand partnership conversations, or is it generally handled well through existing processes?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>⚠️ VERIFY: Confirm Ted Cardenas is still at Pioneer before sending</li>
+                            <li>If Email 1 received a response, adapt or skip</li>
+                            <li>Ted's digital advertising background (60%+ CTR campaigns) suggests he respects data-driven arguments</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Builds on the brand consistency theme from Email 1 but adds quantitative evidence. The content link provides genuine value. The question frames the topic as something that might already be handled well - non-assumptive.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: How Pioneer competes for attention on retail platforms</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 7:00-8:00 AM PT (5-7 days after Email 2)</div>
+                        <div class="email-body">Hi Ted,
+
+A different angle on Pioneer's digital shelf presence - the competitive one.
+
+When a customer searches for car audio on a major retail platform, Pioneer is one of several brands competing for attention. JBL (backed by Samsung through Harman International), JVC Kenwood, Alpine, and Sony all occupy the same shelf space. The brand that presents the most compelling product content - better images, more complete specifications, stronger reviews, and higher search rankings - has a meaningful advantage.
+
+From a brand partnerships perspective, this is essentially a competitive intelligence question: how does Pioneer's digital shelf presence compare to JBL's on Best Buy? To JVC Kenwood's on Amazon? Are there category search terms where Pioneer should be more visible but isn't?
+
+We've built a product specifically for this - we call it Content Benchmark. It allows brands to compare their digital shelf performance against specific competitors across retail platforms. I've linked an overview below if the competitive angle is relevant:
+
+https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content
+
+I'd be interested to know whether competitive benchmarking on retail platforms is something Pioneer currently tracks, or whether the focus is more on individual retailer performance in isolation?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>⚠️ VERIFY: Confirm Ted Cardenas is still at Pioneer before sending</li>
+                            <li>If previous emails received responses, adapt or skip</li>
+                            <li>Quick search on Best Buy for "car stereo" to see Pioneer's actual competitive positioning could yield a specific observation</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Completely new angle - competitive positioning rather than content accuracy or brand consistency. Names Pioneer's real competitors because this is their competitive landscape. Introduces Content Benchmark as a specific capability, positioned naturally. Ends with a genuine question.</p>
+                    </div>
+                </div>
+
+                <!-- Ted Cardenas LinkedIn -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>When to use LinkedIn:</strong></p>
+                        <ul>
+                            <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                            <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                            <li><strong>Option C - After no email response:</strong> Send after email sequence if all three go unanswered</li>
+                        </ul>
+                        <p><em>Choose one option per contact - don't do all three.</em></p>
+                    </div>
+                    <div class="info-box blue">
+                        <strong>Recommended timing: Option A - After verification.</strong> Given Ted's unverified status, verify on LinkedIn first, then send connection request after confirming he's still at Pioneer. If verified, send 2-3 days before Email 1.
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">Connection Request</span>
+                        <span class="char-count">237 characters</span>
+                        <p class="linkedin-message">Hi Ted - I'm [SENDER NAME] from eStore. We provide digital shelf analytics for consumer electronics brands. Pioneer's brand presence across US and European car audio retailers is an interesting challenge. Would be good to connect.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">InMail</span>
+                        <p class="linkedin-message">Hi Ted,
+
+I'm [SENDER NAME] from eStore - we help consumer electronics brands monitor how their products appear across online retailers, tracking content quality, search rankings, and competitive positioning. We work with brands like Sennheiser and Bosch.
+
+Pioneer's car audio range is live across 20+ retailers, each presenting products in their own format. From a brand partnerships perspective, I'd imagine keeping the Pioneer story consistent and competitive across all of those touchpoints is a real challenge - particularly against JBL with Samsung's resources behind it.
+
+Does your team currently have a way to audit how Pioneer products are represented across different retail platforms?
+
+[SENDER NAME]</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CONTACT 4: TONY VERNI ===== -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Tony Verni</h3>
+                        <p>Vice President of Sales, USA/Canada, Pioneer Electronics</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇨🇦 Canadian</span>
+                        <span class="badge verified">✅ Verified</span>
+                        <span class="badge orange">Cold</span>
+                    </div>
+                </div>
+
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="tony">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Pioneer car audio performance across US retail platforms</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00 AM ET</div>
+                        <div class="email-body">Hi Tony,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for consumer electronics brands. We help companies monitor how their products appear and perform across online retailers - things like availability, content accuracy, pricing, and search rankings. We work with brands like Sennheiser, De'Longhi, and Bosch.
+
+I've been looking at Pioneer's car audio aftermarket sales across US and Canadian retailers, and something that stood out is the breadth of the retail network. Best Buy, Amazon, Walmart, Crutchfield, and a number of specialist car audio retailers - that's a significant number of platforms for your sales team to manage.
+
+From a sales leadership perspective, the question I keep coming back to is: how do you know how Pioneer products are actually performing across all of those platforms? Whether a Pioneer car stereo is in stock on Best Buy. Whether the specifications are complete on Crutchfield. Whether Pioneer appears when customers search "car speakers" on Amazon - and where it ranks versus JBL or JVC Kenwood.
+
+That kind of digital shelf intelligence is what we provide for other consumer electronics brands. And car audio has an additional complexity layer that most electronics categories don't - vehicle compatibility data that needs to be accurate across every platform.
+
+We're strongest across UK and European retailers, and we also monitor major US platforms including Amazon and Best Buy. For Pioneer's North American operation, there's an interesting conversation about how digital shelf intelligence applies across that retail network.
+
+I'm curious - does your sales team currently have a consolidated view of how Pioneer products appear and perform across your US and Canadian retail partners, or is that largely managed retailer by retailer?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Tony manages the Canadian expansion (Phase 2 of the DTC rollout) - if this has launched, it's worth noting the added complexity of Canadian retailers</li>
+                            <li>His direct retailer relationships mean he'll immediately think about whether eStore covers his specific retail partners - be ready for that question</li>
+                            <li>Check whether Pioneer products are currently listed on any Canadian retail platforms (e.g., Best Buy Canada, Amazon.ca)</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Tailored to a VP of Sales perspective - focuses on performance visibility across the retail network rather than brand consistency or specification accuracy. The question is practical and operational. Direct, results-focused tone for a North American sales leader.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Why electronics brands need specialised digital shelf monitoring</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00 AM ET (5-7 days after Email 1)</div>
+                        <div class="email-body">Hi Tony,
+
+Building on my previous email about Pioneer's car audio retail presence - I wanted to share some research that's directly relevant to managing a multi-retailer sales operation in consumer electronics.
+
+We published a piece looking at the specific challenges electronics brands face on the digital shelf. The headline finding is that electronics products require validation of 30 to 50 technical specifications per product across every retail platform. For car audio, add vehicle compatibility data on top of that. When your sales team is managing relationships with Best Buy, Amazon, Walmart, and Crutchfield, the volume of product data that needs to be accurate across all of them is substantial.
+
+One statistic that tends to resonate with sales leaders: 87% of consumers say they won't repurchase from a brand after encountering incorrect product information online. For a high-consideration category like car audio, where customers are specifically checking specifications and fitment data, content accuracy is directly linked to sales conversion and return rates.
+
+Here's the full research piece if it's relevant to your planning:
+
+https://estorebrands.com/ignite/why-consumer-electronics-brands-need-specialised-digital-shelf-analytics
+
+I'd be interested to know - when your team reviews performance across retail partners, is product content accuracy something that comes up as a factor, or is the focus primarily on sell-through data and inventory?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>If Email 1 received a response, adapt or skip this email</li>
+                            <li>Tony's sales focus means he'll evaluate this through a revenue lens - the returns/repurchase data is the strongest hook for him</li>
+                            <li>Verify the 87% statistic is still in the linked article</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuine value through research. Framed for a sales leader - the question at the end distinguishes between traditional sales metrics (sell-through, inventory) and digital shelf metrics (content accuracy). This is the educational gap eStore needs to bridge for a greenfield prospect.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Adding Canadian retailers to the digital shelf equation</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00 AM ET (5-7 days after Email 2)</div>
+                        <div class="email-body">Hi Tony,
+
+A different angle on Pioneer's digital shelf challenge - the Canadian expansion.
+
+When an electronics brand adds a new market, the digital shelf complexity doesn't just increase linearly - it multiplies. Canadian retailers have their own content requirements, their own search algorithms, and their own competitive dynamics. Pioneer products on Best Buy Canada or Amazon.ca need Canadian pricing, bilingual content where applicable, and potentially different vehicle compatibility data reflecting the Canadian automotive market.
+
+For a VP of Sales managing both the US and Canadian operation, that expansion means monitoring an even wider set of retail platforms for product accuracy and competitive positioning. The question becomes: do you have a way to track whether Pioneer products are appearing correctly and competitively across Canadian retail platforms as they come online?
+
+We work with several consumer electronics brands that sell across multiple markets, and the pattern we see is that content quality tends to slip most during expansion - when new retailers are being onboarded and attention is split across a broader set of platforms.
+
+We've published a piece about competitive intelligence on the digital shelf that might be relevant as Pioneer builds out its Canadian retail presence:
+
+https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content
+
+I'm curious whether the Canadian market expansion is creating new digital shelf challenges for your team, or whether the US infrastructure largely translates?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Verify whether the Canadian DTC/retail expansion has actually launched - if not, this email is premature</li>
+                            <li>Check Best Buy Canada and Amazon.ca for Pioneer car audio products</li>
+                            <li>If Canadian expansion hasn't happened yet, pivot this email to a different angle - perhaps competitive search visibility (similar to Larry's Email 3)</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Specifically tailored to Tony's Canadian expansion responsibility. Genuinely new angle that doesn't repeat Emails 1 or 2. Positions market expansion as a natural trigger for digital shelf monitoring. Ends with an open question rather than a graceful exit.</p>
+                    </div>
+                </div>
+
+                <!-- Tony Verni LinkedIn -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>When to use LinkedIn:</strong></p>
+                        <ul>
+                            <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                            <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                            <li><strong>Option C - After no email response:</strong> Send after email sequence if all three go unanswered</li>
+                        </ul>
+                        <p><em>Choose one option per contact - don't do all three.</em></p>
+                    </div>
+                    <div class="info-box blue">
+                        <strong>Recommended timing: Option B - Alongside.</strong> Send connection request same day as Email 1 for dual-channel coverage. Tony is Canada-based and may be less connected to the Torrance HQ email flow.
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">Connection Request</span>
+                        <span class="char-count">256 characters</span>
+                        <p class="linkedin-message">Hi Tony - I'm [SENDER NAME] from eStore. We provide digital shelf analytics for consumer electronics brands across online retailers. Pioneer's car audio presence across US and Canadian retail is an interesting space. Would be good to connect.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <span class="linkedin-badge">InMail</span>
+                        <p class="linkedin-message">Hi Tony,
+
+I'm [SENDER NAME] from eStore - we help consumer electronics brands monitor how their products appear across online retailers. We track things like content accuracy, search rankings, and competitive positioning. We work with brands like Sennheiser and Bosch.
+
+Pioneer's car audio sales operation across US and Canadian retailers stood out - that's a lot of platforms where product specifications and vehicle compatibility data need to be accurate. I'm curious whether your sales team has a consolidated view of how Pioneer products appear across those retail partners, or if it's managed retailer by retailer?
+
+[SENDER NAME]</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ============================================ -->
+        <!-- TAB 6: OBJECTION HANDLING                    -->
+        <!-- ============================================ -->
+        <div class="tab-content" id="objections">
+
+            <div class="card">
+                <h2>Decision Framework</h2>
+                <div class="fit-badge moderate">🟡 Moderate Fit - Proceed With Caveats</div>
+                <p>Pioneer is worth pursuing but requires realistic expectations. The moderate fit assessment means approaching with curiosity rather than confidence, being honest about implementation timelines, and being prepared for the response that consumer aftermarket e-commerce isn't a priority under new automotive-focused ownership.</p>
+                
+                <div class="info-box yellow">
+                    <strong>Key Caveats:</strong>
+                    <ul>
+                        <li>CarUX acquisition completed just ~10 weeks ago - budgets may be frozen</li>
+                        <li>Strategic direction is automotive OEM/B2B - consumer aftermarket is secondary</li>
+                        <li>Narrow product portfolio (car audio only) limits contract size</li>
+                        <li>Best timing may be Q2-Q3 2026 once integration settles</li>
+                        <li>If home AV returns under CarUX, opportunity grows significantly</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Common Objections & Responses</h2>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We don't currently use any digital shelf analytics tool"
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Why this is actually an opportunity:</strong> This is exactly why we reached out. Many electronics brands manage product content across retailers manually or through individual retailer relationships. That works when you're selling through 5 retailers, but Pioneer's car audio range is live across 20+ platforms. Each one has different content formats, different specification requirements, and different ways of presenting vehicle compatibility data.</p>
+                        <p><strong>Response approach:</strong> "That's actually quite common - many of the brands we work with didn't have a dedicated tool before they started with us. The question is whether your team has visibility into how Pioneer products appear across those 20+ retailer platforms right now. If a specification is wrong on Best Buy or fitment data is missing on Crutchfield, how would you know? That's the gap we help fill."</p>
+                        <p><strong>Evidence:</strong> Reference Sennheiser and other electronics brands that adopted DSA to manage multi-retailer complexity. The 87% repurchase statistic provides a business case for monitoring.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "Consumer aftermarket e-commerce isn't our strategic priority right now"
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>This is a legitimate concern and the most likely objection.</strong> Pioneer's corporate strategy is explicitly focused on OEM automotive and mobility AI under CarUX ownership. Consumer aftermarket is a secondary priority.</p>
+                        <p><strong>Response approach:</strong> "I completely understand - and we've been following Pioneer's evolution toward automotive technology solutions. Even so, the aftermarket consumer business still generates significant revenue through those retail channels. The products are already on shelves. The question is whether they're appearing accurately and competitively, particularly given that your main competitors - JBL and JVC Kenwood - are investing heavily in their online retail presence. It doesn't require a massive strategic initiative to monitor what's already there."</p>
+                        <p><strong>Key point:</strong> Position DSA as protecting existing revenue, not building a new strategy. Low investment to monitor what's already live.</p>
+                        <p><strong>Be prepared to accept "no":</strong> If consumer e-commerce genuinely isn't a priority, respect that. This prospect may not convert. The moderate fit assessment anticipates this outcome.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We're in the middle of an acquisition integration - not the right time"
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Completely valid.</strong> CarUX completed the $1.1 billion acquisition just ~10 weeks ago. Budget freezes, leadership changes, and strategic reviews are normal during this period.</p>
+                        <p><strong>Response approach:</strong> "That makes sense - acquisition integration is all-consuming. We're not looking for an immediate decision. I'd be curious to understand how the integration is shaping priorities for the consumer aftermarket side of the business. If there's a point in Q2 or Q3 when it makes more sense to revisit this conversation, I'm happy to reconnect then."</p>
+                        <p><strong>Play the long game:</strong> Offer to share the digital shelf intelligence report as a free resource, no commitment required. Plant the seed now for a conversation in 3-6 months.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "How many of our retailers can you actually monitor?"
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Be honest about coverage.</strong> eStore can likely monitor Pioneer's major mass-market retailers (Amazon, Best Buy, Curry's) immediately. Specialist car audio retailers (Crutchfield, Halfords car audio, Car Audio Centre) may require onboarding.</p>
+                        <p><strong>Response approach:</strong> "We already monitor the major platforms where Pioneer sells - Amazon (US, UK, DE, FR), Best Buy, Walmart, Curry's, and others. For specialist car audio retailers like Crutchfield and Halfords, we'd need to confirm our current coverage and potentially onboard those platforms. That's a conversation we'd have early on so you know exactly what visibility you're getting from day one, and what the roadmap looks like for additional retailers."</p>
+                        <p><strong>Key point:</strong> Transparent about what's available immediately vs. what requires development. Don't oversell coverage.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "Your strength is in UK and Europe - we're primarily a US business"
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>This is a fair observation.</strong> eStore's core strength is indeed UK and European retailers. However, eStore also monitors major US platforms.</p>
+                        <p><strong>Response approach:</strong> "You're right that our deepest expertise is in European retail - that's where we've built the most comprehensive coverage. We do monitor major US platforms including Amazon and Best Buy, which are significant channels for Pioneer. For a brand that sells across both US and European markets, the European coverage is a genuine differentiator - particularly given Pioneer Europe's multi-market complexity across UK, France, Germany, and Benelux with no dedicated digital commerce team."</p>
+                        <p><strong>For UK-focused conversation (Toby Norton):</strong> eStore's UK/European strength is a direct advantage. Lead with this.</p>
+                        <p><strong>For US-focused conversation (Larry/Ted/Tony):</strong> Acknowledge European strength, position US coverage as growing, and frame the cross-market visibility as the unique value.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We already use PriceSpider - doesn't that cover what you do?"
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>PriceSpider and eStore serve different purposes.</strong> PriceSpider is a "Where to Buy" retailer locator - it helps customers find where to purchase Pioneer products. eStore is digital shelf analytics - it monitors how those products actually appear once you're on the retailer's site.</p>
+                        <p><strong>Response approach:</strong> "PriceSpider is great for directing customers to retailers - it solves the 'where to buy' question. What it doesn't do is tell you how Pioneer products actually appear once the customer gets there. Is the specification data accurate? Is the product in stock? How does Pioneer rank when someone searches 'car stereo' on that retailer? That's the digital shelf intelligence layer - and it's complementary to what PriceSpider does, not a replacement."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "Our product portfolio is quite narrow - is this worth the investment?"
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>This is a valid concern and should be addressed honestly.</strong> Pioneer's consumer aftermarket portfolio (200-400 SKUs, primarily car audio) is narrower than eStore's typical electronics clients.</p>
+                        <p><strong>Response approach:</strong> "You're right that the product range is more focused than some of the brands we work with. But car audio has a unique complexity that compensates - the vehicle compatibility data layer means each product effectively has dozens of variants across different vehicle applications. And the 20+ retailer footprint across the US and Europe means those 200-400 SKUs need to be accurate in thousands of product-retailer combinations. We'd scope the investment to match the monitoring needs, not force a one-size-fits-all package."</p>
+                        <p><strong>Key point:</strong> If home AV returns under CarUX ownership, the portfolio broadens significantly. Worth mentioning as future potential.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We manage our retail relationships directly - our retailers handle the content"
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>A common assumption that often doesn't hold up in practice.</strong> Many brands believe retailers maintain their product content, but retailers frequently use outdated specifications, incomplete descriptions, or incorrect imagery.</p>
+                        <p><strong>Response approach:</strong> "That's a common approach, and it works well when you have a small number of close retailer relationships. The challenge is that retailers manage thousands of products and content quality for any individual brand isn't always their top priority. We often find discrepancies between what a brand sends to a retailer and what actually appears on the product page. For car audio, where fitment data needs to match specific vehicle applications, even small errors can drive returns on perfectly good products."</p>
+                        <p><strong>Offer:</strong> "We could do a quick audit of Pioneer's product listings across 2-3 key retailers to see if there are any discrepancies. No commitment - just a data point for your team."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "What implementation timeline are we looking at?"
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Be transparent about the phased approach.</strong> Implementation depends on which retailers Pioneer prioritises and how many are already in eStore's coverage.</p>
+                        <p><strong>Response approach:</strong> "For the major platforms - Amazon (US, UK, EU), Best Buy, Walmart, Curry's - we can typically have monitoring live within 2-4 weeks. For specialist car audio retailers that aren't yet in our system, we'd need to onboard those platforms, which typically takes 2-3 months per retailer. We'd recommend starting with the platforms we already cover - which includes your highest-volume channels - and adding specialist retailers in phase two. That way your team gets immediate value while the broader coverage builds."</p>
+                        <p><strong>Key point:</strong> Don't promise full coverage from day one if specialist retailers need onboarding. Set realistic expectations upfront.</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We've had outreach from eStore before - nothing came of it"
+                        <span class="chevron">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Handle this carefully.</strong> Previous outreach in 2024 was mis-targeted (headphones belong to AlphaTheta, not Pioneer). In 2021, it was LATAM/US focused with bounced emails.</p>
+                        <p><strong>Response approach:</strong> Do NOT reference or acknowledge the previous outreach directly. If the contact raises it, respond honestly: "You're right - I'm aware there was previous contact. To be candid, our research at the time wasn't as thorough as it should have been, and the conversation didn't reflect Pioneer's actual business well. This time we've done our homework on Pioneer's car audio aftermarket specifically, and we think there's a more relevant conversation to have about how those products appear across your retail channels."</p>
+                        <p><strong>Critical:</strong> Do not bring up previous outreach proactively. Only address if raised by the contact.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                <ul>
+                    <li><strong>Never dismiss the objection</strong> - acknowledge it genuinely, especially the strategic priority concern</li>
+                    <li><strong>Use evidence and examples</strong> - reference Sennheiser, the 87% repurchase statistic, electronics specification complexity</li>
+                    <li><strong>Offer flexibility</strong> - pilots, audits, phased implementation, no-commitment insights</li>
+                    <li><strong>Be honest about fit and limitations</strong> - geographic coverage, implementation timelines, portfolio scope</li>
+                    <li><strong>Ask questions to understand root concern</strong> - is it budget, timing, strategic priority, or genuine lack of need?</li>
+                    <li><strong>Be prepared to accept "no"</strong> - moderate fit means this may not convert. That's a valid outcome. Don't force it.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>eStore Action Plan - Pioneer Corporation | February 2026</p>
+        <p>Created by James / eStore Business Development</p>
+        <p>DRAFT - requires human review before use</p>
+    </footer>
+
+    <script>
+        // Tab Navigation
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Email Tab Navigation
+        document.querySelectorAll('.email-tabs').forEach(container => {
+            container.querySelectorAll('.email-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const emailNum = this.dataset.email;
+                    const sequence = this.closest('.email-sequence');
+                    
+                    container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    sequence.querySelectorAll('.email-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    sequence.querySelector(`.email-content[data-email="${emailNum}"]`).classList.add('active');
+                });
+            });
+        });
+
+        // Objection Card Toggle
+        function toggleObjection(header) {
+            const card = header.closest('.objection-card');
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
