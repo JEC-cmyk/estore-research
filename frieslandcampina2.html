@@ -1,0 +1,2082 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FrieslandCampina: eStore Strategic Fit Assessment</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --yellow: #ffba1c;
+  --green: #22bb69;
+  --blue-light: #1a8fc4;
+  --blue: #1067db;
+  --red: #f44f2f;
+  --orange: #ff7a00;
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --surface-2: #f9fafb;
+  --surface-3: #f0f1f4;
+  --border: #e2e4ea;
+  --text: #1a1d26;
+  --text-muted: #5c6070;
+  --text-dim: #8b90a0;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --radius-lg: 14px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Figtree', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  padding: 28px 32px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.brand-block h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+.brand-block .subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-weight: 400;
+}
+
+.fit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+.fit-badge.strong {
+  background: rgba(34, 187, 105, 0.12);
+  color: var(--green);
+  border: 1.5px solid rgba(34, 187, 105, 0.3);
+}
+
+.fit-badge .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+.meta-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.meta-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
+}
+
+.meta-chip .icon { font-size: 13px; }
+
+/* Tab Navigation */
+.tab-nav {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tab-nav::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 18px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.tab-btn:hover { color: var(--text); }
+
+.tab-btn.active {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+  font-weight: 600;
+}
+
+.tab-btn .tab-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--surface-3);
+  font-size: 10px;
+  font-weight: 700;
+  margin-right: 6px;
+  color: var(--text-dim);
+}
+
+.tab-btn.active .tab-num {
+  background: rgba(16, 103, 219, 0.1);
+  color: var(--blue);
+}
+
+/* Tab Content */
+.tab-content { display: none; padding: 32px; max-width: 960px; margin: 0 auto; }
+.tab-content.active { display: block; }
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.card-header .icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.card-header h3 {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.card p, .card li {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.card ul, .card ol {
+  padding-left: 18px;
+  margin-top: 8px;
+}
+
+.card li { margin-bottom: 6px; }
+
+/* Assessment Grid */
+.assess-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+@media (max-width: 700px) {
+  .assess-grid { grid-template-columns: 1fr; }
+}
+
+.assess-item {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.assess-item .label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+.assess-item .value {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.assess-item .detail {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.indicator.strong { background: var(--green); }
+.indicator.moderate { background: var(--yellow); }
+.indicator.weak { background: var(--red); }
+
+/* Section Labels */
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+  margin-top: 28px;
+}
+
+.section-label:first-child { margin-top: 0; }
+
+/* Key-Value Rows */
+.kv-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+}
+
+.kv-row:last-child { border-bottom: none; }
+
+.kv-key {
+  font-size: 14px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  min-width: 140px;
+}
+
+.kv-val {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 500;
+  text-align: right;
+}
+
+/* Contact Cards */
+.contact-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.contact-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.contact-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.contact-name {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.contact-role {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.badge.warm { background: rgba(34, 187, 105, 0.12); color: var(--green); border: 1px solid rgba(34, 187, 105, 0.25); }
+.badge.cold { background: rgba(104, 215, 250, 0.1); color: var(--blue-light); border: 1px solid rgba(104, 215, 250, 0.2); }
+.badge.verified { background: rgba(34, 187, 105, 0.1); color: var(--green); border: 1px solid rgba(34, 187, 105, 0.2); }
+.badge.unverified { background: rgba(255, 186, 28, 0.1); color: var(--yellow); border: 1px solid rgba(255, 186, 28, 0.2); }
+.badge.nl { background: rgba(255, 122, 0, 0.1); color: var(--orange); border: 1px solid rgba(255, 122, 0, 0.2); }
+.badge.gb { background: rgba(16, 103, 219, 0.1); color: var(--blue); border: 1px solid rgba(16, 103, 219, 0.2); }
+.badge.skip { background: rgba(244, 79, 47, 0.1); color: var(--red); border: 1px solid rgba(244, 79, 47, 0.2); }
+.badge.exec { background: rgba(139, 144, 160, 0.1); color: var(--text-muted); border: 1px solid var(--border); }
+
+.contact-detail {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-top: 8px;
+}
+
+/* Email Tabs */
+.email-section { margin-bottom: 28px; }
+
+.email-contact-header {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.email-contact-header h4 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.email-subtabs {
+  display: flex;
+  gap: 0;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.email-subtab {
+  flex: 1;
+  padding: 9px 14px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s;
+}
+
+.email-subtab:hover { color: var(--text); background: var(--surface-3); }
+
+.email-subtab.active {
+  color: var(--orange);
+  border-bottom-color: var(--orange);
+  background: var(--surface-2);
+}
+
+.email-body {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 24px;
+  display: none;
+}
+
+.email-body.active { display: block; }
+
+.email-subject {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.email-subject .label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-dim);
+}
+
+.email-subject .val {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.email-timing {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.email-text {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  white-space: pre-line;
+}
+
+.email-text a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.email-text a:hover { text-decoration: underline; }
+
+.email-notes {
+  margin-top: 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+
+.email-notes h5 {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+.email-notes p, .email-notes li {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.email-notes ul { padding-left: 16px; margin-top: 4px; }
+.email-notes li { margin-bottom: 3px; }
+
+/* LinkedIn Section */
+.linkedin-box {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  margin-top: 14px;
+}
+
+.linkedin-box h5 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.linkedin-box p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+
+.linkedin-box p:last-child { margin-bottom: 0; }
+
+/* Objection Cards */
+.objection-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.objection-header {
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.15s;
+}
+
+.objection-header:hover { background: var(--surface-2); }
+
+.objection-header h4 {
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.objection-header .chevron {
+  font-size: 18px;
+  color: var(--text-dim);
+  transition: transform 0.2s;
+}
+
+.objection-card.open .objection-header .chevron { transform: rotate(180deg); }
+
+.objection-body {
+  padding: 0 20px 20px;
+  display: none;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.objection-card.open .objection-body { display: block; }
+
+.objection-body strong { color: var(--text); font-weight: 600; }
+
+/* Disclaimer */
+.disclaimer {
+  background: rgba(255, 122, 0, 0.06);
+  border: 1px solid rgba(255, 122, 0, 0.25);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.disclaimer .icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+.disclaimer p {
+  font-size: 13px;
+  color: #b35600;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* Phase Timeline */
+.phase-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+@media (max-width: 700px) {
+  .phase-timeline { grid-template-columns: 1fr; }
+}
+
+.phase-item {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  position: relative;
+}
+
+.phase-item .phase-num {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.phase-item h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.phase-item p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Tone Guide */
+.tone-guide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 700px) {
+  .tone-guide { grid-template-columns: 1fr; }
+}
+
+.tone-item {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.tone-item .nat {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.tone-item p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* LinkedIn timing */
+.li-timing {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin-bottom: 20px;
+}
+
+.li-timing h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--blue);
+}
+
+.li-timing .opt {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+  align-items: flex-start;
+}
+
+.li-timing .opt-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  min-width: 70px;
+  flex-shrink: 0;
+}
+
+.li-timing .opt-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Content links */
+.content-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.content-link:hover { border-color: var(--yellow); }
+
+.content-link .link-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.content-link .link-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.content-link .link-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+/* Highlight text */
+.hl-green { color: #1a9956; }
+.hl-yellow { color: #c48a00; }
+.hl-blue { color: var(--blue); }
+.hl-orange { color: var(--orange); }
+.hl-red { color: var(--red); }
+
+/* Separator */
+.sep {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 24px 0;
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<div class="header">
+  <div class="header-top">
+    <div class="brand-block">
+      <h1>Royal FrieslandCampina</h1>
+      <div class="subtitle">Strategic Fit Assessment | February 2026</div>
+      <div class="meta-row">
+        <span class="meta-chip"><span class="icon">🏢</span> Dairy / Food & Beverages</span>
+        <span class="meta-chip"><span class="icon">🌍</span> Amersfoort, Netherlands (HQ)</span>
+        <span class="meta-chip"><span class="icon">💰</span> €12.9B revenue</span>
+        <span class="meta-chip"><span class="icon">👥</span> ~19,500 employees</span>
+        <span class="meta-chip"><span class="icon">🏗️</span> Cooperative · ~16,000 member farmers</span>
+      </div>
+    </div>
+    <div class="fit-badge strong"><span class="dot"></span> Strong Fit</div>
+  </div>
+  <nav class="tab-nav">
+    <button class="tab-btn active" data-tab="fit"><span class="tab-num">1</span>Strategic Fit</button>
+    <button class="tab-btn" data-tab="history"><span class="tab-num">2</span>Our History</button>
+    <button class="tab-btn" data-tab="retailers"><span class="tab-num">3</span>Retailer Overview</button>
+    <button class="tab-btn" data-tab="people"><span class="tab-num">4</span>Key People</button>
+    <button class="tab-btn" data-tab="outreach"><span class="tab-num">5</span>Draft Outreach</button>
+    <button class="tab-btn" data-tab="objections"><span class="tab-num">6</span>Objection Handling</button>
+  </nav>
+</div>
+
+<!-- ========== TAB 1: STRATEGIC FIT ========== -->
+<div class="tab-content active" id="tab-fit">
+
+  <div class="section-label">Overall Assessment</div>
+  <div class="card" style="border-left: 3px solid var(--green);">
+    <p style="font-size: 16px; color: var(--text); font-weight: 500; line-height: 1.75;">FrieslandCampina represents a <strong class="hl-green">strong-fit opportunity</strong> for eStore's digital shelf analytics platform, driven by its €12.9 billion revenue, 25+ online retail touchpoints across Europe and Asia, and, critically, <strong>no identifiable current DSA provider</strong>. The combination of a warm existing relationship via Noor Usman, an incoming UK Managing Director seeking early wins, and a newly appointed Chief Business &amp; Digital Solutions Officer creates a compelling engagement window.</p>
+  </div>
+
+  <div class="section-label">Assessment across five data points</div>
+  <div class="assess-grid">
+    <div class="assess-item">
+      <div class="label">Distribution Complexity</div>
+      <div class="value"><span class="indicator strong"></span> Strong</div>
+      <div class="detail">25+ online retailers, multi-channel, Europe-centric. Multiple brands across multiple geographies with varying retailer portfolios per market. Exactly the type of challenge DSA solves.</div>
+    </div>
+    <div class="assess-item">
+      <div class="label">Geographic Alignment</div>
+      <div class="value"><span class="indicator strong"></span> Strong</div>
+      <div class="detail">Dutch HQ, major UK operation, European focus matches eStore footprint. Estimated split: Europe 55–60%, Asia 25–30%, US/Americas 5–8%.</div>
+    </div>
+    <div class="assess-item">
+      <div class="label">DSA Provider Status</div>
+      <div class="value"><span class="indicator strong"></span> Likely Greenfield</div>
+      <div class="detail">No confirmed provider across 16+ targeted searches. Active internal "digital shelf project" confirms need without confirmed vendor. Confidence: Unknown, but strong greenfield indicators.</div>
+    </div>
+    <div class="assess-item">
+      <div class="label">Sector Alignment</div>
+      <div class="value"><span class="indicator strong"></span> Strong</div>
+      <div class="detail">Dairy/food/beverages maps directly to eStore's proven vertical. Danone (direct competitor) is a current client and the single strongest proof point.</div>
+    </div>
+    <div class="assess-item">
+      <div class="label">Relationship Warmth</div>
+      <div class="value"><span class="indicator strong"></span> Warm</div>
+      <div class="detail">Active relationship with Noor Usman (Ecommerce Manager, UK). Engaged on ASDA Xpert use cases. Noor suggested reconnecting at end of Q3 for 2027 planning, which is a clear buying signal.</div>
+    </div>
+    <div class="assess-item">
+      <div class="label">Budget / Timing</div>
+      <div class="value"><span class="indicator moderate"></span> Moderate</div>
+      <div class="detail">2026 budgets tight (Expedition 2030 cost programme). 2027 planning is the realistic window. Optimus ERP (€125–150M) absorbing IT budget.</div>
+    </div>
+    <div class="assess-item">
+      <div class="label">Market Dynamics</div>
+      <div class="value"><span class="indicator moderate"></span> Moderate</div>
+      <div class="detail">Dairy market under pressure (Rabobank: potential "tsunami of milk" in 2026). But digital transformation is a stated CEO priority with Heineken digital commerce credentials.</div>
+    </div>
+    <div class="assess-item">
+      <div class="label">Revenue Scale</div>
+      <div class="value"><span class="indicator strong"></span> Strong</div>
+      <div class="detail">€12.9B revenue, representing significant potential contract value. Post-Milcobel: ~€14B combined entity, one of world's largest dairy cooperatives.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Synthesis &amp; Recommendation</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: rgba(34, 187, 105, 0.12); color: var(--green);">🎯</div>
+      <h3>Approach: Consultative Nurture → Warm Re-engagement Q3 2026</h3>
+    </div>
+    <p>The greenfield DSA opportunity is the most compelling factor. A €12.9 billion company with 25+ online retail touchpoints, an active internal "digital shelf project," and no identifiable DSA provider is rare. Combined with eStore's Danone client relationship (a direct competitor FrieslandCampina benchmarks against), the sector proof point is powerful.</p>
+    <p style="margin-top: 12px;"><strong>Key difficulty factors:</strong> Budget constraints are genuine and structural. Expedition 2030 is squeezing costs across the organisation, the Optimus ERP programme is consuming €125–150M in IT budget, and the dairy market outlook for 2026 is weak. Any pitch must demonstrate clear ROI and cost-efficiency.</p>
+    <p style="margin-top: 12px;"><strong>Multi-threading is critical.</strong> The existing relationship runs through Noor (Ecommerce Manager, UK), a mid-level contact. The deal will require influence from Bob Mulder (UK MD), Gerbrand Hoogvliet (Head of Ecommerce, NL/global), and potentially Kemal Cetin (CBDSO) for budget approval.</p>
+    <div class="phase-timeline">
+      <div class="phase-item">
+        <div class="phase-num" style="color: var(--blue-light);">Phase 1: Now to June 2026</div>
+        <h4>Strategic Nurture</h4>
+        <p>Maintain relationship via Noor with value-add touchpoints. Build contacts with Bob Mulder and Gerbrand Hoogvliet. Do not push for a pitch or demo.</p>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num" style="color: var(--yellow);">Phase 2: Jul–Sep 2026</div>
+        <h4>Consultative Re-engagement</h4>
+        <p>Re-engage per Noor's Q3 guidance. Frame around 2027 planning. Deploy Danone competitive proof point. Multi-threaded conversation.</p>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num" style="color: var(--green);">Phase 3: Oct–Dec 2026</div>
+        <h4>Active Opportunity Development</h4>
+        <p>If Q3 positive, move toward formal proposal for 2027 budget. Target UK pilot expanding to Netherlands and Europe.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Implementation Readiness</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: rgba(255, 186, 28, 0.12); color: var(--yellow);">⏱️</div>
+      <h3>Time-to-Value Estimate</h3>
+    </div>
+    <p><strong>Expected sales cycle:</strong> 6–9 months from Q3 re-engagement to signed deal (targeting Q1/Q2 2027 start).</p>
+    <p style="margin-top: 8px;"><strong>Likely entry point:</strong> UK pilot with Chocomel and YAZOO across major UK grocery e-tailers (Tesco, Sainsbury's, ASDA, Morrisons, Ocado), leveraging existing ASDA Xpert familiarity.</p>
+    <p style="margin-top: 8px;"><strong>Expansion potential:</strong> Netherlands (most mature e-commerce market: Albert Heijn, Jumbo, Picnic), then Belgium (post-Milcobel integration), Germany, and broader Europe. Asia (Friso/Dutch Lady on Lazada, Shopee) is a longer-term opportunity.</p>
+    <p style="margin-top: 8px;"><strong>Complexity factor:</strong> 15+ consumer brands across 12+ European countries. Full deployment would be a significant multi-market, multi-brand contract.</p>
+  </div>
+</div>
+
+<!-- ========== TAB 2: OUR HISTORY ========== -->
+<div class="tab-content" id="tab-history">
+
+  <div class="section-label">Previous Conversations</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: rgba(34, 187, 105, 0.12); color: var(--green);">💬</div>
+      <h3>Existing Warm Relationship</h3>
+    </div>
+    <div class="kv-row">
+      <span class="kv-key">Primary contact</span>
+      <span class="kv-val">Noor Usman, Ecommerce Manager, UK</span>
+    </div>
+    <div class="kv-row">
+      <span class="kv-key">Secondary contact</span>
+      <span class="kv-val">Steve Ring, connected through eStore</span>
+    </div>
+    <div class="kv-row">
+      <span class="kv-key">Recent engagement</span>
+      <span class="kv-val">ASDA Xpert use cases and ROI stories</span>
+    </div>
+    <div class="kv-row">
+      <span class="kv-key">Last signal</span>
+      <span class="kv-val">February 2026: "2026 budgets tight, reconnect end Q3 for 2027 planning"</span>
+    </div>
+    <div class="kv-row">
+      <span class="kv-key">CRM contacts</span>
+      <span class="kv-val">~53 contacts linked to account</span>
+    </div>
+  </div>
+
+  <div class="section-label">HubSpot Status</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: rgba(255, 122, 0, 0.12); color: var(--orange);">📊</div>
+      <h3>Account Intelligence</h3>
+    </div>
+    <p>FrieslandCampina is not a current or lapsed eStore client. ~53 contacts exist in the CRM, suggesting historical touchpoints beyond Noor and Steve. The account has active engagement history centred on ASDA Xpert content.</p>
+    <p style="margin-top: 8px;"><strong>Status:</strong> Prospect, warm, with defined re-engagement window (Q3 2026).</p>
+  </div>
+
+  <div class="section-label">Competitor Intelligence</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: rgba(244, 79, 47, 0.12); color: var(--red);">🔍</div>
+      <h3>DSA Provider Analysis</h3>
+    </div>
+    <div class="kv-row">
+      <span class="kv-key">Current DSA provider</span>
+      <span class="kv-val"><span class="hl-green">None identified</span>, likely greenfield</span>
+    </div>
+    <div class="kv-row">
+      <span class="kv-key">Confidence level</span>
+      <span class="kv-val">Unknown, but strong greenfield indicators</span>
+    </div>
+    <div class="kv-row">
+      <span class="kv-key">Sources checked</span>
+      <span class="kv-val">16+ DSA providers (Profitero, CommerceIQ, e.fundamentals, Brand Nudge, Salsify, DataWeave, Syndigo, Edge by Ascential, Stackline, Intellibrand, Brandview, Clavis Insight, Mindsite, Pacvue, Perpetua, Analytic Index)</span>
+    </div>
+    <p style="margin-top: 12px;"><strong>Key finding:</strong> A former Senior E-Commerce Manager, Liedeke Jol-Smith, described being "part of the digital shelf project to increase online visibility and sales", confirming the company recognises the need for digital shelf capabilities but may not have formalised a vendor relationship.</p>
+    <p style="margin-top: 8px;"><strong>Current tech stack:</strong> Databricks + Microsoft Azure data platform (built with EY), Power BI dashboards, MicroStrategy, Dataiku, Salesforce B2B Commerce Cloud, SAP CRM. They may be attempting to build in-house e-commerce analytics using general BI tools rather than specialised DSA platforms.</p>
+    <p style="margin-top: 8px;"><strong>Risk factor:</strong> Gerbrand Hoogvliet (Head of Ecommerce) engaged with a Profitero employee's LinkedIn post about retail media competition, suggesting awareness of the DSA space but not necessarily a customer relationship.</p>
+  </div>
+
+  <div class="section-label">Known Blockers</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: rgba(255, 186, 28, 0.12); color: var(--yellow);">⚠️</div>
+      <h3>Factors to Navigate</h3>
+    </div>
+    <ul>
+      <li><strong>Expedition 2030 cost discipline:</strong> €400–500M annual savings target. €315M saved in 2024, €132M in H1 2025. The company is in aggressive efficiency mode.</li>
+      <li><strong>Optimus ERP programme:</strong> €125–150M transformation absorbing IT and digital budget.</li>
+      <li><strong>Milcobel merger integration:</strong> Effective January 2026; organisational focus is on integration.</li>
+      <li><strong>Dairy market headwinds:</strong> Rabobank forecasts a potential "tsunami of milk" in 2026 with margin pressure.</li>
+      <li><strong>Wipro IT deal:</strong> 5.5-year managed services partnership (January 2025); new tools may need to fit within this framework.</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Content to Reference</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: rgba(16, 103, 219, 0.12); color: var(--blue);">📎</div>
+      <h3>Sector-Specific Content for Outreach</h3>
+    </div>
+    <p style="margin-bottom: 12px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dim);">Tier 1: Highest Relevance (Use Immediately)</p>
+    <a class="content-link" href="#">
+      <span class="link-icon">📄</span>
+      <div>
+        <div class="link-text">ASDA Xpert Case Studies</div>
+        <div class="link-desc">Already in play with Noor Usman. Foundation of the existing relationship. Share updated ASDA insights around category performance, search share, and availability.</div>
+      </div>
+    </a>
+    <a class="content-link" href="#">
+      <span class="link-icon">📄</span>
+      <div>
+        <div class="link-text">Danone Case Studies / References</div>
+        <div class="link-desc">Most powerful proof point. FrieslandCampina competes directly with Danone across European dairy, yoghurt, and infant nutrition. Deploy strategically during Q3 engagement.</div>
+      </div>
+    </a>
+    <p style="margin-top: 16px; margin-bottom: 12px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dim);">Tier 2: Strong Relevance (Use in Q3 Re-engagement)</p>
+    <a class="content-link" href="https://estorebrands.com/ignite/best-digital-shelf-analytics-tools-for-beverages-alcohol-brands">
+      <span class="link-icon">🔗</span>
+      <div>
+        <div class="link-text">Beverages Sector Content</div>
+        <div class="link-desc">Digital shelf challenges for beverages brands. Kraft Heinz and Orkla references demonstrate breadth.</div>
+      </div>
+    </a>
+    <a class="content-link" href="https://estorebrands.com/beverages-alcohol">
+      <span class="link-icon">🔗</span>
+      <div>
+        <div class="link-text">Beverages & Alcohol Sector Page</div>
+        <div class="link-desc">European market expertise content. Demonstrates eStore's strength across European e-tailers.</div>
+      </div>
+    </a>
+    <a class="content-link" href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content">
+      <span class="link-icon">🔗</span>
+      <div>
+        <div class="link-text">Content Benchmark: Competitive Intelligence</div>
+        <div class="link-desc">Compare digital shelf performance against competitors systematically. Relevant for multi-brand portfolios.</div>
+      </div>
+    </a>
+    <p style="margin-top: 16px; margin-bottom: 12px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dim);">Tier 3: Supporting Content (Use Selectively)</p>
+    <a class="content-link" href="#">
+      <span class="link-icon">📄</span>
+      <div>
+        <div class="link-text">ROI & Cost-Efficiency Stories</div>
+        <div class="link-desc">Frame DSA as a tool that pays for itself through improved conversion, reduced out-of-stocks, and better promotional effectiveness. Essential given Expedition 2030 cost discipline.</div>
+      </div>
+    </a>
+    <a class="content-link" href="#">
+      <span class="link-icon">📄</span>
+      <div>
+        <div class="link-text">Quick-Commerce & Emerging Channel Content</div>
+        <div class="link-desc">FrieslandCampina is investing in Picnic, GoPuff, Deliveroo as growth channels. Differentiate from competitors focused only on traditional grocery e-commerce.</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="section-label">Strategic Implications</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: rgba(34, 187, 105, 0.12); color: var(--green);">💡</div>
+      <h3>What This Means for Outreach</h3>
+    </div>
+    <p>The warm relationship through Noor removes the cold-outreach barrier entirely for the UK thread. The ~53 CRM contacts suggest historical engagement beyond the two active contacts, which may surface additional internal champions.</p>
+    <p style="margin-top: 10px;">The absence of a confirmed DSA provider, combined with the internal "digital shelf project," creates a rare greenfield opportunity. The primary challenge is not competition from incumbent tools; it is timing and budget. The strategy should respect the Q3 re-engagement timing whilst using the nurture period to build multi-threaded relationships.</p>
+    <p style="margin-top: 10px;">The <strong>Danone competitive proof point</strong> is the single strongest card in the deck and should be deployed strategically during the Q3 engagement window, not wasted during the nurture phase.</p>
+  </div>
+</div>
+
+<!-- ========== TAB 3: RETAILER OVERVIEW ========== -->
+<div class="tab-content" id="tab-retailers">
+
+  <div class="section-label">High-Level Retailer Summary</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: rgba(104, 215, 250, 0.12); color: var(--blue-light);">🛒</div>
+      <h3>25+ Online Retail Touchpoints</h3>
+    </div>
+    <div class="assess-grid">
+      <div class="assess-item">
+        <div class="label">UK Online Grocery</div>
+        <div class="value" style="font-size: 14px;">11+ retailers</div>
+        <div class="detail">Tesco, Sainsbury's, ASDA, Morrisons, Ocado, Amazon UK, Co-op, Waitrose, Iceland, Aldi, Costco UK. Chocomel and YAZOO have broad UK online availability.</div>
+      </div>
+      <div class="assess-item">
+        <div class="label">UK Quick-Commerce</div>
+        <div class="value" style="font-size: 14px;">4+ platforms</div>
+        <div class="detail">Deliveroo, Just Eat, Uber Eats, GoPuff. Impulse occasion channel for Chocomel.</div>
+      </div>
+      <div class="assess-item">
+        <div class="label">Netherlands / Benelux</div>
+        <div class="value" style="font-size: 14px;">3+ major e-tailers</div>
+        <div class="detail">Albert Heijn, Jumbo, Picnic. Full portfolio: Campina, Chocomel, Optimel, Mona, Valess, Vifit. CeCemel across Belgian retailers.</div>
+      </div>
+      <div class="assess-item">
+        <div class="label">Germany</div>
+        <div class="value" style="font-size: 14px;">2+ retailers</div>
+        <div class="detail">REWE, Edeka stock Valess and Chocomel. (Landliebe was sold to Müller in 2023.)</div>
+      </div>
+      <div class="assess-item">
+        <div class="label">Asia</div>
+        <div class="value" style="font-size: 14px;">5+ platforms</div>
+        <div class="detail">Lazada (SG, MY), Shopee (SG, MY), HKTVmall (HK). Friso D2C shops in Singapore and Hong Kong with subscription models.</div>
+      </div>
+      <div class="assess-item">
+        <div class="label">US / Americas</div>
+        <div class="value" style="font-size: 14px;">Limited</div>
+        <div class="detail">Specialty cheese (Frico, Parrano) and condensed milk through Amazon.com and specialty retailers. US base: Paramus, NJ.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Geographic Split of Online Presence</div>
+  <div class="card">
+    <div style="display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap;">
+      <span style="background: rgba(34, 187, 105, 0.15); color: var(--green); padding: 4px 14px; border-radius: 100px; font-size: 14px; font-weight: 600;">Europe 55–60%</span>
+      <span style="background: rgba(255, 186, 28, 0.12); color: var(--yellow); padding: 4px 14px; border-radius: 100px; font-size: 14px; font-weight: 600;">Asia 25–30%</span>
+      <span style="background: rgba(139, 144, 160, 0.12); color: var(--text-muted); padding: 4px 14px; border-radius: 100px; font-size: 14px; font-weight: 600;">US/Americas 5–8%</span>
+      <span style="background: rgba(139, 144, 160, 0.12); color: var(--text-muted); padding: 4px 14px; border-radius: 100px; font-size: 14px; font-weight: 600;">Africa/ME 5–8%</span>
+    </div>
+    <p>This aligns strongly with eStore's European geographic strength. The Europe-heavy distribution (55–60%) is ideal. Asia represents a secondary growth opportunity. The US presence is limited and should not be oversold.</p>
+  </div>
+
+  <div class="section-label">Notable Patterns</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: rgba(34, 187, 105, 0.12); color: var(--green);">✅</div>
+      <h3>Strengths</h3>
+    </div>
+    <ul>
+      <li><strong>Strong UK presence:</strong> 11+ online retailers plus 4+ quick-commerce platforms. Chocomel and YAZOO are the flagship UK brands with broad availability.</li>
+      <li><strong>Netherlands is the most mature e-commerce market:</strong> Albert Heijn, Jumbo, Picnic with full portfolio. Targeted €150M in Dutch online revenue.</li>
+      <li><strong>Multi-channel complexity:</strong> Traditional grocery, quick-commerce, D2C (Friso), and B2B (Debic). Exactly the challenge that benefits from centralised DSA.</li>
+      <li><strong>Active e-commerce growth mandate:</strong> CEO has publicly targeted a €1 billion global online business.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: rgba(255, 186, 28, 0.12); color: var(--yellow);">⚠️</div>
+      <h3>Critical Gaps &amp; Considerations</h3>
+    </div>
+    <ul>
+      <li><strong>US presence is limited:</strong> Specialty cheese and condensed milk only. Do not position eStore as a US solution for this account.</li>
+      <li><strong>B2B segment (Debic, Professional):</strong> Foodservice/B2B adds monitoring complexity but is a different use case from consumer DSA.</li>
+      <li><strong>Post-Milcobel expansion:</strong> Belgian retailer coverage is growing, with new brands and platforms to integrate. Content standards may not yet be aligned.</li>
+      <li><strong>E-commerce leadership centralised in Amersfoort:</strong> Global strategy from HQ, regional execution. UK team operates with some autonomy but budget decisions escalate to Netherlands.</li>
+    </ul>
+  </div>
+
+  <div class="section-label">Key Brands to Track</div>
+  <div class="card">
+    <div style="overflow-x: auto;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+        <thead>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <th style="text-align: left; padding: 8px 12px; color: var(--text-dim); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Brand</th>
+            <th style="text-align: left; padding: 8px 12px; color: var(--text-dim); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Primary Markets</th>
+            <th style="text-align: left; padding: 8px 12px; color: var(--text-dim); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Segment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 8px 12px; font-weight: 500; color: var(--text);">Chocomel / CeCemel</td><td style="padding: 8px 12px; color: var(--text-muted);">UK, Netherlands, Belgium, Germany</td><td style="padding: 8px 12px; color: var(--text-muted);">B2C consumer</td></tr>
+          <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 8px 12px; font-weight: 500; color: var(--text);">YAZOO</td><td style="padding: 8px 12px; color: var(--text-muted);">UK</td><td style="padding: 8px 12px; color: var(--text-muted);">B2C consumer</td></tr>
+          <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 8px 12px; font-weight: 500; color: var(--text);">Campina</td><td style="padding: 8px 12px; color: var(--text-muted);">Netherlands, Belgium</td><td style="padding: 8px 12px; color: var(--text-muted);">B2C consumer</td></tr>
+          <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 8px 12px; font-weight: 500; color: var(--text);">Optimel</td><td style="padding: 8px 12px; color: var(--text-muted);">Netherlands</td><td style="padding: 8px 12px; color: var(--text-muted);">B2C consumer</td></tr>
+          <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 8px 12px; font-weight: 500; color: var(--text);">Friso</td><td style="padding: 8px 12px; color: var(--text-muted);">China, Singapore, HK, Vietnam, Malaysia</td><td style="padding: 8px 12px; color: var(--text-muted);">B2C infant nutrition</td></tr>
+          <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 8px 12px; font-weight: 500; color: var(--text);">Dutch Lady</td><td style="padding: 8px 12px; color: var(--text-muted);">Malaysia, Vietnam, HK, Philippines</td><td style="padding: 8px 12px; color: var(--text-muted);">B2C consumer</td></tr>
+          <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 8px 12px; font-weight: 500; color: var(--text);">Valess</td><td style="padding: 8px 12px; color: var(--text-muted);">Netherlands, Germany, Europe</td><td style="padding: 8px 12px; color: var(--text-muted);">B2C plant-based</td></tr>
+          <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 8px 12px; font-weight: 500; color: var(--text);">Peak / Three Crowns</td><td style="padding: 8px 12px; color: var(--text-muted);">Nigeria, West Africa</td><td style="padding: 8px 12px; color: var(--text-muted);">B2C consumer</td></tr>
+          <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 8px 12px; font-weight: 500; color: var(--text);">Frico / Parrano</td><td style="padding: 8px 12px; color: var(--text-muted);">US, Europe</td><td style="padding: 8px 12px; color: var(--text-muted);">B2C cheese</td></tr>
+          <tr><td style="padding: 8px 12px; font-weight: 500; color: var(--text);">Debic</td><td style="padding: 8px 12px; color: var(--text-muted);">Europe-wide</td><td style="padding: 8px 12px; color: var(--text-muted);">B2B professional</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-label">Implementation Note</div>
+  <div class="card" style="border-left: 3px solid var(--blue-light);">
+    <p><strong>Recommended entry point:</strong> UK pilot with Chocomel and YAZOO across 11+ UK online grocery retailers, leveraging existing ASDA Xpert familiarity. Expand to Netherlands (Albert Heijn, Jumbo, Picnic) in phase two, then Belgium post-Milcobel integration. A full European deployment covering all 25+ online touchpoints across 12+ countries represents significant contract value.</p>
+  </div>
+</div>
+
+<!-- ========== TAB 4: KEY PEOPLE ========== -->
+<div class="tab-content" id="tab-people">
+
+  <div class="section-label">Historical Contacts: Who We've Spoken To</div>
+
+  <div class="contact-card">
+    <div class="contact-top">
+      <div class="contact-avatar" style="background: rgba(34, 187, 105, 0.15); color: var(--green);">NU</div>
+      <div>
+        <div class="contact-name">Noor Usman <span class="badge warm">Warm</span> <span class="badge verified">✓ Verified</span> <span class="badge gb">🇬🇧 British</span></div>
+        <div class="contact-role">Ecommerce Manager, FrieslandCampina UK</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <strong>Primary existing contact.</strong> Noor knows eStore and has engaged on ASDA Xpert use cases and ROI stories. In February 2026, she indicated 2026 budgets are tight and suggested reconnecting at end of Q3 for 2027 planning. This is a clear buying signal with defined timing. This is relationship maintenance, not cold outreach.
+    </div>
+    <div class="contact-detail" style="margin-top: 8px;">
+      <strong>Tone guidance:</strong> Warm, familiar, peer-to-peer. She knows who you are, so no need for formal introductions.
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <div class="contact-top">
+      <div class="contact-avatar" style="background: rgba(104, 215, 250, 0.12); color: var(--blue-light);">SR</div>
+      <div>
+        <div class="contact-name">Steve Ring <span class="badge warm">Warm</span></div>
+        <div class="contact-role">Connected through eStore</div>
+      </div>
+    </div>
+    <div class="contact-detail">Secondary contact. Connected through eStore. Exact role and current engagement level should be verified in CRM.</div>
+  </div>
+
+  <div class="section-label">Primary Targets: Operational Decision-Makers</div>
+
+  <div class="contact-card">
+    <div class="contact-top">
+      <div class="contact-avatar" style="background: rgba(255, 122, 0, 0.15); color: var(--orange);">GH</div>
+      <div>
+        <div class="contact-name">Gerbrand Hoogvliet <span class="badge cold">Cold</span> <span class="badge unverified">⚠️ Verify</span> <span class="badge nl">🇳🇱 Dutch</span></div>
+        <div class="contact-role">Head of Ecommerce, FrieslandCampina (Netherlands)</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <strong>The single most relevant operational contact.</strong> He owns digital shelf execution, eCommerce KPIs, and online visibility for Consumer Dairy Netherlands. Manages partnerships with Albert Heijn, Jumbo, and PLUS. His LinkedIn activity reveals direct engagement with Profitero content on retail media competition, indicating he is aware of and interested in the DSA space. Appeared in a podcast (Episode 211) discussing FrieslandCampina's e-commerce approach.
+    </div>
+    <div class="contact-detail" style="margin-top: 8px;">
+      <strong>Outreach hook:</strong> Reference the retail media competition trend on Dutch platforms (matches his LinkedIn interests). Position eStore's analytics as a way to operationalise competitive insights.
+    </div>
+    <div class="contact-detail" style="margin-top: 8px;">
+      <strong>Tone guidance:</strong> Dutch business culture values getting to the point. Lead with insight, not pleasantries. Use "Beste" / "Met vriendelijke groet" as cultural signal.
+    </div>
+    <div class="contact-detail" style="margin-top: 6px; font-size: 13px;">
+      <span style="color: var(--text-dim);">LinkedIn:</span> <span style="color: var(--blue-light);">linkedin.com/in/gerbrandhoogvliet/</span>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <div class="contact-top">
+      <div class="contact-avatar" style="background: rgba(16, 103, 219, 0.15); color: var(--blue);">BM</div>
+      <div>
+        <div class="contact-name">Bob Mulder <span class="badge cold">Cold</span> <span class="badge unverified">⚠️ Verify</span> <span class="badge nl">🇳🇱 Dutch, UK-based</span></div>
+        <div class="contact-role">Managing Director UK & Ireland, FrieslandCampina</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      Full P&amp;L accountability for UK &amp; Ireland. Replaced Will Jones, reports to Dustin Woodward (President, Europe). Appointed effective January 1, 2026 (~6 weeks in role). Previously Sales Director for Consumer Dairy Netherlands (~3 years), the market where FrieslandCampina's e-commerce is most mature. ~8 years at FrieslandCampina with prior experience at Hero, Euroma, and Unilever.
+    </div>
+    <div class="contact-detail" style="margin-top: 8px;">
+      <strong>Outreach hook:</strong> Welcome him to the UK role. Reference the ASDA Xpert work already underway with his team. Connect digital shelf analytics to his mandate for UK innovation and expansion. His Netherlands experience means he understands the e-commerce maturity gap between NL and UK.
+    </div>
+    <div class="contact-detail" style="margin-top: 8px;">
+      <strong>Tone guidance:</strong> Professional, structured, respectful of MD seniority. European directness with professional courtesy.
+    </div>
+    <div class="contact-detail" style="margin-top: 6px; font-size: 13px;">
+      <span style="color: var(--text-dim);">LinkedIn:</span> <span style="color: var(--blue-light);">nl.linkedin.com/in/bob-mulder-0481796</span>
+    </div>
+  </div>
+
+  <div class="section-label">Secondary Targets: Strategic Influencers</div>
+
+  <div class="contact-card">
+    <div class="contact-top">
+      <div class="contact-avatar" style="background: rgba(255, 186, 28, 0.12); color: var(--yellow);">KC</div>
+      <div>
+        <div class="contact-name">Kemal Cetin <span class="badge cold">Cold</span> <span class="badge exec">Executive</span></div>
+        <div class="contact-role">Chief Business &amp; Digital Solutions Officer, Amersfoort, Netherlands (HQ)</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      The <strong>most senior digital executive</strong> at FrieslandCampina. 7+ years at the company (CIO → CTO → CBDSO, appointed March 2025). Pre-FrieslandCampina: VP Global Business Services (Commercial, Marketing, Analytics) at Diageo. Also held roles at Coca-Cola Enterprises and Bain &amp; Company. MBA in Supply Chain Management &amp; Marketing Technology (Michigan State). Oversees Wipro partnership, Optimus ERP programme, and digital transformation agenda. As the C-suite sponsor for any digital analytics investment, reaching Cetin would be the path to budget approval for a significant DSA deployment.
+    </div>
+    <div class="contact-detail" style="margin-top: 8px;">
+      <strong>Outreach hook:</strong> Reference his Diageo analytics background. Position DSA as complementary to the Databricks/Azure data platform. Frame within Expedition 2030's objective of "winning in the market" through better digital intelligence.
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <div class="contact-top">
+      <div class="contact-avatar" style="background: rgba(139, 144, 160, 0.12); color: var(--text-muted);">JX</div>
+      <div>
+        <div class="contact-name">Jie Xue <span class="badge cold">Cold</span> <span class="badge unverified">⚠️ Medium Confidence</span></div>
+        <div class="contact-role">Reported Chief Digital Officer, Amersfoort (per ZoomInfo)</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      Listed as CDO on ZoomInfo. Previously Digital Marketing Officer at FrieslandCampina China with prior roles at Abbott, General Mills, J&amp;J, and PepsiCo. Exact current scope (global vs. regional) unclear. Role may overlap with or report into Kemal Cetin's remit. Verify before including in outreach sequence.
+    </div>
+  </div>
+
+  <div class="section-label">Executive Context: Reference Only</div>
+
+  <div class="contact-card" style="opacity: 0.7;">
+    <div class="contact-top">
+      <div class="contact-avatar" style="background: var(--surface-3); color: var(--text-dim);">DW</div>
+      <div>
+        <div class="contact-name">Dustin Woodward <span class="badge unverified">⚠️ Verify</span> <span class="badge exec">Executive</span></div>
+        <div class="contact-role">President, FrieslandCampina Europe, Netherlands/Europe (HQ-based)</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      Oversees all European consumer business operations including UK&amp;I, Netherlands, Belgium, and Southwest Europe. Bob Mulder reports directly to him. Would approve any cross-market digital commerce investments. <strong>Consider holding outreach until Phase 2 (Q3)</strong> once Bob and Gerbrand have engaged.
+    </div>
+  </div>
+
+  <div class="contact-card" style="opacity: 0.7;">
+    <div class="contact-top">
+      <div class="contact-avatar" style="background: var(--surface-3); color: var(--text-dim);">JK</div>
+      <div>
+        <div class="contact-name">Jan Derck van Karnebeek <span class="badge exec">CEO (Reference)</span></div>
+        <div class="contact-role">CEO, Royal FrieslandCampina</div>
+      </div>
+    </div>
+    <div class="contact-detail">
+      Not a direct outreach target. However, his career provides a powerful reference: at Heineken, he "shaped and implemented 360-degree digital commerce strategy &amp; operations" and "launched successful e-commerce platforms." His hire signals the board explicitly prioritised digital commerce expertise at CEO level.
+    </div>
+  </div>
+</div>
+
+<!-- ========== TAB 5: DRAFT OUTREACH ========== -->
+<div class="tab-content" id="tab-outreach">
+
+  <div class="disclaimer">
+    <span class="icon">⚠️</span>
+    <p>These emails and LinkedIn messages are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Unverified contacts (⚠️) must be confirmed on LinkedIn before outreach proceeds.</p>
+  </div>
+
+  <div class="section-label">Nationality-Based Tone Guidance</div>
+  <div class="tone-guide">
+    <div class="tone-item">
+      <div class="nat" style="color: var(--blue);">🇬🇧 British Contacts (Noor Usman)</div>
+      <p>Warm, familiar, peer-to-peer. Noor is an existing contact, so no formal introductions needed. Conversational tone, casual sign-offs.</p>
+    </div>
+    <div class="tone-item">
+      <div class="nat" style="color: var(--orange);">🇳🇱 Dutch Contacts (Gerbrand, Bob)</div>
+      <p>Professional, direct, substantive. Dutch business culture values getting to the point. Lead with insight, not pleasantries. "Beste" / "Met vriendelijke groet" are optional cultural signals. Bob uses "Dear" / "Best regards" as a UK-based Dutchman.</p>
+    </div>
+    <div class="tone-item">
+      <div class="nat" style="color: var(--text-muted);">🏢 Senior Executives (Dustin)</div>
+      <p>Strategic, concise, pan-European framing. Do not waste their time with tactical detail. Frame digital shelf analytics as a strategic question, not a tool pitch.</p>
+    </div>
+    <div class="tone-item">
+      <div class="nat" style="color: var(--yellow);">📋 General Principles</div>
+      <p>All emails: Tuesday or Wednesday, 9:00–10:30am. 5–7 days between emails. No more than 3 emails per contact. Always end with a genuinely curious diagnostic question.</p>
+    </div>
+  </div>
+
+  <div class="section-label">LinkedIn Timing Options</div>
+  <div class="li-timing">
+    <h4>📲 LinkedIn Coordination Strategy</h4>
+    <div class="opt">
+      <span class="opt-label">Option A:</span>
+      <span class="opt-desc">Send connection request 2–3 days before Email 1 (warms the ground, name recognition before email arrives)</span>
+    </div>
+    <div class="opt">
+      <span class="opt-label">Option B:</span>
+      <span class="opt-desc">Send LinkedIn message alongside Email 2 (reinforces core message via different channel)</span>
+    </div>
+    <div class="opt">
+      <span class="opt-label">Option C:</span>
+      <span class="opt-desc">Send LinkedIn message after Email 1 if no response (different channel to cut through)</span>
+    </div>
+  </div>
+
+  <!-- ===== CONTACT 1: NOOR ===== -->
+  <div class="section-label">Contact 1: Noor Usman, Ecommerce Manager, UK</div>
+  <div class="email-section" id="noor-emails">
+    <div class="email-contact-header">
+      <h4>Noor Usman <span class="badge warm">Warm</span> <span class="badge gb">🇬🇧</span></h4>
+      <span style="font-size: 13px; color: var(--text-dim);">Relationship maintenance, not cold outreach</span>
+    </div>
+    <div class="email-subtabs" data-group="noor">
+      <button class="email-subtab active" data-email="noor-1">Email 1</button>
+      <button class="email-subtab" data-email="noor-2">Email 2</button>
+      <button class="email-subtab" data-email="noor-3">Email 3</button>
+      <button class="email-subtab" data-email="noor-li">LinkedIn</button>
+    </div>
+
+    <div class="email-body active" id="noor-1">
+      <div class="email-subject">
+        <span class="label">Subject:</span>
+        <span class="val">Something from the food and beverages space</span>
+      </div>
+      <div class="email-timing">Send timing: Tuesday or Wednesday, 9:30–10:30am</div>
+      <div class="email-text">Hi Noor,
+
+Hope the year has started well.
+
+I wanted to share something we have been seeing across food and beverages brands on the digital shelf that I thought might be relevant for Chocomel and YAZOO. We work with European food and beverages brands like Kraft Heinz and Orkla, and one pattern that keeps coming up is how search position shifts after promotional periods on UK grocery sites. Brands invest heavily in driving traffic during promotions, but the organic search rankings often slip back within days once the promotional spend stops - and the competitors who maintained consistent content and availability during that same period end up holding the higher positions.
+
+It is the kind of thing that is hard to spot without systematic tracking across multiple retailers, which is partly why I thought of you.
+
+We have put together a broader piece on digital shelf challenges specific to beverages brands that goes into more detail on this: <a href="https://estorebrands.com/ignite/best-digital-shelf-analytics-tools-for-beverages-alcohol-brands">https://estorebrands.com/ignite/best-digital-shelf-analytics-tools-for-beverages-alcohol-brands</a>
+
+How is the ASDA Xpert work going on your side?
+
+Best,
+[SENDER NAME]</div>
+      <div class="email-notes">
+        <h5>Customisation Notes</h5>
+        <ul>
+          <li>If there are specific ASDA Xpert developments to reference, add them</li>
+          <li>The search position/promotional pattern is a general DSA observation; adapt if you have specific data</li>
+        </ul>
+      </div>
+      <div class="email-notes" style="margin-top: 8px;">
+        <h5>Strategy Notes</h5>
+        <p>This email maintains the warm relationship without pushing. The research finding (post-promotional search position decay) is relevant to FMCG brands and gives Noor something to think about. The ASDA Xpert question keeps the existing thread alive. The content link is positioned as a resource, not required reading.</p>
+      </div>
+    </div>
+
+    <div class="email-body" id="noor-2">
+      <div class="email-subject">
+        <span class="label">Subject:</span>
+        <span class="val">How dairy brands approach the digital shelf differently across markets</span>
+      </div>
+      <div class="email-timing">Send timing: Tuesday or Wednesday, 9:30–10:30am (5–7 days after Email 1)</div>
+      <div class="email-text">Hi Noor,
+
+Following on from my last note - I have been looking at how European food and beverages brands manage the digital shelf differently across markets, and there is an interesting gap between the Netherlands and the UK.
+
+Dutch online grocery is further along in some respects - platforms like Albert Heijn and Jumbo have more sophisticated product content requirements and search algorithms than most UK grocery e-tailers. Brands that sell across both markets often find that what works on Dutch platforms does not translate directly to Tesco or Sainsbury's, and vice versa. The content standards, search logic, and promotional mechanics are different enough that a brand like FrieslandCampina - with Chocomel performing in both markets - would see quite different digital shelf performance patterns depending on the retailer.
+
+We see this with other European food and beverages clients. The ones that track performance systematically across markets tend to spot these gaps earlier and adapt faster than those relying on market-by-market spreadsheets.
+
+I mention it because FrieslandCampina operates across both markets with the same brands, and the performance differences can be significant. It is the kind of thing that is easy to miss without a structured way of comparing across retailers and geographies.
+
+Curious whether you track performance across UK retailers in any structured way at the moment, or whether it is more ad hoc?
+
+Best,
+[SENDER NAME]</div>
+      <div class="email-notes">
+        <h5>Customisation Notes</h5>
+        <ul>
+          <li>The NL vs UK digital shelf maturity gap is a real pattern; adapt if you have specific examples</li>
+          <li>Kraft Heinz and Orkla are confirmed current eStore clients and safe to name</li>
+          <li>If Noor has mentioned her reporting or tracking methods previously, reference that</li>
+        </ul>
+      </div>
+      <div class="email-notes" style="margin-top: 8px;">
+        <h5>Strategy Notes</h5>
+        <p>This email adds genuine new value. The cross-market performance gap is directly relevant to FrieslandCampina's UK/NL operations. The closing question is diagnostic: it helps us understand their current capability without being presumptuous. The implied competitor reference (Danone) plants a seed.</p>
+      </div>
+    </div>
+
+    <div class="email-body" id="noor-3">
+      <div class="email-subject">
+        <span class="label">Subject:</span>
+        <span class="val">Quick commerce and the digital shelf - a different challenge</span>
+      </div>
+      <div class="email-timing">Send timing: Tuesday or Wednesday, 9:30–10:30am (5–7 days after Email 2)</div>
+      <div class="email-text">Hi Noor,
+
+One thing I have not raised before that I think is worth mentioning. FrieslandCampina has been building presence on quick-commerce platforms - GoPuff, Deliveroo, and similar - alongside the traditional grocery e-tailers. The digital shelf dynamics on these platforms are quite different from Tesco or ASDA.
+
+Search works differently, product content requirements are more compressed, and the competitive set changes - on a quick-commerce platform, Chocomel is competing for impulse purchases against a much broader set of snack and drink brands rather than just the dairy chiller aisle. The way a product appears, the accuracy of the description, and whether it shows up in the right category all matter, but the mechanics are not the same as on a full grocery site.
+
+It is an area where most food and beverages brands are still figuring out their approach, partly because the platforms themselves are still maturing. But for a brand like Chocomel that has strong impulse appeal, getting the quick-commerce digital shelf right early could be a meaningful advantage.
+
+I would be curious to know whether FrieslandCampina thinks about quick-commerce platforms as a separate digital shelf challenge, or whether they are managed as part of the broader online grocery approach?
+
+Best,
+[SENDER NAME]</div>
+      <div class="email-notes">
+        <h5>Customisation Notes</h5>
+        <ul>
+          <li>FrieslandCampina's quick-commerce presence (GoPuff, Deliveroo) is confirmed in the research</li>
+          <li>Chocomel's impulse-purchase positioning is well-documented. This is a genuine strategic question</li>
+          <li>If eStore has specific quick-commerce capabilities or insights, weave them in</li>
+        </ul>
+      </div>
+      <div class="email-notes" style="margin-top: 8px;">
+        <h5>Strategy Notes</h5>
+        <p>This email opens an entirely new angle (quick commerce) that was not covered in Emails 1 or 2. It is relevant because FrieslandCampina is actively investing in these channels. The question at the end is genuinely diagnostic: we want to understand their organisational approach.</p>
+      </div>
+    </div>
+
+    <div class="email-body" id="noor-li">
+      <div class="linkedin-box">
+        <h5>📲 LinkedIn: Noor Usman</h5>
+        <p><strong>Connection request note:</strong> N/A (assume already connected) given existing warm relationship.</p>
+      </div>
+      <div class="linkedin-box" style="margin-top: 10px;">
+        <h5>💬 LinkedIn Message (send alongside Email 2, Option B)</h5>
+        <p>Hi Noor - I sent you a note about how digital shelf patterns differ between NL and UK grocery platforms. Curious whether you have noticed similar gaps across the markets FrieslandCampina operates in?</p>
+      </div>
+      <div class="email-notes" style="margin-top: 14px;">
+        <h5>Strategy Notes</h5>
+        <ul>
+          <li>Option B recommended: send alongside Email 2 to reinforce the cross-market angle</li>
+          <li>Noor is an existing contact, so LinkedIn serves as a casual nudge rather than a cold introduction</li>
+          <li>Keep it conversational; she knows who you are</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONTACT 2: BOB ===== -->
+  <div class="section-label">Contact 2: Bob Mulder, Managing Director UK & Ireland</div>
+  <div class="email-section" id="bob-emails">
+    <div class="email-contact-header">
+      <h4>Bob Mulder <span class="badge cold">Cold</span> <span class="badge unverified">⚠️ Verify</span> <span class="badge nl">🇳🇱</span></h4>
+      <span style="font-size: 13px; color: var(--text-dim);">Cold: introduce via existing team relationship</span>
+    </div>
+    <div class="email-subtabs" data-group="bob">
+      <button class="email-subtab active" data-email="bob-1">Email 1</button>
+      <button class="email-subtab" data-email="bob-2">Email 2</button>
+      <button class="email-subtab" data-email="bob-3">Email 3</button>
+      <button class="email-subtab" data-email="bob-li">LinkedIn</button>
+    </div>
+
+    <div class="email-body active" id="bob-1">
+      <div class="email-subject">
+        <span class="label">Subject:</span>
+        <span class="val">Digital shelf analytics for FrieslandCampina UK</span>
+      </div>
+      <div class="email-timing">Send timing: Tuesday or Wednesday, 9:00–10:00am</div>
+      <div class="email-text">Dear Bob,
+
+My name is [SENDER NAME] and I work at eStore - we provide digital shelf analytics for consumer brands selling through online retailers. In practice, that means helping brands monitor and improve how their products appear and perform across things like availability, content accuracy, pricing, and search rankings on retailer websites.
+
+I wanted to introduce myself because we have been working with your UK ecommerce team on ASDA Xpert use cases - helping FrieslandCampina understand how Chocomel and YAZOO perform on ASDA's platform specifically. I thought it was worth reaching out directly as you settle into the UK role.
+
+The reason I think this might be relevant to your broader priorities is the gap between how online grocery works in the Netherlands versus the UK. Having come from the Consumer Dairy Netherlands side, you will know that platforms like Albert Heijn and Jumbo have quite mature e-commerce infrastructure. UK grocery e-tailers are structured differently - the search algorithms, content requirements, and promotional mechanics do not work the same way. Brands that sell across both markets often see quite different digital shelf performance for the same products.
+
+We work with European food and beverages brands like Kraft Heinz and Orkla across these markets, and the cross-market complexity is one of the things they tend to value most about having systematic digital shelf tracking in place.
+
+I would be interested to hear how you are thinking about the UK digital commerce opportunity as you shape your priorities for the year.
+
+Best regards,
+[SENDER NAME]</div>
+      <div class="email-notes">
+        <h5>Customisation Notes</h5>
+        <ul>
+          <li>⚠️ VERIFY: Confirm Bob Mulder is currently MD UK &amp; Ireland on LinkedIn before sending</li>
+          <li>Confirm the ASDA Xpert engagement with Noor is still active and positive before referencing</li>
+          <li>If Bob's LinkedIn profile reveals specific interests or posts, adapt the hook accordingly</li>
+          <li>"Dear Bob" reflects professional register appropriate for a new MD; adjust if team prefers "Hi Bob"</li>
+        </ul>
+      </div>
+      <div class="email-notes" style="margin-top: 8px;">
+        <h5>Strategy Notes</h5>
+        <p>This email does three important things: (1) introduces eStore clearly with a plain-language explanation of DSA, (2) establishes credibility through the existing team relationship (ASDA Xpert), and (3) uses Bob's NL-to-UK move as a natural hook that demonstrates genuine research. The cross-market gap is a real challenge and positions eStore's European strength.</p>
+      </div>
+    </div>
+
+    <div class="email-body" id="bob-2">
+      <div class="email-subject">
+        <span class="label">Subject:</span>
+        <span class="val">European food brands and the digital shelf across markets</span>
+      </div>
+      <div class="email-timing">Send timing: Tuesday or Wednesday, 9:00–10:00am (5–7 days after Email 1)</div>
+      <div class="email-text">Dear Bob,
+
+Following on from my introduction - I wanted to share something specific that I think is relevant given FrieslandCampina's position across European markets.
+
+We track digital shelf performance for food and beverages brands across European online retailers, and one of the consistent patterns we see is that brands with strong portfolios - multiple product lines across multiple markets - often have blind spots they do not know about. A product might rank well in search on one retailer but be missing key content on another. Pricing might be consistent on the major platforms but drift on secondary ones. Availability gaps show up in one market but not another.
+
+For a company managing Chocomel, YAZOO, Campina, Optimel, and Valess across different European markets and retailers, this kind of complexity compounds quickly. The challenge is not that any single issue is catastrophic - it is that without systematic tracking, the cumulative effect on sales and brand presentation is hard to quantify.
+
+We have put together some thinking on the specific digital shelf challenges food and beverages brands face across European retailers. I have linked it below if it is useful: <a href="https://estorebrands.com/beverages-alcohol">https://estorebrands.com/beverages-alcohol</a>
+
+I am curious - does FrieslandCampina currently have a way to track how products appear and perform across online retailers in a structured way, or is it largely managed at a market level?
+
+Best regards,
+[SENDER NAME]</div>
+      <div class="email-notes">
+        <h5>Customisation Notes</h5>
+        <ul>
+          <li>⚠️ VERIFY: Confirm Bob Mulder is currently MD UK &amp; Ireland on LinkedIn before sending</li>
+          <li>The portfolio brands listed (Chocomel, YAZOO, Campina, Optimel, Valess) are confirmed in the research</li>
+          <li>The content link is the Beverages sector page; position as thought leadership, not sales material</li>
+          <li>If Bob responded to Email 1, adapt this email to reference his response</li>
+        </ul>
+      </div>
+      <div class="email-notes" style="margin-top: 8px;">
+        <h5>Strategy Notes</h5>
+        <p>This email builds on Email 1 by moving from the UK-specific hook to a broader European portfolio challenge. The multi-brand complexity is real for FrieslandCampina (15+ consumer brands across markets) and directly connects to what DSA solves. The diagnostic question at the end helps us understand their current approach without assuming they have a problem.</p>
+      </div>
+    </div>
+
+    <div class="email-body" id="bob-3">
+      <div class="email-subject">
+        <span class="label">Subject:</span>
+        <span class="val">Managing fifteen brands on the digital shelf</span>
+      </div>
+      <div class="email-timing">Send timing: Tuesday or Wednesday, 9:00–10:00am (5–7 days after Email 2)</div>
+      <div class="email-text">Dear Bob,
+
+One aspect I have not touched on in my previous notes - with the Milcobel integration now underway, FrieslandCampina's European footprint has expanded meaningfully. Belgian retailers, new brand lines, and additional product ranges all add to the digital shelf monitoring challenge.
+
+We see two broad approaches among European food and beverages companies at this scale. Some build centralised digital shelf intelligence - a single view across all markets and retailers, with consistent metrics and benchmarking. Others take a market-by-market approach, with each country team managing their own tracking through a mix of manual checks and local tools. Both can work, but they produce very different levels of commercial intelligence.
+
+For a business integrating a major acquisition while managing existing operations across the Netherlands, UK, Germany, Greece, Hungary, and beyond, the question of which approach to take becomes quite practical. The decision tends to get made either deliberately or by default - and the default is usually the market-by-market approach, which works until the portfolio gets too large to manage manually.
+
+I would be curious to know which camp FrieslandCampina falls into - or whether it is something the European leadership team is actively thinking about as the Milcobel integration progresses?
+
+Best regards,
+[SENDER NAME]</div>
+      <div class="email-notes">
+        <h5>Customisation Notes</h5>
+        <ul>
+          <li>⚠️ VERIFY: Confirm Bob Mulder is currently MD UK &amp; Ireland on LinkedIn before sending</li>
+          <li>Milcobel merger effective January 1, 2026 is confirmed (EC approval October 2025)</li>
+          <li>The list of countries (NL, UK, Germany, Greece, Hungary) matches FrieslandCampina's European presence</li>
+          <li>If Milcobel integration is sensitive internally, soften the reference</li>
+        </ul>
+      </div>
+      <div class="email-notes" style="margin-top: 8px;">
+        <h5>Strategy Notes</h5>
+        <p>This email introduces a genuinely new angle: the Milcobel acquisition and its implications for digital shelf management at scale. The "two camps" framing is a diagnostic technique that invites self-reflection without being presumptuous. It ends with curiosity about where FrieslandCampina sits.</p>
+      </div>
+    </div>
+
+    <div class="email-body" id="bob-li">
+      <div class="linkedin-box">
+        <h5>📲 Connection Request (under 300 characters)</h5>
+        <p>Hi Bob - I am [SENDER NAME] from eStore. We work with your UK ecommerce team on ASDA Xpert digital shelf analytics. Thought it worth connecting directly as you settle into the MD role.</p>
+      </div>
+      <div class="linkedin-box" style="margin-top: 10px;">
+        <h5>💬 InMail Version</h5>
+        <p>Hi Bob,
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for consumer brands selling through online retailers. We have been working with your UK ecommerce team on ASDA Xpert use cases for Chocomel and YAZOO, and I thought it was worth introducing myself directly.
+
+Given your move from Consumer Dairy Netherlands to the UK role, I imagine you have a perspective on how differently the digital shelf works across Dutch and UK grocery platforms. It is one of the patterns we see with our European food and beverages clients - what performs well on Albert Heijn does not always translate to Tesco or Sainsbury's.
+
+Curious how you are thinking about the UK digital commerce opportunity as you shape your priorities for the year?
+
+Best regards,
+[SENDER NAME]</p>
+      </div>
+      <div class="email-notes" style="margin-top: 14px;">
+        <h5>Strategy Notes</h5>
+        <ul>
+          <li>Option A recommended: send connection request 2–3 days before Email 1</li>
+          <li>Bob is a new MD and likely accepting connections from relevant industry contacts</li>
+          <li>The connection request establishes the ASDA Xpert context before the email arrives</li>
+          <li>If connection is accepted but no response, proceed with Email 1 as planned</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONTACT 3: GERBRAND ===== -->
+  <div class="section-label">Contact 3: Gerbrand Hoogvliet, Head of Ecommerce, Netherlands</div>
+  <div class="email-section" id="gerbrand-emails">
+    <div class="email-contact-header">
+      <h4>Gerbrand Hoogvliet <span class="badge cold">Cold</span> <span class="badge unverified">⚠️ Verify</span> <span class="badge nl">🇳🇱</span></h4>
+      <span style="font-size: 13px; color: var(--text-dim);">Cold: single most relevant operational contact for DSA</span>
+    </div>
+    <div class="email-subtabs" data-group="gerbrand">
+      <button class="email-subtab active" data-email="gerbrand-1">Email 1</button>
+      <button class="email-subtab" data-email="gerbrand-2">Email 2</button>
+      <button class="email-subtab" data-email="gerbrand-3">Email 3</button>
+      <button class="email-subtab" data-email="gerbrand-li">LinkedIn</button>
+    </div>
+
+    <div class="email-body active" id="gerbrand-1">
+      <div class="email-subject">
+        <span class="label">Subject:</span>
+        <span class="val">Digital shelf analytics for FrieslandCampina</span>
+      </div>
+      <div class="email-timing">Send timing: Tuesday or Wednesday, 9:00–10:00am</div>
+      <div class="email-text">Beste Gerbrand,
+
+My name is [SENDER NAME] and I work at eStore - we provide digital shelf analytics for consumer brands selling through online retailers across Europe. In practice, that means helping brands track and improve things like product availability, content accuracy, pricing, and search rankings across retailer websites.
+
+I am writing because FrieslandCampina's e-commerce operation in the Netherlands is one of the more complex setups I have come across. Managing Campina, Chocomel, Optimel, Valess, Mona, and Vifit across Albert Heijn, Jumbo, and the growing quick-commerce platforms - each with different content requirements, search algorithms, and promotional mechanics - is a significant monitoring challenge.
+
+We work with European food and beverages brands like Kraft Heinz and Orkla managing similar multi-brand, multi-retailer portfolios. The common thread is that manual tracking works up to a certain scale, and then the gaps between what brands think is happening on the digital shelf and what is actually happening start to widen.
+
+I do not know how FrieslandCampina currently approaches this - you may already have robust systems in place. But I would be curious to understand how you think about digital shelf performance tracking across your Dutch e-tailer portfolio, and whether it is something you are looking to develop further.
+
+Met vriendelijke groet,
+[SENDER NAME]</div>
+      <div class="email-notes">
+        <h5>Customisation Notes</h5>
+        <ul>
+          <li>⚠️ VERIFY: Confirm Gerbrand Hoogvliet is currently Head of Ecommerce at FrieslandCampina on LinkedIn before sending</li>
+          <li>"Beste" and "Met vriendelijke groet" are Dutch professional salutations, a cultural signal that shows awareness. If the team prefers English throughout, use "Dear Gerbrand" and "Best regards"</li>
+          <li>The brand list (Campina, Chocomel, Optimel, Valess, Mona, Vifit) is confirmed from research</li>
+          <li>The retailer list (Albert Heijn, Jumbo, quick-commerce) is confirmed</li>
+          <li>Do NOT reference his Profitero LinkedIn engagement directly; it would reveal monitoring</li>
+        </ul>
+      </div>
+      <div class="email-notes" style="margin-top: 8px;">
+        <h5>Strategy Notes</h5>
+        <p>This email does four things: (1) introduces eStore clearly with plain-language DSA explanation (cold email requirement), (2) demonstrates deep knowledge of FrieslandCampina's Dutch e-commerce complexity, (3) names specific European FMCG clients (Kraft Heinz, Orkla) for credibility, and (4) asks a humble, genuinely curious question that acknowledges they may already have solutions. The Dutch salutations are a small cultural touch that signals respect.</p>
+      </div>
+    </div>
+
+    <div class="email-body" id="gerbrand-2">
+      <div class="email-subject">
+        <span class="label">Subject:</span>
+        <span class="val">Retail media competition on Dutch grocery platforms</span>
+      </div>
+      <div class="email-timing">Send timing: Tuesday or Wednesday, 9:00–10:00am (5–7 days after Email 1)</div>
+      <div class="email-text">Beste Gerbrand,
+
+Following on from my introduction - there is something specific I thought worth raising. Retail media on Dutch grocery platforms has become increasingly competitive over the past year. Brands are investing more in sponsored positions on Albert Heijn and Jumbo, which means organic search rankings and product content quality matter more than ever for the brands that do not want to pay for every impression.
+
+For a multi-brand portfolio like FrieslandCampina's, this creates an interesting challenge. Chocomel, Campina, and Optimel are all strong brands, but they compete for visibility not just against external competitors but against the growing share of search that goes to sponsored results. Understanding what is happening organically versus what is paid - and how competitors are allocating their retail media spend - is becoming a core part of e-commerce strategy rather than a nice-to-have.
+
+We have been tracking these dynamics across European grocery e-tailers and have written about the broader digital shelf challenges beverages brands face. I have linked it below if useful: <a href="https://estorebrands.com/beverages-alcohol">https://estorebrands.com/beverages-alcohol</a>
+
+I am curious whether retail media tracking is something FrieslandCampina approaches systematically, or whether it is still an emerging priority for the e-commerce team?
+
+Met vriendelijke groet,
+[SENDER NAME]</div>
+      <div class="email-notes">
+        <h5>Customisation Notes</h5>
+        <ul>
+          <li>⚠️ VERIFY: Confirm current role on LinkedIn before sending</li>
+          <li>Gerbrand engaged with Profitero content on retail media competition between Tesco and Amazon on LinkedIn. This email addresses the same topic for Dutch platforms without revealing we observed his LinkedIn activity</li>
+          <li>The retail media competition trend on Dutch platforms is genuine and well-documented</li>
+          <li>Content link is the Beverages sector page; position as thought leadership</li>
+        </ul>
+      </div>
+      <div class="email-notes" style="margin-top: 8px;">
+        <h5>Strategy Notes</h5>
+        <p>This email hits Gerbrand's demonstrated interest area (retail media competition) without revealing we tracked his LinkedIn engagement. It adds genuine new value by framing the challenge specifically for FrieslandCampina's multi-brand portfolio. The organic versus paid dynamic is a real strategic question for e-commerce leaders.</p>
+      </div>
+    </div>
+
+    <div class="email-body" id="gerbrand-3">
+      <div class="email-subject">
+        <span class="label">Subject:</span>
+        <span class="val">From Netherlands to Belgium - is the digital shelf consistent?</span>
+      </div>
+      <div class="email-timing">Send timing: Tuesday or Wednesday, 9:00–10:00am (5–7 days after Email 2)</div>
+      <div class="email-text">Beste Gerbrand,
+
+One thing I have not raised in my previous notes - the Milcobel integration brings Belgian retailers and products into FrieslandCampina's portfolio, which adds another dimension to the digital shelf challenge.
+
+Chocomel in the Netherlands and CeCemel in Belgium are functionally the same product family but with different branding, different retailer platforms, and potentially different content standards. Multiply that across the broader portfolio now spanning Dutch, Belgian, and other European markets, and the question of consistency becomes quite practical. Is the product content accurate and complete across all platforms? Are there availability gaps in one market that do not exist in another? Do search rankings differ for comparable products on comparable retailers?
+
+These are questions that are straightforward to answer with systematic tracking, but quite difficult to answer with manual checks at this scale. The European food brands we work with that centralise their digital shelf intelligence tend to spot issues weeks or months earlier than those relying on market-by-market reporting.
+
+I would be curious to know whether the integration has changed how FrieslandCampina thinks about managing the digital shelf across markets - or whether that is something for the next planning cycle?
+
+Met vriendelijke groet,
+[SENDER NAME]</div>
+      <div class="email-notes">
+        <h5>Customisation Notes</h5>
+        <ul>
+          <li>⚠️ VERIFY: Confirm current role on LinkedIn before sending</li>
+          <li>Milcobel merger effective January 1, 2026 is confirmed</li>
+          <li>CeCemel is the Belgian equivalent of Chocomel, confirmed in research</li>
+          <li>The cross-market consistency question is real and operationally relevant</li>
+          <li>If Gerbrand's scope does not include Belgium, this email may need adjustment; verify</li>
+        </ul>
+      </div>
+      <div class="email-notes" style="margin-top: 8px;">
+        <h5>Strategy Notes</h5>
+        <p>This email introduces the Milcobel integration as a genuinely new angle that changes the scale of the digital shelf challenge. The Chocomel/CeCemel example is specific and concrete. It demonstrates knowledge that could only come from genuine research. The closing question opens the door to either an immediate conversation or a natural handoff to Q3 planning.</p>
+      </div>
+    </div>
+
+    <div class="email-body" id="gerbrand-li">
+      <div class="linkedin-box">
+        <h5>📲 Connection Request (under 300 characters)</h5>
+        <p>Hi Gerbrand - I am [SENDER NAME] from eStore. We provide digital shelf analytics for European food and beverages brands. Your e-commerce work at FrieslandCampina is in an area where we have deep expertise. Would be good to connect.</p>
+      </div>
+      <div class="linkedin-box" style="margin-top: 10px;">
+        <h5>💬 InMail Version</h5>
+        <p>Hi Gerbrand,
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for consumer brands selling through online retailers across Europe. We help brands track things like availability, content accuracy, pricing, and search rankings across retailer websites.
+
+I am writing because FrieslandCampina's Dutch e-commerce portfolio - Campina, Chocomel, Optimel, Valess, Mona, Vifit across Albert Heijn, Jumbo, and the quick-commerce platforms - is exactly the kind of multi-brand, multi-retailer complexity where digital shelf analytics adds most value.
+
+Curious whether you currently track digital shelf performance across Dutch e-tailers in a structured way, or whether it is something you are looking to develop?
+
+Met vriendelijke groet,
+[SENDER NAME]</p>
+      </div>
+      <div class="email-notes" style="margin-top: 14px;">
+        <h5>Strategy Notes</h5>
+        <ul>
+          <li>Option A recommended: send connection request 2–3 days before Email 1</li>
+          <li>Gerbrand is active on LinkedIn and engages with DSA-adjacent content, so he is likely receptive to relevant industry connections</li>
+          <li>The connection request is brief and specific to his role</li>
+          <li>If he accepts and views your profile, the subsequent email has warmer context</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONTACT 4: DUSTIN ===== -->
+  <div class="section-label">Contact 4: Dustin Woodward, President, FrieslandCampina Europe</div>
+  <div class="email-section" id="dustin-emails">
+    <div class="email-contact-header">
+      <h4>Dustin Woodward <span class="badge cold">Cold (Senior)</span> <span class="badge unverified">⚠️ Verify</span> <span class="badge exec">Executive</span></h4>
+      <span style="font-size: 13px; color: var(--text-dim);">Consider holding until Phase 2 (Q3), after Bob &amp; Gerbrand engage</span>
+    </div>
+    <div class="email-subtabs" data-group="dustin">
+      <button class="email-subtab active" data-email="dustin-1">Email 1</button>
+      <button class="email-subtab" data-email="dustin-2">Email 2</button>
+      <button class="email-subtab" data-email="dustin-3">Email 3</button>
+      <button class="email-subtab" data-email="dustin-li">LinkedIn</button>
+    </div>
+
+    <div class="email-body active" id="dustin-1">
+      <div class="email-subject">
+        <span class="label">Subject:</span>
+        <span class="val">Digital shelf analytics across FrieslandCampina's European markets</span>
+      </div>
+      <div class="email-timing">Send timing: Tuesday or Wednesday, 8:30–9:30am (earlier for senior executives)</div>
+      <div class="email-text">Dear Dustin,
+
+My name is [SENDER NAME] and I work at eStore - we provide digital shelf analytics for consumer brands selling through online retailers across Europe. We help brands understand how their products appear, perform, and compete on retailer websites - covering things like availability, content accuracy, pricing, and search rankings.
+
+I am writing because FrieslandCampina's European consumer business sits at a scale where digital shelf intelligence becomes a strategic rather than tactical question. Managing Chocomel, YAZOO, Campina, Valess, and the broader portfolio across UK, Dutch, Belgian, German, and Southern European online retailers creates significant complexity - each market has different platforms, different competitive dynamics, and different content standards.
+
+We work with European food and beverages companies like Kraft Heinz and Orkla at a similar scale, and the question that tends to emerge at European leadership level is whether digital shelf performance should be tracked centrally with consistent metrics, or managed at a market level. Both approaches have trade-offs, and the answer often depends on how the business is structured and where the investment priorities sit.
+
+Given FrieslandCampina's seven business group structure and the expanding European footprint following the Milcobel integration, I would be curious to understand how you think about digital commerce visibility across the European portfolio.
+
+Best regards,
+[SENDER NAME]</div>
+      <div class="email-notes">
+        <h5>Customisation Notes</h5>
+        <ul>
+          <li>⚠️ VERIFY: Find and confirm Dustin Woodward's LinkedIn profile and current role before sending</li>
+          <li>The seven business group structure is confirmed from research (reorganised January 2024)</li>
+          <li>Consider whether Bob or Gerbrand have provided any context that should inform this email</li>
+          <li>If Bob has engaged positively, reference "your UK team" as context</li>
+        </ul>
+      </div>
+      <div class="email-notes" style="margin-top: 8px;">
+        <h5>Strategy Notes</h5>
+        <p>This email is designed for a President-level reader. It introduces eStore clearly, demonstrates knowledge of FrieslandCampina's European structure, and frames digital shelf analytics as a strategic question rather than a tool pitch. The centralised versus market-level framing is positioned at a European scope appropriate for Dustin's role.</p>
+      </div>
+    </div>
+
+    <div class="email-body" id="dustin-2">
+      <div class="email-subject">
+        <span class="label">Subject:</span>
+        <span class="val">How European dairy brands approach competitive digital shelf intelligence</span>
+      </div>
+      <div class="email-timing">Send timing: Tuesday or Wednesday, 8:30–9:30am (5–7 days after Email 1)</div>
+      <div class="email-text">Dear Dustin,
+
+Building on my previous note - one aspect of digital shelf analytics that becomes particularly relevant at European scale is competitive benchmarking.
+
+FrieslandCampina competes against different brands in different markets. Chocomel faces one competitive set on Dutch e-tailers, YAZOO faces another on UK platforms, and Valess competes with a growing field of plant-based alternatives across multiple European markets. Understanding how competitors present, price, and promote their products on the same retailer platforms - and how that compares to your own portfolio - requires tracking that most companies simply cannot do manually across this many markets and retailers.
+
+We have developed a tool specifically for this called Content Benchmark, which allows brands to compare their digital shelf performance against competitors systematically: <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content">https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content</a>
+
+Our European food and beverages clients tend to find the competitive intelligence dimension at least as valuable as the operational monitoring. It changes the conversation from "are our products listed correctly?" to "how do we compare against competitors across every retailer?"
+
+Curious whether competitive benchmarking across European digital retail is something FrieslandCampina approaches at a portfolio level, or whether it is handled within individual market teams?
+
+Best regards,
+[SENDER NAME]</div>
+      <div class="email-notes">
+        <h5>Customisation Notes</h5>
+        <ul>
+          <li>⚠️ VERIFY: Confirm Dustin Woodward's current role before sending</li>
+          <li>The competitive sets mentioned (Chocomel vs NL competitors, YAZOO vs UK competitors, Valess vs plant-based) are all confirmed</li>
+          <li>Content Benchmark link is a product feature article; appropriate for a second email to demonstrate specific capability</li>
+          <li>If Dustin responded to Email 1, adapt accordingly</li>
+        </ul>
+      </div>
+      <div class="email-notes" style="margin-top: 8px;">
+        <h5>Strategy Notes</h5>
+        <p>This email moves from the structural question (centralised vs market-level) to the competitive intelligence dimension. The multi-market competitive benchmarking challenge is real and strategic enough for a European President. The Content Benchmark link is positioned naturally as a specific capability.</p>
+      </div>
+    </div>
+
+    <div class="email-body" id="dustin-3">
+      <div class="email-subject">
+        <span class="label">Subject:</span>
+        <span class="val">The digital shelf after Milcobel</span>
+      </div>
+      <div class="email-timing">Send timing: Tuesday or Wednesday, 8:30–9:30am (5–7 days after Email 2)</div>
+      <div class="email-text">Dear Dustin,
+
+One final thought that I think is worth raising. The Milcobel integration has expanded FrieslandCampina's European footprint meaningfully - additional Belgian operations, new product lines, and deeper presence across a market where online grocery is growing quickly.
+
+Acquisitions tend to surface digital shelf challenges that were manageable at the previous scale. New brands need to be tracked on new retailer platforms. Content standards that were consistent across the existing portfolio may not extend to acquired brands. Pricing architectures that worked for the pre-merger portfolio need to accommodate new products. And all of this happens while the integration team is focused on operational matters - meaning digital shelf performance can drift without anyone noticing until customers or retailers flag issues.
+
+We have seen this pattern with European food companies like Kraft Heinz during periods of portfolio expansion. The ones that bring digital shelf monitoring into the integration workstream early tend to protect brand presentation more effectively than those that treat it as a follow-up activity.
+
+I would be curious to know whether the Milcobel integration has prompted any rethinking of how FrieslandCampina manages digital shelf presence across the combined European portfolio - or whether that conversation is on the horizon for 2027 planning?
+
+Best regards,
+[SENDER NAME]</div>
+      <div class="email-notes">
+        <h5>Customisation Notes</h5>
+        <ul>
+          <li>⚠️ VERIFY: Confirm Dustin Woodward's current role before sending</li>
+          <li>Milcobel merger effective January 1, 2026 is confirmed</li>
+          <li>Belgian online grocery growth is a real trend</li>
+          <li>The 2027 planning reference aligns with Noor's suggested re-engagement timing</li>
+          <li>If Bob or Gerbrand have provided context about the integration, weave it in</li>
+        </ul>
+      </div>
+      <div class="email-notes" style="margin-top: 8px;">
+        <h5>Strategy Notes</h5>
+        <p>This email uses the Milcobel integration as a genuinely new angle that connects to Dustin's European responsibilities. The 2027 planning reference is strategic: it aligns with the timeline Noor suggested and opens the door without pressure.</p>
+      </div>
+    </div>
+
+    <div class="email-body" id="dustin-li">
+      <div class="linkedin-box">
+        <h5>📲 Connection Request (under 300 characters)</h5>
+        <p>Hi Dustin - I am [SENDER NAME] from eStore. We provide digital shelf analytics for European food and beverages brands and work with your UK team on ASDA Xpert. Would be good to connect.</p>
+      </div>
+      <div class="linkedin-box" style="margin-top: 10px;">
+        <h5>💬 InMail Version</h5>
+        <p>Hi Dustin,
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for consumer brands selling through online retailers across Europe. We have been working with your UK ecommerce team and thought it worth introducing myself at the European level.
+
+FrieslandCampina's consumer portfolio across UK, Netherlands, Belgium, Germany, and Southern Europe creates significant digital shelf complexity - different platforms, competitive sets, and content standards in every market. It is the kind of challenge where centralised intelligence tends to surface issues that market-by-market tracking misses.
+
+Curious whether digital shelf performance across the European portfolio is something you think about at a centralised level, or whether it sits within individual market teams?
+
+Best regards,
+[SENDER NAME]</p>
+      </div>
+      <div class="email-notes" style="margin-top: 14px;">
+        <h5>Strategy Notes</h5>
+        <ul>
+          <li>Option C recommended: send after Email 1 if no response (different channel to cut through)</li>
+          <li>For a President-level contact, LinkedIn can feel more appropriate than unsolicited email</li>
+          <li>The connection request references the existing UK team relationship for credibility</li>
+          <li>If Bob has engaged, mention this in the InMail: "I have been in conversation with Bob about the UK digital shelf opportunity"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="disclaimer" style="margin-top: 24px;">
+    <span class="icon">📋</span>
+    <p>All emails require human review before sending. Unverified contacts (⚠️) must be confirmed on LinkedIn before outreach proceeds.</p>
+  </div>
+</div>
+
+<!-- ========== TAB 6: OBJECTION HANDLING ========== -->
+<div class="tab-content" id="tab-objections">
+
+  <div class="section-label">Decision Framework</div>
+  <div class="card" style="border-left: 3px solid var(--green);">
+    <div class="card-header">
+      <div class="icon" style="background: rgba(34, 187, 105, 0.12); color: var(--green);">🟢</div>
+      <h3>Strong Fit: Pursue with Confidence</h3>
+    </div>
+    <p>FrieslandCampina's strong fit assessment means objections should be addressed directly and confidently. The primary barrier is timing and budget, not strategic misalignment. The approach should be patient and consultative: this is a relationship to build through 2026 for a 2027 close, not a deal to force in 2026.</p>
+    <p style="margin-top: 8px;"><strong>Key positioning advantage:</strong> No confirmed DSA provider + Danone as a reference client + warm existing relationship. This is a greenfield opportunity with a built-in competitive proof point.</p>
+  </div>
+
+  <div class="section-label">Objection Cards</div>
+
+  <div class="objection-card open">
+    <div class="objection-header" onclick="this.parentElement.classList.toggle('open')">
+      <h4><span style="color: var(--yellow);">💰</span> "We don't have budget for new tools in 2026"</h4>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="objection-body">
+      <p><strong>Why they'll say it:</strong> Noor has already confirmed this. Expedition 2030 is driving €400–500M in annual cost savings. The Optimus ERP programme (€125–150M) is absorbing IT budgets. This is a genuine constraint, not a brush-off.</p>
+      <p style="margin-top: 10px;"><strong>Response approach:</strong> "Completely understood, and we are not looking to push anything for 2026. What we have found with European food and beverages brands at your scale is that the most productive conversations happen when we can contribute to 2027 planning rather than trying to squeeze into an existing budget cycle. Between now and then, we are happy to share what we are seeing across the digital shelf in your categories, no strings attached. That way, when 2027 planning does start, you have a clearer picture of what the opportunity looks like."</p>
+      <p style="margin-top: 10px;"><strong>Why it works:</strong> Validates the constraint. Aligns with the Q3 re-engagement timing Noor provided. Positions eStore as a planning resource rather than a sales pressure.</p>
+    </div>
+  </div>
+
+  <div class="objection-card">
+    <div class="objection-header" onclick="this.parentElement.classList.toggle('open')">
+      <h4><span style="color: var(--blue-light);">🔧</span> "We're building this capability in-house with Power BI / Databricks"</h4>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="objection-body">
+      <p><strong>Why they'll say it:</strong> FrieslandCampina has invested in Databricks + Azure (built with EY), Power BI dashboards, and MicroStrategy. They may believe general BI tools can deliver digital shelf analytics.</p>
+      <p style="margin-top: 10px;"><strong>Response approach:</strong> "That makes sense, and it is a path a lot of companies explore. What we typically find is that general BI tools are excellent for internal data (sales, inventory, supply chain) but struggle with the external data challenge. Digital shelf analytics requires real-time data from dozens of retailer websites, each with different page structures, search algorithms, and content formats that change frequently. Building and maintaining those data feeds in-house tends to become a significant engineering burden, and the data quality can be inconsistent. Most of the food and beverages brands we work with (Kraft Heinz, Orkla, and others) tried in-house approaches first and found that the specialised crawling and normalisation is where the real value lies. Your Databricks/Power BI stack would actually work very well as the destination for our data. We feed into existing BI environments rather than replacing them."</p>
+      <p style="margin-top: 10px;"><strong>Why it works:</strong> Respects their investment. Frames eStore as complementary to their tech stack, not competitive. The "tried in-house first" reference is credible.</p>
+    </div>
+  </div>
+
+  <div class="objection-card">
+    <div class="objection-header" onclick="this.parentElement.classList.toggle('open')">
+      <h4><span style="color: var(--red);">🏢</span> "We already have a DSA provider / We're talking to other vendors"</h4>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="objection-body">
+      <p><strong>Why they'll say it:</strong> While research found no confirmed provider, they may have an undisclosed relationship or be in active evaluation.</p>
+      <p style="margin-top: 10px;"><strong>Response approach:</strong> "That is good to hear. It means you already understand the value. What we hear from brands that switch to us, or add us alongside an existing provider, is that coverage and data quality across European retailers is where we differentiate. We were built for the European market, which means our crawling infrastructure covers retailers like Albert Heijn, Jumbo, Tesco, Sainsbury's, and the quick-commerce platforms with the depth that US-focused providers often lack. If you are already working with someone, it might be worth a quick comparison to see whether there are gaps in your current European coverage."</p>
+      <p style="margin-top: 10px;"><strong>Why it works:</strong> Does not dismiss their existing relationship. Positions European coverage as a differentiation angle. Opens the door to a competitive comparison.</p>
+    </div>
+  </div>
+
+  <div class="objection-card">
+    <div class="objection-header" onclick="this.parentElement.classList.toggle('open')">
+      <h4><span style="color: var(--orange);">🌍</span> "We need global coverage. Do you cover Asia and the US?"</h4>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="objection-body">
+      <p><strong>Why they'll say it:</strong> FrieslandCampina operates across 100+ countries. Asia (Friso, Dutch Lady) is a significant growth market. They may want a single global DSA provider.</p>
+      <p style="margin-top: 10px;"><strong>Response approach:</strong> "Our strongest coverage is across European and UK online retailers, which is where the majority of your consumer B2C digital shelf sits. For Asia, we have coverage of the major marketplace platforms, and for the US, we cover Amazon and the main e-tailers. What we would suggest is starting where the most immediate value is: your UK and European markets, where we can deliver the deepest coverage across 15+ European e-tailers, and expanding from there. Most European food and beverages brands find that getting European coverage right first delivers the strongest ROI, because that is where the retailer complexity and competitive pressure is highest."</p>
+      <p style="margin-top: 10px;"><strong>Why it works:</strong> Honest about geographic strengths. Leads with UK/Europe where the fit is strongest. Positions a phased approach that starts with proven coverage.</p>
+    </div>
+  </div>
+
+  <div class="objection-card">
+    <div class="objection-header" onclick="this.parentElement.classList.toggle('open')">
+      <h4><span style="color: var(--yellow);">⏳</span> "The timing isn't right. We're focused on the Milcobel integration"</h4>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="objection-body">
+      <p><strong>Why they'll say it:</strong> The Milcobel merger (effective January 2026) is absorbing management attention and resources. Integration teams are focused on operational consolidation.</p>
+      <p style="margin-top: 10px;"><strong>Response approach:</strong> "That makes perfect sense. Integrations consume enormous bandwidth, and we would not want to add to that. Actually, one of the reasons we think the timing for a conversation, not a decision, is interesting is precisely because of the integration. Milcobel brings Belgian retailers and brands into the portfolio, and acquisitions tend to surface digital shelf gaps that were manageable at the previous scale. Content standards, product listings, availability monitoring. These things tend to drift during integration periods. We have seen European food companies like Kraft Heinz use digital shelf analytics as a way to protect brand presentation during portfolio expansion. It does not have to be a big decision now, but understanding where the gaps are before they become customer-facing issues can be valuable."</p>
+      <p style="margin-top: 10px;"><strong>Why it works:</strong> Validates the timing constraint. Reframes the integration as a reason to at least have the conversation. Positions DSA as a protective measure rather than an additional project.</p>
+    </div>
+  </div>
+
+  <div class="objection-card">
+    <div class="objection-header" onclick="this.parentElement.classList.toggle('open')">
+      <h4><span style="color: var(--green);">📊</span> "How do we prove ROI to get this past Expedition 2030 cost scrutiny?"</h4>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="objection-body">
+      <p><strong>Why they'll say it:</strong> Expedition 2030 has created a culture of cost justification. Any new tool must demonstrate clear payback.</p>
+      <p style="margin-top: 10px;"><strong>Response approach:</strong> "This is the right question. With Expedition 2030 targeting €400–500 million in annual savings, every investment needs to earn its place. What we find with European food and beverages brands is that DSA typically pays for itself through three channels: reducing out-of-stock rates on key SKUs (every day a product is unavailable on Tesco.com or Albert Heijn is lost revenue), improving search position (moving from position 15 to position 3 for 'chocolate milk' on a major e-tailer drives measurable conversion uplift), and optimising promotional spend (understanding which promotions actually shift search position versus which ones are just buying temporary visibility). We could put together a UK-specific ROI model based on Chocomel and YAZOO's estimated online sales velocity to give you something concrete for the business case."</p>
+      <p style="margin-top: 10px;"><strong>Why it works:</strong> Directly addresses the cost culture. Provides three specific, quantifiable ROI channels. Offers a proactive step (UK-specific ROI model) that moves the conversation forward.</p>
+    </div>
+  </div>
+
+  <div class="objection-card">
+    <div class="objection-header" onclick="this.parentElement.classList.toggle('open')">
+      <h4><span style="color: var(--blue);">🤝</span> "We have a big Wipro IT deal. New tools need to go through them"</h4>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="objection-body">
+      <p><strong>Why they'll say it:</strong> The 5.5-year Wipro IT services deal (January 2025) may mean new technology decisions are channelled through a managed services framework.</p>
+      <p style="margin-top: 10px;"><strong>Response approach:</strong> "We work within managed services frameworks at other clients and it is usually straightforward. Digital shelf analytics is a SaaS platform that sits alongside your existing tools rather than replacing or modifying them. There is no infrastructure to deploy, no integration with core systems required. It is essentially a data layer that feeds into your existing BI environment. The Wipro relationship would likely categorise this as a specialist SaaS subscription rather than a systems integration project. We are happy to work with whatever procurement or IT governance process you have in place."</p>
+      <p style="margin-top: 10px;"><strong>Why it works:</strong> Demystifies the integration concern. Positions eStore as lightweight and complementary. Shows flexibility with procurement processes.</p>
+    </div>
+  </div>
+
+  <div class="objection-card">
+    <div class="objection-header" onclick="this.parentElement.classList.toggle('open')">
+      <h4><span style="color: var(--orange);">🏭</span> "We're a cooperative. Decisions take longer than a typical FMCG company"</h4>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="objection-body">
+      <p><strong>Why they'll say it:</strong> FrieslandCampina's cooperative structure (Members' Council, 210 elected representatives, 21 districts) means governance is layered and consensus-driven.</p>
+      <p style="margin-top: 10px;"><strong>Response approach:</strong> "We appreciate that, and it is one of the reasons we think a phased approach works well. Rather than proposing a big-bang deployment across all markets, a UK pilot gives you a manageable scope to demonstrate value. The pilot can run for a defined period with clear KPIs, and the results provide the evidence base for a broader European roll-out. That way, each stage of expansion has a proven business case behind it, which makes internal approval at each level more straightforward."</p>
+      <p style="margin-top: 10px;"><strong>Why it works:</strong> Respects the cooperative governance reality. Proposes a pilot structure that works with consensus-based decision-making. Each expansion has its own evidence base.</p>
+    </div>
+  </div>
+
+  <div class="objection-card">
+    <div class="objection-header" onclick="this.parentElement.classList.toggle('open')">
+      <h4><span style="color: var(--red);">🎯</span> "How do you compare to Profitero / other providers our team has seen?"</h4>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="objection-body">
+      <p><strong>Why they'll say it:</strong> Gerbrand Hoogvliet has engaged with Profitero content on LinkedIn. Other DSA providers may be known to the e-commerce team even if not currently contracted.</p>
+      <p style="margin-top: 10px;"><strong>Response approach:</strong> "We are happy to do a side-by-side comparison. Where we typically differentiate is in three areas: European retailer depth (we were built for European e-tailers and cover Albert Heijn, Jumbo, Picnic, Tesco, Sainsbury's, ASDA, and others with the same depth that US-focused providers give Amazon), data granularity (we track at a level that lets you understand not just what is happening but why: content quality scoring, search position decomposition, competitive share of shelf), and implementation speed (we can have you seeing data within weeks, not months). Many of our current food and beverages clients, including Danone, evaluated multiple providers and chose eStore specifically for the European coverage and data quality."</p>
+      <p style="margin-top: 10px;"><strong>Why it works:</strong> Confident without being dismissive. Three clear differentiation points. The Danone reference is deployed as the ultimate competitive proof point. Offers a comparison (shows confidence).</p>
+    </div>
+  </div>
+
+  <div class="objection-card">
+    <div class="objection-header" onclick="this.parentElement.classList.toggle('open')">
+      <h4><span style="color: var(--blue-light);">📈</span> "The dairy market is under pressure. We need to focus on cost, not analytics"</h4>
+      <span class="chevron">▾</span>
+    </div>
+    <div class="objection-body">
+      <p><strong>Why they'll say it:</strong> EU milk deliveries growing +0.5% YoY, butter prices fell 24% from peak, Rabobank warns of a "tsunami of milk" in 2026. EBITDA margin compression expected (8.6% → ~7.5%).</p>
+      <p style="margin-top: 10px;"><strong>Response approach:</strong> "When margins are under pressure, the brands that protect their online performance tend to outperform. Online grocery continues to grow while overall FMCG growth is flat. It is where the incremental volume is. Losing search position on Tesco.com or Albert Heijn to a competitor during a period of margin pressure compounds the problem, because you lose the volume that helps dilute fixed costs. DSA is not analytics for its own sake. It is about protecting and growing the revenue line in the channel that is actually growing. In a tight market, it is the difference between investing in a channel where you can see what is working and spending blind."</p>
+      <p style="margin-top: 10px;"><strong>Why it works:</strong> Reframes analytics as revenue protection, not a cost. Connects to the macro dairy challenge and positions DSA as part of the solution.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Tab Navigation
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Email Sub-tabs
+document.querySelectorAll('.email-subtab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const group = tab.parentElement.dataset.group;
+    const targetId = tab.dataset.email;
+    // Deactivate siblings
+    tab.parentElement.querySelectorAll('.email-subtab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    // Show correct body
+    const section = tab.closest('.email-section');
+    section.querySelectorAll('.email-body').forEach(b => b.classList.remove('active'));
+    document.getElementById(targetId).classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
