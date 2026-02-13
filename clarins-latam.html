@@ -1,0 +1,2327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarins LATAM - eStore Action Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+        
+        .header-meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .header-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.25rem;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            background: #1067db;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1067db;
+            font-weight: 700;
+        }
+        
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+        
+        .card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+            color: #495057;
+            font-weight: 600;
+        }
+        
+        .card p {
+            margin-bottom: 1rem;
+        }
+        
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .fit-badge.strong {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border: 2px solid #22bb69;
+        }
+        
+        .fit-badge.moderate {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            color: #856404;
+            border: 2px solid #ffba1c;
+        }
+        
+        .fit-badge.weak {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+            border: 2px solid #f44f2f;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .summary-item {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid #1067db;
+        }
+        
+        .summary-item h4 {
+            margin-top: 0;
+            color: #1067db;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .summary-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-box {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-box .value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1067db;
+        }
+        
+        .stat-box .label {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .info-box {
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .info-box.blue {
+            background: #e7f3ff;
+            border-left: 4px solid #1067db;
+        }
+        
+        .info-box.green {
+            background: #e8f5e9;
+            border-left: 4px solid #22bb69;
+        }
+        
+        .info-box.yellow {
+            background: #fff8e1;
+            border-left: 4px solid #ffba1c;
+        }
+        
+        .info-box.red {
+            background: #ffebee;
+            border-left: 4px solid #f44f2f;
+        }
+        
+        .info-box.orange {
+            background: #fff3e0;
+            border-left: 4px solid #ff7a00;
+        }
+        
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge.green {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .badge.yellow {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .badge.red {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .badge.blue {
+            background: #e7f3ff;
+            color: #1067db;
+        }
+        
+        .badge.grey {
+            background: #e9ecef;
+            color: #495057;
+        }
+        
+        .badge.orange {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        
+        .badge.verified {
+            background: #22bb69;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge.unverified {
+            background: #ff7a00;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .verification-warning {
+            background: #fff3e0;
+            border-left: 4px solid #ff7a00;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .contact-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #1067db;
+        }
+        
+        .contact-card.secondary {
+            border-left-color: #68d7fa;
+        }
+        
+        .contact-card.historical {
+            border-left-color: #ffba1c;
+        }
+        
+        .contact-card.skip {
+            border-left-color: #f44f2f;
+            background: #fff5f5;
+        }
+        
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c2c2c;
+        }
+        
+        .contact-title {
+            font-size: 0.95rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .contact-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .tone-box {
+            background: #e7f3ff;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .tone-box strong {
+            color: #1067db;
+        }
+        
+        .email-sequence {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .email-sequence-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .email-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .email-tab {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .email-tab:hover {
+            border-color: #1067db;
+        }
+        
+        .email-tab.active {
+            background: #1067db;
+            border-color: #1067db;
+            color: white;
+        }
+        
+        .email-content {
+            display: none;
+        }
+        
+        .email-content.active {
+            display: block;
+        }
+        
+        .email-box {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .email-subject {
+            font-weight: 600;
+            color: #1067db;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .email-timing {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+        
+        .email-body {
+            white-space: pre-line;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .email-notes {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #dee2e6;
+        }
+        
+        .email-notes h5 {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-notes p {
+            font-size: 0.9rem;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-notes ul {
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        
+        .objection-card {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+        
+        .objection-header {
+            padding: 1rem 1.25rem;
+            background: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .objection-header:hover {
+            background: #e9ecef;
+        }
+        
+        .objection-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .objection-card.open .objection-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .objection-body {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .objection-card.open .objection-body {
+            display: block;
+        }
+        
+        .disclaimer {
+            background: #fff8e1;
+            border: 2px solid #ffba1c;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .disclaimer strong {
+            color: #856404;
+        }
+        
+        .content-link {
+            display: block;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            text-decoration: none;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .content-link:hover {
+            background: #e7f3ff;
+            border-color: #1067db;
+        }
+        
+        .content-link .link-title {
+            font-weight: 600;
+            color: #1067db;
+            margin-bottom: 0.25rem;
+        }
+        
+        .content-link .link-url {
+            font-size: 0.8rem;
+            color: #6c757d;
+            word-break: break-all;
+        }
+        
+        .content-link .link-context {
+            font-size: 0.85rem;
+            color: #495057;
+            margin-top: 0.25rem;
+        }
+        
+        .linkedin-section {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e9ecef;
+        }
+        
+        .linkedin-section h4 {
+            color: #1067db;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        .linkedin-timing-guide {
+            background: #e7f3ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .linkedin-timing-guide p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .linkedin-timing-guide ul {
+            margin-bottom: 0.5rem;
+        }
+        
+        .linkedin-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .linkedin-badge {
+            display: inline-block;
+            background: #1067db;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .char-count {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-left: 0.5rem;
+        }
+        
+        .linkedin-message {
+            white-space: pre-line;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .strategy-notes {
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed #dee2e6;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        
+        .language-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .language-label.portuguese {
+            background: #22bb69;
+            color: white;
+        }
+        
+        .language-label.spanish {
+            background: #ff7a00;
+            color: white;
+        }
+        
+        .language-label.english {
+            background: #1067db;
+            color: white;
+        }
+        
+        .language-label.review {
+            background: #e9ecef;
+            color: #495057;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem 1rem;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .tabs {
+                flex-direction: column;
+            }
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contact-header {
+                flex-direction: column;
+            }
+            .email-sequence-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Clarins (LATAM)</h1>
+        <div class="header-subtitle">eStore Brand Research & Action Plan - Latin America & Travel Retail Americas</div>
+        <div class="header-meta">
+            <div class="header-meta-item">📅 February 2026</div>
+            <div class="header-meta-item">👤 James / eStore Sales Development</div>
+            <div class="header-meta-item">🟡 Moderate Fit</div>
+            <div class="header-meta-item">💄 Beauty & Personal Care</div>
+            <div class="header-meta-item">🌎 LATAM / Americas</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" data-tab="fit" onclick="showTab('fit')">Strategic Fit Assessment</button>
+            <button class="tab" data-tab="history" onclick="showTab('history')">Our history with them</button>
+            <button class="tab" data-tab="retailers" onclick="showTab('retailers')">Retailer Overview</button>
+            <button class="tab" data-tab="people" onclick="showTab('people')">Key people?</button>
+            <button class="tab" data-tab="outreach" onclick="showTab('outreach')">Draft Outreach</button>
+            <button class="tab" data-tab="objections" onclick="showTab('objections')">Objection Handling</button>
+        </div>
+
+        <!-- ========== TAB 1: STRATEGIC FIT ASSESSMENT ========== -->
+        <div class="tab-content active" id="fit">
+            <div class="card">
+                <h2>Strategic Fit Assessment</h2>
+                <div class="fit-badge moderate">🟡 MODERATE FIT - Proceed with a Consultative Approach</div>
+                <p>Clarins presents a genuine but nuanced LATAM opportunity. The brand has substantial distribution complexity across 28+ confirmed LATAM retailers in 7 countries, no detected DSA provider (a white-space opportunity), and strong Beauty & Personal Care sector alignment. However, eStore's LATAM retailer coverage is likely to be thin (must be verified before outreach), and the decision-making structure - spanning Brazil, Miami, New York, and Paris - adds complexity. The LATAM approach is strategically distinct from eStore's previous 2018-2023 European engagement with Clarins.</p>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">~€2bn</div>
+                        <div class="label">Annual Revenue</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">28+</div>
+                        <div class="label">LATAM Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">7</div>
+                        <div class="label">LATAM Countries</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">150+</div>
+                        <div class="label">Countries Globally</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">~250-400</div>
+                        <div class="label">Total SKUs</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">None</div>
+                        <div class="label">DSA Provider Detected</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Five-Factor Assessment</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Distribution Complexity & Geographic Alignment</h4>
+                        <p>~33 LATAM retailers identified, 28 confirmed. Multi-channel across marketplaces (Mercado Libre in 4 countries, Amazon in 2), premium department stores (Liverpool, El Palacio de Hierro, Falabella, Ripley), specialist beauty (Sephora, Beleza na Web, Epoca Cosmeticos), pharmacy chains (Droga Raia, Drogasil), and travel retail (Dufry/Avolta). Mexico is the only full subsidiary; all other LATAM markets are distributor-managed from Miami. Brazil DTC site currently offline - redirecting consumers to third-party retailers.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Competitive Intelligence (DSA Provider)</h4>
+                        <p><strong>No DSA provider detected.</strong> Confidence: Likely unserved. Strong absence of evidence across LinkedIn jobs, press releases, case studies, and technology partner pages. Adjacent tools in use include Bazaarvoice (R&R), AB Tasty (CRO across 30 markets), Contentsquare (experience analytics), Lengow (product feed management). This is a genuine white-space opportunity, not a displacement play.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Sector Alignment</h4>
+                        <p><strong>Strong.</strong> Beauty & Personal Care is one of eStore's five proven sectors. Current beauty clients include L'Oreal, Galderma, Wella. Lapsed: Coty, Puig. Beauty sector landing page and long-form Ignite article available. LATAM prestige beauty grew +13% in H1 2025 (Circana). Premium skincare grew +6%. Brazil is the 5th largest beauty market globally.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Relationship History</h4>
+                        <p><strong>Re-engagement with a fresh LATAM angle.</strong> Previous European engagement ran 2018-2023, concluding with "no potential in UK & PL in 2022." The LATAM contacts are entirely new - none of the targets (Rany, Camilo, Marine, Edouard) appear in HubSpot history. CRM record created February 2020, currently flagged as "Opportunity." Tactical advantage: institutional knowledge of the brand. Risk: LATAM contacts may check with European colleagues.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Market Dynamics & Strategic Timing</h4>
+                        <p><strong>Multiple compelling timing indicators:</strong> Americas expansion is a stated pillar of "Clarins Unlimited" strategy. Brazil DTC site offline - making third-party retailer presence the primary digital storefront. L'Oreal LATAM grew +14.7% in 2024. Estee Lauder opened Sao Paulo innovation centre. Potential LATAM restructuring (Julio Quiroga's shifting role). B Corp certification (May 2025). New mobile app launched December 2025.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Synthesis & Recommendation</h2>
+                <div class="info-box yellow">
+                    <p><strong>Estimated difficulty of winning: High-Medium.</strong> The white-space opportunity is real, but Clarins is a private French company with centralised decision-making. Winning will require convincing operational contacts (Rany, Camilo) who then champion internally. Mexico is the easiest "proof-of-value" market.</p>
+                </div>
+                
+                <h3>Key Factors</h3>
+                <ul>
+                    <li>✅ Genuine DSA white space - no incumbent to displace</li>
+                    <li>✅ Strong sector alignment (Beauty & Personal Care, one of eStore's proven sectors)</li>
+                    <li>✅ Substantial distribution complexity (28+ retailers, 7 countries, multi-channel)</li>
+                    <li>✅ Compelling timing (Brazil DTC outage, Americas expansion strategy, competitive pressure)</li>
+                    <li>✅ Accessible contacts (Rany Martins in Brazil is the single LATAM digital person)</li>
+                    <li>⚠️ eStore's LATAM retailer coverage is likely thin - must be verified before outreach</li>
+                    <li>⚠️ Decision-making may ultimately require Paris approval despite Americas org chart</li>
+                    <li>⚠️ Previous European engagement concluded "no potential" - different angle but same company</li>
+                    <li>⚠️ Most LATAM markets are distributor-managed with limited local Clarins infrastructure</li>
+                </ul>
+
+                <h3>Recommended Approach</h3>
+                <p><strong>Consultative.</strong> Lead with genuine curiosity about their LATAM digital challenges, demonstrate specific knowledge of their retailer landscape, be upfront about eStore's LATAM coverage capabilities and any gaps. Moderate fit means don't oversell - position as a discovery conversation, not a demo pitch. Lead with questions, not claims. Offer a Mexico-first pilot where eStore can likely deliver the fastest value.</p>
+
+                <h3>Primary Value Proposition</h3>
+                <div class="info-box blue">
+                    <p>"Visibility into your digital shelf across 28+ LATAM retailers, at a time when your Brazil DTC site is offline and consumers are being redirected to third-party retailers you can't currently monitor."</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Implementation Readiness</h2>
+                <div class="info-box orange">
+                    <p><strong>⚠️ Critical Pre-Outreach Step:</strong> eStore's LATAM retailer coverage MUST be verified against the retailer list before any outreach begins. If coverage is below 40% for Tier 1 and Tier 2 retailers, delay outreach or significantly adjust messaging.</p>
+                </div>
+                <p>Time-to-value depends entirely on eStore's existing LATAM retailer coverage:</p>
+                <ul>
+                    <li><strong>If major retailers already covered:</strong> 2-4 weeks to initial value</li>
+                    <li><strong>If significant onboarding needed:</strong> 3-6 months before comprehensive monitoring</li>
+                </ul>
+                <p>Key retailers to verify coverage for: Mercado Libre (4 countries), Falabella (3 countries), Liverpool, El Palacio de Hierro, Sephora (Mexico and Brazil), Amazon (Mexico and Brazil), Beleza na Web, Epoca Cosmeticos, Droga Raia, Drogasil.</p>
+                
+                <h3>Recommended Phasing</h3>
+                <ul>
+                    <li><strong>Phase 1 (Mexico-first pilot):</strong> Start with the market where infrastructure is strongest - subsidiary, operational DTC, widest retailer breadth</li>
+                    <li><strong>Phase 2 (Brazil expansion):</strong> Build the business case using Mexico results to expand into Brazil - the largest addressable market</li>
+                    <li><strong>Phase 3 (Cross-LATAM):</strong> Extend to Chile, Peru, Argentina, Colombia as coverage and value are demonstrated</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ========== TAB 2: OUR HISTORY WITH THEM ========== -->
+        <div class="tab-content" id="history">
+            <div class="card">
+                <h2>Previous Engagement History</h2>
+                <div class="info-box yellow">
+                    <p><strong>Important Context:</strong> eStore has a 6-year CRM history with Clarins (record created February 2020), but all previous engagement was with European contacts. The LATAM approach targets entirely new contacts in a different organisational unit. This is a re-engagement with a fresh angle, not a continuation of previous conversations.</p>
+                </div>
+
+                <h3>Timeline of Previous Contact</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Period</th>
+                            <th>Activity</th>
+                            <th>Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2018</td>
+                            <td>LinkedIn invitations to multiple European Clarins contacts</td>
+                            <td>Initial prospecting - very early stage</td>
+                        </tr>
+                        <tr>
+                            <td>2019-2020</td>
+                            <td>Structured LinkedIn outreach sequences (6+ messages), call attempts to EMEA contacts. 15+ individual outreach notes logged. Captured sandra.sancho@clarins.com.</td>
+                            <td>Calls mostly unanswered. Broad LinkedIn campaign.</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 2022</td>
+                            <td>Meeting with Emilie (European contact)</td>
+                            <td>"Mildly interested" in R&R and content tracking. D2C was top priority for 2022. "Still room for a digital shelf solution."</td>
+                        </tr>
+                        <tr>
+                            <td>Mar 2022</td>
+                            <td>Two meetings with Louise (European contact). Material shared.</td>
+                            <td><strong>Conclusion: "No potential in UK & PL markets in 2022."</strong> Touchpoint scheduled for Q3 2022.</td>
+                        </tr>
+                        <tr>
+                            <td>Jul 2023</td>
+                            <td>Webinar promotion emails to 16+ Clarins stakeholders (all European)</td>
+                            <td>Marketing-led, not direct sales engagement</td>
+                        </tr>
+                        <tr>
+                            <td>Aug 2023</td>
+                            <td>Demo meeting logged</td>
+                            <td>No further sales activity recorded after this</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>HubSpot Status</h3>
+                <ul>
+                    <li><strong>Lifecycle stage:</strong> "Opportunity" (may cause confusion - needs to be flagged as new LATAM initiative)</li>
+                    <li><strong>CRM owner:</strong> HubSpot owner ID 84400754</li>
+                    <li><strong>Primary address in CRM:</strong> 1 Park Ave, New York, NY (Clarins USA HQ)</li>
+                    <li><strong>Latest logged sales activity:</strong> May 2022</li>
+                </ul>
+
+                <h3>Internal Champion</h3>
+                <div class="info-box blue">
+                    <p><strong>None from previous engagement.</strong> Emilie was "mildly interested" but this was about European digital shelf, and her current role has not been verified. Do not rely on any prior contacts as champions. Best candidate for LATAM: <strong>Rany Martins</strong> - she's the operational owner of LATAM digital, Brazil-based, and would directly benefit from eStore's tools.</p>
+                </div>
+
+                <h3>Known Blockers & Risks</h3>
+                <ul>
+                    <li><strong>Previous "no potential" conclusion (March 2022):</strong> Specifically about UK and Poland markets. Does NOT apply to LATAM, but be aware that internal Clarins discussions may reference this.</li>
+                    <li><strong>Marketing vs. sales gap:</strong> Sales activity stopped May 2022; 2023 was webinar invitations only. The account may be seen internally as "worked and closed."</li>
+                    <li><strong>Cross-referral risk:</strong> If LATAM contacts check with European colleagues, they may hear the "no potential" assessment. Mitigate by positioning LATAM as a clearly distinct opportunity.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Competitor Intelligence</h2>
+                <div class="info-box green">
+                    <p><strong>No DSA provider detected - this is a white-space opportunity.</strong> Confidence: Likely unserved. Strong absence of evidence across multiple research vectors (LinkedIn jobs, press releases, case studies, technology partner pages). An unpublicised relationship cannot be entirely ruled out.</p>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Status</th>
+                            <th>Confidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Profitero</td><td>Not detected</td><td>Likely not used</td></tr>
+                        <tr><td>CommerceIQ</td><td>Not detected</td><td>Likely not used</td></tr>
+                        <tr><td>Syndigo</td><td>Not detected</td><td>Likely not used</td></tr>
+                        <tr><td>Salsify</td><td>Not detected</td><td>Likely not used</td></tr>
+                        <tr><td>Brand Nudge</td><td>Not detected</td><td>Likely not used</td></tr>
+                        <tr><td>mindsite</td><td>Not detected</td><td>Likely not used</td></tr>
+                        <tr><td>DataWeave</td><td>Not detected</td><td>Likely not used</td></tr>
+                        <tr><td>Edge by Ascential</td><td>Not detected</td><td>Likely not used</td></tr>
+                        <tr><td>Stackline</td><td>Not detected</td><td>Likely not used</td></tr>
+                    </tbody>
+                </table>
+
+                <h3>Confirmed Technology Stack (Adjacent, NOT DSA)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tool</th>
+                            <th>Category</th>
+                            <th>Relevance to eStore</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Bazaarvoice</td><td>Ratings & reviews + product sampling</td><td>Adjacent - Clarins uses R&R tools but not DSA</td></tr>
+                        <tr><td>AB Tasty</td><td>A/B testing, CRO (30 markets)</td><td>Shows digital sophistication and willingness to invest</td></tr>
+                        <tr><td>Contentsquare</td><td>Experience analytics for DTC</td><td>DTC-focused - complements rather than competes</td></tr>
+                        <tr><td>Lengow</td><td>Product feed management (18 sites)</td><td>Shows multi-retailer awareness</td></tr>
+                        <tr><td>Salesforce Commerce Cloud</td><td>DTC e-commerce platform</td><td>Platform infrastructure, not analytics</td></tr>
+                        <tr><td>Hootsuite</td><td>Social listening</td><td>Unrelated to digital shelf</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box blue">
+                    <p><strong>Key insight:</strong> Clarins invests heavily in optimising owned digital channels (DTC conversion, social, ratings) but has a blind spot on third-party retailer performance. eStore fills this exact gap. Do NOT position against Bazaarvoice, Contentsquare, or AB Tasty - they are complementary.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Content to Reference</h2>
+                <a href="https://estorebrands.com/beauty-personal-care" target="_blank" class="content-link">
+                    <div class="link-title">Beauty & Personal Care - Sector Landing Page</div>
+                    <div class="link-url">estorebrands.com/beauty-personal-care</div>
+                    <div class="link-context">Use in Email 2 or 3. Position as educational context rather than sales collateral.</div>
+                </a>
+                <a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026" target="_blank" class="content-link">
+                    <div class="link-title">Digital Shelf Analytics for Beauty & Personal Care Brands</div>
+                    <div class="link-url">estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026</div>
+                    <div class="link-context">Primary article for Email 2. Directly relevant to Clarins' category. For Portuguese/Spanish emails, acknowledge the content is in English naturally.</div>
+                </a>
+                <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank" class="content-link">
+                    <div class="link-title">Introducing Content Benchmark</div>
+                    <div class="link-url">estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content</div>
+                    <div class="link-context">Use if conversation focuses on competitive benchmarking. Aligns with Edouard Madec's stated interest in competitive positioning.</div>
+                </a>
+                <a href="https://estorebrands.com/ignite/introducing-ai-business-answers" target="_blank" class="content-link">
+                    <div class="link-title">Introducing AI Business Answers</div>
+                    <div class="link-url">estorebrands.com/ignite/introducing-ai-business-answers</div>
+                    <div class="link-context">Use if contact shows interest in AI/automation. Relevant for tech-savvy contacts like Marine de Valon and Edouard Madec.</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- ========== TAB 3: RETAILER OVERVIEW ========== -->
+        <div class="tab-content" id="retailers">
+            <div class="card">
+                <h2>LATAM Retailer Landscape</h2>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">33</div>
+                        <div class="label">Retailers Identified</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">28</div>
+                        <div class="label">Confirmed Carrying Clarins</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">7</div>
+                        <div class="label">Countries</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">High</div>
+                        <div class="label">Channel Diversity</div>
+                    </div>
+                </div>
+
+                <h3>Geographic Breakdown</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>% of Retailers</th>
+                            <th>Operating Model</th>
+                            <th>Key Retailers</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mexico</td>
+                            <td>~35%</td>
+                            <td>Full subsidiary (~150 employees)</td>
+                            <td>Liverpool, El Palacio de Hierro, Sephora, Amazon, Mercado Libre, Coppel</td>
+                        </tr>
+                        <tr>
+                            <td>Brazil</td>
+                            <td>~25%</td>
+                            <td>Distributor-managed (Miami)</td>
+                            <td>Sephora Brasil, Beleza na Web, Epoca Cosmeticos, Amazon, Mercado Livre, Droga Raia, Drogasil</td>
+                        </tr>
+                        <tr>
+                            <td>Chile</td>
+                            <td>~12%</td>
+                            <td>Distributor-managed</td>
+                            <td>Falabella, Ripley, Paris (Cencosud), Mercado Libre</td>
+                        </tr>
+                        <tr>
+                            <td>Argentina</td>
+                            <td>~12%</td>
+                            <td>Distributor-managed</td>
+                            <td>Mercado Libre, Koko Inc, Summit, CosmoStore, Farmacity</td>
+                        </tr>
+                        <tr>
+                            <td>Peru</td>
+                            <td>~9%</td>
+                            <td>Distributor-managed</td>
+                            <td>Falabella, Ripley</td>
+                        </tr>
+                        <tr>
+                            <td>Colombia</td>
+                            <td>~4%</td>
+                            <td>Distributor-managed</td>
+                            <td>Falabella</td>
+                        </tr>
+                        <tr>
+                            <td>Travel Retail</td>
+                            <td>~3%</td>
+                            <td>Dufry/Avolta partnership</td>
+                            <td>Dufry CDMX, Buenos Aires, Brazil</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Notable Patterns</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Mexico = Best Proof-of-Value Market</h4>
+                        <p>Only country with a full Clarins subsidiary, operational DTC site (clarins.mx on Salesforce Commerce Cloud), and widest retailer breadth. The natural starting point for a pilot.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Brazil = Sharpest Pain Point</h4>
+                        <p>Largest addressable market but structurally underserved. Distributor-managed, DTC site offline ("Estamos Voltando em Breve"), relying entirely on third-party retailers. This is where the eStore value proposition is most compelling.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Mercado Libre = Cross-Market Opportunity</h4>
+                        <p>Operates across Mexico, Brazil, Argentina, and Chile with 161 million active users. Beauty is one of its fastest-growing categories. Cross-market Mercado Libre monitoring would be a major differentiator.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Falabella Spans Three Countries</h4>
+                        <p>Chile, Peru, Colombia - another cross-market monitoring opportunity that demonstrates eStore's multi-market value.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Distributor Model = Visibility Gap</h4>
+                        <p>Most LATAM markets are distributor-managed from Miami. Clarins has limited direct visibility into its own digital shelf across these markets - exactly the gap eStore fills.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Travel Retail is Meaningful</h4>
+                        <p>Dufry/Avolta operates duty-free stores in Mexico City, Buenos Aires, and Brazil - all carrying Clarins. Patricia Abergel's title includes "Travel Retail."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Critical Gaps & Implementation Note</h2>
+                <div class="info-box red">
+                    <p><strong>⚠️ eStore LATAM retailer coverage must be verified before outreach.</strong> Cross-reference every retailer against eStore_Retailer_Coverage_Master.csv. Expected outcome: coverage is likely to be thin for LATAM-specific retailers (Liverpool, El Palacio de Hierro, Falabella, Ripley, Beleza na Web, Epoca Cosmeticos, Droga Raia, Drogasil, Mercado Libre). Amazon Mexico and Amazon Brazil may be covered; Sephora may be partially covered.</p>
+                </div>
+
+                <h3>Coverage-Based Decision Guide</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>If Tier 1 & 2 Coverage Is...</th>
+                            <th>Recommendation</th>
+                            <th>Estimated Time-to-Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge green">60%+</span></td>
+                            <td>Strong fit - proceed with confident outreach, lead with time-to-value</td>
+                            <td>2-4 weeks</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge yellow">40-59%</span></td>
+                            <td>Moderate fit - proceed but acknowledge gaps and longer onboarding timeline</td>
+                            <td>2-3 months</td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge red">Below 40%</span></td>
+                            <td>Weak fit - delay outreach or significantly adjust expectations</td>
+                            <td>4-6 months</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========== TAB 4: KEY PEOPLE? ========== -->
+        <div class="tab-content" id="people">
+            <div class="card">
+                <h2>Historical Contacts</h2>
+                <div class="info-box yellow">
+                    <p><strong>Previous European contacts are NOT relevant to this LATAM campaign.</strong> None of the LATAM contacts identified in this research appear in eStore's HubSpot history. The following are documented for reference only - do not contact them for the LATAM approach.</p>
+                </div>
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Emilie (European contact)</div>
+                            <div class="contact-title">Role unverified for current research</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge yellow">Historical</span>
+                            <span class="badge grey">European</span>
+                        </div>
+                    </div>
+                    <p>"Mildly interested" in R&R and content tracking (January 2022). D2C was her top priority. European-based - not relevant to LATAM approach.</p>
+                </div>
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Louise (European contact)</div>
+                            <div class="contact-title">Role unverified for current research</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge yellow">Historical</span>
+                            <span class="badge grey">European</span>
+                        </div>
+                    </div>
+                    <p>Met in March 2022. Material shared. Engagement concluded with "no potential in UK & PL markets in 2022."</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+
+                <!-- Contact 1: Rany Martins -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#1 Rany Martins</div>
+                            <div class="contact-title">Digital Director, Export & Travel Retail Americas</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">🇧🇷 Brazilian</span>
+                            <span class="badge verified">✅ Verified</span>
+                            <span class="badge orange">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://br.linkedin.com/in/ranymartins" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> Sao Paulo, Brazil</p>
+                    <p><strong>Tenure:</strong> 11 years at Clarins (joined 2014). Rose from Digital Marketing Consultant to Digital Director. Previously at L'Oreal.</p>
+                    <p><strong>Why she's the right contact:</strong> She IS the LATAM digital function. eStore would feed directly into her KPIs. She manages content across dozens of retailers with limited tools and limited local teams - digital shelf analytics would multiply her impact.</p>
+                    <p><strong>Specific hooks:</strong> "You're managing digital content across 28+ retailers in 7 countries with a small team. How do you currently track whether product listings, pricing, and content are consistent?" Reference the Brazil DTC site outage and its implications.</p>
+                    <p><strong>Team size:</strong> Small - likely 2-4 direct reports.</p>
+                    <div class="tone-box">
+                        <strong>Outreach language:</strong> Portuguese. <strong>Tone:</strong> Warm but professional. Brazilian business culture values relationship-building. Show genuine interest in her challenges before any pitch. She's the best candidate for internal champion if she sees value.
+                    </div>
+                </div>
+
+                <!-- Contact 2: Camilo Castaneda -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#2 Camilo Castaneda Velasco</div>
+                            <div class="contact-title">Senior Manager, eCommerce, Clarins Mexico</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge green">🇲🇽 Mexican</span>
+                            <span class="badge verified">✅ Verified</span>
+                            <span class="badge orange">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/camcasvel87/" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> Mexico City, Mexico</p>
+                    <p><strong>Background:</strong> E-commerce specialist with LATAM market expertise. Very active on LinkedIn posting about retail media, digital transformation, and LATAM e-commerce trends.</p>
+                    <p><strong>Why he's the right contact:</strong> Most senior e-commerce person on the ground in Mexico - the market where eStore is most likely to deliver immediate value. He has hands-on retailer management responsibilities and would directly benefit from digital shelf monitoring.</p>
+                    <p><strong>Specific hooks:</strong> "You're managing Clarins' presence across Liverpool, El Palacio de Hierro, Sephora, Amazon, and Mercado Libre simultaneously." Reference his LinkedIn posts on LATAM retail media.</p>
+                    <p><strong>Note:</strong> Below Director level, so may need to champion upward. But he's the operational owner and the best person to validate eStore's value in Mexico.</p>
+                    <div class="tone-box">
+                        <strong>Outreach language:</strong> Spanish. <strong>Tone:</strong> Professional and respectful but engaged. Reference his LinkedIn thought leadership to show genuine interest. Mexican business culture values courtesy and relationship - don't be overly direct in first touch.
+                    </div>
+                </div>
+
+                <!-- Contact 3: Marine de Valon -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#3 Marine de Valon</div>
+                            <div class="contact-title">VP, Ecommerce and Digital Media</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇫🇷 French</span>
+                            <span class="badge verified">✅ Verified</span>
+                            <span class="badge orange">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/marinedevalon/" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> New York, US</p>
+                    <p><strong>Tenure:</strong> Joined Clarins 2020, promoted to VP. Confirmed Shoptalk Spring 2025 speaker.</p>
+                    <p><strong>Background:</strong> P&G, Unilever, L'Oreal, Starbucks - deep FMCG digital expertise.</p>
+                    <p><strong>Why she's the right contact:</strong> Her FMCG background means she understands competitive benchmarking and multi-retailer monitoring. She sits at the right level to make or influence tool procurement decisions.</p>
+                    <p><strong>Specific hooks:</strong> "With your P&G and L'Oreal background, you'll know the value of competitive digital shelf intelligence." Reference Shoptalk speaking engagement.</p>
+                    <div class="tone-box">
+                        <strong>Outreach language:</strong> English. <strong>Tone:</strong> Polished and strategic. She's VP-level with deep FMCG experience - treat her as a sophisticated buyer who already understands the problem. Don't over-explain basics. French professionals appreciate intellectual rigour and well-structured arguments.
+                    </div>
+                </div>
+
+                <!-- Contact 4: Edouard Madec -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#4 Edouard Madec</div>
+                            <div class="contact-title">Director, Amazon & Digital Accounts</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇫🇷 French</span>
+                            <span class="badge verified">✅ Verified</span>
+                            <span class="badge orange">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/edouardmadec/" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> New York, US</p>
+                    <p><strong>Tenure:</strong> At Clarins since ~2014. Has publicly stated he values "understanding where we stand versus similar businesses."</p>
+                    <p><strong>Background:</strong> Long Clarins tenure in digital accounts and marketplace management. Uses Contentsquare and AB Tasty - tech-savvy and data-driven.</p>
+                    <p><strong>Why he's the right contact:</strong> His Amazon/marketplace focus means he directly cares about how Clarins products appear on third-party platforms. His stated interest in competitive benchmarking aligns perfectly with eStore's Content Benchmark feature.</p>
+                    <p><strong>Specific hooks:</strong> "You've talked about wanting to understand where Clarins stands versus similar businesses - we can show you exactly that across 28+ LATAM retailers." Reference AB Tasty usage.</p>
+                    <div class="tone-box">
+                        <strong>Outreach language:</strong> English. <strong>Tone:</strong> Data-driven and specific. He's a tech-savvy operator who values competitive intelligence. Lead with his own stated interest in benchmarking. French professional - appreciate precision and logic.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#5 Anne-Sophie Orliac-Clement</div>
+                            <div class="contact-title">SVP, Ecommerce, CRM & Digital Development, USA & North America</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇫🇷 French</span>
+                            <span class="badge verified">✅ Verified</span>
+                            <span class="badge grey">Escalation</span>
+                        </div>
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/anne-sophie-orliac-clement-2a8380/" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> New York, US. At Clarins since 2011. Named on The Lead's Direct 60 List 2025. Former Sephora executive (8 years).</p>
+                    <p><strong>Use for:</strong> Referencing her strategic priorities when reaching out to direct reports. Escalation if Rany, Marine, or Edouard are unresponsive. Final sign-off conversations. Do not cold-email directly - she's too senior for a first touch. She was previously EMEA Head of Digital and may have been tangentially aware of eStore's previous European outreach.</p>
+                </div>
+
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#6 Patricia Abergel</div>
+                            <div class="contact-title">General Manager, Latin America & Travel Retail</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇫🇷🇨🇦 French-Canadian</span>
+                            <span class="badge verified">✅ Verified</span>
+                            <span class="badge grey">Escalation</span>
+                        </div>
+                    </div>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/patricia-abergel-b9059512/" target="_blank">View Profile</a></p>
+                    <p><strong>Location:</strong> United States (New York or Miami). 27+ years at Clarins Group. Career entirely within Clarins.</p>
+                    <p><strong>Use for:</strong> Air cover - reference her strategic priorities in emails to Rany Martins. She owns the P&L for the entire LATAM region + Travel Retail Americas. Manages multi-country portfolio through distributors and needs visibility into brand performance. Escalation point if operational contacts don't respond.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Executive Context (Reference Only - Do Not Contact)</h2>
+                <ul>
+                    <li><strong>Jonathan Zrihen, CEO:</strong> Has publicly positioned Americas expansion as a strategic priority under "Clarins Unlimited." Reference his statements to frame the LATAM pitch as aligned with company strategy.</li>
+                    <li><strong>Virginie Courtin, Managing Director:</strong> Third-generation family member driving sustainability and innovation agenda. Reference B Corp certification if sustainability comes up.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                <div class="contact-card skip">
+                    <p><strong>European contacts from previous outreach</strong> (Emilie, Louise, Sandra, Gustavo, Clement, Shannon, and 10+ others from webinar campaigns) - different organisational unit, previous "no potential" conclusion. Re-engaging them would confuse the LATAM approach.</p>
+                </div>
+                <div class="contact-card skip">
+                    <p><strong>Manufacturing/supply chain roles</strong> - not relevant to digital commerce decisions.</p>
+                </div>
+                <div class="contact-card skip">
+                    <p><strong>Clinical/R&D roles</strong> - skincare is not regulated like pharma; R&D contacts won't influence DSA procurement.</p>
+                </div>
+                <div class="contact-card skip">
+                    <p><strong>Regional roles below Senior Manager level</strong> - too junior to influence tool procurement.</p>
+                </div>
+                <div class="contact-card skip">
+                    <p><strong>Julio Quiroga</strong> (President, reportedly shifting from EMEA & LATAM to Europe only) - his role may be in transition; too risky to target until scope is confirmed.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== TAB 5: DRAFT OUTREACH ========== -->
+        <div class="tab-content" id="outreach">
+            <div class="disclaimer">
+                <strong>⚠️ Important:</strong> These emails and LinkedIn messages are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending.
+            </div>
+
+            <div class="card">
+                <h2>Nationality-Based Tone Guidance</h2>
+                <div class="summary-grid">
+                    <div class="summary-item" style="border-left-color: #22bb69;">
+                        <h4>🇧🇷 Brazilian (Rany Martins)</h4>
+                        <p>Write in Portuguese. Warm, relationship-oriented. Brazilian professionals value personal connection before business. Show genuine interest in her work and challenges. Less formal than European Portuguese.</p>
+                    </div>
+                    <div class="summary-item" style="border-left-color: #ff7a00;">
+                        <h4>🇲🇽 Mexican (Camilo Castaneda)</h4>
+                        <p>Write in Spanish. Professional and respectful with warmth. Mexican business culture values courtesy and relationship-building. Reference his LinkedIn thought leadership - shows genuine engagement. Don't be overly direct in first touch.</p>
+                    </div>
+                    <div class="summary-item" style="border-left-color: #1067db;">
+                        <h4>🇫🇷 French (Marine & Edouard)</h4>
+                        <p>Write in English. Polished and intellectually rigorous. French professionals appreciate well-structured arguments, precision, and logical flow. Avoid being too casual. Both have extensive FMCG backgrounds - treat as sophisticated buyers who understand the problem.</p>
+                    </div>
+                </div>
+                <div class="info-box blue" style="margin-top: 1.5rem;">
+                    <p><strong>Language strategy:</strong> Portuguese for Rany, Spanish for Camilo, English for Marine and Edouard. This signals genuine LATAM awareness, not a copy-paste campaign. Content links are in English - acknowledge this naturally in non-English emails.</p>
+                </div>
+            </div>
+
+            <!-- ===== CONTACT 1: Rany Martins ===== -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Rany Martins</h3>
+                        <p>Digital Director, Export & Travel Retail Americas</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge green">🇧🇷 Brazilian</span>
+                        <span class="badge verified">✅ Verified</span>
+                        <span class="badge orange">Cold</span>
+                        <span class="language-label portuguese">Portuguese</span>
+                    </div>
+                </div>
+                
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="rany">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Clarins LATAM - presenca digital em varejistas terceiros</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 BRT</div>
+                        <div style="margin-bottom: 1rem;"><span class="language-label portuguese">Portuguese (send this)</span></div>
+                        <div class="email-body">Ola Rany,
+
+Meu nome e [SENDER NAME], trabalho na eStore - fornecemos analise de prateleira digital para marcas de beleza e cuidados pessoais. Ajudamos marcas que vendem atraves de varejistas online a monitorar como seus produtos aparecem, performam e se posicionam nesses canais - coisas como disponibilidade, qualidade de conteudo, precos e rankings de busca.
+
+Pesquisei a presenca da Clarins na America Latina e fiquei impressionado com a complexidade do que voce gerencia: Mercado Libre em quatro paises, Sephora no Mexico e no Brasil, Falabella em tres mercados, alem de varejistas como Liverpool, El Palacio de Hierro, Beleza na Web e Epoca Cosmeticos. Sao mais de 28 varejistas em 7 paises - com equipes locais limitadas na maioria desses mercados.
+
+Uma coisa que me chamou atencao: o site DTC da Clarins no Brasil parece estar redirecionando consumidores para varejistas terceiros. Se isso estiver correto, significa que a presenca da Clarins na Sephora Brasil, na Beleza na Web e na Epoca Cosmeticos e, na pratica, a principal vitrine digital da marca no pais.
+
+Fiquei curioso - como voce acompanha hoje se o conteudo dos produtos, os precos e a disponibilidade estao consistentes entre todos esses varejistas? E algo que voce consegue fazer de forma centralizada, ou depende de cada distribuidor?
+
+Seria interessante ouvir sua perspectiva.
+
+[SENDER NAME]
+eStore</div>
+                    </div>
+                    <details style="margin-top: 0.5rem; margin-bottom: 1rem;">
+                        <summary style="cursor:pointer; color: #6c757d; font-size: 0.9rem;"><span class="language-label review">English translation (for internal review only)</span></summary>
+                        <div class="email-box" style="margin-top: 0.5rem; background: #f8f9fa;">
+                            <div class="email-body">Hi Rany,
+
+My name is [SENDER NAME], I work at eStore - we provide digital shelf analytics for beauty and personal care brands. We help brands selling through online retailers to monitor how their products appear, perform and position themselves across those channels - things like availability, content quality, pricing and search rankings.
+
+I researched Clarins' presence in Latin America and was struck by the complexity of what you manage: Mercado Libre in four countries, Sephora in Mexico and Brazil, Falabella in three markets, plus retailers like Liverpool, El Palacio de Hierro, Beleza na Web and Epoca Cosmeticos. That's more than 28 retailers across 7 countries - with limited local teams in most of those markets.
+
+One thing that caught my attention: Clarins' DTC site in Brazil appears to be redirecting consumers to third-party retailers. If that's correct, it means Clarins' presence on Sephora Brasil, Beleza na Web and Epoca Cosmeticos is effectively the brand's primary digital storefront in the country.
+
+I'm curious - how do you currently track whether product content, pricing and availability are consistent across all those retailers? Is it something you can do centrally, or does it depend on each distributor?
+
+Would be interested to hear your perspective.
+
+[SENDER NAME]
+eStore</div>
+                        </div>
+                    </details>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Verify Brazil DTC site status (clarins.com.br) is still offline before sending - this is the strongest hook</li>
+                            <li>Check Rany's LinkedIn for any recent posts or activity that could inform the approach</li>
+                            <li>Confirm her title is still "Digital Director, Export & Travel Retail Americas"</li>
+                            <li>Adjust retailer count if coverage verification changes the numbers</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Leads with specific knowledge of her LATAM retailer landscape to demonstrate genuine research. The Brazil DTC outage is the timing hook - it makes third-party retailer monitoring more urgent. The question at the end is genuine, not rhetorical. Written in Brazilian Portuguese to signal authentic LATAM awareness. eStore is introduced clearly in the opening sentences with specific DSA language.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Inteligencia competitiva na prateleira digital de beleza</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 BRT (5-7 days after Email 1)</div>
+                        <div style="margin-bottom: 1rem;"><span class="language-label portuguese">Portuguese (send this)</span></div>
+                        <div class="email-body">Ola Rany,
+
+Continuando minha nota anterior - um aspecto que tenho observado no setor de beleza premium na America Latina e a intensidade da movimentacao competitiva. A L'Oreal reportou crescimento de quase 15% na regiao em 2024, a Estee Lauder inaugurou um centro de inovacao em Sao Paulo, e marcas japonesas de skincare vem ganhando espaco significativo no mercado brasileiro de beleza premium.
+
+Em um cenario assim, a pergunta que muitas marcas nos fazem e: como meus concorrentes estao se posicionando nos varejistas que compartilhamos? Nao apenas em termos de preco, mas qualidade de conteudo, variedade de SKUs, rankings de busca e avaliacoes.
+
+Trabalhamos com marcas de beleza e cuidados pessoais em ambientes multi-mercado e multi-varejista semelhantes ao da Clarins - e escrevemos sobre os desafios especificos que esse setor enfrenta na prateleira digital. O artigo esta em ingles, mas os insights sobre gestao de conteudo em multiplos varejistas para marcas premium de skincare sao bem relevantes para o que voce gerencia na America Latina: https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026
+
+Uma curiosidade: com o modelo de distribuidores da Clarins na maioria dos mercados latino-americanos, voce consegue ter visibilidade sobre como os produtos estao sendo representados nos varejistas de cada pais? Ou e um ponto cego?
+
+[SENDER NAME]
+eStore</div>
+                    </div>
+                    <details style="margin-top: 0.5rem; margin-bottom: 1rem;">
+                        <summary style="cursor:pointer; color: #6c757d; font-size: 0.9rem;"><span class="language-label review">English translation (for internal review only)</span></summary>
+                        <div class="email-box" style="margin-top: 0.5rem; background: #f8f9fa;">
+                            <div class="email-body">Hi Rany,
+
+Following on from my previous note - one thing I've been observing in the premium beauty sector in Latin America is the intensity of competitive activity. L'Oreal reported growth of close to 15% in the region in 2024, Estee Lauder opened an innovation centre in Sao Paulo, and Japanese skincare brands have been gaining significant ground in Brazil's premium beauty market.
+
+In a landscape like that, the question many brands ask us is: how are my competitors positioning themselves on the retailers we share? Not just in terms of pricing, but content quality, SKU assortment, search rankings and reviews.
+
+We work with beauty and personal care brands in multi-market, multi-retailer environments similar to Clarins' - and we've written about the specific challenges this sector faces on the digital shelf. The article is in English, but the insights on managing content across multiple retailers for premium skincare brands are directly relevant to what you manage across Latin America: https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026
+
+A question I'm curious about: with Clarins' distributor model across most Latin American markets, do you have visibility into how products are being represented on retailers in each country? Or is it a blind spot?
+
+[SENDER NAME]
+eStore</div>
+                        </div>
+                    </details>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Verify L'Oreal LATAM growth figure (+14.7% in 2024) is still accurate before sending</li>
+                            <li>Check if Estee Lauder Sao Paulo innovation centre is confirmed and operational</li>
+                            <li>The beauty article link is in English - the email already acknowledges this naturally</li>
+                            <li>If Rany responded to Email 1, adapt this email to continue that conversation instead</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuine new value through competitive intelligence. The competitive landscape data is specific and verifiable. The content link is positioned naturally as educational, not as sales collateral. The distributor visibility question connects directly to eStore's core value proposition - Clarins manages most LATAM markets through distributors, creating an inherent blind spot that DSA would address.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Comecando pelo Mexico - uma abordagem diferente</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 BRT (5-7 days after Email 2)</div>
+                        <div style="margin-bottom: 1rem;"><span class="language-label portuguese">Portuguese (send this)</span></div>
+                        <div class="email-body">Ola Rany,
+
+Um aspecto que nao mencionei nas notas anteriores e a diferenca estrutural entre os mercados da Clarins na America Latina. O Mexico e claramente o mais desenvolvido - subsidiaria propria, site DTC operacional, o maior numero de varejistas. O Brasil, apesar de ser o maior mercado enderecavel, opera atraves de distribuidores e com o site DTC temporariamente fora do ar.
+
+Quando trabalhamos com marcas em situacoes semelhantes - multiplos mercados com niveis diferentes de maturidade - uma abordagem que funciona bem e comecar pelo mercado onde a infraestrutura e mais solida e usar os resultados iniciais para construir o caso de negocio para os demais.
+
+Nao sei se essa logica se aplicaria a Clarins, mas fiquei curioso: voce ve o Mexico e o Brasil como desafios distintos em termos de gestao da prateleira digital, ou tenta aborda-los de forma unificada?
+
+[SENDER NAME]
+eStore</div>
+                    </div>
+                    <details style="margin-top: 0.5rem; margin-bottom: 1rem;">
+                        <summary style="cursor:pointer; color: #6c757d; font-size: 0.9rem;"><span class="language-label review">English translation (for internal review only)</span></summary>
+                        <div class="email-box" style="margin-top: 0.5rem; background: #f8f9fa;">
+                            <div class="email-body">Hi Rany,
+
+One thing I didn't mention in my previous notes is the structural difference between Clarins' markets in Latin America. Mexico is clearly the most developed - its own subsidiary, operational DTC site, the largest number of retailers. Brazil, despite being the biggest addressable market, operates through distributors and with the DTC site temporarily offline.
+
+When we work with brands in similar situations - multiple markets with different levels of maturity - an approach that works well is starting with the market where the infrastructure is strongest and using the initial results to build the business case for the others.
+
+I'm not sure if that logic would apply to Clarins, but I'm curious: do you see Mexico and Brazil as distinct challenges in terms of digital shelf management, or do you try to address them in a unified way?
+
+[SENDER NAME]
+eStore</div>
+                        </div>
+                    </details>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>This email works regardless of whether previous emails got a response</li>
+                            <li>The Mexico-first pilot concept should only be mentioned if eStore's coverage of Mexican retailers is confirmed</li>
+                            <li>If retailer coverage verification reveals weak Mexico coverage, reframe this angle</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds a genuinely new angle - the phased market approach. Consultative positioning, not a sales close. Demonstrates strategic thinking about their specific LATAM structure (Mexico subsidiary vs Brazil distributor model) and ends with a curious question about how they think about the two markets. No graceful exit, no pressure.</p>
+                    </div>
+                </div>
+
+                <!-- LinkedIn section for Rany -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages - Rany Martins</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>Recommended: Option A - LinkedIn first</strong> (2-3 days before Email 1)</p>
+                        <p>Brazilian professionals are receptive to LinkedIn outreach from international contacts. Establishes the relationship before email arrives.</p>
+                        <ul>
+                            <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                            <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                            <li><strong>Option C - After no email response:</strong> Send after email sequence if all three go unanswered</li>
+                        </ul>
+                        <p><em>Choose one option - don't do all three.</em></p>
+                    </div>
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">Connection Request</span> <span class="char-count">Under 300 characters</span></div>
+                        <div style="margin-bottom: 0.5rem;"><span class="language-label portuguese">Portuguese (send this)</span></div>
+                        <p class="linkedin-message">Ola Rany, sou [SENDER NAME] da eStore - trabalhamos com analise de prateleira digital para marcas de beleza. Pesquisei a presenca da Clarins na America Latina e adoraria conectar.</p>
+                        <details style="margin-top: 0.5rem;">
+                            <summary style="cursor:pointer; color: #6c757d; font-size: 0.85rem;"><span class="language-label review">English (for review)</span></summary>
+                            <p class="linkedin-message" style="margin-top: 0.5rem; color: #6c757d;">Hi Rany, I'm [SENDER NAME] from eStore - we work on digital shelf analytics for beauty brands. I've been researching Clarins' presence in Latin America and would love to connect.</p>
+                        </details>
+                    </div>
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">InMail</span></div>
+                        <div style="margin-bottom: 0.5rem;"><span class="language-label portuguese">Portuguese (send this)</span></div>
+                        <p class="linkedin-message">Ola Rany,
+
+Sou [SENDER NAME] da eStore - ajudamos marcas de beleza a monitorar como seus produtos aparecem e performam em varejistas online, incluindo disponibilidade, conteudo, precos e rankings de busca.
+
+Pesquisei a presenca da Clarins na America Latina - mais de 28 varejistas em 7 paises, com o site DTC do Brasil aparentemente redirecionando consumidores para varejistas terceiros. Isso torna a prateleira digital nesses varejistas ainda mais critica.
+
+Como voce acompanha hoje a consistencia dos produtos da Clarins em todos esses canais?
+
+[SENDER NAME]
+eStore</p>
+                        <details style="margin-top: 0.5rem;">
+                            <summary style="cursor:pointer; color: #6c757d; font-size: 0.85rem;"><span class="language-label review">English (for review)</span></summary>
+                            <p class="linkedin-message" style="margin-top: 0.5rem; color: #6c757d;">Hi Rany,
+
+I'm [SENDER NAME] from eStore - we help beauty brands monitor how their products appear and perform across online retailers, including availability, content, pricing and search rankings.
+
+I've been researching Clarins' presence in Latin America - more than 28 retailers across 7 countries, with the Brazil DTC site apparently redirecting consumers to third-party retailers. That makes the digital shelf on those retailers even more critical.
+
+How do you currently track consistency of Clarins products across all those channels?
+
+[SENDER NAME]
+eStore</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CONTACT 2: Camilo Castaneda ===== -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Camilo Castaneda Velasco</h3>
+                        <p>Senior Manager, eCommerce, Clarins Mexico</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge green">🇲🇽 Mexican</span>
+                        <span class="badge verified">✅ Verified</span>
+                        <span class="badge orange">Cold</span>
+                        <span class="language-label spanish">Spanish</span>
+                    </div>
+                </div>
+                
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="camilo">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Clarins Mexico - gestion de la estanteria digital en multiples retailers</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 CST (Mexico City)</div>
+                        <div style="margin-bottom: 1rem;"><span class="language-label spanish">Spanish (send this)</span></div>
+                        <div class="email-body">Hola Camilo,
+
+Mi nombre es [SENDER NAME], trabajo en eStore. Proporcionamos analitica de estanteria digital para marcas de belleza y cuidado personal - ayudamos a marcas que venden a traves de retailers online a monitorear como aparecen y se desempenan sus productos en esos canales: disponibilidad, calidad de contenido, precios, rankings de busqueda y resenas.
+
+Investigue la presencia de Clarins en Mexico y me llamo la atencion la diversidad de canales que gestionas: Liverpool, El Palacio de Hierro, Sephora, Amazon Mexico, Mercado Libre, Coppel, ademas del sitio DTC. Cada uno con sus propias reglas, formatos de contenido y dinamicas competitivas.
+
+He visto tus publicaciones en LinkedIn sobre retail media y transformacion digital en LATAM - claramente es un tema que te apasiona y en el que tienes una perspectiva informada.
+
+Me quede con una pregunta: cuando necesitas entender como Clarins se posiciona frente a la competencia en todos esos retailers simultaneamente - contenido, precios, disponibilidad, busqueda - tienes una forma centralizada de verlo? O es algo que requiere revisar cada plataforma individualmente?
+
+[SENDER NAME]
+eStore</div>
+                    </div>
+                    <details style="margin-top: 0.5rem; margin-bottom: 1rem;">
+                        <summary style="cursor:pointer; color: #6c757d; font-size: 0.9rem;"><span class="language-label review">English translation (for internal review only)</span></summary>
+                        <div class="email-box" style="margin-top: 0.5rem; background: #f8f9fa;">
+                            <div class="email-body">Hi Camilo,
+
+My name is [SENDER NAME], I work at eStore. We provide digital shelf analytics for beauty and personal care brands - we help brands selling through online retailers to monitor how their products appear and perform across those channels: availability, content quality, pricing, search rankings and reviews.
+
+I researched Clarins' presence in Mexico and was struck by the diversity of channels you manage: Liverpool, El Palacio de Hierro, Sephora, Amazon Mexico, Mercado Libre, Coppel, plus the DTC site. Each with its own rules, content formats and competitive dynamics.
+
+I've seen your LinkedIn posts about retail media and digital transformation in LATAM - clearly a topic you're passionate about and have an informed perspective on.
+
+I was left with a question: when you need to understand how Clarins positions itself against the competition across all those retailers simultaneously - content, pricing, availability, search - do you have a centralised way to see it? Or does it require checking each platform individually?
+
+[SENDER NAME]
+eStore</div>
+                        </div>
+                    </details>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Check Camilo's recent LinkedIn posts about retail media and LATAM e-commerce - reference one specifically if possible</li>
+                            <li>Verify his title is still "Senior Manager, eCommerce" at Groupe Clarins</li>
+                            <li>Confirm the retailer list for Mexico is accurate</li>
+                            <li>If he has posted about specific challenges, weave those into the email</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Camilo is active on LinkedIn with thought leadership on LATAM e-commerce topics, making the reference to his public content natural and genuine. Leads with Mexico-specific retailer complexity because this is his daily reality. The question is specific to his operational challenge. eStore is introduced clearly with specific DSA language.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Como se posiciona la competencia de Clarins en tus retailers</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 CST (5-7 days after Email 1)</div>
+                        <div style="margin-bottom: 1rem;"><span class="language-label spanish">Spanish (send this)</span></div>
+                        <div class="email-body">Hola Camilo,
+
+Siguiendo mi nota anterior - algo que observo con frecuencia en el sector de belleza premium en America Latina es la creciente intensidad competitiva en los canales digitales. L'Oreal reporto un crecimiento cercano al 15% en la region en 2024, Ulta Beauty entro al mercado mexicano, y las marcas de skincare asiaticas estan ganando terreno significativo en la categoria premium.
+
+Para marcas como Clarins que comparten espacio en Liverpool, Sephora y Amazon con estos mismos competidores, la pregunta suele ser: como estan posicionando sus productos en los retailers que compartimos? No solo en terminos de precio, sino tambien calidad de contenido, surtido de SKUs, rankings de busqueda y actividad promocional.
+
+Trabajamos con marcas de belleza en entornos multi-retailer similares al de Clarins Mexico, y escribimos sobre los desafios especificos que enfrenta este sector en la estanteria digital. El articulo esta en ingles, pero los insights sobre gestion de contenido y posicionamiento competitivo para marcas premium de skincare son directamente relevantes: https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026
+
+Dado tu interes en retail media en LATAM, me pregunto: ves la inteligencia competitiva en la estanteria digital como una prioridad para Clarins Mexico, o es algo que aun no esta en la agenda?
+
+[SENDER NAME]
+eStore</div>
+                    </div>
+                    <details style="margin-top: 0.5rem; margin-bottom: 1rem;">
+                        <summary style="cursor:pointer; color: #6c757d; font-size: 0.9rem;"><span class="language-label review">English translation (for internal review only)</span></summary>
+                        <div class="email-box" style="margin-top: 0.5rem; background: #f8f9fa;">
+                            <div class="email-body">Hi Camilo,
+
+Following on from my previous note - something I observe frequently in the premium beauty sector in Latin America is the growing competitive intensity in digital channels. L'Oreal reported growth of close to 15% in the region in 2024, Ulta Beauty entered the Mexican market, and Asian skincare brands are gaining significant ground in the premium category.
+
+For brands like Clarins that share space on Liverpool, Sephora and Amazon with these same competitors, the question tends to be: how are they positioning their products on the retailers we share? Not just in terms of pricing, but also content quality, SKU assortment, search rankings and promotional activity.
+
+We work with beauty brands in multi-retailer environments similar to Clarins Mexico, and we've written about the specific challenges this sector faces on the digital shelf. The article is in English, but the insights on content management and competitive positioning for premium skincare brands are directly relevant: https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026
+
+Given your interest in retail media in LATAM, I wonder: do you see competitive intelligence on the digital shelf as a priority for Clarins Mexico, or is it something that isn't yet on the agenda?
+
+[SENDER NAME]
+eStore</div>
+                        </div>
+                    </details>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Verify Ulta Beauty's Mexico entry if using this reference</li>
+                            <li>The beauty article is in English - acknowledged naturally in the email</li>
+                            <li>If Camilo responded to Email 1, adapt this to continue that conversation</li>
+                            <li>Check if there are new competitive developments in Mexican premium beauty market</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds competitive intelligence value specific to the Mexican beauty market. The competitive landscape data is concrete and verifiable. The content link is positioned as educational thinking, not a pitch. The closing question is direct but not pushy - asks whether competitive intelligence is on his radar, giving him an easy way to respond either way.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Mercado Libre en 4 paises - una pregunta diferente</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00 CST (5-7 days after Email 2)</div>
+                        <div style="margin-bottom: 1rem;"><span class="language-label spanish">Spanish (send this)</span></div>
+                        <div class="email-body">Hola Camilo,
+
+Un aspecto que no mencione en mis notas anteriores y que me parece interesante: Clarins vende a traves de Mercado Libre en Mexico, Brasil, Argentina y Chile. Es el mismo marketplace, pero con dinamicas muy diferentes en cada pais - distintos competidores, diferentes precios, diferente contenido.
+
+Cuando trabajamos con marcas que tienen presencia en multiples mercados de LATAM, una de las preguntas mas frecuentes es como mantener consistencia de marca cuando cada mercado opera de manera independiente - especialmente cuando algunos son gestionados por distribuidores y no por equipos locales de Clarins.
+
+No se si esto es algo que te afecta directamente desde Mexico, o si es mas un tema regional. Pero me quede con curiosidad: como piensas la relacion entre lo que gestionas en Mexico y lo que pasa con Clarins en los demas mercados de LATAM?
+
+[SENDER NAME]
+eStore</div>
+                    </div>
+                    <details style="margin-top: 0.5rem; margin-bottom: 1rem;">
+                        <summary style="cursor:pointer; color: #6c757d; font-size: 0.9rem;"><span class="language-label review">English translation (for internal review only)</span></summary>
+                        <div class="email-box" style="margin-top: 0.5rem; background: #f8f9fa;">
+                            <div class="email-body">Hi Camilo,
+
+One thing I didn't mention in my previous notes and that I find particularly interesting: Clarins sells through Mercado Libre in Mexico, Brazil, Argentina and Chile. It's technically the same marketplace, but with very different dynamics in each country - different competitors, different pricing, different content.
+
+When we work with brands that have a presence across multiple LATAM markets, one of the most frequent questions is how to maintain brand consistency when each market operates independently - especially when some are managed by distributors rather than local Clarins teams.
+
+I don't know if this is something that directly affects you from Mexico, or if it's more of a regional issue. But I'm curious: how do you think about the relationship between what you manage in Mexico and what happens with Clarins in the other LATAM markets?
+
+[SENDER NAME]
+eStore</div>
+                        </div>
+                    </details>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>This email works whether or not previous emails got responses</li>
+                            <li>The cross-market Mercado Libre angle is genuine and differentiating</li>
+                            <li>If Camilo's role is purely Mexico-focused (likely), the question about regional coordination is still relevant</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Introduces a genuinely new angle - cross-market monitoring through Mercado Libre. Not a repeat of previous emails. Positions eStore's value in terms of multi-market complexity and brand consistency. The closing question is curious and open-ended, not a sales close or graceful exit.</p>
+                    </div>
+                </div>
+
+                <!-- LinkedIn section for Camilo -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages - Camilo Castaneda</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>Recommended: Option B - Alongside</strong> (same day as Email 1)</p>
+                        <p>Camilo is active on LinkedIn with thought leadership content. Engage with a recent post first (like or brief comment), then send connection request alongside Email 1.</p>
+                        <ul>
+                            <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                            <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                            <li><strong>Option C - After no email response:</strong> Send after email sequence if all three go unanswered</li>
+                        </ul>
+                        <p><em>Choose one option - don't do all three.</em></p>
+                    </div>
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">Connection Request</span> <span class="char-count">Under 300 characters</span></div>
+                        <div style="margin-bottom: 0.5rem;"><span class="language-label spanish">Spanish (send this)</span></div>
+                        <p class="linkedin-message">Hola Camilo, soy [SENDER NAME] de eStore - analitica de estanteria digital para marcas de belleza. Tus publicaciones sobre retail media en LATAM me parecen muy acertadas. Me gustaria conectar.</p>
+                        <details style="margin-top: 0.5rem;">
+                            <summary style="cursor:pointer; color: #6c757d; font-size: 0.85rem;"><span class="language-label review">English (for review)</span></summary>
+                            <p class="linkedin-message" style="margin-top: 0.5rem; color: #6c757d;">Hi Camilo, I'm [SENDER NAME] from eStore - digital shelf analytics for beauty brands. Your posts about retail media in LATAM are very well-informed. Would be great to connect.</p>
+                        </details>
+                    </div>
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">InMail</span></div>
+                        <div style="margin-bottom: 0.5rem;"><span class="language-label spanish">Spanish (send this)</span></div>
+                        <p class="linkedin-message">Hola Camilo,
+
+Soy [SENDER NAME] de eStore - ayudamos a marcas de belleza a monitorear como aparecen y se desempenan sus productos en retailers online: disponibilidad, contenido, precios, rankings de busqueda y resenas.
+
+Investigue la presencia de Clarins en Mexico - Liverpool, El Palacio de Hierro, Sephora, Amazon, Mercado Libre, Coppel... una diversidad impresionante de canales. He visto tus publicaciones sobre retail media en LATAM y claramente tienes una perspectiva muy informada sobre estos temas.
+
+Tengo curiosidad: con tantos retailers diferentes, tienes una forma centralizada de ver como se posiciona Clarins frente a la competencia en todos ellos?
+
+[SENDER NAME]
+eStore</p>
+                        <details style="margin-top: 0.5rem;">
+                            <summary style="cursor:pointer; color: #6c757d; font-size: 0.85rem;"><span class="language-label review">English (for review)</span></summary>
+                            <p class="linkedin-message" style="margin-top: 0.5rem; color: #6c757d;">Hi Camilo,
+
+I'm [SENDER NAME] from eStore - we help beauty brands monitor how their products appear and perform across online retailers: availability, content, pricing, search rankings and reviews.
+
+I've been researching Clarins' presence in Mexico - Liverpool, El Palacio de Hierro, Sephora, Amazon, Mercado Libre, Coppel... an impressive diversity of channels. I've seen your posts about retail media in LATAM and you clearly have a very well-informed perspective on these topics.
+
+I'm curious: with so many different retailers, do you have a centralised way to see how Clarins positions itself against the competition across all of them?
+
+[SENDER NAME]
+eStore</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CONTACT 3: Marine de Valon ===== -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Marine de Valon</h3>
+                        <p>VP, Ecommerce and Digital Media</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇫🇷 French</span>
+                        <span class="badge verified">✅ Verified</span>
+                        <span class="badge orange">Cold</span>
+                        <span class="language-label english">English</span>
+                    </div>
+                </div>
+                
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="marine">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Clarins Americas - product performance across retail partners</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00 EST</div>
+                        <div class="email-body">Hi Marine,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for beauty and personal care brands. We help brands selling through online retailers monitor and improve how their products appear and perform across those channels - things like availability, content accuracy, pricing, search rankings and reviews.
+
+I've been looking at Clarins' retail footprint across the Americas and the complexity is striking. In LATAM alone, the brand sells through more than 28 retailers across 7 countries - from Sephora and Amazon in both Mexico and Brazil, to Liverpool and El Palacio de Hierro in Mexico, Falabella across Chile, Peru and Colombia, Beleza na Web in Brazil, and Mercado Libre in four markets. Layer in the US retail landscape and you're looking at a significant number of digital storefronts to manage.
+
+With your Procter & Gamble and L'Oreal background, you'll know how quickly product content and competitive positioning can drift across that many retailers - especially in markets managed through distributors rather than local teams.
+
+I'd be curious to understand how Clarins currently approaches this. Is there a centralised way to track whether products are being represented consistently across all those retail partners, or is it handled market by market?
+
+[SENDER NAME]
+eStore</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Check Marine's LinkedIn for recent activity, speaking engagements or articles</li>
+                            <li>She spoke at Shoptalk Spring 2025 - if the topic is known, reference it naturally</li>
+                            <li>Verify her title is still VP, Ecommerce and Digital Media</li>
+                            <li>Her FMCG background (P&G, Unilever, L'Oreal, Starbucks) is public</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Marine sits at VP level with deep FMCG experience, so the email treats her as a sophisticated buyer who already understands competitive benchmarking and multi-retailer monitoring. The P&G and L'Oreal reference establishes shared context. The LATAM retailer detail demonstrates genuine research. eStore is introduced clearly in the opening sentences.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Competitive intelligence across LATAM beauty retailers</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00 EST (5-7 days after Email 1)</div>
+                        <div class="email-body">Hi Marine,
+
+Following on from my previous note - one dimension I find particularly interesting in LATAM beauty is the competitive intensity happening on the digital shelf right now. L'Oreal reported close to 15% growth across the region in 2024, Estee Lauder opened a Sao Paulo innovation centre, and Japanese skincare brands have moved into the leading position in Brazil's prestige skincare category.
+
+For Clarins, sharing shelf space with these competitors across Sephora, Amazon, Mercado Libre and department stores in multiple countries means the competitive positioning challenge is constant - and it's happening across dozens of retailer storefronts simultaneously.
+
+We work with beauty and personal care brands managing similar multi-market, multi-retailer complexity, and we've put together thinking on the specific digital shelf challenges premium beauty brands face. I've linked it below if it's of interest: https://estorebrands.com/ignite/digital-shelf-analytics-for-beauty-personal-care-brands-2026
+
+A question I'm curious about: with Clarins' "Clarins Unlimited" strategy emphasising Americas expansion, does the digital shelf monitoring piece sit within your remit, or is that managed regionally?
+
+[SENDER NAME]
+eStore</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>Verify L'Oreal LATAM growth figure is still accurate</li>
+                            <li>The "Clarins Unlimited" strategy reference is from public sources</li>
+                            <li>If Marine responded to Email 1, adapt this to continue that conversation</li>
+                            <li>The content link is positioned as thinking, not a brochure</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds competitive intelligence that is genuinely valuable for someone at VP level. The competitive landscape is specific and the question about remit is strategic - it helps eStore understand the decision-making structure. The content link is woven in naturally.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: A different angle - digital shelf visibility through distributors</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00 EST (5-7 days after Email 2)</div>
+                        <div class="email-body">Hi Marine,
+
+One thing I didn't raise in my previous notes - and it's something I find genuinely interesting about Clarins' LATAM structure - is the distributor model.
+
+Mexico has a full subsidiary with local teams managing retailer relationships directly. But Brazil, Chile, Peru, Argentina and Colombia are all distributor-managed from the Miami office. That creates a structural challenge: the markets where Clarins has less direct control over how products appear on retailer websites are also some of the fastest-growing beauty markets in the region.
+
+When we work with brands in similar situations - managing product presence across retailers in markets where they don't have local teams - the question usually isn't "do we have a content problem?" but "how would we even know if we did?"
+
+I'm curious whether that distributor visibility gap is something Clarins has found ways to address, or whether it's an accepted trade-off of the operating model.
+
+[SENDER NAME]
+eStore</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>This email works whether or not previous emails received responses</li>
+                            <li>The distributor model insight comes from public Groupe Clarins information</li>
+                            <li>If Marine's remit doesn't extend to LATAM distributor markets, this still poses an interesting strategic question</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Introduces a genuinely different angle - the distributor visibility gap. Consultative territory that positions eStore as understanding the structural challenge, not just selling a tool. The "how would we even know if we did?" framing names the invisible problem. No graceful exit, no pressure.</p>
+                    </div>
+                </div>
+
+                <!-- LinkedIn section for Marine -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages - Marine de Valon</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>Recommended: Option A - LinkedIn first</strong> (2-3 days before Email 1)</p>
+                        <p>VP-level contact with strong FMCG network. LinkedIn connection establishes professional credibility before the email arrives. Her Shoptalk speaking engagement suggests she is active in the industry community.</p>
+                        <ul>
+                            <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                            <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                            <li><strong>Option C - After no email response:</strong> Send after email sequence if all three go unanswered</li>
+                        </ul>
+                        <p><em>Choose one option - don't do all three.</em></p>
+                    </div>
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">Connection Request</span> <span class="char-count">Under 300 characters</span></div>
+                        <p class="linkedin-message">Hi Marine, I'm [SENDER NAME] from eStore - digital shelf analytics for beauty brands. Been researching Clarins' Americas retail footprint and thought it worth connecting. Impressive FMCG background.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">InMail</span></div>
+                        <p class="linkedin-message">Hi Marine,
+
+I'm [SENDER NAME] from eStore - we help beauty brands monitor how their products appear and perform across online retailers, covering things like availability, content accuracy, pricing, search rankings and reviews.
+
+I've been looking at Clarins' retail presence across the Americas - more than 28 retailers in 7 LATAM countries alone, plus the US landscape. With your Procter & Gamble and L'Oreal background, you'll know how quickly content and competitive positioning can drift across that many storefronts.
+
+Curious - is there a centralised way you track product consistency across all those retail partners?
+
+[SENDER NAME]
+eStore</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CONTACT 4: Edouard Madec ===== -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Edouard Madec</h3>
+                        <p>Director, Amazon & Digital Accounts</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇫🇷 French</span>
+                        <span class="badge verified">✅ Verified</span>
+                        <span class="badge orange">Cold</span>
+                        <span class="language-label english">English</span>
+                    </div>
+                </div>
+                
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="edouard">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Clarins competitive positioning - beyond Amazon</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00 EST</div>
+                        <div class="email-body">Hi Edouard,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for beauty and personal care brands. We help brands selling through online retailers monitor things like availability, content quality, pricing, search rankings and reviews - and critically, how they compare against competitors across those same retailers.
+
+I saw your involvement in the AB Tasty work at Clarins, and your comment about wanting to understand where you stand versus similar businesses stuck with me. It's a question most brands can answer reasonably well for Amazon - the data is relatively accessible. But across Sephora, Liverpool, Mercado Libre, Falabella, Beleza na Web and the dozens of other retailers carrying Clarins products? That comparative picture gets much harder to build.
+
+For Clarins specifically, I counted more than 28 LATAM retailers across 7 countries - each with its own competitive landscape, content formats and pricing dynamics. That's before even accounting for the US and European retail presence.
+
+I'd be interested to know: when you think about competitive positioning for Clarins' digital accounts, is it primarily an Amazon-level exercise, or are you looking at it across the broader retailer landscape too?
+
+[SENDER NAME]
+eStore</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>The AB Tasty reference is from a published case study - verify it's still publicly available</li>
+                            <li>His quote about "understanding where we stand versus similar businesses" is from the AB Tasty case study - it's public</li>
+                            <li>Verify his current title is "Director, Amazon & Digital Accounts"</li>
+                            <li>Do NOT reference specific dates for the AB Tasty case study</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Edouard's publicly stated interest in competitive benchmarking is the perfect hook for eStore's Content Benchmark capability. The email doesn't name the feature - it frames the problem in terms he's already expressed interest in. The AB Tasty reference shows genuine research. The question distinguishes between Amazon-level intelligence (which he likely has) and cross-retailer intelligence (which he likely doesn't).</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: Competitive content intelligence across digital accounts</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00 EST (5-7 days after Email 1)</div>
+                        <div class="email-body">Hi Edouard,
+
+Following on from my previous note - I wanted to share something that connects to the competitive benchmarking question.
+
+One of the capabilities we've built at eStore is what we call Content Benchmark - essentially, the ability to compare how a brand's product content stacks up against competitors across multiple retailers simultaneously. Not just whether content exists, but how it compares in quality, completeness and consistency versus the brands you're competing with on the same shelf.
+
+For a brand like Clarins, where you're sharing shelf space with L'Oreal, Estee Lauder and increasingly strong Asian skincare brands across dozens of retailers in the Americas, that cross-retailer competitive picture is where most brands have a blind spot. Amazon provides decent competitive data natively, but retailers like Sephora, Liverpool, Mercado Libre and Falabella don't give you the same level of comparative insight.
+
+We've written about this capability in more detail here if you're interested: https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content
+
+Given your use of tools like Contentsquare and AB Tasty for DTC optimisation, I'd imagine you appreciate data-driven approaches. Curious whether you've found an equivalent for the third-party retailer side of the business, or whether that's still more of a manual exercise.
+
+[SENDER NAME]
+eStore</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>The Content Benchmark link is directly relevant to Edouard's stated interests</li>
+                            <li>Contentsquare and AB Tasty references are from public case studies</li>
+                            <li>If Edouard responded to Email 1, adapt this to continue that specific conversation</li>
+                            <li>Don't overstate Content Benchmark - position as a capability, not a silver bullet</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Introduces Content Benchmark because it directly addresses Edouard's stated interest in competitive positioning. This is the one contact where naming a specific eStore capability makes sense, because it maps to something he's publicly said he cares about. Frames it in terms of filling the gap between what Amazon provides natively and what other retailers don't.</p>
+                    </div>
+                </div>
+
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">📧 Subject: A LATAM angle on Clarins' digital accounts</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00 EST (5-7 days after Email 2)</div>
+                        <div class="email-body">Hi Edouard,
+
+One dimension I haven't touched on in my previous notes - and one that I find particularly interesting from a digital accounts perspective - is the LATAM marketplace landscape.
+
+Clarins sells through Mercado Libre in Mexico, Brazil, Argentina and Chile. It's technically the same marketplace, but each country operates independently with different competitive sets, different pricing environments and different consumer expectations. For someone managing digital accounts, that means the same competitive benchmarking question you'd ask on Amazon US applies four times over - but with far less accessible data.
+
+Layer in the fact that most LATAM markets are managed through distributors rather than local Clarins teams, and there's a genuine question about who monitors how products appear and perform on these marketplace storefronts.
+
+I don't know if LATAM digital accounts fall within your scope or sit with the regional team, but either way - how does Clarins think about marketplace performance across markets where the operating model is fundamentally different from the US?
+
+[SENDER NAME]
+eStore</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <ul>
+                            <li>This email works whether or not previous emails got responses</li>
+                            <li>Edouard's role may be primarily US/Amazon-focused - the LATAM angle introduces a strategic dimension he may not have considered</li>
+                            <li>If his scope is purely US, this email may prompt him to connect you with the LATAM team</li>
+                        </ul>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds a genuinely new angle - the LATAM marketplace dimension. For someone focused on Amazon and digital accounts, framing Mercado Libre as "the same question, four times over, with less data" is compelling. The closing acknowledges uncertainty about his scope (honest) and asks a strategic question. No graceful exit - may also create a natural referral pathway to LATAM contacts.</p>
+                    </div>
+                </div>
+
+                <!-- LinkedIn section for Edouard -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages - Edouard Madec</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>Recommended: Option C - After no email response</strong> (different channel to cut through)</p>
+                        <p>Edouard is tech-savvy but may receive high email volume. If Emails 1 and 2 receive no response, LinkedIn provides a different channel. The AB Tasty connection request note gives a specific, professional reason for connecting.</p>
+                        <ul>
+                            <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                            <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                            <li><strong>Option C - After no email response:</strong> Send after email sequence if all three go unanswered</li>
+                        </ul>
+                        <p><em>Choose one option - don't do all three.</em></p>
+                    </div>
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">Connection Request</span> <span class="char-count">Under 300 characters</span></div>
+                        <p class="linkedin-message">Hi Edouard, I'm [SENDER NAME] from eStore - digital shelf analytics for beauty brands. Your AB Tasty work at Clarins caught my eye. Would be great to connect.</p>
+                    </div>
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">InMail</span></div>
+                        <p class="linkedin-message">Hi Edouard,
+
+I'm [SENDER NAME] from eStore - we help beauty brands monitor how their products appear and perform across online retailers, including competitive benchmarking on things like content quality, pricing, search rankings and reviews.
+
+Your comment about wanting to understand where Clarins stands versus similar businesses resonated. Most brands can answer that question for Amazon, but across the 28+ other retailers in LATAM alone? That comparative picture gets much harder.
+
+Curious - is competitive positioning something you track beyond Amazon, or is that still largely a manual exercise?
+
+[SENDER NAME]
+eStore</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== TAB 6: OBJECTION HANDLING ========== -->
+        <div class="tab-content" id="objections">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                <div class="info-box yellow">
+                    <p><strong>🟡 Moderate Fit = Consultative Approach.</strong> Don't oversell. Position as a discovery conversation, not a demo pitch. Lead with questions, not claims. Offer a Mexico-first pilot. Be realistic about timelines. The LATAM approach is strategically distinct from previous European engagement.</p>
+                </div>
+                
+                <h3>Go/No-Go Decision Guide</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LATAM retailer coverage verified at 60%+</td>
+                            <td>✅ <strong>Proceed confidently.</strong> Lead with time-to-value. Emphasise immediate monitoring capability.</td>
+                        </tr>
+                        <tr>
+                            <td>LATAM retailer coverage at 40-59%</td>
+                            <td>⚠️ <strong>Proceed with caveats.</strong> Be upfront about which retailers are covered immediately and which require onboarding. Suggest Mexico-first pilot.</td>
+                        </tr>
+                        <tr>
+                            <td>LATAM retailer coverage below 40%</td>
+                            <td>❌ <strong>Delay outreach.</strong> Focus on building LATAM retailer coverage first. Revisit in 3-6 months when infrastructure is stronger.</td>
+                        </tr>
+                        <tr>
+                            <td>Contacts reference previous "no potential" conclusion</td>
+                            <td>⚠️ <strong>Acknowledge honestly.</strong> "That was about UK and Poland markets in 2022. This conversation is about your LATAM digital shelf - a completely different challenge, different retailers, different team."</td>
+                        </tr>
+                        <tr>
+                            <td>Decision requires Paris approval</td>
+                            <td>⚠️ <strong>Build operational support first.</strong> Get Rany and Camilo bought in before any escalation. Their endorsement creates internal momentum.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Objection Handling</h2>
+                <p>Click each objection to expand the recommended response.</p>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We don't currently use a digital shelf analytics tool."</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>This is actually good news.</strong> It means there's no incumbent to displace, no contractual lock-in, and no switching costs. The real question is: how are you currently getting visibility into how your products appear across 28+ LATAM retailers? If the answer is manual checking or relying on distributor reports, that's exactly the gap we're designed to fill.</p>
+                        <p><strong>Reframe:</strong> "That's common for brands managing LATAM markets through distributors. The question isn't whether you need a tool - it's whether the current approach gives you the visibility you need. When your Brazil DTC site is redirecting consumers to third-party retailers, those retailer storefronts become your primary digital presence. Can you see how your products look on Sephora Brasil, Beleza na Web, and Epoca Cosmeticos right now?"</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We already have tools like Bazaarvoice and Contentsquare."</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>These are complementary, not competing tools.</strong> Bazaarvoice manages ratings and reviews. Contentsquare analyses the DTC experience. AB Tasty optimises conversion. None of these monitor how your products appear and perform on third-party retailer websites.</p>
+                        <p><strong>Reframe:</strong> "You've invested in optimising your owned channels - that's smart. But who's monitoring the 28+ LATAM retailers where your customers actually buy? Contentsquare tells you how people behave on clarins.mx. eStore tells you how Clarins products look and perform on Liverpool, Sephora, Mercado Libre, and Falabella compared to L'Oreal and Estee Lauder. Different question, different data, different value."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"How many of our LATAM retailers can you actually monitor?"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Be completely honest.</strong> This is the question where credibility is built or lost. Share the actual coverage data from eStore's retailer master list.</p>
+                        <p><strong>If coverage is strong (60%+):</strong> "We can monitor [list specific retailers] immediately - that covers your Tier 1 and most of your Tier 2 retailers. We'd have initial data within 2-4 weeks."</p>
+                        <p><strong>If coverage is moderate (40-59%):</strong> "We can start with [covered retailers] immediately. For retailers like [uncovered ones], we'd need to onboard them - typically a 6-8 week process. We'd propose starting with what's available and expanding from there."</p>
+                        <p><strong>If coverage is thin (&lt;40%):</strong> "Honestly, our LATAM coverage is still developing. We can monitor [covered retailers] today, but several of your key retailers would require onboarding. We'd want to be upfront about the timeline - we're looking at 3-6 months before comprehensive coverage. If that timeline works for your planning, we'd love to build this together."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Isn't eStore primarily a UK/European company? What do you know about LATAM?"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge honestly, then reframe.</strong> "You're right that our core strength is UK and European markets - that's where we've built our reputation with brands like L'Oreal and Galderma. But the multi-market, multi-language monitoring challenge is the same whether you're tracking across France, Germany, and the UK or across Mexico, Brazil, and Chile. The complexity is similar - different retailers, different languages, different competitive dynamics in each market."</p>
+                        <p><strong>Reframe:</strong> "LATAM is a growth area for us, which actually works in your favour - we're invested in building the retailer coverage and regional expertise. We see brands like Clarins as ideal partners to develop this together. And frankly, the alternative for most brands is no monitoring at all across their LATAM retailers."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We've spoken to eStore before and it wasn't a fit."</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge and distinguish.</strong> "Yes, our team spoke with your European colleagues in 2021-2022 about UK and Poland markets, and at that time it wasn't the right fit. That's a fair assessment - and we respect that conclusion."</p>
+                        <p><strong>Reframe:</strong> "This conversation is specifically about your LATAM digital shelf - a completely different challenge. Different geography, different retailers, different competitive dynamics, and critically, a different operating model. Managing product presence across 28+ retailers in 7 countries through distributors is a fundamentally different problem from monitoring a few UK retailers. We're reaching out because the LATAM challenge is where we think we can add genuine value."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Our distributors handle retailer relationships - we don't need this visibility."</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>This is actually the strongest argument FOR digital shelf analytics.</strong> When distributors manage retailer relationships, the brand has less direct control over how products appear on retailer websites. Content may drift, pricing may be inconsistent, availability gaps may go unnoticed.</p>
+                        <p><strong>Reframe:</strong> "That's exactly the point. Your distributors are doing their best, but how do you verify that product content on Falabella Chile matches what's on Falabella Peru? Or that pricing on Mercado Libre Argentina is consistent with Mercado Libre Mexico? Without independent monitoring, you're trusting that everything is right - but you can't confirm it. Most brands in distributor models tell us they discover problems by accident, not by design."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We need to focus on our DTC site first - Brazil's site is being rebuilt."</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Acknowledge the priority, then reframe.</strong> "That makes sense - rebuilding clarins.com.br is clearly a priority. But while the DTC site is offline, every Brazilian consumer who searches for Clarins online is being directed to Sephora Brasil, Beleza na Web, Epoca Cosmeticos, and Amazon Brazil. Those retailers ARE your digital storefront right now."</p>
+                        <p><strong>Reframe:</strong> "If anything, the DTC site being offline makes third-party retailer monitoring more urgent, not less. When consumers can't buy from you directly, the quality, accuracy, and competitiveness of your listings on those third-party sites becomes the single most important factor in whether they buy Clarins or switch to a competitor."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"The implementation timeline seems too long for us to see value quickly."</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Be realistic and offer a phased approach.</strong> "We understand that a 3-6 month timeline to full LATAM coverage isn't ideal. That's why we'd recommend starting with the retailers we can monitor immediately - likely Amazon Mexico, Amazon Brazil, and other platforms we already cover."</p>
+                        <p><strong>Reframe:</strong> "We'd propose a Mexico-first pilot. Mexico has the strongest retailer infrastructure and is your most developed LATAM market. Start there, see value within 2-4 weeks, and use those results to build the business case for expanding to Brazil and other markets. That way you're not waiting months to see any value - you're seeing value quickly while we build toward comprehensive coverage."</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"This decision would need to go through Paris."</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Expected for a family-owned French company.</strong> Don't try to bypass the process - embrace it.</p>
+                        <p><strong>Reframe:</strong> "That's completely understandable. For a tool evaluation like this, Paris approval makes sense. What we've found works well is building the operational case first - showing concrete data on what the digital shelf looks like across your LATAM retailers, what the competitive gaps are, and what the monitoring would actually reveal. That gives the Paris team something tangible to evaluate, not just a vendor pitch. Would it help if we put together a sample analysis of a few of your key LATAM retailers so there's something specific to discuss?"</p>
+                    </div>
+                </div>
+
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're already investing in retail media - isn't that enough?"</span>
+                        <span class="objection-arrow">▼</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Retail media and digital shelf analytics are complementary.</strong> Retail media drives traffic to your product listings. Digital shelf analytics ensures what consumers find when they arrive is accurate, competitive, and optimised to convert.</p>
+                        <p><strong>Reframe:</strong> "Think of it this way - you wouldn't spend money driving traffic to a physical store with empty shelves or wrong price tags. Digital shelf analytics ensures the same principle applies online. If you're investing in retail media on Liverpool or Mercado Libre to drive traffic to Clarins products, you want to know that the product content is accurate, images are right, pricing is competitive, and the listing ranks well in search. Otherwise, you're paying to send consumers to a suboptimal experience."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                <ul>
+                    <li><strong>Never dismiss the objection</strong> - Acknowledge it genuinely before reframing</li>
+                    <li><strong>Be honest about limitations</strong> - Especially LATAM coverage and geographic positioning</li>
+                    <li><strong>Use specific evidence</strong> - Reference their actual retailers, their actual competitive landscape</li>
+                    <li><strong>Offer flexibility</strong> - Pilots, phased approaches, Mexico-first starts</li>
+                    <li><strong>Ask questions</strong> - Understand the root concern before responding</li>
+                    <li><strong>Don't over-explain</strong> - These are sophisticated buyers; respect that</li>
+                    <li><strong>Acknowledge previous engagement honestly</strong> - If they bring up 2022, don't dodge it</li>
+                    <li><strong>Position the distributor model as the key pain point</strong> - This is where eStore's value is most tangible for Clarins LATAM</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>eStore Action Plan - Clarins (LATAM) | February 2026</p>
+        <p>Created by James / eStore Sales Development</p>
+    </footer>
+    
+    <script>
+        // Tab Navigation
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
+        }
+        
+        // Email Tab Navigation
+        document.querySelectorAll('.email-tabs').forEach(container => {
+            container.querySelectorAll('.email-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const emailNum = this.dataset.email;
+                    const sequence = this.closest('.email-sequence');
+                    
+                    container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    sequence.querySelectorAll('.email-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    sequence.querySelector(`.email-content[data-email="${emailNum}"]`).classList.add('active');
+                });
+            });
+        });
+        
+        // Objection Card Toggle
+        function toggleObjection(header) {
+            const card = header.closest('.objection-card');
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
