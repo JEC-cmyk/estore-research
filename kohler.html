@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kohler Co. - eStore Action Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+        
+        .header-meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .header-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.25rem;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            background: #1067db;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #1067db;
+        }
+        
+        .card h3 {
+            font-size: 1.15rem;
+            margin: 1.5rem 0 0.75rem;
+            color: #2c2c2c;
+        }
+        
+        .card h4 {
+            font-size: 1rem;
+            margin: 0.75rem 0 0.5rem;
+            color: #2c2c2c;
+        }
+        
+        .card p {
+            margin-bottom: 0.75rem;
+        }
+        
+        .card ul {
+            margin: 0.5rem 0 1rem 1.5rem;
+        }
+        
+        .card li {
+            margin-bottom: 0.4rem;
+        }
+        
+        .fit-badge {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .fit-badge.strong {
+            background: #e6f9ee;
+            color: #22bb69;
+            border: 2px solid #22bb69;
+        }
+        
+        .fit-badge.moderate {
+            background: #fff8e6;
+            color: #ff7a00;
+            border: 2px solid #ff7a00;
+        }
+        
+        .fit-badge.weak {
+            background: #fde8e8;
+            color: #f44f2f;
+            border: 2px solid #f44f2f;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 1.25rem 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .stat-box .value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1067db;
+        }
+        
+        .stat-box .label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .summary-item {
+            padding: 1.25rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #1067db;
+        }
+        
+        .summary-item h4 {
+            margin-top: 0;
+            color: #1067db;
+            font-size: 0.95rem;
+        }
+        
+        .summary-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        
+        .info-box {
+            padding: 1.25rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+        
+        .info-box.green {
+            background: #e6f9ee;
+            border-left: 4px solid #22bb69;
+        }
+        
+        .info-box.yellow {
+            background: #fff8e6;
+            border-left: 4px solid #ffba1c;
+        }
+        
+        .info-box.red {
+            background: #fde8e8;
+            border-left: 4px solid #f44f2f;
+        }
+        
+        .info-box.blue {
+            background: #e8f4fd;
+            border-left: 4px solid #1067db;
+        }
+        
+        .info-box.grey {
+            background: #f0f0f0;
+            border-left: 4px solid #999;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+        
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge.green { background: #e6f9ee; color: #22bb69; }
+        .badge.yellow { background: #fff8e6; color: #cc8800; }
+        .badge.red { background: #fde8e8; color: #f44f2f; }
+        .badge.blue { background: #e8f4fd; color: #1067db; }
+        .badge.grey { background: #f0f0f0; color: #666; }
+        .badge.orange { background: #fff3e6; color: #ff7a00; }
+        
+        .contact-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 1px solid #e9ecef;
+        }
+        
+        .contact-card h3 {
+            margin-top: 0;
+        }
+        
+        .contact-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .priority-tag {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .priority-tag.p1 { background: #1067db; color: white; }
+        .priority-tag.p2 { background: #68d7fa; color: #2c2c2c; }
+        .priority-tag.p3 { background: #22bb69; color: white; }
+        .priority-tag.p4 { background: #ffba1c; color: #2c2c2c; }
+        .priority-tag.air { background: #f0f0f0; color: #666; }
+        
+        .disclaimer {
+            background: #fff8e6;
+            border: 2px solid #ffba1c;
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        /* Email sequence styles */
+        .email-sequence {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .email-sequence-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        
+        .email-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .email-tab {
+            padding: 0.5rem 1rem;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            transition: all 0.2s ease;
+        }
+        
+        .email-tab:hover {
+            background: #e9ecef;
+        }
+        
+        .email-tab.active {
+            background: #1067db;
+            color: white;
+            border-color: #1067db;
+        }
+        
+        .email-content {
+            display: none;
+        }
+        
+        .email-content.active {
+            display: block;
+        }
+        
+        .email-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .email-subject {
+            font-weight: 700;
+            color: #1067db;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .email-timing {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .email-body {
+            white-space: pre-wrap;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .email-notes {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #e8f4fd;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .email-notes h5 {
+            font-size: 0.85rem;
+            color: #1067db;
+            margin-bottom: 0.35rem;
+            margin-top: 0.75rem;
+        }
+        
+        .email-notes h5:first-child {
+            margin-top: 0;
+        }
+        
+        .email-notes p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* LinkedIn section styles */
+        .linkedin-section {
+            margin-top: 1.25rem;
+            padding: 1.25rem;
+            background: #f0f7ff;
+            border-radius: 10px;
+            border: 1px solid #d0e3f7;
+        }
+        
+        .linkedin-section h4 {
+            color: #0077b5;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .linkedin-message {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            border: 1px solid #e9ecef;
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+        
+        .linkedin-message-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #0077b5;
+            margin-bottom: 0.35rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .linkedin-strategy {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        
+        /* Objection card styles */
+        .objection-card {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+        
+        .objection-header {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        
+        .objection-header:hover {
+            background: #f8f9fa;
+        }
+        
+        .objection-header::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: #1067db;
+            font-weight: 300;
+            transition: transform 0.2s;
+        }
+        
+        .objection-card.open .objection-header::after {
+            content: '-';
+        }
+        
+        .objection-body {
+            display: none;
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .objection-card.open .objection-body {
+            display: block;
+        }
+        
+        /* Checklist styles */
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0 0.5rem 2rem;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .checklist li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+        }
+        
+        .checklist li.warn::before {
+            content: '⚠️';
+        }
+        
+        .checklist li.fail::before {
+            content: '❌';
+        }
+        
+        /* Coverage bar */
+        .coverage-bar-container {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 24px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .coverage-bar {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #999;
+            font-size: 0.85rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.5rem; }
+            .container { padding: 1rem; }
+            .card { padding: 1.25rem; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .summary-grid { grid-template-columns: 1fr; }
+            .email-sequence-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Kohler Co.</h1>
+        <div class="header-subtitle">eStore Brand Research & Action Plan</div>
+        <div class="header-meta">
+            <div class="header-meta-item">🏷️ Home & Garden / Home & DIY</div>
+            <div class="header-meta-item">🏢 Private (Family-controlled, 4th generation)</div>
+            <div class="header-meta-item">📍 Kohler, Wisconsin, USA</div>
+            <div class="header-meta-item">📅 February 2026</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('fit')">Strategic Fit Assessment</button>
+            <button class="tab" onclick="showTab('history')">Our history with them</button>
+            <button class="tab" onclick="showTab('retailers')">Retailer Overview</button>
+            <button class="tab" onclick="showTab('contacts')">Key people?</button>
+            <button class="tab" onclick="showTab('outreach')">Draft Outreach</button>
+            <button class="tab" onclick="showTab('objections')">Objection Handling</button>
+        </div>
+        
+        <!-- ==================== TAB 1: STRATEGIC FIT ASSESSMENT ==================== -->
+        <div id="fit" class="tab-content active">
+            <div class="card">
+                <div class="fit-badge strong">🟢 STRONG FIT</div>
+                <h2>Strategic Assessment Summary</h2>
+                <p>Kohler represents one of the highest-value digital shelf analytics opportunities in the Home & Garden sector. The combination of extreme catalogue complexity (15,000-30,000+ SKUs across 10+ brands), no confirmed DSA provider, a new Chief Digital Officer actively building digital shelf capabilities, and competitive urgency from Moen and Delta creates an unusually receptive window for engagement. However, eStore's current retailer coverage for Kohler's key retailers is extremely limited, meaning this is a strategic, longer-term opportunity requiring significant infrastructure development - not an immediate time-to-value play.</p>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">~$7.6-9B</div>
+                        <div class="label">Est. Revenue (2024)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">27+</div>
+                        <div class="label">Online Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">10+</div>
+                        <div class="label">Brands</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">15-30K+</div>
+                        <div class="label">Est. SKUs</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">50+</div>
+                        <div class="label">Countries</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">~30,000</div>
+                        <div class="label">Employees</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Distribution Complexity & Geographic Alignment</h2>
+                
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Geographic Breakdown</h4>
+                        <p>~63% US, ~26% UK/Europe, ~11% Other (Canada, APAC). Decisively multi-channel - not Amazon-dominant.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Channel Profile</h4>
+                        <p>Deep distribution across generalist mass market, specialist plumbing/bath, regional chains, and DTC. Ferguson ecosystem alone carries 3,613+ SKUs.</p>
+                    </div>
+                </div>
+                
+                <h3>European Presence</h3>
+                <ul>
+                    <li><strong>UK - Cheltenham:</strong> Kohler Mira Limited (Whaddon Works). Manufactures Mira Showers (UK's second most popular shower brand) and Rada commercial controls. Incorporated 1930</li>
+                    <li><strong>UK - London:</strong> Kohler Experience Centre in Clerkenwell (Europe's first, opened 2017)</li>
+                    <li><strong>Germany:</strong> KLAFS (acquired January 2024). ~850 employees. Premium wellness products across Germany, Switzerland, Austria, Poland, Netherlands, Spain</li>
+                    <li><strong>France:</strong> Jacob Delafon (acquired 1986, Kohler's primary French market brand) and Sanijura (bathroom furniture)</li>
+                </ul>
+                
+                <div class="info-box green">
+                    <strong>Notable Patterns:</strong> Strong UK manufacturing presence through Mira Showers. European distribution primarily through subsidiary brands (Mira in UK, Jacob Delafon in France, KLAFS in Germany) rather than the Kohler brand name. US distribution is exceptionally deep and multi-tiered.
+                </div>
+                
+                <div class="info-box yellow">
+                    <strong>Critical Gap:</strong> E-commerce/digital leadership is US-based (Kohler, Wisconsin). No dedicated European e-commerce team identified. Limited Kohler-branded mass market retail presence in the UK - no B&Q, Screwfix, Wickes, or Homebase listings found. kohler.co.uk redirects to StudioKOHLER (professional specification only, no consumer checkout).
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Competitive Intelligence Summary</h2>
+                
+                <div class="info-box green">
+                    <strong>🟢 Greenfield Opportunity:</strong> No incumbent DSA provider identified despite searching 12 major providers. Kohler is actively hiring a "Sr Manager - eCommerce & Digital Shelf" - building this capability from scratch.
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>DSA Provider</th>
+                            <th>Status</th>
+                            <th>Confidence</th>
+                            <th>Evidence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Profitero</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No customer reference, case study, or press release</td>
+                        </tr>
+                        <tr>
+                            <td>CommerceIQ</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>Customer list includes Whirlpool but not Kohler</td>
+                        </tr>
+                        <tr>
+                            <td>Salsify</td>
+                            <td><span class="badge yellow">Editorial Only</span></td>
+                            <td>Unknown</td>
+                            <td>Blog used Kohler imagery as editorial example - NOT a customer relationship</td>
+                        </tr>
+                        <tr>
+                            <td>Syndigo</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>syndigo.com/kohls/ references Kohl's (retailer), not Kohler</td>
+                        </tr>
+                        <tr>
+                            <td>mindsite / Brand Nudge / Edge / Stackline / DataWeave</td>
+                            <td><span class="badge grey">Not Found</span></td>
+                            <td>Unknown</td>
+                            <td>No evidence across remaining providers searched</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Critical Switching/Entry Signal</h3>
+                <p>Kohler is actively hiring a <strong>"Sr Manager - eCommerce & Digital Shelf"</strong> (Kohler, WI; $134,700-$211,700). The role specifically mentions owning Kohler's Digital Shelf Capability Roadmap, identifying tools, workflows, and partnerships. No specific DSA tool is named - they are in an evaluative phase.</p>
+                
+                <h3>Competitor DSA Usage</h3>
+                <table>
+                    <thead>
+                        <tr><th>Kohler Competitor</th><th>DSA Provider</th><th>Confidence</th><th>Detail</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Moen (Fortune Brands)</td><td><span class="badge green">Salsify</span></td><td>Confirmed</td><td>Customer since 2017. Uses Salsify GDSN Data Pool</td></tr>
+                        <tr><td>Delta (Masco)</td><td><span class="badge grey">Unknown</span></td><td>Likely internal</td><td>Acquired Kraus USA for e-commerce marketplace capabilities</td></tr>
+                        <tr><td>Grohe (LIXIL)</td><td><span class="badge blue">eStore</span></td><td>Confirmed</td><td>Current eStore client. Handle reference carefully</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Sector Alignment</h2>
+                
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Primary Sector</h4>
+                        <p>Home & Garden / Home & DIY - one of eStore's five proven sectors</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Adjacent Clients</h4>
+                        <p>Grohe (direct competitor), Robert Bosch PT, Newell Brands, Whirlpool, De'Longhi</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Key Reference</h4>
+                        <p>Grohe is the most directly relevant - competitor to Kohler in plumbing fixtures. Handle without revealing competitive intelligence</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Lapsed in Adjacent</h4>
+                        <p>Stanley Black & Decker (home improvement/tools)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Relationship History</h2>
+                
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Status</h4>
+                        <p>Re-engagement opportunity - warm outreach possible (not fully cold). CRM record since April 2020</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Tactical Advantages</h4>
+                        <p>Previous touchpoints exist but all were generic campaign-based. A personalised, research-driven approach will differentiate immediately</p>
+                    </div>
+                </div>
+                
+                <div class="info-box blue">
+                    <strong>Recommendation:</strong> Treat as a fresh, research-driven approach. Do not reference the 2021 or 2023 campaigns in new emails - they were generic webinar invites that add no value and may feel stale. The 2.5-year gap means any brand awareness has likely faded.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Market Dynamics: Strategic Timing</h2>
+                
+                <h3>Recent Structural Changes (2024-2025)</h3>
+                <ul>
+                    <li><strong>Energy business separated (May 2024):</strong> Sold majority stake to Platinum Equity; rebranded as Rehlko. Kohler refocused on Kitchen & Bath, Wellness, and Hospitality</li>
+                    <li><strong>KLAFS acquired (January 2024):</strong> ~850-employee German wellness products company added to portfolio</li>
+                    <li><strong>New Chief Digital Officer (August 2025):</strong> Eric Tabor joined from Stryker - new CDOs typically conduct vendor landscape reviews in first 6-12 months</li>
+                    <li><strong>Global website replatform completed (2025):</strong> Migration to Drupal + Next.js headless architecture on AWS EKS</li>
+                    <li><strong>Digital shelf hire active:</strong> "Sr Manager - eCommerce & Digital Shelf" open - building capability from scratch</li>
+                </ul>
+                
+                <h3>Competitive Pressure</h3>
+                <ul>
+                    <li>Moen has a 70+ person e-commerce team and has used Salsify since 2017</li>
+                    <li>Delta won Home Depot Kitchen & Bath Partner of the Year 2025</li>
+                    <li>Amazon's share of K&B fixtures on a 4-year upward trend to 12% unit share</li>
+                    <li>27% of all K&B purchases now made online (up 1.8pts YOY)</li>
+                </ul>
+                
+                <div class="info-box green">
+                    <strong>Budget Cycle Indicators:</strong> New CDO (Aug 2025) + active digital shelf hiring + completed website replatform + post-Energy-separation capital reallocation = active investment cycle for digital commerce capabilities, likely with budget allocation in H1 2026.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Synthesis & Recommendation</h2>
+                
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Recommended Approach</h4>
+                        <p>Confident outreach with consultative undertone. Lead with specific research findings (digital shelf job posting, competitive moves, catalogue complexity). Be transparent about geographic coverage.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Estimated Difficulty</h4>
+                        <p><strong>Moderate-High.</strong> Large, private, family-owned company with deliberate decision-making. Sales cycle likely 6-12 months. Digital shelf hire may need to be in post before vendor decision.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Primary Risk</h4>
+                        <p>Kohler selects a US-centric provider (Profitero, Salsify) given their primarily US (~63%) retail footprint. eStore must position European coverage as a genuine differentiator.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Mira Showers Angle</h4>
+                        <p>If Kohler-branded retailer coverage is limited, Mira Showers (with broader UK retail distribution) could serve as a proof-of-concept entry point.</p>
+                    </div>
+                </div>
+                
+                <h3>Implementation Readiness Assessment</h3>
+                
+                <div class="info-box red">
+                    <strong>⚠️ Critical Finding - Retailer Coverage:</strong> Cross-referencing Kohler's 27+ online retailers against eStore's Retailer Coverage Master reveals that <strong>none of Kohler's key retailers are currently covered</strong> by eStore's existing infrastructure. This includes Amazon.com, Home Depot, Lowe's, Walmart, Wayfair, Ferguson, Amazon.co.uk, and all UK specialist bath retailers. This means eStore cannot provide immediate monitoring value - significant retailer onboarding would be required before any data delivery.
+                </div>
+                
+                <div class="info-box yellow">
+                    <strong>What This Means for Outreach:</strong> The strategic fit remains strong (no DSA incumbent, genuine operational need, excellent timing). However, the sales conversation must be honest about implementation timeline. Position this as a strategic partnership requiring retailer infrastructure development (4-6+ months) rather than a quick-win tactical deployment. Lead with the strategic value proposition and European market expertise where eStore can build coverage faster than US-centric competitors.
+                </div>
+                
+                <h3>Final Assessment Checklist</h3>
+                <ul class="checklist">
+                    <li>No confirmed DSA provider - greenfield opportunity</li>
+                    <li>Actively hiring digital shelf capability lead - evaluative phase</li>
+                    <li>New CDO in first 6 months - vendor evaluation window open</li>
+                    <li>Extreme catalogue complexity creates genuine operational need</li>
+                    <li>Strong Home & DIY sector alignment with existing client Grohe</li>
+                    <li>Competitive urgency from Moen (Salsify since 2017) and Delta (Home Depot award)</li>
+                    <li class="warn">~63% US retail footprint - eStore's European strength is secondary to their core need</li>
+                    <li class="fail">Retailer coverage currently at 0% - no immediate time-to-value possible</li>
+                    <li class="warn">Private company - limited public financial data and strategic intelligence</li>
+                    <li class="warn">Sales cycle likely 6-12 months with deliberate decision-making culture</li>
+                </ul>
+                
+                <div class="info-box blue">
+                    <strong>Overall Recommendation:</strong> Proceed with outreach. The strategic opportunity is genuine and the timing is optimal. However, set expectations internally: this is a longer-term, relationship-building play. The goal of initial outreach is to start a conversation and understand their evaluation timeline - not to close a quick deal. Position eStore's European expertise and willingness to build US coverage as a differentiator against US-only providers who may not cover Mira, KLAFS, or Jacob Delafon.
+                </div>
+            </div>
+        </div>
+        
+        <!-- ==================== TAB 2: OUR HISTORY WITH THEM ==================== -->
+        <div id="history" class="tab-content">
+            <div class="card">
+                <h2>Previous Conversations</h2>
+                
+                <div class="info-box yellow">
+                    <strong>Status:</strong> CRM record created 1 April 2020. Lifecycle stage: Lead. All engagement has been outbound, top-of-funnel email campaigns with no deals, tickets, or substantive responses captured.
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr><th>Date</th><th>Who Sent</th><th>Campaign</th><th>Recipients</th><th>Outcome</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>May-Jun 2021</td>
+                            <td>Raminta Bumbulyte (Account Director)</td>
+                            <td>"The Home Depot Digital Shelf" + eCommerce Growth Summit</td>
+                            <td>Multiple Kohler contacts</td>
+                            <td>One auto-OOO from "Andy". No substantive engagement</td>
+                        </tr>
+                        <tr>
+                            <td>Jul 2023</td>
+                            <td>Dan St. Pierre (VP Sales, NA)</td>
+                            <td>Prime Day 2023 insights</td>
+                            <td>Tara (Hayes), Jennifer</td>
+                            <td>No response captured</td>
+                        </tr>
+                        <tr>
+                            <td>Jul 2023</td>
+                            <td>System</td>
+                            <td>Deliverability alert</td>
+                            <td>tara.hayes@kohlercompany.com</td>
+                            <td>Email bounced - Gmail timeouts</td>
+                        </tr>
+                        <tr>
+                            <td>Aug 2023</td>
+                            <td>Dan St. Pierre</td>
+                            <td>"Daily Store-Level / Location-Based Analytics" webinar</td>
+                            <td>Laurie, Catherine, Anthony, Tara</td>
+                            <td>No response captured</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p><strong>Last recorded activity:</strong> August 2023 - approximately 2.5 years ago.</p>
+            </div>
+            
+            <div class="card">
+                <h2>Known Contacts and Their Status</h2>
+                <table>
+                    <thead>
+                        <tr><th>Name</th><th>Email Domain</th><th>Status</th><th>Notes</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Tara Hayes</td><td>kohlercompany.com</td><td><span class="badge red">Undeliverable</span></td><td>Bounced July 2023 - do not attempt again</td></tr>
+                        <tr><td>Laurie</td><td>Unknown</td><td><span class="badge grey">Unknown</span></td><td>Campaign recipient Aug 2023. Title unknown</td></tr>
+                        <tr><td>Catherine</td><td>Unknown</td><td><span class="badge grey">Unknown</span></td><td>Campaign recipient Aug 2023. Title unknown</td></tr>
+                        <tr><td>Anthony</td><td>Unknown</td><td><span class="badge grey">Unknown</span></td><td>Campaign recipient Aug 2023. Title unknown</td></tr>
+                        <tr><td>Jennifer</td><td>Unknown</td><td><span class="badge grey">Unknown</span></td><td>Campaign recipient Jul 2023. Title unknown</td></tr>
+                        <tr><td>Andy</td><td>Unknown</td><td><span class="badge grey">Unknown</span></td><td>Auto-OOO reply Jun 2021</td></tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box blue">
+                    <strong>Important:</strong> None of the new primary targets (Molly John, Laura Seele, Jon Proeber, Brenda Tharp) appear among the previously contacted names. However, if any of the new targets turn out to be among the previous recipients (particularly "Laurie" who could be Laurie Clayton - now Senior Manager, Digital Merchandising), this needs acknowledging rather than ignoring. Note also that some Kohler contacts use @kohler.com while others use @kohlercompany.com.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Competitor Intelligence (DSA Providers)</h2>
+                
+                <div class="info-box green">
+                    <strong>No Incumbent Identified</strong> - Confidence: Unknown but strong signals suggest no existing DSA provider. Searched 12 major providers with no customer references found.
+                </div>
+                
+                <h3>Known Technology Stack</h3>
+                <table>
+                    <thead><tr><th>Tool</th><th>Purpose</th><th>Status</th></tr></thead>
+                    <tbody>
+                        <tr><td>VNTANA</td><td>3D digital asset management</td><td><span class="badge green">Confirmed</span> - 8,000+ 3D models</td></tr>
+                        <tr><td>Drupal (headless) + Next.js</td><td>Website CMS/frontend</td><td><span class="badge green">Confirmed</span> - recently replatformed</td></tr>
+                        <tr><td>AWS EKS</td><td>Cloud infrastructure</td><td><span class="badge green">Confirmed</span></td></tr>
+                        <tr><td>Salesforce Sales Cloud</td><td>CRM</td><td><span class="badge green">Confirmed</span> - deployed 2021</td></tr>
+                        <tr><td>Microsoft Power BI</td><td>Business intelligence</td><td><span class="badge green">Confirmed</span> - since 2015</td></tr>
+                        <tr><td>PIM system</td><td>Product information management</td><td><span class="badge red">NOT IDENTIFIED</span> - significant gap</td></tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box yellow">
+                    <strong>Switching/Entry Signals:</strong> Active job posting for digital shelf manager with no DSA tool named = evaluative phase. New CDO = vendor landscape review likely. No PIM identified = possible bundled DSA+PIM evaluation. Completed website replatform = digital infrastructure modernised, ready for analytics layer.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Internal Champion & Blockers</h2>
+                
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Internal Champion</h4>
+                        <p>None identified. All previous outreach went unanswered. This is a fresh start with new contacts at the operational decision-maker level.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Known Blockers</h4>
+                        <p>No blockers identified. Previous outreach was generic campaign-based - no recorded rejection, objection, or "do not contact" request. The 2.5-year gap means any brand awareness has faded.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Content to Reference</h2>
+                
+                <h3>Sector Landing Page</h3>
+                <table>
+                    <thead><tr><th>Content</th><th>URL</th><th>When to Use</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Home & DIY Landing Page</strong></td>
+                            <td><a href="https://estorebrands.com/home-and-diy" target="_blank">estorebrands.com/home-and-diy</a></td>
+                            <td>Primary sector page. Position in Email 2 as educational content, not sales collateral</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Relevant Ignite Articles</h3>
+                <table>
+                    <thead><tr><th>Article</th><th>URL</th><th>Suggested Placement</th></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Digital Shelf Analytics for Home & DIY Brands (2025)</strong></td>
+                            <td><a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025" target="_blank">Link</a></td>
+                            <td>Primary article for Email 2. Frame around catalogue complexity (finishes, configurations)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Introducing Content Benchmark</strong></td>
+                            <td><a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank">Link</a></td>
+                            <td>Best for Laura Seele or Jon Proeber. Frame around competitive content analysis vs Moen/Delta</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Introducing AI Business Answers</strong></td>
+                            <td><a href="https://estorebrands.com/ignite/introducing-ai-business-answers" target="_blank">Link</a></td>
+                            <td>Best for Jon Proeber (technical/AI interest). Frame around actionable analytics</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>How to Position Content Naturally</h3>
+                <ul>
+                    <li><strong>Email 1:</strong> No links. Keep conversational. Focus on research findings and genuine questions</li>
+                    <li><strong>Email 2:</strong> Include the Home & DIY sector article where it fits naturally. Frame as sharing something genuinely relevant</li>
+                    <li><strong>Email 3:</strong> Content Benchmark or AI Business Answers only if the conversation has moved toward those topics. Do not force</li>
+                </ul>
+                
+                <h3>Client References to Use Carefully</h3>
+                <ul>
+                    <li><strong>Grohe:</strong> Current eStore client and direct Kohler competitor. Handle with extreme care - do not reveal competitive intelligence. Reference as "brands in the plumbing and fixtures space" unless asked directly</li>
+                    <li><strong>De'Longhi, BSH, Whirlpool:</strong> Current clients in adjacent home goods/appliances. Demonstrate multi-brand, multi-channel expertise</li>
+                    <li><strong>Robert Bosch PT:</strong> Current client in home improvement/power tools. Home & DIY sector credibility</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>Strategic Implications</h2>
+                <ul>
+                    <li>New outreach should not reference previous campaigns - they were generic webinar invites, not personalised research</li>
+                    <li>Starting fresh with targeted, research-driven approach to operational decision-makers is the right strategy</li>
+                    <li>Email deliverability risk: The bounce from kohlercompany.com in 2023 may have been temporary, but test new contact emails carefully</li>
+                    <li>If "Laurie" from previous campaigns turns out to be Laurie Clayton (now Sr Manager, Digital Merchandising), this connection could be valuable but needs careful handling</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- ==================== TAB 3: RETAILER OVERVIEW ==================== -->
+        <div id="retailers" class="tab-content">
+            <div class="card">
+                <h2>Retailer Landscape Summary</h2>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">27+</div>
+                        <div class="label">Online Retailers Identified</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">~63%</div>
+                        <div class="label">US Retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">~26%</div>
+                        <div class="label">UK/Europe</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">~11%</div>
+                        <div class="label">Other Markets</div>
+                    </div>
+                </div>
+                
+                <h3>Channel Diversity</h3>
+                <table>
+                    <thead><tr><th>Channel</th><th>Count</th><th>Key Retailers</th></tr></thead>
+                    <tbody>
+                        <tr><td>Generalist Mass Market</td><td>6</td><td>Amazon.com, Home Depot, Lowe's, Walmart, Costco, Wayfair</td></tr>
+                        <tr><td>Specialist Plumbing/Bath</td><td>11</td><td>Ferguson (+ FaucetDirect, Build.com), PlumbersStock, Southern Pipe, UK specialists (Unbeatable Bathrooms, London Brassware, Junction 2 Interiors, Sinks.co.uk, Sheth's Bathrooms)</td></tr>
+                        <tr><td>Regional Chains</td><td>3</td><td>Menards (US Midwest), Ace Hardware, Ubuy</td></tr>
+                        <tr><td>DTC/Own Channels</td><td>3</td><td>kohler.com (full US e-commerce), kohlercollection.com, StudioKOHLER (professional specification)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Notable Patterns</h2>
+                <ul>
+                    <li><strong>Multi-channel by design:</strong> Kohler deliberately distributes across generalist, specialist, and DTC channels - not dependent on any single retailer. This creates significant digital shelf monitoring need</li>
+                    <li><strong>Ferguson ecosystem dominance:</strong> Ferguson.com, FaucetDirect.com, and Build.com (all Ferguson Enterprises) collectively carry the largest Kohler product assortment (3,613+ SKUs). Monitoring this ecosystem is critical</li>
+                    <li><strong>Home Depot and Lowe's carry exclusive lines:</strong> Channel-specific product variants increase content management complexity</li>
+                    <li><strong>UK distribution is specialist-focused:</strong> No mass market UK home improvement retailers (B&Q, Screwfix, Wickes) identified for the Kohler brand. UK presence is through niche bathroom retailers and the Mira Showers brand</li>
+                    <li><strong>Amazon Brand Store present:</strong> Official Kohler Brand Store on both Amazon.com and Amazon.co.uk - indicating active marketplace management</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>eStore Coverage Reality Check</h2>
+                
+                <div class="info-box red">
+                    <strong>❌ COVERAGE: EXTREMELY LIMITED</strong>
+                    <p style="margin-top:0.5rem; margin-bottom:0;">Cross-referencing Kohler's key retailers against eStore's Retailer Coverage Master CSV reveals that <strong>none of Kohler's major retailers are currently covered</strong> by eStore's monitoring infrastructure. This includes all US mass market retailers (Amazon.com, Home Depot, Lowe's, Walmart, Wayfair, Costco), all Ferguson ecosystem sites, all UK specialist bath retailers, and Amazon.co.uk.</p>
+                </div>
+                
+                <div class="coverage-bar-container">
+                    <div class="coverage-bar" style="width: 3%; background: #f44f2f; min-width: 60px;">~0%</div>
+                </div>
+                
+                <div class="summary-grid">
+                    <div class="summary-item" style="border-left-color: #f44f2f;">
+                        <h4>US Mass Market (Tier 1)</h4>
+                        <p>Amazon.com, Home Depot, Lowe's, Walmart, Wayfair, Costco - <strong>all NOT COVERED</strong></p>
+                    </div>
+                    <div class="summary-item" style="border-left-color: #f44f2f;">
+                        <h4>US Specialist (Tier 2)</h4>
+                        <p>Ferguson, FaucetDirect, Build.com, Menards - <strong>all NOT COVERED</strong></p>
+                    </div>
+                    <div class="summary-item" style="border-left-color: #f44f2f;">
+                        <h4>UK/Europe (Tier 2-3)</h4>
+                        <p>Amazon.co.uk, UK specialist bath retailers - <strong>all NOT COVERED</strong></p>
+                    </div>
+                    <div class="summary-item" style="border-left-color: #f44f2f;">
+                        <h4>UK Home Improvement</h4>
+                        <p>B&Q, Screwfix, Wickes, Homebase - all NOT COVERED (and Kohler brand not listed on these anyway)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>What This Means</h2>
+                
+                <div class="info-box yellow">
+                    <strong>❌ WEAK FIT on Coverage Alone - but Strategic Fit Remains Strong</strong>
+                    <p style="margin-top:0.5rem; margin-bottom:0;">Based on retailer coverage alone, this would be a "delay outreach" recommendation. However, the strategic factors (no DSA incumbent, active hiring, new CDO, competitive urgency, sector alignment) are exceptionally strong. The recommendation is to proceed with outreach but with complete honesty about implementation timelines.</p>
+                </div>
+                
+                <h3>Honest Positioning Approach</h3>
+                <ul>
+                    <li><strong>Do not promise immediate time-to-value.</strong> eStore cannot begin monitoring any of Kohler's retailers without onboarding them first</li>
+                    <li><strong>Estimated implementation timeline:</strong> 4-6+ months before meaningful data delivery, depending on retailer onboarding complexity</li>
+                    <li><strong>Lead with strategic partnership value:</strong> Position as building a comprehensive monitoring capability together, not a plug-and-play deployment</li>
+                    <li><strong>European differentiation:</strong> While US coverage requires building, eStore can build European coverage (Mira, KLAFS, Jacob Delafon retailers) faster than US-centric competitors can</li>
+                    <li><strong>Mira Showers as entry point:</strong> If Mira's UK retail distribution (potentially broader mass market) could be a starting point for demonstrating value while US infrastructure is built</li>
+                </ul>
+                
+                <h3>Critical Gaps</h3>
+                <ul>
+                    <li>No Kohler-branded products found on Amazon.de, Amazon.fr (served by subsidiary brands)</li>
+                    <li>No UK mass market home improvement retailer listings for the Kohler brand</li>
+                    <li>APAC distribution is primarily offline/dealer-driven - limited digital shelf opportunity</li>
+                    <li>The six retailers likely representing 70-80% of Kohler's online sales volume (Amazon.com, Home Depot, Lowe's, Walmart, Wayfair, Ferguson) are all outside eStore's current infrastructure</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- ==================== TAB 4: KEY PEOPLE ==================== -->
+        <div id="contacts" class="tab-content">
+            <div class="card">
+                <h2>Historical Contacts (From CRM)</h2>
+                <div class="info-box grey">
+                    <strong>Previous Recipients (2021-2023):</strong> Laurie, Catherine, Anthony, Tara Hayes, Jennifer, Andy - all received generic campaign emails. Titles and current status unknown. Tara Hayes' email bounced. None of these contacts had substantive engagement. <strong>Note:</strong> "Laurie" could potentially be Laurie Clayton (now Sr Manager, Digital Merchandising) - if so, this is a useful connection point.
+                </div>
+            </div>
+            
+            <!-- Primary Target #1 -->
+            <div class="card">
+                <h2>Primary Targets - Operational Decision-Makers</h2>
+                
+                <div class="contact-card">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.5rem;">
+                        <div>
+                            <span class="priority-tag p1">#1 TOP TARGET</span>
+                            <h3>Molly John</h3>
+                            <p><strong>Director, Kohler eCommerce</strong></p>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge green">✅ Verified</span>
+                            <span class="badge grey">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Brookfield, Wisconsin (Greater Milwaukee)</p>
+                    <p><strong>Tenure:</strong> ~20 years at Kohler</p>
+                    <p><strong>Background:</strong> Previously Divisional VP eCommerce Merchandising & Planning at Bon-Ton; Creative Director at Marshalls/TJX; experience at Sears. UW-Milwaukee BA in Marketing</p>
+                    <p><strong>Key responsibilities:</strong> Owns Kohler's eCommerce operation - product listings, digital merchandising, online sales performance, and order management</p>
+                    <p><strong>Recent initiatives:</strong> Actively expanding team (hiring for eCommerce Order Management roles). Spoke at Shoptalk conference</p>
+                    <p><strong>Why she's the right contact:</strong> The incoming "Sr Manager - eCommerce & Digital Shelf" will most likely report to or work alongside Molly. She is the operational owner of the digital shelf and will be directly involved in tool selection. Her 20-year tenure means deep institutional knowledge and credibility to champion new vendor relationships.</p>
+                    <div class="info-box blue">
+                        <strong>Outreach hooks:</strong> Team expansion suggests scaling challenges - more people means more need for systematic analytics rather than manual monitoring. Reference the digital shelf hire as a natural conversation opener about tooling and partnerships.
+                    </div>
+                    <p><strong>Tone guidance:</strong> 🇺🇸 Direct, results-focused, professional. Get to the point quickly.</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.5rem;">
+                        <div>
+                            <span class="priority-tag p1">#2 TOP TARGET</span>
+                            <h3>Laura Seele</h3>
+                            <p><strong>Director of Marketing, Digital & Ecommerce</strong></p>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge green">✅ Verified</span>
+                            <span class="badge grey">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> New York, NY</p>
+                    <p><strong>Reports to:</strong> Scott Edmunds (SVP Marketing)</p>
+                    <p><strong>Tenure:</strong> Since August 2021 (~4.5 years)</p>
+                    <p><strong>Background:</strong> MBA from Babson College; BA from Emory University. Previously Head of Marketing at Crane Stationery; Steinway & Sons (global marketing, brand and content strategy)</p>
+                    <p><strong>Key responsibilities:</strong> DTC/eCommerce marketing, content strategy, performance marketing, digital shelf content optimisation for consumer channels. Responsible for full-funnel campaign for consumer channels including e-commerce, Kohler Stores, and Services businesses</p>
+                    <p><strong>Recent initiatives:</strong> Speaker at PI LIVE Advanced conference (performance marketing / affiliate marketing focus)</p>
+                    <p><strong>Why she's the right contact:</strong> Owns the content and marketing side of the digital shelf - complementary to Molly John's operational role. Content strategy responsibilities directly overlap with DSA use cases (content quality scoring, competitive content benchmarking, product page optimisation).</p>
+                    <div class="info-box blue">
+                        <strong>Outreach hooks:</strong> Content quality across 27+ retailers with 10+ brands is a natural pain point. Competitive content benchmarking against Moen/Delta. Do not reference her PI LIVE appearance directly.
+                    </div>
+                    <p><strong>Tone guidance:</strong> 🇺🇸 Direct, results-focused, professional.</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.5rem;">
+                        <div>
+                            <span class="priority-tag p2">#3</span>
+                            <h3>Jon Proeber</h3>
+                            <p><strong>Director, Digital Experience</strong></p>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge green">✅ Verified</span>
+                            <span class="badge grey">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Cedarburg, Wisconsin (Greater Milwaukee)</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jproeber/" target="_blank">linkedin.com/in/jproeber/</a></p>
+                    <p><strong>Background:</strong> MBA from Loyola University Chicago; BBA Marketing & Psychology from UW-Milwaukee. Board member at National Association of the Remodelling Industry. Developed ML/computer vision app for plumbing fixture identification (scout.kohler.com - patent held)</p>
+                    <p><strong>Key responsibilities:</strong> Digital experience including product content presentation, digital products, and platform capabilities</p>
+                    <p><strong>Why he's the right contact:</strong> Oversees the digital experience layer above e-commerce operations. His technical sophistication (ML/computer vision patents) means he will evaluate DSA tools on technical merit. Influences platform and integration decisions.</p>
+                    <div class="info-box blue">
+                        <strong>Outreach hooks:</strong> Interest in ML/AI applications aligns with eStore's AI Business Answers capability. Technical integration opportunity with Kohler's new headless architecture (Drupal + Next.js). Composable/best-of-breed technology evaluation approach.
+                    </div>
+                    <p><strong>Tone guidance:</strong> 🇺🇸 Technical, detail-oriented. Speak his language.</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.5rem;">
+                        <div>
+                            <span class="priority-tag p3">#4</span>
+                            <h3>Brenda Tharp</h3>
+                            <p><strong>Director, KBNA Digital Experience Stores, Services & Omnichannel</strong></p>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge green">✅ Verified</span>
+                            <span class="badge grey">Cold</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Kohler, Wisconsin area</p>
+                    <p><strong>Background:</strong> Previously at McCormick & Company (Sr Business Digital Relationship Manager). Earlier at Enesco where she evolved a single website into a commerce-infused ecosystem of 40+ brands</p>
+                    <p><strong>Key responsibilities:</strong> Omnichannel digital experience connecting stores, services, and online</p>
+                    <p><strong>Why she's the right contact:</strong> Omnichannel remit means she cares about consistent product experience across physical showrooms, digital platforms, and retailer sites. Her Enesco background managing 40+ brands makes her uniquely sympathetic to multi-brand digital shelf complexity.</p>
+                    <div class="info-box blue">
+                        <strong>Outreach hooks:</strong> The showroom-to-retailer gap - ensuring the product experience at a Kohler Store matches what customers find on Amazon, Home Depot, or Wayfair. Multi-brand portfolio management.
+                    </div>
+                    <p><strong>Tone guidance:</strong> 🇺🇸 Direct, results-focused, professional.</p>
+                </div>
+            </div>
+            
+            <!-- Secondary Targets -->
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+                
+                <div class="contact-card">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.5rem;">
+                        <div>
+                            <span class="priority-tag air">AIR COVER</span>
+                            <h3>Eric Tabor</h3>
+                            <p><strong>Chief Digital Officer</strong></p>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge green">✅ Verified</span>
+                            <span class="badge orange">New in role (Aug 2025)</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Kohler, Wisconsin. <strong>Reports to:</strong> David Kohler (Chair & CEO)</p>
+                    <p><strong>Background:</strong> Previously VP, IT Commercial at Stryker; Director-level IT roles at Kellogg Company. CISSP certified</p>
+                    <p><strong>Key responsibilities:</strong> Leads Kohler's digital and data strategy including business unit and enterprise digital experiences, global data, analytics and AI, foundational platforms, and cybersecurity</p>
+                    <p><strong>Outreach approach:</strong> Do NOT contact directly first. Reference his stated priorities in emails to Molly John, Jon Proeber. Escalate after operational contacts are engaged. His Kellogg background is notable (eStore lapsed client) - handle carefully.</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.5rem;">
+                        <div>
+                            <span class="priority-tag air">AIR COVER</span>
+                            <h3>Scott Edmunds</h3>
+                            <p><strong>Senior Vice President - Marketing</strong></p>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge blue">🇺🇸 American</span>
+                            <span class="badge green">✅ Verified</span>
+                        </div>
+                    </div>
+                    <p><strong>Location:</strong> Kohler, Wisconsin. <strong>Tenure:</strong> 25+ years</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/scott-edmunds-13096917/" target="_blank">View Profile</a></p>
+                    <p><strong>Key responsibilities:</strong> Marketing strategy across all Kohler businesses. Direct reports include Laura Seele, John Engberg (Dir Media & Analytics), Marla Krippendorf (Dir Channel Marketing). NKBA board member</p>
+                    <p><strong>Outreach approach:</strong> Do NOT contact directly first. Reference his public statements in emails to Laura Seele. Escalate after operational engagement.</p>
+                </div>
+            </div>
+            
+            <!-- Additional Influencers -->
+            <div class="card">
+                <h2>Additional Influencers (Manager-Level Champions)</h2>
+                <p>Not primary targets but may be useful allies or entry points:</p>
+                <ul>
+                    <li><strong>Kristi Steele</strong> - Channel Manager, Digital Merchandising (verified). Previously Director of Digital Category Optimisation at Lowe's</li>
+                    <li><strong>Jeremy Meier</strong> - Channel Manager, eCommerce (verified). Manages Home Depot for Kohler across 17 product categories. Home Depot Marketing Vendor Partner of the Year 2021</li>
+                    <li><strong>Laurie Clayton</strong> - Senior Manager, Digital Merchandising, E-commerce (verified). Assortment building, inventory management, strategic planning. Could be the "Laurie" from previous HubSpot contacts</li>
+                    <li><strong>Ashley Springer</strong> - Channel Manager, Digital Experience / E-Commerce (verified). 10+ years at Kohler. Named internal Product Marketer of the Year</li>
+                </ul>
+            </div>
+            
+            <!-- Executive Context -->
+            <div class="card">
+                <h2>Executive Context (Reference Only - Do Not Contact)</h2>
+                <p><strong>David Kohler</strong> - Chair & CEO. 4th generation Kohler family. Under his leadership: separated Energy business, acquired KLAFS, expanded smart home capabilities. Strategic priority on digital channels and DTC provides top-down support for digital investment. Use his priorities to frame partnership value in emails to operational contacts.</p>
+            </div>
+            
+            <!-- Contacts to Skip -->
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                <ul>
+                    <li><strong>Amar Rangarajan</strong> - VP, KBNA Digital Experience. LinkedIn indicated leaving Kohler. ❌ Departed</li>
+                    <li><strong>Brian Siegel</strong> - Sr Manager Digital Products, Omnichannel. Role dates suggest position ended March 2025. ❌ Likely departed</li>
+                    <li><strong>Colleen Bailey</strong> - VP & General Manager, Retail Channel. No recent public confirmation. ⚠️ Unverified</li>
+                    <li><strong>Tara Hayes</strong> - Previous eStore email recipient. Email bounced July 2023. ❌ Do not attempt</li>
+                    <li><strong>Previous HubSpot contacts (Laurie, Catherine, Anthony, Jennifer, Andy)</strong> - Titles and current status unknown. Do not target without verifying current roles</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- ==================== TAB 5: DRAFT OUTREACH ==================== -->
+        <div id="outreach" class="tab-content">
+            <div class="disclaimer">
+                <strong>⚠️ Important:</strong> These emails and LinkedIn messages are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Always verify contact details and current circumstances before outreach.
+            </div>
+            
+            <div class="card">
+                <h2>Nationality-Based Tone Guidance</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>🇺🇸 All Contacts Are American</h4>
+                        <p>Direct, efficient communication. Get to the point quickly. Value clarity and actionability. Confident but not arrogant. Results-focused and professional.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>LinkedIn Timing Guidance</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>Option A: LinkedIn First</h4>
+                        <p>Send connection request 2-3 days before Email 1. If accepted, emails feel warmer.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Option B: Same Day</h4>
+                        <p>Send LinkedIn connection request on the same day as Email 1. Multi-channel presence from day one.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Option C: After No Response</h4>
+                        <p>Use LinkedIn as an alternative channel if emails do not generate a response. Send before Email 3.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ===== CONTACT 1: Molly John ===== -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Molly John</h3>
+                        <p>Director, Kohler eCommerce</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇺🇸 American</span>
+                        <span class="badge grey">Cold</span>
+                        <span class="priority-tag p1">#1 TOP TARGET</span>
+                    </div>
+                </div>
+                
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="molly">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Kohler's digital shelf capability build</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00am CT</div>
+                        <div class="email-body">Hi Molly,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for home improvement and appliance brands, helping them monitor how their products appear and perform across online retailers. We work with companies like De'Longhi, Whirlpool, and Newell Brands.
+
+I saw Kohler is hiring a Sr Manager for eCommerce and Digital Shelf - it looks like this capability is being built from the ground up rather than expanded. That is an interesting moment for a company with Kohler's product range.
+
+I imagine managing content accuracy, pricing, and search performance across 27+ online retailers with a catalogue spanning 10+ brands and 9+ finishes per model creates real complexity. How is your team thinking about the tooling and partnerships that will support that new capability? Is the plan to evaluate digital shelf analytics providers once the role is filled, or is that conversation already underway?
+
+Would welcome the chance to share how we approach this for brands managing similar complexity.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Check whether the Sr Manager role has been filled before sending. If filled, adjust the opening to reference the person now in post. Verify Molly's title is still Director, Kohler eCommerce on LinkedIn. If you find detail on her Shoptalk talk, consider weaving in a reference.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>The digital shelf hire is the strongest timing signal. The email references it lightly rather than dissecting the job description. The catalogue complexity is framed as an observation and a question, not an assertion about their business. Short, specific, and gets to the question quickly.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: How Kohler's competitors are approaching this</div>
+                        <div class="email-timing">📅 Send timing: Monday or Tuesday, 5-7 days after Email 1, 8:00-9:00am CT</div>
+                        <div class="email-body">Hi Molly,
+
+Following up on my previous note about Kohler's digital shelf build.
+
+One thing that stood out in our research is how actively Kohler's main competitors are investing in this area. Moen has had a dedicated product content management platform in place since 2017, and Delta won Home Depot's Kitchen & Bath Partner of the Year - which typically reflects digital merchandising execution as much as product quality.
+
+When competitors have had years of investment in how their products appear on retailer websites, the gap compounds - it affects search rankings, content quality, and ultimately which brand a customer sees first when they search for a kitchen faucet or bathroom fixture.
+
+We have put together some research on the specific digital shelf challenges facing home improvement brands, particularly around finish and variant complexity across retailers. It is here if useful: https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025
+
+Is the competitive angle part of what is driving the digital shelf investment, or is it more about internal operational efficiency?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Moen/Salsify and Delta/Home Depot are verified facts. Do not add specific dates. If you learn of other competitive moves, add them for freshness.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds genuinely new information - competitive context. Focuses on what Kohler's market competitors are doing rather than naming DSA providers. The article is positioned as a resource, not required reading. The closing question gives two easy entry points.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Managing 10+ brands on one digital shelf</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 5-7 days after Email 2, 8:00-9:00am CT</div>
+                        <div class="email-body">Hi Molly,
+
+One dimension I have not raised yet is the multi-brand challenge. Kohler, Mira, KLAFS, Kallista, Ann Sacks, Robern, Sterling, Jacob Delafon - each with its own positioning, audience, and retail distribution.
+
+We work with several multi-brand companies where this creates a specific question: do you monitor each brand's digital shelf separately, or build a centralised view across the portfolio? The choice affects what tooling you need and how the team is structured.
+
+The European brands in the portfolio add another layer. Mira has UK retail distribution. KLAFS operates across several European markets. Jacob Delafon covers France. For those brands, most US-centric digital shelf analytics providers have limited coverage - it is an area where European-first platforms tend to have an advantage.
+
+eStore is European-first - it is where we were founded and where our retailer coverage is deepest. For the core Kohler brand in the US, we would want to have an honest conversation about what we cover and what would need onboarding. But for the European subsidiary brands, we are well-positioned.
+
+Is the digital shelf capability Kohler is building scoped to the core brand in North America initially, or does it cover the full portfolio across markets?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify brand portfolio is still accurate - check for divestitures or rebrandings. If you learn the initiative is North America-only, adjust the European angle. The honesty about US coverage is deliberate - builds trust.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds the multi-brand and European dimension. Honest about geographic positioning without overselling. The closing question is practical and helps us understand scope. No graceful exit - raises a substantive new topic.</p>
+                    </div>
+                </div>
+                
+                <div class="linkedin-section">
+                    <h4>🔗 LinkedIn Messages</h4>
+                    <div class="linkedin-message-label">Connection Request</div>
+                    <div class="linkedin-message">Hi Molly - I'm [SENDER NAME] from eStore. We provide digital shelf analytics for home improvement brands. Kohler's digital shelf capability build caught my attention - would be good to connect.</div>
+                    <div class="linkedin-message-label">InMail</div>
+                    <div class="linkedin-message">Hi Molly,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for home improvement and appliance brands, working with companies like De'Longhi, Whirlpool, and Newell Brands.
+
+I saw Kohler is building a digital shelf capability from scratch - that is a significant undertaking given the number of retailers and the complexity of the catalogue.
+
+Would be interested to hear how you are thinking about the tooling and partnerships that will support the build.
+
+[SENDER NAME]</div>
+                    <div class="linkedin-strategy">Recommended timing: Option A (LinkedIn first, 2-3 days before Email 1) or Option B (same day as Email 1). As top target, establishing a LinkedIn connection early is valuable. If she accepts the connection request, emails will feel warmer.</div>
+                </div>
+            </div>
+            
+            <!-- ===== CONTACT 2: Laura Seele ===== -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Laura Seele</h3>
+                        <p>Director of Marketing, Digital & Ecommerce</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇺🇸 American</span>
+                        <span class="badge grey">Cold</span>
+                        <span class="priority-tag p1">#2 TOP TARGET</span>
+                    </div>
+                </div>
+                
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="laura">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Content consistency across Kohler's retailer platforms</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 9:00-10:00am ET</div>
+                        <div class="email-body">Hi Laura,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for home improvement brands, helping them monitor how their products appear across online retailers. That includes content accuracy, search rankings, competitive positioning, and pricing. We work with companies like De'Longhi, Whirlpool, and Newell Brands.
+
+Kohler's content challenge is one I have been thinking about. A portfolio spanning Kohler, Mira, Kallista, Ann Sacks, Robern, and others - each with distinct brand positioning - across 27+ online retailers is an unusually complex content management environment. And a single faucet model in nine finishes means nine sets of images, descriptions, and specifications that need to be accurate on every platform.
+
+I would imagine you have a view on how well retailers are currently representing Kohler's products. Are they doing justice to the range, or are there platforms where the product experience falls short?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Laura's current title on LinkedIn. It appears as both "Director of Marketing, Consumer Channel" and "Director of Marketing, Digital & Ecommerce" - use whichever is current. Do not reference her PI LIVE appearance directly. If you find public commentary from her on content strategy, weave it in.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Laura owns content and marketing - so the hook is content complexity, not operational analytics. The finish variant problem is specific and real. The question about retailers representing the range invites her to share a frustration rather than evaluate a vendor. Short and focused.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: How Kohler's content compares on retailer sites</div>
+                        <div class="email-timing">📅 Send timing: Monday or Tuesday, 5-7 days after Email 1, 9:00-10:00am ET</div>
+                        <div class="email-body">Hi Laura,
+
+Following up on my note about content complexity.
+
+One area where we see real value for multi-brand home improvement companies is competitive content benchmarking - understanding not just whether your own product pages are complete and accurate, but how they compare to competitors on the same retailer.
+
+For kitchen and bath fixtures, this matters. A customer searching for a faucet on Home Depot or Amazon sees Kohler's product page alongside Moen's and Delta's. If one brand has richer images, more complete specifications, or better A+ content, that affects which product gets chosen.
+
+Delta winning Home Depot's Kitchen & Bath Partner of the Year suggests they are executing well on digital merchandising. That kind of recognition tends to reflect content quality as much as sales volume.
+
+We published some research on the content challenges home improvement brands face on the digital shelf: https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025
+
+We have also built a competitive content benchmarking capability that lets brands see how their product pages compare to competitors across retailers: https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content
+
+Is competitive content performance something your team tracks systematically, or is it more anecdotal at the moment?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Delta/Home Depot award is verified. Do not add specific year. Two links included because both are relevant to Laura's role. If it feels heavy, remove Content Benchmark and save for Email 3. Check whether Kohler has A+ content on Amazon - reference as a positive if so.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Introduces competitive benchmarking - highly relevant to content strategy. Delta reference creates natural context without being pushy. Two links both directly relevant to her responsibilities. Closing distinguishes systematic from anecdotal - either answer is useful.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Mira, KLAFS, and the European content question</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 5-7 days after Email 2, 9:00-10:00am ET</div>
+                        <div class="email-body">Hi Laura,
+
+One angle I have not raised yet - the European side of Kohler's portfolio.
+
+Mira Showers has UK retail distribution. KLAFS operates across several European markets. Jacob Delafon covers France. Each brand has its own product content that needs to be accurate on local retailer websites, in local languages.
+
+Most digital shelf analytics providers are built for the US market. They cover Amazon.com, Home Depot, Walmart - but their European retailer coverage tends to be limited. For a company with active subsidiary brands selling across European retailers, that creates a gap.
+
+eStore is European-first - it is where we were founded and where our coverage is deepest. For the core Kohler brand in the US, we would want an honest conversation about what we can cover. But for the European brands, we are well-positioned to provide content and performance monitoring that US-centric platforms do not offer in those markets.
+
+Is the content strategy conversation at Kohler primarily US-focused right now, or are the European brands part of the picture too?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>If Laura's role is purely US consumer channel, the European angle may not resonate. Adjust if needed. The US coverage honesty is deliberate - builds trust. No links in this email - keep conversational.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Adds European portfolio dimension. Honest geographic positioning. The closing helps us understand whether European strength is a differentiator or irrelevant for this contact. No graceful exit - substantive new topic.</p>
+                    </div>
+                </div>
+                
+                <div class="linkedin-section">
+                    <h4>🔗 LinkedIn Messages</h4>
+                    <div class="linkedin-message-label">Connection Request</div>
+                    <div class="linkedin-message">Hi Laura - I'm [SENDER NAME] from eStore. We do digital shelf analytics for home improvement brands. Kohler's content complexity across 27+ retailers is something I have been thinking about. Would be good to connect.</div>
+                    <div class="linkedin-message-label">InMail</div>
+                    <div class="linkedin-message">Hi Laura,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for home improvement brands, working with companies like De'Longhi, Whirlpool, and Newell Brands.
+
+Kohler's content challenge stands out. Managing product content across 27+ retailers with 10+ brands and nine finish variants per model is unusually complex. I would imagine consistency across platforms is a real focus for your team.
+
+Is competitive content benchmarking - how Kohler's product pages compare to Moen's and Delta's on the same retailer - something you track systematically?
+
+[SENDER NAME]</div>
+                    <div class="linkedin-strategy">Recommended timing: Option B (same day as Email 1). Her PI LIVE participation suggests she is active in professional communities - LinkedIn may be a natural channel. Keep conversational - do not include content links in LinkedIn messages.</div>
+                </div>
+            </div>
+            
+            <!-- ===== CONTACT 3: Jon Proeber ===== -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Jon Proeber</h3>
+                        <p>Director, Digital Experience</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇺🇸 American</span>
+                        <span class="badge grey">Cold</span>
+                        <span class="priority-tag p2">#3</span>
+                    </div>
+                </div>
+                
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="jon">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Digital shelf analytics and Kohler's platform architecture</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00am CT</div>
+                        <div class="email-body">Hi Jon,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for home improvement brands. In practice, that means monitoring how products appear and perform across online retailer websites - content accuracy, search rankings, pricing, availability, and competitive positioning. We work with companies like De'Longhi, Whirlpool, and Newell Brands.
+
+Kohler has invested significantly in its digital infrastructure - the headless CMS architecture, the VNTANA 3D asset platform distributing models to Amazon, Home Depot, and Lowe's, and the computer vision work on fixture identification. That is a sophisticated stack for managing products on owned channels.
+
+The question that often surfaces for brands with this level of technical maturity is what happens once content reaches retailer sites. Images get cropped, specifications get truncated, A+ content renders differently, and search algorithms determine whether a customer sees the product at all. The gap between what you send and what customers actually see is where digital shelf analytics sits.
+
+With Kohler now building out a dedicated digital shelf capability, how is your team thinking about the analytics and monitoring layer? Does it sit with your group, or with the eCommerce side?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Jon's title and responsibilities on LinkedIn. Reference fixture identification work generally - do not reference his patent directly. Headless CMS and VNTANA references are verified from job postings and partnerships. If you can clarify the boundary between his role and Molly's, adjust the closing.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Speaks Jon's language by referencing Kohler's actual technology stack. Frames DSA in terms he will understand - the gap between syndicated content and what renders on retailer sites. The closing acknowledges organisational ambiguity rather than assuming.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: From data to decisions on the digital shelf</div>
+                        <div class="email-timing">📅 Send timing: Monday or Tuesday, 5-7 days after Email 1, 8:00-9:00am CT</div>
+                        <div class="email-body">Hi Jon,
+
+Following up on my note about digital shelf monitoring.
+
+One of the more common frustrations I hear from brands that have invested in digital infrastructure is that getting data is not the hard part - it is knowing what to do with it. A dashboard showing content scores across 27 retailers and thousands of SKUs is useful in theory, but in practice, teams need to know which five things to fix today and in what order.
+
+The shift in digital shelf analytics over the past couple of years has been toward actionable intelligence - using AI to surface the highest-impact actions rather than requiring someone to analyse thousands of data points manually.
+
+Given Kohler's work with applied machine learning and AI-powered product experiences, I thought this might be an interesting angle. We have built an AI capability that lets teams ask natural language questions about their digital shelf performance and get immediate answers: https://estorebrands.com/ignite/introducing-ai-business-answers
+
+I do not know enough about your current setup to suggest this is what Kohler needs specifically. But given the scale of the catalogue and the number of retailers, does the actionability question resonate, or is the more pressing need simply getting baseline data in place first?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>AI Business Answers article is the right content for Jon given his technical interests. One link is enough. Do not be condescending about AI - he understands it better than most recipients. If you learn what digital shelf data Kohler currently has, adjust the "baseline data" reference.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Tailored to Jon's technical profile. The actionability framing moves beyond "here is data" to "here is what to do with data." The link is positioned as interesting rather than essential. The closing gives two options that both lead to productive conversation.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Where digital shelf analytics fits in a headless architecture</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 5-7 days after Email 2, 8:00-9:00am CT</div>
+                        <div class="email-body">Hi Jon,
+
+A different angle on the digital shelf question.
+
+Kohler's move to headless architecture - Drupal plus Next.js on AWS - suggests the team thinks about digital infrastructure in composable terms. Components that do specific things well, connected through APIs, rather than monolithic platforms.
+
+Digital shelf analytics fits that philosophy. It is not a replacement for a PIM, a CMS, or a syndication tool. It is the feedback loop that tells you whether what you send to retailers is actually showing up correctly - and how it compares to competitors.
+
+For a company distributing thousands of 3D product models to Amazon, Home Depot, and Lowe's through VNTANA, there is a practical question: are those assets rendering as intended on each retailer's platform? The same model can look different depending on how a retailer handles it. That kind of quality monitoring at scale is something manual spot-checking cannot cover.
+
+Does the composable approach extend to how Kohler is evaluating digital shelf tools - best-of-breed components, or a broader platform that bundles analytics with content management?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Headless architecture (Drupal + Next.js on AWS EKS) is verified from job postings. VNTANA 3D distribution is verified from press releases. If Kohler has selected a PIM, adjust the "not a replacement for a PIM" line. The composable/best-of-breed question is relevant to enterprise technology procurement.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Speaks to how a technical leader thinks about the stack. Positions DSA as composable capability rather than another monolith. The 3D asset rendering question is specific and practical. The closing question is strategic. No graceful exit.</p>
+                    </div>
+                </div>
+                
+                <div class="linkedin-section">
+                    <h4>🔗 LinkedIn Messages</h4>
+                    <div class="linkedin-message-label">Connection Request</div>
+                    <div class="linkedin-message">Hi Jon - I'm [SENDER NAME] from eStore. We provide digital shelf analytics for home improvement brands. Your work on Kohler's digital experience and the fixture identification tool is impressive. Would be good to connect.</div>
+                    <div class="linkedin-message-label">InMail</div>
+                    <div class="linkedin-message">Hi Jon,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for home improvement brands, monitoring how products appear and perform across retailer websites.
+
+Kohler's digital infrastructure is more sophisticated than most in the category - the headless architecture, VNTANA 3D assets, and computer vision work on fixture identification suggest a team that thinks carefully about technology choices.
+
+Is the digital shelf analytics layer - monitoring how content actually renders and performs on retailer sites - something your team is currently scoping?
+
+[SENDER NAME]</div>
+                    <div class="linkedin-strategy">Recommended timing: Option A (LinkedIn first, 2-3 days before Email 1). His verified LinkedIn profile suggests he is active on the platform. Technical angle in the InMail mirrors Email 1 - establishes credibility early.</div>
+                </div>
+            </div>
+            
+            <!-- ===== CONTACT 4: Brenda Tharp ===== -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3>Brenda Tharp</h3>
+                        <p>Director, KBNA Digital Experience Stores, Services & Omnichannel</p>
+                    </div>
+                    <div class="contact-badges">
+                        <span class="badge blue">🇺🇸 American</span>
+                        <span class="badge grey">Cold</span>
+                        <span class="priority-tag p3">#4</span>
+                    </div>
+                </div>
+                
+                <h4>Email Sequence</h4>
+                <div class="email-tabs" data-contact="brenda">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+                
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: The gap between Kohler showrooms and retailer websites</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00am CT</div>
+                        <div class="email-body">Hi Brenda,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for home improvement brands. That means monitoring how products appear and perform on online retailer websites - content accuracy, search rankings, pricing, and competitive positioning. We work with companies like De'Longhi, Whirlpool, and Newell Brands.
+
+Your role bridging digital experience across stores, services, and online channels sits at an interesting intersection. Kohler invests heavily in the showroom and experience centre concept. But I would imagine there is a gap between that carefully controlled owned experience and what a customer sees when they look up the same product on Amazon, Home Depot, or Wayfair. The retailer product page is whatever the retailer has rendered from the content provided - not necessarily what Kohler intended.
+
+With a portfolio of 10+ brands and thousands of SKUs across 27+ retailers, I wonder how visible that gap is to your team. Is maintaining consistency between owned channels and third-party retailer sites something you actively monitor, or is it something that has not been scoped yet?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Brenda's title on LinkedIn - it is a long title, confirm the current version. Her Enesco experience (40+ brand commerce ecosystem) is verified. Do not reference specific dates. If you can find more detail on the omnichannel scope, adjust accordingly.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Brenda's role bridges physical and digital. The showroom-to-retailer gap is framed as an observation and then a question - not an assertion about their business. Short and gets to the question.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: 10 brands, 27 retailers, one digital shelf</div>
+                        <div class="email-timing">📅 Send timing: Monday or Tuesday, 5-7 days after Email 1, 8:00-9:00am CT</div>
+                        <div class="email-body">Hi Brenda,
+
+Following up on my note about the consistency challenge between owned channels and retailer websites.
+
+Kohler's portfolio breadth makes this different from most home improvement brands. Kohler, Mira, Kallista, Ann Sacks, Robern, KLAFS, Sterling, Jacob Delafon - each with its own positioning and retail distribution. On owned channels, you control the presentation. On retailer websites, you do not.
+
+The practical question is whether to monitor each brand's digital shelf separately or build a centralised view across the portfolio. Brands that have done this well tend to start by understanding where the biggest gaps are - which brands and retailers have the most significant disconnect between what should be showing and what actually is.
+
+When one faucet model exists in nine finishes across ten retailer platforms, that is 90 product pages to verify for a single model. Multiply that across the catalogue, and it becomes impractical without analytics.
+
+We have written about the digital shelf challenges home improvement brands face: https://estorebrands.com/home-and-diy
+
+How are you thinking about portfolio-level monitoring across retailers - is the focus on specific brands first, or the full portfolio?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify brand portfolio before sending. The sector landing page is a lighter touch than the full article - appropriate for a strategic role. The "90 product pages" illustration is directional, not a claim about Kohler's exact situation.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Makes scale tangible with the 90-pages illustration. Positions the monitoring choice as strategic rather than a problem statement. Lighter content link suits a strategic recipient.</p>
+                    </div>
+                </div>
+                
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: What retailer websites tell you about Kohler's customers</div>
+                        <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 5-7 days after Email 2, 8:00-9:00am CT</div>
+                        <div class="email-body">Hi Brenda,
+
+A slightly different perspective on the digital shelf.
+
+Most conversations about digital shelf analytics focus on what goes out - content, stock levels, pricing. But there is a return signal too. How customers interact with products on retailer websites - what they search for, which competitors they compare against, what reviews they leave - tells you something about how the brand is perceived.
+
+For someone with an omnichannel remit, that retailer-side data can complement what you see from owned channels. A customer who visits a Kohler showroom and then buys on Amazon has left a trail on both sides. Understanding where Kohler ranks in search, what the competitive set looks like, and whether customers are finding what they need is part of the full picture.
+
+Does the omnichannel data picture at Kohler include retailer-side signals, or is that primarily owned-channel and in-store data at the moment?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>This takes a more strategic, insight-led approach. Works best if Brenda has not responded to the first two emails. No content links - keep conversational. If you learn more about Kohler's customer data setup, adjust accordingly.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Reframes digital shelf data as customer intelligence rather than monitoring problems. The showroom-to-Amazon journey is something she would recognise. Adds a genuinely new angle. No graceful exit.</p>
+                    </div>
+                </div>
+                
+                <div class="linkedin-section">
+                    <h4>🔗 LinkedIn Messages</h4>
+                    <div class="linkedin-message-label">Connection Request</div>
+                    <div class="linkedin-message">Hi Brenda - I'm [SENDER NAME] from eStore. We do digital shelf analytics for home improvement brands. Your omnichannel role at Kohler bridging stores and digital is interesting. Would be great to connect.</div>
+                    <div class="linkedin-message-label">InMail</div>
+                    <div class="linkedin-message">Hi Brenda,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for home improvement brands, monitoring how products appear and perform across online retailer websites.
+
+Your role connecting stores, services, and online channels at Kohler is an interesting one. I would imagine there is a gap between how a product is presented in a Kohler showroom and how it appears on a retailer's website - especially across 10+ brands.
+
+Is that retailer-side consistency something your team actively monitors?
+
+[SENDER NAME]</div>
+                    <div class="linkedin-strategy">Recommended timing: Option C (after no email response, before Email 3). As a secondary primary target, email first. Use LinkedIn as a different channel if emails do not generate a response.</div>
+                </div>
+            </div>
+            
+            <!-- Sequence Timing Summary -->
+            <div class="card">
+                <h2>Sequence Timing Summary</h2>
+                <table>
+                    <thead><tr><th>Contact</th><th>Email 1</th><th>Email 2</th><th>Email 3</th><th>Content in Email 2</th></tr></thead>
+                    <tbody>
+                        <tr><td>Molly John</td><td>Day 1 (Tue/Wed, 8am CT)</td><td>+5-7 days</td><td>+5-7 days</td><td>Home & DIY article</td></tr>
+                        <tr><td>Laura Seele</td><td>Day 2 (Tue/Wed, 9am ET)</td><td>+5-7 days</td><td>+5-7 days</td><td>Home & DIY article + Content Benchmark</td></tr>
+                        <tr><td>Jon Proeber</td><td>Day 3 (Tue/Wed, 8am CT)</td><td>+5-7 days</td><td>+5-7 days</td><td>AI Business Answers</td></tr>
+                        <tr><td>Brenda Tharp</td><td>Day 5 (Tue/Wed, 8am CT)</td><td>+5-7 days</td><td>+5-7 days</td><td>Home & DIY landing page</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- ==================== TAB 6: OBJECTION HANDLING ==================== -->
+        <div id="objections" class="tab-content">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                
+                <div class="info-box green">
+                    <strong>Strategic Fit: 🟢 STRONG</strong> - Proceed with outreach. No confirmed DSA incumbent, active digital shelf capability build, strong sector alignment, competitive urgency.
+                </div>
+                <div class="info-box red">
+                    <strong>Retailer Coverage: ❌ EXTREMELY LIMITED</strong> - None of Kohler's key retailers are currently covered. Implementation would require 4-6+ months of retailer onboarding.
+                </div>
+                <div class="info-box blue">
+                    <strong>Recommendation:</strong> Proceed with outreach focused on strategic partnership and European differentiation. Be completely transparent about implementation timelines. Position as a longer-term relationship, not a quick deployment. The goal is to start a conversation and be part of the evaluation when the digital shelf hire is in post.
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Common Objections & Responses</h2>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We're still building the team - we're not ready to evaluate vendors yet"
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong> That is a fair point, and we are not trying to rush a decision. The reason we are reaching out now is that the decisions made during the capability-build phase - what data to collect, which retailers to prioritise, how to structure monitoring across brands - tend to shape the requirements for any tool evaluation later. We have seen brands benefit from early conversations with analytics providers, not to buy anything, but to understand what is possible before they write the requirements. Would it be useful to have an informal conversation about what a digital shelf analytics setup looks like for a company with Kohler's complexity, so your team has that context as they scope the capability?</p>
+                        <p><strong>Key principle:</strong> Position eStore as an educational resource, not a pushy vendor. Offer value without requiring commitment.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We're already talking to Profitero / Salsify / another US-based provider"
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong> That makes sense - they are strong providers, particularly for US retailer coverage. The one area worth exploring is how they handle European markets. Kohler's subsidiary brands - Mira in the UK, KLAFS across Germany and several European countries, Jacob Delafon in France - sell through local retailers that US-centric platforms often do not cover. eStore was founded in Europe and that is where our retailer coverage is deepest. For the US market, we would want an honest conversation about our coverage. But for the European portfolio, we may be able to offer something complementary that a US-only provider cannot.</p>
+                        <p><strong>Key principle:</strong> Do not compete head-to-head on US coverage. Position European expertise as the differentiator. Be open to a complementary role.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "How many of our retailers can you actually monitor right now?"
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong> This is the right question, and I want to be honest about it. Our current retailer coverage for Kohler's key US retailers is limited - we would need to onboard retailers like Home Depot, Lowe's, Amazon.com, and Walmart before we could provide monitoring data. That is a process that takes time. Where we are better positioned today is with European retailers - and as Kohler's European subsidiary brands (Mira, KLAFS, Jacob Delafon) sell through local retailers, that is where we could demonstrate value sooner. For the full US coverage, we would propose a phased approach where we build out retailer connections alongside the digital shelf capability Kohler is developing internally. We would not promise immediate US coverage - but we can be transparent about timelines and build the infrastructure in parallel with your team's ramp-up.</p>
+                        <p><strong>Key principle:</strong> Complete honesty. Do not oversell or make vague promises. The phased approach aligns with Kohler's own building timeline.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We already have a PIM system / content syndication tool"
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong> A PIM or syndication tool manages what you send out. Digital shelf analytics monitors what actually shows up on the other end - and the two are complementary, not overlapping. Think of it as the feedback loop: your PIM ensures you are sending accurate, complete product data. Digital shelf analytics tells you whether that data actually rendered correctly on the retailer's site, how it compares to competitors, and whether customers are finding it. For a company distributing 3D models through VNTANA to Amazon, Home Depot, and Lowe's, the question is: are those assets appearing as intended on each retailer's platform? That is what DSA answers.</p>
+                        <p><strong>Key principle:</strong> Position DSA as complementary to existing tech stack, not competitive with it.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We handle this internally / our team does manual spot checks"
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong> Manual spot checks work when the scope is manageable. The challenge scales with the catalogue - when a single faucet model exists in 9+ finishes across 27+ retailers, that is hundreds of product pages for one product line. Multiply that across 15,000-30,000 SKUs and 10+ brands, and manual monitoring becomes impractical to maintain consistently. The question is less about whether the team can do it and more about whether their time is better spent acting on insights rather than gathering data. We see brands transition from manual to automated monitoring not because manual was wrong, but because the team's capacity is better used elsewhere once the catalogue reaches a certain scale.</p>
+                        <p><strong>Key principle:</strong> Respect the existing approach. Frame automation as a scale solution, not a replacement for human judgment.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We're a private company - we don't share competitive data externally"
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong> We understand - and we work with several private companies that have similar requirements around data confidentiality. Our platform monitors publicly available information on retailer websites - product pages, search rankings, pricing, content quality, ratings, and reviews. We do not require access to internal sales data, margin information, or proprietary systems. The data we collect is what any customer sees when they visit a retailer's website. Your competitive intelligence stays within your organisation. We also maintain strict data separation between clients - if another brand in your category is also a client, neither party sees the other's proprietary data.</p>
+                        <p><strong>Key principle:</strong> Address the privacy concern directly. Emphasise that DSA uses publicly available data only.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "Your strength is Europe but most of our business is US-based"
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong> That is a fair observation, and we are transparent about it. Our retailer coverage is deepest in Europe, and for US retailers, we would need to build out coverage as part of a partnership. But there are two things worth considering. First, Kohler is not just a US brand - Mira, KLAFS, and Jacob Delafon are active European brands that US-centric providers typically underserve. Second, the digital shelf capability Kohler is building right now has a timeline of months, not days. That timeline works in our favour because we can build US retailer coverage in parallel with Kohler's own capability development, so the infrastructure is ready when the team is. We would not promise what we cannot deliver today - but we can be transparent about a development roadmap that aligns with yours.</p>
+                        <p><strong>Key principle:</strong> Acknowledge the gap honestly. Reframe the timeline as an advantage. Position European coverage as a genuine differentiator.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "What results have you achieved for similar brands?"
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong> We work with several brands that share Kohler's multi-brand, multi-channel complexity. De'Longhi manages multiple brands across diverse retailer platforms. Whirlpool operates at similar scale across home appliance retailers. Newell Brands manages a broad consumer products portfolio. We also work with brands in the plumbing and fixtures space specifically, which gives us direct category expertise. I would be happy to share more detail on how those partnerships work, though I cannot share specific client data or competitive intelligence. What I can tell you is that the starting point is usually establishing baseline visibility - understanding which retailers have content gaps, where search rankings are falling behind competitors, and where pricing issues exist - before moving to ongoing monitoring and optimisation.</p>
+                        <p><strong>Key principle:</strong> Name verifiable current clients (De'Longhi, Whirlpool, Newell Brands). Reference Grohe obliquely as "brands in the plumbing and fixtures space" without naming unless asked directly.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "What does this cost? What is the ROI?"
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong> Pricing depends on scope - specifically, how many brands, retailers, and markets you want to monitor. We would need to understand whether Kohler is looking at the core brand in North America initially, or the full portfolio across markets including Mira, KLAFS, and Jacob Delafon. For ROI, the most common metrics our clients track are: improved content compliance across retailers (fewer errors, faster corrections), search ranking improvements against competitors, pricing compliance and unauthorised seller identification, and reduced manual monitoring time. The practical value for a company with Kohler's complexity is less about a single ROI number and more about having systematic visibility that currently does not exist. We would typically propose a pilot or proof-of-concept on a defined scope - perhaps one brand or one market - to demonstrate value before committing to a broader rollout.</p>
+                        <p><strong>Key principle:</strong> Do not quote specific prices. Focus on value metrics. Offer a pilot to reduce risk.</p>
+                    </div>
+                </div>
+                
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        "We need to focus on our US retailers first - Europe is not a priority"
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response:</strong> That is completely understandable, and for many brands the US is where the revenue justifies the investment. In that case, the conversation is about what US retailer coverage we can provide and on what timeline. We would not oversell our current US capabilities - we would want to have an honest discussion about which retailers matter most to Kohler and what our onboarding timeline looks like for those specific retailers. If the US-first approach is the priority, we could explore a phased plan where we start with the retailers we can cover and build from there. Alternatively, if there is even a secondary interest in European brand performance, that could serve as a proof-of-concept while US coverage is developed.</p>
+                        <p><strong>Key principle:</strong> Do not argue against their priority. Offer practical options that work within their focus.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                <ul>
+                    <li><strong>Never dismiss the objection.</strong> Acknowledge it as valid and reasonable</li>
+                    <li><strong>Be honest about limitations.</strong> Retailer coverage gaps should be acknowledged, not glossed over</li>
+                    <li><strong>Use evidence carefully.</strong> Only reference verified clients and factual competitive context</li>
+                    <li><strong>Offer flexibility.</strong> Pilots, proof-of-concepts, and phased approaches reduce perceived risk</li>
+                    <li><strong>Ask questions.</strong> Understand the root concern before responding - the stated objection may not be the real issue</li>
+                    <li><strong>Position eStore's European strength honestly.</strong> It is a genuine differentiator but only relevant if Kohler cares about European markets</li>
+                    <li><strong>Align timelines.</strong> Kohler is building a capability - eStore can build coverage in parallel. This alignment is a selling point, not a weakness</li>
+                    <li><strong>Grohe reference.</strong> Use only as "brands in the plumbing and fixtures space" unless directly asked. Then be honest but brief. Never share Grohe-specific data or intelligence</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>eStore Action Plan - Kohler Co. | February 2026</p>
+        <p>Created by James / eStore Sales Development</p>
+    </footer>
+    
+    <script>
+        // Tab Navigation
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        // Email Tab Navigation
+        document.querySelectorAll('.email-tabs').forEach(container => {
+            container.querySelectorAll('.email-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const emailNum = this.dataset.email;
+                    const sequence = this.closest('.email-sequence');
+                    
+                    container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    sequence.querySelectorAll('.email-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    sequence.querySelector(`.email-content[data-email="${emailNum}"]`).classList.add('active');
+                });
+            });
+        });
+        
+        // Objection Card Toggle
+        function toggleObjection(header) {
+            const card = header.closest('.objection-card');
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
