@@ -21,5 +21,6 @@
     {"file": "haier-europe", "name": "Haier", "owner": "Michal"},
     {"file": "pioneer", "name": "Pioneer", "owner": "Mariusz"},
     {"file": "clarins-latam", "name": "Clarins (LATAM)", "owner": "Ivan"},
-    {"file": "kohler", "name": "Kohler", "owner": "Mariusz"}
+    {"file": "kohler", "name": "Kohler", "owner": "Mariusz"},
+    {"file": "makita", "name": "Makita", "owner": "Michal"}
 ]
