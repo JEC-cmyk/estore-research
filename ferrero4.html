@@ -1,0 +1,2341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferrero Group - eStore Action Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+        
+        .header-meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .header-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 0.75rem 1.25rem;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            background: #1067db;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1067db;
+            font-weight: 700;
+        }
+        
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+        
+        .card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+            color: #495057;
+            font-weight: 600;
+        }
+        
+        .card p {
+            margin-bottom: 1rem;
+        }
+        
+        .fit-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .fit-badge.moderate-strong {
+            background: linear-gradient(135deg, #e8f5e9 0%, #fff8e1 100%);
+            color: #33691e;
+            border: 2px solid #22bb69;
+        }
+        
+        .fit-badge.strong {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+            border: 2px solid #22bb69;
+        }
+        
+        .fit-badge.moderate {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeeba 100%);
+            color: #856404;
+            border: 2px solid #ffba1c;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .summary-item {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid #1067db;
+        }
+        
+        .summary-item.green-border {
+            border-left-color: #22bb69;
+        }
+        
+        .summary-item.yellow-border {
+            border-left-color: #ffba1c;
+        }
+        
+        .summary-item.orange-border {
+            border-left-color: #ff7a00;
+        }
+        
+        .summary-item h4 {
+            margin-top: 0;
+            color: #1067db;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .summary-item.green-border h4 { color: #22bb69; }
+        .summary-item.yellow-border h4 { color: #856404; }
+        .summary-item.orange-border h4 { color: #ff7a00; }
+        
+        .summary-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-box {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-box .value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1067db;
+        }
+        
+        .stat-box .label {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .info-box {
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .info-box.blue {
+            background: #e7f3ff;
+            border-left: 4px solid #1067db;
+        }
+        
+        .info-box.green {
+            background: #e8f5e9;
+            border-left: 4px solid #22bb69;
+        }
+        
+        .info-box.yellow {
+            background: #fff8e1;
+            border-left: 4px solid #ffba1c;
+        }
+        
+        .info-box.red {
+            background: #ffebee;
+            border-left: 4px solid #f44f2f;
+        }
+        
+        .info-box.orange {
+            background: #fff3e0;
+            border-left: 4px solid #ff7a00;
+        }
+        
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge.green {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .badge.yellow {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .badge.red {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .badge.blue {
+            background: #e7f3ff;
+            color: #1067db;
+        }
+        
+        .badge.grey {
+            background: #e9ecef;
+            color: #495057;
+        }
+        
+        .badge.orange {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .badge.warm {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .badge.cold {
+            background: #e7f3ff;
+            color: #1067db;
+        }
+
+        .badge.vacant {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        
+        .contact-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #1067db;
+        }
+        
+        .contact-card.secondary {
+            border-left-color: #68d7fa;
+        }
+        
+        .contact-card.historical {
+            border-left-color: #ffba1c;
+        }
+        
+        .contact-card.skip {
+            border-left-color: #f44f2f;
+            background: #fff5f5;
+        }
+
+        .contact-card.vacant-card {
+            border-left-color: #f44f2f;
+            border-style: dashed;
+            border-left-style: solid;
+        }
+
+        .contact-card.not-ready {
+            border-left-color: #6c757d;
+            opacity: 0.8;
+        }
+        
+        .contact-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c2c2c;
+        }
+        
+        .contact-title {
+            font-size: 0.95rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+        
+        .contact-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .tone-box {
+            background: #e7f3ff;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .tone-box strong {
+            color: #1067db;
+        }
+        
+        .email-sequence {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .email-sequence-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .email-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .email-tab {
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Figtree', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .email-tab:hover {
+            border-color: #1067db;
+        }
+        
+        .email-tab.active {
+            background: #1067db;
+            border-color: #1067db;
+            color: white;
+        }
+        
+        .email-content {
+            display: none;
+        }
+        
+        .email-content.active {
+            display: block;
+        }
+        
+        .email-box {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .email-subject {
+            font-weight: 600;
+            color: #1067db;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .email-timing {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+        
+        .email-body {
+            white-space: pre-line;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .email-notes {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #dee2e6;
+        }
+        
+        .email-notes h5 {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .email-notes p {
+            font-size: 0.9rem;
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+        
+        .linkedin-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e9ecef;
+        }
+        
+        .linkedin-section h4 {
+            color: #1067db;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+        
+        .linkedin-timing-guide {
+            background: #e7f3ff;
+            padding: 1rem 1.25rem;
+            border-radius: 8px;
+            margin-bottom: 1.25rem;
+            font-size: 0.9rem;
+        }
+        
+        .linkedin-timing-guide p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .linkedin-timing-guide ul {
+            margin-left: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .linkedin-timing-guide li {
+            margin-bottom: 0.25rem;
+        }
+        
+        .linkedin-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .linkedin-badge {
+            display: inline-block;
+            background: #1067db;
+            color: white;
+            padding: 0.2rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .char-count {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: #6c757d;
+            margin-left: 0.5rem;
+        }
+        
+        .linkedin-message {
+            white-space: pre-line;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .linkedin-strategy {
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed #dee2e6;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        
+        .objection-card {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+            overflow: hidden;
+        }
+        
+        .objection-header {
+            padding: 1rem 1.25rem;
+            background: #f8f9fa;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+        
+        .objection-header:hover {
+            background: #e9ecef;
+        }
+        
+        .objection-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .objection-card.open .objection-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .objection-body {
+            display: none;
+            padding: 1.25rem;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .objection-card.open .objection-body {
+            display: block;
+        }
+        
+        .disclaimer {
+            background: #fff8e1;
+            border: 2px solid #ffba1c;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 2rem;
+        }
+        
+        .disclaimer strong {
+            color: #856404;
+        }
+        
+        .content-link {
+            display: block;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            text-decoration: none;
+            color: #2c2c2c;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .content-link:hover {
+            background: #e7f3ff;
+            border-color: #1067db;
+        }
+        
+        .content-link .link-title {
+            font-weight: 600;
+            color: #1067db;
+            margin-bottom: 0.25rem;
+        }
+        
+        .content-link .link-desc {
+            font-size: 0.9rem;
+            color: #495057;
+            margin-bottom: 0.25rem;
+        }
+        
+        .content-link .link-url {
+            font-size: 0.8rem;
+            color: #6c757d;
+            word-break: break-all;
+        }
+        
+        .checklist {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .checklist li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .checklist li::before {
+            content: "\2714";
+            position: absolute;
+            left: 0;
+            color: #22bb69;
+            font-weight: bold;
+        }
+        
+        .checklist li.warning::before {
+            content: "\26A0";
+            color: #ffba1c;
+        }
+        
+        .checklist li.cross::before {
+            content: "\2718";
+            color: #f44f2f;
+        }
+        
+        .retailer-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .retailer-region {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 8px;
+        }
+        
+        .retailer-region h4 {
+            margin-top: 0;
+            color: #1067db;
+            border-bottom: 2px solid #1067db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .retailer-list {
+            font-size: 0.9rem;
+        }
+        
+        .retailer-list li {
+            margin-bottom: 0.25rem;
+        }
+
+        .competitor-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e9ecef;
+        }
+
+        .competitor-card .competitor-name {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .confidence-high { color: #155724; }
+        .confidence-medium { color: #856404; }
+        .confidence-low { color: #6c757d; }
+
+        .timeline-item {
+            padding: 1rem 1.25rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            border-left: 4px solid #1067db;
+            background: #f8f9fa;
+        }
+
+        .timeline-item .timeline-date {
+            font-weight: 600;
+            color: #1067db;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .tab {
+                text-align: center;
+            }
+            
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Ferrero Group</h1>
+        <div class="header-subtitle">eStore Action Plan - FMCG / Confectionery & Snacking</div>
+        <div class="header-meta">
+            <div class="header-meta-item">
+                <strong>Ownership:</strong> 100% Family-owned (Ferrero family, 3rd generation)
+            </div>
+            <div class="header-meta-item">
+                <strong>Revenue:</strong> &euro;18.4B (FY 2023/24)
+            </div>
+            <div class="header-meta-item">
+                <strong>Status:</strong> Warm prospect - active German pilot
+            </div>
+            <div class="header-meta-item">
+                <strong>Created:</strong> February 2026
+            </div>
+            <div class="header-meta-item">
+                <strong>Author:</strong> James / eStore Sales Development
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('fit')">Strategic Fit Assessment</button>
+            <button class="tab" onclick="showTab('history')">Our history with them</button>
+            <button class="tab" onclick="showTab('retailers')">Retailer Overview</button>
+            <button class="tab" onclick="showTab('contacts')">Key people?</button>
+            <button class="tab" onclick="showTab('emails')">Email &amp; LinkedIn Sequences</button>
+            <button class="tab" onclick="showTab('objections')">Objection Handling</button>
+        </div>
+        
+        <!-- ============================================ -->
+        <!-- TAB 1: STRATEGIC FIT ASSESSMENT              -->
+        <!-- ============================================ -->
+        <div id="fit" class="tab-content active">
+            <div class="card">
+                <div class="fit-badge moderate-strong">&#x1F7E1; MODERATE-TO-STRONG FIT</div>
+                <h2>Strategic Assessment Summary</h2>
+                <p>Ferrero Group represents a <strong>moderate-to-strong opportunity</strong> for eStore (weighted score: 3.85/5.0). The existing multi-year relationship, active German pilot negotiations, and confirmed multi-vendor DSA environment create a compelling opportunity despite Ferrero operating outside eStore's five core sectors. This is a warm prospect with years of history - not a cold pursuit.</p>
+                
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">&euro;18.4B</div>
+                        <div class="label">FY 2023/24 Revenue</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">35+</div>
+                        <div class="label">Brands in portfolio</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">170+</div>
+                        <div class="label">Countries selling</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">47,517</div>
+                        <div class="label">Employees</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">25+</div>
+                        <div class="label">Online retailers</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">3+</div>
+                        <div class="label">Confirmed DSA vendors</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Distribution Complexity -->
+            <div class="card">
+                <h2>Distribution Complexity &amp; Geographic Alignment</h2>
+                <p>Ferrero operates a strongly multi-channel distribution model across 25+ online retailers. Products are NOT Amazon-dominant - they sell across mass market grocery (Tesco, Sainsbury's, ASDA, Walmart, Target, Kroger), quick commerce (Flink, Picnic, Knuspr), specialist online (World of Sweets, Flaschenpost), and emerging DTC channels (Ferrero Shop Italy, Thorntons UK, Fannie May US).</p>
+                
+                <div class="summary-grid">
+                    <div class="summary-item green-border">
+                        <h4>UK &amp; Ireland (~25-30%)</h4>
+                        <p>Exceptionally strong grocery presence: Tesco, Sainsbury's, ASDA, Morrisons, Ocado, Waitrose, Lidl, Aldi. This is eStore's strongest market - fast time-to-value.</p>
+                    </div>
+                    <div class="summary-item green-border">
+                        <h4>Continental Europe (~20-25%)</h4>
+                        <p>Strong presence across Germany (active pilot), France, Italy, Benelux, Scandinavia. HQ in Luxembourg, operational HQ in Alba, Italy. Country offices in 50+ markets.</p>
+                    </div>
+                    <div class="summary-item yellow-border">
+                        <h4>US (~35-40%)</h4>
+                        <p>Significant and growing through acquisitions (WK Kellogg, Ferrara, Wells). eStore's strength is European - US operations would require honest conversation about coverage and timeline.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Other Markets (~10-15%)</h4>
+                        <p>APAC, LATAM, MEA. Mexico PoC previously completed. Regional expansion creates future monitoring opportunities.</p>
+                    </div>
+                </div>
+
+                <div class="info-box green">
+                    <strong>Key insight:</strong> Marie-Jeanne Matei (VP E-commerce US) has explicitly stated Ferrero's strategy involves "getting closer to retail partners" with retailer-specific programmes. The multi-channel, multi-market distribution creates exactly the complexity where DSA delivers highest ROI.
+                </div>
+            </div>
+
+            <!-- Competitive Intelligence Summary -->
+            <div class="card">
+                <h2>Competitive Intelligence Summary</h2>
+                <p>Ferrero operates a multi-vendor DSA strategy with 3+ confirmed providers. No single vendor fully meets their needs - suggesting a consolidation or complementary provider opportunity.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Status</th>
+                            <th>Confidence</th>
+                            <th>Key Detail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>CommerceIQ</strong></td>
+                            <td><span class="badge green">Confirmed</span></td>
+                            <td class="confidence-high">HIGH</td>
+                            <td>Dedicated subdomain <code>ferrero.commerceiq.ai</code>. Used daily by Elena Vall (NA eCommerce Lead).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data Impact / NIQ Digital Shelf</strong></td>
+                            <td><span class="badge green">Confirmed</span></td>
+                            <td class="confidence-high">HIGH</td>
+                            <td>Listed by Elena Vall as daily tool. Now under NIQ brand following acquisition.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Edge by Ascential / Flywheel</strong></td>
+                            <td><span class="badge green">Confirmed</span></td>
+                            <td class="confidence-high">HIGH</td>
+                            <td>Daily tool. Now part of Flywheel/Omnicom - corporate restructuring may create transition window.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Profitero</strong></td>
+                            <td><span class="badge yellow">Likely</span></td>
+                            <td class="confidence-medium">MEDIUM</td>
+                            <td>Referenced in job postings and eStore HubSpot notes from previous global RFP.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Salsify</strong></td>
+                            <td><span class="badge grey">Possible</span></td>
+                            <td class="confidence-low">LOW-MEDIUM</td>
+                            <td>Likely PIM/DAM rather than core DSA. Do not position against.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box blue">
+                    <strong>Positioning:</strong> Position eStore as European complement/alternative for markets where CommerceIQ underperforms. CommerceIQ has documented European weaknesses: US-centric platform, only 8.5% UK client penetration, no retailer partnerships (vs eStore's ASDA Xpert), offshore support, steep learning curve. Do NOT position as full replacement - position as the European specialist.
+                </div>
+            </div>
+
+            <!-- Sector Alignment -->
+            <div class="card">
+                <h2>Sector Alignment</h2>
+                <p>FMCG/confectionery is <strong>not</strong> one of eStore's five core sectors (Consumer Electronics, Beauty, Pharma/Healthcare, Beverages, Home &amp; Garden). However, the analytical requirements closely mirror proven sectors - particularly Beverages, which shares similar grocery-dominant retail dynamics, promotional cycles, and seasonal patterns.</p>
+                
+                <div class="info-box yellow">
+                    <strong>Mitigating factor:</strong> eStore has current FMCG clients including Kraft Heinz, Danone, Unilever, Pilgrims EMEA, Orkla Group, and Arnotts - demonstrating food/FMCG capability. WK Kellogg (now owned by Ferrero) is a lapsed eStore client. Be transparent about sector positioning: "We don't have a dedicated confectionery practice, but we work with several FMCG brands and the analytical requirements are directly transferable."
+                </div>
+            </div>
+
+            <!-- Relationship History Summary -->
+            <div class="card">
+                <h2>Relationship History</h2>
+                <div class="info-box green">
+                    <strong>Status: WARM PROSPECT</strong> - Extensive multi-year engagement since October 2019. Active German pilot in advanced negotiation. This is NOT a cold outreach scenario.
+                </div>
+                
+                <ul>
+                    <li><strong>Active German pilot negotiation</strong> - Free DSA pilot covering Amazon.de, Rewe (multi-location), Flaschenpost, World of Sweets, Knuspr, Picnic, Flink. Linked to 14-16 month contract with break clause. Vendor registration and legal review in progress.</li>
+                    <li><strong>Mexico PoC completed</strong> - Omnichannel tracking for ~60 SKUs across 7 e-retailers and 3 apps. Feedback: initially above budget; pricing adjusted.</li>
+                    <li><strong>Global RFP participation</strong> - Ferrero confirmed periodic DSA provider evaluation.</li>
+                    <li><strong>Kellogg connection</strong> - WK Kellogg is a lapsed eStore client, now owned by Ferrero following $3.1B acquisition (September 2025). Natural conversational bridge.</li>
+                    <li><strong>Multiple demos and discovery calls</strong> across UK, CEE, ME, and US over 2019-2022.</li>
+                </ul>
+            </div>
+
+            <!-- Market Dynamics -->
+            <div class="card">
+                <h2>Market Dynamics &amp; Strategic Timing</h2>
+                <p>Several converging factors make this an optimal time for engagement:</p>
+                
+                <div class="summary-grid">
+                    <div class="summary-item green-border">
+                        <h4>WK Kellogg Acquisition</h4>
+                        <p>$3.1B deal completed September 2025. Ferrero's largest-ever acquisition. Adds breakfast cereals (Frosted Flakes, Special K, Froot Loops, Raisin Bran, Rice Krispies). Dramatically increases SKU complexity and retailer monitoring requirements.</p>
+                    </div>
+                    <div class="summary-item green-border">
+                        <h4>UK Head of eCommerce - Recently Filled</h4>
+                        <p>Rob Wells moved internally to Head of Out of Home &amp; Food Services after ~24 years in e-commerce. The Head of eCommerce FMCG role has been filled (job posting now closed) but the new appointee's identity is not yet public. Critical timing window - new hire will seek to establish vendor relationships and demonstrate quick wins. The role explicitly champions "digital shelf optimisation."</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Product Innovation Wave</h4>
+                        <p>Nutella Plant-Based (September 2024), Nutella Ice Cream (August 2024), Kinder Bueno/Nutella frozen products (December 2025/2026). Each launch requires content monitoring across retailers.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Investment Cycle</h4>
+                        <p>&euro;958M capital investment in FY 2023/24 (+18% YoY). $258M annual ICT spending. "Perfect eStore execution" named as one of five e-commerce strategic pillars.</p>
+                    </div>
+                    <div class="summary-item yellow-border">
+                        <h4>Competitive Pressure</h4>
+                        <p>#3 globally in confectionery but growing fastest (4.5% CAGR). Mondelez has set aggressive 20% digital sales target by 2030. E-commerce only 1-3% of confectionery sales but growing 20% annually.</p>
+                    </div>
+                    <div class="summary-item orange-border">
+                        <h4>Edge by Ascential Transition</h4>
+                        <p>Corporate restructuring into Flywheel/Omnicom may create uncertainty for Ferrero's existing relationship with this confirmed DSA provider.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Synthesis & Recommendation -->
+            <div class="card">
+                <h2>Synthesis &amp; Recommendation</h2>
+                
+                <h3>Positive Factors</h3>
+                <ul class="checklist">
+                    <li>Multi-vendor DSA environment (3+ confirmed) creates consolidation/switching opportunity</li>
+                    <li>Five-year relationship with active German pilot and completed Mexico PoC</li>
+                    <li>High distribution complexity (25+ retailers, 35+ brands, 170+ countries)</li>
+                    <li>Optimal timing: UK Head of eCommerce recently appointed (approach window), WK Kellogg integration, &euro;958M investment cycle</li>
+                    <li>"Perfect eStore execution" literally named as strategic pillar</li>
+                    <li>WK Kellogg (lapsed eStore client) now owned by Ferrero - conversational bridge</li>
+                </ul>
+                
+                <h3>Challenging Factors</h3>
+                <ul class="checklist">
+                    <li class="warning">FMCG/confectionery not among eStore's five proven sectors</li>
+                    <li class="warning">CommerceIQ appears entrenched with dedicated subdomain</li>
+                    <li class="warning">Family-owned, relationship-driven culture - long decision cycles</li>
+                    <li class="warning">Previous budget sensitivity in Mexico and multiple German pricing iterations</li>
+                    <li class="warning">Complex multi-market buying - Germany, UK, France, US have separate decision-makers</li>
+                </ul>
+
+                <h3>Recommended Approach</h3>
+                <div class="info-box blue">
+                    <strong>Consultative / relationship deepening.</strong> Focus on accelerating the German pilot to contracted customer, then expanding to UK (new Head of eCommerce recently appointed - approach within 60 days) and France (Guillaume Robin). Leverage Dariusz Cziao's Global Digital Shelf Consultant role as a pan-European entry point. Position eStore as the European specialist complementing CommerceIQ's US strength. Emphasise ASDA Xpert, seasonal analytics, and multi-brand portfolio challenge.
+                </div>
+
+                <h3>Estimated Difficulty of Winning</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Scope</th>
+                            <th>Difficulty</th>
+                            <th>Probability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>German pilot to contract</td>
+                            <td><span class="badge yellow">MEDIUM</span></td>
+                            <td>50-60%</td>
+                        </tr>
+                        <tr>
+                            <td>UK market entry</td>
+                            <td><span class="badge orange">MEDIUM-HIGH</span></td>
+                            <td>Depends on new hire</td>
+                        </tr>
+                        <tr>
+                            <td>Pan-European expansion</td>
+                            <td><span class="badge red">HIGH</span></td>
+                            <td>30-40% (depends on DE success)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Implementation Readiness</h3>
+                <div class="info-box green">
+                    <strong>UK expansion:</strong> Potentially fast time-to-value. eStore already covers major UK grocers (Tesco, Sainsbury's, ASDA, Morrisons, Ocado). If Germany succeeds and UK appointment is made, UK programme could start delivering value within weeks.
+                </div>
+                <div class="info-box yellow">
+                    <strong>Germany (active pilot):</strong> Time-to-value depends on coverage of Rewe, Flaschenpost, World of Sweets, and quick commerce apps. This is actively being negotiated and tested.
+                </div>
+                <div class="info-box orange">
+                    <strong>France &amp; Italy:</strong> Likely longer time-to-value. Italian retailers previously checked showed NOT COVERED. French coverage needs verification. Estimate 3-6 months for meaningful European programme.
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- TAB 2: OUR HISTORY WITH THEM                -->
+        <!-- ============================================ -->
+        <div id="history" class="tab-content">
+            <div class="card">
+                <h2>Engagement History</h2>
+                <div class="info-box green">
+                    <strong>CRM entry:</strong> October 2019 | <strong>Current status:</strong> Customer (likely reflects active pilot status rather than fully contracted) | <strong>Engagement span:</strong> Germany, Mexico, UK, US, Global HQ (Luxembourg)
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="card">
+                <h2>Previous Conversations &amp; Outcomes</h2>
+
+                <h3>&#x1F1E9;&#x1F1EA; Germany (2025-2026) - MOST ADVANCED</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">Active Negotiation</div>
+                    <p>Deep negotiation and design of DSA pilot and long-term German programme. Free pilot covering Amazon.de, Rewe (multi-location), Flaschenpost, World of Sweets, Knuspr, Picnic, Flink. Linked to 14-16 month paid contract with break clause. 50-350 SKUs depending on proposal version.</p>
+                    <p>Several proposal iterations and pricing discussions - Ferrero has pushed for discounts around Rewe coverage and multi-location tracking. Vendor registration and legal review now in progress. Bank confirmation requested for vendor onboarding.</p>
+                    <p>Detailed Q&amp;A on content reference retailer, app vs URL tracking, packshot match, demo access, seasonal items, automated masterlist. Ferrero emphasised data quality and sufficient geographic coverage (especially Flink hubs and Rewe locations).</p>
+                </div>
+
+                <h3>&#x1F1F2;&#x1F1FD; Mexico (2023)</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">PoC Completed</div>
+                    <p>eStoreCheck Omnichannel PoC for ~60 SKUs across 7 e-retailers and 3 apps (Rappi, Justo, Cornershop). Feedback: initially above budget. Ferrero requested improved pricing and regional scope considerations. Possible payment-term trade-offs discussed.</p>
+                </div>
+
+                <h3>&#x1F30D; Global / Earlier Waves (2019-2022)</h3>
+                <div class="timeline-item">
+                    <div class="timeline-date">Multiple Touchpoints</div>
+                    <p>Global RFP participation - Ferrero confirmed competing providers included Profitero/DataImpact. Multiple demos, discovery calls, and exploratory meetings with shopper marketing, ecommerce, and media contacts across UK, CEE, ME, and US. At that stage, Ferrero either had just selected another provider or were not yet ready for ecommerce expansion - leading to "re-engage later" notes. Short-term demo environments provided.</p>
+                </div>
+            </div>
+
+            <!-- Known Contacts -->
+            <div class="card">
+                <h2>Known Contacts &amp; Their Stance</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Contact</th>
+                            <th>Role</th>
+                            <th>Market</th>
+                            <th>Stance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Nadine Eckes</strong></td>
+                            <td>Head of KAM e-commerce</td>
+                            <td>Germany</td>
+                            <td>Senior commercial sponsor. Engaged on pilot structure, scope, pricing, legal review. Positive but budget-conscious.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tobias Lott</strong></td>
+                            <td>Sales, Ferrero MSC GmbH</td>
+                            <td>Germany</td>
+                            <td>Deep involvement in KPIs, SOW, pricing, seasonal peaks, demo access.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lukas B&uuml;cker</strong></td>
+                            <td>KAM eCommerce</td>
+                            <td>Germany</td>
+                            <td>Involved in eStoreCheck introduction and demo sessions. Coordinates with Nadine.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Karolina/Karola</strong></td>
+                            <td>Global/DE contact</td>
+                            <td>Global/Germany</td>
+                            <td>Driving DE pilot and managing budget constraints. Key tension point on scope vs budget. Pushed for free pilot with break clause.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mar&iacute;a Fernanda Garza Figueroa</strong></td>
+                            <td>eCommerce lead</td>
+                            <td>Mexico</td>
+                            <td>RFP participant. Budget sensitivity noted.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Patsy Silva</strong></td>
+                            <td>Contact</td>
+                            <td>Mexico</td>
+                            <td>Follow-up contact on MX proposals.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Internal Champion</h3>
+                <div class="info-box blue">
+                    <strong>Nadine Eckes</strong> (Head of KAM e-commerce, Germany) is the closest to an internal champion. She is the senior commercial sponsor on the German pilot and has engaged consistently. However, Karolina/Karola's budget scrutiny suggests the commercial decision may require approval above Nadine's level.
+                </div>
+            </div>
+
+            <!-- Blockers -->
+            <div class="card">
+                <h2>Known Blockers &amp; Timing Considerations</h2>
+                <ul>
+                    <li><strong>Budget sensitivity is the primary blocker</strong> - demonstrated across Germany (multiple pricing iterations, scope reductions) and Mexico (above budget feedback). Karolina/Karola has been the main voice of constraint.</li>
+                    <li><strong>Legal/vendor registration</strong> - German contract is in legal review. Ferrero legal comments expected. Bank confirmation needed. Procedural but can introduce delays.</li>
+                    <li><strong>Data quality expectations</strong> - Ferrero has emphasised data quality, particularly around geographic coverage (Flink hubs, Rewe locations) and automated masterlist accuracy.</li>
+                    <li><strong>App vs URL tracking</strong> - German pilot includes quick commerce apps (Flink, Picnic, Knuspr). eStore needs to demonstrate app-based monitoring capability.</li>
+                    <li><strong>Free pilot expectation</strong> - Structured as free pilot linked to paid contract with break clause. eStore invests before revenue.</li>
+                    <li><strong>UK timing</strong> - Head of eCommerce FMCG vacancy creates a window but also a gap. No outreach possible until the role is filled.</li>
+                </ul>
+            </div>
+
+            <!-- Competitor Intelligence Detail -->
+            <div class="card">
+                <h2>Competitor Intelligence Detail</h2>
+                <p>Key insight: Ferrero's multi-vendor approach means no single provider fully meets needs. Job posting for "eCommerce Digital Shelf Insights Manager" includes responsibility to "Own &amp; optimise digital shelf intelligence tool and vendor relationship" - active vendor management is ongoing.</p>
+
+                <div class="competitor-card">
+                    <div class="competitor-name">CommerceIQ <span class="badge green">Confirmed</span></div>
+                    <p>Appears primary - dedicated subdomain <code>ferrero.commerceiq.ai</code> suggests deepest integration. However, CommerceIQ has documented European weaknesses per eStore's battlecard:</p>
+                    <ul>
+                        <li>US-centric platform, only 8.5% UK client penetration despite e.fundamentals acquisition</li>
+                        <li>No retailer partnerships (vs eStore's ASDA Xpert)</li>
+                        <li>Steep learning curve, offshore support for European time zones</li>
+                        <li>2.9/5 Glassdoor service rating</li>
+                    </ul>
+                </div>
+
+                <div class="competitor-card">
+                    <div class="competitor-name">Data Impact / NIQ Digital Shelf <span class="badge green">Confirmed</span></div>
+                    <p>Daily tool for Elena Vall. Now marketed under NIQ following acquisition. Transition to NIQ branding may affect product direction and Ferrero's relationship.</p>
+                </div>
+
+                <div class="competitor-card">
+                    <div class="competitor-name">Edge by Ascential / Flywheel <span class="badge green">Confirmed</span></div>
+                    <p>Daily tool. Corporate restructuring into Flywheel/Omnicom may create uncertainty for Ferrero's existing relationship. Being deprioritised by parent company may create transition window.</p>
+                </div>
+
+                <div class="competitor-card">
+                    <div class="competitor-name">Profitero <span class="badge yellow">Likely</span></div>
+                    <p>Referenced in job postings and eStore's HubSpot notes as competitor during previous global RFP. Confidence level: medium.</p>
+                </div>
+            </div>
+
+            <!-- Content to Reference -->
+            <div class="card">
+                <h2>Content to Reference</h2>
+                <p>No direct FMCG/confectionery sector landing page exists. Closest fit is Beverages &amp; Alcohol (shared retail channels, promotional dynamics, seasonal patterns). Do not position as "your sector page" - be honest that eStore's published content focuses on other verticals but analytical requirements transfer directly.</p>
+
+                <h3>Sector Landing Page</h3>
+                <a href="https://estorebrands.com/beverages-alcohol" target="_blank" class="content-link">
+                    <div class="link-title">Beverages &amp; Alcohol (Closest Fit)</div>
+                    <div class="link-desc">Shared retail channels, grocery-dominant dynamics, seasonal patterns. Position as: "We've written about digital shelf challenges in categories with complex retail distribution - the dynamics for confectionery mirror fast-moving consumer goods."</div>
+                    <div class="link-url">https://estorebrands.com/beverages-alcohol</div>
+                </a>
+
+                <h3>Relevant Feature Articles</h3>
+                <a href="https://estorebrands.com/ignite/asda-xpert-a-new-era-of-retail-collaboration" target="_blank" class="content-link">
+                    <div class="link-title">ASDA Xpert Partnership</div>
+                    <div class="link-desc">Highly relevant for UK expansion. Ferrero sells heavily through ASDA. Exclusive retailer partnership differentiates vs CommerceIQ. Use for UK contacts, not French outreach.</div>
+                    <div class="link-url">https://estorebrands.com/ignite/asda-xpert-a-new-era-of-retail-collaboration</div>
+                </a>
+                <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank" class="content-link">
+                    <div class="link-title">Content Benchmark</div>
+                    <div class="link-desc">Relevant for competitive content monitoring - Ferrero competes with Mars, Mondelez, Nestl&eacute; on shelf. Content quality across 35+ brands is a major challenge. Universally relevant - use for both UK and French contacts.</div>
+                    <div class="link-url">https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content</div>
+                </a>
+                <a href="https://estorebrands.com/ignite/introducing-ai-business-answers" target="_blank" class="content-link">
+                    <div class="link-title">AI Business Answers</div>
+                    <div class="link-desc">Aligns with Marie-Jeanne Matei's approach of using analytics to drive actionable decisions. Relevant for follow-up conversations.</div>
+                    <div class="link-url">https://estorebrands.com/ignite/introducing-ai-business-answers</div>
+                </a>
+                <a href="https://estorebrands.com/ignite/why-e-category-leadership-is-the-next-big-opportunity-in-digital-retail" target="_blank" class="content-link">
+                    <div class="link-title">eCategory Management</div>
+                    <div class="link-desc">Aligns with Ferrero's "Perfect eStore execution" pillar and category leadership thinking. Relevant for strategic conversations.</div>
+                    <div class="link-url">https://estorebrands.com/ignite/why-e-category-leadership-is-the-next-big-opportunity-in-digital-retail</div>
+                </a>
+
+                <h3>Suggested Placement in Emails</h3>
+                <div class="info-box blue">
+                    <p style="margin-bottom:0.5rem"><strong>Email 1 (all contacts):</strong> No links - keep conversational.</p>
+                    <p style="margin-bottom:0.5rem"><strong>Email 2 (UK contacts / New UK Head):</strong> ASDA Xpert article. For Guillaume Robin (France) and Dariusz Cziao (EMEA): Content Benchmark instead.</p>
+                    <p style="margin-bottom:0.5rem"><strong>Email 3:</strong> Content Benchmark or AI Business Answers depending on what resonated. For Dariusz Cziao: ASDA Xpert as European retailer partnership example.</p>
+                    <p style="margin-bottom:0"><strong>German pilot contacts:</strong> Content already being shared through active engagement - no need for email sequences.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- TAB 3: RETAILER OVERVIEW                    -->
+        <!-- ============================================ -->
+        <div id="retailers" class="tab-content">
+            <div class="card">
+                <h2>Retailer Pattern Analysis</h2>
+                <div class="info-box yellow">
+                    <strong>Note:</strong> This is strategic pattern recognition, not detailed coverage checking against the eStore Retailer Coverage Master CSV. The retailer landscape is summarised to inform the sales conversation and identify where eStore can provide immediate versus longer-term value.
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="value">25-30+</div>
+                        <div class="label">Online retailers carrying Ferrero</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">Multi-channel</div>
+                        <div class="label">Grocery, quick commerce, specialist, DTC</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="value">4+ markets</div>
+                        <div class="label">UK, Germany, France, US + others</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Geographic Retailer Breakdown</h2>
+                <div class="retailer-summary">
+                    <div class="retailer-region">
+                        <h4>&#x1F1EC;&#x1F1E7; United Kingdom (~30%)</h4>
+                        <ul class="retailer-list">
+                            <li><strong>Tesco</strong> - Full portfolio</li>
+                            <li><strong>Sainsbury's</strong> - Full portfolio</li>
+                            <li><strong>ASDA</strong> - Full portfolio (eStore Xpert partnership)</li>
+                            <li><strong>Morrisons</strong> - Full portfolio</li>
+                            <li><strong>Ocado</strong> - Full portfolio</li>
+                            <li><strong>Waitrose</strong> - Premium selection</li>
+                            <li><strong>Lidl</strong> - Selected lines</li>
+                            <li><strong>Aldi</strong> - Selected lines</li>
+                            <li><strong>Amazon UK</strong> - Full portfolio</li>
+                            <li><strong>Thorntons.co.uk</strong> - DTC (Ferrero-owned)</li>
+                        </ul>
+                        <div class="info-box green" style="margin-top:1rem">
+                            <strong>eStore strength:</strong> Exceptionally strong UK grocery coverage. This is eStore's best market for fast time-to-value.
+                        </div>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>&#x1F1E9;&#x1F1EA; Germany (~15-20%)</h4>
+                        <ul class="retailer-list">
+                            <li><strong>Amazon.de</strong> - Full portfolio</li>
+                            <li><strong>Rewe</strong> - Multi-location (in pilot)</li>
+                            <li><strong>Flaschenpost</strong> - In pilot scope</li>
+                            <li><strong>World of Sweets</strong> - In pilot scope</li>
+                            <li><strong>Knuspr</strong> - Quick commerce (in pilot)</li>
+                            <li><strong>Picnic</strong> - Quick commerce (in pilot)</li>
+                            <li><strong>Flink</strong> - Quick commerce (in pilot)</li>
+                        </ul>
+                        <div class="info-box blue" style="margin-top:1rem">
+                            <strong>Active pilot:</strong> German pilot scope specifically includes these retailers. Coverage capability is being actively tested and negotiated.
+                        </div>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>&#x1F1FA;&#x1F1F8; United States (~35-40%)</h4>
+                        <ul class="retailer-list">
+                            <li><strong>Amazon US</strong> - Full portfolio</li>
+                            <li><strong>Walmart</strong> - Full portfolio</li>
+                            <li><strong>Target</strong> - Full portfolio</li>
+                            <li><strong>Kroger</strong> - Grocery</li>
+                            <li><strong>CVS</strong> - Selected lines</li>
+                            <li><strong>Walgreens</strong> - Selected lines</li>
+                            <li><strong>Instacart</strong> - Quick commerce</li>
+                            <li><strong>Fannie May</strong> - DTC (Ferrero-owned)</li>
+                        </ul>
+                        <div class="info-box orange" style="margin-top:1rem">
+                            <strong>Honest positioning:</strong> eStore's core strength is European retailers. US coverage needs honest conversation about capability and timeline.
+                        </div>
+                    </div>
+                    <div class="retailer-region">
+                        <h4>&#x1F1EB;&#x1F1F7; France &amp; Other Europe</h4>
+                        <ul class="retailer-list">
+                            <li><strong>Amazon.fr</strong> - Full portfolio</li>
+                            <li><strong>Carrefour</strong> - Grocery</li>
+                            <li><strong>Leclerc</strong> - Grocery</li>
+                            <li><strong>Amazon.it</strong> - Full portfolio</li>
+                            <li><strong>Ferrero Shop Italy</strong> - DTC (owned)</li>
+                        </ul>
+                        <div class="info-box yellow" style="margin-top:1rem">
+                            <strong>Coverage gaps:</strong> Italian retailers (cittadelsole.it, comet.it, ditano.com) previously checked and showed NOT COVERED. French grocery coverage needs verification. This is a longer time-to-value market.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Notable Patterns</h2>
+                <ul>
+                    <li><strong>Exceptionally strong UK grocery presence</strong> - All major grocers carry full Ferrero portfolio. This is eStore's strongest market and the clearest path to fast time-to-value.</li>
+                    <li><strong>Multi-channel in Germany</strong> - Active pilot scope mixes traditional retail, online pure-play, and quick commerce apps. Demonstrates Ferrero's interest in monitoring across all formats.</li>
+                    <li><strong>Quick commerce is strategically important</strong> - Ferrero specifically includes app-based retailers (Flink, Picnic, Knuspr) in the German pilot. App vs URL tracking is a technical question eStore must address.</li>
+                    <li><strong>DTC channel is growing but nascent</strong> - Ferrero Shop (Italy), Thorntons (UK), Fannie May (US) represent owned channels requiring different monitoring approaches.</li>
+                    <li><strong>Post-WK Kellogg expansion</strong> - Cereals are carried in even more grocery retailers than confectionery, increasing the total monitoring requirement across all markets.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Implementation Time-to-Value</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Market</th>
+                            <th>Estimated Time-to-Value</th>
+                            <th>Rationale</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>&#x1F1EC;&#x1F1E7; UK</td>
+                            <td><span class="badge green">Fast (2-4 weeks)</span></td>
+                            <td>eStore already covers major UK grocers. Strong existing infrastructure.</td>
+                        </tr>
+                        <tr>
+                            <td>&#x1F1E9;&#x1F1EA; Germany</td>
+                            <td><span class="badge yellow">Active negotiation</span></td>
+                            <td>Depends on coverage of Rewe, Flaschenpost, quick commerce apps. Being actively tested.</td>
+                        </tr>
+                        <tr>
+                            <td>&#x1F1EB;&#x1F1F7; France</td>
+                            <td><span class="badge orange">Medium (2-3 months)</span></td>
+                            <td>Coverage needs verification. French grocery retailer support to be confirmed.</td>
+                        </tr>
+                        <tr>
+                            <td>&#x1F1EE;&#x1F1F9; Italy</td>
+                            <td><span class="badge red">Longer (4-6 months)</span></td>
+                            <td>Previous checks show Italian retailers NOT COVERED. Requires retailer onboarding.</td>
+                        </tr>
+                        <tr>
+                            <td>&#x1F1FA;&#x1F1F8; US</td>
+                            <td><span class="badge grey">TBD - honest conversation needed</span></td>
+                            <td>Not eStore's core strength. US coverage capability requires transparent discussion.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- TAB 4: KEY PEOPLE                           -->
+        <!-- ============================================ -->
+        <div id="contacts" class="tab-content">
+            
+            <!-- Historical Contacts -->
+            <div class="card">
+                <h2>Historical Contacts (Already Engaged)</h2>
+                <p>These contacts are already part of the active German pilot negotiation. They are NOT new outreach targets but should continue as primary contacts for the German engagement.</p>
+
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Nadine Eckes</div>
+                            <div class="contact-title">Head of KAM e-commerce, Germany</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge warm">Warm - Active</span>
+                            <span class="badge green">Internal Champion</span>
+                        </div>
+                    </div>
+                    <p>Senior commercial sponsor on the German pilot. Engaged on pilot structure, scope, pricing, and legal review. Positive but budget-conscious. Appears to be the closest to an internal champion.</p>
+                </div>
+
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Tobias Lott</div>
+                            <div class="contact-title">Sales, Ferrero MSC GmbH, Germany</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge warm">Warm - Active</span>
+                        </div>
+                    </div>
+                    <p>Commercial/ecommerce lead on pilot details. Deep involvement in KPIs, SOW, pricing, seasonal peaks, demo access.</p>
+                </div>
+
+                <div class="contact-card historical" style="opacity:0.6">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Lukas B&uuml;cker</div>
+                            <div class="contact-title">KAM eCommerce, Germany - <strong style="color:#f44f2f">DEPARTED</strong></div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge" style="background:#f44f2f;color:white">Departed Ferrero</span>
+                        </div>
+                    </div>
+                    <p>Previously involved in eStoreCheck introduction and demo sessions. Coordinated with Nadine. <strong>Has left Ferrero.</strong> Remove from active contact list for German pilot and verify with Nadine who has taken over his responsibilities.</p>
+                </div>
+
+                <div class="contact-card historical">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Karolina/Karola</div>
+                            <div class="contact-title">Global/DE Contact</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge warm">Warm - Active</span>
+                            <span class="badge yellow">Budget Gatekeeper</span>
+                        </div>
+                    </div>
+                    <p>Driving the DE pilot and managing budget constraints. Key tension point on scope vs budget. Pushed for free pilot with break clause. The commercial decision may require approval at or above her level.</p>
+                </div>
+            </div>
+
+            <!-- Primary Targets -->
+            <div class="card">
+                <h2>Primary Targets - New Outreach (Expansion Beyond Germany)</h2>
+                <p>These contacts represent expansion opportunities beyond the German pilot. Email sequences are prepared for Guillaume Robin (#1 France) and Dariusz Cziao (#3 EMEA). Template emails are ready for the new UK Head of eCommerce (#2) once identified. Rob Wells (#4) is a warm referral contact who requires a personal approach rather than a standard sequence.</p>
+
+                <!-- Guillaume Robin -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#1 Guillaume Robin</div>
+                            <div class="contact-title">Head of E-commerce &amp; Accelerating Channels, Ferrero France</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge cold">Cold</span>
+                            <span class="badge green">&#x2705; Verified</span>
+                            <span class="badge blue">&#x1F1EB;&#x1F1F7; French</span>
+                        </div>
+                    </div>
+                    <p><strong>Background:</strong> Joined Ferrero from Auchan Retail (Directeur des Nouveaux Concepts E-commerce). Executive MBA from HEC Paris with Major in Digital Transformation. Startup mentor. At Ferrero since November 2022.</p>
+                    <p><strong>Why he's the right contact:</strong> France is a natural expansion market after Germany. His digital transformation background (HEC MBA), omnichannel strategy (Auchan), and "Accelerating Channels" brief suggest genuine openness to evaluating new solutions. Relatively new to Ferrero - still building capabilities.</p>
+                    <h4>Outreach Hooks</h4>
+                    <ul>
+                        <li>Digital transformation expertise - HEC MBA in Digital Transformation aligns with DSA value proposition</li>
+                        <li>Retail innovation background - Auchan "Nouveaux Concepts" suggests openness to innovation</li>
+                        <li>"Accelerating Channels" title - emerging retail formats are where DSA monitoring is most challenging</li>
+                        <li>Reference the German pilot - "Your colleagues in Germany are currently evaluating..."</li>
+                    </ul>
+                    <div class="tone-box">
+                        <strong>Tone guidance (French):</strong> Relationship-focused. Lead with digital transformation narrative, not hard sell. Reference German pilot as social proof within Ferrero. Build rapport before commercial discussion.
+                    </div>
+                </div>
+
+                <!-- UK Head Recently Filled -->
+                <div class="contact-card" style="border-left: 4px solid #ffba1c;">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#2 UK Head of eCommerce FMCG</div>
+                            <div class="contact-title">Recently Filled - Identity Unknown | Previous incumbent: Rob Wells (moved internally)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge yellow">Recently Filled</span>
+                            <span class="badge blue">&#x1F1EC;&#x1F1E7; UK</span>
+                        </div>
+                    </div>
+                    <p><strong>Role scope (from job posting):</strong> P&amp;L responsibility for Pureplay channel. Drives channel share growth across Grocery &amp; Wholesale. Manages eCommerce A&amp;P budget. <strong>Champions digital shelf optimisation</strong> (directly relevant). Leads team development.</p>
+                    <p><strong>Status:</strong> The job posting on jobs.ferrero.com now shows "this position has been filled." However, no public announcement identifies the new hire. Rob Wells moved internally to Head of Out of Home &amp; Food Services rather than leaving Ferrero entirely.</p>
+                    <p><strong>Why this matters:</strong> This remains the single most important contact to identify for UK expansion. The new appointee will be in evaluation mode, establishing vendor relationships and looking for quick wins. Their mandate explicitly includes digital shelf optimisation.</p>
+                    <div class="info-box yellow">
+                        <strong>Action required:</strong> Monitor Ferrero UK LinkedIn for the new appointment. When identified, approach within first 60 days of start date with consultative introduction. Reference eStore's UK grocery coverage and ASDA Xpert partnership. Rob Wells (still at Ferrero) may be able to provide a warm introduction. Also note: a separate "Head of D2C eCommerce" role is being recruited, reporting to an "eCommerce and Digital Acceleration Director" - a new title suggesting UK restructuring.
+                    </div>
+                    <div class="tone-box">
+                        <strong>Tone guidance (likely British):</strong> Professional directness. New hires are in evaluation mode - position eStore as a resource, not a sales pitch. Two-path closing: "If DSA is on your assessment list..." or "If you're already set up, I'd be curious how..."
+                    </div>
+                </div>
+
+                <!-- Dariusz Cziao -->
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#3 Dariusz Cziao</div>
+                            <div class="contact-title">Global Digital Shelf Consultant, Ferrero</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge cold">Cold</span>
+                            <span class="badge green">&#x2705; Verified</span>
+                            <span class="badge blue">EMEA / Global (27 countries)</span>
+                        </div>
+                    </div>
+                    <p><strong>Background:</strong> Manages Ferrero's digital shelf and e-commerce channel strategy across 27 countries with a team of 8. Reports to local and EMEA management boards. Previous experience at Procter &amp; Gamble, Braun, and Philips in brand management and e-commerce roles. LinkedIn confirmed at Ferrero.</p>
+                    <p><strong>Why he's the right contact:</strong> His title is literally "Global Digital Shelf Consultant" - this is the person who owns digital shelf strategy and vendor relationships across EMEA. He manages Joint Business Plans, brand IP, and e-commerce content strategies across 27 countries. If Ferrero is evaluating or expanding DSA tools beyond Germany, Dariusz is likely involved in that decision or aware of it.</p>
+                    <h4>Outreach Hooks</h4>
+                    <ul>
+                        <li>27-country scope creates exactly the monitoring complexity where DSA tools deliver highest ROI</li>
+                        <li>Team of 8 managing digital shelf across EMEA - eStore could be a force multiplier</li>
+                        <li>P&amp;G background means he understands vendor evaluation and DSA category maturity</li>
+                        <li>Reference the German pilot - likely already aware or involved in the evaluation</li>
+                    </ul>
+                    <div class="tone-box">
+                        <strong>Tone guidance:</strong> Professional and specific. This person knows the DSA landscape well (P&amp;G background). Do not explain basic digital shelf concepts. Focus on European retailer depth and what differentiates eStore from tools he already knows. Be prepared for sophisticated questions.
+                    </div>
+                </div>
+
+                <!-- Rob Wells - Internal Referral -->
+                <div class="contact-card" style="border-left: 4px solid #ffba1c;">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">#4 Rob Wells</div>
+                            <div class="contact-title">Head of Out of Home &amp; Food Services, Ferrero UK (previously Head of eCommerce FMCG)</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge warm">Warm - Internal Move</span>
+                            <span class="badge green">&#x2705; Verified</span>
+                            <span class="badge blue">&#x1F1EC;&#x1F1E7; UK</span>
+                        </div>
+                    </div>
+                    <p><strong>Background:</strong> ~24 years at Ferrero UK, previously Head of eCommerce FMCG - the exact role now held by an unknown new appointee. Moved internally to Head of Out of Home &amp; Food Services. Still at Ferrero and on LinkedIn.</p>
+                    <p><strong>Why he's valuable:</strong> Rob is no longer in e-commerce but has unparalleled institutional knowledge of Ferrero UK's digital operations. He likely knows who replaced him, who the key decision-makers are across the UK e-commerce team, and how vendor decisions are made. He is a potential warm referral source to the new UK Head of eCommerce and other UK contacts.</p>
+                    <div class="info-box yellow">
+                        <strong>Approach:</strong> This is a relationship conversation, not a sales pitch. Rob's new role (Out of Home &amp; Food Services) is not directly relevant to DSA, but his knowledge and network within Ferrero UK are invaluable. A light-touch outreach referencing his former e-commerce role and asking whether the new Head of eCommerce is settling in could naturally lead to a referral. Do NOT send the standard cold email sequence - this requires a more personal, conversational approach.
+                    </div>
+                    <div class="tone-box">
+                        <strong>Tone guidance (British):</strong> Warm, conversational, peer-to-peer. Acknowledge his move. He is doing us a favour by connecting us - be respectful of that. No sales language whatsoever.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Targets -->
+            <div class="card">
+                <h2>Secondary Targets - Strategic Influencers</h2>
+                <p>These senior leaders are not hands-on but can provide air cover, budget approval, or strategic context.</p>
+
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Raja Odedra</div>
+                            <div class="contact-title">Director, eCommerce Strategy &amp; Innovation, Ferrero USA</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge cold">Cold</span>
+                            <span class="badge green">&#x2705; Verified</span>
+                            <span class="badge blue">US-based</span>
+                        </div>
+                    </div>
+                    <p><strong>Key achievements:</strong> Speaker at Digital Grocery Summit USA 2025 on "eCommerce &amp; Omnichannel strategies for growth" covering digital shelf frameworks and KPIs. 13+ years CPG experience including Johnson &amp; Johnson and Mars. Previously posted about hiring for the Director, eCommerce Strategy &amp; Innovation role, confirming his leadership position.</p>
+                    <p><strong>How to reference:</strong> His Digital Grocery Summit presentation on digital shelf frameworks confirms Ferrero is actively investing in digital shelf capability. Useful context for European outreach - "Ferrero's US team presented on digital shelf frameworks at the Digital Grocery Summit - eStore enables similar rigour across European markets." US-based, so not a primary outreach target for eStore, but validates the strategic need.</p>
+                </div>
+
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Marie-Jeanne Matei</div>
+                            <div class="contact-title">VP, General Manager E-commerce &amp; Omnichannel Shopper Experience, Ferrero North America</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge warm">Warm (US contacts engaged previously)</span>
+                            <span class="badge green">&#x2705; Verified</span>
+                            <span class="badge blue">US-based</span>
+                        </div>
+                    </div>
+                    <p><strong>Key achievements:</strong> Doubled Ferrero's US online business in 2 years. Developed proprietary "digital shelf framework" (Portfolio, Content, Paid Media). Built e-commerce team from scratch. Featured on Adweek's "Brave Commerce" podcast.</p>
+                    <p><strong>How to reference:</strong> For European outreach, note that "Ferrero's North American team has developed a sophisticated digital shelf framework - eStore enables similar rigour across European markets where retailer fragmentation makes manual tracking impossible." She validates the need for DSA tools at Ferrero.</p>
+                </div>
+
+                <div class="contact-card secondary">
+                    <div class="contact-header">
+                        <div>
+                            <div class="contact-name">Paolo Ferrera</div>
+                            <div class="contact-title">VP, Head of Group R&amp;D, Consumer, E-commerce IT Platform</div>
+                        </div>
+                        <div class="contact-badges">
+                            <span class="badge cold">Cold</span>
+                            <span class="badge green">&#x2705; Verified</span>
+                            <span class="badge blue">Luxembourg (Global HQ)</span>
+                        </div>
+                    </div>
+                    <p><strong>Scope:</strong> Global e-commerce IT platform development. R&amp;D for consumer-facing digital capabilities. Drives AI initiatives.</p>
+                    <p><strong>How to reference:</strong> Relevant if the German pilot escalates to a global platform discussion. Would be the conversation partner for technology stack compatibility and global rollout considerations.</p>
+                </div>
+            </div>
+
+            <!-- Executive Context -->
+            <div class="card">
+                <h2>Executive Context (Reference Only - Do Not Contact)</h2>
+                
+                <div class="contact-card" style="border-left-color: #6c757d;">
+                    <div class="contact-name">Giovanni Ferrero - Executive Chairman</div>
+                    <p><strong>On digital:</strong> "Embracing digitalisation as a cornerstone of its strategic initiatives, Ferrero Group under Giovanni Ferrero's leadership has made substantial investments in e-commerce platforms, personalised marketing strategies, and data analytics."</p>
+                    <p><strong>Use in outreach:</strong> Reference his strategic commitment to digitalisation when speaking to his reports - validates that DSA investment aligns with the chairman's priorities.</p>
+                </div>
+
+                <div class="contact-card" style="border-left-color: #6c757d;">
+                    <div class="contact-name">Michael Lindsey - President &amp; CBO North America</div>
+                    <p><strong>On growth:</strong> "I've never seen a company do a combination of big M&amp;A and big organic growth simultaneously and have it working."</p>
+                    <p><strong>Use in outreach:</strong> Reference the simultaneous M&amp;A + organic growth challenge - monitoring acquired brands (WK Kellogg) across new retailer relationships is a concrete DSA use case.</p>
+                </div>
+
+                <div class="contact-card" style="border-left-color: #6c757d;">
+                    <div class="contact-name">Dr J&ouml;rg Behrend - Group CITO</div>
+                    <p><strong>On investment horizon:</strong> "We don't think in quarters or stock market results, but in 3, 6, 10-year strategic plans."</p>
+                    <p><strong>Use in outreach:</strong> Reference when addressing long sales cycles or pilot-to-contract timelines - Ferrero values long-term partnerships over quick transactions.</p>
+                </div>
+            </div>
+
+            <!-- Contacts to Skip -->
+            <div class="card">
+                <h2>Contacts to Skip</h2>
+                <div class="contact-card skip">
+                    <ul>
+                        <li><strong style="color:#f44f2f">John Rowley</strong> - previously listed as Head of Ecommerce (DTC), Ferrero UK. <strong>Now at Greene King</strong> as Head of Digital Merchandising, Experience &amp; Ecommerce. Confirmed by UK eCommerce Awards judges page and RocketReach. Do NOT contact for Ferrero.</li>
+                        <li><strong style="color:#f44f2f">Dawood Nematollahi</strong> - previously listed as Head of Key Accounts &amp; E-commerce, Ferrero. <strong>Left Ferrero at end of January 2026</strong> (confirmed via LinkedIn). Do NOT contact for Ferrero.</li>
+                        <li><strong style="color:#f44f2f">Lukas B&uuml;cker</strong> - previously KAM eCommerce, Germany (historical contact). <strong>Has departed Ferrero.</strong> Verify with Nadine Eckes who has taken over his responsibilities.</li>
+                        <li>Manufacturing/operations - factory and supply chain roles without digital responsibility</li>
+                        <li>Regional roles below Director level in markets without active eStore engagement</li>
+                        <li>US-only roles (unless specifically relevant to WK Kellogg integration) - eStore's strength is European coverage</li>
+                        <li>Legal/compliance - involved in German contract review but not outreach targets</li>
+                        <li>Global roles based in Luxembourg (initially) - until Germany pilot is contracted, avoid escalating to global HQ contacts who might slow down the process</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- TAB 5: DRAFT EMAIL SEQUENCES                -->
+        <!-- ============================================ -->
+        <div id="emails" class="tab-content">
+            <div class="disclaimer">
+                <strong>&#x26A0; Important:</strong> These emails and LinkedIn messages are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Verify all contact details, confirm the German pilot status, and adjust timing references to be current. All emails use [SENDER NAME] placeholder - replace with actual sender name before use.
+            </div>
+
+            <div class="card">
+                <h2>Nationality-Based Tone Guidance</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <h4>&#x1F1EB;&#x1F1F7; French (Guillaume Robin)</h4>
+                        <p>Relationship-focused. Lead with digital transformation narrative, not hard sell. Build rapport before commercial discussion. Reference German pilot as social proof within Ferrero.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>&#x1F1EC;&#x1F1E7; British (New UK Head / Rob Wells)</h4>
+                        <p>Professional directness. Get to the point but with warmth. Factual and evidence-based. Low-pressure. Natural referral asks when appropriate.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>&#x1F30D; European / EMEA (Dariusz Cziao)</h4>
+                        <p>Sophisticated, no-nonsense. This contact has P&amp;G background and manages digital shelf across 27 countries - he knows the DSA landscape. Focus on what differentiates eStore. Be specific, skip the basics.</p>
+                    </div>
+                </div>
+                <div class="info-box blue" style="margin-top:1rem">
+                    <strong>Note on German contacts:</strong> Nadine Eckes, Tobias Lott, and Lukas B&uuml;cker are already engaged through the active pilot. Do NOT use these email templates for them - continue the ongoing pilot conversation through existing channels.
+                </div>
+            </div>
+
+            <!-- SEQUENCE 1: Guillaume Robin -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3 style="margin-top:0">Guillaume Robin</h3>
+                        <p style="margin-bottom:0">Head of E-commerce &amp; Accelerating Channels, Ferrero France | <span class="badge cold">Cold</span> <span class="badge green">&#x2705; Verified</span> <span class="badge blue">&#x1F1EB;&#x1F1F7; French</span></p>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-sequence="robin">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+
+                <!-- Robin Email 1 -->
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Digital shelf analytics across emerging retail channels</div>
+                        <div class="email-timing">&#x1F4C5; Tuesday or Thursday, 9:00-10:00 CET</div>
+                        <div class="email-body">Guillaume,
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, helping teams track availability, content accuracy, pricing, and search rankings across retail platforms. We work with European FMCG businesses including Kraft Heinz, Danone, and Unilever.
+
+I should mention that we are in discussions with your colleagues in the German e-commerce team about a digital shelf programme - so eStore is not entirely unknown within Ferrero.
+
+The scope of your role is what prompted me to reach out. "Accelerating Channels" suggests emerging retail formats - quick commerce, marketplace expansion, new delivery models - and those are the channels where maintaining consistent product information becomes most difficult. Traditional grocery has established processes, but newer platforms often have different content specifications, different search algorithms, and less predictable availability patterns. When a business is managing 35+ brands across both traditional and emerging channels, the monitoring challenge compounds quickly.
+
+How are you approaching digital shelf monitoring for France - centrally through the wider Ferrero toolset, or building something out locally?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Guillaume is still in role (LinkedIn). Confirm German pilot is active - do not reference if stalled.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>German pilot mentioned once, briefly, for credibility - then the email moves on. The real hook is his "Accelerating Channels" title and the DSA complexity it implies. 35+ brands reference demonstrates portfolio knowledge. Open question invites him to describe his situation. No links.</p>
+                    </div>
+                </div>
+
+                <!-- Robin Email 2 -->
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Content consistency across 35 brands and multiple retailers</div>
+                        <div class="email-timing">&#x1F4C5; Tuesday or Thursday, 9:00-10:00 CET (5-7 days after Email 1)</div>
+                        <div class="email-body">Guillaume,
+
+Following on - one of the challenges we see consistently with large FMCG portfolios is content consistency across retailers.
+
+Each French retailer has its own content specifications, its own search algorithm, and its own way of displaying products. The effort to track whether product content is accurate, items are in stock, and how they rank against Mars, Mondelez, and Nestle in search results compounds across five or six retailers. For a business managing confectionery, snacking, biscuits, and cereals under one roof, the number of product listings requiring attention is substantial.
+
+We have been thinking about how brands benchmark product content quality against competitors - not just whether content exists, but how it compares across retailers. Our thinking on this if useful: https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content
+
+I would be curious how Ferrero France manages content consistency across retailers today - whether that is something the team monitors systematically or handles more reactively.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>If Guillaume responded to Email 1, adapt to continue that conversation rather than sending standalone.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Focused on a universal DSA challenge - content consistency across fragmented retail. Connects to Ferrero's competitive set (Mars, Mondelez, Nestle) and portfolio breadth. Content Benchmark article is universally relevant. Question is practical and open.</p>
+                    </div>
+                </div>
+
+                <!-- Robin Email 3 -->
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: European retail fragmentation and global platform choices</div>
+                        <div class="email-timing">&#x1F4C5; Tuesday or Thursday, 9:00-10:00 CET (5-7 days after Email 2)</div>
+                        <div class="email-body">Guillaume,
+
+One more thought, from a different angle.
+
+Digital shelf analytics tools built for US retail - where Amazon and Walmart dominate - do not always translate to European markets where the landscape is more fragmented. France, Germany, the UK, and Italy each have distinct retailers, content standards, and promotional cycles.
+
+eStore was built for European markets from the start - deepest coverage and strongest expertise here, rather than a US platform extended into Europe through acquisition. Retailer fragmentation across markets like France is something we have invested specifically in solving.
+
+I am not assuming this is a gap for Ferrero. But I am curious whether the platforms available to the French team give you the granularity you need across French retailers, or whether European coverage tends to be secondary in how those tools are designed.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Do not name CommerceIQ or any specific competitor. Verify FMCG client names are current.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>New angle - global versus local platform tension. "US platform extended into Europe through acquisition" differentiates against CommerceIQ without naming them. Acknowledges Ferrero likely has tools. Curiosity close.</p>
+                    </div>
+                </div>
+
+                <!-- Guillaume LinkedIn Section -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>When to use:</strong></p>
+                        <ul>
+                            <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                            <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                            <li><strong>Option C - After no email response:</strong> Send after email sequence if all three go unanswered</li>
+                        </ul>
+                        <p><em>Choose one option per contact - don't do all three.</em></p>
+                    </div>
+                    
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">Connection Request</span> <span class="char-count">Under 300 characters</span></div>
+                        <p class="linkedin-message">Guillaume - I am [SENDER NAME] from eStore. We provide digital shelf analytics for FMCG brands across European retailers. We are in discussions with your colleagues in Germany and I would welcome the chance to connect given your e-commerce remit in France.</p>
+                    </div>
+                    
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">InMail</span></div>
+                        <p class="linkedin-message">Guillaume,
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, tracking availability, content accuracy, pricing, and search rankings across retail platforms. We work with FMCG businesses including Kraft Heinz, Danone, and Unilever.
+
+Your "Accelerating Channels" brief caught my attention. Emerging retail formats - quick commerce, marketplace expansion, new delivery models - are where maintaining consistent product information becomes most difficult. Traditional grocery has established processes, but newer platforms have different content specifications and less predictable availability patterns.
+
+eStore is in discussions with Ferrero's German e-commerce team about a digital shelf programme, so we are not entirely unknown within the business. Curious whether digital shelf monitoring for the French market is something managed centrally or being built out locally.
+
+[SENDER NAME]</p>
+                        <div class="linkedin-strategy">
+                            <strong>Strategy Notes:</strong> The connection request leverages the German relationship for credibility and is kept concise. The InMail mirrors the Email 1 hook - the "Accelerating Channels" title and the monitoring complexity it implies - but is shorter and more direct. For a French contact with a digital transformation background (HEC MBA), the tone is professional and innovation-oriented. The German pilot is mentioned once for social proof, not as the lead. The closing question mirrors the email's curiosity approach.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEQUENCE 2: Dariusz Cziao -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3 style="margin-top:0">Dariusz Cziao</h3>
+                        <p style="margin-bottom:0">Global Digital Shelf Consultant, Ferrero | <span class="badge cold">Cold</span> <span class="badge green">&#x2705; Verified</span> <span class="badge blue">EMEA / 27 countries</span></p>
+                    </div>
+                </div>
+                
+                <div class="email-tabs" data-sequence="cziao">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+
+                <!-- Cziao Email 1 -->
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Digital shelf analytics across 27 European markets</div>
+                        <div class="email-timing">&#x1F4C5; Tuesday or Wednesday, 9:00-10:00 CET</div>
+                        <div class="email-body">Dariusz,
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, covering availability, content accuracy, pricing, and search rankings across retail platforms. We work with FMCG businesses including Kraft Heinz, Danone, and Unilever across European markets.
+
+I should mention that we are in discussions with Ferrero's German e-commerce team about a digital shelf programme, so eStore is not entirely unknown within the business.
+
+What prompted me to write is the scope of your role - managing digital shelf strategy across 27 countries with a team of 8. That is a monitoring challenge where the fragmentation compounds quickly. Each market has its own retailer landscape, content specifications, and search dynamics, and the effort to maintain consistent product performance across all of them grows non-linearly. A platform built for European retail fragmentation from the outset approaches this differently to one designed primarily for US retail and extended into Europe afterwards.
+
+I would be curious how you are currently managing digital shelf intelligence across those 27 markets - one platform globally, multiple regional tools, or something more bespoke?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Verify Dariusz is still in role (LinkedIn). Confirm German pilot is active. His P&amp;G background means he will know DSA vendors well - do not over-explain basics.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>The 27-country scope is the hook - it is specific to his LinkedIn profile and demonstrates research. European fragmentation vs US-centric platforms is eStore's core differentiator and will resonate with someone managing EMEA markets. The German pilot provides internal credibility. The closing question is genuine and open - his answer tells us exactly where eStore fits (or does not). No links.</p>
+                    </div>
+                </div>
+
+                <!-- Cziao Email 2 -->
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Competitive content benchmarking across FMCG portfolios</div>
+                        <div class="email-timing">&#x1F4C5; Tuesday or Wednesday, 9:00-10:00 CET (5-7 days after Email 1)</div>
+                        <div class="email-body">Dariusz,
+
+Following on - one specific challenge for large FMCG portfolios is benchmarking product content quality against competitors across retailers.
+
+Ferrero competes against Mars, Mondelez, and Nestle in confectionery. Against different brands entirely in cereals since the WK Kellogg acquisition. Against yet another set in biscuits and snacking. Each competitive set requires its own benchmarking, and each retailer displays and ranks content differently. When you are managing brand IP and content strategies across 27 countries, understanding where your content stands relative to competitors at each retailer - and where the gaps are - is a significant analytical challenge.
+
+We have been developing our thinking on how brands approach competitive content benchmarking systematically rather than retailer by retailer. Our perspective if useful: https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content
+
+How does Ferrero currently approach content benchmarking across its different product categories - is that centralised through your team or managed at market level?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>If Dariusz responded to Email 1, adapt to continue that conversation. His P&amp;G background likely means he has strong views on content quality - reflect that sophistication.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>Builds on Email 1 with a specific challenge - content benchmarking across multiple competitive sets. The WK Kellogg reference adds complexity that is new since the acquisition. Content Benchmark article is genuinely relevant to his scope. Question probes centralised vs decentralised approach - his answer reveals organisational structure and where eStore would plug in.</p>
+                    </div>
+                </div>
+
+                <!-- Cziao Email 3 -->
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: European retailer partnerships versus scraped data</div>
+                        <div class="email-timing">&#x1F4C5; Tuesday or Wednesday, 9:00-10:00 CET (5-7 days after Email 2)</div>
+                        <div class="email-body">Dariusz,
+
+One more thought, from a different angle.
+
+Most digital shelf analytics platforms rely on web scraping to gather data from retailer websites. eStore does this too, but we have also invested in direct retailer partnerships - agreements where retailers share verified sell-through data, stock levels, and promotional performance from their own systems. Our ASDA Xpert partnership in the UK is one example.
+
+For a business monitoring digital shelf performance across 27 countries, the distinction matters. Scraped data provides breadth but has accuracy limitations - stock estimates can be unreliable, promotional attribution is imprecise, and some retailers actively block scraping. Verified retailer data provides depth and accuracy, particularly around the metrics that most directly affect commercial decisions.
+
+eStore was built for European markets - deepest coverage and strongest retailer relationships here, rather than a US platform extended into Europe. For Ferrero's EMEA operations specifically, that European heritage shapes both the coverage and the data quality.
+
+Is data quality and sourcing methodology something that comes up in how Ferrero evaluates its digital shelf tools, or is the focus more on breadth of coverage?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>If previous emails generated engagement, adapt accordingly. If no response to Emails 1-2, this offers a genuinely different angle (data sourcing methodology rather than features).</p>
+                        <h5>Strategy Notes</h5>
+                        <p>New angle - data quality and sourcing methodology. This differentiates eStore from CommerceIQ and other US-centric platforms. ASDA Xpert provides a concrete example. The question at the end probes priorities (depth vs breadth) which directly informs how to position eStore if the conversation develops.</p>
+                    </div>
+                </div>
+
+                <!-- Cziao LinkedIn Section -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>When to use:</strong></p>
+                        <ul>
+                            <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                            <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                            <li><strong>Option C - After no email response:</strong> Send after email sequence if all three go unanswered</li>
+                        </ul>
+                        <p><em>Choose one option per contact - don't do all three.</em></p>
+                    </div>
+                    
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">Connection Request</span> <span class="char-count">Under 300 characters</span></div>
+                        <p class="linkedin-message">Dariusz - I am [SENDER NAME] from eStore. We provide digital shelf analytics for FMCG brands across European retailers. We are in discussions with your Ferrero colleagues in Germany and I would welcome the chance to connect given your EMEA digital shelf remit.</p>
+                    </div>
+                    
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">InMail</span></div>
+                        <p class="linkedin-message">Dariusz,
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, covering availability, content, pricing, and search rankings across European retail platforms.
+
+We are in discussions with Ferrero's German e-commerce team about a digital shelf programme. What prompted me to reach out is the scope of your role - managing digital shelf strategy across 27 countries. That fragmentation is exactly where European-built analytics differ most from US-centric platforms extended into Europe.
+
+Curious how you are currently managing digital shelf intelligence across those markets - one platform globally or a regional approach?
+
+[SENDER NAME]</p>
+                        <div class="linkedin-strategy">
+                            <strong>Strategy Notes:</strong> The connection request uses the German relationship for credibility and is specific to his EMEA remit. The InMail mirrors Email 1's core hook - 27-country scope and European fragmentation - but is compressed. His P&amp;G background means he will be familiar with DSA vendors and methodologies, so the message respects that sophistication. No links in LinkedIn messages.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEQUENCE 3: UK Head (Vacant) -->
+            <div class="email-sequence">
+                <div class="email-sequence-header">
+                    <div>
+                        <h3 style="margin-top:0">UK Head of eCommerce FMCG (Recently Filled - Identity Unknown)</h3>
+                        <p style="margin-bottom:0">New appointee - monitor for identity | <span class="badge yellow">Recently Filled</span> <span class="badge blue">&#x1F1EC;&#x1F1E7; Likely British</span></p>
+                    </div>
+                </div>
+
+                <div class="info-box yellow" style="margin-bottom:1.5rem">
+                    <strong>Action required:</strong> The role has been filled (job posting closed) but the new hire's identity is not yet public. Monitor Ferrero UK LinkedIn for the appointment. Rob Wells (moved internally to Head of Out of Home &amp; Food Services) may be able to provide a warm introduction. Research individual thoroughly before sending. Approach within first 60 days of identifying them.
+                </div>
+                
+                <div class="email-tabs" data-sequence="ukhead">
+                    <button class="email-tab active" data-email="1">Email 1</button>
+                    <button class="email-tab" data-email="2">Email 2</button>
+                    <button class="email-tab" data-email="3">Email 3</button>
+                </div>
+
+                <!-- UK Head Email 1 -->
+                <div class="email-content active" data-email="1">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Digital shelf analytics for Ferrero's UK retail portfolio</div>
+                        <div class="email-timing">&#x1F4C5; Tuesday or Wednesday, 8:30-9:30 GMT (within first 60 days of start)</div>
+                        <div class="email-body">[FIRST NAME],
+
+I am [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, helping teams monitor availability, content accuracy, pricing, and search rankings across retail platforms. We work with FMCG brands including Kraft Heinz, Danone, and Unilever.
+
+eStore is currently in discussions with the Ferrero e-commerce team in Germany about a digital shelf programme, so we are not entirely unknown within the business.
+
+The role covers a significant digital shelf footprint - Ferrero products across Tesco, Sainsbury's, ASDA, Morrisons, Ocado, and most major UK grocers, spanning confectionery, snacking, biscuits, and cereals. That is a lot of product listings requiring accurate content, correct pricing, and consistent availability across retailers with different specifications and search algorithms. [ADAPT BASED ON NEW HIRE'S BACKGROUND.]
+
+If digital shelf analytics is on your early assessment list, I would welcome a conversation. If you are already well set up, I would be curious to understand how Ferrero approaches it in the UK.
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Research new hire thoroughly (LinkedIn, previous company). Adapt third paragraph to their background. Confirm German pilot status.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>New hires are in evaluation mode. German pilot mentioned once, briefly. Focus is on the scale of the UK grocery DSA challenge. Retailers described as Ferrero's footprint, not eStore coverage claims. Two-path closing.</p>
+                    </div>
+                </div>
+
+                <!-- UK Head Email 2 -->
+                <div class="email-content" data-email="2">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Verified ASDA data for UK grocery performance</div>
+                        <div class="email-timing">&#x1F4C5; Tuesday or Wednesday, 8:30-9:30 GMT (5-7 days after Email 1)</div>
+                        <div class="email-body">[FIRST NAME],
+
+Following on from my introduction - something specific to the UK that differentiates eStore.
+
+Most digital shelf analytics platforms rely on web scraping. eStore does this too, but we also have direct retailer partnerships. Our ASDA Xpert partnership gives brands verified sell-through data, stock levels, and promotional performance from ASDA's systems rather than scraped estimates.
+
+For Ferrero, selling heavily through ASDA across multiple product categories, the difference matters - particularly around stock levels and whether promotions are performing against plan.
+
+Detail here if useful: https://estorebrands.com/ignite/asda-xpert-a-new-era-of-retail-collaboration
+
+How are you thinking about data quality across UK retailers - do existing tools give you what you need, or is that still being evaluated?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>If they responded to Email 1, adapt to continue conversation. If from a company using a competitor DSA tool, reference that context.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>ASDA Xpert is eStore's strongest UK differentiator. Article positioned as optional. Data quality question is a genuine new-hire priority.</p>
+                    </div>
+                </div>
+
+                <!-- UK Head Email 3 -->
+                <div class="email-content" data-email="3">
+                    <div class="email-box">
+                        <div class="email-subject">Subject: Ferrero's seasonal peaks and real-time retail monitoring</div>
+                        <div class="email-timing">&#x1F4C5; Tuesday or Wednesday, 8:30-9:30 GMT (5-7 days after Email 2)</div>
+                        <div class="email-body">[FIRST NAME],
+
+One aspect I have not touched on is seasonality.
+
+Ferrero Rocher at Christmas, Kinder eggs at Easter, Thorntons gifting around Valentine's Day - concentrated sales windows where availability, content accuracy, and search rankings across UK retailers have an outsized commercial impact. A stock-out on Ferrero Rocher at Tesco the week before Christmas affects revenue disproportionately compared to the same issue in a quieter period.
+
+Real-time monitoring during those peaks - which retailers have stock, whether promotional content is live, how search rankings are shifting - is the difference between catching problems in time and discovering them after the window has closed.
+
+How does the UK team currently manage digital shelf performance during those critical trading periods - systematic or reactive?
+
+[SENDER NAME]</div>
+                    </div>
+                    <div class="email-notes">
+                        <h5>Customisation Notes</h5>
+                        <p>Time relative to Ferrero's seasonal calendar. Adapt product examples to next major trading period.</p>
+                        <h5>Strategy Notes</h5>
+                        <p>New angle. Seasonality is uniquely relevant to Ferrero. Specific products, retailers, and events demonstrate deep understanding. Practical question invites operational conversation.</p>
+                    </div>
+                </div>
+
+                <!-- UK Head LinkedIn Section -->
+                <div class="linkedin-section">
+                    <h4>LinkedIn Messages</h4>
+                    <div class="linkedin-timing-guide">
+                        <p><strong>When to use:</strong> Once the new UK Head of eCommerce FMCG is publicly identified:</p>
+                        <ul>
+                            <li><strong>Recommended:</strong> Send connection request within first 2 weeks of their start date, before Email 1</li>
+                            <li>New hires are actively building their network - connection acceptance rates are highest in the first 60 days</li>
+                            <li>Research their LinkedIn profile thoroughly before personalising the InMail</li>
+                        </ul>
+                        <p><em>Adapt all messages based on the new hire's background, previous company, and areas of expertise.</em></p>
+                    </div>
+                    
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">Connection Request</span> <span class="char-count">Under 300 characters</span></div>
+                        <p class="linkedin-message">[FIRST NAME] - congratulations on the new role. I am [SENDER NAME] from eStore - we provide digital shelf analytics for FMCG brands across UK retailers. We are in discussions with Ferrero's German e-commerce team. Would welcome the chance to connect.</p>
+                    </div>
+                    
+                    <div class="linkedin-card">
+                        <div><span class="linkedin-badge">InMail</span></div>
+                        <p class="linkedin-message">[FIRST NAME],
+
+Congratulations on joining Ferrero. I am [SENDER NAME] from eStore - we provide digital shelf analytics for FMCG brands, helping teams monitor availability, content accuracy, pricing, and search rankings across online retailers.
+
+eStore is currently in discussions with Ferrero's German e-commerce team about a digital shelf programme, so we are not entirely unknown within the business.
+
+Your role covers a significant digital shelf footprint - Ferrero products across Tesco, Sainsbury's, ASDA, Morrisons, Ocado, and most major UK grocers, spanning confectionery, snacking, biscuits, and cereals. [ADAPT BASED ON NEW HIRE'S BACKGROUND AND PREVIOUS COMPANY.]
+
+If digital shelf analytics is on your early assessment list, happy to share some thinking. If you are already well set up, equally curious to hear how Ferrero approaches it.
+
+[SENDER NAME]</p>
+                        <div class="linkedin-strategy">
+                            <strong>Strategy Notes:</strong> New hires are in evaluation mode and actively networking. The connection request congratulates without overselling. The InMail mirrors Email 1 but is compressed. The [ADAPT] placeholder is critical - research the new hire's previous company and role to personalise the third paragraph. If they came from a company using a competitor DSA tool, reference that context. The two-path closing ("on your assessment list" vs "already set up") works well for someone still learning the landscape.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ============================================ -->
+        <!-- TAB 6: OBJECTION HANDLING                   -->
+        <!-- ============================================ -->
+        <div id="objections" class="tab-content">
+            <div class="card">
+                <h2>Decision Framework</h2>
+                <p>The strategic fit assessment indicates <strong>moderate-to-strong fit</strong> with warm relationship history. The recommended approach is <strong>consultative relationship deepening</strong>, not aggressive new business pursuit.</p>
+                
+                <div class="summary-grid">
+                    <div class="summary-item green-border">
+                        <h4>Proceed - German Pilot</h4>
+                        <p>Continue active negotiation. Focus on accelerating vendor registration, legal review, and pilot launch. Budget sensitivity is the primary risk - be flexible on scope to secure the contract.</p>
+                    </div>
+                    <div class="summary-item green-border">
+                        <h4>Proceed - UK (When Ready)</h4>
+                        <p>UK Head of eCommerce FMCG role recently filled (identity unknown). Monitor for announcement. When identified, approach within 60 days. Lead with ASDA Xpert and existing UK grocery coverage for fast time-to-value. Rob Wells (moved internally) may provide a warm introduction.</p>
+                    </div>
+                    <div class="summary-item">
+                        <h4>Proceed with Caveats - France</h4>
+                        <p>Guillaume Robin is a natural expansion target. Lead with German pilot as social proof. Be honest about French retailer coverage - verify before making claims. Longer sales cycle expected.</p>
+                    </div>
+                    <div class="summary-item yellow-border">
+                        <h4>Delay - US &amp; Italy</h4>
+                        <p>US is not eStore's strength. Italian retailers showed NOT COVERED previously. Focus European resources where coverage is strongest (UK, Germany) before expanding to markets requiring significant onboarding.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Common Objections &amp; Responses</h2>
+                <p>Click each objection to expand the recommended response. Responses are tailored to Ferrero's specific situation as a warm prospect with active pilot negotiations.</p>
+
+                <!-- Objection 1 -->
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We already use CommerceIQ / multiple DSA tools"</span>
+                        <span class="objection-arrow">&#x25BC;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Acknowledge and position as complementary, not replacement.</p>
+                        <p>"That makes complete sense - for a business of Ferrero's scale, having multiple analytics perspectives is common. What we hear from other large FMCG businesses is that platforms built primarily for the US market sometimes provide less granular coverage across European retailers. eStore was built for European markets from the start, which means deeper coverage of grocery retailers in the UK, Germany, France, and across Europe. We're not suggesting you replace what works - we're asking whether European retail gets the same depth of attention as US retail in your current tools."</p>
+                        <p><strong>Evidence:</strong> CommerceIQ has documented European weaknesses - US-centric platform, only 8.5% UK client penetration. Edge by Ascential is in corporate transition (Flywheel/Omnicom). Multi-vendor strategies suggest no single tool meets all needs.</p>
+                        <p><strong>Reframe:</strong> Position as the European specialist that complements US-focused tools, not a rip-and-replace pitch.</p>
+                    </div>
+                </div>
+
+                <!-- Objection 2 -->
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Your pricing is too high / above our budget"</span>
+                        <span class="objection-arrow">&#x25BC;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Acknowledge budget sensitivity (it's documented) and offer flexibility.</p>
+                        <p>"We understand budget is a consideration - that's come through clearly in our conversations. The German pilot is structured specifically to demonstrate value before full commitment, with a break clause that de-risks the investment. For other markets, we can discuss phased approaches - starting with the retailers and KPIs that matter most, then expanding as value is demonstrated. We'd rather start focused and prove the ROI than try to cover everything at once."</p>
+                        <p><strong>Evidence:</strong> German pilot is already structured as free pilot linked to paid contract with break clause. Mexico feedback led to adjusted pricing. Ferrero responds to demonstrable ROI, not upfront cost arguments.</p>
+                        <p><strong>Reframe:</strong> Focus on time-to-value and ROI measurement rather than absolute cost. Offer phased scope rather than discounting.</p>
+                    </div>
+                </div>
+
+                <!-- Objection 3 -->
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"You don't specialise in confectionery / FMCG"</span>
+                        <span class="objection-arrow">&#x25BC;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Be honest, then demonstrate transferable expertise.</p>
+                        <p>"You're right that confectionery isn't one of our five named sectors - and I want to be transparent about that. However, we work with several FMCG brands including Kraft Heinz, Danone, Unilever, Pilgrims, and Orkla, and the analytical requirements are directly transferable. The metrics that matter - availability, content accuracy, search visibility, pricing consistency, promotional performance - are identical whether you're tracking Nutella or a beverage product across Tesco, Sainsbury's, and ASDA. What's interesting is that WK Kellogg was actually an eStore client before the acquisition."</p>
+                        <p><strong>Evidence:</strong> Current FMCG clients demonstrate category capability. WK Kellogg (lapsed client, now Ferrero-owned) provides a direct bridge. Beverages sector shares identical retail dynamics.</p>
+                        <p><strong>Reframe:</strong> The value proposition is retailer and analytics expertise, not category-specific knowledge.</p>
+                    </div>
+                </div>
+
+                <!-- Objection 4 -->
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"What about US coverage? We're a global business."</span>
+                        <span class="objection-arrow">&#x25BC;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Be honest about geographic strengths and limitations.</p>
+                        <p>"Our core strength is European coverage - that's where we have the deepest retailer relationships, the strongest technical infrastructure, and the most experienced team. For Ferrero's European operations across the UK, Germany, France, and other markets, we can provide immediate, high-quality analytics. For US operations, I'd want to have an honest conversation about what makes sense and what timeline looks realistic. We'd rather be transparent about where we're strongest than oversell capability in markets where others might serve you better."</p>
+                        <p><strong>Evidence:</strong> eStore covers 3,000+ European retailers across 70+ markets. European heritage aligns with Ferrero's European HQ culture. ASDA Xpert partnership demonstrates the kind of retailer relationships that US-centric platforms don't have in Europe.</p>
+                        <p><strong>Reframe:</strong> Geographic honesty builds trust. Position as the European specialist that complements US tools rather than trying to be everything everywhere.</p>
+                    </div>
+                </div>
+
+                <!-- Objection 5 -->
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're in the middle of a global RFP / vendor evaluation"</span>
+                        <span class="objection-arrow">&#x25BC;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Position as complementary to whatever global decision is made.</p>
+                        <p>"That makes sense - Ferrero has historically evaluated DSA providers through periodic global RFPs. Our perspective is that the European market often gets under-served in global platform decisions because the platforms that win global RFPs tend to be US-centric. The German pilot is actually a good example of testing a European-specialist approach alongside whatever global tools are in place. We're happy to participate in any formal process, but equally, the regional approach your German team is taking - testing specific European capability independently - is a practical way to evaluate without waiting for a global decision."</p>
+                        <p><strong>Reframe:</strong> Regional pilots can run independently of global RFPs. The German pilot is precedent for this approach within Ferrero.</p>
+                    </div>
+                </div>
+
+                <!-- Objection 6 -->
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Implementation timeline concerns - how quickly can you deliver value?"</span>
+                        <span class="objection-arrow">&#x25BC;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Be specific about time-to-value by market.</p>
+                        <p>"It depends on the market. For the UK, we already cover Tesco, Sainsbury's, ASDA, Morrisons, Ocado, and the major grocers - so we could start delivering analytics within 2-4 weeks. For Germany, we're actively testing coverage as part of the pilot design. For France and other European markets, there would be some retailer onboarding required, which typically takes 2-3 months. We'd recommend starting where we can deliver value fastest and expanding from there."</p>
+                        <p><strong>Evidence:</strong> UK grocery coverage is strong and immediate. German pilot is actively testing coverage. France and Italy require longer timelines.</p>
+                    </div>
+                </div>
+
+                <!-- Objection 7 -->
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Can you handle quick commerce apps like Flink, Picnic, Knuspr?"</span>
+                        <span class="objection-arrow">&#x25BC;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Acknowledge the challenge honestly, reference the German pilot context.</p>
+                        <p>"Quick commerce is an area we're actively developing capability in - and it's specifically why the German pilot includes Flink, Picnic, and Knuspr in scope. App-based monitoring does present different technical challenges compared to web-based retail, particularly around geographic variation (different Flink hubs, different Rewe locations). The pilot is designed to test and validate our approach to these platforms. We'd rather demonstrate capability through the pilot than make claims we haven't proven."</p>
+                        <p><strong>Reframe:</strong> The German pilot is the proof point. Position as actively investing in this capability rather than claiming it's fully solved.</p>
+                    </div>
+                </div>
+
+                <!-- Objection 8 -->
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We need data quality guarantees - our current tools have accuracy issues"</span>
+                        <span class="objection-arrow">&#x25BC;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Lead with ASDA Xpert as evidence of data quality commitment.</p>
+                        <p>"Data quality is actually where we differentiate most clearly. Most DSA platforms rely entirely on web scraping, which gives estimates. Our ASDA Xpert partnership provides verified sell-through data directly from ASDA's systems - actual stock levels, actual promotional performance, not scraped approximations. For Ferrero, selling heavily through ASDA across confectionery, snacking, and biscuits, that quality difference matters. We're investing in similar retailer partnerships across other UK grocers and European retailers."</p>
+                        <p><strong>Evidence:</strong> ASDA Xpert is a concrete differentiator. No other DSA provider in Europe has equivalent retailer partnerships. Ferrero has emphasised data quality in German pilot discussions - this resonates with their priorities.</p>
+                    </div>
+                </div>
+
+                <!-- Objection 9 -->
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"Decision-making is centralised / I need to check with Luxembourg"</span>
+                        <span class="objection-arrow">&#x25BC;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Acknowledge Ferrero's culture and position regional pilots as precedent.</p>
+                        <p>"We understand Ferrero's decision-making involves coordination across markets. The German pilot is actually a good example of how regional evaluation can work within Ferrero's structure - your German colleagues initiated a regional assessment that addresses local market needs while fitting within the broader digital shelf strategy. A similar approach for the UK or France - testing specific European capability at a market level - doesn't require global sign-off to start the conversation."</p>
+                        <p><strong>Key insight:</strong> Dr Behrend has stated Ferrero thinks "in 3, 6, 10-year strategic plans." Mirror this long-term orientation. Regional pilots are stepping stones, not end states.</p>
+                    </div>
+                </div>
+
+                <!-- Objection 10 -->
+                <div class="objection-card">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span>"We're focused on integrating WK Kellogg right now - bad timing"</span>
+                        <span class="objection-arrow">&#x25BC;</span>
+                    </div>
+                    <div class="objection-body">
+                        <p><strong>Response approach:</strong> Reframe the acquisition as creating the need, not competing with it.</p>
+                        <p>"The WK Kellogg integration is actually one of the reasons we think digital shelf analytics becomes more important, not less. You've added an entirely new product category - breakfast cereals - with different competitors, different seasonal patterns, and different search dynamics. Frosted Flakes and Froot Loops compete against a completely different set of brands to Ferrero Rocher and Kinder, but they sit in many of the same retailers. Monitoring how those products appear and perform across retailers during integration is exactly when visibility matters most. And interestingly, WK Kellogg was actually an eStore client - so we have existing familiarity with those product categories."</p>
+                        <p><strong>Key fact:</strong> WK Kellogg is a lapsed eStore client. The $3.1B acquisition dramatically increases Ferrero's SKU complexity and retailer monitoring requirements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objection Handling Principles -->
+            <div class="card">
+                <h2>Objection Handling Principles</h2>
+                <ul>
+                    <li><strong>Never dismiss the objection</strong> - Ferrero contacts are sophisticated and experienced with DSA tools. Acknowledge their perspective genuinely.</li>
+                    <li><strong>Lead with honesty</strong> - If there's a genuine limitation (sector fit, US coverage, Italian retailers), say so. Ferrero's relationship-driven culture values transparency.</li>
+                    <li><strong>Reference the German pilot</strong> - The active pilot is precedent for regional evaluation within Ferrero. Use it as social proof with other market contacts.</li>
+                    <li><strong>Position complementary, not replacement</strong> - With 3+ confirmed DSA vendors, Ferrero is not looking to consolidate to one provider. Position eStore as the European specialist.</li>
+                    <li><strong>Offer flexibility</strong> - Pilots, phased approaches, market-specific starts. Ferrero has demonstrated budget sensitivity - de-risk their commitment.</li>
+                    <li><strong>Be budget-conscious</strong> - Ferrero pushed back on pricing in Mexico and has negotiated multiple iterations in Germany. Don't position premium pricing without clear value justification.</li>
+                    <li><strong>Think long-term</strong> - Dr Behrend's "3, 6, 10-year strategic plans" mindset. Mirror this in how you discuss partnership, not transactions.</li>
+                    <li><strong>Ask questions</strong> - Understand the root concern before responding. Curiosity closes are more effective than hard sells with this audience.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>eStore Action Plan - Ferrero Group | February 2026</p>
+        <p>Created by James / eStore Sales Development</p>
+    </footer>
+    
+    <script>
+        // Tab Navigation
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            
+            event.target.classList.add('active');
+        }
+        
+        // Email Tab Navigation
+        document.querySelectorAll('.email-tabs').forEach(container => {
+            container.querySelectorAll('.email-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const emailNum = this.dataset.email;
+                    const sequence = this.closest('.email-sequence');
+                    
+                    container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                    
+                    this.classList.add('active');
+                    
+                    sequence.querySelectorAll('.email-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    sequence.querySelector(`.email-content[data-email="${emailNum}"]`).classList.add('active');
+                });
+            });
+        });
+        
+        // Objection Card Toggle
+        function toggleObjection(header) {
+            const card = header.closest('.objection-card');
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
