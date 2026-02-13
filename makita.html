@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makita Corporation - eStore Action Plan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Figtree', sans-serif;
+            background: #f8f9fa;
+            color: #2c2c2c;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1067db 0%, #68d7fa 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 { font-size: 2rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .header-subtitle { font-size: 1.1rem; opacity: 0.95; margin-bottom: 1rem; }
+        .header-meta { font-size: 0.9rem; opacity: 0.9; display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1rem; }
+        .header-meta-item { display: flex; align-items: center; gap: 0.5rem; }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+
+        .tabs {
+            display: flex; gap: 0.5rem; margin-bottom: 2rem; background: white;
+            padding: 1rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 0.75rem 1.25rem; background: #f8f9fa; border: none; border-radius: 8px;
+            cursor: pointer; font-family: 'Figtree', sans-serif; font-size: 0.9rem;
+            font-weight: 600; color: #2c2c2c; transition: all 0.3s ease;
+        }
+        .tab:hover { background: #e9ecef; }
+        .tab.active { background: #1067db; color: white; }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
+        .card {
+            background: white; border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .card h2 { font-size: 1.4rem; margin-bottom: 1rem; color: #1067db; }
+        .card h3 { font-size: 1.15rem; margin-bottom: 0.75rem; color: #2c2c2c; }
+        .card h4 { font-size: 1rem; margin-bottom: 0.5rem; color: #555; }
+        .card p { margin-bottom: 0.75rem; }
+        .card ul { margin-left: 1.5rem; margin-bottom: 0.75rem; }
+        .card li { margin-bottom: 0.4rem; }
+
+        .fit-badge {
+            display: inline-block; padding: 8px 20px; border-radius: 20px;
+            font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem;
+        }
+        .fit-badge.strong { background: #22bb69; color: white; }
+        .fit-badge.moderate { background: #ff7a00; color: white; }
+        .fit-badge.weak { background: #f44f2f; color: white; }
+
+        .highlight-box {
+            background: #f0f7ff; border-left: 4px solid #1067db;
+            padding: 1rem 1.5rem; border-radius: 0 8px 8px 0; margin: 1rem 0;
+        }
+        .highlight-box.warning {
+            background: #fff8e1; border-left-color: #ff7a00;
+        }
+        .highlight-box.success {
+            background: #e8f5e9; border-left-color: #22bb69;
+        }
+        .highlight-box.danger {
+            background: #fce4ec; border-left-color: #f44f2f;
+        }
+
+        .stat-row {
+            display: flex; gap: 1.5rem; flex-wrap: wrap; margin: 1.5rem 0;
+        }
+        .stat-box {
+            flex: 1; min-width: 180px; background: #f8f9fa; border-radius: 10px;
+            padding: 1.25rem; text-align: center;
+        }
+        .stat-box .stat-value { font-size: 1.8rem; font-weight: 700; color: #1067db; }
+        .stat-box .stat-label { font-size: 0.85rem; color: #666; margin-top: 0.25rem; }
+
+        .badge {
+            display: inline-block; padding: 4px 10px; border-radius: 12px;
+            font-size: 0.8rem; font-weight: 600; color: white; margin-right: 0.35rem; margin-bottom: 0.35rem;
+        }
+        .badge.blue { background: #1067db; }
+        .badge.green, .badge.verified { background: #22bb69; }
+        .badge.orange, .badge.unverified { background: #ff7a00; }
+        .badge.red { background: #f44f2f; }
+        .badge.grey { background: #888; }
+        .badge.yellow { background: #ffba1c; color: #2c2c2c; }
+        .badge.light-blue { background: #68d7fa; color: #2c2c2c; }
+
+        .contact-card {
+            background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid #1067db;
+        }
+        .contact-card.secondary { border-left-color: #68d7fa; }
+        .contact-card.skip { border-left-color: #888; opacity: 0.85; }
+        .contact-card.historical { border-left-color: #ffba1c; }
+
+        .contact-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem; }
+        .contact-name { font-size: 1.2rem; font-weight: 700; }
+        .contact-title { font-size: 0.95rem; color: #555; }
+        .contact-badges { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+        .verification-warning {
+            background: #fff3e0; border-left: 4px solid #ff7a00;
+            padding: 10px 15px; margin: 10px 0; border-radius: 0 8px 8px 0; font-size: 0.9rem;
+        }
+
+        .info-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem; margin: 1rem 0;
+        }
+
+        .info-item { padding: 0.75rem; background: #f8f9fa; border-radius: 8px; }
+        .info-item strong { display: block; font-size: 0.85rem; color: #666; margin-bottom: 0.25rem; }
+
+        /* Retailer overview table */
+        .coverage-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        .coverage-table th, .coverage-table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #e9ecef; }
+        .coverage-table th { background: #f8f9fa; font-weight: 600; font-size: 0.9rem; color: #555; }
+        .coverage-table td { font-size: 0.95rem; }
+
+        /* Email tab styles */
+        .email-sequence { background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .email-sequence-header { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #e9ecef; }
+        .email-sequence-header h3 { font-size: 1.2rem; margin-bottom: 0.25rem; }
+        .email-sequence-header p { color: #555; font-size: 0.95rem; }
+
+        .email-tabs { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+        .email-tab {
+            padding: 0.5rem 1rem; background: #f8f9fa; border: none; border-radius: 6px;
+            cursor: pointer; font-family: 'Figtree', sans-serif; font-size: 0.85rem;
+            font-weight: 600; color: #2c2c2c; transition: all 0.2s ease;
+        }
+        .email-tab:hover { background: #e9ecef; }
+        .email-tab.active { background: #1067db; color: white; }
+
+        .email-content { display: none; }
+        .email-content.active { display: block; }
+
+        .email-meta { margin-bottom: 1rem; }
+        .email-subject { font-weight: 600; color: #1067db; margin-bottom: 0.4rem; font-size: 1rem; }
+        .email-timing { font-size: 0.9rem; color: #666; }
+
+        .email-body {
+            background: #fafbfc; border: 1px solid #e9ecef; border-radius: 8px;
+            padding: 1.25rem; margin-bottom: 1rem; white-space: pre-wrap; font-size: 0.95rem; line-height: 1.7;
+        }
+
+        .email-notes, .email-strategy {
+            background: #f8f9fa; border-radius: 8px; padding: 1rem; margin-bottom: 0.75rem; font-size: 0.9rem;
+        }
+        .email-notes strong, .email-strategy strong { display: block; margin-bottom: 0.5rem; color: #1067db; }
+        .email-notes ul { margin-left: 1.25rem; }
+        .email-notes li { margin-bottom: 0.35rem; }
+
+        /* LinkedIn section */
+        .linkedin-section {
+            margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #e9ecef;
+        }
+        .linkedin-section h4 { color: #1067db; font-size: 1.1rem; margin-bottom: 1rem; }
+
+        .linkedin-timing-guide {
+            background: #f0f7ff; border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-size: 0.9rem;
+        }
+        .linkedin-timing-guide ul { margin-left: 1.25rem; margin-top: 0.5rem; margin-bottom: 0.5rem; }
+        .linkedin-timing-guide li { margin-bottom: 0.35rem; }
+
+        .linkedin-card {
+            background: #fafbfc; border: 1px solid #e9ecef; border-radius: 8px;
+            padding: 1.25rem; margin-bottom: 1rem;
+        }
+        .linkedin-badge {
+            display: inline-block; background: #1067db; color: white; padding: 3px 10px;
+            border-radius: 10px; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.75rem;
+        }
+        .char-count { display: inline-block; font-size: 0.8rem; color: #888; margin-left: 0.5rem; }
+        .linkedin-message { white-space: pre-wrap; font-size: 0.95rem; line-height: 1.6; }
+        .linkedin-strategy { margin-top: 0.75rem; font-size: 0.9rem; color: #555; font-style: italic; }
+
+        /* Objection cards */
+        .objection-card {
+            background: white; border-radius: 10px; margin-bottom: 0.75rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: hidden;
+        }
+        .objection-header {
+            padding: 1rem 1.25rem; cursor: pointer; display: flex; justify-content: space-between;
+            align-items: center; background: #f8f9fa; font-weight: 600; font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+        .objection-header:hover { background: #e9ecef; }
+        .objection-arrow { transition: transform 0.3s; font-size: 0.8rem; }
+        .objection-card.open .objection-arrow { transform: rotate(180deg); }
+        .objection-body { display: none; padding: 1.25rem; font-size: 0.95rem; }
+        .objection-card.open .objection-body { display: block; }
+
+        .tone-guide {
+            background: #f0f7ff; border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem;
+        }
+        .tone-guide h4 { color: #1067db; margin-bottom: 0.75rem; }
+
+        .disclaimer-box {
+            background: #fff8e1; border: 1px solid #ffba1c; border-radius: 10px;
+            padding: 1rem 1.5rem; margin-bottom: 1.5rem; font-size: 0.95rem;
+        }
+
+        a { color: #1067db; }
+        a:hover { text-decoration: none; }
+
+        footer {
+            text-align: center; padding: 2rem; color: #888; font-size: 0.85rem;
+            border-top: 1px solid #e9ecef; margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header { padding: 1.5rem 1rem; }
+            .header h1 { font-size: 1.5rem; }
+            .container { padding: 1rem; }
+            .tabs { gap: 0.35rem; padding: 0.75rem; }
+            .tab { padding: 0.5rem 0.75rem; font-size: 0.8rem; }
+            .stat-row { flex-direction: column; }
+            .info-grid { grid-template-columns: 1fr; }
+            .contact-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Makita Corporation</h1>
+    <div class="header-subtitle">Professional Power Tools &amp; Outdoor Power Equipment - eStore Action Plan</div>
+    <div class="header-meta">
+        <div class="header-meta-item">📅 February 2026</div>
+        <div class="header-meta-item">👤 James / eStore Sales Development</div>
+        <div class="header-meta-item">🟢 Strong Fit (with caveats)</div>
+        <div class="header-meta-item">🏠 Home &amp; DIY</div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="tabs">
+        <button class="tab active" data-tab="fit">Strategic Fit Assessment</button>
+        <button class="tab" data-tab="history">Our history with them</button>
+        <button class="tab" data-tab="retailers">Retailer Overview</button>
+        <button class="tab" data-tab="people">Key people?</button>
+        <button class="tab" data-tab="outreach">Draft Outreach</button>
+        <button class="tab" data-tab="objections">Objection Handling</button>
+    </div>
+
+    <!-- ========== TAB 1: STRATEGIC FIT ASSESSMENT ========== -->
+    <div class="tab-content active" id="fit">
+
+        <div class="card">
+            <h2>Strategic Fit Assessment</h2>
+            <span class="fit-badge strong">🟢 Strong Fit (with coverage caveats)</span>
+            <p>Despite a retailer coverage gap in the specialist tool channel, Makita represents a genuinely compelling strategic opportunity. The fit is driven by structural factors (100% third-party distribution, no DTC, genuine multi-channel complexity, European revenue dominance) and competitive dynamics (greenfield DSA opportunity while direct competitors invest heavily in digital shelf). The coverage gap means longer time-to-value and must be acknowledged honestly in all outreach - but does not override the strategic case.</p>
+        </div>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-value">~US$5.0B</div>
+                <div class="stat-label">Annual Revenue (FY2025)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">49.4%</div>
+                <div class="stat-label">Revenue from Europe</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">500+</div>
+                <div class="stat-label">Products across 4 platforms</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Current DSA providers</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Distribution Complexity &amp; Geographic Alignment</h3>
+            <p>Makita operates <strong>no direct-to-consumer channel in any market</strong>. All websites (makitauk.com, makitatools.com) are product catalogues with dealer locators only. The B2B portal is wholesale-only for authorised dealers. This means 100% of online sales flow through third-party retailers, making digital shelf performance Makita's only lever for influencing online purchasing decisions.</p>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Estimated Retailers</strong>
+                    ~32-35 online retailers across UK, Europe, and North America
+                </div>
+                <div class="info-item">
+                    <strong>UK (~35-40%)</strong>
+                    Amazon UK, Screwfix, Toolstation, B&Q, Argos, ITS/FFX, specialist tool retailers
+                </div>
+                <div class="info-item">
+                    <strong>Europe (~25-30%)</strong>
+                    Amazon DE/FR/ES/IT, ManoMano, Leroy Merlin, Hornbach, Bauhaus, OBI, Galaxus, bol.com
+                </div>
+                <div class="info-item">
+                    <strong>North America (~20-25%)</strong>
+                    Amazon US, Home Depot, Lowe's, Acme Tools, Tool Nut, CPO Tools
+                </div>
+            </div>
+
+            <div class="highlight-box success">
+                <strong>Key structural factor:</strong> Genuinely multi-channel, NOT Amazon-dominant. In the UK, specialist tool retailers (Screwfix, Toolstation, ITS/FFX) and builder's merchants carry significant volume. This is ideal for DSA because digital shelf performance matters across dozens of independent platforms.
+            </div>
+
+            <h4>European Presence</h4>
+            <ul>
+                <li><strong>Makita (UK) Ltd:</strong> Sales and distribution HQ, Milton Keynes. ~240 employees, £231.87M turnover</li>
+                <li><strong>Makita Manufacturing Europe Ltd:</strong> Telford factory, 12.5 acres, ~440 staff, 1.1M tools/year produced, 70% exported. Only UK power tool production facility</li>
+                <li><strong>Makita International Europe Ltd:</strong> European holding company, established 1995, London EC4M</li>
+                <li><strong>Subsidiaries across:</strong> Germany, France, Spain, Italy, Netherlands, Belgium, Austria, Poland, Czech Republic, Hungary, Romania, Greece, Slovenia, Croatia</li>
+                <li><strong>Europe = 49.4% of global revenue</strong> (¥371.8B / ~US$2.5B) - the single largest region</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Competitive Intelligence Summary</h3>
+            <div class="highlight-box success">
+                <strong>Current DSA provider: None</strong> (Confidence: High)<br>
+                Exhaustive search conducted across LinkedIn job postings, press releases, provider case studies and client listings (Profitero, CommerceIQ, Stackline, DataWeave, Syndigo, Salsify, mindsite, Brand Nudge, Edge by Ascential), employee profiles, and job boards. Zero evidence found of any DSA or PIM system in use at Makita globally.
+            </div>
+            <p>This is a <strong>greenfield opportunity</strong>. No existing provider to displace. But the challenge is no established budget line, no internal champion who already understands DSA value, and the category may need to be built from scratch internally.</p>
+
+            <h4>Competitor DSA investments:</h4>
+            <ul>
+                <li><strong>Bosch Power Tools:</strong> Confirmed Salsify client. Also a current eStore client (Robert Bosch PT in current clients CSV)</li>
+                <li><strong>Milwaukee (Techtronic Industries):</strong> Featured by Salsify as a digital shelf exemplar</li>
+                <li><strong>Stanley Black &amp; Decker (DeWalt):</strong> Participates in Profitero/Salsify/Digital Shelf Institute webinars</li>
+                <li><strong>Diablo Tools (Bosch subsidiary):</strong> Job postings require "proficiency with Salsify" and "PriceSpider"</li>
+                <li><strong>Makita:</strong> Conspicuous absence from all DSA and PIM vendor client lists</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Sector Alignment</h3>
+            <p><span class="badge green">🟢 Strong</span> <strong>Primary sector: Home &amp; DIY</strong></p>
+            <p>eStore's Home &amp; DIY sector is listed on estorebrands.com alongside CPG, Electronics, Pharmaceuticals, Health &amp; Beauty. Power tools and outdoor power equipment are core Home &amp; DIY products sold through the same retailer ecosystem eStore monitors. Grohe (bathroom fittings) is a current eStore client in this sector, demonstrating proven capability.</p>
+            <p><strong>Secondary alignment:</strong> Consumer Electronics (moderate). Battery technology sophistication, specification-driven purchasing, and rapid innovation cadence share characteristics with consumer electronics. BSH, Whirlpool, Miele, Sennheiser, Epson, De'Longhi are all current eStore clients in adjacent categories.</p>
+            <p><strong>Key reference:</strong> Robert Bosch Power Tools is a current eStore client - Makita's direct competitor. This provides a powerful proof point, used carefully as capability demonstration rather than competitive threat.</p>
+        </div>
+
+        <div class="card">
+            <h3>Relationship History</h3>
+            <p><span class="badge orange">Re-engagement Opportunity</span></p>
+            <p>eStore has been in contact with Makita since October 2021 (discovery call with Makita Switzerland). Consistent outreach 2021-2025 across EMEA markets. Lifecycle stage remains "Opportunity" - never converted despite multiple touchpoints. Last activity: February 2025.</p>
+
+            <div class="highlight-box warning">
+                <strong>Critical insight:</strong> All previous outreach targeted National Account Managers (Tim, Phil, David, Bruce, Stephen, Maria in UK; Michele, Patrice, Sarah, Hugues, Julien, Charlie in France) who lack budget authority for marketing technology. This is the primary reason for non-conversion. The recommended approach targets Marketing leadership (Kevin Brannigan) who were never previously contacted.
+            </div>
+
+            <p><strong>Tactical advantage:</strong> We have relationship history that demonstrates persistence and genuine interest. The pivot to marketing contacts can be framed positively: "We've learned enough about Makita's retail landscape to believe there's a more strategic conversation to have."</p>
+        </div>
+
+        <div class="card">
+            <h3>Market Dynamics &amp; Timing Indicators</h3>
+            <ul>
+                <li><strong>Profitability recovery creates investment appetite.</strong> Operating profit surged 61.8% YoY to ¥107B in FY2025 after FY2023 collapse. Margins recovered from 3.7% to 14.2%. A company emerging from a profit trough is more likely to invest in growth capabilities.</li>
+                <li><strong>Competitive pressure intensifying.</strong> Milwaukee grew 11.6% in 2024, now roughly double Makita's revenue (~US$9.9B vs ~US$5B). Industry observers describe a "growing divide" between top brands and the rest. Makita's North American revenue declined 29.5% over two years.</li>
+                <li><strong>XGT platform explosion creates content burden.</strong> 40V XGT expanded from ~50 products (2022) to 170+ (late 2025). Each launch requires optimised product content across 30+ retailer platforms.</li>
+                <li><strong>MAKTRAK modular storage launch.</strong> New storage system competing directly with Milwaukee PACKOUT, requiring strong digital shelf presence to establish market position against an entrenched competitor.</li>
+                <li><strong>Outdoor power equipment transition.</strong> Ceased ALL gas engine production March 2022 - first major brand fully battery-powered. New customers entering from gas brands need to find Makita online.</li>
+                <li><strong>UK MD change.</strong> Seiji Tanizawa appointed Managing Director June 2024. New MD may be reviewing vendor relationships.</li>
+                <li><strong>Senior leadership vacancy.</strong> The Sales &amp; Marketing Director (44 years with Makita) passed away September 2023. This role has not been visibly filled, creating both a challenge and potential openness to new approaches.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Synthesis &amp; Recommendation</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Recommended Approach</strong>
+                    Confident outreach with competitive urgency framing. Not tentative or nurture-based - the competitive gap is real and demonstrable. Tempered with honesty about coverage timelines.
+                </div>
+                <div class="info-item">
+                    <strong>Estimated Difficulty</strong>
+                    <span class="badge orange">Moderate-High</span><br>
+                    Greenfield advantage offset by no existing budget line, no dedicated digital commerce roles, traditional marketing team, and Japanese corporate decision-making culture.
+                </div>
+            </div>
+
+            <h4>Factors making it easier:</h4>
+            <ul>
+                <li>No incumbent DSA provider to displace</li>
+                <li>Clear competitive threat to frame urgency (Bosch, Milwaukee, DeWalt all investing)</li>
+                <li>European revenue dominance aligns with eStore's geographic strength</li>
+                <li>Robert Bosch PT as existing eStore client provides a powerful competitor reference</li>
+                <li>Financial recovery creates budget capacity (operating profit +61.8% YoY)</li>
+            </ul>
+
+            <h4>Factors making it harder:</h4>
+            <ul>
+                <li>No established internal budget line for DSA (greenfield = building the category)</li>
+                <li>No dedicated e-commerce or digital commerce roles in the organisation</li>
+                <li>Previous 4 years of outreach to NAMs never converted (though wrong personas were targeted)</li>
+                <li>Specialist tool retailer coverage gap means delayed time-to-value (0% Tier 2 coverage)</li>
+                <li>Japanese corporate culture may require longer decision cycles</li>
+                <li>Traditional marketing team (trade PR, events) rather than digital commerce sophistication</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Implementation Readiness</h3>
+            <div class="highlight-box warning">
+                <strong>Coverage reality:</strong> Combined Tier 1 &amp; 2 coverage is ~33%. Tier 1 (mass market) is solid at 64%, but Tier 2 (specialist tool retailers - Makita's core channel) is 0%. This must be communicated transparently in all outreach.
+            </div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Immediate Value (2-4 weeks)</strong>
+                    Amazon monitoring across UK, US, DE, FR, ES, IT plus Argos, Home Depot, Lowe's, bol.com, Cdiscount, Galaxus CH
+                </div>
+                <div class="info-item">
+                    <strong>Medium-term Value (3-6 months)</strong>
+                    Onboard UK specialist retailers (Screwfix, B&Q, Toolstation) and European DIY chains
+                </div>
+                <div class="info-item">
+                    <strong>Full Coverage (6-9 months)</strong>
+                    Comprehensive monitoring across all identified retailers including specialist trade channel
+                </div>
+            </div>
+            <p><strong>Positioning:</strong> "Start with Amazon and major platforms where we can deliver immediate competitive intelligence, then expand to specialist trade channels over Q2/Q3."</p>
+        </div>
+
+    </div>
+
+    <!-- ========== TAB 2: OUR HISTORY WITH THEM ========== -->
+    <div class="tab-content" id="history">
+
+        <div class="card">
+            <h2>Our History with Makita</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>HubSpot Status</strong>
+                    Opportunity (never progressed beyond this)
+                </div>
+                <div class="info-item">
+                    <strong>First Contact</strong>
+                    October 2021 - Discovery call with Makita Switzerland
+                </div>
+                <div class="info-item">
+                    <strong>Last Activity</strong>
+                    February 2025 - Free trial offers to French contacts
+                </div>
+                <div class="info-item">
+                    <strong>Deal Status</strong>
+                    No deal created. Multiple sequences over 4 years with zero conversion
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Previous Conversations &amp; Outreach</h3>
+            <p><strong>Timeline:</strong></p>
+            <ul>
+                <li><strong>October 2021:</strong> Discovery call with Makita Switzerland. Relationship initiated</li>
+                <li><strong>2021-2023:</strong> Consistent outreach across EMEA markets. Emails focused on eScore reports, competitive landscape data (Amazon, Screwfix, Toolstation for UK; Cdiscount, Darty, Amazon for France), ratings &amp; reviews analysis</li>
+                <li><strong>2024:</strong> Continued outreach. Auto-replies from UK NAMs revealed they were attending trade events (ITS Expo, BMF Conference). September 2024 ratings &amp; reviews email sequence to UK contacts including "Bruce"</li>
+                <li><strong>February 2025:</strong> Most recent activity. Emails to French contacts (Hugues, Julien, Charlie) offering 2-week free trials for Cdiscount, Darty, Amazon France coverage</li>
+            </ul>
+
+            <h4>UK Contacts (all National Account Managers):</h4>
+            <p>Tim, Phil, David, Bruce, Stephen, Maria. No positive responses recorded. Auto-replies indicated attendance at trade events (ITS Expo, BMF Annual Conference, Totally DIY &amp; Totally Hardware).</p>
+
+            <h4>France Contacts:</h4>
+            <p>Michele, Patrice, Sarah, Hugues, Julien, Charlie, Mrsmanal. Same pattern: eScore reports, competitive data, free trial offers. No conversion recorded.</p>
+
+            <div class="highlight-box danger">
+                <strong>Primary blocker identified:</strong> All previous outreach went to National Account Managers who lack authority for marketing technology investment. These are the wrong personas for DSA purchasing decisions. The pivot to marketing contacts (Kevin Brannigan - never previously contacted) resets this.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Known Blockers</h3>
+            <ul>
+                <li><strong>Wrong personas targeted.</strong> All previous outreach went to NAMs who lack budget authority for marketing technology investment</li>
+                <li><strong>Potential outreach fatigue.</strong> 4 years of emails to the same personas may have created an internal perception of eStore as "that company that keeps emailing us"</li>
+                <li><strong>Absence of digital commerce function.</strong> No one at Makita wakes up thinking about digital shelf analytics. The category may need to be created internally before a purchase decision can happen</li>
+                <li><strong>Japanese corporate culture.</strong> Decision-making may require alignment across UK, European HQ, and Japan. Longer sales cycles should be expected</li>
+            </ul>
+            <p><strong>Internal Champion:</strong> None currently. No previous contact has shown interest or engagement. Strategy is to create a champion through Kevin Brannigan by demonstrating competitive intelligence value.</p>
+        </div>
+
+        <div class="card">
+            <h3>Competitor Intelligence</h3>
+            <table class="coverage-table">
+                <thead>
+                    <tr><th>Competitor</th><th>DSA/PIM Provider</th><th>Confidence</th><th>Source</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Bosch Power Tools</td><td>Salsify</td><td><span class="badge green">Confirmed</span></td><td>Salsify client listing; eStore current client</td></tr>
+                    <tr><td>Milwaukee (TTI)</td><td>Salsify</td><td><span class="badge green">Confirmed</span></td><td>Featured by Salsify as digital shelf exemplar</td></tr>
+                    <tr><td>Stanley Black &amp; Decker (DeWalt)</td><td>Profitero/Salsify</td><td><span class="badge orange">Likely</span></td><td>Participates in DSI webinars, Profitero events</td></tr>
+                    <tr><td>Diablo Tools (Bosch sub)</td><td>Salsify + PriceSpider</td><td><span class="badge green">Confirmed</span></td><td>Job postings require proficiency</td></tr>
+                    <tr><td><strong>Makita</strong></td><td><strong>None identified</strong></td><td><span class="badge green">High confidence</span></td><td>Exhaustive search across all vectors</td></tr>
+                </tbody>
+            </table>
+            <p>No evidence of PIM system (Salsify, Syndigo, Akeneo, inRiver) at Makita globally. Consistent with traditional marketing team structure and absence of dedicated e-commerce roles.</p>
+        </div>
+
+        <div class="card">
+            <h3>Content to Reference</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Home &amp; DIY Landing Page</strong>
+                    <a href="https://estorebrands.com/home-and-diy" target="_blank">estorebrands.com/home-and-diy</a><br>
+                    <em>Suggested placement:</em> Email 2 or Email 3. Position as "We've written about the specific challenges Home &amp; DIY brands face on the digital shelf."
+                </div>
+                <div class="info-item">
+                    <strong>Home &amp; DIY Long Article</strong>
+                    <a href="https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025" target="_blank">Digital Shelf Analytics for Home &amp; DIY Brands 2025</a><br>
+                    <em>Suggested placement:</em> Email 2. Position as educational content showing sector understanding.
+                </div>
+                <div class="info-item">
+                    <strong>Content Benchmark Feature</strong>
+                    <a href="https://estorebrands.com/ignite/introducing-content-benchmark-competitive-intelligence-for-your-digital-shelf-content" target="_blank">Introducing Content Benchmark</a><br>
+                    <em>When to use:</em> If conversation focuses on content quality comparison vs Milwaukee/DeWalt.
+                </div>
+                <div class="info-item">
+                    <strong>AI Business Answers</strong>
+                    <a href="https://estorebrands.com/ignite/introducing-ai-business-answers" target="_blank">Introducing AI Business Answers</a><br>
+                    <em>When to use:</em> If Kevin or Nick shows interest in actionable insights rather than raw data.
+                </div>
+            </div>
+            <div class="highlight-box">
+                <strong>Content positioning notes:</strong> Email 1 should have no links - keep purely conversational. The competitive urgency hook is strong enough without supporting content. Email 2: Home &amp; DIY article. Email 3: Only include a link if it genuinely adds value. For Kevin Brannigan specifically: he's a traditional marketer, so content should feel like industry insight, not technology marketing.
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Strategic Implications</h3>
+            <ul>
+                <li>The pivot to marketing contacts (never previously contacted) represents a genuine reset - not more of the same</li>
+                <li>4 years of outreach to NAMs, while unsuccessful, demonstrated eStore's persistence and genuine interest in Makita's market</li>
+                <li>New MD (Seiji Tanizawa, ~8 months in) may be reviewing vendor relationships</li>
+                <li>February timing is good for new vendor conversations before H1 budgets are finalised</li>
+                <li>Makita's FY ends March - FY2026 planning likely set, but H2 FY2026 or FY2027 budgets could be influenced</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- ========== TAB 3: RETAILER OVERVIEW ========== -->
+    <div class="tab-content" id="retailers">
+
+        <div class="card">
+            <h2>Retailer Overview</h2>
+            <p>Makita products are sold across ~32-35 verified online retailers spanning three distinct channel types. This is a strategic pattern overview - not detailed coverage checking.</p>
+        </div>
+
+        <div class="stat-row">
+            <div class="stat-box">
+                <div class="stat-value">~39</div>
+                <div class="stat-label">Total Retailers Identified</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">13</div>
+                <div class="stat-label">eStore Covered</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">~33%</div>
+                <div class="stat-label">Overall Coverage</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">64%</div>
+                <div class="stat-label">Tier 1 Coverage</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Coverage by Tier</h3>
+            <table class="coverage-table">
+                <thead>
+                    <tr><th>Tier</th><th>Retailers Identified</th><th>eStore Covered</th><th>Coverage</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge blue">Tier 1: Mass Market</span></td>
+                        <td>14</td>
+                        <td>9 (Amazon x6, Home Depot, Lowe's, Argos)</td>
+                        <td><span class="badge green">64%</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge orange">Tier 2: Specialist Tool</span></td>
+                        <td>13</td>
+                        <td>0</td>
+                        <td><span class="badge red">0%</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge grey">Tier 3: Regional/European</span></td>
+                        <td>12</td>
+                        <td>4 (bol.com, Cdiscount, Galaxus CH, Leroy Merlin PL)</td>
+                        <td><span class="badge orange">33%</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>Notable Patterns</h3>
+            <ul>
+                <li><strong>Genuinely multi-channel, NOT Amazon-dominant</strong> - especially in UK/Europe where the specialist tool ecosystem runs deep. Screwfix, Toolstation, ITS/FFX, and dozens of smaller specialists carry significant volume</li>
+                <li><strong>UK specialist tool retail is fragmented but consolidating</strong> - FFX acquired by ITS, becoming ITS.co.uk with 29,000+ products. My Tool Shed carries 2,500+ Makita products</li>
+                <li><strong>100% of online sales through third parties</strong> - no DTC capability in any market. This is the strongest structural argument for DSA</li>
+                <li><strong>US distribution concentrated around Home Depot</strong> - near-exclusive arrangements, subject of 2012 antitrust suit</li>
+                <li><strong>European DIY chains carry extensive ranges</strong> - Leroy Merlin lists 5,800+ Makita products</li>
+                <li><strong>Screwfix expanding into Europe</strong> (screwfix.eu) with Makita as a core brand partner</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Critical Gaps</h3>
+            <div class="highlight-box danger">
+                <strong>eStore currently covers NONE of the specialist tool retailers</strong> (Screwfix, Toolstation, ITS/FFX, B&Q, Powertool World, My Tool Shed, etc.) that represent Makita's core UK trade channel. Coverage is concentrated in Amazon (6 markets) and US big-box (Home Depot, Lowe's). The retailers eStore CAN monitor immediately are important but not where the specialist tool competition plays out most intensely.
+            </div>
+            <ul>
+                <li>European DIY chains (Hornbach, Bauhaus, OBI, ManoMano) not covered</li>
+                <li>B&Q (diy.com) not covered</li>
+                <li>All US specialist tool retailers not in eStore's master list</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Implementation Note</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Immediate (2-4 weeks)</strong>
+                    Amazon monitoring across UK, US, DE, FR, ES, IT plus Argos, Home Depot, Lowe's, bol.com, Cdiscount, Galaxus CH. Gives competitive visibility on the largest platforms.
+                </div>
+                <div class="info-item">
+                    <strong>Medium-term (3-6 months)</strong>
+                    Onboard UK specialist retailers (Screwfix, B&Q, Toolstation) and European DIY chains.
+                </div>
+                <div class="info-item">
+                    <strong>Full coverage (6-9 months)</strong>
+                    Build comprehensive monitoring across all identified retailers.
+                </div>
+            </div>
+            <p><strong>Positioning:</strong> "Start with Amazon and major platforms where we can deliver immediate competitive intelligence, then expand to specialist trade channels over Q2/Q3."</p>
+        </div>
+
+    </div>
+
+    <!-- ========== TAB 4: KEY PEOPLE? ========== -->
+    <div class="tab-content" id="people">
+
+        <div class="card">
+            <h2>Key People?</h2>
+            <p>Makita's organisational structure does not include typical ICP roles (E-commerce Directors, Digital Commerce Directors). There are no dedicated e-commerce roles, no PIM system, and no apparent digital shelf function. The marketing team (~5 people in UK) is focused on traditional trade PR, dealer events, and social media content. We are working with the best available contacts rather than ideal ICP matches.</p>
+        </div>
+
+        <h3 style="margin: 1.5rem 0 1rem; padding-left: 0.5rem;">Historical Contacts (from HubSpot)</h3>
+
+        <div class="contact-card historical">
+            <div class="contact-header">
+                <div>
+                    <div class="contact-name">Previously Contacted - UK National Account Managers</div>
+                    <div class="contact-title">Tim, Phil, David, Bruce, Stephen, Maria</div>
+                </div>
+                <div class="contact-badges">
+                    <span class="badge yellow">2021-2024 outreach</span>
+                    <span class="badge red">No conversion</span>
+                </div>
+            </div>
+            <p>Multiple email sequences over 4 years focused on eScore reports, competitive landscape data, and ratings &amp; reviews analysis. These are the wrong personas for DSA purchasing decisions - they manage retailer account relationships operationally but don't own marketing technology budget.</p>
+        </div>
+
+        <div class="contact-card historical">
+            <div class="contact-header">
+                <div>
+                    <div class="contact-name">Previously Contacted - France</div>
+                    <div class="contact-title">Michele, Patrice, Sarah, Hugues, Julien, Charlie</div>
+                </div>
+                <div class="contact-badges">
+                    <span class="badge yellow">2021-2025 outreach</span>
+                    <span class="badge red">No conversion</span>
+                </div>
+            </div>
+            <p>Same pattern as UK. eScore reports, competitive data, free trial offers (February 2025 - Cdiscount, Darty, Amazon France). No positive responses recorded.</p>
+        </div>
+
+        <h3 style="margin: 1.5rem 0 1rem; padding-left: 0.5rem;">Primary Targets - Operational Decision-Makers</h3>
+
+        <div class="contact-card">
+            <div class="contact-header">
+                <div>
+                    <div class="contact-name">#1 Kevin Brannigan</div>
+                    <div class="contact-title">Marketing Manager, Makita UK</div>
+                </div>
+                <div class="contact-badges">
+                    <span class="badge blue">🇬🇧 British</span>
+                    <span class="badge verified">✅ Verified</span>
+                    <span class="badge orange">Cold</span>
+                </div>
+            </div>
+            <p><strong>LinkedIn:</strong> <a href="https://uk.linkedin.com/in/kevin-brannigan-88ab3963" target="_blank">View Profile</a></p>
+            <p><strong>Verification:</strong> Multiple independent recent sources confirm role: Bloomberg profile, CIB Communications agency case study (September 2024), trade press quotes through 2025, LinkedIn profile matches.</p>
+
+            <h4>Background</h4>
+            <ul>
+                <li>30+ years at Makita (joined 1992 as Area Sales Manager, progressed to Marketing Manager)</li>
+                <li>Most senior marketing decision-maker in UK operation</li>
+                <li>Primary external spokesperson - quoted extensively in trade press (Professional Builder, ECN, FM Journal, HIP Magazine)</li>
+                <li>Manages agency relationship with CIB Communications (since 2019) for PR, media buying, content, influencer engagement</li>
+                <li>Oversees TV campaigns, multimedia marketing, dealer promotions, trade event strategy</li>
+                <li>Team includes Bruce Fitzsimons (Creative &amp; Digital Marketing Manager), Jack Carder (Digital Marketing Coordinator), plus 2-3 others</li>
+            </ul>
+
+            <h4>Why he is the right contact</h4>
+            <p>Most senior person at Makita UK with responsibility for how the brand appears in market. His marketing campaigns drive demand to retailer websites - DSA shows what happens when that traffic arrives. 30+ years of industry knowledge means deep understanding of the competitive landscape. Trusted enough to be Makita's primary public spokesperson - has internal credibility to champion new initiatives. Not a typical DSA buyer (traditional marketing), but the closest available decision-maker given Makita's structure.</p>
+
+            <h4>Specific hooks</h4>
+            <ul>
+                <li>"Your campaigns generate demand that flows to Screwfix, Amazon, and Toolstation - are you confident in what shoppers find versus Milwaukee and DeWalt?"</li>
+                <li>Reference his stated priority of "maintaining market leading position and staying ahead of the competition" (ECN interview)</li>
+                <li>XGT platform expansion (50→170+ products) creating content management burden</li>
+                <li>MAKTRAK storage launch competing directly with Milwaukee PACKOUT</li>
+                <li>Bosch (direct competitor) already uses both Salsify for PIM and eStore for DSA</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Tone guidance (British, senior, traditional):</strong> Respectful, not patronising. Deeply experienced in the industry but likely unfamiliar with DSA as a category. Lead with business problems he already cares about (competitive positioning, brand visibility, content quality at retailers) rather than technical DSA terminology. Conversational and genuine - he'll see through corporate speak immediately given his 30+ years in the trade.
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-header">
+                <div>
+                    <div class="contact-name">#2 Nick White</div>
+                    <div class="contact-title">Sales Manager, National Accounts, Makita UK</div>
+                </div>
+                <div class="contact-badges">
+                    <span class="badge blue">🇬🇧 British</span>
+                    <span class="badge unverified">⚠️ Unverified</span>
+                    <span class="badge orange">Cold</span>
+                </div>
+            </div>
+            <div class="verification-warning">
+                <strong>⚠️ Verification Required:</strong> Could not confirm via LinkedIn that Nick White currently holds this role at Makita UK. Listing comes from RocketReach management data and third-party event mentions (NMBS Sales Team visit). Check LinkedIn (if a profile exists) or verify internally before any outreach.
+            </div>
+            <p><strong>LinkedIn:</strong> No profile found</p>
+
+            <h4>Background</h4>
+            <ul>
+                <li>Manages national account relationships with major UK retailers and buying groups</li>
+                <li>Listed in RocketReach's Makita UK management team alongside Sandra McIpd (HR Manager) and Bruce Fitzsimons</li>
+                <li>Hosted NMBS Sales Team visit alongside David Chillingworth (another NAM)</li>
+            </ul>
+
+            <h4>Why he is a relevant contact</h4>
+            <p>Owns relationships with the national accounts (Screwfix, B&Q, Toolstation, Travis Perkins) where digital shelf performance directly impacts Makita's positioning. Would be a day-to-day beneficiary of DSA insights. More senior than the previously contacted NAMs (Sales Manager vs Account Manager level). Could champion DSA internally as a tool to strengthen retailer conversations.</p>
+
+            <h4>Specific hooks</h4>
+            <ul>
+                <li>"When you're in review meetings with Screwfix or B&Q, do you have real-time data showing how Makita compares to Milwaukee and DeWalt on their platforms?"</li>
+                <li>Frame DSA as strengthening existing retailer relationships, not adding work</li>
+                <li>UK specialist tool retail consolidation (FFX→ITS) means fewer, larger accounts where each relationship matters more</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Tone guidance:</strong> Practical, results-oriented. He manages accounts day-to-day and will respond to concrete examples of how DSA data improves retailer conversations, not strategic vision.
+            </div>
+        </div>
+
+        <h3 style="margin: 1.5rem 0 1rem; padding-left: 0.5rem;">Secondary Targets - Strategic Influencers</h3>
+
+        <div class="contact-card secondary">
+            <div class="contact-header">
+                <div>
+                    <div class="contact-name">Seiji Tanizawa</div>
+                    <div class="contact-title">Managing Director, Makita UK</div>
+                </div>
+                <div class="contact-badges">
+                    <span class="badge blue">🇯🇵 Japanese</span>
+                    <span class="badge verified">✅ Verified</span>
+                    <span class="badge orange">Cold</span>
+                </div>
+            </div>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/seiji-tanizawa-324a783b/" target="_blank">View Profile</a> (not updated to reflect UK role)</p>
+            <p><strong>Verification:</strong> Companies House appointment 30 June 2024; Makita UK ISO Quality Policy signed by Tanizawa as MD dated 7 August 2024; third-party LinkedIn post from dealer visit.</p>
+
+            <h4>Background</h4>
+            <ul>
+                <li>Appointed Managing Director 30 June 2024, replacing Hideyuki "Hugh" Terajima</li>
+                <li>Born December 1973, Japanese national, now resident in England</li>
+                <li>Previously Managing Director at Makita Oy (Finland)</li>
+                <li>Relatively new in post (~8 months) - still establishing himself</li>
+            </ul>
+
+            <div class="highlight-box warning">
+                <strong>DO NOT approach cold.</strong> Build champions through Kevin Brannigan first, then seek MD involvement at proposal stage. As a new MD, he may be reviewing the business and open to new vendor relationships. Ultimate budget authority for significant vendor engagements.
+            </div>
+        </div>
+
+        <h3 style="margin: 1.5rem 0 1rem; padding-left: 0.5rem;">Executive Context (Reference Only - Do Not Contact)</h3>
+
+        <div class="contact-card secondary">
+            <div class="contact-header">
+                <div>
+                    <div class="contact-name">Munetoshi Goto</div>
+                    <div class="contact-title">President &amp; CEO, Makita Corporation (since June 2017)</div>
+                </div>
+                <div class="contact-badges">
+                    <span class="badge grey">Reference Only</span>
+                </div>
+            </div>
+            <p>Previously General Manager of International Sales HQ. No public statements about digital shelf strategy or e-commerce analytics. Corporate communications focus: cordless technology transition, XGT expansion, sustainability, operational efficiency. The absence of digital commerce rhetoric from the top reinforces the assessment that DSA is not yet on Makita's corporate agenda.</p>
+        </div>
+
+        <h3 style="margin: 1.5rem 0 1rem; padding-left: 0.5rem;">Contacts to Skip</h3>
+
+        <div class="contact-card skip">
+            <div class="contact-header">
+                <div>
+                    <div class="contact-name">Previously Contacted NAMs - Do Not Re-engage</div>
+                </div>
+                <div class="contact-badges"><span class="badge red">Do Not Contact</span></div>
+            </div>
+            <p><strong>UK:</strong> Tim, Phil, David, Bruce, Stephen, Maria (National Account Managers). <strong>France:</strong> Michele, Patrice, Sarah, Hugues, Julien, Charlie. All received multiple email sequences 2021-2025. Never converted.</p>
+            <p><strong>Note on "David":</strong> Could be David Chillingworth (NAM) or David Piper (NAM managing Kingfisher/B&Q, Argos, Axminster accounts). Verify internally.</p>
+            <p><strong>Note on "Bruce":</strong> September 2024 outreach included a "Bruce" recipient. May or may not be Bruce Fitzsimons (Creative &amp; Digital Marketing Manager). Verify internally - if it is Fitzsimons, he has been contacted before.</p>
+        </div>
+
+        <div class="contact-card skip">
+            <div class="contact-header">
+                <div>
+                    <div class="contact-name">Departed</div>
+                </div>
+                <div class="contact-badges"><span class="badge red">Departed</span></div>
+            </div>
+            <ul>
+                <li><strong>Barry Smart</strong> - Sales &amp; Marketing Director. Passed away 12 September 2023 after 44 years with Makita. Do not reference in outreach.</li>
+                <li><strong>Hideyuki "Hugh" Terajima</strong> - Former Managing Director, Makita UK. Directorship terminated 30 June 2024 per Companies House. Replaced by Seiji Tanizawa.</li>
+            </ul>
+        </div>
+
+        <div class="contact-card skip">
+            <div class="contact-header">
+                <div>
+                    <div class="contact-name">Too Junior for ICP</div>
+                </div>
+                <div class="contact-badges"><span class="badge grey">Below threshold</span></div>
+            </div>
+            <ul>
+                <li><strong>Jack Carder</strong> - Digital Marketing Coordinator (interesting e-commerce background from Drinkstuff, but Coordinator level is below ICP threshold)</li>
+                <li><strong>Bruce Fitzsimons</strong> - Creative &amp; Digital Marketing Manager (creative role, not commercial decision-maker; may have been previously contacted)</li>
+                <li><strong>Gianluca Famiglietti</strong> - Digital Marketing Coordinator (joined April 2024, single-source confirmation only)</li>
+            </ul>
+        </div>
+
+        <div class="contact-card skip">
+            <div class="contact-header">
+                <div>
+                    <div class="contact-name">European Subsidiary Contacts</div>
+                </div>
+                <div class="contact-badges"><span class="badge grey">None identified</span></div>
+            </div>
+            <p>Despite extensive searching across Makita Werkzeug (Germany), Makita France, and Makita Europe NV, no Director-level commercial, sales, or e-commerce contacts were identified on LinkedIn. Marketing teams in Germany are junior (social media, content roles). Consistent with a Japanese corporate structure where strategic decisions flow through regional MDs.</p>
+        </div>
+
+    </div>
+
+    <!-- ========== TAB 5: DRAFT OUTREACH ========== -->
+    <div class="tab-content" id="outreach">
+
+        <div class="disclaimer-box">
+            <strong>⚠️ Important:</strong> These emails and LinkedIn messages are starting points based on research and eStore guidelines. Review, personalise, and adapt before sending. Always verify contact details and current circumstances before outreach.
+        </div>
+
+        <div class="tone-guide">
+            <h4>Nationality-Based Tone Guidance</h4>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>🇬🇧 Kevin Brannigan (British, senior, traditional)</strong>
+                    Respectful, not patronising. Lead with business problems he cares about (competitive positioning, brand visibility, content quality). Conversational and genuine - he'll see through corporate speak immediately given 30+ years in the trade. DSA is likely an unfamiliar category, so frame it through marketing outcomes, not technical terminology.
+                </div>
+                <div class="info-item">
+                    <strong>🇬🇧 Nick White (British, operational)</strong>
+                    Practical, results-oriented. He manages accounts day-to-day and will respond to concrete examples of how DSA data improves retailer conversations. Keep it direct and focused on the operational advantage.
+                </div>
+            </div>
+        </div>
+
+        <!-- KEVIN BRANNIGAN EMAILS -->
+        <div class="email-sequence">
+            <div class="email-sequence-header">
+                <h3>Kevin Brannigan</h3>
+                <p>Marketing Manager, Makita UK</p>
+                <div class="contact-badges">
+                    <span class="badge blue">🇬🇧 British</span>
+                    <span class="badge verified">✅ Verified</span>
+                    <span class="badge orange">Cold</span>
+                    <span class="badge light-blue">Respectful, conversational</span>
+                </div>
+            </div>
+
+            <div class="email-tabs" data-contact="kevin">
+                <button class="email-tab active" data-email="1">Email 1</button>
+                <button class="email-tab" data-email="2">Email 2</button>
+                <button class="email-tab" data-email="3">Email 3</button>
+            </div>
+
+            <div class="email-content active" data-email="1">
+                <div class="email-meta">
+                    <div class="email-subject">📧 Subject: Makita's digital shelf vs Milwaukee and DeWalt</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00am</div>
+                </div>
+                <div class="email-body">Hi Kevin,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, helping them monitor things like product content quality, search rankings, pricing, and availability across platforms like Amazon, Screwfix, and Toolstation. We work with brands including Bosch, Grohe, and Whirlpool.
+
+I wanted to write because of something I noticed when we were looking at the professional power tools category. Milwaukee and DeWalt have both invested in digital shelf analytics and product information management - Bosch too. I'd be interested to know whether Makita has done something similar that we haven't come across, or whether it's an area that hasn't been a focus. Given that Makita doesn't operate a direct-to-consumer channel - with all online sales flowing through third-party retailers - it seems like a gap that would matter more for you than for most brands.
+
+Your marketing campaigns drive demand to retailer websites. But when a trade professional lands on Screwfix or Amazon looking for an XGT combi drill, do you have a clear picture of what they find compared to what Milwaukee or DeWalt are showing them on the same page? Product content, imagery, search positioning, pricing - these are the things that determine whether your marketing spend converts at the point of purchase or leaks to a competitor.
+
+With the XGT platform expanding from around 50 products a few years ago to over 170 now, I'd imagine the content management challenge across 30-plus retailer platforms is growing. Is that something your team is feeling, or do the retailer relationships handle it adequately?
+
+I'd welcome the chance to explore whether there's a fit here - happy to have that conversation whenever suits.
+
+Best regards,
+[SENDER NAME]</div>
+                <div class="email-notes">
+                    <strong>Customisation Notes:</strong>
+                    <ul>
+                        <li>Check Kevin's most recent trade press quotes for any updated priorities or initiatives to reference</li>
+                        <li>If Makita has made any public announcements between now and send date, weave in if relevant</li>
+                        <li>Confirm XGT product count is still accurate (170+ as of late 2025)</li>
+                        <li>The Bosch reference is deliberate - Robert Bosch Power Tools is a current eStore client. Use "Bosch" naturally in the client list, not as a competitive threat</li>
+                    </ul>
+                </div>
+                <div class="email-strategy">
+                    <strong>Strategy Notes:</strong>
+                    <p>This email does three things: introduces eStore clearly (first two sentences), establishes the competitive gap as the primary hook, and frames DSA through business problems Kevin already cares about (marketing spend conversion, competitive positioning at retail). The XGT expansion question is specific to Makita and impossible to use as a template. The closing is non-assumptive - inviting thought, not demanding action. No links in Email 1, keeping it conversational.</p>
+                </div>
+            </div>
+
+            <div class="email-content" data-email="2">
+                <div class="email-meta">
+                    <div class="email-subject">📧 Subject: Product content across 30+ retailers</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00am (5-7 days after Email 1)</div>
+                </div>
+                <div class="email-body">Hi Kevin,
+
+Following up on my earlier note about Makita's digital shelf positioning.
+
+One thing that struck me during our research is how fragmented Makita's retail landscape appears to be compared to most brands we work with. It doesn't look like an Amazon-dominant picture - Screwfix, Toolstation, B&Q, ITS, ManoMano, Leroy Merlin, plus what seems like a deep specialist tool retailer ecosystem. If that's accurate, it's unusual. Most brands we speak to have one dominant channel with a few secondary platforms. And without a DTC site acting as a content benchmark, I'd imagine there's no single source of truth for how products should be represented across all of those platforms. Does that match your experience, or is it more coordinated than it appears from the outside?
+
+When we work with Home and DIY brands on this kind of challenge, the most common discovery is inconsistency they didn't know existed - product descriptions that vary between retailers, imagery that's out of date on some platforms, specifications that don't match across markets. For a brand launching MAKTRAK into a category where Milwaukee PACKOUT is already entrenched, how that new range appears on each retailer's site could matter as much as the product itself.
+
+We published a piece on the specific challenges Home and DIY brands face managing their digital shelf across dozens of retailers - thought it might be relevant given Makita's distribution breadth: https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025
+
+Happy to share more about what we're seeing in the category if any of this resonates.
+
+Best regards,
+[SENDER NAME]</div>
+                <div class="email-notes">
+                    <strong>Customisation Notes:</strong>
+                    <ul>
+                        <li>Check whether MAKTRAK has launched on major UK retailers by send date - if so, reference specific availability rather than the launch itself</li>
+                        <li>If Kevin responded to Email 1, adapt this to continue that conversation rather than following the sequence mechanically</li>
+                        <li>The retailer list (Screwfix, Toolstation, B&Q, ITS, ManoMano, Leroy Merlin) references Makita's distribution, not eStore's coverage - this is compliant with the guidance</li>
+                        <li>The Home &amp; DIY article link is positioned as "if useful" - not required reading</li>
+                    </ul>
+                </div>
+                <div class="email-strategy">
+                    <strong>Strategy Notes:</strong>
+                    <p>This email adds genuinely new value by focusing on the multi-channel content consistency problem rather than restating the competitive gap. The MAKTRAK reference is specific and timely - launching a new product category against an entrenched competitor (Milwaukee PACKOUT) is a concrete business problem where digital shelf performance has measurable impact. The article link is positioned naturally as supporting context, not a call to action. The closing remains open and non-presumptive.</p>
+                </div>
+            </div>
+
+            <div class="email-content" data-email="3">
+                <div class="email-meta">
+                    <div class="email-subject">📧 Subject: European digital shelf - where Makita's revenue actually lives</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00am (5-7 days after Email 2)</div>
+                </div>
+                <div class="email-body">Hi Kevin,
+
+One more thought on the digital shelf question, from a slightly different angle.
+
+Most of the digital shelf analytics conversation in the power tools industry seems to centre on the US market - Home Depot, Lowe's, Amazon US. But from what I can see, nearly half of Makita's global revenue comes from Europe, and the European retail landscape is where the complexity seems to really live. Hornbach in Germany operates differently from Leroy Merlin in France, which operates differently from Screwfix in the UK. Product content requirements, search algorithms, category structures - they're all different.
+
+eStore is a European platform. It's where we started, and it's where we have the deepest expertise. When we work with brands like Grohe or Bosch on their digital shelf across European markets, the challenge is usually less about any single retailer and more about maintaining consistency and competitive positioning across a fragmented ecosystem.
+
+Given that Makita manufactures in Telford and has subsidiary operations across most major European markets, I'd imagine the question of how products appear across those different retail environments is one someone in your team thinks about - even if it hasn't been framed as "digital shelf analytics" before.
+
+Would there be any interest in exploring what that picture looks like for Makita? Equally happy to hear it's not a priority right now.
+
+Best regards,
+[SENDER NAME]</div>
+                <div class="email-notes">
+                    <strong>Customisation Notes:</strong>
+                    <ul>
+                        <li>If either previous email got a response, abandon this sequence and have a real conversation</li>
+                        <li>The Telford manufacturing reference is specific and verifiable (Makita Manufacturing Europe Ltd, 12.5 acres, ~440 staff, 1.1M tools/year)</li>
+                        <li>The "Grohe or Bosch" reference uses two current eStore clients naturally - both are in relevant sectors</li>
+                        <li>The closing question is non-pressuring - gives Kevin an easy way to say "not now" without feeling like he's rejecting something</li>
+                    </ul>
+                </div>
+                <div class="email-strategy">
+                    <strong>Strategy Notes:</strong>
+                    <p>This email introduces a genuinely new angle - European market alignment - rather than restating previous points. It positions eStore's geographic strength as a natural fit for Makita's revenue concentration. The Telford manufacturing reference demonstrates specific knowledge of Makita's UK operations that couldn't appear in a template. The framing that DSA "hasn't been framed as 'digital shelf analytics' before" acknowledges Kevin's likely unfamiliarity with the category without being patronising. The closing is open and direct, inviting honest response rather than pushing for a meeting.</p>
+                </div>
+            </div>
+
+            <!-- Kevin LinkedIn -->
+            <div class="linkedin-section">
+                <h4>LinkedIn Messages - Kevin Brannigan</h4>
+
+                <div class="linkedin-timing-guide">
+                    <p><strong>When to use (choose ONE per contact):</strong></p>
+                    <ul>
+                        <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                        <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                        <li><strong>Option C - After no email response:</strong> Send after 7-10 days of no email response</li>
+                    </ul>
+                    <p><em>Choose one option per contact - don't do all three.</em></p>
+                    <p><strong>Recommendation for Kevin:</strong> Option B or C. Kevin has a LinkedIn profile but it's unclear how active he is. Given his traditional marketing background (trade PR, events, dealer promotions), LinkedIn may not be his primary professional channel.</p>
+                </div>
+
+                <div class="linkedin-card">
+                    <span class="linkedin-badge">Connection Request</span>
+                    <span class="char-count">Under 300 characters</span>
+                    <p class="linkedin-message">Hi Kevin - I'm [SENDER NAME] from eStore. We work with Home & DIY brands on digital shelf analytics across European retailers. Given Makita's distribution breadth, thought it would be worth connecting.</p>
+                </div>
+
+                <div class="linkedin-card">
+                    <span class="linkedin-badge">InMail</span>
+                    <p class="linkedin-message">Hi Kevin,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, covering things like product content, search rankings, and competitive positioning.
+
+I've been looking at the professional power tools category and something stood out: Milwaukee, DeWalt, and Bosch have all invested in digital shelf monitoring. I'd be interested to know whether Makita has done something similar, or whether it's an area that hasn't been a focus. For a brand where every online sale flows through a third-party retailer, it seems like something worth understanding.
+
+With the XGT range expanding as quickly as it has, is managing product content across 30-plus retail platforms something your team is thinking about?
+
+[SENDER NAME]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- NICK WHITE EMAILS -->
+        <div class="email-sequence">
+            <div class="email-sequence-header">
+                <h3>Nick White</h3>
+                <p>Sales Manager, National Accounts, Makita UK</p>
+                <div class="contact-badges">
+                    <span class="badge blue">🇬🇧 British</span>
+                    <span class="badge unverified">⚠️ Unverified</span>
+                    <span class="badge orange">Cold</span>
+                    <span class="badge light-blue">Practical, direct</span>
+                </div>
+            </div>
+
+            <div class="verification-warning">
+                <strong>⚠️ Verification Required:</strong> Nick White's current role at Makita UK could not be confirmed via LinkedIn. His listing comes from RocketReach management data and third-party event mentions (NMBS Sales Team visit). Before sending any of the emails below, the team MUST verify that Nick White currently holds the Sales Manager, National Accounts role at Makita UK. Check LinkedIn (if a profile exists) or verify through internal channels. If he has moved on, do not send these emails.
+            </div>
+
+            <div class="email-tabs" data-contact="nick">
+                <button class="email-tab active" data-email="1">Email 1</button>
+                <button class="email-tab" data-email="2">Email 2</button>
+                <button class="email-tab" data-email="3">Email 3</button>
+            </div>
+
+            <div class="email-content active" data-email="1">
+                <div class="email-meta">
+                    <div class="email-subject">📧 Subject: Makita's positioning at Screwfix and B&Q vs the competition</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00am</div>
+                </div>
+                <div class="email-body">Hi Nick,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers. In practice, that means helping brands understand how their products appear, perform, and compare against competitors on platforms like Amazon, Screwfix, B&Q, and Toolstation - covering things like product content quality, search rankings, pricing accuracy, and availability.
+
+I'm writing because of a question specific to Makita's situation. When your team goes into a review meeting with Screwfix or B&Q, do you have real-time data showing how Makita's product listings, imagery, and search positioning compare to Milwaukee and DeWalt on those same platforms? From what we see working with other national account teams, most don't - they tend to rely on manual spot-checks or retailer-provided data that's often incomplete. I'd be interested to know whether Makita's approach is different.
+
+The reason I ask is the competitive dynamic. Milwaukee and DeWalt have both invested in digital shelf monitoring tools, which means they can see how they appear relative to Makita on the retailers you sell through, and adjust accordingly. If Makita doesn't have the same picture - and I might be wrong about that - it could mean going into those conversations with less information than your competitors have about your own shelf space.
+
+I'd welcome the chance to understand how your team currently approaches this, or whether it's something that sits outside your remit.
+
+Best regards,
+[SENDER NAME]</div>
+                <div class="email-notes">
+                    <strong>Customisation Notes:</strong>
+                    <ul>
+                        <li>⚠️ VERIFY: Confirm Nick White is still Sales Manager, National Accounts at Makita UK before sending</li>
+                        <li>If Nick manages specific accounts (e.g., only Screwfix and B&Q, not Toolstation), tailor the retailer references</li>
+                        <li>Check whether the FFX to ITS transition is complete - if so, reference ITS rather than FFX</li>
+                        <li>The competitor references (Milwaukee, DeWalt) are framed around their DSA investment, not their products</li>
+                    </ul>
+                </div>
+                <div class="email-strategy">
+                    <strong>Strategy Notes:</strong>
+                    <p>This email frames DSA through the lens of retailer account management - Nick's actual job. The core hook is that his competitors have data about Makita's digital shelf presence that he doesn't have about theirs. This creates a practical information asymmetry problem he can understand immediately. The closing question gives him an easy exit ("sits outside your remit") without pressure, while also opening the door to a redirect to the right person.</p>
+                </div>
+            </div>
+
+            <div class="email-content" data-email="2">
+                <div class="email-meta">
+                    <div class="email-subject">📧 Subject: Fewer, larger accounts - and what that means for digital shelf data</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00am (5-7 days after Email 1)</div>
+                </div>
+                <div class="email-body">Hi Nick,
+
+Following up on my earlier note about digital shelf data for Makita's retailer conversations.
+
+The specialist tool retail landscape has been consolidating - FFX moving under the ITS brand with over 29,000 products is one example, but the broader trend seems to be fewer, larger accounts where each relationship carries more weight. I'd imagine that when you're managing accounts of that scale, the quality of data you bring to the table becomes increasingly important.
+
+Digital shelf analytics gives national account teams a different kind of ammunition for retailer conversations. Instead of relying on sell-through data alone, you can show a retailer exactly where product content gaps exist, where search rankings have shifted, where competitor promotions are impacting your share of the category page. It can turn a reactive conversation into a proactive one - though I appreciate that may already be how Makita operates.
+
+We work with several brands in the Home and DIY space on this, and the pattern we tend to see is that account teams with this data go into reviews with more confidence and come out with better outcomes. We've written about the broader challenges DIY brands face across retailers here, if useful: https://estorebrands.com/ignite/digital-shelf-analytics-for-home-diy-brands-2025
+
+I'd be interested to hear whether this matches what you're experiencing, or whether Makita's retailer relationships work differently.
+
+Best regards,
+[SENDER NAME]</div>
+                <div class="email-notes">
+                    <strong>Customisation Notes:</strong>
+                    <ul>
+                        <li>⚠️ VERIFY: Confirm Nick White is still Sales Manager, National Accounts at Makita UK before sending</li>
+                        <li>Check the current status of the FFX/ITS transition - adjust the reference if the merger is old news by send date</li>
+                        <li>If Nick responded to Email 1, adapt rather than following the sequence</li>
+                        <li>The "several brands in the Home and DIY space" reference includes Grohe as a current client - don't name them unless Nick asks</li>
+                        <li>Article link is positioned as optional reading, not a requirement</li>
+                    </ul>
+                </div>
+                <div class="email-strategy">
+                    <strong>Strategy Notes:</strong>
+                    <p>This email adds new value by connecting the specialist tool retail consolidation trend to Nick's day-to-day work. The FFX/ITS reference is specific to Makita's retail ecosystem and demonstrates genuine industry knowledge. The pivot from "competitor data" (Email 1) to "retailer conversation ammunition" (Email 2) gives Nick a different reason to care about DSA - it's not just about defence, it's about strengthening his position in account reviews.</p>
+                </div>
+            </div>
+
+            <div class="email-content" data-email="3">
+                <div class="email-meta">
+                    <div class="email-subject">📧 Subject: Launching MAKTRAK against an entrenched Milwaukee PACKOUT</div>
+                    <div class="email-timing">📅 Send timing: Tuesday or Wednesday, 8:00-9:00am (5-7 days after Email 2)</div>
+                </div>
+                <div class="email-body">Hi Nick,
+
+A different question this time, prompted by something specific.
+
+Makita's MAKTRAK storage system is going up against Milwaukee PACKOUT - a product that's been on the market for years and has built strong shelf presence across most major retailers. Launching into a category where a competitor is already entrenched is always difficult, but the digital shelf dimension adds another layer. How MAKTRAK appears in search results, what the product content looks like compared to PACKOUT, whether retailers have given it equivalent category placement - these are things that can influence a launch at retail, and they're often invisible without specific monitoring in place.
+
+When we work with brands launching new products into competitive categories, we sometimes see a pattern: the physical distribution gets done well (product is stocked, pricing is set), but the digital shelf lags behind. Descriptions aren't optimised, imagery is inconsistent between retailers, and the product doesn't appear in the search results it should. I don't know whether that's happening with MAKTRAK - but for a launch that's directly competing with an established product, it would be worth knowing.
+
+Does the team managing MAKTRAK's retailer rollout have a way of tracking how it's appearing across platforms relative to PACKOUT, or has that been left to individual retailer teams?
+
+Best regards,
+[SENDER NAME]</div>
+                <div class="email-notes">
+                    <strong>Customisation Notes:</strong>
+                    <ul>
+                        <li>⚠️ VERIFY: Confirm Nick White is still Sales Manager, National Accounts at Makita UK before sending</li>
+                        <li>Check MAKTRAK's current rollout status - if it's already widely available, adjust the framing from "launching" to "building share"</li>
+                        <li>If either previous email got a response, abandon the sequence and have a real conversation</li>
+                        <li>This email works best if sent close to a MAKTRAK launch milestone or major retailer listing</li>
+                    </ul>
+                </div>
+                <div class="email-strategy">
+                    <strong>Strategy Notes:</strong>
+                    <p>This email introduces a completely new angle - product launch execution at retail - rather than restating previous points. The MAKTRAK vs PACKOUT reference is highly specific to Makita's current competitive situation and demonstrates genuine understanding of their business challenges. The "physical distribution done well, digital shelf lags behind" insight is softened with "I don't know whether that's happening with MAKTRAK" to keep it consultative rather than assertive. The closing question is practical and direct, targeting the operational reality of who manages product content during launches.</p>
+                </div>
+            </div>
+
+            <!-- Nick LinkedIn -->
+            <div class="linkedin-section">
+                <h4>LinkedIn Messages - Nick White</h4>
+
+                <div class="verification-warning">
+                    <strong>⚠️ Verification Note:</strong> Before sending any LinkedIn outreach to Nick White, confirm he currently holds the Sales Manager, National Accounts role at Makita UK. No LinkedIn profile was found during research - check again before proceeding.
+                </div>
+
+                <div class="linkedin-timing-guide">
+                    <p><strong>When to use (choose ONE per contact):</strong></p>
+                    <ul>
+                        <li><strong>Option A - LinkedIn first:</strong> Send connection request 2-3 days before Email 1</li>
+                        <li><strong>Option B - Alongside:</strong> Send on the same day as Email 1 or Email 2</li>
+                        <li><strong>Option C - After no email response:</strong> Send after 7-10 days of no email response</li>
+                    </ul>
+                    <p><em>Choose one option per contact - don't do all three.</em></p>
+                    <p><strong>Recommendation for Nick:</strong> Option C only, and only after verification. No LinkedIn profile was found during research. If a profile exists, the connection request can be sent. If not, email is the only viable channel.</p>
+                </div>
+
+                <div class="linkedin-card">
+                    <span class="linkedin-badge">Connection Request</span>
+                    <span class="char-count">Under 300 characters</span>
+                    <p class="linkedin-message">Hi Nick - I'm [SENDER NAME] from eStore. We help brands monitor how their products appear across online retailers vs competitors. Given Makita's national account relationships, thought it worth connecting.</p>
+                </div>
+
+                <div class="linkedin-card">
+                    <span class="linkedin-badge">InMail</span>
+                    <p class="linkedin-message">Hi Nick,
+
+I'm [SENDER NAME] from eStore - we provide digital shelf analytics for brands selling through online retailers, covering product content, search rankings, competitive positioning, and pricing.
+
+I'm writing because of a specific pattern in the power tools category. When Makita goes into retailer review meetings with Screwfix or B&Q, do you have data showing how your product listings and search positioning compare to Milwaukee and DeWalt on those platforms? Both of those brands have invested in digital shelf monitoring - meaning they can see exactly how they appear relative to Makita. If Makita doesn't have the same picture, there's an information asymmetry in those conversations.
+
+Is this something your team has looked at, or does it sit elsewhere in the business?
+
+[SENDER NAME]</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ========== TAB 6: OBJECTION HANDLING ========== -->
+    <div class="tab-content" id="objections">
+
+        <div class="card">
+            <h2>Objection Handling</h2>
+            <h3>Decision Framework</h3>
+            <div class="highlight-box success">
+                <strong>Fit Level: 🟢 Strong Fit (with coverage caveats)</strong><br>
+                <strong>Recommendation: PROCEED WITH OUTREACH</strong> - but acknowledge implementation timeline honestly. The competitive urgency and structural fit outweigh the retailer coverage gap. Lead with Amazon and major platform competitive intelligence (available immediately), position specialist trade coverage as a phased expansion.
+            </div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>What's in our favour</strong>
+                    No incumbent DSA provider. Greenfield opportunity. European revenue dominance matches eStore's strength. Bosch as a current client provides proof point. Financial recovery creates budget capacity.
+                </div>
+                <div class="info-item">
+                    <strong>What we need to manage</strong>
+                    0% coverage of specialist tool retailers (Makita's core channel). No existing DSA budget line. Traditional marketing team unfamiliar with DSA. Japanese corporate decision-making may extend sales cycle.
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Common Objections &amp; Responses</h3>
+            <p>Click each objection to expand the response framework.</p>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"We don't currently have budget for digital shelf analytics"</span>
+                    <span class="objection-arrow">▼</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Why they might say this:</strong> Makita has no existing DSA budget line. This is a greenfield category internally - they've never bought this type of service before.</p>
+                    <p><strong>Response approach:</strong> Don't fight the budget objection directly. Instead, reframe the conversation around competitive risk. "I completely understand - this isn't a category most power tool brands had on their radar until recently. What's changed is that Milwaukee, DeWalt, and Bosch have all invested in it now. The question isn't really about budget for analytics - it's about whether Makita is comfortable being the only major brand in the category without visibility into how its products appear online relative to competitors who DO have that visibility."</p>
+                    <p><strong>Evidence:</strong> Bosch uses Salsify and eStore. Milwaukee is featured as a digital shelf exemplar by Salsify. DeWalt participates in DSA industry events. Makita is conspicuously absent from all vendor client lists.</p>
+                    <p><strong>Reframe:</strong> Position as a competitive intelligence investment, not a marketing technology purchase. "What would it be worth to see exactly how Milwaukee's product content and search positioning compares to Makita's across the retailers you both sell through?"</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"How many of our retailers can you actually monitor?"</span>
+                    <span class="objection-arrow">▼</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Why they might say this:</strong> This is the most important objection to handle honestly. Makita's core UK retail channel (Screwfix, Toolstation, B&Q, ITS/FFX) is not currently covered by eStore.</p>
+                    <p><strong>Response approach:</strong> Be completely transparent. "Right now, we can monitor Amazon across six markets - UK, US, Germany, France, Spain, and Italy - plus Argos, Home Depot, Lowe's, bol.com, and several European platforms. That gives you immediate competitive intelligence on the largest platforms. For the specialist tool retailers - Screwfix, Toolstation, B&Q, ITS - we'd need to build that coverage, which typically takes 3-6 months. We'd be upfront about that timeline from day one."</p>
+                    <p><strong>Evidence:</strong> 64% Tier 1 (mass market) coverage. 0% Tier 2 (specialist tool) coverage. Overall ~33% combined.</p>
+                    <p><strong>Reframe:</strong> "We'd suggest starting with Amazon competitive intelligence - where we can show you how Makita compares to Milwaukee and DeWalt across six markets within two weeks - while we work on onboarding the specialist trade retailers. Most brands we work with start with their largest platforms and expand. Would that phased approach work for how you'd want to use the data?"</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"We already have good relationships with our retailers"</span>
+                    <span class="objection-arrow">▼</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Why they might say this:</strong> Makita has deep, long-standing relationships with UK specialist tool retailers. NAMs attend trade events, visit stores, and maintain close contact.</p>
+                    <p><strong>Response approach:</strong> Don't challenge the relationship - enhance it. "Strong retailer relationships are exactly why digital shelf data becomes valuable. It's not a replacement for those conversations, it's ammunition for them. When you go into a quarterly review with Screwfix, imagine being able to show them exactly where Makita's product content is stronger than Milwaukee's on their own platform, or where search rankings have shifted. It turns a relationship conversation into a data-backed commercial conversation."</p>
+                    <p><strong>Evidence:</strong> Reference the specialist tool retail consolidation (FFX→ITS, 29,000+ products) - fewer, larger accounts mean each relationship carries more weight and data quality matters more.</p>
+                    <p><strong>Reframe:</strong> "Digital shelf analytics doesn't replace relationships - it strengthens the hand you bring to them."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"We're a Japanese company - decisions take time"</span>
+                    <span class="objection-arrow">▼</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Why they might say this:</strong> Makita's corporate culture involves alignment across UK, European HQ, and Japan. Vendor decisions may require multiple levels of approval.</p>
+                    <p><strong>Response approach:</strong> Acknowledge and work with the process, not against it. "We completely understand - and we're happy to work at whatever pace makes sense for your internal approval process. What we can do in the meantime is provide you with some initial competitive intelligence on Amazon that demonstrates the value. No commitment required. If you then want to build a business case internally, we can help structure that with data showing what the gap looks like and what closing it would mean commercially."</p>
+                    <p><strong>Reframe:</strong> Position eStore as a partner who understands long sales cycles. Offer low-commitment starting points (competitive snapshot, pilot) that help the internal champion build the case.</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"What does eStore actually do that we can't do ourselves?"</span>
+                    <span class="objection-arrow">▼</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Why they might say this:</strong> Makita's team may manually check some retailers already. They may not see why they need a platform for this.</p>
+                    <p><strong>Response approach:</strong> "Manual checks work for a handful of products on a few retailers. But Makita has 500+ products across 30+ online retailers. That's 15,000+ product pages to monitor for content accuracy, pricing, availability, search positioning, and competitive benchmarking. And it changes daily. No team can do that manually with any consistency - and even if they could, it wouldn't be comparable across retailers or trackable over time."</p>
+                    <p><strong>Evidence:</strong> XGT expanded from 50 to 170+ products in three years. Each product needs optimised content across every retailer platform. Scale makes manual monitoring impossible.</p>
+                    <p><strong>Reframe:</strong> "It's not about replacing what your team does - it's about giving them visibility they physically can't have at this scale."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"We already use a PIM / content syndication system"</span>
+                    <span class="objection-arrow">▼</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Why they might say this:</strong> Unlikely given our research (zero evidence of any PIM at Makita), but they may have implemented something recently or be considering one.</p>
+                    <p><strong>Response approach:</strong> "That's great - PIM handles what you send OUT to retailers. Digital shelf analytics shows you what actually APPEARS on the retailer's site. They're complementary, not competing. We work alongside Salsify, Syndigo, Akeneo, and other PIM platforms. In fact, Bosch uses Salsify for content syndication AND eStore for digital shelf monitoring - they solve different problems."</p>
+                    <p><strong>Evidence:</strong> Bosch uses both Salsify (PIM) and eStore (DSA). They are complementary systems.</p>
+                    <p><strong>Reframe:</strong> "PIM is the input. DSA is the output check. You need both to know that what you intended is what shoppers actually see."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"Our focus is on the US market / Home Depot"</span>
+                    <span class="objection-arrow">▼</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Why they might say this:</strong> Some internal stakeholders may prioritise the US market despite declining revenue there.</p>
+                    <p><strong>Response approach:</strong> "We do cover Home Depot and Lowe's, so we can certainly help with the US picture. But I'd encourage looking at where Makita's revenue actually sits - nearly half comes from Europe, and that's where it's growing. North American revenue declined over 10% last year. The European retail landscape is also far more fragmented and complex - Hornbach in Germany operates completely differently from Leroy Merlin in France or Screwfix in the UK. eStore is a European-first platform. It's where we have the deepest expertise and retailer relationships."</p>
+                    <p><strong>Evidence:</strong> Europe = 49.4% of revenue (+4.3% YoY). North America = 11.1% of revenue (-10.4% YoY). Revenue is declining in the US and growing in Europe.</p>
+                    <p><strong>Reframe:</strong> "Protect and grow where you're strongest. The US competitive dynamics may be challenging, but European digital shelf performance is something Makita can directly influence."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"We've heard of eStore before - your team has been in touch"</span>
+                    <span class="objection-arrow">▼</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Why they might say this:</strong> 4 years of outreach to NAMs may have created internal awareness. Kevin Brannigan may have heard of eStore from colleagues.</p>
+                    <p><strong>Response approach:</strong> Be honest and direct. "You're right - we've been in conversation with your national account management colleagues for some time, sharing competitive landscape data and retailer insights. Those conversations taught us a lot about Makita's retail ecosystem, but we realised the more strategic conversation is about how Makita approaches its digital shelf compared to competitors like Milwaukee and Bosch - and that's a marketing question rather than an account management one. That's why I'm reaching out to you directly."</p>
+                    <p><strong>Reframe:</strong> Position the pivot as learning and evolution, not desperation. "We've learned enough about Makita's market position to believe there's a specific, strategic conversation worth having."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"The implementation timeline is too long"</span>
+                    <span class="objection-arrow">▼</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Why they might say this:</strong> When they learn that specialist trade retailer coverage requires 3-6 months of onboarding, they may feel the time-to-value is too slow.</p>
+                    <p><strong>Response approach:</strong> "I understand the concern. Here's how we'd approach it: within 2-4 weeks, we can have Amazon monitoring running across six markets - UK, US, Germany, France, Spain, Italy - plus Home Depot, Lowe's, and Argos. That gives you immediate competitive intelligence on your largest platforms. While that's generating insights, we'd work on onboarding the specialist trade retailers - Screwfix, B&Q, Toolstation. By the time you've had a chance to understand the Amazon data and start acting on it, the trade coverage would be coming online."</p>
+                    <p><strong>Evidence:</strong> 64% Tier 1 coverage available immediately. Amazon across 6 markets is a significant starting point. Phased approach mirrors how most brands adopt DSA.</p>
+                    <p><strong>Reframe:</strong> "You don't need comprehensive coverage on day one to start getting value. Most brands start with their largest platforms and expand. The question is whether the Amazon competitive intelligence alone is worth starting with - and for a brand competing against Milwaukee and DeWalt, I'd argue it is."</p>
+                </div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-header" onclick="toggleObjection(this)">
+                    <span>"This isn't something our team currently thinks about"</span>
+                    <span class="objection-arrow">▼</span>
+                </div>
+                <div class="objection-body">
+                    <p><strong>Why they might say this:</strong> Makita's marketing team is traditional (trade PR, events, dealer promotions). Digital shelf analytics may be genuinely unfamiliar as a category.</p>
+                    <p><strong>Response approach:</strong> "That's actually what I expected to hear - and it's part of why I reached out. Three years ago, most brands in professional power tools weren't thinking about this either. What changed is that Milwaukee and Bosch started investing in it, and now they have a visibility advantage that compounds over time. They can see how their products appear relative to Makita's on every retailer website, and optimise accordingly. The longer Makita waits to have that same picture, the wider the gap becomes."</p>
+                    <p><strong>Evidence:</strong> Milwaukee is featured by Salsify as a digital shelf exemplar. Bosch uses both Salsify and eStore. DeWalt participates in DSA industry events. Makita is the only major brand without visible investment.</p>
+                    <p><strong>Reframe:</strong> "The fact that it's new to Makita is actually the opportunity. You can leapfrog to best practice rather than building incrementally. And because there's no existing system to integrate with or replace, implementation is simpler."</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Objection Handling Principles</h3>
+            <ul>
+                <li><strong>Never dismiss the objection</strong> - acknowledge it genuinely before redirecting</li>
+                <li><strong>Use evidence and specific examples</strong> - competitor DSA investments, Bosch as eStore client, XGT expansion numbers</li>
+                <li><strong>Offer flexibility</strong> - pilots, phased approaches, Amazon-first starting point</li>
+                <li><strong>Be honest about limitations</strong> - especially retailer coverage gaps and implementation timelines</li>
+                <li><strong>Ask questions to understand the root concern</strong> - the stated objection may not be the real one</li>
+                <li><strong>Don't oversell</strong> - Makita's team is practical and experienced, they'll respect honesty over hype</li>
+                <li><strong>Allow for longer decision cycles</strong> - Japanese corporate culture means this won't be a quick close</li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>eStore Action Plan - Makita Corporation | February 2026</p>
+    <p>Created by James / eStore Sales Development</p>
+</footer>
+
+<script>
+    // Main Tab Navigation
+    document.querySelectorAll('.tabs .tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            const tabId = this.dataset.tab;
+
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tabs .tab').forEach(t => {
+                t.classList.remove('active');
+            });
+
+            document.getElementById(tabId).classList.add('active');
+            this.classList.add('active');
+        });
+    });
+
+    // Email Tab Navigation
+    document.querySelectorAll('.email-tabs').forEach(container => {
+        container.querySelectorAll('.email-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const emailNum = this.dataset.email;
+                const sequence = this.closest('.email-sequence');
+
+                container.querySelectorAll('.email-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+
+                sequence.querySelectorAll('.email-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                sequence.querySelector(`.email-content[data-email="${emailNum}"]`).classList.add('active');
+            });
+        });
+    });
+
+    // Objection Card Toggle
+    function toggleObjection(header) {
+        const card = header.closest('.objection-card');
+        card.classList.toggle('open');
+    }
+</script>
+
+</body>
+</html>
