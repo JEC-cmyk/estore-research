@@ -19,5 +19,6 @@
     {"file": "3m", "name": "3M", "owner": "Laura"},
     {"file": "frieslandcampina2", "name": "Friesland Campina", "owner": "Laura"},
     {"file": "haier-europe", "name": "Haier", "owner": "Michal"},
-    {"file": "pioneer", "name": "Pioneer", "owner": "Mariusz"}
+    {"file": "pioneer", "name": "Pioneer", "owner": "Mariusz"},
+    {"file": "clarins-latam", "name": "Clarins (LATAM)", "owner": "Ivan"}
 ]
